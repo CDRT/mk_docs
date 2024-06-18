@@ -16,31 +16,31 @@ Type Lenovo View in the Windows search box and then press Enter.
 
 - **Video Enhancer:** Adjust relevant camera parameters (light, intensity, color) and reduce noise to improve your video call experience.
 
-![Video Enhancer](../../../img/guides/view/Video_Enhancer.jpg)
+![Video Enhancer](https://cdrt.github.io/mk_docs/img/guides/view/Video_Enhancer.jpg)
 
 - **Collaboration**
     - **Background Removal:** Conceal the background during a video call to keep the focus on you.
 
- ![Background Removal](../../../img/guides/view/Background_Removal.jpg)
+ ![Background Removal](https://cdrt.github.io/mk_docs/img/guides/view/Background_Removal.jpg)
 
 - **Auto-framing:** Automatically keep your face centered in the video call when you move around.
 
- ![Auto-Framing](../../../img/guides/view/Auto-Framing.jpg)
+ ![Auto-Framing](https://cdrt.github.io/mk_docs/img/guides/view/Auto-Framing.jpg)
 
 - **Privacy**
     - **Privacy Alert:** An alert icon appears on your computer screen when a shoulder surfer appears behind you.
 
- ![Privacy Alert](../../../img/guides/view/Privacy_Alert_2023.jpg)
+ ![Privacy Alert](https://cdrt.github.io/mk_docs/img/guides/view/Privacy_Alert_2023.jpg)
 
 - **Privacy Guard:** Your screen becomes blurred when a shoulder surfer appears behind you. Press Alt + F2 to cancel the blur effect.
 
- ![Privacy Guard](../../../img/guides/view/Privacy_Guard.jpg)
+ ![Privacy Guard](https://cdrt.github.io/mk_docs/img/guides/view/Privacy_Guard.jpg)
 
 - **Wellness**
     - **Posture Warning:** Remind you to adjust your posture when you hunch toward the screen.
     - **Eye Wellness:** Remind you to look away from the screen and relax your eyes for 20 seconds every 20 minutes.
 
- ![Wellness](../../../img/guides/view/a_temp_digital_wellness_2023.jpg)
+ ![Wellness](https://cdrt.github.io/mk_docs/img/guides/view/a_temp_digital_wellness_2023.jpg)
 
 !!! info ""
    The available features vary depending on the computer model.
@@ -55,7 +55,7 @@ The Lenovo View app supports group policy controls of the configuration settings
 More about Intune here: [Import custom and third party partner ADMX templates in Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/mem/intune/configuration/administrative-templates-import-custom)
 
 If testing on a local machine, copy the contents of the zip file below to C:\Windows\PolicyDefinitions, then open Group Policy Editor. The Lenovo View items will be available under Administrative Templates.
-![Lenovo View policies](../../../img/guides/view/gpedit.png)
+![Lenovo View policies](https://cdrt.github.io/mk_docs/img/guides/view/gpedit.png)
 
 Download:  [LenovoViewADMX.zip](https://download.lenovo.com/cdrt/tools/LenovoViewADMX.zip)
 

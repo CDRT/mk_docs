@@ -200,7 +200,7 @@ The default configuration is shown as follows:
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../../img/guides/su/img7-1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/su/img7-1.png)
 
 _Figure 7-1. ThinInstaller.exe.configuration file._
 </div>

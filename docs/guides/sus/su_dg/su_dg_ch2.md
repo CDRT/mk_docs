@@ -215,7 +215,7 @@ If a previous version of Update Retriever is already installed, the following po
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../../img/guides/su/img2-1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/su/img2-1.png)
 
 _Figure 2-1. Removing existing version of Update Retriever to download the newest version._
 </div>

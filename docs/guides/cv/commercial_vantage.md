@@ -107,7 +107,7 @@ By default, the System Update feature of Commercial Vantage searches the Lenovo 
 
 This diagram illustrates the System Update workflow in Commercial Vantage
 
-![img](../img/cv/vantage_su_flow.png)
+![img](https://cdrt.github.io/mk_docs/img/cv/vantage_su_flow.png)
 
 ?>With version 10.2208.22.0 the repository path can now also be specified as a URL path to an accessible cloud storage location.
 

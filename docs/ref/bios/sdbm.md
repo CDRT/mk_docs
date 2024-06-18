@@ -39,7 +39,7 @@ No longer requires user interaction if a call to clear the TPM was performed. In
 - Boot the system and press F12 until the boot menu appears
 - Press the Delete key. **System Deployment Boot Mode** will appear in the upper right side of the screen. The internal boot device(s) will be removed from the list. This is a security precaution.
 
-![Boot Menu](../img/reference/sdbm/image1.jpg)
+![Boot Menu](https://cdrt.github.io/mk_docs/img/reference/sdbm/image1.jpg)
 
 - Select a boot device.
 - System Deployment Boot Mode is now active.
@@ -55,7 +55,7 @@ Get-CimInstance -Namespace root/WMI -ClassName Lenovo_BiosPasswordSettings
 
 Confirm the **PasswordState** property value is 0
 
-![PasswordState](../img/reference/sdbm/image2.jpg)
+![PasswordState](https://cdrt.github.io/mk_docs/img/reference/sdbm/image2.jpg)
 
 ### Setting the Supervisor Password
 
@@ -66,7 +66,7 @@ $setPw = Get-WmiObject -Namespace root/wmi -Class Lenovo_setBiosPassword
 $setPw.SetBiosPassword("pap,secretpassword,secretpassword,ascii,us")
 ```
 
-![Set Password](../img/reference/sdbm/image3.jpg)
+![Set Password](https://cdrt.github.io/mk_docs/img/reference/sdbm/image3.jpg)
 
 - **CIM Example**
 
@@ -83,7 +83,7 @@ By default, the TPM Physical Presence for Clear setting is always going to be en
 Get-CimInstance -Namespace root/WMI -ClassName Lenovo_BiosSetting | Where-Object {$_.CurrentSetting -match "PhysicalPresence"} | fl
 ```
 
-![TPM Physical Presence](../img/reference/sdbm/image4.jpg)
+![TPM Physical Presence](https://cdrt.github.io/mk_docs/img/reference/sdbm/image4.jpg)
 
 ### Disable TPM Physical Presence for Clear
 
@@ -101,7 +101,7 @@ $saveBios = Get-WmiObject -Namespace root\wmi -Class Lenovo_SaveBiosSettings
 $saveBios.SaveBiosSettings("secretpassword,ascii,us")
 ```
 
-![Save Settings](../img/reference/sdbm/image5.jpg)
+![Save Settings](https://cdrt.github.io/mk_docs/img/reference/sdbm/image5.jpg)
 
 ### Query SDBM Status
 
@@ -132,7 +132,7 @@ On a test system, PXE boot (or USB boot) to WinPE and perform the following:
 - Navigate to the directory containing the TBCT and launch it to present the GUI.
 - Scroll through the list of available BIOS settings and make any changes to be applied. In this example, we're going to set the PhysicalPresenceForTpmClear setting to Disable
 
-![TBCT-Disable TPM Physical Presence](../img/reference/sdbm/image6.jpg)
+![TBCT-Disable TPM Physical Presence](https://cdrt.github.io/mk_docs/img/reference/sdbm/image6.jpg)
 
 - Scroll back to the top and click the **Export Settings** button.
   - This will output a text file containing the BIOS setting(s) to be changed
@@ -145,7 +145,7 @@ On a test system, PXE boot (or USB boot) to WinPE and perform the following:
 - A prompt will appear to create a password file for System Deploy Mode. This will only be presented if the Supervisor Password field (above the encrypting key field) is blank.  Click **Yes**.
 - A new password file will be output
 
-![TBCT-Export](../img/reference/sdbm/image7.jpg)
+![TBCT-Export](https://cdrt.github.io/mk_docs/img/reference/sdbm/image7.jpg)
 
 ### Applying the Configuration File
 
@@ -166,7 +166,7 @@ ThinkBiosConfig.hta "file=config.ini"
 
 If you open the log you'll see the password change was successful, the config file has been validated using the new Supervisor Password, and the BIOS setting to disable **PhysicalPresenceForTpmClear** was successfully set.
 
-![TBCT-Applied Settings](../img/reference/sdbm/image8.jpg)
+![TBCT-Applied Settings](https://cdrt.github.io/mk_docs/img/reference/sdbm/image8.jpg)
 
 ## Confirm the Updated BIOS Configuration
 
@@ -174,10 +174,10 @@ Reboot the system and **F1** to get to the BIOS.  You should be prompted to ente
 
 The Supervisor Password should now show as Enabled
 
-![BIOS-SVP](../img/reference/sdbm/image9.jpg)
+![BIOS-SVP](https://cdrt.github.io/mk_docs/img/reference/sdbm/image9.jpg)
 
 Now navigate to **Security > Security Chip** and verify the Physical Presence for Clear setting has been toggled to Off.
 
-![BIOS-TPM](../img/reference/sdbm/image10.jpg)
+![BIOS-TPM](https://cdrt.github.io/mk_docs/img/reference/sdbm/image10.jpg)
 
 ?>If you're configuring other BIOS settings via WMI on top of what's described above, you should be able to do so in the same WinPE session.  There should be no need to set an initial Supervisor Password, reboot, activate SDB mode again, PXE boot back to WinPE and configure other settings.

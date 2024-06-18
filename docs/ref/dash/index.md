@@ -34,7 +34,7 @@ Lenovo AMD ThinkPad and ThinkCentre models support management via DASH and ether
 
 The appropriate Realtek DASH Controller, along with all the latest drivers and firmware updates, can be found by searching for your system name or serial number at [https://pcsupport.lenovo.com](https://pcsupport.lenvo.com/).
 
-![pcsupport.lenovo.com](../img/dash/1.png)
+![pcsupport.lenovo.com](https://cdrt.github.io/mk_docs/img/dash/1.png)
 
 ## Installation
 
@@ -56,9 +56,9 @@ The AMC console configuration supports up to three authentication entries. Each 
 
 At least one authentication entry must be configured before a client system can be discovered. If there is more than one credential, AMC will try each credential in sequential order.
 
-![configuration tab](../img/dash/2.png)
+![configuration tab](https://cdrt.github.io/mk_docs/img/dash/2.png)
 
-![configuration window](../img/dash/3.png)
+![configuration window](https://cdrt.github.io/mk_docs/img/dash/3.png)
 
 For the changes to take effect, click **Validate** and then click **Save.**
 
@@ -84,19 +84,19 @@ It is recommended to check that the most recent BIOS has been applied to the sys
 
  1. First boot into system BIOS and locate **DASH Configuration** under Security.
 
-    ![BIOS - DASH Configuration](../img/dash/4-dash.jpg)
+    ![BIOS - DASH Configuration](https://cdrt.github.io/mk_docs/img/dash/4-dash.jpg)
 
 2. **DASH Configuration** - Set DASH to Enabled
 
-    ![DASH Support setting](../img/dash/5-dash.jpg)
+    ![DASH Support setting](https://cdrt.github.io/mk_docs/img/dash/5-dash.jpg)
 
  3. **RealTek LAN Controller** - Reset the DASH Credentials under RealManage Setup. These credentials are used for Digest Authentication of the management service to the client.  You may need to scroll down to see **Realtek Manage Setup**.
 
   ?>The default credentials are Administrator/Realtek. *Both* username and password are case sensitive.
 
-   ![RealManage Setup](../img/dash/6-dash.png)
+   ![RealManage Setup](https://cdrt.github.io/mk_docs/img/dash/6-dash.png)
 
-   ![Username and Password management](../img/dash/7-dash.png)
+   ![Username and Password management](https://cdrt.github.io/mk_docs/img/dash/7-dash.png)
 
  4.   Save and exit the BIOS
 
@@ -105,7 +105,7 @@ The Realtek DASH Windows software can be found at [https://pcsupport.lenovo.com/
 
 Documentation for attended and unattended installation will be available with the application download in the installation directory. The default installation location is _C:\Program Files (x86)\AMD Management Console._
 
-![Drivers & Software - Manual Updates](../img/dash/8-dash.png)
+![Drivers & Software - Manual Updates](https://cdrt.github.io/mk_docs/img/dash/8-dash.png)
 
 # AMC Client Management
 
@@ -133,7 +133,7 @@ AMC supports four methods of discovery, which are described below.
 
 ?>Discovery requests are queued. If a user chooses Active Directory discovery, then tries to do any of the other types of discovery, the other  discovery will be done after Active Directory discovery completes.
 
- ![Discovery criteria window](../img/dash/9-dash.png)
+ ![Discovery criteria window](https://cdrt.github.io/mk_docs/img/dash/9-dash.png)
 
 ### Hostname
 
@@ -189,11 +189,11 @@ The table below lists all supported power states.
 4. To start the transition of the system to the new power state, click **Apply**.
 5. The result of the operation will be displayed. Click **Finish** to close the Power window.
 
-![ Power operation on single system](../img/dash/10-dash.png)
+![ Power operation on single system](https://cdrt.github.io/mk_docs/img/dash/10-dash.png)
   
 ### Power Operation on a Group
 
-![Power management on Group.](../img/dash/11-dash.png)
+![Power management on Group.](https://cdrt.github.io/mk_docs/img/dash/11-dash.png)
 
 ## DASH Tasks
 
@@ -231,7 +231,7 @@ To manage Boot settings:
 
 9. Close the power screen by clicking **Close**.
 
-![ Boot Configuration](../img/dash/12-dash.png)
+![ Boot Configuration](https://cdrt.github.io/mk_docs/img/dash/12-dash.png)
   
 ### Text Redirection
 
@@ -242,7 +242,7 @@ To use text redirection:
 1. Select the desired system.
 2. Either right click on the system and select **Text**  **Redirection** menu item or click on the text portion of ribbon icon **Redirection**.
 
-![Redirection on AMC toolbar](../img/dash/13-dash.png)
+![Redirection on AMC toolbar](https://cdrt.github.io/mk_docs/img/dash/13-dash.png)
 
 3. The **Text Redirection** Screen appears and shows:
 
@@ -254,9 +254,9 @@ To use text redirection:
 3. Select the required protocol from the drop-down list.
 4. Click **Connect**. If the connection is successful, the text redirection screen will close, and the terminal console screen will appear.
 
-![Text Redirection dialog](../img/dash/14-dash.png)
+![Text Redirection dialog](https://cdrt.github.io/mk_docs/img/dash/14-dash.png)
 
-![Successful redirected telnet login](../img/dash/15-dash.png)
+![Successful redirected telnet login](https://cdrt.github.io/mk_docs/img/dash/15-dash.png)
 
 To manage the BIOS remotely using text redirection:
 
@@ -273,7 +273,7 @@ This allows the BIOS to boot from a remote ISO image. The ISO Image file must be
 
 AMC has its own ISO webserver. Use AMC to initiate an action to attach the managed systems&#39; USB to a remote URL. This operation can be performed against a single system or on a group of systems. Place ISOs in C:/AMC-ISO and http://xxx.xx.xxxx:3274/ can be used as USB URL (e.g. http://10.10.10.2:3274/dos.iso.)
 
-![USB Redirection](../img/dash/38-dash.png)
+![USB Redirection](https://cdrt.github.io/mk_docs/img/dash/38-dash.png)
   
 ### Boot to Text Image
 
@@ -291,7 +291,7 @@ To boot to BIOS:
     - KVM enable command is sent to the managed system.
     -  The managed system is rebooted.
 
-![boot to BIOS](../img/dash/39-dash.png)
+![boot to BIOS](https://cdrt.github.io/mk_docs/img/dash/39-dash.png)
 
 After the managed system boots to BIOS setup screen and the VNC server is ready, VNC viewer is launched.
 
@@ -303,7 +303,7 @@ The AMC **Remote Access** feature provides support for launching of In-band KVM 
 
 To use In-band KVM feature, ensure the relevant Windows driver package released by the network interface provider is installed on the DASH system.
 
-![remote access on toolbar](../img/dash/40-dash.png)
+![remote access on toolbar](https://cdrt.github.io/mk_docs/img/dash/40-dash.png)
 
 ## Client Configuration - DASHConfigRT
 
@@ -398,13 +398,13 @@ AMC collects and displays sensors of managed computer systems. Administrators ca
 1. Select the target system
 2. Either right click on the system and select **System Health** menu item or click on the**System Health** ribbon icon.
 
-![Ribbon Health Icon](../img/dash/16-dash.png)
+![Ribbon Health Icon](https://cdrt.github.io/mk_docs/img/dash/16-dash.png)
 
-![System Health Menu option](../img/dash/17-dash.png)
+![System Health Menu option](https://cdrt.github.io/mk_docs/img/dash/17-dash.png)
 
  The **Health** screen will show a tree view of all the sensors and fans in the system in each node.
 
-  ![Health Inventory](../img/dash/18-dash.png)
+  ![Health Inventory](https://cdrt.github.io/mk_docs/img/dash/18-dash.png)
 
 ### Subscribe/ Unsubscribe to Alerts
 
@@ -422,7 +422,7 @@ To subscribe to Alerts / modify the subscribed Alerts:
 
 - Subscribed filters as a list box in the right. This is a list of events for which the Subscription is already in place.
 
-![Available and subscribed alerts](../img/dash/19-dash.png)
+![Available and subscribed alerts](https://cdrt.github.io/mk_docs/img/dash/19-dash.png)
 
 ## System Properties
 
@@ -437,13 +437,13 @@ For AMC, System Properties are:
 
 To view a specific system&#39;s properties, right click the system and select **Properties** from the menu.
 
-![System Properties ](../img/dash/20-dash.png)
+![System Properties ](https://cdrt.github.io/mk_docs/img/dash/20-dash.png)
 
 ## Inventory
 
 Select desired system to see inventory details in the **Inventory** area below the computer system inventory. (See Figure 20.) The asset and inventory information displayed are identity of the system, physical assets, processor, system Configuration Manager, Ethernet port, BIOS, OS and DASH.
 
-![AMC Inventory](../img/dash/21-dash.png)
+![AMC Inventory](https://cdrt.github.io/mk_docs/img/dash/21-dash.png)
 
 ## Group Management
 
@@ -451,7 +451,7 @@ Select desired system to see inventory details in the **Inventory** area below t
 
 After discovery, all the DASH capable systems are added to the default group **All Systems**. New groups can be added to the computer groups list by right clicking on the **Computer Groups** menu item and selecting **Add Group** or by clicking on the **Add** menu item under **Group** ribbon icon
 
-![add group](../img/dash/45-dash.png)
+![add group](https://cdrt.github.io/mk_docs/img/dash/45-dash.png)
 
 Groups can be deleted by right clicking the relevant group and selecting **Delete Group** or by selecting the **Delete** menu item under **Group** ribbon icon.
 
@@ -459,7 +459,7 @@ Groups can be deleted by right clicking the relevant group and selecting **Delet
 
 To add systems to any group, right click on the group to which systems are to be added and select **Add systems** in the menu and select the systems from the new screen. Click on Ok.
 
-![add to group](../img/dash/44-dash.png)
+![add to group](https://cdrt.github.io/mk_docs/img/dash/44-dash.png)
 
 # AMD Management Plugin for SCCM (AMPS)
 
@@ -526,7 +526,7 @@ Select the **servicePrincipalName** attribute item, click **Edit** and add two v
 - _HTTP/[MachineName]_
 - _HTTP_/[_FQDN]_
 
-![SPN user account attribute](../img/dash/22-dash.png)
+![SPN user account attribute](https://cdrt.github.io/mk_docs/img/dash/22-dash.png)
 
 ?>For a large group of DASH systems, it is faster to use the SETSPN utility in a script or batch file:
 
@@ -544,7 +544,7 @@ To manually create the Security group and obtain the SID:
 3. Scroll down the **Attributes** list box until you find the **objectSID** attribute item.
 4.  Record the security ID string in the value field for the **objectSID** attribute.
 
-![object SID in DASH Admins group Properties](../img/dash/23-dash.png)
+![object SID in DASH Admins group Properties](https://cdrt.github.io/mk_docs/img/dash/23-dash.png)
 
 Alternatively, you can obtain the SID using PowerShell:
 
@@ -634,7 +634,7 @@ To configure Active Directory authentication using Configuration Manager console
 3. Enter the DASH systems domain user and password created earlier.
 4. Click **OK**.
 
-![AMPS Authentication](../img/dash/41-dash.png)
+![AMPS Authentication](https://cdrt.github.io/mk_docs/img/dash/41-dash.png)
 
 ## Management and Transport Ports
 AMPS can communicate with the managed DASH computer systems on either HTTP or HTTPS.
@@ -645,7 +645,7 @@ AMPS can communicate with the managed DASH computer systems on either HTTP or HT
 
 The Alerts event reporting port should be configured during the installation process of AMPS. The port number entered during installation is visible in the Configuration screen ( **Administration/DASH Management/DASH Configuration** ).
 
-![Alerts Event Port](../img/dash/24-dash.png)
+![Alerts Event Port](https://cdrt.github.io/mk_docs/img/dash/24-dash.png)
 
 ### Wakeup during Package Deployment
 
@@ -660,13 +660,13 @@ To configure the DASH Wakeup feature, perform the following steps:
 - In the **DASH Configuration** screen select the **DASH Wakeup** check box, if already not selected.
 - In the **Software Deployment Package,** be sure to enable the Wake-on-LAN option and set a valid future schedule when creating the software deployment package for a device collection.
 
-<!-- ![DASH Plugin Configuration](../img/dash/25-dash.png) -->
+<!-- ![DASH Plugin Configuration](https://cdrt.github.io/mk_docs/img/dash/25-dash.png) -->
       
 ### Auto Discovery
 
 If the **DASH Auto Discover** check box is selected, a new device added to Configuration Manager is checked for DASH support automatically.
 
-  ![DASH Auto Discover](../img/dash/26-dash.png)
+  ![DASH Auto Discover](https://cdrt.github.io/mk_docs/img/dash/26-dash.png)
 
 ### Create the DASHConfig Software Package
 
@@ -769,7 +769,7 @@ To discover DASH capable client systems in a collection, perform the following s
 
 4. The **Discover Collection** dialog box appears
 
-![Discovery Dialog](../img/dash/27-2-dash.png)
+![Discovery Dialog](https://cdrt.github.io/mk_docs/img/dash/27-2-dash.png)
 
 5.  To discover DASH capable systems in the collections, click the **Yes** button.
 
@@ -797,7 +797,7 @@ To control the power state of a collection node, perform the following steps:
 4. In the shortcut menu, select **DASH** and then click **Power Control**.
 5. The **Power Control** on Collection dialog box appears
 
-![DASH Device actions](../img/dash/27-dash.png)
+![DASH Device actions](https://cdrt.github.io/mk_docs/img/dash/27-dash.png)
 
 ?>See [Power States](#power-states) for PC supported power states table.
 
@@ -809,7 +809,7 @@ To power on all the systems in a Collection at a specific time on a one-time or 
 2. Click the **Schedule** button.
 3. Configure the schedule as desired and click **OK,** then **Apply,** then **Close.**
 
-![DASH Power schedule](../img/dash/28-dash.png)
+![DASH Power schedule](https://cdrt.github.io/mk_docs/img/dash/28-dash.png)
 
 ### Boot Control
   
@@ -827,7 +827,7 @@ Follow these steps to use Text Redirection using AMPS:
 4. In the shortcut menu that appears, select **DASH** , then **Text Redirection**.
 Alternatively, on the Configuration Manager ribbon, select the **DASH** tab, then **Text Redirection**.
 
-![DASH tab with DASH Ribbon](../img/dash/29-dash.png)
+![DASH tab with DASH Ribbon](https://cdrt.github.io/mk_docs/img/dash/29-dash.png)
 
  The **Text Redirection** Screen appears and shows:
 
@@ -836,7 +836,7 @@ Alternatively, on the Configuration Manager ribbon, select the **DASH** tab, the
   3. The port through which the text will be redirected.
   4. The information/status is stated – e.g., Support for OTP (one time password)
 
-  ![Text Redirection](../img/dash/42-dash.png)
+  ![Text Redirection](https://cdrt.github.io/mk_docs/img/dash/42-dash.png)
 
 ### USB Redirection
 
@@ -856,7 +856,7 @@ The **USB Redirection** screen appears and displays the following:
      If the USB is already attached to the remote URL,then the attached URL is displayed , and the option to edit the URL field is grayed out. You can disconnect the attached USB by clicking the **Disconnect** button on the screen.
     -  If the USB is not attached, you can replace/update any existing URL or enter a new valid URL and click the **Connect** button
 
-![USB Redirection](../img/dash/43-dash.png)
+![USB Redirection](https://cdrt.github.io/mk_docs/img/dash/43-dash.png)
 
  4. To close the USB Redirection screen, click the **Close** button.
 
@@ -885,7 +885,7 @@ To collect inventory, perform the following steps:
 
 3. In the shortcut menu select **DASH,** then click **Inventory.** Alternatively, click the DASH toolbar button to initiate the inventory
 
-![Device Inventory dialog](../img/dash/30-dash.png)
+![Device Inventory dialog](https://cdrt.github.io/mk_docs/img/dash/30-dash.png)
 
  4. A confirmation should appear. Click **OK**.
 
@@ -901,7 +901,7 @@ To view the log entry of a managed device:
 The Log Entry screen displays the latest 20 log entries. 
 3. Use the **Next** and **Previous** navigation buttons to view additional log entries. Double click an entry to launch the **Status Message Detail** window for that entry.
 
-![DASH Log](../img/dash/31-dash.png)
+![DASH Log](https://cdrt.github.io/mk_docs/img/dash/31-dash.png)
   
 ### Firmware Update
 
@@ -918,7 +918,7 @@ To update the firmware on a system/collection, perform the following steps:
   6. The grid in the **Firmware Upgrade** windows lists the firmware URLs of the devices. Use the (+) and (-) buttons below the list to add and remove firmware URLs.
 7. Select the checkboxes next to the devices or collections you wish to update and click on the **Apply** button. The firmware update executes at once.
 
- ![Firmware Update](../img/dash/37-dash.png)
+ ![Firmware Update](https://cdrt.github.io/mk_docs/img/dash/37-dash.png)
 
 ### Alerts
 
@@ -935,11 +935,11 @@ The shortcut menu appears.
 
 Alternatively, click the ribbon icon **Alerts**.
 
-![DASH Alerts on toolbar](../img/dash/32-dash.png)
+![DASH Alerts on toolbar](https://cdrt.github.io/mk_docs/img/dash/32-dash.png)
 
  4. AMPS shows the list of available alerts and currently subscribed alerts. Adjust the subscribed alerts using the left-right arrow buttons and click **Apply.**
 
- ![Manage subscribed alerts](../img/dash/33-dash.png)
+ ![Manage subscribed alerts](https://cdrt.github.io/mk_docs/img/dash/33-dash.png)
 
 ## Role Based Administration
 
@@ -990,7 +990,7 @@ The DASH settings that can be changed in the **DASH Configuration** window are:
 - Change DASH port numbers
 - Enable/Disable DASH Auto Discovery and DASH wakeup
 
-![DASH Configuration](../img/dash/46-dashConfig.png)
+![DASH Configuration](https://cdrt.github.io/mk_docs/img/dash/46-dashConfig.png)
 
 The **Full Control** security right allows Read or Modify on Site class or Site class instance control. Full Control can modify and save all settings and user security rights assignments.
 
@@ -1022,7 +1022,7 @@ The following DASH tasks can be scheduled using AMPS:
 
 The **Schedule** button is provided on supported screens. When a user clicks **Schedule** , the **DASH Task Scheduler** screen launches.
 
-![DASH Task Scheduler](../img/dash/34-dash.png)
+![DASH Task Scheduler](https://cdrt.github.io/mk_docs/img/dash/34-dash.png)
   
 ### View DASH Scheduled Tasks
 
@@ -1036,7 +1036,7 @@ To view the scheduled DASH tasks:
 
 3. Select the target server and click **Properties**
 
-![Accessing DASH Scheduled Tasks](../img/dash/35-dash.png)
+![Accessing DASH Scheduled Tasks](https://cdrt.github.io/mk_docs/img/dash/35-dash.png)
 
 ## DASH Reports
 
@@ -1050,7 +1050,7 @@ If there is a custom deployment or the reports are not present after install, th
 
 AMPS Status message in **Monitoring** category of Configuration Manager allows user to view all logged messages.
 
-![AMPS Status](../img/dash/36-dash.png)
+![AMPS Status](https://cdrt.github.io/mk_docs/img/dash/36-dash.png)
 
 # Troubleshooting
 ## Troubleshooting DASH Operations

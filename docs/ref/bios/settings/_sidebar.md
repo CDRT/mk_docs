@@ -1,4 +1,4 @@
-![Commercial Deployment Readiness Team](../../../img/cdrt.png)
+![Commercial Deployment Readiness Team](https://cdrt.github.io/mk_docs/img/cdrt.png)
 
 [**Home**](/)
 

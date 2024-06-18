@@ -10,7 +10,7 @@ The Think BIOS Configurator tool was developed using the WMI BIOS interface meth
 
 This tool is in the HTML application format (hta) so it can be portable and be used in lightweight versions of Windows like WinPE without needing additional libraries to run.  When launched by a user in Windows, the application will attempt to relaunch itself with administrative privileges which causes a User Account Control dialog to be displayed with the Program Name of "Microsoft (R) HTML application host" and the Verified Publisher as "Microsoft Windows".  This occurs because access to the WMI BIOS Settings interface requires administrative privileges on the system and there is no "Run as Administrator" option for .HTA files.  After approving the UAC prompt, the application window will appear.  Below is an example of what a standard execution of the application will look like:
 
-![Think BIOS Config Tool UI](../../../img/reference/tbct/tbct1.png)
+![Think BIOS Config Tool UI](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct1.png)
 
 #### File Actions
 
@@ -22,7 +22,7 @@ On the right, an .INI file of the current settings can be generated simply by cl
 
 If settings are being changed on a system where a BIOS Supervisor Password has been set, the Security Actions section provides the ability to provide the necessary password details.  Select the check box next to **Supervisor password set on the target machine** to expand the user interface to show input fields for the password details as shown below. If a password is detected on the machine, the first checkbox will automatically be checked.
 
-![Security Actions](../../../img/reference/tbct/tbct2.png)
+![Security Actions](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct2.png)
 
 Encoding can be either "ascii" or "scancode" and language is either "us", "fr", "gr". In most cases, the user should only have to supply the password and leave the other fields as they are. The password box is for the Supervisor password on the targeted machine. The encrypting key box is only used if the Export Settings function will be used to capture the settings of this targeted machine into an .INI file.  A random 16 character string can be generated or the user can create their own personal encryption key using characters from this set: a-z, A-Z, 0-9.  Do not use any punctuation or special characters.  This will allow the Supervisor password to be encrypted using [xxTEA](http://www.movable-type.co.uk/scripts/tea-block.html) in the .INI file, which is simply plain text. The encrypting key would be used later when the tool is used to apply the settings in the .INI file.
 
@@ -33,7 +33,7 @@ Under the first security action section is the area to change the current superv
 
 Now on updated Whiskey Lake ThinkPads, administrators can set a supervisor password using System Deployment Boot Mode (boot to device list and press ‘delete’). In this one-time boot environment, a password change file can be used to set the supervisor password for the machine. To create a specialized System Deployment Boot Mode password file, leave the current supervisor password field blank and fill in the other information for a password change file.
 
-![System Deploy Mode](../../../img/reference/tbct/tbct3.png)
+![System Deploy Mode](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct3.png)
 
 On the right side of the Security Actions section the user can select the check box next to **Use different credentials to connect to target machine** to expand the user interface to show additional input fields.  When connecting to a remote machine over the network, a username and password for a local administrator account of the targeted machine must be supplied.  On a domain network, the username may need to be in the format of "\<domain\>\\\<username\>".  
 
@@ -48,31 +48,31 @@ A text file will be created using the machine type and serial number to uniquely
 
 By default the application will attempt to load the settings of the local machine when it launches.  The address and model of the machine whose settings are being displayed will be displayed above the Settings table, such as:
 
-![Targeted Machine](../../../img/reference/tbct/tbct4.png)
+![Targeted Machine](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct4.png)
 
 If you would like to target another remote machine on the network, click **Target Remote** and the dialog below will be displayed.
 
-![Target Remote Computer](../../../img/reference/tbct/tbct5.png)
+![Target Remote Computer](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct5.png)
 
 If the host is unreachable, the application will gracefully display that information.
 
-![Host unreachable](../../../img/reference/tbct/tbct6.png)
+![Host unreachable](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct6.png)
 
 If the WMI service is unavailable on the target machine or the application is denied access another message box will come up and provide an error message similar to below. Once this dialog is acknowledged, the application will refresh with the information on the local machine.
 
-![Connection Error](../../../img/reference/tbct/tbct7.png)
+![Connection Error](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct7.png)
 
 Once connected to the remote computer, the screen will refresh with the data that is on that machine. To switch back to the local machine, just click the ‘Target Local’ button, which is only enabled if the application is accessing a remote machine.
 
 #### Settings Table
 
-![settings Table](../../../img/reference/tbct/tbct8.png)
+![settings Table](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct8.png)
 
 The Settings Table displays the current settings of the target machine.  As seen above, each setting has an associated value column which can be changed easily.  Most settings are in the form of dropdown boxes but options like ‘BootOrder’ have more complex options to select the new value of the setting.  If the user makes any changes, the text of the setting name will be changed to red (as seen above with the AlwaysOnUSB setting) to signify that it is a value different than what is currently set on the computer.
 
 Once all the required changes have been set, click **Save Changed Settings** and the application attempts to commit the changes to the machine. Only the settings that are pending change are attempted to be saved to save time and eliminate any issues with trying to commit a setting will the same value.  This is what will be displayed after the button is clicked:
 
-![Save Setting](../../../img/reference/tbct/tbct9.png)
+![Save Setting](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct9.png)
 
 As seen above, the application was successful in setting one setting. Error messages are provided in the case of a failure. More than likely, the error users will see will be ‘Access Denied’.  
 
@@ -82,7 +82,7 @@ If settings have been changed in the application but not applied to the machine 
 
 If a user closes the application with changes pending, a message will be displayed that there were pending changes. Unfortunately, there is a bug in Microsoft’s code that makes it so the closing of the application cannot be stopped once it is started.
 
-![Pending changes](../../../img/reference/tbct/tbct10.png)
+![Pending changes](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct10.png)
 
 The **Restore BIOS Defaults** button applies factory default values to the settings.  
 

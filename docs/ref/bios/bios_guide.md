@@ -23,64 +23,64 @@ ThinkPad executes WINUPTP.exe or WINUPTP64.exe from the extracted files location
 
 <div style="text-align:center;padding-top:10px;padding-bottom:10px;">
 
-![](../img/guides/bios/bios1.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios1.png) <br/>
 _**Step 1**: Accept the EULA and click **Next**._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios2.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios2.png) <br/>
 _**Step 2**: Leave the default location selected for extraction and click **Next**._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios3.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios3.png) <br/>
 _**Step 3**: Click **Install**. The program will extract to the default location on the hard drive._
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios4.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios4.png) <br/>
 _**Step 4**: Once completed, the installer should have a check mark on the page. Leave the check box checked and click **Finish**. This should immediately prompt to begin the BIOS Update._
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios5.png)<br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios5.png)<br/>
 _**Step 5**: Select Update ThinkPad BIOS if not already selected and click **Next**._
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios6.png)<br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios6.png)<br/>
 _**Step 6**: Follow the instructions on this screen and click **Next**._
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios7.png)<br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios7.png)<br/>
 _**Step 7**: Follow the instructions and click **Yes** to continue._
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios8.png) </br>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios8.png) </br>
 _**Step 8**: Wait while it prestages the new ROM image file. **DO NOT POWER OFF THE SYSTEM** at this point._
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios9.png) </br>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios9.png) </br>
 _**Step 9**: Click **OK** to reboot the system immediately._
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios10.png) </br>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios10.png) </br>
 _**Step 10**: After it reboots, the laptop will begin to write the prestaged BIOS image to the chip. At this point, **DO NOT POWER OFF** the laptop!!!_
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios11.png) </br>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios11.png) </br>
 _**Step 11**: When the BIOS update completes, it will reboot the computer._
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios12.png) </br>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios12.png) </br>
 _**Step 12**: If an update for the Embedded Controller firmware is included in the update, the system will show the splash screen with text stating “Flashing Embedded Controller.” Allow this process to complete and the system will reboot to the OS._
 </div>
 </details>
@@ -104,61 +104,61 @@ ThinkCentre executes Flash.cmd from the extracted files location. To manually in
 
 <div style="text-align:center;padding-top:10px;padding-bottom:10px;">
 
-![](../img/guides/bios/bios13.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios13.png) <br/>
 _**Step 1**: Accept the EULA and click **Next**._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios14.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios14.png) <br/>
 _**Step 2**: Leave the default location selected for extraction and click **Next**. This will extract the files and then automatically kick off the installation.._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios15.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios15.png) <br/>
 _**Step 3**: Click **Yes** to continue with the BIOS update._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios16.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios16.png) <br/>
 _**Step 4**: Press the “N” key and press._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios17.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios17.png) <br/>
 _**Step 5**: Press the “N” key and press . Once is pressed, a command window will pop up with yellow writing. Wait while it loads the ROM file into the BIOS update inbox. **DO NOT POWER OFF THE SYSTEM** at this point. The system will reboot on its own._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios18.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios18.png) <br/>
 _**Step 6**: Writing the new boot block._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios19.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios19.png) <br/>
 _**Step 7**: Writing the new image._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios20.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios20.png) <br/>
 _**Step 8**: Writing the new nvram block._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios21.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios21.png) <br/>
 _**Step 9**: Writing the new main block. After writing the main block, the computer will reboot on its own. It may restart a second time if it needs to program the embedded controller._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios22.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios22.png) <br/>
 _**Step 10**: Booting up._
 </div>
 </details>
@@ -187,37 +187,37 @@ ThinkStation executes Flash.cmd or Flashx64.cmd from the extracted files locatio
 
 <div style="text-align:center;padding-top:10px;padding-bottom:10px;">
 
-![](../img/guides/bios/bios23.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios23.png) <br/>
 _**Step 1:** Click Next on the Welcome screen._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios24.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios24.png) <br/>
 _**Step 2**: Accept the EULA and click **Next**._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios25.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios25.png) <br/>
 _**Step 3**: Leave the default location selected for extraction and click **Next**._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios26.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios26.png) <br/>
 _**Step 4**:  Click **Install**. The program will extract to the default location on the hard drive._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios27.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios27.png) <br/>
 _**Step 5**: Click **Finish** to complete the extraction. Navigate to the folder where the BIOS update was extracted and execute Flash.cmd (If the account does not have administrator rights, right click on the .cmd file and select “Run as Administrator”)._
 
 </div>
 <div style="text-align:center;padding-bottom:10px;">
 
-![](../img/guides/bios/bios28.png) <br/>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios28.png) <br/>
 _While the update executes, the keyboard and mouse will be inaccessible. This is to prevent any actions from interfering with the execution. After the command window closes, manually restart the computer. The computer will then reboot to the Lenovo splash screen a few times and will boot back into the operating system._
 
 </div>

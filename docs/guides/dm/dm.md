@@ -7,35 +7,35 @@ In the console, navigate to the **Software > Application Management > Applicatio
 Tick the **Manually specify the application information** radio button, click **Next**
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image1.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image1.PNG)
 </div>
 
 Specify information about the app, click **Next**
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image2.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image2.PNG)
 </div>
 
 Enter Software Center details, click **Next**
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image3.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image3.PNG)
 </div>
 
 Set the deployment type to **Script Installer** and click **Next**
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image4.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image4.PNG)
 </div>
 
 Set the deployment type name and click **Next**
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image5.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image5.PNG)
 </div>
 Enter the content location path to the Dock Manager executable
 
@@ -53,7 +53,7 @@ Uninstall start in:
 ```
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image6.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image6.PNG)
 </div>
 
 Set the detection rule setting type to **Registry**
@@ -79,7 +79,7 @@ Value:
 ```
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image7.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image7.PNG)
 </div>
 
 Set the installation behavior to **Install for system** and logon requirement to " **Whether or not a user is logged on** ".
@@ -87,7 +87,7 @@ Set the installation behavior to **Install for system** and logon requirement to
 Add any installation requirements such as Operating system is One of Windows 10 (64-bit)
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image8.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image8.PNG)
 </div>
 Complete the deployment type and App wizards.  Deploy to a Device Collection.
 
@@ -100,7 +100,7 @@ IntuneWinAppUtil.exe -c "C:\IntuneWin\DM\" -s "dock_manager_setup.exe" -o "C:\In
 ```
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image9.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image9.PNG)
 </div>
 
 Login to the Endpoint admin center [portal](https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsWindowsMenu/windowsApps) to create a new Windows app and select the **Windows app (Win32)** type.
@@ -110,7 +110,7 @@ Select the **dock_manager_setup.intunewin** app package file.
 Enter required and optional information about the app
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image10.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image10.PNG)
 </div>
 Enter the Install command
 
@@ -126,7 +126,7 @@ and Uninstall command
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image11.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image11.PNG)
 </div>
 Set the requirements.  You can take it a bit further with a detection script to check if a supported dock is currently connected to the system.  Here's a sample PowerShell script
 
@@ -143,7 +143,7 @@ else {
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image12.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image12.PNG)
 </div>
 Enter the detection rules to verify the current version of Dock Manager is installed
 
@@ -163,7 +163,7 @@ Value: **1.0.0.125**
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image13.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image13.PNG)
 </div>
 Finish out the wizard and assign to a group.
 
@@ -176,13 +176,13 @@ You can [extend hardware inventory](https://docs.microsoft.com/en-us/mem/configm
 An example from Resource Explorer
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image14.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image14.PNG)
 </div>
 Example of what can be gathered using SSRS
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/dm/image15.PNG)
+![](https://cdrt.github.io/mk_docs/img/guides/dm/image15.PNG)
 
 ?> Sample report can be downloaded [here](https://download.lenovo.com/cdrt/docs/LenovoDockManager.zip). Update the Data Source properties for your environment.
 </div>

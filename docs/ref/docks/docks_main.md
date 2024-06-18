@@ -100,7 +100,7 @@ Intel 5th generation processors with CPU designation i3-5xxx, i5-5xxx, i7-5xxx)
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/docks/img1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/img1.png)
 </div>
 
 ## Skylake 
@@ -111,7 +111,7 @@ Intel 6th generation processors with CPU designation i3-6xxx, i5-6xxx, i7-6xxx
    - OneLink+ docks supported on models with OneLink+ port.  
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/docks/img2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/img2.png)
 </div>
 
 | Skylake Exceptions |           |               |                          |
@@ -127,7 +127,7 @@ On ThinkPad 13 systems, When MAC Address PassThrough is Enabled you will still n
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/docks/img3.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/img3.png)
 </div>
 
 
@@ -143,7 +143,7 @@ When MAC Address PassThrough is Enabled you will still need the Realtek NIC driv
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](../img/guides/docks/img4.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/img4.png)
 </div>
 
 ?>Power Pass-Through on Skylake ThinkPad 13 is not supported with USB-C dock. The dock will charge the system with the supplied power adapter but you cannot power the system on or off via the dock's power switch.
@@ -167,9 +167,9 @@ Features:
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;size:150px">
 
-<!-- ![](../img/guides/docks/utbt4-1.png) -->
-![](../img/guides/docks/utbt4-2.png)
-![](../img/guides/docks/utbt4-3.png)
+<!-- ![](https://cdrt.github.io/mk_docs/img/guides/docks/utbt4-1.png) -->
+![](https://cdrt.github.io/mk_docs/img/guides/docks/utbt4-2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/utbt4-3.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622)
@@ -264,8 +264,8 @@ Top Features for Thunderbolt 3 Essential Dock
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;size:150px">
 
-![](../img/guides/docks/tbe1.png)
-![](../img/guides/docks/tbe2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/tbe1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/tbe2.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#Lenovo%20Thunderbolt%203%20Essential%20Dock)
@@ -357,9 +357,9 @@ Top Features for Thunderbolt Dock Gen 2
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/twd1.png)
-![](../img/guides/docks/twd2.png)
-![](../img/guides/docks/twd3.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/twd1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/twd2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/twd3.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#Thunderbolt%203%20Workstation%20Dock%20Gen%202)
@@ -445,8 +445,8 @@ The ThinkPad Thunderbolt 3 Dock is an unmatched docking solution powered by Inte
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/t3d1.png)
-![](../img/guides/docks/t3d2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/t3d1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/t3d2.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#Thunderbolt%203%20Workstation%20Dock)
@@ -536,8 +536,8 @@ Top Features:
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/uusbcsd1.png)
-![](../img/guides/docks/uusbcsd2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/uusbcsd1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/uusbcsd2.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#Hybrid%20Dock)
@@ -632,8 +632,8 @@ The ThinkPad Hybrid USB-C with USB-A Dock (40AF) expands the capabilities of mos
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/husbca1.png)
-![](../img/guides/docks/husbca3.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/husbca1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/husbca3.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#Hybrid%20Dock)
@@ -723,8 +723,8 @@ The ThinkPad USB-C Dock Gen 2 (40AS) is the next generation of USB-C one-cable u
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/usbc2g1.png)
-![](../img/guides/docks/usbc2g2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/usbc2g1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/usbc2g2.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#USB-C%20dock%20Gen%202)
@@ -821,8 +821,8 @@ The ThinkPad USB-C Dock is a new universal docking solution ensuring a productiv
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/usbc1.png)
-![](../img/guides/docks/usbc2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/usbc1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/usbc2.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#USB-C%20dock)
@@ -917,8 +917,8 @@ The docking station comes equipped with a stereo/microphone combination audio po
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/olp2.png)
-![](../img/guides/docks/olp1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/olp2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/olp1.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#OneLink+%20Dock)
@@ -1006,8 +1006,8 @@ The ThinkPad OneLink Pro Dock, powered by Lenovo’s revolutionary OneLink techn
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/olpro1.png)
-![](../img/guides/docks/olpro2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/olpro1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/olpro2.png)
 </div>
 
 <details>
@@ -1108,7 +1108,7 @@ The dock is a portable expansion module that enables you to easily connect your 
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/ol1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/ol1.png)
 </div>
 
 [User Guide](https://download.lenovo.com/pccbbs/options/tp_onelink_dock_ug_en_sp40a02137.pdf)
@@ -1201,8 +1201,8 @@ The ThinkPad USB 3.0 Ultra Dock is an universal USB docking solution that not on
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/usb3u1.png)
-![](../img/guides/docks/usb3u2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/usb3u1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/usb3u2.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#Ultra%20Docking)
@@ -1278,8 +1278,8 @@ The ThinkPad USB 3.0 Pro Dock delivers a professional universal USB docking solu
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/usb3pro1.png)
-![](../img/guides/docks/usb3pro2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/usb3pro1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/usb3pro2.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#Pro%20Docking)
@@ -1355,7 +1355,7 @@ Transform any notebook into the heart of your office, instantly connecting mice,
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/usb3b2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/usb3b2.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#Baisc%20Dock)
@@ -1696,8 +1696,8 @@ ThinkPad® Ultra Docking Station (40AJ) provides a docking experience for Large 
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/uds1.png)
-![](../img/guides/docks/uds2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/uds1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/uds2.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#Ultra%20Docking)
@@ -1778,8 +1778,8 @@ ThinkPad® Pro Docking Station (40AH) provides a docking experience for Large En
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/pds1.png)
-![](../img/guides/docks/pds2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/pds1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/pds2.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#Pro%20Docking)
@@ -1862,8 +1862,8 @@ ThinkPad® Basic Docking Station (40AG) provides a docking experience for Large 
 
 <div style="text-align:center;padding-bottom:40px;padding-top:40px;">
 
-![](../img/guides/docks/bds1.png)
-![](../img/guides/docks/bds2.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/bds1.png)
+![](https://cdrt.github.io/mk_docs/img/guides/docks/bds2.png)
 </div>
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#Basic%20Docking)
