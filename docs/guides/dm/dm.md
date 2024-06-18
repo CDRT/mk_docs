@@ -5,38 +5,25 @@ Dock Manager is provided as an executable.  Here's an example of how to deploy w
 In the console, navigate to the **Software > Application Management > Applications** node and click **Create Application** in the ribbon bar.
 
 Tick the **Manually specify the application information** radio button, click **Next**
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image1.PNG)
-</div>
+![Application information](https://cdrt.github.io/mk_docs/img/guides/dm/image1.PNG)
 
 Specify information about the app, click **Next**
 
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
-
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image2.PNG)
-</div>
+![Application information](https://cdrt.github.io/mk_docs/img/guides/dm/image2.PNG)
 
 Enter Software Center details, click **Next**
 
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
-
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image3.PNG)
-</div>
+![Software Center](https://cdrt.github.io/mk_docs/img/guides/dm/image3.PNG)
 
 Set the deployment type to **Script Installer** and click **Next**
 
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
-
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image4.PNG)
-</div>
+![Script Installer](https://cdrt.github.io/mk_docs/img/guides/dm/image4.PNG)
 
 Set the deployment type name and click **Next**
 
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
+![Deployment type](https://cdrt.github.io/mk_docs/img/guides/dm/image5.PNG)
 
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image5.PNG)
-</div>
 Enter the content location path to the Dock Manager executable
 
 Install command:
@@ -51,10 +38,8 @@ Uninstall start in:
 ```
 %ProgramFiles%\Lenovo\Dock Manager
 ```
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image6.PNG)
-</div>
+![Detection Rule](https://cdrt.github.io/mk_docs/img/guides/dm/image6.PNG)
 
 Set the detection rule setting type to **Registry**
 
@@ -77,18 +62,15 @@ Value:
 ```
 1.0.0.125
 ```
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image7.PNG)
-</div>
+![User Experience settings](https://cdrt.github.io/mk_docs/img/guides/dm/image7.PNG)
 
 Set the installation behavior to **Install for system** and logon requirement to " **Whether or not a user is logged on** ".
 
 Add any installation requirements such as Operating system is One of Windows 10 (64-bit)
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image8.PNG)
-</div>
+![Installation Requirements](https://cdrt.github.io/mk_docs/img/guides/dm/image8.PNG)
+
 Complete the deployment type and App wizards.  Deploy to a Device Collection.
 
 ## Deploying with Microsoft Intune
@@ -98,20 +80,17 @@ Using the Win32 Content Prep [Tool](https://github.com/Microsoft/Microsoft-Win32
 ```
 IntuneWinAppUtil.exe -c "C:\IntuneWin\DM\" -s "dock_manager_setup.exe" -o "C:\IntuneWin\output\" -q
 ```
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image9.PNG)
-</div>
+![Log](https://cdrt.github.io/mk_docs/img/guides/dm/image9.PNG)
 
 Login to the Endpoint admin center [portal](https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsWindowsMenu/windowsApps) to create a new Windows app and select the **Windows app (Win32)** type.
 
 Select the **dock_manager_setup.intunewin** app package file.
 
 Enter required and optional information about the app
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image10.PNG)
-</div>
+![Edit application](https://cdrt.github.io/mk_docs/img/guides/dm/image10.PNG)
+
 Enter the Install command
 
 ```
@@ -124,13 +103,11 @@ and Uninstall command
 %ProgramFiles%\Lenovo\Dock Manager\unins000.exe /SILENT
 ```
 
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
+![Edit application](https://cdrt.github.io/mk_docs/img/guides/dm/image11.PNG)
 
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image11.PNG)
-</div>
 Set the requirements.  You can take it a bit further with a detection script to check if a supported dock is currently connected to the system.  Here's a sample PowerShell script
 
-```
+```powershell
 # Check for Thunderbolt 3 Dock Gen 2
 $dock = Get-WmiObject -Class Win32_PnPEntity | Where-Object { $_.DeviceID -like 'USB\VID_2109&PID_8887*' }
 if ($dock) {
@@ -141,10 +118,8 @@ else {
 }
 ```
 
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
+![Edit application](https://cdrt.github.io/mk_docs/img/guides/dm/image12.PNG)
 
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image12.PNG)
-</div>
 Enter the detection rules to verify the current version of Dock Manager is installed
 
 Key path:
@@ -161,10 +136,8 @@ Operator: **Equals**
 
 Value: **1.0.0.125**
 
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
+![Detection Rule](https://cdrt.github.io/mk_docs/img/guides/dm/image13.PNG)
 
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image13.PNG)
-</div>
 Finish out the wizard and assign to a group.
 
 ## WMI Classes
@@ -174,16 +147,12 @@ You can [extend hardware inventory](https://docs.microsoft.com/en-us/mem/configm
 [Download](https://download.lenovo.com/cdrt/blog/ConfigMgr-MOF-DockManager.zip)
 
 An example from Resource Explorer
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
 
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image14.PNG)
-</div>
+![WMI](https://cdrt.github.io/mk_docs/img/guides/dm/image14.PNG)
+
 Example of what can be gathered using SSRS
 
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
-
-![](https://cdrt.github.io/mk_docs/img/guides/dm/image15.PNG)
+![SSRS](https://cdrt.github.io/mk_docs/img/guides/dm/image15.PNG)
 
 !!! info ""
     Sample report can be downloaded [here](https://download.lenovo.com/cdrt/docs/LenovoDockManager.zip). Update the Data Source properties for your environment.
-</div>
