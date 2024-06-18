@@ -5,7 +5,7 @@
 
 The Main display shows (view-only) system information.
 
-It also gives access to the [BIOS Event Log feature](/bios/settings/bios_logging).
+It also gives access to the [BIOS Event Log feature](https://cdrt.github.io/mk_docs/ref/bios/settings/bios_logging.md).
 
 <details><summary>BIOS Event Log</summary>
 

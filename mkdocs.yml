@@ -50,8 +50,6 @@ nav:
         - guides/sus/su_dg/su_dg_ch6.md
         - guides/sus/su_dg/su_dg_ch7.md
         - guides/sus/su_dg/su_dg_ch8.md
-      - Update Retriever with Azure Blob: guides/sus/ur_az_blob.md
-      - Update Retriever with Azure Fileshare: guides/sus/ur_az_fs.md
       - FAQ: guides/sus/system_update_faq.md
     - Dock Manager:
       - guides/dm/index.md
@@ -185,6 +183,7 @@ nav:
           - ....Boot Priority Order: ref/bios/settings/thinkstation/bootpriorityorder.md
           - Exit: ref/bios/settings/thinkstation/exit.md
       - Glossary: ref/bios/glossary.md
+      - BIOS Logging: ref/bios/settings/bios_logging.md
     - Docks Reference:
       - ref/docks/index.md
       - Deployment Guide: ref/docks/docks_main.md
@@ -210,6 +209,8 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.details
+  - toc:
+      permalink: "#"
 
 copyright: |
   &copy; 2024 <a href="https://docs.lenovocdrt.com"  target="_blank" rel="noopener">Lenovo Commercial Deployment Readiness Team</a>

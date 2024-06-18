@@ -5,7 +5,7 @@
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
    /tp_password.png)
 
-The [Types of Passwords](/bios/settings/thinkpad/password?id=types-of-passwords) section describes the different passwords' behaviors.
+The [Types of Passwords](#types-of-passwords) section describes the different passwords' behaviors.
 
 - [More information about passwords on support.lenovo.com.](https://support.lenovo.com/at/en/solutions/ht036206-types-of-password-for-thinkpad)
 
@@ -15,8 +15,8 @@ Whether the system will request the user to set and confirm the Supervisor Passw
 
 Possible options:
 
-1.	**Disabled** - Default.
-2.	Enabled
+1. **Disabled** - Default.
+2. Enabled
 
 While enabling the following parameters are available:
 
@@ -42,8 +42,8 @@ While enabling the following parameters are available:
 
 Possible options:
 
-1.	**Off** - Default.
-2.	On
+1. **Off** - Default.
+2. On
 
 While enabling the following parameters are available:
 
@@ -72,8 +72,8 @@ Whether will request user to set and confirm Power-On Password password.
 
 Possible options:
 
-1.	**Off** - Default.
-2.	On
+1. **Off** - Default.
+2. On
 
 While enabling the following parameters are available:
 
@@ -98,8 +98,8 @@ Also known as **Hard Disk Password (HDP)**.
 
 Possible options:
 
-1.	**Off** - no password defined. Default.
-2.	On - for enabling system will request 'Setup Confirmation' and 'Password and confirmation'.
+1. **Off** - no password defined. Default.
+2. On - for enabling system will request 'Setup Confirmation' and 'Password and confirmation'.
 
 Setup Confirmation:
 
@@ -140,8 +140,8 @@ Whether TCG (Trusted Computing Group) Storage device will block attempts to auth
 
 Possible options:
 
-1.	**On** - Default.
-2.	Off
+1. **On** - Default.
+2. Off
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
@@ -155,8 +155,8 @@ Whether to prevent users from making any changes in ThinkPad Setup without enter
 
 Possible options:
 
-1.	On
-2.	**Off** - Default.
+1. On
+2. **Off** - Default.
 
 !!! info ""
      UEFI BIOS Lock will not take effect unless Supervisor password is enabled.
@@ -173,8 +173,8 @@ Whether the system prompts for passwords when the system starts from full off st
 
 Possible options:
 
-1.	**On** - Default.
-2.	Off
+1. **On** - Default.
+2. Off
 
 !!! info ""
      To protect unauthorized access to the system we recommended setting user authentication on the OS.
@@ -191,8 +191,8 @@ Whether the system prompts for passwords when the system restarts.
 
 Possible options:
 
-1.	On
-2.	**Off** - Default.
+1. On
+2. **Off** - Default.
 
 !!! info ""
      To protect unauthorized access to the system we recommended setting user authentication on the OS.
@@ -212,8 +212,8 @@ Whether the system prompts for the Security password.
 
 Possible options:
 
-1.	On
-2.	**Off** - system will proceed without any user action required. Default.
+1. On
+2. **Off** - system will proceed without any user action required. Default.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
@@ -227,8 +227,8 @@ Whether system will show POST 0199 error when a wrong supervisor password is ent
 
 Possible options:
 
-1.	**On** - Default.
-2.	Off
+1. **On** - Default.
+2. Off
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
@@ -243,15 +243,15 @@ Possible options:
 
 Possible options:
 
-1.	**Disabled** - passwords can be from 1 to 128 symbols. Default.
-2.	4 characters
-3.	5 characters
-4.	6 characters
-5.	8 characters
-6.	9 characters
-7.	10 characters
-8.	11 characters
-9.	12 characters
+1. **Disabled** - passwords can be from 1 to 128 symbols. Default.
+2. 4 characters
+3. 5 characters
+4. 6 characters
+5. 8 characters
+6. 9 characters
+7. 10 characters
+8. 11 characters
+9. 12 characters
 
 !!! info ""
      If a supervisor password is set, you cannot change the minimum length until you log in as a supervisor.
@@ -273,8 +273,8 @@ Possible options:
 
 Possible options:
 
-1.	**Disabled** - Default.
-2.	Enabled
+1. **Disabled** - Default.
+2. Enabled
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
@@ -293,8 +293,8 @@ Possible options:
 
 Possible options:
 
-1.	**Off** – Default.
-2.	On
+1. **Off** – Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
@@ -308,8 +308,8 @@ Possible options:
 
 Possible options:
 
-1.	**Off** - Default.
-2.	On
+1. **Off** - Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
@@ -323,8 +323,8 @@ When enabled, allows System Management Password to have a same authority as Supe
 
 Possible options:
 
-1.	**Off** - Default.
-2.	On
+1. **Off** - Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
@@ -338,8 +338,8 @@ Possible options:
 
 Possible options:
 
-1.	**Off** - Default.
-2.	On
+1. **Off** - Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
@@ -353,8 +353,8 @@ Possible options:
 
 Possible options:
 
-1.	**Off** - Default.
-2.	On
+1. **Off** - Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|

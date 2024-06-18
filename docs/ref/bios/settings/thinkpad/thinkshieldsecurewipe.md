@@ -17,14 +17,14 @@ Possible options:
 
 </details>
 
-### FAQ <!-- {docsify-ignore} -->
+### FAQ
 
-#### What is ThinkShield Secure Wipe? <!-- {docsify-ignore} -->
+#### What is ThinkShield Secure Wipe?
 ThinkShield Secure Wipe is a feature in the BIOS that reliably deletes all data from a drive without the need for external tools. 
 
 Any hard drive (HD) password will be deleted by this process.
 
-#### How to use ThinkShield Secure Wipe? <!-- {docsify-ignore} -->
+#### How to use ThinkShield Secure Wipe?
 Secure Wipe sub menu is located at the bottom of the Security page (BIOS Setup Option).  By default, it is enabled and is protected by SVP.  It is supported by WMI and SRSETUP; WMI item name is “ThinkShieldsecurewipe.”
 
 Please use “ThinkShield Secure Wipe” feature for ThinkPad 2019 or later models by following below steps:
@@ -35,7 +35,7 @@ Please use “ThinkShield Secure Wipe” feature for ThinkPad 2019 or later mode
 4. Select "ThinkShield Secure Wipe" from the list
 5. Follow on-screen instructions to wipe the disk
 
-#### What Methods are Supported by ThinkShield Secure Wipe? <!-- {docsify-ignore} -->
+#### What Methods are Supported by ThinkShield Secure Wipe?
 ThinkShield Secure Wipe supports several different methods to delete data from the drive:
 - ATA Secure Erase (recommended method)
 - ATA Cryptographic Key Reset (recommended method)
@@ -49,17 +49,17 @@ ThinkShield Secure Wipe supports several different methods to delete data from t
 - Russian GOST P50739-95 Level 4
 - RCMP TSSIT OPS-II
 
-#### Is this Tool Compliant with NIST SP 800-88? <!-- {docsify-ignore} -->
+#### Is this Tool Compliant with NIST SP 800-88?
 It depends on which algorithm is used, but if the recommended methods are used – the feature meets the NIST SP800-88 requirements.
 
 _NIST SP800-88 defines “sanitization” as “a process that renders access to target data on the media infeasible for a given level of effort.”_
 
-#### What ThinkPad Models Include ThinkShield Secure Wipe Feature? <!-- {docsify-ignore} -->
+#### What ThinkPad Models Include ThinkShield Secure Wipe Feature?
 ThinkShield Secure Wipe is available on 2019 and newer ThinkPads models.
 
 For specific questions on skus, please contact your Lenovo rep.
 
-#### Are There Any Upcoming Changes and Enhancements? <!-- {docsify-ignore} -->
+#### Are There Any Upcoming Changes and Enhancements?
 
 ThinkShield Secure Wipe 2.0 will include logging to allow users to export proof that the SDD/HDD was wipe successfully.  
 

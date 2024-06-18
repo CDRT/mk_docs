@@ -89,7 +89,7 @@ It is recommended to check that the most recent BIOS has been applied to the sys
 
     ![BIOS - DASH Configuration](https://cdrt.github.io/mk_docs/img/dash/4-dash.jpg)
 
-2. **DASH Configuration** - Set DASH to Enabled
+ 2. **DASH Configuration** - Set DASH to Enabled
 
     ![DASH Support setting](https://cdrt.github.io/mk_docs/img/dash/5-dash.jpg)
 
@@ -102,7 +102,7 @@ It is recommended to check that the most recent BIOS has been applied to the sys
 
    ![Username and Password management](https://cdrt.github.io/mk_docs/img/dash/7-dash.png)
 
- 4.   Save and exit the BIOS
+ 4. Save and exit the BIOS
 
 ### Windows DASH client software
 The Realtek DASH Windows software can be found at [https://pcsupport.lenovo.com/](https://pcsupport.lenovo.com/). Locate the support page for a specific model and select the **Drivers &amp; Software** menu item on the left side of the page. Select **Manual Update** and browse to **Networking: LAN (Ethernet)**.
@@ -120,15 +120,15 @@ AMC supports the following DASH functionality :
 - Discovery
 - Power state management
 - Boot – several options
-  - USB Redirection
-  - KVM Redirection
-  - Text Redirection
+    - USB Redirection
+    - KVM Redirection
+    - Text Redirection
 - Inventory / Health information
 - Firmware Update
 - Alerts
 
 !!! info ""
-   Before performing a discovery operation, make sure that the authentication details are correct. Refer to [Authentication](#Authentication).
+   Before performing a discovery operation, make sure that the authentication details are correct. Refer to [Authentication](#authentication).
 
 ## Discovery
 
@@ -182,7 +182,7 @@ The table below lists all supported power states.
 | Power Off - Hard Graceful | 13 | N/A | Perform an orderly transition to power off state in which the power consumption is zero except for the real-time clock. | G3 |
 | Power Cycle (Off – Soft Graceful) | 15 | Restart | Perform an orderly transition of the system to power off state, in which the system consumes a minimal amount of power, followed by a transition to on state | G2/S5 to G0/S0 |
 | Power Cycle (Off - Hard Graceful) | 16 | N/A | Transition the system to power off state, , in which the power consumption is zero except for the real-time clock, followed by a transition to on state | G3 to G0/S0 |
-| Diagnostic Interrupt (NMI) | 11 | Immediate Diagnostic Interrupt | Assert an NMI on the system. | 
+| Diagnostic Interrupt (NMI) | 11 | Immediate Diagnostic Interrupt | Assert an NMI on the system. |
 | Master Bus Reset | 10 | Immediate Warm Reset | Perform hardware reset on the system. |
   
 ### Power Operation on a Single System
@@ -190,9 +190,9 @@ The table below lists all supported power states.
 1. Right click on the specific system on which the power operation is to be performed.
 2. Select **Power** from the menu. You will get the Power screen.
 3. The **Power Screen** will show:
-  - The system name against which you are going to perform the power operation,
-  - The current power state of the system.
-  - The list of power states which the system can accept from its current state is shown in the &#39;select power state to apply&#39; drop down list.
+- The system name against which you are going to perform the power operation,
+- The current power state of the system.
+- The list of power states which the system can accept from its current state is shown in the &#39;select power state to apply&#39; drop down list.
 4. To start the transition of the system to the new power state, click **Apply**.
 5. The result of the operation will be displayed. Click **Finish** to close the Power window.
 
@@ -216,27 +216,27 @@ To manage Boot settings:
 
  2. Either right click on the system and select the **Boot** menu item or click on the ribbon icon **Boot**.
 
-  3. The Boot Screen appears and displays a drop-down list with all the boot configurations available for the system.
+ 3. The Boot Screen appears and displays a drop-down list with all the boot configurations available for the system.
 
       - Settings information for the selected boot configuration from the drop-down list:
 
          > This boot configuration will be used during next boot.
-        >   
+        >
          > This boot configuration will not be used during next boot.
         >
          > This boot configuration will be used only for next boot
 
      - The current boot order for the selected boot configuration from the drop-down list.
 
-4. Select the required boot configuration from the **Name** drop down list.
+ 4. Select the required boot configuration from the **Name** drop down list.
 
-5. Check the box for **Change boot order** check box if the boot order needs to be changed.
+ 5. Check the box for **Change boot order** check box if the boot order needs to be changed.
 
-6. Move the Boot Devices to the &#39;New boot order&#39; list box in the order required.
+ 6. Move the Boot Devices to the &#39;New boot order&#39; list box in the order required.
 
-8. Click the **Next** button to have the new boot order take effect. The result screen will show the result, e.g. &#39;boot order was successfully changed&#39;.
+ 8. Click the **Next** button to have the new boot order take effect. The result screen will show the result, e.g. &#39;boot order was successfully changed&#39;.
 
-9. Close the power screen by clicking **Close**.
+ 9. Close the power screen by clicking **Close**.
 
 ![ Boot Configuration](https://cdrt.github.io/mk_docs/img/dash/12-dash.png)
   
@@ -282,11 +282,11 @@ AMC has its own ISO webserver. Use AMC to initiate an action to attach the manag
 
 ![USB Redirection](https://cdrt.github.io/mk_docs/img/dash/38-dash.png)
   
-### Boot to Text Image
+### Boot to Text Image Feature
 
 The AMC Boot to Text Image feature provides an environment where user can boot the managed system to a user defined text based remote image (e.g. .iso image).
 
-### Boot to BIOS [KVM Profile]
+### Boot to BIOS with KVM Profile
 
 **Boot to BIOS** implements the DMTF DASH KVM profile so the user to boot the managed system to the BIOS setup screen, and remotely connect to the BIOS screen via the VNC viewer. Through the VNC viewer, the user can access the BIOS screen and interact with mouse and keyboard.
 
@@ -296,7 +296,7 @@ To boot to BIOS:
 2. Either right click on the system and select **Boot to BIOS** menu item or click on the ribbon icon **Boot to BIOS** image.
 3. When the user starts the **Boot to BIOS** workflow by clicking the Start button, the following tasks are initiated:
     - KVM enable command is sent to the managed system.
-    -  The managed system is rebooted.
+    - The managed system is rebooted.
 
 ![boot to BIOS](https://cdrt.github.io/mk_docs/img/dash/39-dash.png)
 
@@ -448,11 +448,11 @@ For AMC, System Properties are:
 - Transport protocol
 - Transport Port
 
-To view a specific system&#39;s properties, right click the system and select **Properties** from the menu.
+To view a specific system's properties, right click the system and select **Properties** from the menu.
 
 ![System Properties ](https://cdrt.github.io/mk_docs/img/dash/20-dash.png)
 
-## Inventory
+## AMC Inventory
 
 Select desired system to see inventory details in the **Inventory** area below the computer system inventory. (See Figure 20.) The asset and inventory information displayed are identity of the system, physical assets, processor, system Configuration Manager, Ethernet port, BIOS, OS and DASH.
 
@@ -490,9 +490,9 @@ To add systems to any group, right click on the group to which systems are to be
 You can deploy AMPS in three possible scenarios:
 
  1. AMPS with Configuration Manager Console and Standalone Site Server: In this scenario, the Configuration Manager Site server and the console are on the same system. Install AMPS on this system that has both the Site server and console.
-2. AMPS with Configuration Manager Console: In this scenario, the MEM site server and MEM console are on two different systems. Therefore, you need to install AMPS twice, once on the site server system and once on the MEM console system. First, complete installation of plugin on the site server and then install the plugin on the console system. Plugin software automatically guides and lets you install only the required components on each system (site server and console).
+ 2. AMPS with Configuration Manager Console: In this scenario, the MEM site server and MEM console are on two different systems. Therefore, you need to install AMPS twice, once on the site server system and once on the MEM console system. First, complete installation of plugin on the site server and then install the plugin on the console system. Plugin software automatically guides and lets you install only the required components on each system (site server and console).
 
-3. AMPS with CAS (Central Administration Site): Here, the IT infrastructure will have CAS and one or more primary sites, along with optional secondary sites.
+ 3. AMPS with CAS (Central Administration Site): Here, the IT infrastructure will have CAS and one or more primary sites, along with optional secondary sites.
 
 !!! info ""
    The DASH Plug-in help file provides detailed information on support for role-based authorization in DASH Plug-in. The default location for the help file and other supporting material is located at _C:\Program Files (x86)\AMD Management Plugin for SCCM\doc_
@@ -510,7 +510,7 @@ It will take few minutes for the configuration settings to propagate in CAS infr
 To install/upgrade the DASH plug-in either infrastructure type:
 
  1. Use the _AMPS-[version]-AMD.exe_ installer.
-2. Follow the steps in the Install wizard to complete installation.
+ 2. Follow the steps in the Install wizard to complete installation.
 
 ### Uninstalling AMPS
 
@@ -554,10 +554,10 @@ When using the [Setspn](https://docs.microsoft.com/en-us/previous-versions/windo
 
 To manually create the Security group and obtain the SID:
 
-1. Create a security group for DASH Administrators, named &quot;DASH Admins&quot; or another name suitable to your policies. 
-2. Under **Properties** for the new group, select the **Attribute Editor** tab. 
+1. Create a security group for DASH Administrators, named &quot;DASH Admins&quot; or another name suitable to your policies.
+2. Under **Properties** for the new group, select the **Attribute Editor** tab.
 3. Scroll down the **Attributes** list box until you find the **objectSID** attribute item.
-4.  Record the security ID string in the value field for the **objectSID** attribute.
+4. Record the security ID string in the value field for the **objectSID** attribute.
 
 ![object SID in DASH Admins group Properties](https://cdrt.github.io/mk_docs/img/dash/23-dash.png)
 
@@ -576,12 +576,12 @@ Also add the domain user accounts that require access to the DASH Systems to the
 #### Update the DASHConfig provisioning XML file for distribution:
 
  1. Make a backup copy of the _DASHConfig.xml_ file located at _C:\Program Files (x86)\AMD Management Console\DASHConfigRT._
-2. Edit _DASHConfig.xml._ to add the information from the previous steps and save the file:
+ 2. Edit _DASHConfig.xml._ to add the information from the previous steps and save the file:
 
 - ACTIVEDIRECTORY\_SPNACCOUNT
 - SPNACCOUNT\_PASSWORD
 - ACTIVEDIRECTORY\_GROUP
-- OBJECTSID 
+- OBJECTSID
 
 #### Example Config.xml
         <?xml version="1.0" encoding="utf-8"!!! info ""
@@ -637,9 +637,9 @@ The **DASH Configuration** node allows you to configure for Authentication, Mana
 AMPS supports two types of authentication schemes: Digest and Active Directory.
 
 AMPS supports up to 3 authentication entries. Each authentication entry has the components:
-  - an authentication identifier, which must be unique
-  - an authentication scheme (digest or Active Directory)
-  - corresponding credentials
+- an authentication identifier, which must be unique
+- an authentication scheme (digest or Active Directory)
+- corresponding credentials
 
 ### Configure Authentication for AMPS
 
@@ -672,13 +672,11 @@ The Wake-on-LAN packet is not guaranteed to wake all the devices in the collecti
 
 To configure the DASH Wakeup feature, perform the following steps:
 
-- Ensure that a working **authentication scheme** is in place (See [Authentication](#Configure-Authentication-for-AMPS) section above)
+- Ensure that a working **authentication scheme** is in place (See [Authentication](#configure-authentication-for-amps) section above)
 
 - In the **DASH Configuration** screen select the **DASH Wakeup** check box, if already not selected.
 - In the **Software Deployment Package,** be sure to enable the Wake-on-LAN option and set a valid future schedule when creating the software deployment package for a device collection.
 
-<!-- ![DASH Plugin Configuration](https://cdrt.github.io/mk_docs/img/dash/25-dash.png) -->
-      
 ### Auto Discovery
 
 If the **DASH Auto Discover** check box is selected, a new device added to Configuration Manager is checked for DASH support automatically.
@@ -707,7 +705,7 @@ The steps to create the software package are as follows:
  Next, complete the **Standard Program** information:
 
 - Name: DASHConfigRT
-- Command: DASHConfigRT.exe -xf:Config.xml -dxf -mif 
+- Command: DASHConfigRT.exe -xf:Config.xml -dxf -mif
 - Run: Normal
 - Run with Administrative Rights
 
@@ -719,7 +717,7 @@ The steps to create the software package are as follows:
 3. Right click on the newly created DASHConfig Package and select **Properties**.
 4. On the **Data Access** tab, check &quot;Copy the content in this package to a package share on distribution points.&quot;
 5. On the **Distribution Settings** tab
-    -  Set the Distribution Priority to High
+    - Set the Distribution Priority to High
     - Check &quot;Distribute the content for this package to preferred distribution points,&quot; and select &quot;Automatically download content when packages are assigned to distribution points.&quot;
 
 ## Distribute the DASHConfig Software Package
@@ -729,15 +727,15 @@ To distribute the software package:
  In the Configuration Manager console navigate to **Software Library \&gt; Application Management**
 
  1. Click on the **Package** node and select the DASHConfig Package
-2. Right click the DASHConfig package and select **Deploy** to launch the deploy software wizard.
-3. On the **Content** page, Verify the distribution point is added, if not click on the **Add** button and add manually
-4. Next, **Schedule** the deployment as needed and click Next
-5. Specify the **User Experience** and other installation behavior according to your organization&#39;s needs
-6. Select the **Deployment Option** s to &quot;Download content from distribution point and run locally.&quot;
+ 2. Right click the DASHConfig package and select **Deploy** to launch the deploy software wizard.
+ 3. On the **Content** page, Verify the distribution point is added, if not click on the **Add** button and add manually
+ 4. Next, **Schedule** the deployment as needed and click Next
+ 5. Specify the **User Experience** and other installation behavior according to your organization&#39;s needs
+ 6. Select the **Deployment Option** s to &quot;Download content from distribution point and run locally.&quot;
 
-7. Next, verify the information in the **Summary**
-2. Next, you should receive a **Confirmation** page indicating &quot;The Deploy Software Wizard completed successfully&quot; and you can close the Wizard.
-3. To get status, check the Configuration Manger System Status logs and the execmgr.log file in the DASH machine&#39;s _C:\Windows\System32\CCM\Logs_ folder. Alternatively, you can check the package&#39;s folder for the DASHConfig.log file.
+ 7. Next, verify the information in the **Summary**
+ 2. Next, you should receive a **Confirmation** page indicating &quot;The Deploy Software Wizard completed successfully&quot; and you can close the Wizard.
+ 3. To get status, check the Configuration Manger System Status logs and the execmgr.log file in the DASH machine&#39;s _C:\Windows\System32\CCM\Logs_ folder. Alternatively, you can check the package&#39;s folder for the DASHConfig.log file.
 
 ### Manually run DASHConfigRT
 
@@ -782,15 +780,14 @@ To discover DASH capable client systems in a collection, perform the following s
 
  1. Expand the **Assets and Compliance/Device Collections** node.
  In the right pane, list of all the collections appears.
-2. Right-click the collection in which you want to discover all the DASH capable systems.
+ 2. Right-click the collection in which you want to discover all the DASH capable systems.
  The shortcut menu appears.
-3. In the shortcut menu, Point to **DASH** and then click **Discover**.
+ 3. In the shortcut menu, Point to **DASH** and then click **Discover**.
 
-4. The **Discover Collection** dialog box appears
+ 4. The **Discover Collection** dialog box appears
+     ![Discovery Dialog](https://cdrt.github.io/mk_docs/img/dash/27-2-dash.png)
 
-![Discovery Dialog](https://cdrt.github.io/mk_docs/img/dash/27-2-dash.png)
-
-5.  To discover DASH capable systems in the collections, click the **Yes** button.
+5. To discover DASH capable systems in the collections, click the **Yes** button.
 
 ### Discovering a Device
 
@@ -801,7 +798,7 @@ To discover an individual DASH capable system, perform the following steps:
  1. Expand the **Assets and Compliance/Devices/All Systems** node.
  2. Expand the **Devices** node and click **All Systems**.
  3. In the right pane, right-click the device for which you want to discover DASH.
-4.  In the shortcut menu, point to **DASH** and then click **Discover**.
+ 4. In the shortcut menu, point to **DASH** and then click **Discover**.
 
 ### Power Control
 
@@ -810,11 +807,11 @@ AMPS allows you to control the power state of a group of systems in a given coll
 To control the power state of a collection node, perform the following steps:
 
  1. Expand the **Assets and Compliance** node.
-2. Expand the **Overview** node and click **Device Collections** or an **individual device**.
+ 2. Expand the **Overview** node and click **Device Collections** or an **individual device**.
  In the right pane, the list of all the available collections appears.
-3. Right-click the collection for which you want to initiate power control.
-4. In the shortcut menu, select **DASH** and then click **Power Control**.
-5. The **Power Control** on Collection dialog box appears
+ 3. Right-click the collection for which you want to initiate power control.
+ 4. In the shortcut menu, select **DASH** and then click **Power Control**.
+ 5. The **Power Control** on Collection dialog box appears
 
 ![DASH Device actions](https://cdrt.github.io/mk_docs/img/dash/27-dash.png)
 
@@ -833,7 +830,7 @@ To power on all the systems in a Collection at a specific time on a one-time or 
 
 ### Boot Control
   
-### Text Redirection
+#### Text Redirection
 
 Text Redirection provides BIOS-assisted console and keyboard redirection to a remote computer terminal. This includes Boot progress, BIOS setup screen, command line OS or command line diagnostic program screens.
 
@@ -852,15 +849,15 @@ Alternatively, on the Configuration Manager ribbon, select the **DASH** tab, the
  The **Text Redirection** Screen appears and shows:
 
    1. Drop down list with available protocols for text redirection, SSH and Telnet respectively. (SSH is the default.)
-  2. The Name of the Service that runs on the system to redirect the text.
-  3. The port through which the text will be redirected.
-  4. The information/status is stated – e.g., Support for OTP (one time password)
+   2. The Name of the Service that runs on the system to redirect the text.
+   3. The port through which the text will be redirected.
+   4. The information/status is stated – e.g., Support for OTP (one time password)
 
   ![Text Redirection](https://cdrt.github.io/mk_docs/img/dash/42-dash.png)
 
-### USB Redirection
+#### USB-Redirection
 
-USB Redirection provides a Virtual USB device which reads data from a remote image file, allowing the BIOS to boot from a remote image file such as _.iso_. See also [USB Redirection](#usb redirection) above.
+USB Redirection provides a Virtual USB device which reads data from a remote image file, allowing the BIOS to boot from a remote image file such as _.iso_. See also [USB Redirection](#usb-redirection) above.
 
 The ISO image file must be available as a _http_ web URL.
 
@@ -868,13 +865,13 @@ To initiate a USB redirection for a system, perform the following steps:
 
  1. In Configuration Manager navigate to **Assets and Compliance\Overview \Devices\All Systems** node. Expand the **Devices** node and click **All Systems**.
  2. In the right pane, right-click the device on which you want to perform USB redirection.
-3. In the shortcut menu that opens, point to **DASH** and then click **USB Redirection**.
+ 3. In the shortcut menu that opens, point to **DASH** and then click **USB Redirection**.
 The **USB Redirection** screen appears and displays the following:
 
-   - The name of the system for whose USB, AMPS is going to attach the remote URL
+    - The name of the system for whose USB, AMPS is going to attach the remote URL
     - The URL that has to be attached to the systems USB.
      If the USB is already attached to the remote URL,then the attached URL is displayed , and the option to edit the URL field is grayed out. You can disconnect the attached USB by clicking the **Disconnect** button on the screen.
-    -  If the USB is not attached, you can replace/update any existing URL or enter a new valid URL and click the **Connect** button
+    - If the USB is not attached, you can replace/update any existing URL or enter a new valid URL and click the **Connect** button
 
 ![USB Redirection](https://cdrt.github.io/mk_docs/img/dash/43-dash.png)
 
@@ -882,15 +879,15 @@ The **USB Redirection** screen appears and displays the following:
 
 ### Boot to Text Image
 
-See [Boot to Text Image](#boot-to-text-image)section above. The steps are identical in AMD Management Console and AMPS.
+See [Boot to Text Image](#boot-to-text-image-feature)section above. The steps are identical in AMD Management Console and AMPS.
 
 ### Boot to BIOS (KVM Profile)
 
-See [Boot to BIOS [KVM Profile]](#boot-to-bios-[kvm-profile]) section above. The steps are identical in AMD Management Console and AMPS.
+See [Boot to BIOS [KVM Profile]](#boot-to-bios-with-kvm-profile) section above. The steps are identical in AMD Management Console and AMPS.
 
 ### KVM Redirection
 
-See [KVM Redirection](#kvm-redirection) section above. The steps are identical in AMD Management Console and AMPS.
+The steps are identical in AMD Management Console and AMPS.
 
 ### Inventory
 
@@ -917,9 +914,9 @@ To view the log entry of a managed device:
 
  1. In the Configuration Manager console, navigate to **Assets and Compliance\Overview\Devices\All Systems**.
  In the right pane, right-click the device where you want to view the log.
-2. The shortcut menu is displayed. In the shortcut menu, point to **DASH** and then click **Log Entry**. The log entry screen appears.
-The Log Entry screen displays the latest 20 log entries. 
-3. Use the **Next** and **Previous** navigation buttons to view additional log entries. Double click an entry to launch the **Status Message Detail** window for that entry.
+ 2. The shortcut menu is displayed. In the shortcut menu, point to **DASH** and then click **Log Entry**. The log entry screen appears.
+The Log Entry screen displays the latest 20 log entries.
+ 3. Use the **Next** and **Previous** navigation buttons to view additional log entries. Double click an entry to launch the **Status Message Detail** window for that entry.
 
 ![DASH Log](https://cdrt.github.io/mk_docs/img/dash/31-dash.png)
   
@@ -929,13 +926,13 @@ AMPS allow you update the firmware for an individual system or a Collection.
 
 To update the firmware on a system/collection, perform the following steps:
 
-1.  Expand **Assets and Compliance\Overview\Devices** or **Device Collections** node.
- 2. In the right pane, the list of systems or all the available collections appears.
+1. Expand **Assets and Compliance\Overview\Devices** or **Device Collections** node.
+2. In the right pane, the list of systems or all the available collections appears.
 3. Right-click the target. The shortcut menu appears.
 4. In the shortcut menu, select **DASH** and then click **Firmware Upgrade**.
-5. The **Firmware Update** dialog box appears.  In the Firmware Upgrade dialog box, select the **Software Module** from the drop-down list. The default (and only available) Software module is **Management Controller Firmware**. 
+5. The **Firmware Update** dialog box appears.  In the Firmware Upgrade dialog box, select the **Software Module** from the drop-down list. The default (and only available) Software module is **Management Controller Firmware**.
 'Schedule Time' can be immediate, or you can set a scheduled time.
-  6. The grid in the **Firmware Upgrade** windows lists the firmware URLs of the devices. Use the (+) and (-) buttons below the list to add and remove firmware URLs.
+6. The grid in the **Firmware Upgrade** windows lists the firmware URLs of the devices. Use the (+) and (-) buttons below the list to add and remove firmware URLs.
 7. Select the checkboxes next to the devices or collections you wish to update and click on the **Apply** button. The firmware update executes at once.
 
  ![Firmware Update](https://cdrt.github.io/mk_docs/img/dash/37-dash.png)
@@ -951,7 +948,7 @@ The types of alerts are Platform, Boot Progress, and Lifecycle Events (temperatu
  1. Navigate to **Assets and Compliance/Overview/All Systems**
  2. In the right pane, right-click the device on which you want to perform Alert configuration.
 The shortcut menu appears.
-3. In the shortcut menu, point to **DASH** and then click **Alerts**.
+ 3. In the shortcut menu, point to **DASH** and then click **Alerts**.
 
 Alternatively, click the ribbon icon **Alerts**.
 
@@ -1053,9 +1050,9 @@ To view the scheduled DASH tasks:
 
  1. Navigate to the **Administration** tab in Configuration Manager.
 
-2. Click **Overview/DASH Management/DASH Scheduled Tasks**
+ 2. Click **Overview/DASH Management/DASH Scheduled Tasks**
 
-3. Select the target server and click **Properties**
+ 3. Select the target server and click **Properties**
 
 ![Accessing DASH Scheduled Tasks](https://cdrt.github.io/mk_docs/img/dash/35-dash.png)
 

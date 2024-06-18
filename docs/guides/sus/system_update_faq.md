@@ -1,4 +1,4 @@
-## System Update FAQ <!-- {docsify-ignore} -->
+## System Update FAQ
 
 <details>
 <summary>How to run System Update by command line?</summary>
