@@ -3,6 +3,7 @@ site_name: Lenovo CDRT Docs Site
 theme:
   name: material
   logo: img/CDRT-REV-Red_s.png
+  favicon: img/fav/favicon.ico
   features:
     - navigation.tracking
     - navigation.path
