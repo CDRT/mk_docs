@@ -1,8 +1,11 @@
 # Network Setup Settings #
 
 ### General ###
-![](./img/ts_networksetup.png)
-<!--![](./img/networksetup.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   ksetup.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /networksetup.png)-->
 
 <details><summary>Onboard Ethernet Controller</summary>
 
@@ -153,9 +156,12 @@ Options:
 -->
 </details>
 
-### HTTPs Boot Configuration ###
-
-![](./img/httpsbootconfig.png) 
+###(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+    Boot Configuration ###
+(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /httpsbootconfig.png) 
 
 <details><summary>Input the description</summary>
 
@@ -224,10 +230,14 @@ Press `Enter` to configure Server CA (Certificate Authority) for HTTPs Boot.
 |:---|:---|:---|:---|
 |  |  |  | Both |
 -->
-
-### Wi-Fi Configuration ###
-
-![](./img/ts_wificonfig.png)
+(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   
+###(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+    Configuration ###
+(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_wificonfig.png)
 
 <details><summary>Automatic Connection Support</summary>
 

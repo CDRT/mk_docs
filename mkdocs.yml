@@ -70,7 +70,7 @@ nav:
     - BIOS Reference: 
       - ref/bios/index.md
       - ref/bios/bios_guide.md
-      - WMI BIOS Interface: ref/bios/wmi_guide.md
+      - WMI BIOS Interface: ref/bios/wmi/wmi_guide.md
       - BIOS Settings Dictionary: 
         - ThinkPad: 
           - Main: ref/bios/settings/thinkpad/main.md

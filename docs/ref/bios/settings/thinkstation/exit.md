@@ -1,7 +1,10 @@
 # Exit Settings #
 
-![](./img/ts_exit.png)
-<!--![](./img/exit.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   ng)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /exit.png)-->
 
 <details><summary>Save Changes and Exit</summary>
 

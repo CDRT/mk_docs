@@ -1,5 +1,6 @@
 # Thunderbolt(TM) 4 Settings #
-![](./img/tp_thunderbolttm4.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_thunderbolttm4.png)
 
 <details><summary>PCIe Tunneling</summary>
 

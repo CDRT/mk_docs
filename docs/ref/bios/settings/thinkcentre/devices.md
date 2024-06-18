@@ -1,6 +1,7 @@
 # Devices #
 
-![](./img/tc_devices.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_devices.png)
 
 <details><summary>Bluetooth</summary>
 

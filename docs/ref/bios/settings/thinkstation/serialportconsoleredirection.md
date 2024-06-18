@@ -1,7 +1,9 @@
 # Serial Port Console Redirection #
 
-![](./img/ts_serialport.png)
-<!--![](./img/amd_serialportconsoleredirection.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_serialport.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /amd_serialportconsoleredirection.png)-->
 
 <details><summary>Console Redirection</summary>
 Options:
@@ -12,10 +14,13 @@ Options:
 
 ### Console Redirection Settings ###
 
-![](./img/ts_consolerd1.png)
-![](./img/ts_consolerd2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_consolerd1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_consolerd2.png)
 
-<!--![](./img/amd_consoleredirectionsettings.png)-->
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /amd_consoleredirectionsettings.png)-->
 
 <details><summary>Terminal Type</summary>
 

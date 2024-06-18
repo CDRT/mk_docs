@@ -4,9 +4,13 @@
     Number of drives depends on the model and platform.
 
 ### General ###
-<!--![](./img/harddiskpass.png)-->
-![](./img/ts_harddiskpass.png)
-![](./img/ts_harddiskpass2.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   iskpass.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_harddiskpass.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_harddiskpass2.png)
 
 <details><summary> {DriveType} {X} Password</summary>
 
@@ -95,9 +99,14 @@ Options:
 
 ### Security Erase HDD Data ###
 
-![](./img/ts_securityerasehdd.png)
-![](./img/ts_securityerasehdd2.png)
-<!--![](./img/securityerasehdd.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   curityerasehdd.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   tyerasehdd2.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /securityerasehdd.png)-->
 
 <details><summary>Erase {DriveType} {X} Data</summary>
 

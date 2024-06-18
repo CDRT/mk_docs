@@ -1,6 +1,7 @@
 # Intel(R) Manageability Settings #
 
-![](./img/ts_intelmanageability.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_intelmanageability.png)
 
 <details><summary>Intel(R) Manageability</summary>
 
@@ -70,7 +71,8 @@ Options:
 
 SOL (Serial over LAN) configuration group of settings.<br>
 
-![](./img/ts_solconfig.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_solconfig.png)
 
 <details><summary>Console Type</summary>
 

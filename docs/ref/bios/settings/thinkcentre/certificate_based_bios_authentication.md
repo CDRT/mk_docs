@@ -1,6 +1,7 @@
 # Certificate Based Bios Authentication #
 
-![](./img/tc_cert_based_bios_auth.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_cert_based_bios_auth.png)
 
 Digital signatures replace SVP for authentication.
 

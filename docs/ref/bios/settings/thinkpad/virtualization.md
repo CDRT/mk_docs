@@ -1,6 +1,7 @@
 # Virtualization Settings #
 
-![](./img/tp_virtualization.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_virtualization.png)
 
 <details><summary>Kernel DMA Protection</summary>
 

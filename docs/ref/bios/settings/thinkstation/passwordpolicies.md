@@ -1,6 +1,7 @@
 # Password Policies Settings #
 
-![](./img/ts_passwordpolicies.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_passwordpolicies.png)
 
 <details><summary>Set Minimum Length</summary>
 

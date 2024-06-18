@@ -1,5 +1,6 @@
 # Intel(R) AMT Settings #
-![](./img/tp_intelramt.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_intelramt.png)
 
 <details><summary>Intel (R) AMT Control</summary>
 

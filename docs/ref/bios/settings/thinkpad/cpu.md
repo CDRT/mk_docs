@@ -1,6 +1,7 @@
 # CPU Settings #
 
-![](./img/tp_cpu.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_cpu.png)
 
 <details><summary>Efficient-cores Support</summary>
 

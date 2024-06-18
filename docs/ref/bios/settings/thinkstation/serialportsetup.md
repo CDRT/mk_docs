@@ -1,6 +1,8 @@
 # Serial Port Setup Settings #
-![](./img/ts_serialportsetup.png)
-<!--![](./img/serialportsetup.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_serialportsetup.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /serialportsetup.png)-->
 
 <details><summary>Serial Port1 Address</summary>
 

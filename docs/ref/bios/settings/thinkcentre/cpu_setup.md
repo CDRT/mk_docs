@@ -1,7 +1,9 @@
 # CPU Setup #
 
-![](./img/tc_cpu_setup.png)
-![](./img/tc_cpu_setup_2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_cpu_setup.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_cpu_setup_2.png)
 
 <details><summary>EIST Support</summary>
 

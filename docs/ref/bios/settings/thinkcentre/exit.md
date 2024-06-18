@@ -1,6 +1,7 @@
 # Exit
 
-![](./img/tc_exit.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_exit.png)
 
 <details><summary>Save Changes and Exit</summary>
 

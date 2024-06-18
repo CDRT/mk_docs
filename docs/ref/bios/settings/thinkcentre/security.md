@@ -1,8 +1,11 @@
 # Security #
 
-![](./img/tc_security.png)
-![](./img/tc_security_2.png)
-![](./img/tc_security_3.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_security.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_security_2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_security_3.png)
 
  - [More information at Lenovo Support - types of password](https://support.lenovo.com/us/en/solutions/ht513634)
  - [More information at Lenovo Support - password manager](https://support.lenovo.com/us/en/solutions/ht103666-introduction-to-password-manager-thinkpad-thinkcentre-thinkstation)

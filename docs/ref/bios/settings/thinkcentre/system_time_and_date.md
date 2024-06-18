@@ -1,6 +1,7 @@
 # System Time and Date #
 
-![](./img/tc_system_time_date.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_system_time_date.png)
 
 Shows the current system time and date. 
 

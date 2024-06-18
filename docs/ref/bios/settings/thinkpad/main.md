@@ -1,6 +1,7 @@
 # Main #
 
-![Main page in BIOS Setup](./img/tp_main.png)
+![Main page in BIOS Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_main.png)
 
 The Main display shows (view-only) system information.
 

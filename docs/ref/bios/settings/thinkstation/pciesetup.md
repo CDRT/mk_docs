@@ -1,9 +1,13 @@
 # PCIe Setup #
 
-![](./img/ts_pciesetup_px1.png)
-![](./img/ts_pciesetup_px2.png)
-<!--![](./img/ts_pciesetup_px.png)
-![](./img/ts_pciesetup_px_2.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_pciesetup_px1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_pciesetup_px2.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_pciesetup_px.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_pciesetup_px_2.png)-->
 
 <details><summary>Re-Size BAR Support</summary>
 If system has Resizable BAR capable PCIe Devices, this option
@@ -64,7 +68,8 @@ These will likely be subheader drop downs
 -->
 ### PCIe Slot{X} Configuration ###
 
-![](./img/ts_pcieslotconfig.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_pcieslotconfig.png)
 
 <details><summary>PCIe Port</summary>
 Select whether to enable or disable this PCIe port.
@@ -124,7 +129,8 @@ Options:
 
 ### M.2 Slot{X} Configuration ###
 
-![](./img/ts_m2slotconfig.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_m2slotconfig.png)
 
 <details><summary>Link Speed</summary>
 Select PCIe Link Speed.
@@ -148,7 +154,8 @@ Options:
 
 ### MCIO Slot{X}-{Y} Configuration
 
-![](./img/ts_mcioslotconfig.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_mcioslotconfig.png)
 
 <details><summary>Link Speed</summary>
 Select PCIe Link Speed.

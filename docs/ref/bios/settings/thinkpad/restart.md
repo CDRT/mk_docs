@@ -1,6 +1,7 @@
 # Restart
 
-![](./img/tp_restart.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_restart.png)
 
 <details><summary>Exit Saving Changes</summary>
 

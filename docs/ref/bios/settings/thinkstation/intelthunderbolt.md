@@ -1,7 +1,13 @@
 # Intel(R) Thunderbolt Settings #
-![](./img/ts_intelthunderbolt2.png)
-<!--![](./img/ts_intelthunderbolt.png)
-![](./img/intelthunderbolt.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   bolt2.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   telthunderbolt.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /intelthunderbolt.png)-->
 
 <details><summary>Intel Thunderbolt Technology</summary>
 

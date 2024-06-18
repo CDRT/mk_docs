@@ -1,6 +1,7 @@
 # DASH Configuration #
 
-![](./img/tc_dash_config.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_dash_config.png)
 
 <details><summary>DASH Support</summary>
 

@@ -2,7 +2,8 @@
 
 <!-- MODEL: S only -->
 
-![](./img/tc_parallel_port_setup.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_parallel_port_setup.png)
 <details><summary>Parallel Port Address</summary>
 
 Options:

@@ -1,6 +1,8 @@
 # Diagnostics (AMD only) #
-![](./img/ts_amddiagnostics.png)
-<!--![](./img/amd_diagnostics.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amddiagnostics.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /amd_diagnostics.png)-->
 
 <details><summary>Real-time Diagnostics Monitoring</summary>
 

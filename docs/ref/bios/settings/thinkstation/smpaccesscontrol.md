@@ -1,6 +1,7 @@
 # System Management Password Access Control Settings #
 
-![](./img/ts_smpaccesscontrol.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_smpaccesscontrol.png)
 
 <details><summary>Access Security Settings</summary>
 

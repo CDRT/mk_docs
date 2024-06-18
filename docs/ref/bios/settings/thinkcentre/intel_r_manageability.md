@@ -1,6 +1,7 @@
 # Intel(R) Manageability #
 
-![](./img/tc_intel_r_manageability.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_intel_r_manageability.png)
 
  - [More information at Intel.com](https://software.intel.com/sites/manageability/AMT_Implementation_and_Reference_Guide/default.htm)
 
@@ -78,7 +79,8 @@ Options:
 
 ### SQL Configuration ###
 
-![](./img/tc_sql_configuration.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_sql_configuration.png)
 
 <details><summary>Console Type</summary>
 

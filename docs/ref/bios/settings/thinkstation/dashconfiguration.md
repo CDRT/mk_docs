@@ -1,6 +1,7 @@
 # DASH Configuration #
 
-![](./img/ts_amd_dashconfiguration.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_dashconfiguration.png)
 
 <details><summary>DASH Support</summary>
 

@@ -1,6 +1,7 @@
 # Secure Boot
 
-![](./img/tc_secure_boot.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_secure_boot.png)
 
 <details><summary>System Mode (display only)</summary>
 

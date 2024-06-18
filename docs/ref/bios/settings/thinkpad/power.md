@@ -2,7 +2,8 @@
 
 ### General ###
 
-![](./img/tp_power.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_power.png)
 
 <details><summary>Intel (R) SpeedStep Technology</summary>
 
@@ -157,7 +158,8 @@ This option requests additional confirmation.
 
 ### Automatic Power On ###
 
-![](./img/tp_autopoweron.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_autopoweron.png)
 
 <details><summary>Wake Up on Alarm</summary>
 
@@ -250,7 +252,8 @@ Possible options:
 
 ### Automatic Power On - User Defined Alarm ###
 
-![](./img/tp_autopoweronuserdefined.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_autopoweronuserdefined.png)
 
 <details><summary>Sunday</summary>
 

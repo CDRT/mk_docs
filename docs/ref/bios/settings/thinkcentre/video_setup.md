@@ -1,6 +1,7 @@
 # Video Setup #
 
-![](./img/tc_video_setup.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_video_setup.png)
 
 <details><summary>Select Active Video</summary>
 

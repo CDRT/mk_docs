@@ -1,6 +1,7 @@
 # Fingerprint Settings #
 
-![](./img/tp_fingerprint.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_fingerprint.png)
 
 <details><summary>Predesktop Authentication</summary>
 

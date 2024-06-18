@@ -1,6 +1,7 @@
 # Storage Setup #
 
-![](./img/tc_storage_setup.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_storage_setup.png)
 
 <details><summary>SATA Controller</summary>
 
@@ -92,7 +93,8 @@ this setting may prevent the system from booting.
 
 </details>
 
-![](./img/ts_storagesetup_px_2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /ts_storagesetup_px_2.png)
 
 <details><summary>Configure SATA as</summary>
 

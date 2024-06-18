@@ -1,6 +1,7 @@
 # TCG Feature Setup Settings #
 
-![](./img/ts_tcgfeaturesetup.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_tcgfeaturesetup.png)
 
 <details><summary>TCG Security Device State</summary>
 

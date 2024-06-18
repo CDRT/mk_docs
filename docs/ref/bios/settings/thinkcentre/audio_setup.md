@@ -1,6 +1,7 @@
 # Audio Setup #
 
-![](./img/tc_audio_setup.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_audio_setup.png)
 
 <details><summary>Onboard Audio Controller</summary>
 

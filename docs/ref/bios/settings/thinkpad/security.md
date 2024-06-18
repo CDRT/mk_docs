@@ -1,2 +1,3 @@
 # Security #
-![](./img/tp_security.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_security.png)

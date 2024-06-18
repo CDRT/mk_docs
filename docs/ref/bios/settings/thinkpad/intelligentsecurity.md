@@ -1,6 +1,7 @@
 # Intelligent Security #
 
-![](./img/tp_intelligentsecurity.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_intelligentsecurity.png)
 
 The Intelligent Security functions provide a convenient way to securely lock and unlock your computer by detecting your presence near the computer.
 

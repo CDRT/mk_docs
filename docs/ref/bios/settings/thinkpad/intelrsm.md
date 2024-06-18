@@ -1,5 +1,6 @@
 # Intel(R) Standard Manageability #
-![](./img/tp_intelrsm.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_intelrsm.png)
 
 <details><summary>Intel(R) Standard Manageability</summary>
 

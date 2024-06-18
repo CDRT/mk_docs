@@ -1,6 +1,7 @@
 # Intel(R) Thunderbolt #
 
-![](./img/tc_intel_r_thunderbolt.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_intel_r_thunderbolt.png)
 
 <details><summary>Intel Thunderbolt Technology</summary>
 

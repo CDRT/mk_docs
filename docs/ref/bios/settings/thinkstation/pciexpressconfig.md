@@ -1,6 +1,8 @@
 # PCI Express Configuration Settings #
-![](./img/ts_pciexpressconfig.png)
-<!--![](./img/pciexpressconfig.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_pciexpressconfig.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /pciexpressconfig.png)-->
 
 <details><summary>SR-IOV Support</summary>
 

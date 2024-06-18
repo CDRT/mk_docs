@@ -1,6 +1,7 @@
 # UEFI BIOS Update Option Settings #
 
-![](./img/tp_uefibiosupdate.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_uefibiosupdate.png)
 
 <details><summary>Flash BIOS Updating by End-Users</summary>
 

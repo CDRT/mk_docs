@@ -1,5 +1,6 @@
 # Internal Device Access Settings #
-![](./img/tp_internaldeviceaccess.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_internaldeviceaccess.png)
 
 <details><summary>Bottom Cover Tamper Detection</summary>
 

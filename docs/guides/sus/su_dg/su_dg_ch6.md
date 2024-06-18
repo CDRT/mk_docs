@@ -160,8 +160,6 @@ The following table and example provide the settings and values for the **Connec
 
 <div style="text-align:center;padding-bottom:40px;font-style: italic;">Table 7-3. \UserSettings\Connection</div>
 
-
-
 The following table and example provide the settings and values for the **General** key.
 
 |     Configurable Item                                                                                                                                                                                                                                                                                                                                                              |     Description                                                                                                                                                                                  |     Value                                                                                                                                                           |     Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -177,7 +175,6 @@ The following table and example provide the settings and values for the **Genera
 |     UNCMaxAttempts                                                                                                                                                                                                                                                                                                                                                                 |     Specifies the maximum number of tries  that System Update will attempt when  connecting to a network share folder  before it completely fails.                                               |     Default value: 2<br/><br/>     Possible values: Any valid integer                                                                                                         |     System Update will attempt the number of tries when connecting  to a network share folder.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                  
 
 <div style="text-align:center;padding-bottom:40px;font-style: italic;">Table 7-4. HKEY\_LOCAL\_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UserSettings\General</div>
-
 
 ### 6.1.5 Recommendations for Managed Environments
 
@@ -202,13 +199,9 @@ Thin Installer provides an XML file, **ThinInstaller.exe.configuration** , to co
 
 The default configuration is shown as follows:
 
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
+![ThinInstaller.exe.configuration](https://cdrt.github.io/mk_docs/img/guides/su/img7-1.png)
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img7-1.png)
-
-_Figure 7-1. ThinInstaller.exe.configuration file._
-</div>
-
+Figure 7-1. ThinInstaller.exe.configuration file.
 
 |     Configurable Item       |     Description                                                                                                                                                                                                                                                                                           |     Value                                                                                                               |     Action                                                                                                                                                                                                                                                                                                                                                                                                                      |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -224,3 +217,11 @@ _Figure 7-1. ThinInstaller.exe.configuration file._
 |     ContentMode             |     Refers to the status of the update packages.  Set the value depending on the status of  update packages in the repository.                                                                                                                                                                            |     Default value: Active<br/><br/>     Possible values:<br/> • Active<br/> • Test                                                          |     • If **Active**, Thin Installer will search the Update Retriever repository  for update packages in active status.<br/>      • If **Test**, Thin Installer will search  the Update Retriever repository for  update packages in test status.<br/><br/>       **Note**: If there is no database.xml file  in the Update Retriever repository folder,  Thin Installer will ignore the value of  ContentMode and search for all the update  packages.    |
 
 <div style="text-align:center;padding-bottom:40px;font-style: italic;">Table 7-5. Description of configurable items.</div>
+
+## 6.3 Update Retriever
+
+A common desire when working with Update Retriever is to store the local repository in a cloud storage solution to make it easier to reach by clients over the Internet. Azure Cloud Storage offers a couple of options that can be leveraged with Update Retriever.  These are documented in the following ThinkDeploy Blog articles:
+
+- [Hosting a repository in an Azure File Share](https://blog.lenovocdrt.com/hosting-a-repository-in-an-azure-file-share/)
+- [Hosting a repository in an Azure blob](https://blog.lenovocdrt.com/hosting-a-repository-in-an-azure-blob)
+    - [Revisiting Update Retriever and Azure blob storage](https://blog.lenovocdrt.com/revisiting-update-retriever-and-azure-blob-storage/)

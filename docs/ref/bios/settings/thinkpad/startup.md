@@ -2,7 +2,8 @@
 
 ### General ###
 
-![](./img/tp_startup.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_startup.png)
 
 <details><summary>Network Boot</summary>
 
@@ -100,7 +101,8 @@ Possible options:
 
 ### Boot ###
 
-![](./img/tp_boot.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_boot.png)
 
 <details><summary>Boot Priority Order</summary>
 

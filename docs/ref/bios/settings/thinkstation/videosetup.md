@@ -1,6 +1,6 @@
-# Video Setup Settings #
-![](./img/ts_videosetup.png)
-<!--![](./img/videosetup.png)-->
+# Video Setup Settings
+
+![Video Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/videosetup.png)
 
 <details><summary>Select Active Video</summary>
 
@@ -16,8 +16,8 @@ IGD (Internal Graphics Device)
 Options:
 
 1. **Auto** – Default. Prioritizes video devices as follows:<br>
-    a.	PEG<br>
-    b.	IGD<br>
+    a. PEG<br>
+    b. IGD<br>
 2. IGD – Internal Graphics Device will be used.
 3. PEG – PCI-e Graphics Device will be used.
 

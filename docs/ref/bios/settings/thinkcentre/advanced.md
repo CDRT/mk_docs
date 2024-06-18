@@ -1,6 +1,7 @@
 # Advanced #
 
-![](./img/tc_advanced.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_advanced.png)
 
 <details><summary>Intel(R) Total Memory Encryption</summary>
 

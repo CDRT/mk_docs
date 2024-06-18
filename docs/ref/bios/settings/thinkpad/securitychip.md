@@ -2,7 +2,8 @@
 
 ### General ###
 
-![](./img/tp_securitychip.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_securitychip.png)
 
 <details><summary>Security Chip Type</summary>
 
@@ -137,7 +138,8 @@ When set to ***Disabled*** or ***Enabled***, the setting cannot be changed witho
 
 ### Security Reporting Options ###
 
-![](./img/tp_securityreportingoptions.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_securityreportingoptions.png)
 
 Visible and active only if `Security Chip` is `Enabled`.
 

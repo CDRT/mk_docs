@@ -2,7 +2,8 @@
 
 ### General ###
 
-![](./img/tp_network.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_network.png)
 
 <details><summary>Wake On Lan</summary>
 
@@ -196,8 +197,10 @@ Possible options:
 
 ### WiFi Configuration ###
 
-![](./img/tp_wifi1.png)
-![](./img/tp_wifi2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_wifi1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_wifi2.png)
 
 !!! info ""
     All the settings in this group are not available via WMI.
@@ -232,7 +235,8 @@ Possible options:
 
 ### Wi-Fi Network List ###
 
-![](./img/tp_wifinetworklist.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_wifinetworklist.png)
 
 !!! info ""
      All the settings in this group are not available via WMI.
@@ -253,7 +257,8 @@ For each network the Security Type is shown.
 Each SSID can be selected to display more details.
 <details><summary>[SSID Value](Status)</summary>
 
-![](./img/tp_wifinetworkconfig.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_wifinetworkconfig.png)
 
 <details><summary>Connection Status</summary>
 
@@ -400,8 +405,10 @@ Possible actions:
 <br>
 
 ### Add Wi-Fi Network ###
-
-![](./img/tp_addwifinetwork.png)
+(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_addwifinetwork.png)
 
 !!! info ""
      All the settings in this group are not available via WMI.
@@ -535,7 +542,8 @@ This is the option to save changes and exits back to the Manage Wi-Fi network pa
 
 ### Manage Wi-Fi Network ###
 
-![](./img/tp_managewifilist.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_managewifilist.png)
 
 !!! info ""
      All the settings in this group are not available via WMI.
@@ -551,7 +559,8 @@ Every SSID on the list leads to details for this network.
 
 See descriptions below.
 
-![](./img/tp_managewificonfig.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_managewificonfig.png)
 
 <details><summary>SSID</summary>
 
@@ -706,7 +715,8 @@ View list of saved Wi-Fi networks.
 
 See descriptions below.
 
-![](./img/managewifipriority.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /managewifipriority.png)
 
 <details><summary>Priority List</summary>
 

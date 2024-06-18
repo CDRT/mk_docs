@@ -1,7 +1,9 @@
 # CPU Configuration #
 
-![](./img/ts_amd_cpuconfiguration.png)
-![](./img/ts_amd_cpuconfiguration2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_cpuconfiguration.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_cpuconfiguration2.png)
 
 ### Processor ID ###
 

@@ -1,6 +1,7 @@
 # Computrace #
 
-![](./img/tc_computrace.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_computrace.png)
 
 <details><summary>Absolute Persistence Module</summary>
 

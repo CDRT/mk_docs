@@ -1,6 +1,7 @@
 # Automatic Power On #
 
-![](./img/tc_automatic_power_on.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_automatic_power_on.png)
 
 <details><summary>Wake on LAN</summary>
 
@@ -138,7 +139,8 @@ Options:
 
 ## User Defined Alarm ##
 
-![](./img/tc_user_defined_alarm.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_user_defined_alarm.png)
 
 Select the day(s) of the week when the system is to wake up. Each {Weekday} (Sunday to Saturday) has its own setting.
 

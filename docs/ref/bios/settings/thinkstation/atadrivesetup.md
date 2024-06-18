@@ -1,6 +1,9 @@
 # ATA Drive Setup Settings #
-![](./img/ts_atadrivesetup.png)
-<!--![](./img/atadrivesetup.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   vesetup.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /atadrivesetup.png)-->
 
 !!! info ""
     The number of ATA drives may vary depending on model.
@@ -88,9 +91,12 @@ Depending on how the hard disk image was installed, changing the setting may pre
 </details>
 
 ### Intel(R) Rapid Storage Technology ###
-
-
-![](./img/intelrapidstoragetechnology.png)
+(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   
+(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /intelrapidstoragetechnology.png)
 
 !!! info ""
     Only appears when the item `Configure SATA as` is set to `Intel(R) RST with Intel(R) Optane`

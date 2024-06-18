@@ -1,6 +1,7 @@
 # Keyboard/Mouse Settings #
 
-![](./img/tp_keyboardmouse.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_keyboardmouse.png)
 
 <details><summary>TrackPoint</summary>
 

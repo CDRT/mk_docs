@@ -1,5 +1,6 @@
 # ThinkShield Passwordless Power-On #
-![](./img/tp_thinkshieldpasswordless.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_thinkshieldpasswordless.png)
 
 <details><summary>ThinkShield Passwordless Power-On</summary>
 

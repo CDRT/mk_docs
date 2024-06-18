@@ -1,6 +1,7 @@
 # Display Settings #
 
-![](./img/tp_display.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_display.png)
 
 <details><summary>Boot Display Device</summary>
 

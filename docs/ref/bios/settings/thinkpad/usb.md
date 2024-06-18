@@ -1,6 +1,7 @@
 # USB Settings #
 
-![](./img/tp_usb.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_usb.png)
 
 <details><summary>Always on USB</summary>
 

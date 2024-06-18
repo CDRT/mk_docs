@@ -1,7 +1,9 @@
 # PCI Express Setup #
 
-![](./img/ts_pciexpresssetup.png)
-<!--![](./img/ts_pciexpresssetup_p3twr.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_pciexpresssetup.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_pciexpresssetup_p3twr.png)-->
 
 <details><summary>SR-IOV Support</summary>
 If system has SR-IOV capable PCIe Devices, this option Enables

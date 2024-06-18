@@ -2,7 +2,8 @@
 
 ### General ###
 
-![](./img/tp_secureboot.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_secureboot.png)
 
 <details><summary>Secure Boot</summary>
 
@@ -115,7 +116,8 @@ Options:
 
 ### Key Management ###
 
-![](./img/securebootkeysmanagement.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /securebootkeysmanagement.png)
 
 <details><summary>Platform Key (PK)</summary>
 

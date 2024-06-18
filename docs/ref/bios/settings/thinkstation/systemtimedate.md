@@ -1,6 +1,8 @@
 # System Time and Date #
-![](./img/ts_systemtimedate.png)
-<!--![](./img/systemtimedate.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_systemtimedate.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /systemtimedate.png)-->
 
 <details><summary>System Time</summary>
 

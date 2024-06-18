@@ -1,7 +1,9 @@
 # PCIe Configuration #
 
-![](./img/ts_amd_pcieconfiguration.png)
-<!--![](./img/amd_pcieconfiguration.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_pcieconfiguration.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /amd_pcieconfiguration.png)-->
 
 <details><summary>Above 4G Decoding</summary>
 
@@ -107,7 +109,8 @@ Options:
 
 ### PCIe Slot{X} Status ###
 
-![](./img/ts_pcieslotstatus.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_pcieslotstatus.png)
 
 <details><summary>PCIe Port</summary>
 
@@ -177,7 +180,8 @@ Options:
 
 ### M.2 Slot{Y} Status ###
 
-![](./img/ts_amd_m2slot1status.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_m2slot1status.png)
 
 <details><summary>M.2 Port</summary>
 

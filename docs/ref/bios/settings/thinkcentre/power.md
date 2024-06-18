@@ -1,6 +1,7 @@
 # Power #
 
-![](./img/tc_power.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_power.png)
 
 <details><summary>After Power Loss</summary>
 

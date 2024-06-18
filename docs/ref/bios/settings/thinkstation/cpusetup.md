@@ -1,10 +1,17 @@
 # CPU Setup - Intel (R) #
-![](./img/ts_cpusetup.png)
-![](./img/ts_cpusetup2.png)
-<!--![](./img/cpusetup.png)
-I think these are amd> 
-![](./img/ts_amd_cpusetup.png)
-![](./img/ts_amd_cpusetup2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_cpusetup.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_cpusetup2.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /cpusetup.png)
+I t(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   hese are amd> 
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   d_cpusetup.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_cpusetup2.png)
 -->
 
 <details><summary>Intel(R) Speed Shift Technology</summary>

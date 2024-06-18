@@ -1,6 +1,7 @@
 # Hard Disk Password #
 
-![](./img/tc_hard_disk_password.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_hard_disk_password.png)
 
 <!-- MODEL: M70s disabled, M70q, M90 s & q enter -->
 
@@ -84,4 +85,5 @@ Options:
 
 ### Security Erase HDD Data ###
 
-![](./img/tc_security_erase_hdd_data.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_security_erase_hdd_data.png)

@@ -1,6 +1,7 @@
 # Startup
 
-![](./img/tc_startup.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_startup.png)
 
 <details><summary>First Boot Device</summary>
 
@@ -109,4 +110,5 @@ Options:
 </details>
 
 
-![](./img/tc_startup_2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_startup_2.png)

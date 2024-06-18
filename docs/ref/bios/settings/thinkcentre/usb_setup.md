@@ -1,6 +1,7 @@
 # USB Setup #
 
-![](./img/tc_usb_setup.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_usb_setup.png)
 
 <details><summary>USB Port Access</summary>
 

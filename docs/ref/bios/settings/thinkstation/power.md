@@ -1,6 +1,7 @@
 # Power Settings #
 
-![](./img/power.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /power.png)
 
 <details><summary>After Power Loss</summary>
 
@@ -56,7 +57,8 @@ Options:
 
 Lenovo's unique system thermal management solution. 
 
-![](./img/intelligentcooling.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /intelligentcooling.png)
 
 <details><summary>Performance Mode</summary>
 
@@ -73,7 +75,8 @@ Options:
 
 ### AMD-only features ###
 
-![](./img/ts_amd_power.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_power.png)
 
 <!-- <details><summary>PSU Over load Warning</summary>
 

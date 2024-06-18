@@ -1,5 +1,6 @@
 # Memory Configuration #
-![](./img/ts_memconfig_px1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_memconfig_px1.png)
 
 <details><summary>MRC Promote Warnings</summary>
 Determines if MRC warnings are promoted to system Level.
@@ -29,7 +30,10 @@ Options:
 </details>
 
 ### Memory Topology ###
+(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_memtopologysnip.jpg)
 
-![](./img/ts_memtopologysnip.jpg)
-
-<!--![](./img/ts_memtopology.png)-->
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_memtopology.png)-->

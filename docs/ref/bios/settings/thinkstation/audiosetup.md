@@ -1,8 +1,11 @@
 # Audio Setup Settings #
 
 ### Intel version ###
-![](./img/ts_audiosetup.png)
-<!--![](./img/audiosetup.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   etup.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /audiosetup.png)-->
 
 <details><summary>Onboard Audio Controller</summary>
 
@@ -40,9 +43,11 @@ Options:
 
 </details>
 
-### AMD version ###
+###(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   ersion ###
 
-![](./img/ts_amd_audiosetup.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_audiosetup.png)
 
 <details><summary>Front Audio Controller</summary>
 

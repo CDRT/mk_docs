@@ -6,7 +6,7 @@ This section will provide an overview of how System Update can be used to instal
 
 Once System Update has been installed, the tool is ready to run. When launching System Update for the first time, the Welcome tab information will appear, giving the user a brief overview of how the tool can be used. Once the user clicks  **Next** , in the bottom left hand corner on the welcome page, System Update will automatically start searching for updates on the system. Of course, the administrator can make changes in group policy to alter how system update searches for updates, this is just the generic way of how System Update will run. Once the tool has finished searching for updates, it will prompt the user with a License notice. The License agreement notice is for all future package downloads and will not be shown again. The user must agree to proceed with the download and installation. Once the tool searches for updates, the update packages will be displayed in three different severity categories; Critical, Recommended, and optional.
 
-![System Update](../../../../img/guides/su/img3-1.png)
+![System Update](https://cdrt.github.io/mk_docs/img/guides/su/img3-1.png)
 
 _Figure 3-1. Systems Update Welcome Interface._
 

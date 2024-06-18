@@ -1,6 +1,7 @@
 # HDMI Configuration #
 
-![](./img/tp_hdmi.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_hdmi.png)
 
 Available only on certain models.
 

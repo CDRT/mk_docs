@@ -1,6 +1,7 @@
 # Boot Priority Order #
 
-![](./img/ts_bootpriorityorder.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_bootpriorityorder.png)
 
 <details><summary>UEFI Boot Options</summary>
 

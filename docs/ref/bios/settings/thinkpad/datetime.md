@@ -1,5 +1,6 @@
 # Date\Time #
-![](./img/tp_datetime.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_datetime.png)
 
 <details><summary>System Date</summary>
 

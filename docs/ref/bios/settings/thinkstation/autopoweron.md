@@ -2,7 +2,8 @@
 
 ### General ###
 
-![](./img/autopoweron.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /autopoweron.png)
 
 <details><summary>Wake on LAN</summary>
 
@@ -127,8 +128,10 @@ Options:
 | AlarmDayofWeek | Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday | yes | Both |
 </details>
 
-### User Defined Alarm ###
-![](./img/ts_userdefinedalarm.png)
+###(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   Defined Alarm ###
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_userdefinedalarm.png)
 
 Settings per {Weekday}.
 

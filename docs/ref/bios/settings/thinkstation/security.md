@@ -1,12 +1,18 @@
 # Security #
 
-![](./img/ts_security_1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_security_1.png)
 
-<!--![](./img/ts_security1.png)
-![](./img/ts_security2.png)
-![](./img/ts_security3.png)
-![](./img/ts_security4.png)
-![](./img/security.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_security1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_security2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_security3.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_security4.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /security.png)
 -->
 <details><summary>Supervisor Password</summary>
 
@@ -162,7 +168,8 @@ Settings for Absolute Persistence Module.
 !!! info ""
     Absolute(c) is a service designed to help track devices and provide recovery services in the event a device is lost or stolen. Once installed, the Absolute agent communicates with the Absolute Monitoring Center and programmed intervals to provide the tracking service. By installing the agent and activating the service, you consent to the transmission of information between your device and the Absolute Monitoring Center. For customers who have purchased the Absolute service, the firmware Persistence Module checks for the presence and health of Absolute on boot, and restores the functionality in case of agent removal or tampering. Absolute and Persistence are registered trademarks of Absolute Software Corporation.
 
-![](./img/ts_computrace.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_computrace.png)
 
 <details><summary>Absolute Persistence Version</summary>
 
@@ -277,8 +284,10 @@ settings.
 </details>
 
 
-<!--![](./img/ts_amd_security.png)
-![](./img/ts_amd_security2.png)-->
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_security.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_security2.png)-->
 
 <details><summary>Set Password Encryption Algorithm</summary>
 
@@ -566,7 +575,8 @@ Options:
 
 Not supported on P620
 
-![](./img/amd_fingerprintsetup.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /amd_fingerprintsetup.png)
 
 <details><summary>Preboot Authentication</summary>
 

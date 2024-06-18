@@ -1,12 +1,20 @@
 # Storage Setup #
-![](./img/ts_storagesetup_p3twr1.png)
-<!--![](./img/ts_storagesetup_p3twr2.png)
-![](./img/ts_storagesetup_px1.png)
-![](./img/ts_storagesetup_px2.png)
-![](./img/ts_storagesetup_p3twr_1.png)
-![](./img/ts_storagesetup_p3twr_2.png)
-![](./img/ts_storagesetup_px_1.png)
-![](./img/ts_storagesetup_px_2.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_storagesetup_p3twr1.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_storagesetup_p3twr2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_storagesetup_px1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_storagesetup_px2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_storagesetup_p3twr_1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_storagesetup_p3twr_2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_storagesetup_px_1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_storagesetup_px_2.png)-->
 
 
 
@@ -100,7 +108,8 @@ this setting may prevent the system from booting.
 
 </details>
 
-![](./img/ts_storagesetup_px_2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_storagesetup_px_2.png)
 
 <details><summary>Configure SATA as</summary>
 
@@ -146,9 +155,12 @@ Options:
 
 <!--
 ### Intel(R) VMD Technology ###
-![](./img/ts_intelvmd_1.png)
-![](./img/ts_intelvmd_2.png)
-![](./img/ts_intelvmd_3.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_intelvmd_1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_intelvmd_2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_intelvmd_3.png)
 
 Enable the VMD(Volume Management Device) technology to 
 support configure PCIe storages to VROC(Virtual RAID on 

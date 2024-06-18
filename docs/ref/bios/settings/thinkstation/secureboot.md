@@ -2,7 +2,8 @@
 
 ### General ###
 
-![](./img/ts_secureboot.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_secureboot.png)
 
 <details><summary>System Mode</summary>
 
@@ -97,7 +98,8 @@ Boot DB.
 
 
 ### Key Management ###
-![](./img/securebootkeysmanagement.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /securebootkeysmanagement.png)
 
 <details><summary>Platform Key (PK)</summary>
 

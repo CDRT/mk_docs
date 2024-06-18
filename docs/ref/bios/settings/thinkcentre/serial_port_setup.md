@@ -1,6 +1,7 @@
 # Serial Port Setup #
 
-![](./img/tC_serial_port_setup.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tC_serial_port_setup.png)
 
 <details><summary>Serial Port 1 Address</summary>
 

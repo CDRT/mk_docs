@@ -1,6 +1,9 @@
 # BMC Setup #
-<!--![](./img/ts_bmcsetup.png)-->
-![](./img/ts_bmcsetup1.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   csetup.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_bmcsetup1.png)
 
 <details><summary>BMC Card Support</summary>
 

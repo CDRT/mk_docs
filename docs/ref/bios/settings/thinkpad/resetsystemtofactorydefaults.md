@@ -1,6 +1,7 @@
 # Reset System to Factory Defaults
 
-![](./img/tp_resetsystemtofactorydefaults.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_resetsystemtofactorydefaults.png)
 
 This option was introduced in 2023 products and is different than the Load Setup Defaults or Load Factory Defaults option found under Restart.
 

@@ -1,7 +1,8 @@
 # Password Policies #
 
 
-![](./img/tc_password_policies.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_password_policies.png)
 
  - [More information at Lenovo Support - types of password](https://support.lenovo.com/us/en/solutions/ht513634)
  - [More information at Lenovo Support - password manager](https://support.lenovo.com/us/en/solutions/ht103666-introduction-to-password-manager-thinkpad-thinkcentre-thinkstation)

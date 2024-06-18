@@ -1,5 +1,6 @@
 # Main #
-![](./img/tc_main.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_main.png)
 
 <details><summary>Language</summary>
 

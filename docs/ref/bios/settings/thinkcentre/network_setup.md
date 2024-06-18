@@ -1,6 +1,7 @@
 # Network Setup #
 
-![](./img/tc_network_setup_1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_network_setup_1.png)
 
 <details><summary>Onboard Ethernet Controller</summary>
 
@@ -156,7 +157,8 @@ Options:
 
 ## HTTPs Boot Configuration  ##
 
-![](./img/thinkcentre_https_boot_configuration.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /thinkcentre_https_boot_configuration.png)
 
 Create a new boot option based on a HTTPS URL.
 
@@ -205,7 +207,8 @@ Options:
 ## TLS Auth Configuration ##
 
 
-![](./img/thinkcentre_tls_auth_configuration.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /thinkcentre_tls_auth_configuration.png)
 
 
 Server CA configuration (display only).
@@ -215,7 +218,8 @@ Server CA configuration (display only).
 
 ## WiFi Configuration ##
 
-![](./img/tC_wifi_config.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tC_wifi_config.png)
 
 <details><summary>Automatic Connection Support</summary>
 

@@ -1,10 +1,12 @@
 # System Event Log Settings #
 
-![](./img/ts_systemeventlog.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_systemeventlog.png)
 
 <details><summary>View System Event Log</summary>
 
-![](./img/ts_viewsystemeventlog.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_viewsystemeventlog.png)
 
 View only.
 

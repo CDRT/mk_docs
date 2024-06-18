@@ -1,6 +1,9 @@
 # NVMe Setup #
-![](./img/ts_nvme.png)
-<!--![](./img/amd_nvme.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   ng)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /amd_nvme.png)-->
 
 <details><summary>NVMe RAID Mode</summary>
 

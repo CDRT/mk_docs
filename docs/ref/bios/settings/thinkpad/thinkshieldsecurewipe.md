@@ -1,5 +1,6 @@
 # ThinkShield Secure Wipe Settings #
-![](./img/tp_thinkshieldsecurewipe.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_thinkshieldsecurewipe.png)
 
 <details><summary>ThinkShield Secure Wipe in AppMenu</summary>
 
@@ -67,4 +68,5 @@ Users will be able to scan a QR code to retrieve the Secure Wipe Certificate tha
 - Storage Device information
 - Erase information 
 
-![](./img/thinkshieldsecurewipeEx.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /thinkshieldsecurewipeEx.png)

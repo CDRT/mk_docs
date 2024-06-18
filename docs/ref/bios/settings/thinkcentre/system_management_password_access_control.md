@@ -1,6 +1,7 @@
 # System Management Password Access Control
 
-![](./img/tc_smp_access_control.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_smp_access_control.png)
 
 <details><summary>Access Security Settings</summary>
 

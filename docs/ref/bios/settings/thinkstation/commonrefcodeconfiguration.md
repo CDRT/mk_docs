@@ -1,6 +1,7 @@
 # Common RefCode Configuration #
 
-![](./img/ts_amd_commonrefcodeconfiguration.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_commonrefcodeconfiguration.png)
 
 <details><summary>MMIO Above 4G Limit</summary>
 

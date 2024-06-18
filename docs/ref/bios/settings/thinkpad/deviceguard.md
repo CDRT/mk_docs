@@ -1,5 +1,6 @@
 # Device Guard Settings #
-![](./img/tp_deviceguard.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_deviceguard.png)
 
 <details><summary>Device Guard</summary>
 

@@ -1,6 +1,7 @@
 # Intelligent Cooling #
 
-![](./img/tc_intelligent_cooling.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_intelligent_cooling.png)
 
 <details><summary>Performance Mode</summary>
 

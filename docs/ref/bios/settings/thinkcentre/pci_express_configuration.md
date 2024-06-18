@@ -1,6 +1,7 @@
 # PCI Express Configuration #
 
-![](./img/tc_pci_express_config.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
+   /tc_pci_express_config.png)
 
 Peripheral Component Interconnect (PCI) Express configuration.
 

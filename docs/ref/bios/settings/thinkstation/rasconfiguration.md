@@ -1,5 +1,6 @@
 # RAS Configuration #
-![](./img/ts_amd_rasconfiguration.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_rasconfiguration.png)
 
 <details><summary>Post Package Repair (PPR)</summary>
 

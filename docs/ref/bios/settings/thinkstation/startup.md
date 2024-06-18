@@ -1,7 +1,9 @@
 # Startup #
 
-![](./img/ts_startup.png)
-<!--![](./img/startup.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_startup.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /startup.png)-->
 
 <details><summary>First Boot Device</summary>
 

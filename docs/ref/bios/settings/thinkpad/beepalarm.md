@@ -1,5 +1,6 @@
 # Beep and Alarm Settings #
-![](./img/tp_beepalarm.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_beepalarm.png)
 
 <details><summary>Password Beep</summary>
 

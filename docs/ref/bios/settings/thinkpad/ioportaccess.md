@@ -1,6 +1,7 @@
 # I/O Port Access Settings #
 
-![](./img/tp_ioportaccess.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_ioportaccess.png)
 
 <details><summary>Ethernet LAN</summary>
 

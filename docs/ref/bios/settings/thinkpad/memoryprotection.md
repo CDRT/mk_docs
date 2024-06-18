@@ -1,6 +1,7 @@
 # Memory Protection Settings #
 
-![](./img/tp_memoryprotection.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_memoryprotection.png)
 
 <details><summary>Execution Prevention</summary>
 

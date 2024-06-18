@@ -1,7 +1,14 @@
 # Devices #
-![](./img/ts_devices.png)
-<!--![](./img/ts_devices_pciesetup_px.png)
-![](./img/ts_devices_pciexpress_p3twr.png)![](./img/devices.png) -->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   vices_pciesetup_px.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_devices_pciexpress_p3twr.png)![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /devices.png) -->
 
 <details><summary>Card Reader</summary>
 

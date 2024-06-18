@@ -1,6 +1,8 @@
 # Parallel Port Setup Settings #
-![](./img/ts_parallelportsetup.png)
-<!--![](./img/parallelportsetup.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_parallelportsetup.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /parallelportsetup.png)-->
 
 <details><summary>Parallel Port Address</summary>
 

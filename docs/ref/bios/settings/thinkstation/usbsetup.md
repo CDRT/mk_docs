@@ -1,13 +1,19 @@
 # USB Setup Settings #
-![](./img/ts_usbsetup.png)
-<!--![](./img/usbsetup.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_usbsetup.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /usbsetup.png)-->
 
 <details><summary>AMD version of USB Setup</summary>
 
-<!--![](./img/amd_usbsetup.png)-->
-![](./img/ts_amd_usbsetup1.png)
-![](./img/ts_amd_usbsetup2.png)
-<!--![](./img/ts_amd_usbsetup3.png)-->
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /amd_usbsetup.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_usbsetup1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_usbsetup2.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amd_usbsetup3.png)-->
 
 </details>
 

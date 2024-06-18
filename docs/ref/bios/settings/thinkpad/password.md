@@ -2,7 +2,8 @@
 
 ### General ###
 
-![](./img/tp_password.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_password.png)
 
 The [Types of Passwords](/bios/settings/thinkpad/password?id=types-of-passwords) section describes the different passwords' behaviors.
 
@@ -283,7 +284,8 @@ Possible options:
 
 ### System Management Password Access Control ###
 
-![](./img/tp_smpaccesscontrol.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+   /tp_smpaccesscontrol.png)
 
 <details><summary>System Management Password Control</summary>
 

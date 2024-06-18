@@ -4,11 +4,17 @@
 <details><summary>Advanced - Intel version</summary>
 
 
-![](./img/ts_advanced_p3twr1.png)
-<!-- ![](./img/ts_advanced_px1.png)
-![](./img/ts_advanced_px.png)
-![](./img/ts_advanced_p3twr.png)
-![](./img/advanced.png)-->
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_advanced_p3twr1.png)
+<!-- ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_advanced_px1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_advanced_px.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   vanced_p3twr.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /advanced.png)-->
 
 <details><summary>WHEA Support</summary>
 Enable or Disable Windows Hardware Error Architechture.
@@ -101,10 +107,14 @@ Options:
 </details>
 </details>
 
-<details><summary>Advanced - AMD version</summary>
-
-![](./img/ts_amdadvanced.png)
-<!--![](./img/amd_advanced.png)-->
+<de(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   <summary>Advanced - AMD version</summary>
+(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /ts_amdadvanced.png)
+<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
+   /amd_advanced.png)-->
 
 <!-- !!! info ""
     Please see sidebar for Advnaced AMD Settings
