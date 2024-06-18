@@ -4,7 +4,8 @@
 
 System Update can be configured directly by modifying registry values. It may also be configured through Group Policy.
 
-!> To edit registry configurations, exit System Update. If System Update is running while changes are made in the registry, the old registry entries will be recovered.
+!!! info ""
+    To edit registry configurations, exit System Update. If System Update is running while changes are made in the registry, the old registry entries will be recovered.
 
 The following table lists the configurable and modifiable items for System Update and their registry locations, after the first launch of System Update.
 
@@ -60,13 +61,15 @@ To add the ADMX file and customize the settings, do the following:
 
     This will extract the System Update ADMX file into the ```C:\SWTOOLS\TOOLS\Admin\ ```	folder.
 
-   ?>If using an ADMX file and the Group Policy Editor to set policy settings, make sure that you are using the ADMX file released specifically for each application. For example, if customizing policies for System Update, you must use the ADMX file designed for System Update.
+   !!! info ""
+   If using an ADMX file and the Group Policy Editor to set policy settings, make sure that you are using the ADMX file released specifically for each application. For example, if customizing policies for System Update, you must use the ADMX file designed for System Update.
 
    2. On your server, launch Active Directory.
    3. Click **servername.com** and then click **Properties**.
    4. On the **Group Policy** tab, highlight New **Group Policy Object** and click **Edit.**
 
-   ?>You can also type _gpedit.msc_ in the **Open** or **Start Search** box to launch the Group Policy Editor.
+   !!! info ""
+   You can also type _gpedit.msc_ in the **Open** or **Start Search** box to launch the Group Policy Editor.
 
    5. Copy the ADMX file (tvsu.admx) located in the ```C:\SWTOOLS\TOOLS\Admin\ ``` folder and paste the file to ```\\\<domain\>\SYSVOL\\<domain\>\Policies\PolicyDefinitions ``` folder.
 
@@ -82,7 +85,8 @@ To add the ADMX file and customize the settings, do the following:
 ```
    7. The **ThinkVantage** tab is created under the Administrative Templates folder.
 
-   ?>Under the **ThinkVantage** tab, there is a **System Update** tab. If you do not see the applicable policy, make sure that your Group Policy Editor is set to display all policy settings.
+   !!! info ""
+   Under the **ThinkVantage** tab, there is a **System Update** tab. If you do not see the applicable policy, make sure that your Group Policy Editor is set to display all policy settings.
 
    8. Navigate the Group Policy Editor to the following location:
 

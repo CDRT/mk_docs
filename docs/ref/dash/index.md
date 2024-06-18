@@ -28,7 +28,8 @@ Operating Systems
 
 **AMC** (AMD Management Console) requires a minimum of 1 GB Disk space and 4 GB RAM. It supports DASH 1.2.
 
-?>If you have AMC already installed, you will first have to uninstall that version before installing the latest version of AMC.
+!!! info ""
+   If you have AMC already installed, you will first have to uninstall that version before installing the latest version of AMC.
 
 Lenovo AMD ThinkPad and ThinkCentre models support management via DASH and ethernet utilizing AMD Management Console, the DASH CLI, or the AMPS Management Plug-in for SCCM (more than 500 clients). These applications all use the Realtek DASH Controller.
 
@@ -46,7 +47,8 @@ This chapter provides the installation instructions and requirements for AMC.
 
 Use the _AMC-setup-[version]-AMD.exe_ to install AMC. Detailed instructions and release notes can be found in the installation directory, which by default is _C:\Program Files (x86)\AMD Management Console\docs_.
 
-?>If you have an old AMC version installed, you first must uninstall that version before installing the latest version of AMC.
+!!! info ""
+   If you have an old AMC version installed, you first must uninstall that version before installing the latest version of AMC.
 
 ### Authentication
 
@@ -72,7 +74,8 @@ Prerequisites:
 - Windows DASH client software
 - The latest DASH console tool, which can be found [here.](https://developer.amd.com/tools-for-dmtf-dash/)
 
-?>DashConfig, an AMD tool, is packaged with AMC and can be used for configuration. Refer the release notes of DASH Config tool or see [Provisioning tools for DASH standalone systems](https://community.amd.com/t5/amd-manageability-community-tkb/provisioning-tools-for-dash-standalone-systems/ta-p/420927)
+!!! info ""
+   DashConfig, an AMD tool, is packaged with AMC and can be used for configuration. Refer the release notes of DASH Config tool or see [Provisioning tools for DASH standalone systems](https://community.amd.com/t5/amd-manageability-community-tkb/provisioning-tools-for-dash-standalone-systems/ta-p/420927)
 
 Two different DashConfig tools are available: DashConfig for Broadcom and DashConfigRT for Realtek. All Lenovo systems will require the DASHConfigRT tool.
 
@@ -92,7 +95,8 @@ It is recommended to check that the most recent BIOS has been applied to the sys
 
  3. **RealTek LAN Controller** - Reset the DASH Credentials under RealManage Setup. These credentials are used for Digest Authentication of the management service to the client.  You may need to scroll down to see **Realtek Manage Setup**.
 
-  ?>The default credentials are Administrator/Realtek. *Both* username and password are case sensitive.
+  !!! info ""
+   The default credentials are Administrator/Realtek. *Both* username and password are case sensitive.
 
    ![RealManage Setup](https://cdrt.github.io/mk_docs/img/dash/6-dash.png)
 
@@ -123,7 +127,8 @@ AMC supports the following DASH functionality :
 - Firmware Update
 - Alerts
 
-?>Before performing a discovery operation, make sure that the authentication details are correct. Refer to [Authentication](#Authentication).
+!!! info ""
+   Before performing a discovery operation, make sure that the authentication details are correct. Refer to [Authentication](#Authentication).
 
 ## Discovery
 
@@ -131,7 +136,8 @@ AMC can only discover systems that have hardware which supports the DMTF managem
 
 AMC supports four methods of discovery, which are described below.
 
-?>Discovery requests are queued. If a user chooses Active Directory discovery, then tries to do any of the other types of discovery, the other  discovery will be done after Active Directory discovery completes.
+!!! info ""
+   Discovery requests are queued. If a user chooses Active Directory discovery, then tries to do any of the other types of discovery, the other  discovery will be done after Active Directory discovery completes.
 
  ![Discovery criteria window](https://cdrt.github.io/mk_docs/img/dash/9-dash.png)
 
@@ -159,7 +165,8 @@ AMC can be used to monitor, report, and manage the power state of client systems
 
 The table below lists all supported power states.
 
-?>All the power state transitions cannot be requested remotely. The subset of the below list will be visible to the user based on the target computer system&#39;s capabilities.
+!!! info ""
+   All the power state transitions cannot be requested remotely. The subset of the below list will be visible to the user based on the target computer system&#39;s capabilities.
 
 | **Power State** | **State Number** | **Friendly Name** | **Description** | **Corresponding ACPI State** |
 | --- | --- | --- | --- | --- |
@@ -295,7 +302,8 @@ To boot to BIOS:
 
 After the managed system boots to BIOS setup screen and the VNC server is ready, VNC viewer is launched.
 
-?>When the VNC Viewer is closed, the managed system is rebooted.
+!!! info ""
+   When the VNC Viewer is closed, the managed system is rebooted.
 
 ### Remote Access
 
@@ -309,13 +317,15 @@ To use In-band KVM feature, ensure the relevant Windows driver package released 
 
 **DASHConfigRT** is an AMD tool packaged with **AMC**, used to script DASH configuration. The instructions and tool will be in the installation folder, which by default is _C:\Program Files (x86)\AMD Management Console\DASHConfigRT._
 
-?> _DASHConfigRT.exe_ is the Realtek-specific version of this tool. The name &quot;DASHConfig&quot; is commonly used to reference the tool regardless of version.
+!!! info ""
+    _DASHConfigRT.exe_ is the Realtek-specific version of this tool. The name &quot;DASHConfig&quot; is commonly used to reference the tool regardless of version.
 
 ### How DASHConfigRT works
 
 **DASHConfigRT** interacts with Windows Management Instrumentation, or WMI. The management agent talks to the DASH firmware and configures the changes provided by the IT administrator in an XML file.
 
-?>User must provide the configuration inputs in the XML file
+!!! info ""
+   User must provide the configuration inputs in the XML file
 
 ### Tasks Supported in DASHConfigRT Tool
 
@@ -343,7 +353,8 @@ DASHConfig provides six case-sensitive parameters ( â€“v, -xf, -dxf, -mif and â€
 
 ### Example Config.xml
 
-        <?xml version="1.0" encoding="utf-8"?>
+        <?xml version="1.0" encoding="utf-8"!!! info ""
+   
         <DASHPROVISIONSETTINGS>
           <MANAGEMENTTARGET>
           <GLOBAL>
@@ -386,7 +397,8 @@ DASHConfig provides six case-sensitive parameters ( â€“v, -xf, -dxf, -mif and â€
 | \<ACTIVEDIRECTORY\_GROUP\> | Required, if the \<ACTIVEDIRECTORY\_GROUPS\> node is included in the XML provisioning file. |
 | \<GROUPNAME\> | Necessary if any Active Directory group(s) are to be provisioned on the management target. |
 | \<OBJECTSID\> | Security descriptor string in the standard string representation (S-R-I-S-S) for the Active Directory User Group defined by the \<GROUPNAME\> node. |
-| \<ROLES\> | Defines the role(s) (privileges) given to the associated Active Directory group. Up to 3 roles can be defined for a particular Active Directory group. ?> The individual DASH roles can only be associated to a single Active Directory group. |
+| \<ROLES\> | Defines the role(s) (privileges) given to the associated Active Directory group. Up to 3 roles can be defined for a particular Active Directory group. !!! info ""
+    The individual DASH roles can only be associated to a single Active Directory group. |
 | \<ROLE\> |  Required. Currently there are only 3 acceptable values: Administrator Role, Operator Role and Read Only Role. Administrators have full control over the management target and its settings. Operators can invoke operational methods. |
 
 ## Health
@@ -408,7 +420,8 @@ AMC collects and displays sensors of managed computer systems. Administrators ca
 
 ### Subscribe/ Unsubscribe to Alerts
 
-?>The port used for alerts should be configured during AMPS installation.**
+!!! info ""
+   The port used for alerts should be configured during AMPS installation.**
 
 The types of alerts are platform, boot progress and lifecycle events such as temperature alerts, fan failure, chassis intrusion, and BIOS boot failure. AMC shows available alerts that the managed system can send and available alerts that the managed system is already subscribed to.
 
@@ -481,7 +494,8 @@ You can deploy AMPS in three possible scenarios:
 
 3. AMPS with CAS (Central Administration Site): Here, the IT infrastructure will have CAS and one or more primary sites, along with optional secondary sites.
 
-?>The DASH Plug-in help file provides detailed information on support for role-based authorization in DASH Plug-in. The default location for the help file and other supporting material is located at _C:\Program Files (x86)\AMD Management Plugin for SCCM\doc_
+!!! info ""
+   The DASH Plug-in help file provides detailed information on support for role-based authorization in DASH Plug-in. The default location for the help file and other supporting material is located at _C:\Program Files (x86)\AMD Management Plugin for SCCM\doc_
 
 ## Installing/Upgrading AMPS
 
@@ -528,7 +542,8 @@ Select the **servicePrincipalName** attribute item, click **Edit** and add two v
 
 ![SPN user account attribute](https://cdrt.github.io/mk_docs/img/dash/22-dash.png)
 
-?>For a large group of DASH systems, it is faster to use the SETSPN utility in a script or batch file:
+!!! info ""
+   For a large group of DASH systems, it is faster to use the SETSPN utility in a script or batch file:
 
 When using the [Setspn](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)#:~:text=To%20reset%20the%20default%20SPN%20values%2C%20use%20the,You%20receive%20confirmation%20if%20the%20reset%20is%20successful.) utility use the following two command lines for each client:
 
@@ -569,7 +584,8 @@ Also add the domain user accounts that require access to the DASH Systems to the
 - OBJECTSID 
 
 #### Example Config.xml
-        <?xml version="1.0" encoding="utf-8"?>
+        <?xml version="1.0" encoding="utf-8"!!! info ""
+   
         <DASHPROVISIONSETTINGS>
           <MANAGEMENTTARGET>
           <GLOBAL>
@@ -639,7 +655,8 @@ To configure Active Directory authentication using Configuration Manager console
 ## Management and Transport Ports
 AMPS can communicate with the managed DASH computer systems on either HTTP or HTTPS.
 
-?>The default port for HTTP is 623 and HTTPS is 664.
+!!! info ""
+   The default port for HTTP is 623 and HTTPS is 664.
 
 ###  Alerts Event Port
 
@@ -694,7 +711,8 @@ The steps to create the software package are as follows:
 - Run: Normal
 - Run with Administrative Rights
 
-?>For details of all the command options refer to the **DASHConfigRTguide.pdf** located at _C:\Program Files (x86)\AMD Management Plugin for SCCM\DASHConfigRT_
+!!! info ""
+   For details of all the command options refer to the **DASHConfigRTguide.pdf** located at _C:\Program Files (x86)\AMD Management Plugin for SCCM\DASHConfigRT_
 
 1. Next, accept the defaults on the **Requirements** page
 2. Next, verify the information in the **Summary** and click Next, thenClose
@@ -733,7 +751,8 @@ Steps to run DASHConfigRT on one system:
 
         DASHConfigRT -xf:DASHConfig.xml -dxf -mif 
 
-?>The optional _-dxf_ switch deletes the Config.xml file, whih is recommended as the file includes the password. The _-mif_ parameter
+!!! info ""
+   The optional _-dxf_ switch deletes the Config.xml file, whih is recommended as the file includes the password. The _-mif_ parameter
 The -mif parameter creates a Microsoft installation status MIF file on exit.
 
 ## Performing DASH Operations
@@ -799,7 +818,8 @@ To control the power state of a collection node, perform the following steps:
 
 ![DASH Device actions](https://cdrt.github.io/mk_docs/img/dash/27-dash.png)
 
-?>See [Power States](#power-states) for PC supported power states table.
+!!! info ""
+   See [Power States](#power-states) for PC supported power states table.
 
 ### Scheduled Power Control
 
@@ -1002,7 +1022,8 @@ Navigate to **Administration\Overview\Site Configuration\Sites** to check this s
 
 In AMPS, the administrator has the option to either enable or disable the user permission checking feature. This is a global setting and affects all users.
 
-?>Only users with Full Administrator rights can modify and save the DASH Configuration window.
+!!! info ""
+   Only users with Full Administrator rights can modify and save the DASH Configuration window.
 
 ### Security Scope
 
@@ -1151,4 +1172,5 @@ Link: [_http://www.amd.com/DASH_](http://www.amd.com/DASH)
 
 DASH Support email: dashsupport@amd.com
 
-?>AMPS is based on the DMTF DASH specification. Some commands might not be supported by a given platform. Check the platform documentation on the DASH support.
+!!! info ""
+   AMPS is based on the DMTF DASH specification. Some commands might not be supported by a given platform. Check the platform documentation on the DASH support.

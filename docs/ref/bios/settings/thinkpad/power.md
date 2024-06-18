@@ -28,7 +28,8 @@ Possible options:
 1.	**Maximize Performance** - reduces CPU throttling. Default.
 2.	Balanced - balanced sound, temperature, and performance.
 
-?>  Each scheme affects fan sound, temperature, and performance.
+!!! info ""
+     Each scheme affects fan sound, temperature, and performance.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
@@ -45,7 +46,8 @@ Possible options:
 1.	Maximize Performance - reduces CPU throttling.
 2.	**Balanced** - balanced sound, temperature, and performance. Default.
 
-?>  Each scheme affects fan sound, temperature, and performance.
+!!! info ""
+     Each scheme affects fan sound, temperature, and performance.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
@@ -57,9 +59,11 @@ Possible options:
 
 Whether to  improve power efficiency by limiting system power based on the selected OS application, when Intelligent Cooling is on.
 
-!> This feature is Windows only.
+!!! info ""
+    This feature is Windows only.
 
-?> For more details about Intelligent Cooling mode, please refer to Vantage or the user guide.
+!!! info ""
+    For more details about Intelligent Cooling mode, please refer to Vantage or the user guide.
 
 Options:
 
@@ -83,7 +87,8 @@ Possible options:
 1.	**Automatic** - Default.
 2.	Disabled
 
-!>  Normally, it is not necessary to change this setting.
+!!! info ""
+     Normally, it is not necessary to change this setting.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
@@ -95,7 +100,8 @@ Possible options:
 
 Whether to power on the system when AC is attached.
 
-?> If the system is in hibernate state, the system resumes upon AC connect.
+!!! info ""
+    If the system is in hibernate state, the system resumes upon AC connect.
 
 Possible options:
 
@@ -112,11 +118,14 @@ Possible options:
 
 Optimized Sleep States.
 
-!> Sleep State for Windows® and versions of Linux are compatible with Suspend-to-Idle.
+!!! info ""
+    Sleep State for Windows® and versions of Linux are compatible with Suspend-to-Idle.
 
-!> Optimized Sleep State for S3 are not compatible with Suspend-to-Idle.
+!!! info ""
+    Optimized Sleep State for S3 are not compatible with Suspend-to-Idle.
 
-!> Windows® must be used with Windows setting only.
+!!! info ""
+    Windows® must be used with Windows setting only.
 
 Options:
 
@@ -137,9 +146,11 @@ Temporarily disable battery to service the system.
 
 This option requests additional confirmation.
 
-!> After selecting this item, the system will be automatically powered off, ready to be serviced.
+!!! info ""
+    After selecting this item, the system will be automatically powered off, ready to be serviced.
 
-?>  The battery will be automatically enabled when the AC adapter is reconnected.
+!!! info ""
+     The battery will be automatically enabled when the AC adapter is reconnected.
 
 
 </details>
@@ -160,7 +171,8 @@ Possible options:
 4.	Weekly Event - the system will turn on every week on the specified day and time.
 5.	User Defined - this option enables ‘User Defined Alarm’ group of settings.
 
-?> Wake up will only occur on AC power.  Values for the `Wake Up on Alarm` group of settings can be overwritten by the operating system.
+!!! info ""
+    Wake up will only occur on AC power.  Values for the `Wake Up on Alarm` group of settings can be overwritten by the operating system.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
@@ -172,7 +184,8 @@ Possible options:
 
 Select the exact day for the system to turn on.
 
-?> Active only when `Wake Up on Alarm` has value `Single Event`.
+!!! info ""
+    Active only when `Wake Up on Alarm` has value `Single Event`.
 
 Possible options:
 

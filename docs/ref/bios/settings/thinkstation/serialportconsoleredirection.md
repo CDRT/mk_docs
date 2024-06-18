@@ -26,7 +26,8 @@ Options:
 1. VT-UTF8
 1. **ANSI** - Default.
 
-?> The following emulation types are available. <br> ANSI: Extended ASCII char set. <br> VT100: ASCII char set. <br> VT100+: Extends VT100 to support color, function keys, etc. <br> VT-UTF8: Uses UTF8 encoding to map Unicode chars onto 1 or more bytes.<br> 
+!!! info ""
+    The following emulation types are available. <br> ANSI: Extended ASCII char set. <br> VT100: ASCII char set. <br> VT100+: Extends VT100 to support color, function keys, etc. <br> VT-UTF8: Uses UTF8 encoding to map Unicode chars onto 1 or more bytes.<br> 
 
 <!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 |:---|:---|:---|:---|
@@ -74,9 +75,11 @@ Options:
 1.  **Disabled** - Default.
 2.  Enabled.
 
-?> Details below. <br> Even: parity bit is 0 if the num of 1's in the data bits is even. <br> Odd: parity bit is 1 if the num of 1's in the data bits is odd. <br> Mark: parity bit is always 1. <br> Space: Parity bit is always 0. <br> 
+!!! info ""
+    Details below. <br> Even: parity bit is 0 if the num of 1's in the data bits is even. <br> Odd: parity bit is 1 if the num of 1's in the data bits is odd. <br> Mark: parity bit is always 1. <br> Space: Parity bit is always 0. <br> 
 
-?> Mark and Space Parity do not allow for error detection.  They can be used as an additional data bit.
+!!! info ""
+    Mark and Space Parity do not allow for error detection.  They can be used as an additional data bit.
 
 <!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 |:---|:---|:---|:---|

@@ -6,7 +6,8 @@
 
 Whether to enable NVMe RAID mode.
 
-!> Device driver support is required  for NVMe RAID. <br> <br> Depending how the hard disk image was installed, changing this setting may prevent the system from booting.
+!!! info ""
+    Device driver support is required  for NVMe RAID. <br> <br> Depending how the hard disk image was installed, changing this setting may prevent the system from booting.
 
 Options:
 

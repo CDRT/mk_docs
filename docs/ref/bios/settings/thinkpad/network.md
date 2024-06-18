@@ -8,7 +8,8 @@
 
 Whether Wake On LAN function works only when AC is attached, or also when with battery power.
 
-!> Only for ThinkPads with built-in Ethernet port.
+!!! info ""
+    Only for ThinkPads with built-in Ethernet port.
 
 Possible options: <br>
 
@@ -16,9 +17,11 @@ Possible options: <br>
 2.	Disabled
 3.	AC and Battery
 
-!> AC is required with magic packet type Wake On LAN.
+!!! info ""
+    AC is required with magic packet type Wake On LAN.
 
-!> Wake On LAN function may be blocked due to password configuration.
+!!! info ""
+    Wake On LAN function may be blocked due to password configuration.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -28,18 +31,22 @@ Possible options: <br>
 
 <details><summary>Wake On LAN from Dock</summary>
 
-!> Only for ThinkPads with no Ethernet port.
+!!! info ""
+    Only for ThinkPads with no Ethernet port.
 
-!>  Will not work while Secure Boot is disabled.
+!!! info ""
+     Will not work while Secure Boot is disabled.
 
 Possible options:
 
 1.	**On** - Default.
 2.	Off
 
-!> Works only when ThinkPad USB-C Dock or ThinkPad Thunderbolt Dock is attached.
+!!! info ""
+    Works only when ThinkPad USB-C Dock or ThinkPad Thunderbolt Dock is attached.
 
-!> May be blocked due to password configuration.
+!!! info ""
+    May be blocked due to password configuration.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -49,9 +56,11 @@ Possible options:
 
 <details><summary>Lenovo Cloud Services</summary>
 
-!> System connects Lenovo Cloud Services via HTTPs. DHCP option settings are not required.
+!!! info ""
+    System connects Lenovo Cloud Services via HTTPs. DHCP option settings are not required.
 
-!> This feature will not work while Secure Boot is disabled.
+!!! info ""
+    This feature will not work while Secure Boot is disabled.
 
 Possible options:
 
@@ -83,7 +92,8 @@ Possible options:<br>
 1. On
 2. **Off** - Default.
 
-?> Secure Boot must be enabled to use UEFI Network Boot.
+!!! info ""
+    Secure Boot must be enabled to use UEFI Network Boot.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -161,7 +171,8 @@ Possible options:
 2. Internal MAC Address - Dock Ethernet uses same MAC address as internal LAN.
 3. Second MAC Address - Dock Ethernet uses the second MAC address that is stored in the system's EEPROM. This allows for a device-specific MAC address that is different from the internal NIC's MAC address so they can be managed separately if necessary.
 
-?> For systems that do not have an internal NIC, the options are: <br> **off** - the dock will use it's own MAC Address <br> **on** - dock will use MAC address stored in the system EEPROM.
+!!! info ""
+    For systems that do not have an internal NIC, the options are: <br> **off** - the dock will use it's own MAC Address <br> **on** - dock will use MAC address stored in the system EEPROM.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -188,28 +199,33 @@ Possible options:
 ![](./img/tp_wifi1.png)
 ![](./img/tp_wifi2.png)
 
-?> All the settings in this group are not available via WMI.
+!!! info ""
+    All the settings in this group are not available via WMI.
 
 <details><summary>MAC Address</summary>
 
 Media access control (MAC) address of the wireless network interface controller.
 
-?> View only.
+!!! info ""
+    View only.
 
-!> There could be several MAC addresses for machines that have several wireless network interface controllers (NICs).
+!!! info ""
+    There could be several MAC addresses for machines that have several wireless network interface controllers (NICs).
 
 For every MAC Address the following information is shown:
 
 * MAC Address - Media access control (MAC) address of the selected wireless network interface controller.
 
-?> View only.
+!!! info ""
+    View only.
 
 Possible options:
 
    1. **Disconnected** - Default.
    2. Connected to [SSID]
 
-?> Option `Connected to [SSID]` displays the ID of the wireless network.
+!!! info ""
+    Option `Connected to [SSID]` displays the ID of the wireless network.
 
 </details>
 <br>
@@ -218,18 +234,21 @@ Possible options:
 
 ![](./img/tp_wifinetworklist.png)
 
-?>  All the settings in this group are not available via WMI.
+!!! info ""
+     All the settings in this group are not available via WMI.
 
 **Number of networks:** Number of current available networks.
 
-?> View only.
+!!! info ""
+    View only.
 
 For each network the Security Type is shown.
 
 * Possible values are "Open" and "Secured".
 * If Secured, the security type is displayed.
 
-?> View only.
+!!! info ""
+    View only.
 
 Each SSID can be selected to display more details.
 <details><summary>[SSID Value](Status)</summary>
@@ -240,7 +259,8 @@ Each SSID can be selected to display more details.
 
 Whether device is connected to this Wi-Fi network.
 
-?> View only.
+!!! info ""
+    View only.
 
 Possible statuses:
 
@@ -253,7 +273,8 @@ Possible statuses:
 
 SSID (Service Set Identifier) is the name of the wireless network.
 
-?> View only.
+!!! info ""
+    View only.
 
 </details>
 
@@ -261,7 +282,8 @@ SSID (Service Set Identifier) is the name of the wireless network.
 
 Security type of this Wi-Fi network.
 
-?> View only.
+!!! info ""
+    View only.
 
 Possible options:
 
@@ -277,9 +299,11 @@ Possible options:
 
 Enter password.
 
-!> Visible only for networks with security WPA2-Personal.
+!!! info ""
+    Visible only for networks with security WPA2-Personal.
 
-!> Password length: 8-63 characters.
+!!! info ""
+    Password length: 8-63 characters.
 
 </details>
 
@@ -310,7 +334,8 @@ Enroll CA (Certification Authority) certificate.
 
 Empty by default.
 
-!> Visible only for networks with security WPA2-Enterprise.
+!!! info ""
+    Visible only for networks with security WPA2-Enterprise.
 
 </details>
 
@@ -320,7 +345,8 @@ Enroll client certificate.
 
 Empty by default.
 
-!> Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
+!!! info ""
+    Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
 
 </details>
 
@@ -330,7 +356,8 @@ Enroll client private key.
 
 Empty by default.
 
-!> Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
+!!! info ""
+    Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
 
 </details>
 
@@ -340,9 +367,11 @@ Identity value if there is any.
 
 View only.
 
-!> Identity length: 6-20 characters.
+!!! info ""
+    Identity length: 6-20 characters.
 
-!> Visible only for networks with security WPA2-Enterprise.
+!!! info ""
+    Visible only for networks with security WPA2-Enterprise.
 
 </details>
 
@@ -350,9 +379,11 @@ View only.
 
 Field for entering EAP password.
 
-!> Password length: 1-63 characters.
+!!! info ""
+    Password length: 1-63 characters.
 
-!> Visible only for networks with security WPA2-Enterprise.
+!!! info ""
+    Visible only for networks with security WPA2-Enterprise.
 
 </details>
 
@@ -372,7 +403,8 @@ Possible actions:
 
 ![](./img/tp_addwifinetwork.png)
 
-?>  All the settings in this group are not available via WMI.
+!!! info ""
+     All the settings in this group are not available via WMI.
 
 <details><summary>SSID</summary>
 
@@ -396,15 +428,18 @@ Possible options:
 
 Enter password.
 
-!> Visible only for a network with security WPA2-Personal.
+!!! info ""
+    Visible only for a network with security WPA2-Personal.
 
-!> Password length: 8-63 characters.
+!!! info ""
+    Password length: 8-63 characters.
 
 </details>
 
 <details><summary>EAP Authentication Method</summary>
 
-!> Visible only for a network with security WPA2-Enterprise.
+!!! info ""
+    Visible only for a network with security WPA2-Enterprise.
 
 Possible options:
 
@@ -415,7 +450,8 @@ Possible options:
 
 <details><summary>EAP Second Authentication Method</summary>
 
-!> Visible only for a network with security WPA2-Enterprise and if `EAP Authentication Method` is `PEAP`.
+!!! info ""
+    Visible only for a network with security WPA2-Enterprise and if `EAP Authentication Method` is `PEAP`.
 
 Possible options:
 
@@ -429,7 +465,8 @@ Enroll CA (Certification Authority) certificate.
 
 Empty by default.
 
-!> Visible only for networks with security WPA2-Enterprise.
+!!! info ""
+    Visible only for networks with security WPA2-Enterprise.
 
 </details>
 
@@ -439,7 +476,8 @@ Enroll client certificate.
 
 Empty by default.
 
-!> Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
+!!! info ""
+    Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
 
 </details>
 
@@ -449,7 +487,8 @@ Enroll client private key.
 
 Empty by default.
 
-!> Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
+!!! info ""
+    Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
 
 </details>
 
@@ -457,9 +496,11 @@ Empty by default.
 
 Enter identity value (if there is any).
 
-!> Identity length: 6-20 characters.
+!!! info ""
+    Identity length: 6-20 characters.
 
-!> Visible only for a network with security WPA2-Enterprise.
+!!! info ""
+    Visible only for a network with security WPA2-Enterprise.
 
 </details>
 
@@ -467,9 +508,11 @@ Enter identity value (if there is any).
 
 Field for entering EAP password.
 
-!> Password length: 1-63 characters.
+!!! info ""
+    Password length: 1-63 characters.
 
-!> Visible only for a network with security WPA2-Enterprise.
+!!! info ""
+    Visible only for a network with security WPA2-Enterprise.
 
 </details>
 
@@ -494,9 +537,11 @@ This is the option to save changes and exits back to the Manage Wi-Fi network pa
 
 ![](./img/tp_managewifilist.png)
 
-?>  All the settings in this group are not available via WMI.
+!!! info ""
+     All the settings in this group are not available via WMI.
 
-!> Each listed network is represented by a `[SSID Value][Type]` and has its own sub-group of settings - open the items below for details.
+!!! info ""
+    Each listed network is represented by a `[SSID Value][Type]` and has its own sub-group of settings - open the items below for details.
 
 <details><summary>[SSID Value][Type] </summary>
 
@@ -518,7 +563,8 @@ Field for editing SSID value.
 
 Select the security type of this Wi-Fi network.
 
-?> Default value depends on the network.
+!!! info ""
+    Default value depends on the network.
 
 Possible options:
 
@@ -532,9 +578,11 @@ Possible options:
 
 Enter password.
 
-!> Visible only for a network with security WPA2-Personal.
+!!! info ""
+    Visible only for a network with security WPA2-Personal.
 
-!> Password length: 8-63 characters.
+!!! info ""
+    Password length: 8-63 characters.
 
 </details>
 
@@ -559,7 +607,8 @@ Possible options:
 
 1.	**MSCHAPv2** – Default.
 
-!> Visible only for a network with security WPA2-Enterprise and if `EAP Authentication Method` is `PEAP`.
+!!! info ""
+    Visible only for a network with security WPA2-Enterprise and if `EAP Authentication Method` is `PEAP`.
 
 </details>
 
@@ -569,7 +618,8 @@ Enroll CA (Certification Authority) certificate.
 
 Empty by default.
 
-!> Visible only for networks with security WPA2-Enterprise.
+!!! info ""
+    Visible only for networks with security WPA2-Enterprise.
 
 </details>
 
@@ -579,7 +629,8 @@ Enroll client certificate.
 
 Empty by default.
 
-!> Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
+!!! info ""
+    Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
 
 </details>
 
@@ -589,7 +640,8 @@ Enroll client private key.
 
 Empty by default.
 
-!> Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
+!!! info ""
+    Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
 
 </details>
 
@@ -597,9 +649,11 @@ Empty by default.
 
 Enter identity value (if there is any).
 
-!> Identity length: 6-20 characters.<br>
+!!! info ""
+    Identity length: 6-20 characters.<br>
 
-!> Visible only for a network with security WPA2-Enterprise.
+!!! info ""
+    Visible only for a network with security WPA2-Enterprise.
 
 </details>
 
@@ -607,9 +661,11 @@ Enter identity value (if there is any).
 
 Enter EAP password.
 
-!> Password length: 1-63 characters.
+!!! info ""
+    Password length: 1-63 characters.
 
-!> Visible only for a network with security WPA2-Enterprise.
+!!! info ""
+    Visible only for a network with security WPA2-Enterprise.
 
 </details>
 
@@ -622,7 +678,8 @@ Possible options:
 1.	On
 2.	**Off** - Default.
 
-!> Visible only for a network with security WPA2-Enterprise.
+!!! info ""
+    Visible only for a network with security WPA2-Enterprise.
 
 </details>
 
@@ -644,7 +701,8 @@ Forget the settings for the selected network and disconnect from it.
 
 View list of saved Wi-Fi networks.
 
-?> The option will show a warning message if Network List is empty.
+!!! info ""
+    The option will show a warning message if Network List is empty.
 
 See descriptions below.
 

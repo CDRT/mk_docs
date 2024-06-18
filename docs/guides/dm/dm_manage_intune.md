@@ -2,9 +2,11 @@
 
 This section will present the policies found in the Dock Manager ADMX template, along with the OMA-URIs which can be used to configure the application on Intune managed clients.
 
-?> If new policies have been introduced, you will need to ingest the updated ADMX file contained in the Commercial Vantage zip.
+!!! info ""
+    If new policies have been introduced, you will need to ingest the updated ADMX file contained in the Commercial Vantage zip.
 
-!> Introduced in the [2208](https://learn.microsoft.com/mem/intune/fundamentals/whats-new-archive#import-create-and-manage-custom-admx-and-adml-administrative-templates) Intune Service release, you can import, create, and manage custom ADMX and ADML administrative templates.
+!!! info ""
+    Introduced in the [2208](https://learn.microsoft.com/mem/intune/fundamentals/whats-new-archive#import-create-and-manage-custom-admx-and-adml-administrative-templates) Intune Service release, you can import, create, and manage custom ADMX and ADML administrative templates.
 
 ## ADMX Ingestion
 
@@ -33,7 +35,8 @@ On the **Configuration Settings** screen, click **Add** and enter the following:
 
 - **Value**: Copy the contents of the Dock Manager ADMX file into this field
 
-?> The **Group Policy Template File** that contains the ADMX can be found under the Dock Manager section on [Lenovo Tools for Administrators](https://support.lenovo.com/solutions/ht037099) page.
+!!! info ""
+    The **Group Policy Template File** that contains the ADMX can be found under the Dock Manager section on [Lenovo Tools for Administrators](https://support.lenovo.com/solutions/ht037099) page.
 
 ## Command
 
@@ -282,7 +285,8 @@ Do not turn this feature on until the dock has been upgraded to a supported firm
 
 Values:
 
-?> Enter the dock type (four characters), which can be found on the label on the back of the dock. Multiple dock types must be specified as comma separated list.
+!!! info ""
+    Enter the dock type (four characters), which can be found on the label on the back of the dock. Multiple dock types must be specified as comma separated list.
 
 ```xml
 <enabled/>
@@ -310,7 +314,8 @@ If this settings is enabled, it will edit the frequency on how the next schedule
 
 Values:
 
-?> Values include DAILY, WEEKLY, or MONTHLY which can be configured on the dropdown provided inside the options panel.
+!!! info ""
+    Values include DAILY, WEEKLY, or MONTHLY which can be configured on the dropdown provided inside the options panel.
 
 ```xml
 <enabled/>
@@ -331,7 +336,8 @@ If this setting is enabled, it will edit the time upon when the next scheduled t
 
 Values:
 
-?> Valid inputs includes any time of the day in `24:MM:SS` format which can be inputted inside the textbox in the options panel.
+!!! info ""
+    Valid inputs includes any time of the day in `24:MM:SS` format which can be inputted inside the textbox in the options panel.
 
 ```xml
 <enabled/>
@@ -356,7 +362,8 @@ This configuration will be used when the Frequency policy is enabled and set to 
 
 Values:
 
-?> Enter dates when scheduled task should run. (1,2,etc.). Multiple dates must be specified as comma separated list.
+!!! info ""
+    Enter dates when scheduled task should run. (1,2,etc.). Multiple dates must be specified as comma separated list.
 
 ```xml
 <enabled/>
@@ -381,7 +388,8 @@ This configuration will be used when the Frequency policy is enabled and set to 
 
 Values:
 
-?> Enter months when scheduled task should run. (January,February,etc.). Multiple months must be specified as comma separated list.
+!!! info ""
+    Enter months when scheduled task should run. (January,February,etc.). Multiple months must be specified as comma separated list.
 
 ```xml
 <enabled/>
@@ -406,7 +414,8 @@ This configuration will be use when the Frequency policy is enabled and set to "
 
 Values:
 
-?> Enter run monthly on when scheduled task should run. (First,Second,Third,Fourth,Last or combination of comma separated option). Executed in combination with **RunOn** value and is optional input.
+!!! info ""
+    Enter run monthly on when scheduled task should run. (First,Second,Third,Fourth,Last or combination of comma separated option). Executed in combination with **RunOn** value and is optional input.
 
 ```xml
 <enabled/>

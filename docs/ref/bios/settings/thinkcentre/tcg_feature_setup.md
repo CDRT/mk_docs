@@ -28,7 +28,8 @@ Whether the TCG security feature is fully functional.
 1.  **Enabled** - Default.
 1.  Disabled.
 
-?> If set to `Disabled`, the TxT will be set to `Disabled` automatically.
+!!! info ""
+    If set to `Disabled`, the TxT will be set to `Disabled` automatically.
 
 | WMI Setting name | Values | Locked by SVP |
 |:---|:---|:---|
@@ -41,7 +42,8 @@ Whether the TCG security feature is fully functional.
 
 Whether to clear TCG Security Feature.
 
-!> Any data in TPM will be cleared.
+!!! info ""
+    Any data in TPM will be cleared.
 
 Options:
 

@@ -11,7 +11,8 @@ Possible options:
 1.	**On** – Default.
 2.	Off
 
-?>  The setting is removed in the recent versions.
+!!! info ""
+     The setting is removed in the recent versions.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -56,7 +57,8 @@ Possible options:
 1.	**On** – Default.
 2.	Off
 
-!>  Enabling Bluetooth requires setting ‘Wireless LAN’ to ‘Enabled’ state.
+!!! info ""
+     Enabling Bluetooth requires setting ‘Wireless LAN’ to ‘Enabled’ state.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -68,7 +70,8 @@ Possible options:
 
 Whether to enable all USB ports in the OS environment.
 
-!>  This setting does not affect USB-C (R) ports with a thunderbolt icon.
+!!! info ""
+     This setting does not affect USB-C (R) ports with a thunderbolt icon.
 
 Possible options:
 
@@ -120,7 +123,8 @@ Possible options:
 1.	**On** – Default.
 2.	Off
 
-!> This feature is supported only for the [healthcare model](https://techtoday.lenovo.com/jp/ja/solutions/media/3970), where RFID is installed instead of Smart Card. Therefore, parameter for WMI command will be the same as for Smart Card.
+!!! info ""
+    This feature is supported only for the [healthcare model](https://techtoday.lenovo.com/jp/ja/solutions/media/3970), where RFID is installed instead of Smart Card. Therefore, parameter for WMI command will be the same as for Smart Card.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -147,7 +151,8 @@ Possible options:
 
 Whether to enable all audio functions (Microphone/Speaker) in the OS environment.
 
-?> To enable audio functions, select `Enabled` and save the setting. Then fully shut down and power on the system.
+!!! info ""
+    To enable audio functions, select `Enabled` and save the setting. Then fully shut down and power on the system.
 
 Possible options:
 
@@ -164,7 +169,8 @@ Possible options:
 
 Select whether to enable or disable Microphone (Internal/External/Line-In) in the OS environment.
 
-?>  To enable Microphone, select ‘Enabled’ save the setting. Then fully shut down and power on the system.
+!!! info ""
+     To enable Microphone, select ‘Enabled’ save the setting. Then fully shut down and power on the system.
 
 Possible options:
 
@@ -196,7 +202,8 @@ Possible options:
 
 Select whether to enable or disable Thunderbolt 4 (PCIe/USB) in the OS environment.
 
-?>  Affects only USB-C ports with a thunderbolt icon.
+!!! info ""
+     Affects only USB-C ports with a thunderbolt icon.
 
 One of 2 Possible options:
 

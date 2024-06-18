@@ -16,7 +16,8 @@ HKLM\Software\Policies\Lenovo\System Update\UserSettings\General
 Value: [REG_SZ] AdminCommandLine
 ```
 
-?>When using a custom scheduled task, a new task should be created, and the default task created when System Update is installed should be disabled. 
+!!! info ""
+   When using a custom scheduled task, a new task should be created, and the default task created when System Update is installed should be disabled. 
 
 Additionally, the “SchedulerAbility” setting must be set to “NO” in the registry at:
 ```

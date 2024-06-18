@@ -8,16 +8,19 @@ Whether to enable Kernel DMA protection, to prevent drive-by Direct Memory Acces
 
 
 
-!> Defaults to `On`, if `OS Optimized Defaults` has value `On`.
+!!! info ""
+    Defaults to `On`, if `OS Optimized Defaults` has value `On`.
 
-!> When switched `On`, automatically enables Intel (R) Virtualization Technology and Intel (R) VT-d Feature.
+!!! info ""
+    When switched `On`, automatically enables Intel (R) Virtualization Technology and Intel (R) VT-d Feature.
 
 Possible options:
 
 1.	**Off** – Default.
 2.	On
 
-?> Requires additional confirmation of changing these settings.
+!!! info ""
+    Requires additional confirmation of changing these settings.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -38,7 +41,8 @@ Possible options:
 1.	On – 
 2.	**Off** - Default.
 
-?>  It is automatically enabled and cannot be disabled if ‘Kernel DMA Protection’ is enabled.
+!!! info ""
+     It is automatically enabled and cannot be disabled if ‘Kernel DMA Protection’ is enabled.
 
 Additional information: [How to enable Virtualization Technology on Lenovo PC computers](https://support.lenovo.com/de/en/solutions/ht500006).
 
@@ -55,7 +59,8 @@ Possible options:
 1. **On** - Default.
 2. Off
 
-?>  Enabled automatically when `Device Guard` is set to `On`.
+!!! info ""
+     Enabled automatically when `Device Guard` is set to `On`.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -67,14 +72,16 @@ Possible options:
 
 Whether to enable Intel (R) VT-d Feature ( Intel (R) Virtualization Technology for Directed I/O).
 
-!> Defaults to `On`, if `OS Optimized Defaults` has value `On`.
+!!! info ""
+    Defaults to `On`, if `OS Optimized Defaults` has value `On`.
 
 Possible options:
 
 1.	On
 2.	**Off** - Default
 
-?>  Automatically enabled and cannot be disabled if `Kernel DMA Protection` is enabled.
+!!! info ""
+     Automatically enabled and cannot be disabled if `Kernel DMA Protection` is enabled.
 
 More information on the [official Intel site](https://software.intel.com/content/www/us/en/develop/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices.html).
 
@@ -93,7 +100,8 @@ Possible options:
 1.	On
 2.	**Off** – Default.
 
-!>  This option should only be enabled for Windows 10 version 2004 and later. Prior versions of the OS do not support this feature.
+!!! info ""
+     This option should only be enabled for Windows 10 version 2004 and later. Prior versions of the OS do not support this feature.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|

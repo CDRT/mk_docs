@@ -12,7 +12,8 @@ View-only when only one TPM option is available.
 
 For some AMD and Qualcomm models, the TPM can be switched from the default discrete TPM 2.0 chip to the Microsoft(R) Pluton TPM 2.0.
 
-!> If a device registered with Autopilot is switched from discrete TPM to Pluton, it will no longer be recognized by the Autopilot service. An administrator will need to [manually register the device again](https://learn.microsoft.com/en-us/autopilot/add-devices#collect-the-hardware-hash) after switching to Pluton to enable Autopilot again.
+!!! info ""
+    If a device registered with Autopilot is switched from discrete TPM to Pluton, it will no longer be recognized by the Autopilot service. An administrator will need to [manually register the device again](https://learn.microsoft.com/en-us/autopilot/add-devices#collect-the-hardware-hash) after switching to Pluton to enable Autopilot again.
 
 [Available via standard Windows commands](https://docs.microsoft.com/en-us/powershell/module/trustedplatformmodule/?view=windowsserver2019-ps&preserve-view=true&viewFallbackFrom=win10-ps)
 
@@ -27,7 +28,8 @@ Possible options:
 1.	**On** - Default.
 2.	Off - security chip is hidden and is not functional.
 
-?>  If shows `MFG Mode` (manufacturing mode), then TPM (Trusted Platform Module) must be provisioned correctly. If this occurs on a ship-level system, please contact Lenovo Support for assistance.
+!!! info ""
+     If shows `MFG Mode` (manufacturing mode), then TPM (Trusted Platform Module) must be provisioned correctly. If this occurs on a ship-level system, please contact Lenovo Support for assistance.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -39,9 +41,11 @@ Possible options:
 
 Only an option on some AMD and some Qualcomm models. Allows to switch from discrete TPM 2.0 to Microsoft Pluton TPM 2.0.
 
-!> In order to switch to Pluton TPM, the Microsoft Pluton Processor Control setting must already be Enabled.
+!!! info ""
+    In order to switch to Pluton TPM, the Microsoft Pluton Processor Control setting must already be Enabled.
 
-!> If a device registered with Autopilot is switched from discrete TPM to Pluton, it will no longer be recognized by the Autopilot service. An administrator will need to [manually register the device again](https://learn.microsoft.com/en-us/autopilot/add-devices#collect-the-hardware-hash) after switching to Pluton to enable Autopilot again.
+!!! info ""
+    If a device registered with Autopilot is switched from discrete TPM to Pluton, it will no longer be recognized by the Autopilot service. An administrator will need to [manually register the device again](https://learn.microsoft.com/en-us/autopilot/add-devices#collect-the-hardware-hash) after switching to Pluton to enable Autopilot again.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -55,9 +59,11 @@ Visible and active only if Security Chip` is `Enabled`.
 
 This option is used to clear encryption keys.
 
-!>  It will not be possible to access already encrypted data after these keys are cleared.
+!!! info ""
+     It will not be possible to access already encrypted data after these keys are cleared.
 
-?> The option requires additional confirmation for clearing the keys.
+!!! info ""
+    The option requires additional confirmation for clearing the keys.
 
 Available via standard Windows commands: [Clear-Tpm](https://docs.microsoft.com/en-us/powershell/module/trustedplatformmodule/clear-tpm?view=windowsserver2019-ps)
 
@@ -67,7 +73,8 @@ Available via standard Windows commands: [Clear-Tpm](https://docs.microsoft.com/
 
 Visible and active only if Security Chip` is `Enabled`.
 
-?> Intel (R) Trusted Execution Technology is a hardware-based security foundation to build and maintain a chain of trust, to protect information from software-based attacks.
+!!! info ""
+    Intel (R) Trusted Execution Technology is a hardware-based security foundation to build and maintain a chain of trust, to protect information from software-based attacks.
 
 Possible options:
 
@@ -84,7 +91,8 @@ Possible options:
 
 Whether to require confirmation of a user`s physical presence when clearing the security chip.
 
-!>  It is possible to change the value from Enable to Disable only when Supervisor Password exists, because it is required to confirm the action.
+!!! info ""
+     It is possible to change the value from Enable to Disable only when Supervisor Password exists, because it is required to confirm the action.
 
 Possible options:
 
@@ -101,7 +109,8 @@ Possible options:
 
 Whether to enable or disable the Pluton security processor.
 
-!> This setting must be enabled before the TPM can be switched to Pluton.
+!!! info ""
+    This setting must be enabled before the TPM can be switched to Pluton.
 
 When configuring these BIOS settings using WMI scripts, it is possible to follow these steps:
 
@@ -138,7 +147,8 @@ Opens settings for Security Reporting Options.
 
 Whether to enable reporting of SMBIOS data.
 
-?> Changes to corresponding UEFI BIOS data are logged in a location, (PCR1, defined in the TCG standards), which other authorized programs can monitor, read, and analyze. 
+!!! info ""
+    Changes to corresponding UEFI BIOS data are logged in a location, (PCR1, defined in the TCG standards), which other authorized programs can monitor, read, and analyze. 
 
 Possible options:
 

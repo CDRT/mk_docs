@@ -21,7 +21,8 @@ Possible options:
 
 Whether to prevent flashing to older version of UEFI BIOS.
 
-!> Defaults to `On`, if `OS Optimized Defaults` has value `On`.
+!!! info ""
+    Defaults to `On`, if `OS Optimized Defaults` has value `On`.
 
 Possible options:
 

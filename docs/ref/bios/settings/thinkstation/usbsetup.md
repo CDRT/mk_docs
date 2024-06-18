@@ -11,13 +11,15 @@
 
 </details>
 
-?> The number of USB ports may vary depending on model.
+!!! info ""
+    The number of USB ports may vary depending on model.
 
 <details><summary>USB Port Access</summary>
 
 Whether to enable USB devices.
 
-!> When disabled, all other USB settings are removed, except for `USB Enumeration Delay`.
+!!! info ""
+    When disabled, all other USB settings are removed, except for `USB Enumeration Delay`.
 
 Options:
 
@@ -82,7 +84,8 @@ Options:
 
 Whether extra delay is added when host performs USB enumeration.
 
-!> May improve the compatibility of USB device detection but increase POST Time.
+!!! info ""
+    May improve the compatibility of USB device detection but increase POST Time.
 
 1. Enabled.
 2. **Disabled** - Default.
@@ -133,7 +136,8 @@ Options:
 1. **Auto** - Default.
 2. Manual.
 
-?> `Auto` default values: <br> - Root port: 100 ms <br> - Hub port: delay taken from hub descriptor
+!!! info ""
+    `Auto` default values: <br> - Root port: 100 ms <br> - Hub port: delay taken from hub descriptor
 
 <!-- TODO: clarify hub port -->
 
@@ -246,6 +250,7 @@ For each Rear USB Port:
 |:---|:---|:---|:---|
 | USBPortX | Disabled, Enabled | yes | Both |
 
-?> The WMI setting name in the example above represents the port number. Change the number to that of the desired rear USB port.
+!!! info ""
+    The WMI setting name in the example above represents the port number. Change the number to that of the desired rear USB port.
 
 </details>

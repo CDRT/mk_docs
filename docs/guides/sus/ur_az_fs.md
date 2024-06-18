@@ -88,4 +88,5 @@ And here's a screenshot of updates that are applicable to download and install
 
 If you're using Commercial Vantage, ensure you've configured the Local Repository GPO to point to the UNC of your Azure file share.
 
-?>Further reading: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-faq#security-authentication-and-access-control
+!!! info ""
+   Further reading: https://docs.microsoft.com/en-us/azure/storage/files/storage-files-faq#security-authentication-and-access-control

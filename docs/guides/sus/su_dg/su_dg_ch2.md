@@ -12,7 +12,8 @@ System Update supports the following operating systems:
 - Windows 10 64-bit
 - Windows 11 64-bit
 
-?>System Update is qualified and supported on Windows 7, Windows 10 and Windows 11. System Update is not qualified and supported on Windows 8/8.1. If End User decides to install System Update on Windows 8/8.1 it may work without issue and may be used as is, but Lenovo makes no representations about this and has not tested such installation and such installation would not be supported. If having System Update is important to End User Lenovo recommends changing to a Windows version where it is qualified and supported.
+!!! info ""
+   System Update is qualified and supported on Windows 7, Windows 10 and Windows 11. System Update is not qualified and supported on Windows 8/8.1. If End User decides to install System Update on Windows 8/8.1 it may work without issue and may be used as is, but Lenovo makes no representations about this and has not tested such installation and such installation would not be supported. If having System Update is important to End User Lenovo recommends changing to a Windows version where it is qualified and supported.
 
 System Update requires Microsoft .NET Framework 4.5.2 or a later version. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 

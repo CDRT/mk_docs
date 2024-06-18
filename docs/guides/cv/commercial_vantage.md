@@ -1,8 +1,10 @@
 # Commercial Vantage Deployment Guide
 
-?> Updated: 2023-3-21
+!!! info ""
+    Updated: 2023-3-21
 
-!> Due to requirements from the Lenovo Product Security team, logging is not enabled by default any longer. To enable logging, set the following registry value to "True":<br><br>
+!!! warning
+    Due to requirements from the Lenovo Product Security team, logging is not enabled by default any longer. To enable logging, set the following registry value to "True":<br><br>
 [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\SystemUpdateAddin\Logs]
 "EnableLogs"="True"
 
@@ -109,7 +111,8 @@ This diagram illustrates the System Update workflow in Commercial Vantage
 
 ![img](https://cdrt.github.io/mk_docs/img/cv/vantage_su_flow.png)
 
-?>With version 10.2208.22.0 the repository path can now also be specified as a URL path to an accessible cloud storage location.
+!!! info ""
+   With version 10.2208.22.0 the repository path can now also be specified as a URL path to an accessible cloud storage location.
 
 See here for more information about using Update Retriever to create your own custom repository of updates: [https://support.lenovo.com/us/en/solutions/ht037099](https://support.lenovo.com/us/en/solutions/ht037099)
 

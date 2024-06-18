@@ -20,7 +20,8 @@ Possible options:
 8.	Other CD
 9.	Other HDD
 
-!> `LENOVO CLOUD` and `ON-PREMISE` may not be available on all models.
+!!! info ""
+    `LENOVO CLOUD` and `ON-PREMISE` may not be available on all models.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -67,7 +68,8 @@ Possible options:
 1.	**On** – Default.
 2.	Off
 
-?>  This option is only available when Supervisor enters setup.
+!!! info ""
+     This option is only available when Supervisor enters setup.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -79,9 +81,11 @@ Possible options:
 
 Prevent other software from altering the Boot Order when it is enabled.
 
-?> May be required in situations where an alternative boot loaded is required to be first in the boot order. 
+!!! info ""
+    May be required in situations where an alternative boot loaded is required to be first in the boot order. 
 
-!> When enabled, the Boot Order can only be changed using the BIOS Setup or the WMI interface.
+!!! info ""
+    When enabled, the Boot Order can only be changed using the BIOS Setup or the WMI interface.
 
 Possible options:
 
@@ -102,7 +106,8 @@ Possible options:
 
 The ordered list of currently defined boot priority order.
 
-?> Keys used to view or configure devices: <br> - '↑' and '↓' arrows Select a device. <br> - '+' and '-' move the device up or down. <br> - 'Shift + 1' enables or disables a device. <br> - 'Delete' deletes an unprotected device.
+!!! info ""
+    Keys used to view or configure devices: <br> - '↑' and '↓' arrows Select a device. <br> - '+' and '-' move the device up or down. <br> - 'Shift + 1' enables or disables a device. <br> - 'Delete' deletes an unprotected device.
 
 Possible items on the list:
 
@@ -117,7 +122,8 @@ Possible items on the list:
 7.	LENOVO CLOUD
 8.	ON-PREMISE
 
-!> `LENOVO CLOUD` and `ON-PREMISE` may not be available on all models.
+!!! info ""
+    `LENOVO CLOUD` and `ON-PREMISE` may not be available on all models.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|

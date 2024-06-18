@@ -19,6 +19,7 @@ Shows system event logs in table with the following columns:
 
 <details><summary>Clear System Event Log</summary>
 
-!> All system event logs will be cleared immediately. Requires additional confirmation.
+!!! info ""
+    All system event logs will be cleared immediately. Requires additional confirmation.
 
 </details>

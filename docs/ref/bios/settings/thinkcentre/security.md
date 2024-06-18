@@ -38,7 +38,8 @@ Options:
 
 Set, change, or delete the Supervisor Password.
 
-?> To delete Supervisor Password, enter blank fields for each new password line item.
+!!! info ""
+    To delete Supervisor Password, enter blank fields for each new password line item.
 
 Enter and confirm new password.
 
@@ -49,7 +50,8 @@ Enter and confirm new password.
 
 Set, change, or delete the Power-On Password.
 
-?> To delete Power-On Password, enter blank fields for each new password line item.
+!!! info ""
+    To delete Power-On Password, enter blank fields for each new password line item.
 
 Enter and confirm new password.
 
@@ -60,7 +62,8 @@ Enter and confirm new password.
 
 Set, change, or delete the System Management Password (SMP).
 
-?> To delete System Management Password, enter blank fields for each new password line item.
+!!! info ""
+    To delete System Management Password, enter blank fields for each new password line item.
 
 Enter and confirm new password.
 
@@ -163,7 +166,8 @@ Whether to support Windows 10/11 Secured-core PCs' Level3:
 
 Whether to lock the chassis to prevent unauthorized physical access to the system components.
 
-?> Effective on the next startup after BIOS setting is saved.
+!!! info ""
+    Effective on the next startup after BIOS setting is saved.
 
 Options:
 
@@ -182,7 +186,8 @@ Options:
 1.  **Disabled** - Default.
 1.  Enabled.
 
-?> If chassis tamper occurs, you can only clear this error by entering setup.
+!!! info ""
+    If chassis tamper occurs, you can only clear this error by entering setup.
 
 | WMI Setting name | Values | Locked by SVP |
 |:---|:---|:---|
@@ -198,7 +203,8 @@ Options:
 1.  **Disabled** - Default.
 2.  Enabled. When a device is installed or removed, the system will notify the user during POST.
 
-?> This notice can only be cleared by entering BIOS setup, saving and then exiting.
+!!! info ""
+    This notice can only be cleared by entering BIOS setup, saving and then exiting.
 
 | WMI Setting name | Values | Locked by SVP |
 |:---|:---|:---|

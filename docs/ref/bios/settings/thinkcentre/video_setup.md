@@ -13,9 +13,11 @@ Options:
 1.  PEG - Select PCIe Graphic.
 
 
-?> If `Auto` is selected, the system will select a graphics output, **prioritizing PEG**. <br /> 
+!!! info ""
+    If `Auto` is selected, the system will select a graphics output, **prioritizing PEG**. <br /> 
 
-?> The `IGD` option will not appear if not supported by the CPU.
+!!! info ""
+    The `IGD` option will not appear if not supported by the CPU.
 
 | WMI Setting name | Values | Locked by SVP |
 |:---|:---|:---|

@@ -40,7 +40,8 @@ Options:
 
 <details><summary>Intel(R) SIPP Support</summary>
 
-?> Intel(R) Stable Image Platform Program (SIPP) aligns and stabilizes key Intel platform components, enabling a predictable transition from one technology generation to the next.
+!!! info ""
+    Intel(R) Stable Image Platform Program (SIPP) aligns and stabilizes key Intel platform components, enabling a predictable transition from one technology generation to the next.
 
 Options:
 
@@ -65,7 +66,8 @@ Options:
 
 <details><summary>Dust Shield Alert</summary>
 
-?>If the Dust Shield is not cleaned then it will lose its
+!!! info ""
+   If the Dust Shield is not cleaned then it will lose its
 effectiveness and the machine may overheat.
 
 Options:
@@ -80,14 +82,16 @@ Options:
 
 <details><summary>Intel(R) DPTF Support</summary>
 
-?> Intel(R) Dynamic Platform and Thermal Framework (DPTF) assists with managing power to the CPU vs temperature, keeping CPU temperature down while still delivering good performance.
+!!! info ""
+    Intel(R) Dynamic Platform and Thermal Framework (DPTF) assists with managing power to the CPU vs temperature, keeping CPU temperature down while still delivering good performance.
 
 Options:
 
 1. **Enabled** – Default.
 2. Disabled.
 
-?> This feature is optional, so may not be available on all models.
+!!! info ""
+    This feature is optional, so may not be available on all models.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 |:---|:---|:---|:---|
@@ -102,7 +106,8 @@ Options:
 ![](./img/ts_amdadvanced.png)
 <!--![](./img/amd_advanced.png)-->
 
-<!-- ?> Please see sidebar for Advnaced AMD Settings
+<!-- !!! info ""
+    Please see sidebar for Advnaced AMD Settings
 TODO: confirm layout because each setting is a seperate page in the sidebar Maybe put a statement there -->
 
 

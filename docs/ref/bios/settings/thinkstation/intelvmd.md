@@ -23,7 +23,8 @@ Options:
 1. **PCIe** – Default.
 2. VMD.
 
-?> X represents the slot number, 1 to 3.
+!!! info ""
+    X represents the slot number, 1 to 3.
 
 </details>
 
@@ -37,7 +38,8 @@ Options:
 1. **PCIe** – Default.
 2. VMD.
 
-?> X represents the slot number, 1 to 9.
+!!! info ""
+    X represents the slot number, 1 to 9.
 </details>
 
 <details><summary>MCIO Slot{X}-{Y}</summary>
@@ -50,6 +52,7 @@ Options:
 1. **PCIe** – Default.
 2. VMD.
 
-?> X & Y represent the slot numbers, 1 and 2 (interchangeably).
+!!! info ""
+    X & Y represent the slot numbers, 1 and 2 (interchangeably).
 </details>
 

@@ -11,7 +11,8 @@ One of 3 Possible options:
 2.	Disabled
 3.	Permanently Disabled
 
-!> If the module is permanently disabled, it cannot be reenabled. `Permanently Disabled` requires additional confirmation and can only be done through the BIOS Setup screens. 
+!!! info ""
+    If the module is permanently disabled, it cannot be reenabled. `Permanently Disabled` requires additional confirmation and can only be done through the BIOS Setup screens. 
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|

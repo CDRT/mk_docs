@@ -91,7 +91,8 @@ Must be a local folder path, a UNC file share path, or a URL to a web-hosted rep
 	Unexpected error occurred: %POWERSHELL_ERROR_MESSAGE%
 	Lenovo System Update was not found at the default installation path.
 
-?>Read messages to determine the result of the script working.
+!!! info ""
+   Read messages to determine the result of the script working.
 
 ### Add-LnvSULogging
 
@@ -108,7 +109,8 @@ This cmdlet sets the appropriate registry key to cause the System Update Add-in 
 
 ```Add-LnvSULogging -Enable```
 
-?>When logging is enabled a restart may be required and the log file will be located at ```%ProgramData%\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\logs```
+!!! info ""
+   When logging is enabled a restart may be required and the log file will be located at ```%ProgramData%\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\logs```
 
 ### Export-LnvUpdateRetrieverConfig
 
@@ -195,7 +197,8 @@ Returns a list of the available driver packs for the machine type specified whic
 	An object consisting of "os", "version", "crc", or "#text" elements where 
 	"#text" represents the URL to the package executable file.
 
-?> The Where-Object cmdlet can be used to filter on OS and version to return just one URL.  The URL is in the '#text' field of the returned object.
+!!! info ""
+    The Where-Object cmdlet can be used to filter on OS and version to return just one URL.  The URL is in the '#text' field of the returned object.
 
 ### Find-LnvMachineType
 
@@ -214,7 +217,8 @@ By specifying a search string representing model friendly name, this cmdlet will
 ```Find-LnvMachineType -ModelName 'ThinkPad P1 Gen 5'```
 ```Find-LnvMachineType -ModelName 'ThinkPad P1 '```
 
-?> A space after the model name such as 'ThinkPad P1 ' will limit the search to ThinkPad P1 models and not include ThinkPad P15 or ThinkPad P16 models. Likewise, use 'ThinkPad X1 ' to search for ThinkPad X1 Carbon and Yoga models and exclude ThinkPad X13 models.
+!!! info ""
+    A space after the model name such as 'ThinkPad P1 ' will limit the search to ThinkPad P1 models and not include ThinkPad P15 or ThinkPad P16 models. Likewise, use 'ThinkPad X1 ' to search for ThinkPad X1 Carbon and Yoga models and exclude ThinkPad X13 models.
 
 ### Find-LnvModel
 
@@ -233,7 +237,8 @@ This cmdlet returns the friendly model name that will be found in WMI on a devic
 ```Find-LnvModel -MachineType 21DD```
 ```Find-LnvModel 21DD```
 
-?>The output will also show the other machine types associated with this model.
+!!! info ""
+   The output will also show the other machine types associated with this model.
 
 ### Find-LnvUpdate
 
@@ -260,7 +265,8 @@ This script allows users to search for updates for a specified machine type.
  2: Recommended <br>
  3: Optional <br>
 
-?>9 can be used for these three parameters to represent 'All'. Multiples can be combined by separating with comma, for example:  "2,3,4" or "1,5" or "1,2"
+!!! info ""
+   9 can be used for these three parameters to represent 'All'. Multiples can be combined by separating with comma, for example:  "2,3,4" or "1,5" or "1,2"
 
 Find-LnvUpdate displays a grid-view of the results. A single selected update can be returned when the grid-view is closed. Therefore, execute the following to display the search results and then capture the selected update object:
 
@@ -324,7 +330,8 @@ The -Readme switch will download and display the readme text file at the end if 
 | Download | Switch | False |
 | ReadMe | Switch | False |
 
-?> WindowsVersion is strictly optional as generally one BIOS update package is released for both Windows 10 and Windows 11.
+!!! info ""
+    WindowsVersion is strictly optional as generally one BIOS update package is released for both Windows 10 and Windows 11.
 
 #### Example <!-- {docsify-ignore} -->
 
@@ -352,7 +359,8 @@ This cmdlet gets the BIOS password state of the system and interprets it to retu
 | --- | --- | --- |
 | Number | Switch | False |
 
-!>THIS CMDLET REQUIRES ADMIN RIGHTS TO EXECUTE. Make sure the PowerShell session is running with elevated privileges.
+!!! warning
+   THIS CMDLET REQUIRES ADMIN RIGHTS TO EXECUTE. Make sure the PowerShell session is running with elevated privileges.
 
 ### Get-LnvBiosUpdateUrl
 
@@ -371,7 +379,8 @@ This command will return the URL to the current BIOS update package for either t
 ```Get-LnvBiosUpdateUrl -MachineType '21AH'```
 ```Get-LnvBiosUpdateUrl```
 
-?> The device must be a Lenovo ThinkPad, ThinkCentre, or ThinkStation.
+!!! info ""
+    The device must be a Lenovo ThinkPad, ThinkCentre, or ThinkStation.
 
 ### Get-LnvBiosVersion
 
@@ -383,7 +392,8 @@ Returns the BIOS version in the specified format.
 | --- | --- | --- |
 | Format | String/Decimal | False |
 
-?> String  : Returns the full string value of SMBIOSBIOSVersion
+!!! info ""
+    String  : Returns the full string value of SMBIOSBIOSVersion
   Decimal : Returns a standard version string in the format of n.nn
 
 #### Example <!-- {docsify-ignore} -->
@@ -391,12 +401,14 @@ Returns the BIOS version in the specified format.
 ```Get-LnvBiosVersion -Format 'decimal'```
 ```Get-LnvBiosVersion```
 
-?>This function handles the different methods used to express the BIOS version
+!!! info ""
+   This function handles the different methods used to express the BIOS version
 between ThinkPad and ThinkCentre/ThinkStation. Desktop BIOS will show build
 number in hex and the 'decimal' format will convert to a standard version
 string format.
 
-?>If no Format is specified, the function will return the full string of the
+!!! info ""
+   If no Format is specified, the function will return the full string of the
 SMBIOSBIOSVersion value.
 
 ### Get-LnvCVE
@@ -519,7 +531,8 @@ This script allows users to search for updates that will be downloaded to a fold
 &nbsp;&nbsp; 2: Recommended <br>
 &nbsp;&nbsp; 3: Optional <br>
 
-?>9 can be used for these three parameters to represent 'All'
+!!! info ""
+   9 can be used for these three parameters to represent 'All'
 
 #### Parameters <!-- {docsify-ignore} -->
 
@@ -595,7 +608,8 @@ Must be surrounded by single quotes.
 
 Specify this parameter if you want to convert Reboot Type 5 (Delayed Forced Reboot) packages to be Reboot Type 3 (Requires Reboot). Only do this in task sequence scenarios where a Restart can be performed after the Thin Installer task. Use the -noreboot parameter on the Thin Installer command line to suppress reboot to allow the task sequence to control the restart.
 
-?>This parameter can only be used when Thin Installer will be processing
+!!! info ""
+   This parameter can only be used when Thin Installer will be processing
 the updates in the repository.
 
 ##### ScanOnly   <!-- {docsify-ignore} -->

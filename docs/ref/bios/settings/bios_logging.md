@@ -12,9 +12,11 @@ It allows you to
 - show logs
 - clear logs
 
-?> The clear log process will be run after setup exit.
+!!! info ""
+    The clear log process will be run after setup exit.
 
-!> The clear operation is protected by SVP.
+!!! info ""
+    The clear operation is protected by SVP.
 
 - [Main (ThinkPad )](/bios/settings/thinkpad/main)
 - [Main (ThinkCentre)](/bios/settings/thinkcentre/main)

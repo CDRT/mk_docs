@@ -12,7 +12,8 @@ A Hard Disk Password prevents unauthorized users from accessing the data from th
 
 In addition to the User Password, a optional Master Password can be used to recover the disk if the user password is lost.
 
-?> If several disks are present, we recommend setting all Hard Disk Passwords to the same.
+!!! info ""
+    If several disks are present, we recommend setting all Hard Disk Passwords to the same.
 
 
 <details><summary>M.2 Drive {Number} Password</summary>

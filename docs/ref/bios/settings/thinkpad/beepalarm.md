@@ -8,7 +8,8 @@ Whether to beep when the system is waiting for a power-on, hard disk, or supervi
 1.	**Off** - Default.
 2.	On
 
-?>  Different beeps will be sounded when the entered password matches or does not match the configured password.
+!!! info ""
+     Different beeps will be sounded when the entered password matches or does not match the configured password.
 
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |

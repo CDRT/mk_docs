@@ -13,11 +13,14 @@ Options:
 1. **Enabled** – Default.
 2. Disabled.
 
-!> When `Disabled`:<br>    •`PXE IPV4 Network Stack` setting becomes unavailable<br>    •`PXE IPV6 Network Stack` setting becomes unavailable
+!!! info ""
+    When `Disabled`:<br>    •`PXE IPV4 Network Stack` setting becomes unavailable<br>    •`PXE IPV6 Network Stack` setting becomes unavailable
 
-!> Intel only: if `Disabled`, Intel(R) AMT functions are disabled.
+!!! info ""
+    Intel only: if `Disabled`, Intel(R) AMT functions are disabled.
 
-!> AMD only: if `Disabled`, DASH functions will be disabled.
+!!! info ""
+    AMD only: if `Disabled`, DASH functions will be disabled.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 |:---|:---|:---|:---|
@@ -42,7 +45,8 @@ Options:
 
 Whether to support wireless LAN PXE (Pre-boot Execution Environment) boot or HTTPs boot.
 
-?> This works by loading the Wireless LAN (Local Area Network) UNDI (Universal Network Driver Interface) Driver.
+!!! info ""
+    This works by loading the Wireless LAN (Local Area Network) UNDI (Universal Network Driver Interface) Driver.
 
 1. Enabled.
 2. **Disabled** – Default.
@@ -56,7 +60,8 @@ Whether to support wireless LAN PXE (Pre-boot Execution Environment) boot or HTT
 
 Wireless device information. View only.
 
-?> Applicable only for platforms which have WLAN implemented.
+!!! info ""
+    Applicable only for platforms which have WLAN implemented.
 
 <!-- NO WMI -->
 
@@ -67,7 +72,8 @@ Options:
 1. **Enabled** – Default.
 2. Disabled
 
-?> Unavailable if `Onboard Ethernet Controller` is set to `Disabled`.
+!!! info ""
+    Unavailable if `Onboard Ethernet Controller` is set to `Disabled`.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 |:---|:---|:---|:---|
@@ -81,7 +87,8 @@ Options:
 1. **Enabled** – Default.
 2. Disabled
 
-?> Unavailable if `Onboard Ethernet Controller` is set to `Disabled`.
+!!! info ""
+    Unavailable if `Onboard Ethernet Controller` is set to `Disabled`.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 |:---|:---|:---|:---|
@@ -106,7 +113,8 @@ NO WMI -->
 
 <details><summary>Lenovo Cloud Services</summary>
 
-?> Only available if `Secure Boot` is `Enabled`.
+!!! info ""
+    Only available if `Secure Boot` is `Enabled`.
 
 Whether to boot system with `Lenovo Cloud` selected through boot menu, so that BIOS boots to Lenovo Cloud server directly, which provides various cloud services.
 
@@ -115,7 +123,8 @@ Options:
 1. Enabled.
 2. **Disabled** – Default.
 
-?> Once the feature is enabled, then it becomes available for selection in `BIOS -> Startup -> Edit Boot Order`, or `BIOS -> Startup -> Network Boot`, or via F12 Boot Menu.<br><br /> When `Lenovo Cloud Services` booted, then following options will be available for selection:<br />
+!!! info ""
+    Once the feature is enabled, then it becomes available for selection in `BIOS -> Startup -> Edit Boot Order`, or `BIOS -> Startup -> Network Boot`, or via F12 Boot Menu.<br><br /> When `Lenovo Cloud Services` booted, then following options will be available for selection:<br />
 •**Lenovo Cloud Deploy (ITC)** – sends Factory-Style images to customers for deployment in the field. <br /> Additional information: [Lenovo Cloud Deploy](https://www.lenovoclouddeploy.com/en/auth/welcome).<br /> •**Windows Virtual Desktop (VDI)** – provides the VDI environment to customer. VDI itself must be setup by the customer (IT Admin). If this option is selected, then it will become available as a boot option. <br /><br /> Additional information is available here: [Client Virtualization & Infrastructure Solutions - Lenovo](https://www.lenovo.com/lt/lt/data-center/solutions/client-virtualization) and [Windows Virtual Desktop](https://www.microsoft.com/en-us/microsoft-365/blog/2019/09/30/windows-virtual-desktop-generally-available-worldwide/).
 
 <!--
@@ -181,7 +190,8 @@ A new Boot Option will be created according to this Boot URL.
 
 Accepts HTTPs URLs only.
 
-?> Use `Tls Auth Configuration` to import the CA (Certificate Authority) to support the HTTPs boot.
+!!! info ""
+    Use `Tls Auth Configuration` to import the CA (Certificate Authority) to support the HTTPs boot.
 
 <!--
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |

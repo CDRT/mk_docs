@@ -34,7 +34,8 @@ Options:
 |:---|:---|:---|:---|
 | SATADriveX | Disabled, Enabled | Yes | Both |
 
-?> In the WMI class name, X represents the drive number.
+!!! info ""
+    In the WMI class name, X represents the drive number.
 </details>
 
 
@@ -49,7 +50,8 @@ Options:
 |:---|:---|:---|:---|
 | M.2DriveX | Disabled, Enabled | Yes | Intel |
 
-?> In the WMI class name, X represents the drive number.
+!!! info ""
+    In the WMI class name, X represents the drive number.
 </details>
 
 <details><summary>MCIO Drive {X}-{Y}</summary>
@@ -63,7 +65,8 @@ Options:
 |:---|:---|:---|:---|
 | MCIODriveXY | Disabled, Enabled | Yes | Intel |
 
-?> In the WMI class name, X & Y represents the drive number.
+!!! info ""
+    In the WMI class name, X & Y represents the drive number.
 </details>
 
 <details><summary>SATA Drive * Hot-Plug Support</summary>
@@ -76,7 +79,8 @@ Options:
 |:---|:---|:---|:---|
 | SATADriveXHotPlugSupport | Disabled, Enabled | Yes | Both |
 
-?> In the WMI class name, X represents the drive number.
+!!! info ""
+    In the WMI class name, X represents the drive number.
 </details>
 
 <details><summary>Configure Storage as</summary>
@@ -85,7 +89,8 @@ Mode Options:
 1. **AHCI** – Default.
 2. RAID
 
-?>Device driver support is required for AHCI or RAID.
+!!! info ""
+   Device driver support is required for AHCI or RAID.
 Depending on how the hard disk image was installed, changing
 this setting may prevent the system from booting.
 
@@ -99,7 +104,8 @@ this setting may prevent the system from booting.
 
 <details><summary>Configure SATA as</summary>
 
-?>Device driver support is required for AHCI or RAID.
+!!! info ""
+   Device driver support is required for AHCI or RAID.
 Depending on how the hard disk image was installed, changing
 this setting may prevent the system from booting.
 

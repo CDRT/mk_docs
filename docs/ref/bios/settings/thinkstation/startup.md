@@ -68,7 +68,8 @@ Options:
 
  Whether to record the last successful startup state to reduce the POST time at the next startup.
 
-!> We recommend turning off “Fast Boot” if you often use CD/DVD or network to load your operating system.
+!!! info ""
+    We recommend turning off “Fast Boot” if you often use CD/DVD or network to load your operating system.
 
 Options:
 
@@ -90,7 +91,8 @@ Options:
 1. Enabled. 
 2. **Disabled** - Default.
 
-?> Disabling the prompts will not affect the function of a specific key.
+!!! info ""
+    Disabling the prompts will not affect the function of a specific key.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 |:---|:---|:---|:---|
@@ -100,7 +102,8 @@ Options:
 
 <details><summary>Option Keys Display Style</summary>
 
-?> Visible only if `Option Keys Display` is `Enabled` state.
+!!! info ""
+    Visible only if `Option Keys Display` is `Enabled` state.
 
 Which prompts to display on the POST logo screen when the system is turned on.
 
@@ -116,7 +119,8 @@ Options:
 
 <details><summary>Primary Boot Sequence</summary>
 
-?> This sequence is used when the system is powered up normally.
+!!! info ""
+    This sequence is used when the system is powered up normally.
 
 Use Up and Down arrows to select a device.
 
@@ -132,7 +136,8 @@ Use Up and Down arrows to select a device.
 
 <details><summary>Automatic Boot Sequence</summary>
 
-?> This sequence is used when a communication device wakes the system up.
+!!! info ""
+    This sequence is used when a communication device wakes the system up.
 
 Use Up and Down arrows to select a device.
 
@@ -148,7 +153,8 @@ Use Up and Down arrows to select a device.
 
 <details><summary>Error Boot Sequence</summary>
 
-?> This sequence is used when BIOS determines that an error has occurred.
+!!! info ""
+    This sequence is used when BIOS determines that an error has occurred.
 
 Use Up and Down arrows to select a device.
 

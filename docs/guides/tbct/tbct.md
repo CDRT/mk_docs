@@ -4,7 +4,8 @@
 
 The Think BIOS Configurator tool was developed using the WMI BIOS interface methods and the scripts located at [this website](http://support.lenovo.com/us/en/documents/ht100612) to create a user friendly way of applying changes to the BIOS from within the Windows environment. This document will describe the ways the tool can be used and the various options it supports. The application needs no other files for execution. The application will read from WMI to provide the proper options for each of the available settings.
 
-?>Not all BIOS settings are exposed through the WMI interface.  This tool will list only the settings that are configurable through WMI.</i>
+!!! info ""
+   Not all BIOS settings are exposed through the WMI interface.  This tool will list only the settings that are configurable through WMI.</i>
 
 ### Standard Execution of the Application
 
@@ -76,7 +77,8 @@ Once all the required changes have been set, click **Save Changed Settings** and
 
 As seen above, the application was successful in setting one setting. Error messages are provided in the case of a failure. More than likely, the error users will see will be ‘Access Denied’.  
 
-?>All settings will only take affect once the computer is restarted.
+!!! info ""
+   All settings will only take affect once the computer is restarted.
 
 If settings have been changed in the application but not applied to the machine and the user wants to revert back to the original settings, click **Reset to Current Settings**.  The user will see the items that were previously marked in red text will be reverted back to black text and the values reset to their original settings.  This is a quick way for the user to create multiple configuration files and revert back to the settings they had already saved.
 
@@ -210,7 +212,8 @@ Example code for a task sequence step:
 cmd.exe /c PathToApp\ThinkBiosConfig.hta "config=BootOrder,HDD0:PCILAN"
 ```
 
-?>The ```cmd.exe /c``` is needed 9 out of 10 times when running as a Local System account.  In some cases it isn’t necessary but for consistency it is recommended.
+!!! info ""
+   The ```cmd.exe /c``` is needed 9 out of 10 times when running as a Local System account.  In some cases it isn’t necessary but for consistency it is recommended.
 
 ### Troubleshooting
 

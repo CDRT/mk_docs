@@ -15,7 +15,8 @@ Options:
 |:---|:---|:---|
 | SATAController | Disabled, Enabled | yes |
 
-?> If the `SATA Controller` is set to `Disabled`, then `Configure SATA as` and `SATA Drive {Number}` will be hidden.
+!!! info ""
+    If the `SATA Controller` is set to `Disabled`, then `Configure SATA as` and `SATA Drive {Number}` will be hidden.
 
 
 </details>
@@ -33,7 +34,8 @@ Options:
 |:---|:---|:---|
 | SATADrive1 | Disabled, Enabled | yes |
 
-?> The WMI setting name for Drive 1 is shown. Other drives follow the pattern `SATADrive#` where `#` is the number of the drive.
+!!! info ""
+    The WMI setting name for Drive 1 is shown. Other drives follow the pattern `SATADrive#` where `#` is the number of the drive.
 
 
 </details>
@@ -42,9 +44,11 @@ Options:
 
 Configure the SATA (Serial AT Attachment) drive controller.
 
-?> Device driver support is required  for AHCI or Intel(R) RST with Intel(R) Optane.
+!!! info ""
+    Device driver support is required  for AHCI or Intel(R) RST with Intel(R) Optane.
 
-!> Depending on how the hard disk image was installed, changing this setting may prevent the system from booting.
+!!! info ""
+    Depending on how the hard disk image was installed, changing this setting may prevent the system from booting.
 
 Options:
 

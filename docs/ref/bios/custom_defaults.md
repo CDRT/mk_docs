@@ -7,7 +7,8 @@ This function was introduced in 2023 products and allows you to:
 
 It is important to note that Security, Date & Time, and Boot Order settings are excluded from the custom defaults.
 
-!> If a user performs the Reset System to Factory Defaults function under the Security menu, the custom defaults will be cleared and the system will revert back to the factory default settings.
+!!! info ""
+    If a user performs the Reset System to Factory Defaults function under the Security menu, the custom defaults will be cleared and the system will revert back to the factory default settings.
 
 Relevant settings:
 

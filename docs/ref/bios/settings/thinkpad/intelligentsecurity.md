@@ -6,13 +6,15 @@ The Intelligent Security functions provide a convenient way to securely lock and
 
 - [More information at Lenovo Support](https://support.lenovo.com/solutions/ht511536-smart-features)
 
-?> Some of these features may be unavailable, depending on your model and configuration.
+!!! info ""
+    Some of these features may be unavailable, depending on your model and configuration.
 
 <details><summary>User Presence Sensing</summary>
 
 Whether to enable functions that rely on using the IR camera to recognize the user's presence and if the user is looking at the screen.
 
-!> Before using this feature, ensure you create your Face ID with the IR camera.
+!!! info ""
+    Before using this feature, ensure you create your Face ID with the IR camera.
 
 - [More information at Lenovo Support](https://support.lenovo.com/uu/en/solutions/ht511536-smart-features)
 
@@ -40,7 +42,8 @@ Options:
 1. **On** - Default.
 2. Off
 
-!> System will enforce BIOS settings if set to `Off`.
+!!! info ""
+    System will enforce BIOS settings if set to `Off`.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -68,7 +71,8 @@ Options:
 <div style='margin-left:30px'>
 <details><summary>DISTANCE SENSITIVITY ADJUSTING</summary>
 
-!> Depends on Windows® Hello. To use it, turn on face recognition in Windows® settings.
+!!! info ""
+    Depends on Windows® Hello. To use it, turn on face recognition in Windows® settings.
 
 - [More information at Microsoft.com](https://www.support.microsoft.com/en-us/windows/learn-about-windows-hello-and-set-it-up-dae28983-8242-bb2a-d3d1-87c9d265a5f0)
 
@@ -89,7 +93,8 @@ Options:
 
 Whether to dim the display and lock the computer when user presence is not detected.
 
-?> Can reduce the chances of unauthorized access to the computer if you leave the computer unattended and unlocked.
+!!! info ""
+    Can reduce the chances of unauthorized access to the computer if you leave the computer unattended and unlocked.
 
 Options:
 
@@ -105,7 +110,8 @@ Options:
 <div style='margin-left:30px'>
 <details><summary>SENSITIVITY ADJUSTING</summary>
 
-?> Accuracy varies by body size, posture, and frequency of movement.
+!!! info ""
+    Accuracy varies by body size, posture, and frequency of movement.
 
 Options:
 
@@ -122,7 +128,8 @@ Options:
 
 <details><summary>AUTO SCREEN LOCK TIMER</summary>
 
-?> Uses sensors and camera to detect your presence. However, it does NOT collect any personal data.
+!!! info ""
+    Uses sensors and camera to detect your presence. However, it does NOT collect any personal data.
 
 Options:
 

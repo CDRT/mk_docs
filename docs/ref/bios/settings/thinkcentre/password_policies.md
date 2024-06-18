@@ -13,14 +13,17 @@ Options:
  *  **Disabled** - no minimum (see below). Default.
  *   4 - 12 characters minimum.
 
-?> If no minimum is set, passwords may be 1 to 128 characters long.
+!!! info ""
+    If no minimum is set, passwords may be 1 to 128 characters long.
 
-?> If a minimum is set, it applies to:
+!!! info ""
+    If a minimum is set, it applies to:
  - Supervisor Password (SVP)
  - System Management Password (SMP)
  - Power-on (POP) and Hard Disk Passwords 
 
-?> If both `Set Minimum Length` and `Set Strong Password` are enabled, the longest value for minimum length applies.
+!!! info ""
+    If both `Set Minimum Length` and `Set Strong Password` are enabled, the longest value for minimum length applies.
 
 | WMI Setting name | Values | Locked by SVP |
 |:---|:---|:---|
@@ -69,7 +72,8 @@ Whether to give a BIOS password prompt at system boot (when the system starts fr
 1.  **Yes** - Default.
 1.  No.
 
-!> To prevent unauthorized access to the system, we recommend setting user authentication on the OS.
+!!! info ""
+    To prevent unauthorized access to the system, we recommend setting user authentication on the OS.
 
 | WMI Setting name | Values | Locked by SVP |
 |:---|:---|:---|
@@ -156,7 +160,8 @@ Options:
 |:---|:---|:---|
 | AllowJumperClearSVP | No, Yes | yes |
 
-!> When disabled, no action can reset the SVP if you forget it.
+!!! info ""
+    When disabled, no action can reset the SVP if you forget it.
 
 
 </details>

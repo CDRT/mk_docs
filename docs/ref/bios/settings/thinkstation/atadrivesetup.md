@@ -2,7 +2,8 @@
 ![](./img/ts_atadrivesetup.png)
 <!--![](./img/atadrivesetup.png)-->
 
-?> The number of ATA drives may vary depending on model.
+!!! info ""
+    The number of ATA drives may vary depending on model.
 
 <details><summary>SATA Controller</summary>
 
@@ -13,7 +14,8 @@ Options:
 1. **Enabled**. Default.
 2. Disabled.
 
-!> When SATA controller is disabled, the following settings become unavailable:<br>    a. SATA Drive (drives 1 to 5) <br>    b. SATA Drive * Hot-Plug Support <br>    c. Configure SATA as <br>
+!!! info ""
+    When SATA controller is disabled, the following settings become unavailable:<br>    a. SATA Drive (drives 1 to 5) <br>    b. SATA Drive * Hot-Plug Support <br>    c. Configure SATA as <br>
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 |:---|:---|:---|:---|
@@ -28,13 +30,15 @@ Whether to enable each SATA Drive numbered {X}:
 1. **Enabled**. Default. 
 2. Disabled.
 
-?> Unavailable if `SATA Controller` is set to `Disabled`.
+!!! info ""
+    Unavailable if `SATA Controller` is set to `Disabled`.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 |:---|:---|:---|:---|
 | SATADriveX | Disabled, Enabled | yes | Both |
 
-?> In the WMI class name, X represents the drive number.
+!!! info ""
+    In the WMI class name, X represents the drive number.
 
 </details>
 
@@ -48,13 +52,15 @@ Options:
 1. Enabled
 2. **Disabled** - Default.
 
-?> Unavailable if `SATA Controller` is set to `Disabled`.
+!!! info ""
+    Unavailable if `SATA Controller` is set to `Disabled`.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 |:---|:---|:---|:---|
 | SATADrivexHotPlugSupport | Disabled, Enabled | yes | Both |
 
-?> `x` is the port number. May vary depending on model.
+!!! info ""
+    `x` is the port number. May vary depending on model.
 
 </details>
 
@@ -63,7 +69,8 @@ Options:
 
 SATA configuration mode.
 
-?> The AHCI and RAID options require additional confirmation.
+!!! info ""
+    The AHCI and RAID options require additional confirmation.
 
 Options:
 
@@ -71,7 +78,8 @@ Options:
 2. Intel(R) RST with Intel(R) Optane
 3. RAID<br> 
 
-!> If you change the SATA mode to `AHCI` you may not boot the system due to the failure of Intel(R) RST with Intel(R) Optane (RAID) function.<br /><br />Do not disable SATA drives in RAID mode. Otherwise you may not boot the system due to the failure of RAID function. <br /><br /> Device driver support is required for `AHCI` or `RAID` or Intel(R) RST with Intel(R) Optane. 
+!!! info ""
+    If you change the SATA mode to `AHCI` you may not boot the system due to the failure of Intel(R) RST with Intel(R) Optane (RAID) function.<br /><br />Do not disable SATA drives in RAID mode. Otherwise you may not boot the system due to the failure of RAID function. <br /><br /> Device driver support is required for `AHCI` or `RAID` or Intel(R) RST with Intel(R) Optane. 
 Depending on how the hard disk image was installed, changing the setting may prevent the system from booting.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -84,7 +92,8 @@ Depending on how the hard disk image was installed, changing the setting may pre
 
 ![](./img/intelrapidstoragetechnology.png)
 
-!> Only appears when the item `Configure SATA as` is set to `Intel(R) RST with Intel(R) Optane`
+!!! info ""
+    Only appears when the item `Configure SATA as` is set to `Intel(R) RST with Intel(R) Optane`
 
 For each disk listed, shows information including:
  - Port

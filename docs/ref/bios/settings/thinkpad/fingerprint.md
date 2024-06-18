@@ -26,7 +26,8 @@ One of 2 possible options:
 1.	**Normal** - Default.
 2.	High
 
-!> When `High` security mode is enabled, **only** the Supervisor Password will allow boot.
+!!! info ""
+    When `High` security mode is enabled, **only** the Supervisor Password will allow boot.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -38,14 +39,16 @@ One of 2 possible options:
 
 Whether to enable authentication by password when fingerprint is not available. 
 
-!> Visible and active only if ‘Security Mode’ has value ‘High’.
+!!! info ""
+    Visible and active only if ‘Security Mode’ has value ‘High’.
 
 Possible options:
 
 1.	**On** - Default.
 2.	Off
 
-!>  Administrators are authenticated by a Supervisor Password.
+!!! info ""
+     Administrators are authenticated by a Supervisor Password.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -57,7 +60,8 @@ Possible options:
 
 Whether to allow a single touch fingerprint authentication to work through all security levels.
 
-!> Switching off means requiring individual fingerprint authentication for each security level.
+!!! info ""
+    Switching off means requiring individual fingerprint authentication for each security level.
 
 Options:
 
@@ -73,11 +77,14 @@ Options:
 
 <details><summary>Reset Fingerprints Data</summary>
 
-!> Erase all fingerprint data stored in the fingerprint reader and reset settings to the factory state (ex. Power-on security, LEDs, etc.).
+!!! info ""
+    Erase all fingerprint data stored in the fingerprint reader and reset settings to the factory state (ex. Power-on security, LEDs, etc.).
 
-!> Any power-on security features previously enabled will not be able to work until they are re-enabled in fingerprint software.
+!!! info ""
+    Any power-on security features previously enabled will not be able to work until they are re-enabled in fingerprint software.
 
-?> Option requires additional confirmation.
+!!! info ""
+    Option requires additional confirmation.
 
 
 </details>

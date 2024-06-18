@@ -40,7 +40,8 @@ _**Register your FIDO2 USB device in ThinkShield Passwordless Power-On Device Ma
 
    1. Press ESC to exit and restart your computer.
 
-?> If you want to unregister your devices, click the available FIDO2 USB device that you want to unregister in the My Device field and enter the correct power-on password for verification. <br><br>If you use more than one FIDO2 USB device with a common identifier for registration, only one device is available.
+!!! info ""
+    If you want to unregister your devices, click the available FIDO2 USB device that you want to unregister in the My Device field and enter the correct power-on password for verification. <br><br>If you use more than one FIDO2 USB device with a common identifier for registration, only one device is available.
 
 _**Log in to the System with Passwordless Power-On Authentication**_
 
@@ -54,7 +55,8 @@ _**Log in to the System with Passwordless Power-On Authentication**_
 
 1. After your device is verified, the power-on process continues.
 
-?> You should insert the FIDO2 USB device or enter the power-on password within 60 seconds. Otherwise, your computer will shut down automatically.
+!!! info ""
+    You should insert the FIDO2 USB device or enter the power-on password within 60 seconds. Otherwise, your computer will shut down automatically.
 
 Here is a video walk-through of the process:
 

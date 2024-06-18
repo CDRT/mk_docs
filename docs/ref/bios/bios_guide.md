@@ -92,7 +92,8 @@ To automate the ThinkPad BIOS update, the WINUPTP.exe and WINUPTP64.exe both hav
 
 Assuming that the BIOS update is to be applied during a task sequence, from either MDT or SCCM, in the full operating system, there are a few items that need to be touched on. First, installing the BIOS update from a local hard drive is the safest choice. Since that is a requirement, use a copy command to copy the BIOS installer from the network to the local hard drive. Second, in a step to run an executable, call the WINUPTP.exe or WINUPTP64.exe with the –s command line parameter. The final step is to initiate a system reboot through the task sequence.
 
-?>It is best practice to not use the –r command line parameter in a task sequence. When running task sequences, it is best practice to allow the task sequence to control the reboot and not allow the installing executable to do so. Allowing the task sequence to control the reboot will allow the task sequence to make all necessary changes to the computer, including setting up to resume the task sequence in the correct location after the reboot sequence has completed.
+!!! info ""
+   It is best practice to not use the –r command line parameter in a task sequence. When running task sequences, it is best practice to allow the task sequence to control the reboot and not allow the installing executable to do so. Allowing the task sequence to control the reboot will allow the task sequence to make all necessary changes to the computer, including setting up to resume the task sequence in the correct location after the reboot sequence has completed.
 
 When updating a ThinkPad BIOS, if a Supervisor password is set and the “Flash BIOS Updating by End-Users” is set to factory default (Enabled), there are no additional steps to be taken to update the BIOS. If the “Flash BIOS Updating by End-Users” is not set to factory default (Enabled), then steps will need to be taken to switch the setting to Enabled using the Think BIOS Configuration Tool or the BIOS Settings VBScripts. After that is set to allow the update to be run, the BIOS can be updated. If needed, utilize the tools mentioned to change the setting back after applying the BIOS update. 
 </details>
@@ -243,9 +244,11 @@ Besides a full Windows installation, the BIOS can be updated through WinPE as we
 
 When planning the build of the WinPE image, it is best to understand which Think branded product(s) will be updated, the method of getting BIOS updates to the local device, and the method of installing the update.
 
-?>The following examples will be using the Windows ADK for Windows 10, version 1607.
+!!! info ""
+   The following examples will be using the Windows ADK for Windows 10, version 1607.
 
-?>The optional components can be found in the installation of the Windows ADK, (C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment).
+!!! info ""
+   The optional components can be found in the installation of the Windows ADK, (C:\Program Files (x86)\Windows Kits\10\Assessment and Deployment Kit\Windows Preinstallation Environment).
 
 All of the Think branded products will require the following optional components to be installed in the WinPE boot image.
 
@@ -261,7 +264,8 @@ All of the Think branded products will require the following optional components
 \WinPE_OCs\<Language>\WinPE-WMI_<Language>.cab
 ```
 	
-?> [WinPE: Add Packages (Optional Components Reference)](https://msdn.microsoft.com/en-us/windows/hardware/commercialize/manufacture/desktop/winpe-add-packages--optional-components-reference)
+!!! info ""
+    [WinPE: Add Packages (Optional Components Reference)](https://msdn.microsoft.com/en-us/windows/hardware/commercialize/manufacture/desktop/winpe-add-packages--optional-components-reference)
 
 ThinkPad will require an additional optional component to be installed in the WinPE boot image. The ThinkPad BIOS Update tool runs some HTML components in the background, requiring the HTA Optional Component be installed.
 
@@ -323,7 +327,8 @@ The result will map to one of the values in the table below:
 | **6** | Supervisor password and (User HDD or User HDD and Master password) set                     |
 | **7** | Power on password, Supervisor password, and (User HDD or User HDD and Master password) set |
 
-?>The information provided by the script will only return the state of the passwords, it will not return the actual passwords.
+!!! info ""
+   The information provided by the script will only return the state of the passwords, it will not return the actual passwords.
 
 ### OS Optimized Defaults
 
@@ -346,7 +351,8 @@ To find more information on a particular BIOS setting for a system such as name,
 
 The Think BIOS Config tool is an HTA that can be run with an interface or directly from a command line to perform BIOS configurations. When double clicking the .hta file, it will run and provide a dynamic interface that shows all settings in the BIOS that are configurable by script for that computer.
 
-?>Think BIOS Config tool will ask for UAC elevation, since accessing the BIOS through WMI requires elevated privileges.
+!!! info ""
+   Think BIOS Config tool will ask for UAC elevation, since accessing the BIOS through WMI requires elevated privileges.
 
 Each setting will show the current value associated with the setting. In drop down lists it will provide all possible values for that setting. When a value is changed for a setting, the setting name will turn red as a visual indicator that the setting is now different. To commit changes to be applied on the next reboot, use the Save Changed Settings button.
 

@@ -1065,7 +1065,8 @@ client-management interface.
 
  IBM Service Request (SR) tool.
 
-!> Replaced by Lenovo Online Service Request function.
+!!! info ""
+    Replaced by Lenovo Online Service Request function.
 
  *More information:* 
  

@@ -19,7 +19,8 @@ Whether to enable Efficient-cores support which is available on Intel 12th Gener
 
 Whether to enable additional CPU threads, which appear as additional processors but share some resources with the other threads within a CPU. 
 
-?> When disable, allows only one thread within each execution core unit.
+!!! info ""
+    When disable, allows only one thread within each execution core unit.
 
 1.	**On** - Default.
 2.	Off

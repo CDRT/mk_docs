@@ -37,9 +37,11 @@ Possible options:
 
 Whether to swap behaviors of Fn key and Ctrl key.
 
-!> When switched `On`, Fn key works as Ctrl key. Ctrl key works as Fn key.
+!!! info ""
+    When switched `On`, Fn key works as Ctrl key. Ctrl key works as Fn key.
 
-!> Bottom-Left key will wake the system from sleep state.
+!!! info ""
+    Bottom-Left key will wake the system from sleep state.
 
 Possible options:
 
@@ -56,7 +58,8 @@ Possible options:
 
 Whether User can press Fn key to keep it in a pressed condition, then press the desired function key.
 
-?> Equivalent to pressing the required key and the Fn key simultaneously. When User presses the Fn key twice, the state is locked until User presses the Fn key again.
+!!! info ""
+    Equivalent to pressing the required key and the Fn key simultaneously. When User presses the Fn key twice, the state is locked until User presses the Fn key again.
 
 Possible options:
 
@@ -73,16 +76,19 @@ Possible options:
 
 Whether to disable the hotkey functionality of the function keys (F1, F2, and so on) in Windows 8.1/10, to avoid having to press Fn to use the function.
 
-?> When switched `Off`, the special hotkey functionality will be enabled.
+!!! info ""
+    When switched `Off`, the special hotkey functionality will be enabled.
 
-?> The methods differ by model. Examples: <br>  - ["How to use the function keys without pressing Fn in Windows 8.1/10" at Lenovo Support](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-l-series-laptops/thinkpad-l15-type-20u7-20u8/solutions/HT103044) <br> - ["Function keys are not working" at Lenovo Support](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-l-series-laptops/thinkpad-l15-type-20u7-20u8/solutions/ht510960) <br>
+!!! info ""
+    The methods differ by model. Examples: <br>  - ["How to use the function keys without pressing Fn in Windows 8.1/10" at Lenovo Support](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-l-series-laptops/thinkpad-l15-type-20u7-20u8/solutions/HT103044) <br> - ["Function keys are not working" at Lenovo Support](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-l-series-laptops/thinkpad-l15-type-20u7-20u8/solutions/ht510960) <br>
 
 Possible options:
 
 1.	On -
 2.	**Off** - Default.
 
-!> Alternatively, to switch to above two options, press Fn+Esc to use FnLk (Fn Lock). LED is on when FnLk is enabled.
+!!! info ""
+    Alternatively, to switch to above two options, press Fn+Esc to use FnLk (Fn Lock). LED is on when FnLk is enabled.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
@@ -94,7 +100,8 @@ Possible options:
 
 Select keyboard layout in pre-OS environment.
 
-!> This configuration does not affect OS.
+!!! info ""
+    This configuration does not affect OS.
 
 Possible options:
 
@@ -126,7 +133,8 @@ Possible options:
 26.	Finnish
 27.	Czech
 
-?>  On latest machines, BIOS added support for ASCII special characters and symbols such as `@`, `!` , `?`, etc. Those characters depend on keyboard layout and BIOS cannot know the attached keyboard, therefore users have to select keyboard layout if they replace keyboard.
+!!! info ""
+     On latest machines, BIOS added support for ASCII special characters and symbols such as `@`, `!` , `?`, etc. Those characters depend on keyboard layout and BIOS cannot know the attached keyboard, therefore users have to select keyboard layout if they replace keyboard.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|

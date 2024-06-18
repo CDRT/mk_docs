@@ -8,7 +8,8 @@
 
 Whether to prevent unauthorized operating systems from running at boot time.
 
-!> Set to `On` if `OS Optimized Defaults` has value `On`.
+!!! info ""
+    Set to `On` if `OS Optimized Defaults` has value `On`.
 
 Possible options:
 
@@ -19,9 +20,11 @@ Possible options:
 |:---|:---|:---|:---|
 | SecureBoot | Disable, Enable | Yes* | Both |
 
-!>  On systems produced after 2020, Secure Boot setting can only be set to Disable using WMI when an SVP is passed.
+!!! info ""
+     On systems produced after 2020, Secure Boot setting can only be set to Disable using WMI when an SVP is passed.
 
-!> Secure Boot can always be set to Enable without a password.
+!!! info ""
+    Secure Boot can always be set to Enable without a password.
 
 </details>
 
@@ -49,11 +52,14 @@ Possible modes:
 
 This option is used to clear the current Platform Key and put the system into setup mode.
 
-!> You can install your own Platform Key and customize the Secure Boot signature databases in setup mode.
+!!! info ""
+    You can install your own Platform Key and customize the Secure Boot signature databases in setup mode.
 
-?> Requires additional confirmation.
+!!! info ""
+    Requires additional confirmation.
 
-?>  Secure Boot Mode will be set to Custom Mode.
+!!! info ""
+     Secure Boot Mode will be set to Custom Mode.
 
 
 </details>
@@ -62,11 +68,14 @@ This option is used to clear the current Platform Key and put the system into se
 
 Restore all keys and certificates in Secure Boot databases to factory defaults.
 
-!> Any customized Secure Boot settings will be erased.
+!!! info ""
+    Any customized Secure Boot settings will be erased.
 
-!> The default Platform key will be re-established along with the original signature databases including certificate for Microsoft (R) Windows 10 (R).
+!!! info ""
+    The default Platform key will be re-established along with the original signature databases including certificate for Microsoft (R) Windows 10 (R).
 
-?> Requires additional confirmation.
+!!! info ""
+    Requires additional confirmation.
 
 
 </details>
@@ -75,9 +84,11 @@ Restore all keys and certificates in Secure Boot databases to factory defaults.
 
 Clear all keys and certificates in Secure Boot databases.
 
-!> You can install your own keys and certificates after selecting this option.
+!!! info ""
+    You can install your own keys and certificates after selecting this option.
 
-?> Requires additional confirmation.
+!!! info ""
+    Requires additional confirmation.
 
 
 </details>
@@ -87,7 +98,8 @@ Clear all keys and certificates in Secure Boot databases.
 
 Whether to allow installation of Microsoft 3rd Party UEFI CA in Secure Boot DB, and trust it in Secure Boot.
 
-!> If add-on cards are supported, Microsoft 3rd Party UEFI CA will not be removed until load boot loader.
+!!! info ""
+    If add-on cards are supported, Microsoft 3rd Party UEFI CA will not be removed until load boot loader.
 
 Options:
 
