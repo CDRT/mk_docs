@@ -1,0 +1,215 @@
+site_name: Lenovo CDRT Docs Site
+
+theme:
+  name: material
+  logo: img/CDRT-REV-Red_s.png
+  features:
+    - navigation.tracking
+    - navigation.path
+    - navigation.top
+    - toc.follow
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+    - content.code.select
+  language: en
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline 
+        name: Switch to dark mode
+      primary: blue
+      accent: light blue 
+    - scheme: slate 
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode    
+      primary: black
+      accent: blue grey
+
+nav:
+  - Home: 'index.md'
+  - Product Guides: 
+    - Commercial Vantage: 
+      - guides/cv/index.md
+      - Deployment Guide: guides/cv/commercial_vantage.md
+      - Managing with Intune: guides/cv/manage_intune.md
+      - Commercial Vantage Policies: guides/cv/commercial-vantage-policies.md
+    - System Update - Update Retriever - Thin Installer:
+      - guides/sus/index.md
+      - Deployment Guide:
+        - guides/sus/su_dg/index.md
+        - guides/sus/su_dg/su_dg_ch1.md
+        - guides/sus/su_dg/su_dg_ch2.md
+        - guides/sus/su_dg/su_dg_ch3.md
+        - guides/sus/su_dg/su_dg_ch4.md
+        - guides/sus/su_dg/su_dg_ch5.md
+        - guides/sus/su_dg/su_dg_ch6.md
+        - guides/sus/su_dg/su_dg_ch7.md
+        - guides/sus/su_dg/su_dg_ch8.md
+      - Update Retriever with Azure Blob: guides/sus/ur_az_blob.md
+      - Update Retriever with Azure Fileshare: guides/sus/ur_az_fs.md
+      - FAQ: guides/sus/system_update_faq.md
+    - Dock Manager:
+      - guides/dm/index.md
+      - Deployment Guide: guides/dm/dm.md
+      - Managing with Intune: guides/dm/dm_manage_intune.md
+      - Troubleshooting: guides/dm/dm_troubleshooting.md
+      - FAQ: guides/dm/dock_manager_faq.md
+    - Think BIOS Config Tool:
+      - Overview: guides/tbct/tbct_top.md
+      - User Guide: guides/tbct/tbct.md
+    - Lenovo BIOS Certs Tool:
+      - guides/lbct/index.md
+    - Lenovo View:
+      - guides/lenovo_view/index.md
+  - References:
+    - BIOS Reference: 
+      - ref/bios/index.md
+      - ref/bios/bios_guide.md
+      - WMI BIOS Interface: ref/bios/wmi_guide.md
+      - BIOS Settings Dictionary: 
+        - ThinkPad: 
+          - Main: ref/bios/settings/thinkpad/main.md
+          - Config: ref/bios/settings/thinkpad/config.md
+          - ....Network: ref/bios/settings/thinkpad/network.md
+          - ....USB: ref/bios/settings/thinkpad/usb.md
+          - ....Keyboard/Mouse: ref/bios/settings/thinkpad/keyboardmouse.md
+          - ....Display: ref/bios/settings/thinkpad/display.md
+          - ....Power: ref/bios/settings/thinkpad/power.md
+          - ....Beep and Alarm: ref/bios/settings/thinkpad/beepalarm.md
+          - ....CPU: ref/bios/settings/thinkpad/cpu.md
+          - ....Thunderbolt(TM) 4: ref/bios/settings/thinkpad/thunderbolttm4.md
+          - ....Intel(R) AMT: ref/bios/settings/thinkpad/intelramt.md
+          - ....HDMI Configuration: ref/bios/settings/thinkpad/hdmi.md
+          - Date/Time: ref/bios/settings/thinkpad/datetime.md
+          - Security: ref/bios/settings/thinkpad/security.md
+          - ....Password: ref/bios/settings/thinkpad/password.md
+          - ....Fingerprint: ref/bios/settings/thinkpad/fingerprint.md
+          - ....Security Chip: ref/bios/settings/thinkpad/securitychip.md
+          - ....UEFI BIOS Update Option: ref/bios/settings/thinkpad/uefibiosupdate.md
+          - ....Memory Protection: ref/bios/settings/thinkpad/memoryprotection.md
+          - ....Virtualization: ref/bios/settings/thinkpad/virtualization.md
+          - ....I/O Port Access: ref/bios/settings/thinkpad/ioportaccess.md
+          - ....Internal Device Access: ref/bios/settings/thinkpad/internaldeviceaccess.md
+          - ....Absolute Persistence(R) Module: ref/bios/settings/thinkpad/abspersistencemodule.md
+          - ....Secure Boot: ref/bios/settings/thinkpad/secureboot.md
+          - ....Device Guard: ref/bios/settings/thinkpad/deviceguard.md
+          - ....ThinkShield Secure Wipe: ref/bios/settings/thinkpad/thinkshieldsecurewipe.md
+          - ....ThinkShield Passwordless Power-On: ref/bios/settings/thinkpad/thinkshieldpasswordless.md
+          - ....Intelligent Security: ref/bios/settings/thinkpad/intelligentsecurity.md
+          - ....Reset System to Factory Defaults: ref/bios/settings/thinkpad/resetsystemtofactorydefaults.md
+          - ....Certificate-based BIOS Authentication: ref/bios/settings/thinkpad/certbasedbiosauth.md
+          - Startup: ref/bios/settings/thinkpad/startup.md
+          - Restart: ref/bios/settings/thinkpad/restart.md
+        - ThinkCentre:
+          - Main: ref/bios/settings/thinkcentre/main.md
+          - ....System Summary: ref/bios/settings/thinkcentre/system_summary.md
+          - ....System Time and Date: ref/bios/settings/thinkcentre/system_time_and_date.md
+          - Devices: ref/bios/settings/thinkcentre/devices.md
+          - ....Serial Port Setup: ref/bios/settings/thinkcentre/serial_port_setup.md
+          - ....Parallel Port Setup: ref/bios/settings/thinkcentre/parallel_port_setup.md
+          - ....USB Setup: ref/bios/settings/thinkcentre/usb_setup.md
+          - ....Storage Setup: ref/bios/settings/thinkcentre/storage_setup.md
+          - ....ATA Drive Setup: ref/bios/settings/thinkcentre/ata_drive_setup.md
+          - ....Video Setup: ref/bios/settings/thinkcentre/video_setup.md
+          - ....Audio Setup: ref/bios/settings/thinkcentre/audio_setup.md
+          - ....Network Setup: ref/bios/settings/thinkcentre/network_setup.md
+          - ....PCI Express Configuration: ref/bios/settings/thinkcentre/pci_express_configuration.md
+          - ....Intel(R) Thunderbolt: ref/bios/settings/thinkcentre/intel_r_thunderbolt.md
+          - Advanced: ref/bios/settings/thinkcentre/advanced.md
+          - ....CPU Setup: ref/bios/settings/thinkcentre/cpu_setup.md
+          - ....Intel(R) Manageability: ref/bios/settings/thinkcentre/intel_r_manageability.md
+          - ....DASH Configuration: ref/bios/settings/thinkcentre/dash_configuration.md
+          - Power: ref/bios/settings/thinkcentre/power.md
+          - ....Intelligent Cooling: ref/bios/settings/thinkcentre/intelligent_cooling.md
+          - ....Automatic Power On: ref/bios/settings/thinkcentre/automatic_power_on.md
+          - Security: ref/bios/settings/thinkcentre/security.md
+          - ....System Management Password Access Control: ref/bios/settings/thinkcentre/system_management_password_access_control.md
+          - ....Hard Disk Password: ref/bios/settings/thinkcentre/hard_disk_password.md
+          - ....Password Policies: ref/bios/settings/thinkcentre/password_policies.md
+          - ....TCG Feature Setup: ref/bios/settings/thinkcentre/tcg_feature_setup.md
+          - ....System Event Log: ref/bios/settings/thinkcentre/system_event_log.md
+          - ....Secure Boot: ref/bios/settings/thinkcentre/secure_boot.md
+          - ....Certificate Based BIOS Authentication: ref/bios/settings/thinkcentre/certificate_based_bios_authentication.md
+          - ....Computrace: ref/bios/settings/thinkcentre/computrace.md
+          - Startup: ref/bios/settings/thinkcentre/startup.md
+          - ....Boot Priority Order: ref/bios/settings/thinkcentre/boot_priority_order.md
+          - Exit: ref/bios/settings/thinkcentre/exit.md
+        - ThinkStation:
+          - Main: ref/bios/settings/thinkstation/main.md
+          - ....System Summary: ref/bios/settings/thinkstation/systemsummary.md
+          - ....System Time & Date: ref/bios/settings/thinkstation/systemtimedate.md
+          - ....BIOS Event Log: ref/bios/settings/thinkstation/bioseventlog.md
+          - Devices: ref/bios/settings/thinkstation/devices.md
+          - ....Serial Port Setup: ref/bios/settings/thinkstation/serialportsetup.md
+          - ....Parallel Port Setup: ref/bios/settings/thinkstation/parallelportsetup.md
+          - ....USB Setup: ref/bios/settings/thinkstation/usbsetup.md
+          - ....Storage Setup: ref/bios/settings/thinkstation/storagesetup.md
+          - ........Intel(R) VMD Technology: ref/bios/settings/thinkstation/intelvmd.md
+          - ....ATA Drive Setup: ref/bios/settings/thinkstation/atadrivesetup.md
+          - ....NVME Drive Setup: ref/bios/settings/thinkstation/nvme.md
+          - ....Video Setup: ref/bios/settings/thinkstation/videosetup.md
+          - ....Audio Setup: ref/bios/settings/thinkstation/audiosetup.md
+          - ....Network Setup: ref/bios/settings/thinkstation/networksetup.md
+          - ....PCIe Setup: ref/bios/settings/thinkstation/pciesetup.md
+          - ....PCI Express Setup: ref/bios/settings/thinkstation/pciexpress.md
+          - ....Intel Thunderbolt: ref/bios/settings/thinkstation/intelthunderbolt.md
+          - ....BMC Setup: ref/bios/settings/thinkstation/bmcsetup.md
+          - Advanced: ref/bios/settings/thinkstation/advanced.md
+          - ....Diagnostics (AMD): ref/bios/settings/thinkstation/diagnostics.md
+          - ....PCIe Configuration (AMD): ref/bios/settings/thinkstation/pcieconfiguration.md
+          - ....PCI Express Setup: ref/bios/settings/thinkstation/pciexpressconfig.md
+          - ....CPU Configuration (AMD): ref/bios/settings/thinkstation/cpuconfiguration.md
+          - ....CPU Setup (Intel): ref/bios/settings/thinkstation/cpusetup.md
+          - ....Memory Configuration: ref/bios/settings/thinkstation/memoryconfig.md
+          - ....RAS Configuration (AMD): ref/bios/settings/thinkstation/rasconfiguration.md
+          - ....Common RefCode Configuration (AMD): ref/bios/settings/thinkstation/commonrefcodeconfiguration.md
+          - ....DASH Configuration (AMD): ref/bios/settings/thinkstation/dashconfiguration.md
+          - ....Intel Manageability Settings: ref/bios/settings/thinkstation/intelmanageability.md
+          - ....Serial Port Console Redirection (AMD): ref/bios/settings/thinkstation/serialportconsoleredirection.md
+          - Power: ref/bios/settings/thinkstation/power.md
+          - ....Automatic Power On: ref/bios/settings/thinkstation/autopoweron.md
+          - Security: ref/bios/settings/thinkstation/security.md
+          - ....Hard Disk Password: ref/bios/settings/thinkstation/harddiskpass.md
+          - ....Password Policies: ref/bios/settings/thinkstation/passwordpolicies.md
+          - ....SMP Access Control: ref/bios/settings/thinkstation/smpaccesscontrol.md
+          - ....TCG Feature Setup: ref/bios/settings/thinkstation/tcgfeaturesetup.md
+          - ....Secure Boot: ref/bios/settings/thinkstation/secureboot.md
+          - ....System Event Log: ref/bios/settings/thinkstation/systemeventlog.md
+          - ....Certificate-based BIOS Authentication: ref/bios/settings/thinkstation/certbasedbiosauth.md
+          - Startup: ref/bios/settings/thinkstation/startup.md
+          - ....Boot Priority Order: ref/bios/settings/thinkstation/bootpriorityorder.md
+          - Exit: ref/bios/settings/thinkstation/exit.md
+      - Glossary: ref/bios/glossary.md
+    - Docks Reference:
+      - ref/docks/index.md
+      - Deployment Guide: ref/docks/docks_main.md
+      - Configuration Manager Queries: ref/docks/configmgr_dock_queries.md
+    - AMD DASH: ref/dash/index.md
+    - Scripting Samples: ref/scripts/samples.md
+  - FAQ:
+    - System Update FAQ: faq/system_update_faq.md
+    - Commercial Vantage FAQ: faq/commercial_vantage_faq.md
+    - Dock Manager FAQ: faq/dock_manager_faq.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - def_list
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: ......span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+
+copyright: |
+  &copy; 2024 <a href="https://docs.lenovocdrt.com"  target="_blank" rel="noopener">Lenovo Commercial Deployment Readiness Team</a>

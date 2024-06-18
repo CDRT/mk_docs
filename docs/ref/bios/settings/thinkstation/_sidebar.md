@@ -1,0 +1,46 @@
+
+
+- Main: ref/bios/settings/thinkstation/main.md
+- ......System Summary: ref/bios/settings/thinkstation/systemsummary.md
+- ......System Time & Date: ref/bios/settings/thinkstation/systemtimedate.md
+- ......BIOS Event Log: ref/bios/settings/thinkstation/bioseventlog.md
+- Devices: ref/bios/settings/thinkstation/devices.md
+- ......Serial Port Setup: ref/bios/settings/thinkstation/serialportsetup.md
+- ......Parallel Port Setup: ref/bios/settings/thinkstation/parallelportsetup.md
+- ......USB Setup: ref/bios/settings/thinkstation/usbsetup.md
+- ......Storage Setup: ref/bios/settings/thinkstation/storagesetup.md
+- ............Intel(R) VMD Technology: ref/bios/settings/thinkstation/intelvmd.md
+- ......ATA Drive Setup: ref/bios/settings/thinkstation/atadrivesetup.md
+- ......NVME Drive Setup: ref/bios/settings/thinkstation/nvme.md
+- ......Video Setup: ref/bios/settings/thinkstation/videosetup.md
+- ......Audio Setup: ref/bios/settings/thinkstation/audiosetup.md
+- ......Network Setup: ref/bios/settings/thinkstation/networksetup.md
+- ......PCIe Setup: ref/bios/settings/thinkstation/pciesetup.md
+- ......PCI Express Setup: ref/bios/settings/thinkstation/pciexpress.md
+- ......Intel Thunderbolt: ref/bios/settings/thinkstation/intelthunderbolt.md
+- ......BMC Setup: ref/bios/settings/thinkstation/bmcsetup.md
+- Advanced: ref/bios/settings/thinkstation/advanced.md
+- ......Diagnostics (AMD): ref/bios/settings/thinkstation/diagnostics.md
+- ......PCIe Configuration (AMD): ref/bios/settings/thinkstation/pcieconfiguration.md
+- ......PCI Express Setup: ref/bios/settings/thinkstation/pciexpressconfig.md
+- ......CPU Configuration (AMD): ref/bios/settings/thinkstation/cpuconfiguration.md
+- ......CPU Setup (Intel): ref/bios/settings/thinkstation/cpusetup.md
+- ......Memory Configuration: ref/bios/settings/thinkstation/memoryconfig.md
+- ......RAS Configuration (AMD): ref/bios/settings/thinkstation/rasconfiguration.md
+- ......Common RefCode Configuration (AMD): ref/bios/settings/thinkstation/commonrefcodeconfiguration.md
+- ......DASH Configuration (AMD): ref/bios/settings/thinkstation/dashconfiguration.md
+- ......Intel Manageability Settings: ref/bios/settings/thinkstation/intelmanageability.md
+- ......Serial Port Console Redirection (AMD): ref/bios/settings/thinkstation/serialportconsoleredirection.md
+- Power: ref/bios/settings/thinkstation/power.md
+- ......Automatic Power On: ref/bios/settings/thinkstation/autopoweron.md
+- Security: ref/bios/settings/thinkstation/security.md
+- ......Hard Disk Password: ref/bios/settings/thinkstation/harddiskpass.md
+- ......Password Policies: ref/bios/settings/thinkstation/passwordpolicies.md
+- ......SMP Access Control: ref/bios/settings/thinkstation/smpaccesscontrol.md
+- ......TCG Feature Setup: ref/bios/settings/thinkstation/tcgfeaturesetup.md
+- ......Secure Boot: ref/bios/settings/thinkstation/secureboot.md
+- ......System Event Log: ref/bios/settings/thinkstation/systemeventlog.md
+- ......Certificate-based BIOS Authentication: ref/bios/settings/thinkstation/certbasedbiosauth.md
+- Startup: ref/bios/settings/thinkstation/startup.md
+- ......Boot Priority Order: ref/bios/settings/thinkstation/bootpriorityorder.md
+- Exit: ref/bios/settings/thinkstation/exit.md

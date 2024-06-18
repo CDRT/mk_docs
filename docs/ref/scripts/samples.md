@@ -1,0 +1,12 @@
+# Scripting Samples
+
+This page will provide scripts and MOF files related to managing Lenovo PC's.
+
+!!! warning
+    These sample scripts are not supported under any Lenovo standard support program or service. The sample scripts are provided AS IS without warranty of any kind. Lenovo further disclaims all implied warranties including, without limitation, any implied warranties of merchantability or of fitness for a particular purpose. The entire risk arising out of the use or performance of the sample scripts and documentation remains with you. In no event shall Lenovo, its authors, or anyone else involved in the creation, production, or delivery of the scripts be liable for any damages whatsoever (including, without limitation, damages for loss of business profits, business interruption, loss of business information, or other pecuniary loss) arising out of the use of or inability to use the sample scripts or documentation, even if Lenovo has been advised of the possibility of such damages.</i>
+
+Solution | Description
+---------|------------
+[MOF Files](https://github.com/CDRT/Library/tree/master/mof 'target=_blank') | This folder in the library contains MOF files that can be used to extend the hardware inventory of Configuration Manager to collect data from custom WMI classes.<ul><li>Odometer: Represents the metrics collected from supported systems showing data such as CPU Uptime, Accelerometer Shock events, Thermal events, etc. </li><li> Lenovo Updates: Collects the updates history as stored by Lenovo System Update, Thin Installer, or Commercial Vantage</li><li>Dock Manager: Gathers vital details about attached docks and the devices connected to them.</li></ul>
+[Odometer](https://github.com/CDRT/Library/tree/master/odometer 'target=_blank') | This script collects and iterprets the raw Odometer data and stores it in a custom WMI class.  A MOF file for this custom class is provided in the mof folder of the Library. See more details on the [Think Deploy Blog](https://blog.lenovocdrt.com/#/2020/odometer 'target=_blank')
+[Secure Wipe](https://github.com/CDRT/Library/tree/master/secure-wipe 'target=_blank') | This script leverages a WMI method supported by some Lenovo products that performs a secure wipe of the drive in the system.  **Use carefully!**  See more details on the [Think Deploy Blog](https://blog.lenovocdrt.com/#/2021/thinkshield_secure_wipe 'target=_blank')

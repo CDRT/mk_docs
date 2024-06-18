@@ -1,0 +1,34 @@
+# ThinkPad
+
+- Main: ref/bios/settings/thinkpad/main.md
+- Config: ref/bios/settings/thinkpad/config.md
+    - Network: ref/bios/settings/thinkpad/network.md
+    - USB: ref/bios/settings/thinkpad/usb.md
+    - Keyboard/Mouse: ref/bios/settings/thinkpad/keyboardmouse.md
+    - Display: ref/bios/settings/thinkpad/display.md
+    - Power: ref/bios/settings/thinkpad/power.md
+    - Beep and Alarm: ref/bios/settings/thinkpad/beepalarm.md
+    - CPU: ref/bios/settings/thinkpad/cpu.md
+    - Thunderbolt(TM) 4: ref/bios/settings/thinkpad/thunderbolttm4.md
+    - Intel(R) AMT: ref/bios/settings/thinkpad/intelramt.md
+    - HDMI Configuration: ref/bios/settings/thinkpad/hdmi.md
+- Date/Time: ref/bios/settings/thinkpad/datetime.md
+- Security: ref/bios/settings/thinkpad/security.md
+    - Password: ref/bios/settings/thinkpad/password.md
+    - Fingerprint: ref/bios/settings/thinkpad/fingerprint.md
+    - Security Chip: ref/bios/settings/thinkpad/securitychip.md
+    - UEFI BIOS Update Option: ref/bios/settings/thinkpad/uefibiosupdate.md
+    - Memory Protection: ref/bios/settings/thinkpad/memoryprotection.md
+    - Virtualization: ref/bios/settings/thinkpad/virtualization.md
+    - I/O Port Access: ref/bios/settings/thinkpad/ioportaccess.md
+    - Internal Device Access: ref/bios/settings/thinkpad/internaldeviceaccess.md
+    - Absolute Persistence(R) Module: ref/bios/settings/thinkpad/abspersistencemodule.md
+    - Secure Boot: ref/bios/settings/thinkpad/secureboot.md
+    - Device Guard: ref/bios/settings/thinkpad/deviceguard.md
+    - ThinkShield Secure Wipe: ref/bios/settings/thinkpad/thinkshieldsecurewipe.md
+    - ThinkShield Passwordless Power-On: ref/bios/settings/thinkpad/thinkshieldpasswordless.md
+    - Intelligent Security: ref/bios/settings/thinkpad/intelligentsecurity.md
+    - Reset System to Factory Defaults: ref/bios/settings/thinkpad/resetsystemtofactorydefaults.md
+    - Certificate-based BIOS Authentication: ref/bios/settings/thinkpad/certbasedbiosauth.md
+- Startup: ref/bios/settings/thinkpad/startup.md
+- Restart: ref/bios/settings/thinkpad/restart.md
