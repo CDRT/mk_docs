@@ -47,15 +47,15 @@ This document may make references to deployment tools such as Microsoft’s Syst
 
 Use the table below to find the appropriate WinPE driver for your dock:
 
-| Docks                                                                                                                                                                                          | WinPE Driver       |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| USB-C Dock<br/>  USB-C Travel Hub<br/>  Thunderbolt Dock<br/>  Hybrid USB-C with USB-A Dock<br/>  OneLink Dock<br/>  OneLink+ Dock<br/>  OneLink+ to RJ45 Adapter<br/>  3-in-1 ThinkPad<br/> OneLink Adapter <br/> USB 3.0 Ethernet Adapter <br/>USB-C to Ethernet Adapter  | [Realtek USB Driver](https://pcsupport.lenovo.com/us/en/downloads/ds504778) |
-| USB 3.0 Basic Dock<br/>  USB 3.0 Pro Dock<br/>  USB 3.0 Ultra Dock                                                                                                                                       | [DisplayLink Driver](https://pcsupport.lenovo.com/solutions/HT104480) |
+| Docks | WinPE Driver |
+| :--------: | :-------:|
+| USB-C Dock<br/>  USB-C Travel Hub<br/>  Thunderbolt Dock<br/>  Hybrid USB-C with USB-A Dock<br/>  OneLink Dock<br/>  OneLink+ Dock<br/>  OneLink+ to RJ45 Adapter<br/>  3-in-1 ThinkPad<br/> OneLink Adapter <br/> USB 3.0 Ethernet Adapter <br/>USB-C to Ethernet Adapter | [Realtek USB Driver](https://pcsupport.lenovo.com/us/en/downloads/ds504778) |
+| USB 3.0 Basic Dock<br/>  USB 3.0 Pro Dock<br/>  USB 3.0 Ultra Dock | [DisplayLink Driver](https://pcsupport.lenovo.com/solutions/HT104480) |
 
 You will also need the appropriate driver for the version of Windows (links provided below in deployment recipe table for each dock) that you are deploying.
 
-| MDT                                                                                                                                                                                                                       | SCCM                                                                                                                                                                                                                      |
-|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| MDT | SCCM |
+| --- | ---- |
 | Make sure the driver is included in the  "Out of box" driver folder for your specific  system. If you are utilizing an alternate driver  deployment method make sure to include the  RealTek USB driver in your solution. | Make sure the driver is included in the  "Driver Package" for your specific system.  Again, if you are utilizing an alternate  method of driver deployment make sure to  include the Realtek USB driver in your solution. |
 
 ## Using Docking WMI Queries
@@ -108,12 +108,12 @@ Intel 6th generation processors with CPU designation i3-6xxx, i5-6xxx, i7-6xxx
 
 ![MAC Address Passthru](https://cdrt.github.io/mk_docs/img/guides/docks/img2.PNG)
 
-| Skylake Exceptions |           |               |                          |
-|--------------------|-----------|---------------|--------------------------|
-| Model              | USB-C     | Thunderbolt 3 | MAC Address Pass-Through |
-| ThinkPad 13        | Supported | Not Supported | * Supported              |
-| ThinkPad P50       | Supported | Supported     | Not Supported            |
-| ThinkPad P70       | Supported | Supported     | Not Supported            |
+| Skylake Exceptions |           |                   |                              |
+|--------------------|-----------|-------------------|------------------------------|
+| **Model**          | **USB-C** | **Thunderbolt 3** | **MAC Address Pass-Through** |
+| ThinkPad 13        | Supported | Not Supported     | * Supported                  |
+| ThinkPad P50       | Supported | Supported         | Not Supported                |
+| ThinkPad P70       | Supported | Supported         | Not Supported                |
 
 !!! alert ""
     Requires BIOS R0CET28W – Ver. 1.16 or newer for Mac Address Pass-Through
@@ -177,61 +177,9 @@ The ThinkPad® Universal Thunderbolt™ 4 Dock (40B0) is engineered to expand in
 
 ### Deployment
 
-<table class="deploymentTable">
-<td class="tdDT" rowspan="11" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-<tr>
-<td rowspan="4" class="tdDT">
-<h5>Query: </h5>
-<tr>
-<td class="tdDT">Ethernet </td>
-<td class="depTableFont">PCI\VEN_8086&DEV_5502 </td>
-</tr>
-<tr>
-<td class="tdDT">Audio</td>
-<td class="depTableFont">USB\VID_17EF&PID_30BB</td>
-</tr>
-<tr>
-<td class="tdDT">Billboard </td>
-<td class="depTableFont">USB\VID_17EF&PID_30B5</td>
-</tr>
-</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/accessories/pd500503" target="_blank">https://pcsupport.lenovo.com/accessories/pd500503</a></td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/accessories/pd500503" target="_blank">https://pcsupport.lenovo.com/accessories/pd500503</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont">We do not recommend deploying firmware updates during OSD deployment<br></td>
-</tr>
-</tr>
-</td></tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes &nbsp;
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (deploy as hardware app in task sequence)<br>
-&nbsp;&nbsp;&nbsp;As Application ( tbt4_grdockdriver_v1006.exe /VERYSILENT ) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbsp;Deploy As Package in task sequence ( tbt4_grdockdriver_v1006.exe /VERYSILENT )
-<br> <b>*Restart required*</b> </td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Drivers & FW | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td>PCI\VEN_8086&DEV_5502</td></tr><tr><td>Audio:</td><td>USB\VID_17EF&PID_30BB</td></tr><tr><td>Billboard:</td><td>USB\VID_17EF&PID_30B5</td></tr></table> | [WinPE](https://pcsupport.lenovo.com/accessories/pd500503) <br><br> [Windows](https://pcsupport.lenovo.com/accessories/pd500503) <br><br>**Firmware**: We do not recommend deploying firmware updates during OSD deployment | Yes | **MDT** <br> As HW Application ( tbt4_grdockdriver_v1006.exe /VERYSILENT ) <br><br> <b>SCCM </b><br> &nbsp;&nbsp;&nbsp;As Package in task sequence ( tbt4_grdockdriver_v1006.exe /VERYSILENT ) <br><br> ***Restart required*** |
 
 ## ThinkPad Thunderbolt 3 Essential Dock (40AV0135)
 
@@ -269,61 +217,9 @@ The Lenovo Thunderbolt 3 Essential Dock (40AV), powered by Intel’s Thunderbolt
 
 ### Deployment
 
-<table class="deploymentTable">
-<td class="tdDT" rowspan="11" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-<tr>
-<td rowspan="4" class="tdDT">
-<h5>Query: </h5>
-<tr>
-<td class="tdDT">Ethernet </td>
-<td class="depTableFont">USB\VID_17EF&PID_3082 </td>
-</tr>
-<tr>
-<td class="tdDT">Audio</td>
-<td class="depTableFont">USB\VID_17EF&PID_3092&MI_00</td>
-</tr>
-<tr>
-<td class="tdDT">Billboard </td>
-<td class="depTableFont">USB\VID_17EF&PID_308D</td>
-</tr>
-</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/solutions/ht101981" target="_blank">https://pcsupport.lenovo.com/us/en/solutions/ht101981</a></td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href=https://pcsupport.lenovo.com/downloads/DS542694" target="_blank">https://pcsupport.lenovo.com/us/en/downloads/ds542694-driver-for-windows-10-64-bit-lenovo-thunderbolt-3-essential-dock</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont">We do not recommend deploying firmware updates during OSD deployment<br></td>
-</tr>
-</tr>
-</td></tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes &nbsp;
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (deploy as hardware app in task sequence)<br>
-&nbsp;&nbsp;&nbsp;As Application (tbt_es_dock_driver_v1006.exe /VERYSILENT) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbsp;Deploy As Package in task sequence (tbt_es_dock_driver_v1006.exe /VERYSILENT)
-<br> <b>*Restart required*</b> </td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Drivers & FW | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td> USB\VID_17EF&PID_3082 </td></tr><tr><td>Audio:</td><td> USB\VID_17EF&PID_3092&MI_00 </td></tr><tr><td>Billboard:</td><td> USB\VID_17EF&PID_308D </td></tr></table> | [WinPE](https://pcsupport.lenovo.com/solutions/ht101981) <br><br> [Windows](https://pcsupport.lenovo.com/downloads/DS542694) | Yes | **MDT** <br> As HW Application ( tbt_es_dock_driver_v1006.exe /VERYSILENT ) <br><br> <b>SCCM </b><br> &nbsp;&nbsp;&nbsp;As Package in task sequence ( tbt_es_dock_driver_v1006.exe /VERYSILENT ) <br><br> ***Restart required*** <br><br>**Firmware**: We do not recommend deploying firmware updates during OSD deployment |
 
 ## ThinkPad Thunderbolt 3 Workstation Dock (40AN0170, 40AN0230) / ThinkPad Thunderbolt 3 Dock Gen 2 (40AN0135)
 
@@ -361,60 +257,9 @@ This Intel® Thunderbolt™ Chipset powered Thunderbolt Dock Gen 2 (40AN) invent
 
 ### Deployment
 
-<table class="deploymentTable">
-<td class="tdDT" rowspan="11" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-<tr>
-<td rowspan="4" class="tdDT">
-<h5>Query: </h5>
-<tr>
-<td class="tdDT">Ethernet </td>
-<td class="depTableFont">USB\VID_17EF&PID_3082 </td>
-</tr>
-<tr>
-<td class="tdDT">Audio</td>
-<td class="depTableFont">USB\VID_17EF&PID_3083 </td>
-</tr>
-<tr>
-<td class="tdDT">Billboard </td>
-<td class="depTableFont">USB\VID_2109&PID_8887</td>
-</tr>
-</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/solutions/ht101981" target="_blank">https://pcsupport.lenovo.com/us/en/solutions/ht101981</a></td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/us/en/downloads/DS505148" target="_blank">https://pcsupport.lenovo.com/us/en/downloads/DS505148</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/us/en/downloads/DS540663" target="_blank">https://pcsupport.lenovo.com/us/en/downloads/DS540663</a><br>We do not recommend deploying firmware updates during OSD deployment<br></td>
-</tr>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes &nbsp;
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (deploy as hardware app in task sequence)<br>&nbsp;&nbsp;&nbsp;As Application(thinkpad_tbt3_gen2_ws_dock_driver_10016.exe /VERYSILENT/NORESTART) <br><br>
-<b>SCCM</b><br> &nbsp;&nbsp;&nbsp;Deploy As Package in task sequence (thinkpad_tbt3_gen2_ws_dock_driver_10016.exe /VERYSILENT/NORESTART)
-<br> <b>*Restart required*</b> </td></tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Drivers & FW | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td> USB\VID_17EF&PID_3082 </td></tr><tr><td>Audio:</td><td> USB\VID_17EF&PID_3083 </td></tr><tr><td>Billboard:</td><td> USB\VID_2109&PID_8887 </td></tr></table> | [WinPE](https://pcsupport.lenovo.com/solutions/ht101981) <br><br> [Windows](https://pcsupport.lenovo.com/us/en/downloads/DS505148) <br><br> [Firmware](https://pcsupport.lenovo.com/us/en/downloads/DS540663)<br><br>We do not recommend deploying firmware updates during OSD deployment | Yes | **MDT** <br> As HW Application ( thinkpad_tbt3_gen2_ws_dock_driver_10016.exe /VERYSILENT/NORESTART ) <br><br> <b>SCCM </b><br>As Package in task sequence ( thinkpad_tbt3_gen2_ws_dock_driver_10016.exe /VERYSILENT/NORESTART ) <br><br> ***Restart required*** |
 
 ## ThinkPad Thunderbolt 3 Dock (PN 40AC0135)
 
@@ -446,57 +291,9 @@ The ThinkPad Thunderbolt 3 Dock is an unmatched docking solution powered by Inte
 
 ### Deployment
 
-<table class="deploymentTable">
-<td class="tdDT" rowspan="11" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-<tr>
-<td rowspan="4" class="tdDT">
-<h5>Query: </h5>
-<tr>
-<td class="tdDT">Ethernet </td>
-<td class="depTableFont">USB\VID_17EF&PID_3069 </td>
-</tr>
-<tr>
-<td class="tdDT">Audio</td>
-<td class="depTableFont">USB\VID_17EF&PID_306A </td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont"><a href="https://support.lenovo.com/solutions/ht101981" target="_blank">https://support.lenovo.com/solutions/ht101981</a></td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/us/en/downloads/DS501904" target="_blank">https://pcsupport.lenovo.com/us/en/downloads/DS501904</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont">We do not recommend deploying firmware updates during OSD deployment<br><br><a href="https://pcsupport.lenovo.com/us/en/downloads/DS540663" target="_blank">https://pcsupport.lenovo.com/us/en/downloads/DS540663</a></td>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes &nbsp;
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (deploy as hardware app in task sequence)<br>
-&nbsp;&nbsp;&nbsp;As Application (thinkpad_thunderbolt-3_dock_and_usb-c_dock_driver_v10017.exe
-/VERYSILENT /NORESTART) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbsp;Deploy As Package in task sequence
-(thinkpad_thunderbolt-3_dock_and_usb-c_dock_driver_v10017.exe /VERYSILENT /NORESTART)
-<br><b> *Restart required*</b></td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Drivers & FW | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td> USB\VID_17EF&PID_3069 </td></tr><tr><td>Audio:</td><td> USB\VID_17EF&PID_306A </td></tr><tr><td>Billboard:</td><td> N/A </td></tr></table> | [WinPE](https://support.lenovo.com/solutions/ht101981) <br><br> [Windows](https://pcsupport.lenovo.com/us/en/downloads/DS501904) <br><br>[Firmware](https://pcsupport.lenovo.com/us/en/downloads/DS540663)<br><br>We do not recommend deploying firmware updates during OSD deployment | Yes | **MDT** <br> As HW Application ( thinkpad_thunderbolt-3_dock_and_usb-c_dock_driver_v10017.exe /VERYSILENT /NORESTART ) <br><br> <b>SCCM </b><br>As Package in task sequence ( thinkpad_thunderbolt-3_dock_and_usb-c_dock_driver_v10017.exe /VERYSILENT /NORESTART ) <br><br> ***Restart required*** |
 
 ## ThinkPad Universal USB-C Smart Dock (40B20135)
 
@@ -535,66 +332,9 @@ ThinkPad Universal USB-C Smart Dock (40B2) is designed to enhance everyday produ
 
 ### Deployment
 
-<table class="deploymentTable">
-<tr>
-<td class="tdDT" rowspan="12" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-</tr>
-<tr>
-<td rowspan="5" class="tdDT">
-<h5>Query: </h5>
-<tr>
-<td class="tdDT">Ethernet </td>
-<td class="depTableFont">USB\VID_0BDA&PID_8153</td>
-</tr>
-<tr>
-<td class="tdDT">Audio</td>
-<td class="depTableFont">USB\VID_17EF&PID_30B0&MI_00 </td>
-</tr>
-<tr>
-<td class="tdDT">Billboard </td>
-<td class="depTableFont">USB\VID_17EF&PID_30CA&MI_00 </td>
-</tr>
-</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/accessories/acc500253" target="_blank"> https://pcsupport.lenovo.com/accessories/acc500253</a></td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/accessories/acc500253"
-	target="_blank">https://pcsupport.lenovo.com/accessories/acc500253</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont">We do not recommend deploying firmware updates during OSD
-deployment<br><br><a href="https://pcsupport.lenovo.com/us/en/downloads/DS504448" target="_blank">https://pcsupport.lenovo.com/us/en/downloads/DS504448</a></td>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes &nbsp;
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (deploy as hardware app in task sequence)<br>
-&nbsp;&nbsp;&nbsp;As Application ( u3etn09w.exe /VERYSILENT) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbsp;Deploy As Package in task sequence
-(u3etn09w.exe /VERYSILENT)
-<br> <b>*Restart required*</b> </td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Drivers & FW | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td> USB\VID_0BDA&PID_8153 </td></tr><tr><td>Audio:</td><td> USB\VID_17EF&PID_30B0&MI_00 </td></tr><tr><td>Billboard:</td><td> USB\VID_17EF&PID_30CA&MI_00 </td></tr></table> | [WinPE](https://pcsupport.lenovo.com/accessories/acc500253) <br><br> [Windows](https://pcsupport.lenovo.com/accessories/acc500253) <br><br>[Firmware](https://pcsupport.lenovo.com/us/en/downloads/DS504448)<br><br>We do not recommend deploying firmware updates during OSD deployment | Yes | **MDT** <br> As HW Application ( u3etn09w.exe /VERYSILENT ) <br><br> <b>SCCM </b><br>As Package in task sequence ( u3etn09w.exe /VERYSILENT ) <br><br> ***Restart required*** |
 
 ## ThinkPad Hybrid USB-C with USB-A Dock (PN 40AF0135)
 
@@ -617,71 +357,9 @@ The ThinkPad Hybrid USB-C with USB-A Dock (40AF) expands the capabilities of mos
 
 ### Deployment
 
-<table class="deploymentTable">
-<tr>
-<td class="tdDT" rowspan="12" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-</tr>
-<tr>
-<td rowspan="5" class="tdDT">
-<h5>Query: </h5>
-<tr>
-<td class="tdDT">Ethernet </td>
-<td class="depTableFont">USB\VID_17EF&PID_A359 </td>
-</tr>
-<tr>
-<td class="tdDT">Audio</td>
-<td class="depTableFont">USB\VID_17EF&PID_6015 </td>
-</tr>
-<tr>
-<td class="tdDT">Display</td>
-<td class="depTableFont">USB\VID_17EF&PID_6015 </td>
-</tr>
-<tr>
-<td class="tdDT">Billboard </td>
-<td class="depTableFont">USB\VID_17EF&PID_A354 </td>
-</tr>
-</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont"><a href="https://support.lenovo.com/solutions/ht101981" target="_blank"> https://pcsupport.lenovo.com/us/en/solutions/ht101981</a></td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://support.lenovo.com/us/en/downloads/DS502119"
-	target="_blank">https://support.lenovo.com/us/en/downloads/DS502119</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont">We do not recommend deploying firmware updates during OSD
-deployment<br><br><a href="https://pcsupport.lenovo.com/us/en/downloads/DS504448" target="_blank">https://pcsupport.lenovo.com/us/en/downloads/DS504448</a></td>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes &nbsp;
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (deploy as hardware app in task sequence)<br>
-&nbsp;&nbsp;&nbsp;As Application (thinkpad_hybrid_usb-c_with_usb-a_dock_driver_web_v1.0.0.21.exe
-/VERYSILENT /NORESTART) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbsp;Deploy As Package in task sequence
-(thinkpad_hybrid_usb-c_with_usb-a_dock_driver_web_v1.0.0.21.exe /VERYSILENT /NORESTART)
-<br> <b>*Restart required*</b> </td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Driver(s) | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td> USB\VID_17EF&PID_A359 </td></tr><tr><td>Audio:</td><td> USB\VID_17EF&PID_6015 </td></tr><tr><td>Billboard:</td><td> USB\VID_17EF&PID_A354 </td></tr></table> | [WinPE](https://support.lenovo.com/solutions/ht101981) <br><br> [Windows](https://support.lenovo.com/us/en/downloads/DS502119) <br><br>[Firmware](https://pcsupport.lenovo.com/us/en/downloads/DS504448)<br><br>We do not recommend deploying firmware updates during OSD deployment | Yes | **MDT** <br> As HW Application ( thinkpad_hybrid_usb-c_with_usb-a_dock_driver_web_v1.0.0.21.exe /VERYSILENT /NORESTART ) <br><br> <b>SCCM </b><br>As Package in task sequence ( thinkpad_hybrid_usb-c_with_usb-a_dock_driver_web_v1.0.0.21.exe /VERYSILENT /NORESTART ) <br><br> ***Restart required*** |
 
 ## ThinkPad USB-C Dock Gen 2 (PN 40AS0090)
 
@@ -713,71 +391,9 @@ The ThinkPad USB-C Dock Gen 2 (40AS) is the next generation of USB-C one-cable u
 
 ### Deployment
 
-<table class="deploymentTable">
-<tr>
-<td class="tdDT" rowspan="11" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-</tr>
-<tr>
-<td rowspan="3" class="tdDT">
-<h5>Query: </h5>
-<td class="tdDT">Ethernet </td>
-<td class="depTableFont">USB\VID_17EF&PID_A387 </td>
-</tr>
-<tr>
-<td class="tdDT">Audio</td>
-<td class="depTableFont">USB\VID_17EF&PID_A396 </td>
-</tr>
-<tr>
-<td class="tdDT">Billboard</td>
-<td class="depTableFont">USB\VID_17EF&PID_A38F </td>
-</tr>
-</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont"><a
-href="https://download.lenovo.com/km/media/attachment/USBCG2.zip" target="_blank">
-https://download.lenovo.com/km/media/attachment/USBCG2.zip</a></td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/us/en/downloads/DS539091"
-target="_blank">https://pcsupport.lenovo.com/us/en/downloads/DS539091</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont">We do not recommend deploying firmware updates during OSD
-deployment<br><br><a href="http://pcsupport.lenovo.com/us/en/downloads/DS539092"
-target="_blank">http://pcsupport.lenovo.com/us/en/downloads/DS539092</a></td>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes &nbsp;
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (deploy as hardware app in task sequence)<br>
-&nbsp;&nbsp;&nbsp;Deploy as Application:
-<br>&nbsp;&nbsp;&nbsp;thinkpad_usb-c_dock_gen2_drivers_v1.0.3.03241.exe /VERYSILENT
-/NORESTART <br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbsp;Deploy as Package in task
-sequence:<br>&nbsp;&nbsp;&nbsp; thinkpad_usb-c_dock_gen2_drivers_v1.0.3.03241.exe
-/VERYSILENT /NORESTART
-<br> <b>*Restart required*</b> </td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Driver(s) | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td> USB\VID_17EF&PID_A387 </td></tr><tr><td>Audio:</td><td> USB\VID_17EF&PID_A396 </td></tr><tr><td>Billboard:</td><td> USB\VID_17EF&PID_A38F </td></tr></table> | [WinPE](https://download.lenovo.com/km/media/attachment/USBCG2.zip) <br><br> [Windows](https://pcsupport.lenovo.com/us/en/downloads/DS539091) <br><br>[Firmware](http://pcsupport.lenovo.com/us/en/downloads/DS539092)<br><br>We do not recommend deploying firmware updates during OSD deployment | Yes | **MDT** <br> As HW Application ( thinkpad_usb-c_dock_gen2_drivers_v1.0.3.03241.exe /VERYSILENT /NORESTART ) <br><br> <b>SCCM </b><br>As Package in task sequence ( thinkpad_usb-c_dock_gen2_drivers_v1.0.3.03241.exe /VERYSILENT /NORESTART ) <br><br> ***Restart required*** |
 
 ## ThinkPad USB-C Dock (PN 40A90090)
 
@@ -803,68 +419,9 @@ The ThinkPad USB-C Dock is a new universal docking solution ensuring a productiv
 
 ### Deployment
 
-<table class="deploymentTable">
-<tr>
-<td class="tdDT" rowspan="12" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-</tr>
-<tr>
-<td rowspan="3" class="tdDT">
-<h5>WMI PNP Query String: </h5>
-<td class="tdDT">Ethernet </td>
-<td class="depTableFont">USB\VID_17EF&PID_3062 </td>
-</tr>
-<tr>
-<td class="tdDT">Audio</td>
-<td class="depTableFont">USB\VID_17EF&PID_3063 </td>
-</tr>
-<tr>
-<td class="tdDT">Billboard</td>
-<td class="depTableFont">USB\VID_17EF&PID_3060 </td>
-</tr>
-</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont"><a href="https://support.lenovo.com/solutions/ht101981"
-target="_blank"> https://support.lenovo.com/solutions/ht101981</a></td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/downloads/DS501902"
-target="_blank">https://pcsupport.lenovo.com/downloads/DS501902</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont">We do not recommend deploying firmware updates during OSD
-deployment<br><br><a href="https://support.lenovo.com/us/en/downloads/DS501903"
-target="_blank">https://support.lenovo.com/us/en/downloads/DS501903</a></td>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes &nbsp;
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (deploy as hardware app in task sequence)<br>
-&nbsp;&nbsp;&nbsp;As Application (thinkpad_thunderbolt-3_dock_and_usb-c_dock_driver_v10017.exe
-/VERYSILENT /NORESTART) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbsp;Deploy As Package in task sequence
-(thinkpad_thunderbolt-3_dock_and_usb-c_dock_driver_v10017.exe /VERYSILENT /NORESTART)
-<br> <b>*Restart required*</b> </td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Driver(s) | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td> USB\VID_17EF&PID_3062 </td></tr><tr><td>Audio:</td><td> USB\VID_17EF&PID_3063 </td></tr><tr><td>Billboard:</td><td> USB\VID_17EF&PID_3060 </td></tr></table> | [WinPE](https://support.lenovo.com/solutions/ht101981) <br><br> [Windows](https://pcsupport.lenovo.com/downloads/DS501902) <br><br>[Firmware](https://support.lenovo.com/us/en/downloads/DS501903)<br><br>We do not recommend deploying firmware updates during OSD deployment | Yes | **MDT** <br> As HW Application ( thinkpad_thunderbolt-3_dock_and_usb-c_dock_driver_v10017.exe /VERYSILENT /NORESTART ) <br><br> <b>SCCM </b><br>As Package in task sequence ( thinkpad_thunderbolt-3_dock_and_usb-c_dock_driver_v10017.exe /VERYSILENT /NORESTART ) <br><br> ***Restart required*** |
 
 ## ThinkPad OneLink+ Dock (PN 40A40090)
 
@@ -895,64 +452,9 @@ The docking station comes equipped with a stereo/microphone combination audio po
 
 ### Deployment
 
-<table class="deploymentTable">
-<tr>
-<td class="tdDT" rowspan="11" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-</tr>
-<tr>
-<td rowspan="2" class="tdDT">
-<h5>WMI PNP Query String: </h5>
-<td class="tdDT">Ethernet </td>
-<td class="depTableFont">USB\VID_17EF&PID_3054</td>
-</tr>
-<tr>
-<td class="tdDT">Audio</td>
-<td class="depTableFont">USB\VID_17EF&PID_3055 </td>
-</tr>
-</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont"><a href="https://support.lenovo.com/solutions/ht101981"
-target="_blank"> https://support.lenovo.com/solutions/ht101981</a></td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/documents/ACC100252"
-target="_blank">https://pcsupport.lenovo.com/documents/ACC100252</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont">We do not recommend deploying firmware updates during OSD
-deployment<br><br><a href="https://pcsupport.lenovo.com/documents/ACC100252"
-target="_blank">https://pcsupport.lenovo.com/documents/ACC100252</a></td>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes &nbsp;
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (deploy as hardware app in task sequence)<br>
-&nbsp;&nbsp;&nbsp;As Application (tp_onelink_driver.exe
-/VERYSILENT /NORESTART) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbsp;Deploy As Package in task sequence
-(tp_onelink_driver.exe /VERYSILENT /NORESTART)
-<br> <b>*Restart required*</b> </td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Driver(s) | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td> USB\VID_17EF&PID_3054 </td></tr><tr><td>Audio:</td><td> USB\VID_17EF&PID_3055 </td></tr><tr><td>Billboard:</td><td> N/A </td></tr></table> | [WinPE](https://support.lenovo.com/solutions/ht101981) <br><br> [Windows](https://pcsupport.lenovo.com/documents/ACC100252) <br><br>[Firmware](https://pcsupport.lenovo.com/documents/ACC100252)<br><br>We do not recommend deploying firmware updates during OSD deployment | Yes | **MDT** <br> As HW Application ( tp_onelink_driver.exe /VERYSILENT /NORESTART ) <br><br> <b>SCCM </b><br>As Package in task sequence ( tp_onelink_driver.exe /VERYSILENT /NORESTART ) <br><br> ***Restart required*** |
 
 ## ThinkPad OneLink Pro Dock (PN 4X10E52935)
 
@@ -991,63 +493,9 @@ Gigabit Ethernet by USB, installing a driver may be required.
 
 ### Deployment
 
-<table class="deploymentTable">
-<td class="tdDT" rowspan="10" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-<tr>
-<td rowspan="3" class="tdDT">
-<h5>WMI PNP Query String: </h5>
-<tr>
-<td class="tdDT">Ethernet </td>
-<td class="depTableFont">USB\VID_17EF&PID_304F </td>
-</tr>
-<tr>
-<td class="tdDT">Audio</td>
-<td class="depTableFont">USB\VID_17EF&PID_304E </td>
-</tr>
-</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont"><a href="https://support.lenovo.com/solutions/ht101981"
-target="_blank">https://support.lenovo.com/solutions/ht101981</a></td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://support.lenovo.com/solutions/pd029981"
-target="_blank">https://support.lenovo.com/solutions/pd029981</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont">We do not recommend deploying firmware updates during OSD
-deployment<br><br><a href="https://support.lenovo.com/id/en/solutions/pd029981"
-target="_blank">https://support.lenovo.com/id/en/solutions/pd029981</a>
-<a href=""></a>
-</td>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes &nbsp;
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (deploy as hardware app in task sequence)<br>
-&nbsp;&nbsp;&nbsp;As Application (tp_onelink_driver.exe -s) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbsp;Deploy As Package in task sequence
-(tp_onelink_driver.exe -s)</td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Driver(s) | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td> USB\VID_17EF&PID_304F </td></tr><tr><td>Audio:</td><td> USB\VID_17EF&PID_304E </td></tr><tr><td>Billboard:</td><td> N/A </td></tr></table> | [WinPE](https://support.lenovo.com/solutions/ht101981) <br><br> [Windows](https://support.lenovo.com/solutions/pd029981) <br><br>[Firmware](https://support.lenovo.com/id/en/solutions/pd029981)<br><br>We do not recommend deploying firmware updates during OSD deployment | Yes | **MDT** <br> As HW Application ( tp_onelink_driver.exe -s ) <br><br> <b>SCCM </b><br>As Package in task sequence ( tp_onelink_driver.exe -s ) <br><br> ***Restart required*** |
 
 ## ThinkPad OneLink Dock (PN 4X10A06077)
 
@@ -1092,48 +540,9 @@ In extend mode, you can drag and drop windows from one display to the other. Als
 
 ### Deployment
 
-<table class="deploymentTable">
-<td class="tdDT" rowspan="10" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont"><a href="https://support.lenovo.com/solutions/ht101981"
-target="_blank">https://support.lenovo.com/solutions/ht101981</a></td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/accessories/PD026944"
-target="_blank">https://pcsupport.lenovo.com/accessories/PD026944</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont">We do not recommend deploying firmware updates during OSD
-deployment<br><br>
-<a href=""></a>
-</td>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">No</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (deploy as hardware app in task sequence)<br>
-&nbsp;&nbsp;&nbsp;As Application (tp_onelink_driver.exe -s) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbsp;Deploy As Package in task sequence
-(tp_onelink_driver.exe -s)</td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Driver(s) | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td>  </td></tr><tr><td>Audio:</td><td>  </td></tr><tr><td>Billboard:</td><td>  </td></tr></table> | [WinPE](https://support.lenovo.com/solutions/ht101981) <br><br> [Windows](https://pcsupport.lenovo.com/accessories/PD026944) <br><br>**Firmware:**<br><br>We do not recommend deploying firmware updates during OSD deployment | **No** | **MDT** <br> As HW Application<br>( tp_onelink_driver.exe -s ) <br><br> <b>SCCM </b><br>As Package in task sequence<br>( tp_onelink_driver.exe -s ) <br><br> ***Restart required*** |
 
 ## ThinkPad USB 3.0 Ultra Dock (PN 40A80045)
 
@@ -1148,53 +557,9 @@ The ThinkPad USB 3.0 Ultra Dock is an universal USB docking solution that not on
 
 ### Deployment
 
-<table class="deploymentTable">
-<td class="tdDT" rowspan="18" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>WMI PNP Query String: </h5>
-</td>
-<td class="depTableFont">USB\VID_17E9&PID_4340&REV_0101 - USB Composite Device</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont"><a href="https://support.lenovo.com/solutions/ht104480"
-target="_blank">https://support.lenovo.com/solutions/ht104480</a></td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/solutions/acc100183"
-target="_blank">https://pcsupport.lenovo.com/solutions/acc100183</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont">We do not recommend deploying firmware updates during OSD
-deployment<br></td>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes &nbsp;&nbsp;
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (deploy as hardware app in task sequence)<br>
-&nbsp;&nbsp;&nbsp;As Application (generic_displaylink_driver_for_usb_docks_and_adapters_v9333240.exe -silent) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbsp;Deploy As Package in task sequence (generic_displaylink_driver_for_usb_docks_and_adapters_v9333240.exe
--silent)</td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Driver(s) | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  USB Composite Device:<br>USB\VID_17E9&PID_4340&REV_0101 | [WinPE](https://support.lenovo.com/solutions/ht104480) <br><br> [Windows](https://pcsupport.lenovo.com/solutions/acc100183) <br><br>**Firmware:**<br><br>We do not recommend deploying firmware updates during OSD deployment | Yes | **MDT** <br> As HW Application<br>(generic_displaylink_driver_for_usb_docks_and_adapters_v9333240.exe -silent ) <br><br> <b>SCCM </b><br>As Package in task sequence<br>(generic_displaylink_driver_for_usb_docks_and_adapters_v9333240.exe -silent ) <br><br> ***Restart required*** |
 
 ## ThinkPad USB 3.0 Pro Dock (PN 40A70045)
 
@@ -1220,54 +585,9 @@ The ThinkPad USB 3.0 Pro Dock delivers a professional universal USB docking solu
 
 ### Deployment
 
-<table class="deploymentTable">
-<td class="tdDT" rowspan="18" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>WMI PNP Query String: </h5>
-</td>
-<td class="depTableFont">USB\VID_17E9&PID_433F&REV_0101
-</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont"><a href="https://support.lenovo.com/solutions/ht104480"
-target="_blank">https://support.lenovo.com/solutions/ht104480</a></td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://support.lenovo.com/solutions/acc100184"
-target="_blank"> https://support.lenovo.com/solutions/acc100184</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont">We do not recommend deploying firmware updates during OSD
-deployment<br></td>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes &nbsp;&nbsp;
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (deploy as hardware app in task sequence)<br>
-&nbsp;&nbsp;&nbsp;As Application (generic_displaylink_driver_for_usb_docks_and_adapters_v9333240.exe -silent) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbsp;Deploy As Package in task sequence (generic_displaylink_driver_for_usb_docks_and_adapters_v9333240.exe
--silent)</td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Driver(s) | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  USB Composite Device:<br>USB\VID_17E9&PID_433F&REV_0101 | [WinPE](https://support.lenovo.com/solutions/ht104480) <br><br> [Windows](https://support.lenovo.com/solutions/acc100184) <br><br>**Firmware:**<br><br>We do not recommend deploying firmware updates during OSD deployment | Yes | **MDT** <br> As HW Application<br>(generic_displaylink_driver_for_usb_docks_and_adapters_v9333240.exe -silent) <br><br> <b>SCCM </b><br>As Package in task sequence<br>(generic_displaylink_driver_for_usb_docks_and_adapters_v9333240.exe -silent) <br><br> ***Restart required*** |
 
 ## ThinkPad USB 3.0 Basic Dock (PN 40AA0045)
 
@@ -1296,309 +616,254 @@ Transform any notebook into the heart of your office, instantly connecting mice,
 
 ### Deployment
 
-<table class="deploymentTable">
-<td class="tdDT" rowspan="18" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-<tr>
-<td rowspan="3" class="tdDT">
-<h5>WMI PNP Query String: </h5>
-<tr>
-<td class="tdDT">Ethernet </td>
-<td class="depTableFont">USB\VID_17E9&PID_431F&MI_05
-</td>
-</tr>
-<tr>
-<td class="tdDT">Audio</td>
-<td class="depTableFont">USB\VID_17E9&PID_431F&MI_02</td>
-</tr>
-<tr>
-<td class="tdDT">Display</td>
-<td class="depTableFont">USB\VID_17E9&PID_431F&MI_00</td>
-</tr>
-</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont"><a href="https://support.lenovo.com/solutions/ht104480"
-target="_blank">https://support.lenovo.com/solutions/ht104480</a></td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://support.lenovo.com/solutions/acc100315"
-target="_blank">https://support.lenovo.com/solutions/acc100315</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont">We do not recommend deploying firmware updates during OSD
-deployment<br></td>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (deploy as hardware app in task sequence)<br>
-&nbsp;&nbsp;&nbsp;As Application (generic_displaylink_driver_for_usb_docks_and_adapters_v9333240.exe -silent) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbspDeploy As Package in task sequence (generic_displaylink_driver_for_usb_docks_and_adapters_v9333240.exe -silent)
-</td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Driver(s) | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td> USB\VID_17E9&PID_431F&MI_05 </td></tr><tr><td>Audio:</td><td> USB\VID_17E9&PID_431F&MI_02 </td></tr><tr><td>Display:</td><td> USB\VID_17E9&PID_431F&MI_00 </td></tr></table> | [WinPE](https://support.lenovo.com/solutions/ht104480) <br><br> [Windows](https://support.lenovo.com/solutions/acc100315) <br><br>**Firmware:**<br><br>We do not recommend deploying firmware updates during OSD deployment | Yes | **MDT** <br> As HW Application<br>(generic_displaylink_driver_for_usb_docks_and_adapters_v9333240.exe -silent) <br><br> <b>SCCM </b><br>As Package in task sequence<br>(generic_displaylink_driver_for_usb_docks_and_adapters_v9333240.exe -silent) <br><br> ***Restart required*** |
 
 ## Dock/Port Comparison
 
 <table class="PDComparisonTable">
 <tr>
-<th colspan="2"></th>
-<th>ThinkPad Thunderbolt 3 Essential Dock</th>
-<th>ThinkPad Thunderbolt 3 Workstation Dock / ThinkPad Thunderbolt 3 Dock Gen 2</th>
-<th>ThinkPad Thunderbolt 3 Dock</th>
-<th>ThinkPad Hybrid USB-C with USB-A Dock</th>
-<th>ThinkPad USB-C Dock (Gen1 & Gen2)</th>
-<th>ThinkPad OneLink Plus Dock</th>
-<th>ThinkPad OneLink Pro Dock</th>
-<th>ThinkPad OneLink Dock</th>
-<th>ThinkPad USB 3.0 Ultra Dock</th>
-<th>ThinkPad USB 3.0 Pro Dock</th>
-<th>ThinkPad Basic USB 3.0 Dock</th>
+<th class="PDCT" colspan="2"></th>
+<th class="PDCT">ThinkPad Thunderbolt 3 Essential Dock</th>
+<th class="PDCT">ThinkPad Thunderbolt 3 Workstation Dock / ThinkPad Thunderbolt 3 Dock Gen 2</th>
+<th class="PDCT">ThinkPad Thunderbolt 3 Dock</th>
+<th class="PDCT">ThinkPad Hybrid USB-C with USB-A Dock</th>
+<th class="PDCT">ThinkPad USB-C Dock (Gen1 & Gen2)</th>
+<th class="PDCT">ThinkPad OneLink Plus Dock</th>
+<th class="PDCT">ThinkPad OneLink Pro Dock</th>
+<th class="PDCT">ThinkPad OneLink Dock</th>
+<th class="PDCT">ThinkPad USB 3.0 Ultra Dock</th>
+<th class="PDCT">ThinkPad USB 3.0 Pro Dock</th>
+<th class="PDCT">ThinkPad Basic USB 3.0 Dock</th>
 </tr>
 <tr>
-<th rowspan="5">USB Connection</th>
+<th class="PDCT" rowspan="5">USB Connection</th>
 </tr>
 <tr>
-<th>Thunderbolt 3</th>
-<td>2</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<th class="PDCT">Thunderbolt 3</th>
+<td class="PDCT">2</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
 </tr>
 <tr>
-<th>USB-C</th>
-<td></td>
-<td></td>
-<td></td>
-<td>1</td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<th class="PDCT">USB-C</th>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
 </tr>
 <tr>
-<th>USB 3.0</th>
-<td>2</td>
-<td>4+1</td>
-<td>4+1</td>
-<td>2+1</td>
-<td>2+1</td>
-<td>3+1</td>
-<td>3+1</td>
-<td></td>
-<td></td>
-<td></td>
-<td>1+1</td>
+<th class="PDCT">USB 3.0</th>
+<td class="PDCT">2</td>
+<td class="PDCT">4+1</td>
+<td class="PDCT">4+1</td>
+<td class="PDCT">2+1</td>
+<td class="PDCT">2+1</td>
+<td class="PDCT">3+1</td>
+<td class="PDCT">3+1</td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT">1+1</td>
 </tr>
 <tr>
-<th>USB 2.0</th>
-<td></td>
-<td></td>
-<td></td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-<td></td>
-<td></td>
-<td></td>
-<td>2</td>
+<th class="PDCT">USB 2.0</th>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT">2</td>
+<td class="PDCT">2</td>
+<td class="PDCT">2</td>
+<td class="PDCT">2</td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT">2</td>
 </tr>
 <tr>
-<th rowspan="4">Connection to Comp</th>
-<th>Thunderbolt 3</th>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<th class="PDCT" rowspan="4">Connection to Comp</th>
+<th class="PDCT">Thunderbolt 3</th>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
 <tr>
-<th>USB-C</th>
-<td></td>
-<td></td>
-<td>1</td>
-<td></td>
-<td>1</td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<th class="PDCT">USB-C</th>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT">1</td>
+<td class="PDCT"></td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
 </tr>
 <tr>
-<th>OneLink / OneLink Pro</th>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>1 - OL Plus</td>
-<td>1 - OL</td>
-<td>1 - OL</td>
-<td></td>
-<td></td>
-<td></td>
+<th class="PDCT">OneLink / OneLink Pro</th>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT">1 - OL Plus</td>
+<td class="PDCT">1 - OL</td>
+<td class="PDCT">1 - OL</td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
 </tr>
 <tr>
-<th>USB 3.0 </th>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-</tr>
-<tr>
-<th rowspan="1">Audio</th>
-<th>Headphone/ Microphone</th>
-<td>1</td>
-<td></td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<th rowspan="4">Video</th>
-<th>HDMI</th>
-<td>1</td>
-<td>2</td>
-<td>1</td>
-<td>2</td>
-<td>1<br>(Gen2 only)</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<tr>
-<th>Display</th>
-<td>1</td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-<td>2</td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<th>DVI</th>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td>1</td>
-</tr>
-<tr>
-<th>VGA</th>
-<td></td>
-<td></td>
-<td>1</td>
-<td></td>
-<td>1 (Gen1 only)</td>
-<td>1</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<th class="PDCT">USB 3.0 </th>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
 </tr>
 </tr>
 <tr>
-<th rowspan="2">Ethernet</th>
-<th>10/100/1000</th>
-<td>1</td>
-<td>2</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<th class="PDCT" rowspan="1">Audio</th>
+<th class="PDCT">Headphone/ Microphone</th>
+<td class="PDCT">1</td>
+<td class="PDCT"></td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+</tr>
 <tr>
-<th>PXE Capable</th>
-<td><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
-<td><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
-<td><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
-<td><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
-<td><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
-<td><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
-<td><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
-<td>No</td>
-<td><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
-<td><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
-<td><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
+<th class="PDCT" rowspan="4">Video</th>
+<th class="PDCT">HDMI</th>
+<td class="PDCT">1</td>
+<td class="PDCT">2</td>
+<td class="PDCT">1</td>
+<td class="PDCT">2</td>
+<td class="PDCT">1<br>(Gen2 only)</td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<tr>
+<th class="PDCT">Display</th>
+<td class="PDCT">1</td>
+<td class="PDCT">2</td>
+<td class="PDCT">2</td>
+<td class="PDCT">2</td>
+<td class="PDCT">2</td>
+<td class="PDCT">2</td>
+<td class="PDCT">1</td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+</tr>
+<tr>
+<th class="PDCT">DVI</th>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT">1</td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT">1</td>
+</tr>
+<tr>
+<th class="PDCT">VGA</th>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT">1</td>
+<td class="PDCT"></td>
+<td class="PDCT">1 (Gen1 only)</td>
+<td class="PDCT">1</td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+</tr>
+</tr>
+<tr>
+<th class="PDCT" rowspan="2">Ethernet</th>
+<th class="PDCT">10/100/1000</th>
+<td class="PDCT">1</td>
+<td class="PDCT">2</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<tr>
+<th class="PDCT">PXE Capable</th>
+<td class="PDCT"><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
+<td class="PDCT"><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
+<td class="PDCT"><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
+<td class="PDCT"><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
+<td class="PDCT"><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
+<td class="PDCT"><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
+<td class="PDCT"><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
+<td class="PDCT">No</td>
+<td class="PDCT"><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
+<td class="PDCT"><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
+<td class="PDCT"><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
 </tr>
 </tr>
 </table>
 
-# Known Issues
+## Known Issues
 
 **ThinkPad USB 3.0 Dock Tips**: https://support.lenovo.com/us/en/solutions/ht078725
 
 **USB-C**:  https://support.lenovo.com/us/en/solutions/HT504163
 
-## ThinkPad Ultra Docking Station (40AJ0135)
+## ThinkPad Side-Connected Docks
+### ThinkPad Ultra Docking Station (40AJ0135)
 
 ThinkPad® Ultra Docking Station (40AJ) provides a docking experience for Large Enterprise ThinkPad customers. The innovative side connector, designed exclusively for ThinkPad notebooks, provides a driver-free way to connect conveniently and securely to a range of USB accessories and external displays, while rapid charging support and a mirrored power button make going mobile even easier. It supports: PXE boot, Wake-on-LAN, and MAC address pass-through, simplifying asset management for IT managers.
 
@@ -1609,7 +874,7 @@ ThinkPad® Ultra Docking Station (40AJ) provides a docking experience for Large 
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#Ultra%20Docking)
 
-### Connectivity
+#### Connectivity
 
 >Ports:
 >
@@ -1620,64 +885,13 @@ ThinkPad® Ultra Docking Station (40AJ) provides a docking experience for Large 
 > - 1 Ethernet
 > - 1 Headphone/Mic
 
-### Deployment
+#### Deployment
 
-<table class="deploymentTable">
-<td class="tdDT" rowspan="10" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-<tr>
-<td rowspan="3" class="tdDT">
-<h5>WMI PNP Query String: </h5>
-<tr>
-<td class="tdDT">Ethernet </td>
-<td class="depTableFont">None</td>
-</tr>
-<tr>
-<td class="tdDT">Audio</td>
-<td class="depTableFont">USB\VID_17EF&PID_306F&MI_00</td>
-</tr>
-</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont">None</td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/downloads/DS502204"
-target="_blank">https://pcsupport.lenovo.com/downloads/DS502204</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/downloads/DS540663"
-target="_blank">https://pcsupport.lenovo.com/downloads/DS540663<br></td>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (extract the .zip file and import into the Out-of-Box
-Drivers node for the required models)<br> &nbsp;&nbsp;&nbsp;As Application (setup.exe
--silent) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbspDeploy As Package in task sequence (extract the .zip
-file and import into the driver packages for the needed models)</td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Driver(s) | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td> N/A </td></tr><tr><td>Audio:</td><td> USB\VID_17EF&PID_306F&MI_00 </td></tr></table> | [Windows](https://pcsupport.lenovo.com/downloads/DS502204) <br><br>[Firmware](https://pcsupport.lenovo.com/downloads/DS540663)<br><br>We do not recommend deploying firmware updates during OSD deployment | Yes | <b>MDT</b> (extract the .zip file and import into the Out-of-Box Drivers node for the required models)<br>As Application (setup.exe -silent) <br><br> <b>SCCM </b><br>Deploy as Package in task sequence (extract the .zip file and import into the driver packages for the needed models) |
 
-## ThinkPad Pro Docking Station (40AH0135)
+### ThinkPad Pro Docking Station (40AH0135)
 
 ThinkPad® Pro Docking Station (40AH) provides a docking experience for Large Enterprise ThinkPad customers. The innovative side-connector, designed exclusively for ThinkPad notebooks, provides a driver-free way to connect conveniently and securely to a range of USB accessories and external displays, while rapid charging support and a mirrored power button make going mobile even easier. Designed for large enterprise environments, ThinkPad Docking Stations support PXE boot, Wake-on-LAN, and MAC address pass-through, simplifying asset management for IT managers.
 
@@ -1688,7 +902,7 @@ ThinkPad® Pro Docking Station (40AH) provides a docking experience for Large En
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#Pro%20Docking)
 
-### Connectivity
+#### Connectivity
 
 >Ports:
 >
@@ -1699,64 +913,13 @@ ThinkPad® Pro Docking Station (40AH) provides a docking experience for Large En
 > - 1 Ethernet
 > - 1 Headphone/Mic
 
-### Deployment
+#### Deployment
 
-<table class="deploymentTable">
-<td class="tdDT" rowspan="10" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-<tr>
-<td rowspan="3" class="tdDT">
-<h5>WMI PNP Query String: </h5>
-<tr>
-<td class="tdDT">Ethernet </td>
-<td class="depTableFont">None</td>
-</tr>
-<tr>
-<td class="tdDT">Audio</td>
-<td class="depTableFont">USB\VID_17EF&PID_306F&MI_00</td>
-</tr>
-</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont">None</td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/downloads/DS502204"
-target="_blank">https://pcsupport.lenovo.com/downloads/DS502204</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/downloads/DS540663"
-target="_blank">https://pcsupport.lenovo.com/downloads/DS540663<br></td>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (extract the .zip file and import into the Out-of-Box
-Drivers node for the required models)<br> &nbsp;&nbsp;&nbsp;As Application (setup.exe
--silent) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbspDeploy As Package in task sequence (extract the .zip
-file and import into the driver packages for the needed models)</td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Driver(s) | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td> N/A </td></tr><tr><td>Audio:</td><td> USB\VID_17EF&PID_306F&MI_00 </td></tr></table> | [Windows](https://pcsupport.lenovo.com/downloads/DS502204) <br><br>[Firmware](https://pcsupport.lenovo.com/downloads/DS540663)<br><br>We do not recommend deploying firmware updates during OSD deployment | Yes | <b>MDT</b> (extract the .zip file and import into the Out-of-Box Drivers node for the required models)<br> &nbsp;&nbsp;&nbsp;As Application (setup.exe -silent) <br><br> <b>SCCM </b><br> &nbsp;&nbsp;&nbspDeploy As Package in task sequence (extract the .zip file and import into the driver packages for the needed models) |
 
-## ThinkPad Basic Docking Station (PN 40AG0135)
+### ThinkPad Basic Docking Station (PN 40AG0135)
 
 ThinkPad® Basic Docking Station (40AG) provides a docking experience for Large Enterprise ThinkPad customers. The innovative side-connector, designed exclusively for ThinkPad notebooks, provides a driver-free way to connect conveniently and securely to a range of USB accessories and external displays, while rapid charging support and a mirrored power button make going mobile even easier. It supports: PXE boot, Wake-on-LAN, and MAC address pass-through, simplifying asset management for IT managers.
 
@@ -1767,7 +930,7 @@ ThinkPad® Basic Docking Station (40AG) provides a docking experience for Large 
 
 [Display Capabilities](https://support.lenovo.com/us/en/solutions/pd029622#Basic%20Docking)
 
-### Connectivity
+#### Connectivity
 
 >Ports:
 >
@@ -1778,141 +941,90 @@ ThinkPad® Basic Docking Station (40AG) provides a docking experience for Large 
 > - 1 Ethernet
 > - 1 Headphone/Mic
 
-### Deployment
+#### Deployment
 
-<table class="deploymentTable">
-<td class="tdDT" rowspan="10" style="width:15%">
-<h5 align="center">Deployment (MDT & SCCM)</h5>
-</td>
-<tr>
-<td rowspan="3" class="tdDT">
-<h5>WMI PNP Query String: </h5>
-<tr>
-<td class="tdDT">Ethernet </td>
-<td class="depTableFont">None</td>
-</tr>
-<tr>
-<td class="tdDT">Audio</td>
-<td class="depTableFont">USB\VID_17EF&PID_306F&MI_00</td>
-</tr>
-</td>
-</tr>
-<tr rowspan="1">
-<td rowspan="4" class="tdDT">
-<h5>Driver(s): </h5>
-<tr>
-<td class="tdDT">WinPE </td>
-<td class="depTableFont">None</td>
-</tr>
-<tr>
-<td class="tdDT">Windows</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/downloads/DS502204"
-target="_blank">https://pcsupport.lenovo.com/downloads/DS502204</a></td>
-</tr>
-<tr>
-<td class="tdDT">Firmware</td>
-<td class="depTableFont"><a href="https://pcsupport.lenovo.com/downloads/DS502204"
-target="_blank">https://pcsupport.lenovo.com/downloads/DS540663<br></td>
-</tr>
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>PXE Capable: </h5>
-</td>
-<td class="depTableFont">Yes
-</td>
-</tr>
-<tr>
-<td colspan="2" class="tdDT">
-<h5>Driver Deployment: </h5>
-</td>
-<td class="depTableFont"><b>MDT</b> (extract the .zip file and import into the Out-of-Box
-Drivers node for the required models)<br> &nbsp;&nbsp;&nbsp;As Application (setup.exe
--silent) <br><br>
-<b>SCCM </b><br> &nbsp;&nbsp;&nbspDeploy As Package in task sequence (extract the .zip
-file and import into the driver packages for the needed models)</td>
-</tr>
-</table>
+| Deployment (MDT & SCCM) Query Elements | Driver(s) | PXE Capable    | Driver Deployment |
+| -------------------------------------- | --------- | -------------- | ----------------- |
+|  <table><tr><td>Ethernet: </td><td> N/A </td></tr><tr><td>Audio:</td><td> USB\VID_17EF&PID_306F&MI_00 </td></tr></table> | [Windows](https://pcsupport.lenovo.com/downloads/DS502204) <br><br>[Firmware](https://pcsupport.lenovo.com/downloads/DS502204)<br><br>We do not recommend deploying firmware updates during OSD deployment | Yes | <b>MDT</b> (extract the .zip file and import into the Out-of-Box Drivers node for the required models)<br>As Application (setup.exe -silent) <br><br> <b>SCCM </b><br>Deploy as Package in task sequence (extract the .zip file and import into the driver packages for the needed models) |
 
 ## Side-connected Docks/Port Comparison
 
 <table class="PDComparisonTable">
 <tr>
-<th colspan="2"></th>
-<th>ThinkPad Ultra Docking Station</th>
-<th>ThinkPad Pro Docking Station</th>
-<th>ThinkPad Basic Docking Station</th>
+<th class="PDCT" colspan="2"></th>
+<th class="PDCT">ThinkPad Ultra Docking Station</th>
+<th class="PDCT">ThinkPad Pro Docking Station</th>
+<th class="PDCT">ThinkPad Basic Docking Station</th>
 </tr>
 <tr>
-<th rowspan="5">USB Connection</th>
+<th class="PDCT" rowspan="5">USB Connection</th>
 </tr>
 <tr>
-<th>Thunderbolt 3</th>
-<td></td>
-<td></td>
-<td></td>
+<th class="PDCT">Thunderbolt 3</th>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
 </tr>
 <tr>
-<th>USB-C</th>
-<td>2</td>
-<td>1</td>
-<td></td>
+<th class="PDCT">USB-C</th>
+<td class="PDCT">2</td>
+<td class="PDCT">1</td>
+<td class="PDCT"></td>
 </tr>
 <tr>
-<th>USB 3.0</th>
-<td>3+1</td>
-<td>3</td>
-<td>2</td>
+<th class="PDCT">USB 3.0</th>
+<td class="PDCT">3+1</td>
+<td class="PDCT">3</td>
+<td class="PDCT">2</td>
 </tr>
 <tr>
-<th>USB 2.0</th>
-<td></td>
-<td>1+1</td>
-<td>1+1</td>
+<th class="PDCT">USB 2.0</th>
+<td class="PDCT"></td>
+<td class="PDCT">1+1</td>
+<td class="PDCT">1+1</td>
 </tr>
 <tr>
-<th rowspan="1">Audio</th>
-<th>Headphone/ Microphone</th>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<th class="PDCT" rowspan="1">Audio</th>
+<th class="PDCT">Headphone/ Microphone</th>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
 </tr>
 <tr>
-<th rowspan="4">Video</th>
-<th>HDMI</th>
-<td>1</td>
-<td></td>
-<td></td>
+<th class="PDCT" rowspan="4">Video</th>
+<th class="PDCT">HDMI</th>
+<td class="PDCT">1</td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
 <tr>
-<th>Display</th>
-<td>2</td>
-<td>2</td>
-<td>1</td>
+<th class="PDCT">Display</th>
+<td class="PDCT">2</td>
+<td class="PDCT">2</td>
+<td class="PDCT">1</td>
 <tr>
-<th>DVI</th>
-<td></td>
-<td></td>
-<td></td>
+<th class="PDCT">DVI</th>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
+<td class="PDCT"></td>
 </tr>
 <tr>
-<th>VGA</th>
-<td>1</td>
-<td></td>
-<td>1</td>
+<th class="PDCT">VGA</th>
+<td class="PDCT">1</td>
+<td class="PDCT"></td>
+<td class="PDCT">1</td>
 </tr>
 </tr>
 <tr>
-<th rowspan="2">Ethernet</th>
-<th>10/100/1000</th>
-<td>1</td>
-<td>1</td>
-<td>1</td>
+<th class="PDCT" rowspan="2">Ethernet</th>
+<th class="PDCT">10/100/1000</th>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
+<td class="PDCT">1</td>
 <tr>
-<th>PXE Capable</th>
-<td><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
-<td><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
-<td><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
+<th class="PDCT">PXE Capable</th>
+<td class="PDCT"><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
+<td class="PDCT"><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
+<td class="PDCT"><a href="https://support.lenovo.com/us/en/accessories/um006391" />Yes</a></td>
 </tr>
 </tr>
 </table>
