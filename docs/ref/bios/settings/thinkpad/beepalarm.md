@@ -1,34 +1,28 @@
-# Beep and Alarm Settings #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_beepalarm.png)
+# Beep and Alarm Settings
 
-<details><summary>Password Beep</summary>
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_beepalarm.png)
 
-Whether to beep when the system is waiting for a power-on, hard disk, or supervisor password.
+Password Beep
 
-1.	**Off** - Default.
-2.	On
+:   Whether to beep when the system is waiting for a power-on, hard disk, or supervisor password.
 
-!!! info ""
-     Different beeps will be sounded when the entered password matches or does not match the configured password.
+   1. **Off** - Default.
+   2. On
 
+   !!! info ""
+      Different beeps will be sounded when the entered password matches or does not match the configured password.
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| PasswordBeep | Disable, Enable | Yes | Both |
+   | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+   |:---|:---|:---|:---|
+   | PasswordBeep | Disable, Enable | Yes | Both |
 
-</details>
+Keyboard Beep
 
-<details><summary>Keyboard Beep</summary>
+:  Whether to beep when unmanageable key combination is pressed.
 
-Whether to beep when unmanageable key combination is pressed. 
+   1. **On** - Default.
+   2. Off
 
-1.	**On** - Default.
-2.	Off
-
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| KeyboardBeep | Disable, Enable | Yes| Both |
-
-</details>
+   | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+   |:---|:---|:---|:---|
+   | KeyboardBeep | Disable, Enable | Yes| Both |

@@ -1,6 +1,6 @@
 # Absolute Persistence(R) Module Settings
 
-![](../img/tp_abspersistencemodule.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_abspersistencemodule.png)
 
 Current Settings
 

@@ -1,41 +1,33 @@
-# Memory Protection Settings #
+# Memory Protection Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_memoryprotection.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_memoryprotection.png)
 
-<details><summary>Execution Prevention</summary>
+Execution Prevention
+:  If your OS supports Data Execution Prevention, this setting can prevent virus/worm attacks that create memory buffer overflows by running code where only data is allowed.
 
-!!! info ""
-    If your OS supports Data Execution Prevention, this setting can prevent virus/worm attacks that create memory buffer overflows by running code where only data is allowed.
+    Possible options:
 
-Possible options:
+    1. On
+    2. **Off** – Default.
 
-1.	On
-2.	**Off** – Default.
+    !!! info ""
+        Reset to `Off` if your required applications cannot run.
 
-!!! info ""
-     Reset to `Off` if your required applications cannot run.
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | DataExecutionPrevention | Disable, Enable | Yes | Both |
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| DataExecutionPrevention | Disable, Enable | Yes | Both |
+Intel(R) Total Memory Encryption
+:  Protects DRAM data from physical attacks.
 
-</details>
+    !!! info ""
+        Impacts when `On`: <br> - System memory tools, such as memtest86 and Lenovo Diagnostic-Memory test, will not work correctly <br> - System performance will degrade by estimated 3-5%.
 
-<details><summary>Intel(R) Total Memory Encryption</summary>
+    Possible options:
 
-Protects DRAM data from physical attacks.
+    1. On
+    2. **Off** – Default.
 
-!!! info ""
-    Impacts when `On`: <br> - System memory tools, such as memtest86 and Lenovo Diagnostic-Memory test, will not work correctly <br> - System performance will degrade by estimated 3-5%.
-
-Possible options:
-
-1.	On
-2.	**Off** – Default.
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| TotalMemoryEncryption | Disable, Enable | Yes | Intel |
-
-</details>
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | TotalMemoryEncryption | Disable, Enable | Yes | Intel |

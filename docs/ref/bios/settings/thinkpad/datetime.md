@@ -1,40 +1,33 @@
-# Date\Time #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_datetime.png)
+# Date\Time
 
-<details><summary>System Date</summary>
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_datetime.png)
 
-Shows the current system date.
+System Date
+:  Shows the current system date.
 
-Can be changed.
+    Can be changed.
 
-`Tab`, `Shift-Tab`, or `Enter` selects field.
+    `Tab`, `Shift-Tab`, or `Enter` selects field.
 
-Possible options:
+    Possible options:
 
-1.	Current date
-2.	MM/DD/YYYY:<br>
-    a. MM – Months: January to December <br>
-    b. DD – Date: 1 ~ 31 <br>
-    c. YYYY – Year: 1980 ~ 2099 <br>
+    1. Current date
+    2. MM/DD/YYYY:<br>
+        a. MM – Months: January to December <br>
+        b. DD – Date: 1 ~ 31 <br>
+        c. YYYY – Year: 1980 ~ 2099 <br>
 
-</details>
+System Time
+:  Shows the current system time.
 
-<details><summary>System Time</summary>
+    Can be changed.
 
-Shows the current system time.
+    `Tab`, `Shift-Tab`, or `Enter` selects field.
 
-Can be changed.
+    Possible options:
 
-`Tab`, `Shift-Tab`, or `Enter` selects field.
-
-Possible options:
-
-1.	Current date
-2.	HH : MM : SS<br>
-    a. HH - Hour:  00 ~ 23<br>
-    b. MM - Minute:  00 ~ 59<br>
-    c. SS - Second:  00 ~ 59<br>
-
-
-</details>
+    1. Current date
+    2. HH : MM : SS<br>
+        a. HH - Hour:  00 ~ 23<br>
+        b. MM - Minute:  00 ~ 59<br>
+        c. SS - Second:  00 ~ 59<br>
