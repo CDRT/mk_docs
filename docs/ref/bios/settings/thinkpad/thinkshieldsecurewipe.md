@@ -1,30 +1,29 @@
-# ThinkShield Secure Wipe Settings #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_thinkshieldsecurewipe.png)
+# ThinkShield Secure Wipe Settings
 
-<details><summary>ThinkShield Secure Wipe in AppMenu</summary>
+![Secure Wipe](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_thinkshieldsecurewipe.png)
 
-Whether to enable the ThinkShield secure wipe in the App Menu Invoked by F12.
+ThinkShield Secure Wipe in AppMenu
+:  Whether to enable the ThinkShield secure wipe in the App Menu Invoked by F12.
 
-Possible options:
+    Possible options:
 
-1.	**On** – Default.
-2.	Off
+    1. **On** – Default.
+    2. Off
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| ThinkShieldsecurewipe | Disable, Enable | Yes | Both |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | ThinkShieldsecurewipe | Disable, Enable | Yes | Both |
 
-</details>
+## FAQ
 
-### FAQ
+### What is ThinkShield Secure Wipe?
 
-#### What is ThinkShield Secure Wipe?
-ThinkShield Secure Wipe is a feature in the BIOS that reliably deletes all data from a drive without the need for external tools. 
+ThinkShield Secure Wipe is a feature in the BIOS that reliably deletes all data from a drive without the need for external tools.
 
 Any hard drive (HD) password will be deleted by this process.
 
-#### How to use ThinkShield Secure Wipe?
+### How to use ThinkShield Secure Wipe?
+
 Secure Wipe sub menu is located at the bottom of the Security page (BIOS Setup Option).  By default, it is enabled and is protected by SVP.  It is supported by WMI and SRSETUP; WMI item name is “ThinkShieldsecurewipe.”
 
 Please use “ThinkShield Secure Wipe” feature for ThinkPad 2019 or later models by following below steps:
@@ -35,8 +34,10 @@ Please use “ThinkShield Secure Wipe” feature for ThinkPad 2019 or later mode
 4. Select "ThinkShield Secure Wipe" from the list
 5. Follow on-screen instructions to wipe the disk
 
-#### What Methods are Supported by ThinkShield Secure Wipe?
+### What Methods are Supported by ThinkShield Secure Wipe?
+
 ThinkShield Secure Wipe supports several different methods to delete data from the drive:
+
 - ATA Secure Erase (recommended method)
 - ATA Cryptographic Key Reset (recommended method)
 - US DoD 5520.22-M
@@ -49,24 +50,27 @@ ThinkShield Secure Wipe supports several different methods to delete data from t
 - Russian GOST P50739-95 Level 4
 - RCMP TSSIT OPS-II
 
-#### Is this Tool Compliant with NIST SP 800-88?
+### Is this Tool Compliant with NIST SP 800-88?
+
 It depends on which algorithm is used, but if the recommended methods are used – the feature meets the NIST SP800-88 requirements.
 
-_NIST SP800-88 defines “sanitization” as “a process that renders access to target data on the media infeasible for a given level of effort.”_
+!!! warning ""
+    NIST SP800-88 defines “sanitization” as “a process that renders access to target data on the media infeasible for a given level of effort.”
 
-#### What ThinkPad Models Include ThinkShield Secure Wipe Feature?
+### What ThinkPad Models Include ThinkShield Secure Wipe Feature?
+
 ThinkShield Secure Wipe is available on 2019 and newer ThinkPads models.
 
 For specific questions on skus, please contact your Lenovo rep.
 
-#### Are There Any Upcoming Changes and Enhancements?
+### Are There Any Upcoming Changes and Enhancements?
 
 ThinkShield Secure Wipe 2.0 will include logging to allow users to export proof that the SDD/HDD was wipe successfully.  
 
-Users will be able to scan a QR code to retrieve the Secure Wipe Certificate that includes:	
+Users will be able to scan a QR code to retrieve the Secure Wipe Certificate that includes:
+
 - Hardware information
 - Storage Device information
-- Erase information 
+- Erase information
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /thinkshieldsecurewipeEx.png)
+![QR Code](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/thinkshieldsecurewipeEx.png)

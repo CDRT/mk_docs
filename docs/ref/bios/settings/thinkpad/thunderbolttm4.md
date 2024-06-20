@@ -1,24 +1,19 @@
-# Thunderbolt(TM) 4 Settings #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_thunderbolttm4.png)
+# Thunderbolt(TM) 4 Settings
 
-<details><summary>PCIe Tunneling</summary>
+![Thunderbolt 4](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_thunderbolttm4.png)
 
-Whether to enable PCIe (peripheral component interconnect express) Tunneling.
+PCIe Tunneling
+:  Whether to enable PCIe (peripheral component interconnect express) Tunneling.
 
-Possible states:
+    Possible states:
 
-1.	**On** - Default.
-2.	Off
+    1. **On** - Default.
+    2. Off
 
-!!! info ""
-     Some Thunderbolt devices, such as external GPUs and storage drives, may not work properly.
+    !!! info ""
+        * Some Thunderbolt devices, such as external GPUs and storage drives, may not work properly.
+        * The USB functions of USB4 based devices that are Thunderbolt 4 certified may still work.
 
-!!! info ""
-    The USB functions of USB4 based devices that are Thunderbolt 4 certified may still work.
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| PCIeTunneling | Disable, Enable | Yes | Both |
-
-</details>
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | PCIeTunneling | Disable, Enable | Yes | Both |
