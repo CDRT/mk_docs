@@ -12,3 +12,8 @@ th.PDCT, td.PDCT {
     vertical-align: middle;
     padding:6px;
 }
+
+dt {
+    font-weight: bold;
+    font-size: larger;
+}
