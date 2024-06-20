@@ -22,7 +22,7 @@ Also in this document you will find information that affects deployment options 
 The information below pertains to deploying Windows 7 and Windows 10 on Lenovo’s enterprise class Think branded laptops using Lenovo's docking solutions. Each family of docks has at least one corresponding Ethernet adapter or Ethernet + video adapter. The basic information in this guide applies to those devices as well.
 
 !!! info ""
-   With modern docking solutions, it is critical to the docking experience to ensure several components on the attached system are up to date. Therefore it is important to focus on these other components as well as the individual dock firmware and drivers when deploying and maintaing these solutions. To simplify finding the appropriate content use the [Docking tab on the Driver and Software Matrix for Admins](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html#Docking).
+    With modern docking solutions, it is critical to the docking experience to ensure several components on the attached system are up to date. Therefore it is important to focus on these other components as well as the individual dock firmware and drivers when deploying and maintaing these solutions. To simplify finding the appropriate content use the [Docking tab on the Driver and Software Matrix for Admins](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html#Docking).
 
 The base process for deployments via the Lenovo docks and dongles all require:
 
