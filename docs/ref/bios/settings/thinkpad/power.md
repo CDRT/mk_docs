@@ -1,365 +1,233 @@
-# Power Settings #
+# Power Settings
 
-### General ###
+## General
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_power.png)
+![Power](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_power.png)
 
-<details><summary>Intel (R) SpeedStep Technology</summary>
+Intel (R) SpeedStep Technology
+:  Whether to switch on Intel (R) SteedStep Technology at runtime
 
-Whether to switch on Intel (R) SteedStep Technology at runtime
+    Possible options:
 
-Possible options:
+    1. **On** – Default.
+    2. Off
 
-1.	**On** – Default.
-2.	Off
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | SpeedStep | Disable, Enable | No | Intel |
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| SpeedStep | Disable, Enable | No | Intel |
+Scheme for AC
+:  Select thermal management scheme.
 
-</details>
+    Possible options:
 
-<details><summary>Scheme for AC</summary>
+    1. **Maximize Performance** - reduces CPU throttling. Default.
+    2. Balanced - balanced sound, temperature, and performance.
 
-Select thermal management scheme.
+    !!! info ""
+        Each scheme affects fan sound, temperature, and performance.
 
-Possible options:
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | AdaptiveThermalManagementAC | MaximizePerformance, Balanced | No | Both |
 
-1.	**Maximize Performance** - reduces CPU throttling. Default.
-2.	Balanced - balanced sound, temperature, and performance.
+Scheme for Battery
+:  Select thermal management scheme.
 
-!!! info ""
-     Each scheme affects fan sound, temperature, and performance.
+    Possible options:
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| AdaptiveThermalManagementAC | MaximizePerformance, Balanced | No | Both |
+    1. Maximize Performance - reduces CPU throttling.
+    2. **Balanced** - balanced sound, temperature, and performance. Default.
 
-</details>
+    !!! info ""
+        Each scheme affects fan sound, temperature, and performance.
 
-<details><summary>Scheme for Battery</summary>
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | AdaptiveThermalManagementBattery | MaximizePerformance,  Balanced | No | Both |
 
-Select thermal management scheme.
+Intelligent Cooling Boost
+:  Whether to  improve power efficiency by limiting system power based on the selected OS application, when Intelligent Cooling is on.
 
-Possible options:
+    !!! info ""
+        This feature is Windows only.
 
-1.	Maximize Performance - reduces CPU throttling.
-2.	**Balanced** - balanced sound, temperature, and performance. Default.
+    !!! info ""
+        For more details about Intelligent Cooling mode, please refer to Vantage or the user guide.
 
-!!! info ""
-     Each scheme affects fan sound, temperature, and performance.
+    Options:
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| AdaptiveThermalManagementBattery | MaximizePerformance,  Balanced | No | Both |
+    1.  **On** - Default.
+    2.  Off.
 
-</details>
+    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    |:---|:---|:---|:---|
+    | IntelligentCoolingBoost | Disable,Enable | yes | both |
 
-<details><summary>Intelligent Cooling Boost</summary>
+CPU Power Management
+:  Whether to shut down the microprocessor clock automatically when there are no system activities, for power saving.
 
-Whether to  improve power efficiency by limiting system power based on the selected OS application, when Intelligent Cooling is on.
+    Possible options:
 
-!!! info ""
-    This feature is Windows only.
+    1. **Automatic** - Default.
+    2. Disabled
 
-!!! info ""
-    For more details about Intelligent Cooling mode, please refer to Vantage or the user guide.
+    !!! info ""
+        Normally, it is not necessary to change this setting.
 
-Options:
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | CPUPowerManagement | Disable, Automatic | No | Both |
 
-1.  **On** - Default.
-2.  Off.
+Power On with AC Attach
+:  Whether to power on the system when AC is attached.
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| IntelligentCoolingBoost | Disable,Enable | yes | both |
+    !!! info ""
+        If the system is in hibernate state, the system resumes upon AC connect.
 
+    Possible options:
 
-</details>
+    1. Enabled
+    2. **Disabled** - Default.
 
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | OnByAcAttach | Disable, Enable | No | Both |
 
-<details><summary>CPU Power Management</summary>
+Sleep State
+:  Optimized Sleep States.
 
-Whether to shut down the microprocessor clock automatically when there are no system activities, for power saving. 
+    !!! info ""
+        * Sleep State for Windows® and versions of Linux are compatible with Suspend-to-Idle.
+        * Optimized Sleep State for S3 are not compatible with Suspend-to-Idle.
+        * Windows® OS should be used with **Windows** setting only.
 
-Possible options:
+    Options:
 
-1.	**Automatic** - Default.
-2.	Disabled
+    1.  **Windows and Linux** - Default.
+    2.  Linux S3
 
-!!! info ""
-     Normally, it is not necessary to change this setting.
+    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    |:---|:---|:---|:---|
+    | SleepState | Linux, Windows, Windows10 | yes | both |
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| CPUPowerManagement | Disable, Automatic | No | Both |
+    !!! warning
+        The possible setting values may vary by model and newer systems may not include this setting. Always verify on a targeted system before deploying.
 
-</details>
+Disable Built-in Battery
+:  Temporarily disables the battery to service the system.
 
-<details><summary>Power On with AC Attach</summary>
+    This option requires additional confirmation.
 
-Whether to power on the system when AC is attached.
+    !!! info ""
+        * After selecting this item, the system will be automatically powered off, ready to be serviced.
+        * The battery will be automatically enabled when the AC adapter is reconnected.
 
-!!! info ""
-    If the system is in hibernate state, the system resumes upon AC connect.
+## Automatic Power On
 
-Possible options:
+![Autopower on](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_autopoweron.png)
 
-1.	Enabled
-2.	**Disabled** - Default.
+Wake Up on Alarm
+:  Define when the system will turn on automatically.
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| OnByAcAttach | Disable, Enable | No | Both |
+    Possible options:
 
-</details>
+    1. **Disabled** - the system will not turn on automatically. Default.
+    2. Single Event - the system will turn on one-time on the specified day and time.
+    3. Daily Event - the system will turn on every day at the specified time.
+    4. Weekly Event - the system will turn on every week on the specified day and time.
+    5. User Defined - this option enables ‘User Defined Alarm’ group of settings.
 
-<details><summary>Sleep State</summary>
+    !!! info ""
+        Wake up will only occur on AC power.  Values for the `Wake Up on Alarm` group of settings can be overwritten by the operating system.
 
-Optimized Sleep States.
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | WakeUponAlarm | Disable, UserDefined, WeeklyEvent, <br>DailyEvent, SingleEvent | Yes | Both |
 
-!!! info ""
-    Sleep State for Windows® and versions of Linux are compatible with Suspend-to-Idle.
+Alarm Date (MM/DD/YYYY)
+:  Select the exact day for the system to turn on.
 
-!!! info ""
-    Optimized Sleep State for S3 are not compatible with Suspend-to-Idle.
+    !!! info ""
+        Active only when `Wake Up on Alarm` has value `Single Event`.
 
-!!! info ""
-    Windows® must be used with Windows setting only.
+    Possible options:
 
-Options:
+    1. **N/A** – Default.
+    2. MM/DD/YYYY:<br>
+        a. MM – Months: January to December <br>
+        b. DD – Date: 1 ~ 31 <br>
+        c. YYYY – Year: 1980 ~ 2099 <br>
 
-1.  **Windows and Linux** - Default.
-2.  Linux S3
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | AlarmDate | MM/DD/YYYY | Yes | Both |
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| SleepState | Linux, Windows, Windows10 | yes | both |
+Alarm Time (HH : MM : SS)
+:  Select the exact time for the system to turn on.
 
+    Active when `Wake Up on Alarm` has one of the values:
 
-</details>
+    * `Single Event`
+    * `Daily Event`
+    * `Weekly Event`
 
+    Possible options:
 
-<details><summary>Disable Built-in Battery</summary>
+    1. **N/A** – Default
+    2. HH : MM : SS<br>
+        a. HH - Hour:  00 ~ 23<br>
+        b. MM - Minute:  00 ~ 59<br>
+        c. SS - Second:  00 ~ 59<br>
 
-Temporarily disable battery to service the system.
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | AlarmTime | HH/MM/SS | Yes | Both |
 
-This option requests additional confirmation.
+Alarm Day of Week
+:  Select the exact day for the system to turn on.
 
-!!! info ""
-    After selecting this item, the system will be automatically powered off, ready to be serviced.
+    Active only when `Wake Up on Alarm` has value `Weekly Event`.
 
-!!! info ""
-     The battery will be automatically enabled when the AC adapter is reconnected.
+    Possible options:
 
+    1. **N/A** – Default
+    2. Sunday
+    3. Monday
+    4. Tuesday
+    5. Wednesday
+    6. Thursday
+    7. Friday
+    8. Saturday
 
-</details>
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | AlarmDayofWeek | Sunday, Monday, Tuesday, <br>Wednesday, Thursday, Friday, Saturday | Yes | Both |
 
-### Automatic Power On ###
+## Automatic Power On - User Defined Alarm
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_autopoweron.png)
+![User defined alarm](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_autopoweronuserdefined.png)
 
-<details><summary>Wake Up on Alarm</summary>
+Sunday - Saturday
+:  Whether the system will turn on automatically on this day.
 
-Define when the system will turn on automatically.
+    1. **Off** - Default.
+    2. On
 
-Possible options:
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | UserDefinedAlarmSunday<br>UserDefinedAlarmMonday<br>UserDefinedAlarmTuesday<br>UserDefinedAlarmWednesday<br>UserDefinedAlarmThursday<br>UserDefinedAlarmFriday<br>UserDefinedAlarmSaturday | Disable, Enable | Yes | Both |
 
-1.	**Disabled** - the system will not turn on automatically. Default.
-2.	Single Event - the system will turn on one-time on the specified day and time.
-3.	Daily Event - the system will turn on every day at the specified time.
-4.	Weekly Event - the system will turn on every week on the specified day and time.
-5.	User Defined - this option enables ‘User Defined Alarm’ group of settings.
+User Defined Alarm Time (HH : MM : SS)
+:  Select the exact time for the system to turn on.
 
-!!! info ""
-    Wake up will only occur on AC power.  Values for the `Wake Up on Alarm` group of settings can be overwritten by the operating system.
+    Possible options:
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| WakeUponAlarm | Disable, UserDefined, WeeklyEvent, <br>DailyEvent, SingleEvent | Yes | Both |
+    1. HH : MM : SS<br>
+        a. HH - Hour:  00 ~ 23<br>
+        b. MM - Minute:  00 ~ 59<br>
+        c. SS - Second:  00 ~ 59<br>
 
-</details>
-
-<details><summary>Alarm Date (MM/DD/YYYY)</summary>
-
-Select the exact day for the system to turn on.
-
-!!! info ""
-    Active only when `Wake Up on Alarm` has value `Single Event`.
-
-Possible options:
-
-1.	**N/A** – Default.
-2.	MM/DD/YYYY:<br>
-    a. MM – Months: January to December <br>
-    b. DD – Date: 1 ~ 31 <br>
-    c. YYYY – Year: 1980 ~ 2099 <br>
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| AlarmDate | MM/DD/YYYY | Yes | Both |
-
-</details>
-
-<details><summary>Alarm Time (HH : MM : SS)</summary>
-
-Select the exact time for the system to turn on.
-
-Active when `Wake Up on Alarm` has one of the values:
-
-* `Single Event`
-* `Daily Event`
-* `Weekly Event`
-
-Possible options:
-
-1.	**N/A** – Default
-2.	HH : MM : SS<br>
-    a. HH - Hour:  00 ~ 23<br>
-    b. MM - Minute:  00 ~ 59<br>
-    c. SS - Second:  00 ~ 59<br>
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| AlarmTime | HH/MM/SS | Yes | Both |
-
-</details>
-
-<details><summary>Alarm Day of Week</summary>
-
-Select the exact day for the system to turn on.
-
-Active only when `Wake Up on Alarm` has value `Weekly Event`.
-
-Possible options:
-
-1.	**N/A** – Default
-2.	Sunday
-3.	Monday
-4.	Tuesday
-5.	Wednesday
-6.	Thursday
-7.	Friday
-8.	Saturday
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| AlarmDayofWeek | Sunday, Monday, Tuesday, <br>Wednesday, Thursday, Friday, Saturday | Yes | Both |
-
-</details>
-
-### Automatic Power On - User Defined Alarm ###
-
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_autopoweronuserdefined.png)
-
-<details><summary>Sunday</summary>
-
-Whether the system will turn on automatically on this day.
-
-1.	**Off** - Default.
-2.	On
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| UserDefinedAlarmSunday | Disable, Enable | Yes | Both |
-
-</details>
-
-<details><summary>Monday</summary>
-
-Whether the system will turn on automatically on this day.
-
-1.	**Off** - Default.
-2.	On
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| UserDefinedAlarmMonday | Disable, Enable | Yes | Both |
-
-</details>
-
-<details><summary>Tuesday</summary>
-
-Whether the system will turn on automatically on this day.
-
-1.	**Off** - Default.
-2.	On
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| UserDefinedAlarmTuesday | Disable, Enable | Yes | Both |
-
-</details>
-
-<details><summary>Wednesday</summary>
-
-Whether the system will turn on automatically on this day.
-
-1.	**Off** - Default.
-2.	On
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| UserDefinedAlarmWednesday | Disable, Enable | Yes | Both |
-
-</details>
-
-<details><summary>Thursday</summary>
-
-Whether the system will turn on automatically on this day.
-
-1.	**Off** - Default.
-2.	On
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| UserDefinedAlarmThursday | Disable, Enable | Yes | Both |
-
-</details>
-
-<details><summary>Friday</summary>
-
-Whether the system will turn on automatically on this day.
-
-1.	**Off** - Default.
-2.	On
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| UserDefinedAlarmFriday | Disable, Enable | Yes | Both |
-
-</details>
-
-<details><summary>Saturday</summary>
-
-Whether the system will turn on automatically on this day.
-
-1.	**Off** - Default.
-2.	On
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| UserDefinedAlarmSaturday | Disable, Enable | Yes | Both |
-
-</details>
-
-<details><summary>User Defined Alarm Time (HH : MM : SS)</summary>
-
-Select the exact time for the system to turn on.
-
-Possible options:
-
-1.	**N/A** – Default
-2.	HH : MM : SS<br>
-    a. HH - Hour:  00 ~ 23<br>
-    b. MM - Minute:  00 ~ 59<br>
-    c. SS - Second:  00 ~ 59<br>
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
-| UserDefinedAlarmTime | HH/MM/SS | Yes | Both |
-
-</details>
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | UserDefinedAlarmTime | HH/MM/SS | Yes | Both |
