@@ -4,7 +4,7 @@
 
 Typically the first step in isolating issues when running System Update is to make sure System Update can access the repository, whether that is over the Internet to access content directly from Lenovo or over an intranet network to access a local repository. Use standard network troubleshooting steps to verify the logged-on user account has access as required.
 
-When pulling content from Lenovo, System Update uses HTTPS to access content at [https://download.lenovo.com/catalog](https://download.lenovo.com/catalog) and [https://download.lenovo.com/pccbbs](https://download.lenovo.com/pccbbs). It will also access https://chifsr.lenovomm.com to record metrics of failed updates if metrics are enabled. These sites may need to be white listed to have access through a corporate firewall. These sites are hosted on a Content Delivery Network (CDN) which consists of hundreds of "edge" servers around the world.  A device will connect to the closest edge server to download content. The specific IP addresses of the available edge servers is always changing as the CDN is being maintained. Therefore, it is not possible to provide a specific IP address or addresses for white listing.
+When pulling content from Lenovo, System Update uses HTTPS to access content at [https://download.lenovo.com/catalog](https://download.lenovo.com/catalog){:target="_blank"}  and [https://download.lenovo.com/pccbbs](https://download.lenovo.com/pccbbs){:target="_blank"} . It will also access https://chifsr.lenovomm.com to record metrics of failed updates if metrics are enabled. These sites may need to be white listed to have access through a corporate firewall. These sites are hosted on a Content Delivery Network (CDN) which consists of hundreds of "edge" servers around the world.  A device will connect to the closest edge server to download content. The specific IP addresses of the available edge servers is always changing as the CDN is being maintained. Therefore, it is not possible to provide a specific IP address or addresses for white listing.
 
 There are no special ports required to be opened for System Update. In some cases the System Update application itself will need to be white listed to have access to the Internet. To ensure complete access for System Update to function properly, enable the following programs:
 
@@ -29,51 +29,51 @@ The following is a list of strings that can be searched for in the log file to f
 
 - **Tvsukernel.CommandLineParameters.ValidateArguments** : This will locate the section of the log where the command line used to execute System Update is parsed. This can be useful to determine if the proper command line parameters are being used.
 
-Example:
+	Example:
 
->Info 2020-01-03 , 05 : 13 : 56  
->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at Tvsukernel.CommandLineParameters.ValidateArguments(String[] args)  
->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Message: The command is: 
->-search R -action INSTALL -exporttowmi -nolicense -noicon -noreboot -includerebootpackages 1,3,4,5
+	>Info 2020-01-03 , 05 : 13 : 56  
+	>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at Tvsukernel.CommandLineParameters.ValidateArguments(String[] args)  
+	>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Message: The command is: 
+	>-search R -action INSTALL -exporttowmi -nolicense -noicon -noreboot -includerebootpackages 1,3,4,5
 
 - **QOS (Quest OS)**: Locates the portion of the log where the device is identified where this session of System Update ran. This information will include the operating system and the Machine Type – Model of the device. The first four characters of the Machine Type – Model represents the Machine Type and will need to be specified when requesting support.
 
-Example:
+	Example:
 
->QOS (Quest OS): Windows 10
->
->QOSLang (Quest language): EN
->
->MTM: 20N6Z4Q9US
+	>QOS (Quest OS): Windows 10
+	>
+	>QOSLang (Quest language): EN
+	>
+	>MTM: 20N6Z4Q9US
 
 - **Resulted order of candidate list** : This will represent the list of updates System Update found to assess for applicability.
 
-Example:
+	Example:
 
->Message: Resulted order of candidate list:
->Alcor Micro USB Smart Card Reader Driver (Windows 10 Version 1709 or Later) - 10 [64][reboot type 0]
->
->MultiCard Reader Driver (Windows 10 Version 1709 or Later) - 10 [64][reboot type 0]
->
->Intel PRO/1000 LAN Adapter Software (Windows 10 Version 1809 or Later) - 10 [64][reboot type 0]
->
->ThinkPad Ultra/Pro/Basic Docking Station PD Controller FW Utility (Windows 10 Version 1709 or Later) - 10 [64][reboot type 0]
->
->ThinkPad Pro Docking Station DP Hub FW Utility (Windows 10 Version 1709 or Later) - 10 [64][reboot type 0]
->
->MultiCard Reader Driver (Windows 10 Version 1709 or Later) - 10 [64][reboot type 0]
+	>Message: Resulted order of candidate list:
+	>Alcor Micro USB Smart Card Reader Driver (Windows 10 Version 1709 or Later) - 10 [64][reboot type 0]
+	>
+	>MultiCard Reader Driver (Windows 10 Version 1709 or Later) - 10 [64][reboot type 0]
+	>
+	>Intel PRO/1000 LAN Adapter Software (Windows 10 Version 1809 or Later) - 10 [64][reboot type 0]
+	>
+	>ThinkPad Ultra/Pro/Basic Docking Station PD Controller FW Utility (Windows 10 Version 1709 or Later) - 10 [64][reboot type 0]
+	>
+	>ThinkPad Pro Docking Station DP Hub FW Utility (Windows 10 Version 1709 or Later) - 10 [64][reboot type 0]
+	>
+	>MultiCard Reader Driver (Windows 10 Version 1709 or Later) - 10 [64][reboot type 0]
 
 - **Return install Updates** : The first occurrence of this string will locate the beginning of the process where updates are being installed.
 
-Example:
+	Example:
 
->Info 2019-10-28 , 05 : 29 : 39
->
->	at Tvsu.Sdk.SuSdk.InstallUpdates(Update[] updatesInstall, Update[] updatesDefer, downloadingDelegate downDelegate)
->
->Message: Return install Updates
+	>Info 2019-10-28 , 05 : 29 : 39
+	>
+	>	at Tvsu.Sdk.SuSdk.InstallUpdates(Update[] updatesInstall, Update[] updatesDefer, downloadingDelegate downDelegate)
+	>
+	>Message: Return install Updates
 
-If assistance is required in troubleshooting System Update issues, please consider posting a question in the Enterprise Client Management forum which can be linked to from the Enterprise Deployment Solutions page ([https://support.lenovo.com/us/en/solutions/ht104232](https://support.lenovo.com/us/en/solutions/ht104232)). Please provide the applicable log files, the machine type (e.g. 20AN) and operating system (e.g. Windows 10 1903) where the problem is occurring, and a detailed description of the symptoms.
+If assistance is required in troubleshooting System Update issues, please consider posting a question in the Enterprise Client Management forum which can be linked to from the Enterprise Deployment Solutions page ([https://support.lenovo.com/us/en/solutions/ht104232](https://support.lenovo.com/us/en/solutions/ht104232)){:target="_blank"} . Please provide the applicable log files, the machine type (e.g. 20AN) and operating system (e.g. Windows 10 1903) where the problem is occurring, and a detailed description of the symptoms.
 
 
 ## 4.2 Thin Installer
@@ -123,21 +123,21 @@ In the Update\_ApplicabilityRulesTrace.txt file, installed updates will be shown
 	
 	-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-
 
-If assistance is required in troubleshooting Thin Installer issues, please consider posting a question in the Enterprise Client Management forum which can be linked to from the Enterprise Deployment Solutions page ([https://support.lenovo.com/us/en/solutions/ht104232](https://support.lenovo.com/us/en/solutions/ht104232)). Please provide the applicable log files, the machine type (e.g. 20AN) and operating system (e.g. Windows 10 1903) where the problem is occurring, and a detailed description of the symptoms.
+If assistance is required in troubleshooting Thin Installer issues, please consider posting a question in the Enterprise Client Management forum which can be linked to from the Enterprise Deployment Solutions page ([https://support.lenovo.com/us/en/solutions/ht104232](https://support.lenovo.com/us/en/solutions/ht104232)){:target="_blank"} . Please provide the applicable log files, the machine type (e.g. 20AN) and operating system (e.g. Windows 10 1903) where the problem is occurring, and a detailed description of the symptoms.
 
 
 ## 4.3 Update Retriever
 
-The most common issues encountered with Update Retriever are typically related to the catalogs and the content being pulled from Lenovo servers. Within the process used by Update Retriever to process catalogs for specified models, there are several CRC checks performed on the files that are downloaded. There may be times when the catalogs and the content are out of synch as the catalogs are being refreshed. In this case Update Retriever may report that it failed to download an update or may not offer any update that should be available. These types of issues are typically addressed automatically due to the continuous nature of the catalog maintenance processes but may take a day or two to be resolved. In other cases there may be an incorrect CRC value specified for a file causing it to continuously fail to download. These issues will be identified in the error messages presented by Update Retriever and can be reported in the Enterprise Client Management forum which can be linked to from the Enterprise Deployment Solutions page ([https://support.lenovo.com/us/en/solutions/ht104232](https://support.lenovo.com/us/en/solutions/ht104232)). Please specify the machine type (e.g. 20AN) and operating system combination that was used in the search.
+The most common issues encountered with Update Retriever are typically related to the catalogs and the content being pulled from Lenovo servers. Within the process used by Update Retriever to process catalogs for specified models, there are several CRC checks performed on the files that are downloaded. There may be times when the catalogs and the content are out of synch as the catalogs are being refreshed. In this case Update Retriever may report that it failed to download an update or may not offer any update that should be available. These types of issues are typically addressed automatically due to the continuous nature of the catalog maintenance processes but may take a day or two to be resolved. In other cases there may be an incorrect CRC value specified for a file causing it to continuously fail to download. These issues will be identified in the error messages presented by Update Retriever and can be reported in the Enterprise Client Management forum which can be linked to from the Enterprise Deployment Solutions page ([https://support.lenovo.com/us/en/solutions/ht104232](https://support.lenovo.com/us/en/solutions/ht104232)){:target="_blank"} . Please specify the machine type (e.g. 20AN) and operating system combination that was used in the search.
 
 Update Retriever does not create a log file. Instead it generates an Event Log which can be viewed by launching the Event Viewer app. In the Event Viewer, navigate to Application and Service logs > Lenovo > ThinkVantage > Update Retriever to find two event logs that can be used to troubleshoot issues.
 
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
+<center>
 
 ![](https://cdrt.github.io/mk_docs/img/guides/su/img4-1.png)
 
 _Figure 4-1. Update Retriever event logs_
-</div>
+</center>
 
 The following list contain some common issues and how to address them:
 

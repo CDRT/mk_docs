@@ -13,11 +13,12 @@ System Update supports the following operating systems:
 - Windows 11 64-bit
 
 !!! info ""
-   System Update is qualified and supported on Windows 7, Windows 10 and Windows 11. System Update is not qualified and supported on Windows 8/8.1. If End User decides to install System Update on Windows 8/8.1 it may work without issue and may be used as is, but Lenovo makes no representations about this and has not tested such installation and such installation would not be supported. If having System Update is important to End User Lenovo recommends changing to a Windows version where it is qualified and supported.
+	System Update is qualified and supported on Windows 7, Windows 10 and Windows 11. System Update is not qualified and supported on Windows 8/8.1. If End User decides to install System Update on Windows 8/8.1 it may work without issue and may be used as is, but Lenovo makes no representations about this and has not tested such installation and such installation would not be supported. If having System Update is important to End User Lenovo recommends changing to a Windows version where it is qualified and supported.
+
 
 System Update requires Microsoft .NET Framework 4.5.2 or a later version. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
-[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download){:target="_blank"}
 
 
 ### 2.1.2 Languages
@@ -31,6 +32,8 @@ HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\LanguageOverride
 ```
 
 The following table presents the languages and the corresponding language override codes for System Update.
+
+<center>
 
 | **Language** | **Identifier** | **Language Override Code** |
 | --- | --- | --- |
@@ -50,16 +53,18 @@ The following table presents the languages and the corresponding language overri
 | Simplified Chinese | 2052 | CHS |
 | Traditional Chinese | 1028 | CHT |
 
-<div style="text-align:center;padding-bottom:40px;font-style: italic;"> Table 2-1. System Update language codes</div>
+
+
+ Table 2-1. System Update language codes</center>
 
 The following are scenarios in which System Update will load the substitute NLS language pack:
 
 - **_Loading the language pack set in the Windows Regional and Language Options settings_**: If the LanguageOverride field is empty or with an invalid value, or the value specified in the LanguageOverride field is not installed on the system, System Update will get the language override code of the operating system set in the Regional and Language Options settings. If System Update successfully loads the language pack corresponding to the language set in the Regional and Language Options settings, System Update will display the rest of the session in that language.
 - **_Loading the language pack set in the DefaultLanguage field_**: If the language pack corresponding to the language set in the Regional and Language Options settings is not available on the system, System Update will attempt to get the default language that has been set in the DefaultLanguage field when the end user used the System Update installer and selected a language during the installation. System Update will load the language pack corresponding to the default language set in the DefaultLanguage field, and display the rest of the session in that language. If the 8 System Update Solution Deployment Guide language pack corresponding to the default language set in the DefaultLanguage field is on the system, System Update will load the default language pack and display the rest of the session. The registry location for the DefaultLanguage field is:
 
-```Registry
-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\DefaultLanguage 
-```
+	```Registry
+	HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\DefaultLanguage 
+	```
 
 - **_Loading the US English language pack_**: If the DefaultLanguage field is empty or contains an invalid value, or if the language pack corresponding to the default language set in the DefaultLanguage field is not on the system, the default language will not be used. System Update will attempt to load the US English language pack. If the US English language pack is not on the system, an error message will be displayed, saying &quot;System Update has found a critical problem and must close.&quot; This error message is in the US English language.
 
@@ -110,19 +115,19 @@ System Update includes a mechanism by which it will update itself whenever a new
 
 It is recommended to keep System Update running on the most current version; however, if this feature needs to be disabled it can be done by editing the registry. To disable this feature, do the following to clear the registry value:
 
-   1. Using regedit.exe, navigate to the following registry entry:
+1. Using regedit.exe, navigate to the following registry entry:
 
-```Registry
-HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UCSettings\HTTPSHelloSettings\ServerName
-```
+	```Registry
+	HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UCSettings\HTTPSHelloSettings\ServerName
+	```
 
-   2. Delete the ServerName string value, for example:
+2. Delete the ServerName string value, for example:
 
-```URL
-https://download.lenovo.com/ibmdl/pub/pc/pcbs/agent/ 
-```
+	```URL
+	https://download.lenovo.com/ibmdl/pub/pc/pcbs/agent/ 
+	```
 
-   3. Click **OK**.
+3. Click **OK**.
 
 ## 2.2 Installing Thin Installer
 
@@ -137,7 +142,7 @@ Thin Installer is supported on the following operating systems:
 
 Thin Installer requires Microsoft .NET Framework version 4.5.2 or higher. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
-[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download){:target="_blank"} 
 
 ### 2.2.2 Removing Thin Installer
 
@@ -160,11 +165,13 @@ Update Retriever is supported on the following operating systems:
 
 Update Retriever requires Microsoft .NET Framework version 4.5.2 or higher. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
-[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download){:target="_blank"} 
 
 ### 2.3.2 Languages
 
 The following table presents the languages supported by Update Retriever and their corresponding language override codes:
+
+<center>
 
 | **Language** | **Identifier** | **Language Override Code** |
 | --- | --- | --- |
@@ -173,6 +180,8 @@ The following table presents the languages supported by Update Retriever and the
 | German | 1031 | DE |
 | Japanese | 1041 | JP |
 | Simplified Chinese | 2052 | CHS |
+
+</center>
 
 <div style="text-align:center;padding-bottom:40px;font-style: italic;">Table 2-2. Update Retriever language codes</div>
 
@@ -214,12 +223,13 @@ If you want to install the program silently and generate installation log files,
 
 If a previous version of Update Retriever is already installed, the following pop-up is displayed. In order to download the newest version of Update Retriever, the use must click **Yes**. After selecting **Yes** , to uninstall the existing version of Update Retriever, a window will appear asking for install instructions. Please proceed with install instructions.The administrator will NOT lose any of their previous downloads, update packages, machines, or any information in Update Retriever or its repository. Everything that was displayed and available in the existing version of Update Retriever, will be in the new version that is being installed **.**
 
-<div style="text-align:center;padding-bottom:40px;padding-top:40px">
+<center>
 
 ![](https://cdrt.github.io/mk_docs/img/guides/su/img2-1.png)
 
-_Figure 2-1. Removing existing version of Update Retriever to download the newest version._
-</div>
+*Figure 2-1. Removing existing version of Update Retriever to download the newest version.*
+
+</center>
 
 ### 2.3.4 Uninstall Update Retriever
 

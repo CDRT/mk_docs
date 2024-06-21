@@ -50,8 +50,6 @@ nav:
         - guides/sus/su_dg/su_dg_ch6.md
         - guides/sus/su_dg/su_dg_ch7.md
         - guides/sus/su_dg/su_dg_ch8.md
-      - Update Retriever with Azure Blob: guides/sus/ur_az_blob.md
-      - Update Retriever with Azure Fileshare: guides/sus/ur_az_fs.md
       - FAQ: guides/sus/system_update_faq.md
     - Dock Manager:
       - guides/dm/index.md
@@ -202,6 +200,7 @@ plugins:
 markdown_extensions:
   - admonition
   - def_list
+  - attr_list
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: ......span
