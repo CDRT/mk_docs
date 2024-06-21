@@ -134,7 +134,7 @@ Update Retriever does not create a log file. Instead it generates an Event Log w
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img4-1.png)
+![Update Retriever](https://cdrt.github.io/mk_docs/img/guides/su/img4-1.png)
 
 _Figure 4-1. Update Retriever event logs_
 </center>

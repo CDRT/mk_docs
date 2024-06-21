@@ -4,7 +4,7 @@
 
 System Update can be configured directly by modifying registry values. It may also be configured through Group Policy.
 
-!!! info ""
+!!! note
     To edit registry configurations, exit System Update. If System Update is running while changes are made in the registry, the old registry entries will be recovered.
 
 The following table lists the configurable and modifiable items for System Update and their registry locations, after the first launch of System Update.
@@ -67,14 +67,14 @@ To add the ADMX file and customize the settings, do the following:
 
     This will extract the System Update ADMX file into the ```C:\SWTOOLS\TOOLS\Admin\ ```	folder.
 
-	!!! info ""
+	!!! note
 		If using an ADMX file and the Group Policy Editor to set policy settings, make sure that you are using the ADMX file released specifically for each application. For example, if customizing policies for System Update, you must use the ADMX file designed for System Update.
 
    2. On your server, launch Active Directory.
    3. Click **servername.com** and then click **Properties**.
    4. On the **Group Policy** tab, highlight New **Group Policy Object** and click **Edit.**
 
-	!!! info ""
+	!!! note
 		You can also type _gpedit.msc_ in the **Open** or **Start Search** box to launch the Group Policy Editor.
 
    5. Copy the ADMX file (tvsu.admx) located in the ```C:\SWTOOLS\TOOLS\Admin\ ``` folder and paste the file to ```\\\<domain\>\SYSVOL\\<domain\>\Policies\PolicyDefinitions ``` folder.
@@ -91,7 +91,7 @@ To add the ADMX file and customize the settings, do the following:
 	```
    7. The **ThinkVantage** tab is created under the Administrative Templates folder.
 
-	!!! info ""
+	!!! note
 		Under the **ThinkVantage** tab, there is a **System Update** tab. If you do not see the applicable policy, make sure that your Group Policy Editor is set to display all policy settings.
 
    8. Navigate the Group Policy Editor to the following location:
@@ -243,5 +243,5 @@ Table 7-5. Description of configurable items.
 A common desire when working with Update Retriever is to store the local repository in a cloud storage solution to make it easier to reach by clients over the Internet. Azure Cloud Storage offers a couple of options that can be leveraged with Update Retriever.  These are documented in the following ThinkDeploy Blog articles:
 
 - [Hosting a repository in an Azure File Share](https://blog.lenovocdrt.com/hosting-a-repository-in-an-azure-file-share/){:target="_blank"} 
-- [Hosting a repository in an Azure blob](https://blog.lenovocdrt.com/hosting-a-repository-in-an-azure-blob)
+- [Hosting a repository in an Azure blob](https://blog.lenovocdrt.com/hosting-a-repository-in-an-azure-blob){:target="_blank"}
     - [Revisiting Update Retriever and Azure blob storage](https://blog.lenovocdrt.com/revisiting-update-retriever-and-azure-blob-storage/){:target="_blank"} 

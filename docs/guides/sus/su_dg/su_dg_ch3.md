@@ -27,7 +27,8 @@ There are multiple functional tabs in System Update, located to the left-hand si
 
 Following the numerical order above, the upcoming sections will explain each of the System Update functions in further detail.
 
-!!! info "If the user does not want to proceed with the System Update function they are currently on, the user must click  **Cancel**  before the tool will allow you to exit the function tab and move on to another one."
+!!! note 
+	If the user does not want to proceed with the System Update function they are currently on, the user must click  **Cancel**  before the tool will allow you to exit the function tab and move on to another one.
    
 
 ### 1. Get New Updates
@@ -36,19 +37,19 @@ System Update will automatically search for new updates from the Lenovo support 
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-2.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-2.png)
 
 _Figure 3-2. Searching for new updates._
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-3.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-3.png)
 
 _Figure 3-3. Agree to the License notice before proceeding with System Update._
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-4.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-4.png)
 
 _Figure 3-4. Get New Updates Function, selecting critical updates._
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-5.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-5.png)
 
 _Figure 3-5. Get New Updates, item details expanded._
 
@@ -75,18 +76,19 @@ When using System Update to search for update packages, System Update will displ
 >- An application or utility that is not needed for the system to operate but provides benefit if it is installed.
 >- Any BIOS or driver upgrade that has been updated only to support newer systems and contains no fixes.
 
-!!! info "Some of updates may depend on certain Window components. Ensure that your Windows operating system is up to date by running Windows Update."
+!!! note
+	Some of updates may depend on certain Window components. Ensure that your Windows operating system is up to date by running Windows Update.
    
 
 Once all the updates desired have been selected, press **Next**. A review of the updates selected will be displayed. This will also provide a second chance to select updates to defer installation or deselect a package before they are downloaded and installed on the machine. Once the &quot;Download&quot; button is clicked, if any of the packages require a reboot after installation, a message box will appear letting the user know which package(s) requires it. Wait for the machine to reboot and finish the installation before doing anything else. Do not manually shut off the machine or put it into sleep mode during this time.
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-6.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-6.png)
 
 _Figure 3-6. Reviewing Updates before downloading packages._
 
-_![](https://cdrt.github.io/mk_docs/img/guides/su/img3-7.png)_
+_![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-7.png)_
 
 _Figure 3-7. Certain update packages require reboot before installation is complete. Do not manually shut off the machine at this time._
 
@@ -98,11 +100,11 @@ When selecting update packages to download, instead of installing them immediate
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-8.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-8.png)
 
 _Figure 3-8. How to Defer an Update Package from Installing (Download Only)._
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-9.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-9.png)
 
 _Figure 3-9. Installing Deferred Update Packages._
 
@@ -114,7 +116,7 @@ System Update provides an option to schedule an automatic search for new updates
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-10.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-10.png)
 
 _Figure 3-10. Scheduling Updates for installation._
 
@@ -156,7 +158,7 @@ The history of updates, that were downloaded and installed on each system, are a
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-11.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-11.png)
 
 _Figure 3-11. Systems Update View Installation History._
 
@@ -168,7 +170,7 @@ Updates can be hidden, which means those specific updates will not be displayed 
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-12.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-12.png)
 
 _Figure 3-12. How to hide update packages._
 
@@ -178,7 +180,7 @@ However, the hidden updates can be restored. Go to the &quot;Restore Hidden Upda
 
 <center>
 
-_![](https://cdrt.github.io/mk_docs/img/guides/su/img3-13.png)_
+_![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-13.png)_
 
 _Figure 3-13. Systems Update, Restore Hidden Updates, function._
 
@@ -211,7 +213,7 @@ To use Thin Installer, either run the self-extracting installation package or co
 
 <center>
 
-_![](https://cdrt.github.io/mk_docs/img/guides/su/img3-14.png)_
+_![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-14.png)_
 
 _Figure 3-14. Default repository._
 
@@ -224,7 +226,7 @@ In the following scenario, the repository used is local on the target machine. L
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-15.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-15.png)
 
 _Figure 3-15. Launching Thin Installer to search for applicable updates._
 
@@ -234,7 +236,7 @@ Once the search for updates is completed, the application will either display a 
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-16.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-16.png)
 
 _Figure 3-16. Applicable updates listed in Thin Installer._
 
@@ -244,11 +246,11 @@ When updates are found in Thin Installer, they are displayed in one of three cat
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-17.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-17.png)
 
 _Figure 3-17. Review installation packages._
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-18.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-18.png)
 
 _Figure 3-18. Installing updates._
 
@@ -258,14 +260,15 @@ If a reboot is necessary to complete the installation of a package, the followin
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-19.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-19.png)
 
 _Figure 3-19. Thin Installer reboot message._
 
 </center>
 
 
-!!! info "BIOS installations require user's attention to ensure the update is not interrupted. They cannot be deployed in an unattended mode. <br/> 2. Thin Installer installs the updates that force a reboot or shut down after all other updates to reduce the number of reboots."
+!!! note
+	BIOS installations require user's attention to ensure the update is not interrupted. They cannot be deployed in an unattended mode. <br/> 2. Thin Installer installs the updates that force a reboot or shut down after all other updates to reduce the number of reboots.
 
 
 ### Windows 7 and Later OS Considerations
@@ -274,7 +277,8 @@ Some updates that Thin Installer will install may automatically reboot or shut d
 
 With considerations for Windows 7 and later operating systems, after you log in to the Windows desktop, the UAC might stop the program from continuing to install the remaining update packages. To install the remaining update packages, you need to manually click the **Windows has blocked some startup programs** message on the system tray and select **Run blocked program** to run Thin Installer.
 
-!!! warning "If the **Windows has blocked some startup programs** message does not display on the system tray, you will need to manually run Thin Installer, search for the remaining updates, and install them."
+!!! warning 
+	If the **Windows has blocked some startup programs** message does not display on the system tray, you will need to manually run Thin Installer, search for the remaining updates, and install them.
 
 ## 3.3 Update Retriever
 
@@ -284,14 +288,15 @@ When launching Update Retriever the first time, some initial configuration items
 
    1. Launch Update Retriever.
 
-	!!! info "Update Retriever requires elevated privileges to run. Therefore, a UAC prompt may be displayed when launching the program."
+	!!! note 
+		Update Retriever requires elevated privileges to run. Therefore, a UAC prompt may be displayed when launching the program.
 	   
 
    2. Choose between a **Local repository** or a **Lenovo cloud repository** by clicking the appropriate radio button. The **Local repository** option will host packages in a local directory or network share. The **Lenovo cloud repository** will host the actual packages on Lenovo&#39;s global Content Delivery Network and only the repository database and package descriptors will be stored in the local directory or network share. Only System Update supports the **Lenovo cloud repository** feature and not Thin Installer.
 
 	<center>
 
-	![](https://cdrt.github.io/mk_docs/img/guides/su/img3-20.png)
+	![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-20.png)
 
 	_Figure 3-20. Update Retriever first time setup._
 
@@ -305,7 +310,7 @@ When launching Update Retriever the first time, some initial configuration items
 
 	<center>
 
-	![](https://cdrt.github.io/mk_docs/img/guides/su/img3-21.png)
+	![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-21.png)
 
 	_Figure 3-21. Setting the repository path in Update Retriever, first time setup._
 
@@ -318,13 +323,14 @@ When launching Update Retriever the first time, some initial configuration items
 
 	<center>
 
-	![](https://cdrt.github.io/mk_docs/img/guides/su/img3-22.png)
+	![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-22.png)
 
 	_Figure 3-22. Update default status and Advanced Options in Update Retriever first time setup._
 
 	</center>
 
-!!! info "After the initial settings are complete, the Welcome screen will not open the next time Update Retriever is launched. To change the repository path and update's default status, click Modify settings."
+!!! note
+	After the initial settings are complete, the Welcome screen will not open the next time Update Retriever is launched. To change the repository path and update's default status, click Modify settings.
    
 
 ### 3.3.2 Searching for and Downloading Updates
@@ -335,7 +341,7 @@ After initial setup is complete, Update Retriever can be used to search for and 
 
 	<center>
 
-	![](https://cdrt.github.io/mk_docs/img/guides/su/img3-23.png)
+	![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-23.png)
 
 	_Figure 3-23. Getting new updates with Update Retriever, first time setup._
 
@@ -350,11 +356,11 @@ After initial setup is complete, Update Retriever can be used to search for and 
 
 	<center>
 
-	![](https://cdrt.github.io/mk_docs/img/guides/su/img3-24.png)
+	![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-24.png)
 
 	_Figure 3-24. Searching for updates._
 
-	![](https://cdrt.github.io/mk_docs/img/guides/su/img3-25.png)
+	![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-25.png)
 
 	_Figure 3-25. Accept the License agreement._
 
@@ -362,24 +368,26 @@ After initial setup is complete, Update Retriever can be used to search for and 
 
 3. On the next screen, select the check box next to the applicable updates to be downloaded. The results can be filtered using the filters available above the list of updates.
 
-	!!! info "If you want to select all the update packages found, simply select the **Select all** check box."
+	!!! note
+		If you want to select all the update packages found, simply select the **Select all** check box.
 	   
 	<center>
 
-	![](https://cdrt.github.io/mk_docs/img/guides/su/img3-26.png)
+	![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-26.png)
 
 	_Figure 3-26. Selecting update packages from search results._
 
 	</center>
 
-	!!! info "There is also an option to Hide updates in the Search Results. If there are some updates you will never need, you can choose to hide them so they do not appear in the Search Results. Either select to hide just the specific version being shown or this version and all future versions. Hidden updates can be restored using the **Restore hidden updates** selection under **Options**"
+	!!! note
+		There is also an option to Hide updates in the Search Results. If there are some updates you will never need, you can choose to hide them so they do not appear in the Search Results. Either select to hide just the specific version being shown or this version and all future versions. Hidden updates can be restored using the **Restore hidden updates** selection under **Options**.
 	   
 
 4. Click **Next**. A confirmation summary of the selected updates per system is shown. Click **Finish** to begin downloading the selected updates. Update Retriever will place the updates in the repository folder and update the database file that associates the updates to the systems they support. A completion summary will be displayed at the end.
 
 	<center>
 
-	![](https://cdrt.github.io/mk_docs/img/guides/su/img3-27.png)
+	![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-27.png)
 
 	_Figure 3-27. Completed download list displayed._
 
@@ -391,7 +399,7 @@ To view updates that have been downloaded into the local repository, click on th
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-28.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-28.png)
 
 _Figure 3-28. Viewing updates and managing the repository in Update Retriever._
 
@@ -405,7 +413,7 @@ The Administrator can modify the reboot type, severity, license, and status of o
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-29.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-29.png)
 
 _Figure 3-29. Modifying updates._
 
@@ -444,7 +452,8 @@ To create a report, do the following:
 	- **Hidden updates** : These are updates that have not been downloaded and are hidden from the list of available updates when searching the Lenovo(R) Help Center.
 	- **Test updates** : These are updates that have been downloaded and for test.
 	
-	!!! info "The report does not contain available updates that have not been downloaded."
+	!!! note 
+		The report does not contain available updates that have not been downloaded.
    
 
 7. Select the columns that you want to include the related information in the report:
@@ -463,11 +472,12 @@ To create a report, do the following:
 
 8. Click **Create Report**. The Report created successfully window opens. Click **View** to view the file. You also can navigate to the folder where you saved the TXT file and open the file in the folder.
 
-	!!! info "If the file name already exists in the designated folder, a warning window will be displayed. Click **Yes** to overwrite the old report or click **No** to decline overwriting."
+	!!! note 
+		If the file name already exists in the designated folder, a warning window will be displayed. Click **Yes** to overwrite the old report or click **No** to decline overwriting.
    
 	<center>
 
-	![](https://cdrt.github.io/mk_docs/img/guides/su/img3-30.png)
+	![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-30.png)
 
 	_Figure 3-30. Create report with Update Retriever._
 
@@ -477,7 +487,8 @@ To create a report, do the following:
 
 Update Retriever enables you to import updates to your repository from a local location or network share. Once the updates are in the repository, you can assign them to specific systems and deploy them to multiple computers.
 
-!!! info "Update packages cannot be deployed until they are assigned to one or more systems. For more information, see section 3.3.3.3.1 Assigning Systems."
+!!! note
+	Update packages cannot be deployed until they are assigned to one or more systems. For more information, see section 3.3.3.3.1 Assigning Systems.
    
 
 To import updates, do the following:
@@ -486,7 +497,8 @@ To import updates, do the following:
    2. Click **Import updates** in the left pane. The Import updates window opens.
    3. Click **Browse** to navigate to the folder that stores your updates, and then click **OK**.
 
-	!!! info "Each update must be in its own subfolder. If you are importing one update, specify the directory that contains that update. If you are importing multiple updates, put each update subfolder under the same parent directory and specify that parent directory."
+	!!! note
+		Each update must be in its own subfolder. If you are importing one update, specify the directory that contains that update. If you are importing multiple updates, put each update subfolder under the same parent directory and specify that parent directory.
    
 
    4. Select **Search subfolders** if you want Update Retriever to search through all subfolders located in the specified directory.
@@ -495,7 +507,7 @@ To import updates, do the following:
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-31.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-31.png)
 
 _Figure 3-31. Import Updates with Update Retriever_
 
@@ -518,14 +530,16 @@ To assign or unassign systems to updates, do the following:
    4. Select systems from the System/Operating system list to assign systems to the updates selected, or clear systems to unassign them to the updates selected. You can add new systems to the list by clicking **Add new system**.
    5. Click **Save**. The updates are assigned to the systems selected.
 
-!!! info "There is an icon next to the **Update ID** for each update that is originated from the Lenovo Help Center Web site. You cannot modify the systems assigned to these updates. You can modify the systems assigned to custom updates that were created or imported by the user."
+!!! note
+	There is an icon next to the **Update ID** for each update that is originated from the Lenovo Help Center Web site. You cannot modify the systems assigned to these updates. You can modify the systems assigned to custom updates that were created or imported by the user.
    
   
 #### Export Updates
 
 Update Retriever enables you to export driver updates in your repository to a designated target folder. During the export process, Update Retriever will extract each driver update to a subfolder. Then, these extracted driver updates can be easily imported into common operating system deployment tools such as Microsoft System Center Configuration Manager or LANDesk Management Suite for easy integration and deployment.
 
-!!! info "Before exporting updates, make sure you have downloaded the relevant driver updates for target systems from the Lenovo Help Center to your repository."
+!!! note
+	Before exporting updates, make sure you have downloaded the relevant driver updates for target systems from the Lenovo Help Center to your repository.
    
 
 To export the driver updates, do the following:
@@ -540,13 +554,14 @@ To export the driver updates, do the following:
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-32.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-32.png)
 
 _Figure 3-32. Export Updates with Update Retriever._
 
 </center>
 
-!!! info "When exporting updates from a repository located on the network instead of a repository on a local drive, an Open File - Security Warning dialog will be displayed for each update that is to be extracted during the export process. To prevent the dialog from being displayed, you can change the Local intranet settings in the Microsoft Internet Explorer Web browser, either temporarily or permanently as you need."
+!!! note
+	When exporting updates from a repository located on the network instead of a repository on a local drive, an Open File - Security Warning dialog will be displayed for each update that is to be extracted during the export process. To prevent the dialog from being displayed, you can change the Local intranet settings in the Microsoft Internet Explorer Web browser, either temporarily or permanently as you need.
    
 
 To change the Local intranet settings in the Microsoft Internet Explorer Web browser, do the following:
@@ -572,7 +587,8 @@ This feature allows an admin to create a collection of the hardware drivers for 
 
 This feature displays a list of only hardware drivers for a specified model based on what is currently available on the Lenovo Support web site instead of basing search results on content ready for use with System Update or Thin Installer.
 
-!!! info "Only Windows 10 is in scope for this feature."
+!!! note
+	Only Windows 10 is in scope for this feature.
    
 
 Follow these steps to use the Manage Driver Pack option in Update Retriever:
@@ -582,7 +598,7 @@ Follow these steps to use the Manage Driver Pack option in Update Retriever:
 
 	<center>
 
-	![](https://cdrt.github.io/mk_docs/img/guides/su/img3-33.png)
+	![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-33.png)
 
 	_Figure 3-33. Managing Driver Packs in Update Retriever._
 
@@ -592,7 +608,7 @@ Follow these steps to use the Manage Driver Pack option in Update Retriever:
 
 	<center>
 
-	![](https://cdrt.github.io/mk_docs/img/guides/su/img3-34.png)
+	![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-34.png)
 
 	_Figure 3-34. Managing Driver Pack selections in Update Retriever._
 
@@ -602,7 +618,7 @@ Follow these steps to use the Manage Driver Pack option in Update Retriever:
 
 	<center>
 
-	![](https://cdrt.github.io/mk_docs/img/guides/su/img3-35.png)
+	![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-35.png)
 
 	_Figure 3-35. Downloading and extracting selected Drivers in Update Retriever._
 
@@ -610,7 +626,8 @@ Follow these steps to use the Manage Driver Pack option in Update Retriever:
 
 A collection of source files for the driver packages are generated, along with a CSV report text file.
 
-!!! info "This new feature is intended to support the OS deployment process of new drivers which only works with INF installable hardware drivers. Application updates and firmware updates cannot be included. The feature also only supports ThinkPad, ThinkCentre and ThinkStation PCs launched in 2018 or later."
+!!! note
+	This new feature is intended to support the OS deployment process of new drivers which only works with INF installable hardware drivers. Application updates and firmware updates cannot be included. The feature also only supports ThinkPad, ThinkCentre and ThinkStation PCs launched in 2018 or later.
    
 
 ### 3.3.5 Scheduling the Search for Updates
@@ -619,7 +636,7 @@ The administrator can configure Update Retriever to search for new updates autom
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-36.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-36.png)
 
 _Figure 3-36. Scheduling updates in Update Retriever._
 
@@ -657,7 +674,7 @@ If in the future, if the administrator wants to have those updates displayed aga
 
 	<center>
 
-	 ![](https://cdrt.github.io/mk_docs/img/guides/su/img3-37.png)
+	 ![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-37.png)
 
 	_Figure 3-37. Unhide specific packages in Update Retriever._
 
@@ -675,7 +692,7 @@ The **View history** function enables you to view the detailed information about
 
 <center>
 
-![](https://cdrt.github.io/mk_docs/img/guides/su/img3-38.png)
+![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-38.png)
 
 _Figure 3-38. View download history in Update Retriever._
 
