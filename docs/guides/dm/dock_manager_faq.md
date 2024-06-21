@@ -1,4 +1,4 @@
-## Dock Manager FAQ <!-- {docsify-ignore} -->
+## Dock Manager FAQ
 
 <details>
 <summary>Why is Dock Manager not showing the firmware version of the connected dock?</summary>

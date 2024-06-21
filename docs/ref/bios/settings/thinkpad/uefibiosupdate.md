@@ -1,52 +1,42 @@
-# UEFI BIOS Update Option Settings #
+# UEFI BIOS Update Option Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_uefibiosupdate.png)
+![UEFI BIOS Update](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_uefibiosupdate.png)
 
-<details><summary>Flash BIOS Updating by End-Users</summary>
+Flash BIOS Updating by End-Users
+:  Whether UEFI BIOS can be updated without entering supervisor password.
 
-Whether UEFI BIOS can be updated without entering supervisor password.
+    Possible options:
 
-Possible options:
+    1. Off
+    2. **On** – Default.
 
-1.	Off
-2.	**On** – Default.
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | BIOSUpdateByEndUsers | Disable, Enable | Yes | Both |
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| BIOSUpdateByEndUsers | Disable, Enable | Yes | Both |
+Secure RollBack Prevention
+:  Whether to prevent flashing to older version of UEFI BIOS.
 
-</details>
+    !!! info ""
+        Defaults to `On`, if `OS Optimized Defaults` has value `On`.
 
-<details><summary>Secure RollBack Prevention</summary>
+    Possible options:
 
-Whether to prevent flashing to older version of UEFI BIOS.
+    1. **Off** – Default.
+    2. On
 
-!!! info ""
-    Defaults to `On`, if `OS Optimized Defaults` has value `On`.
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | SecureRollBackPrevention | Disable, Enable | Yes | Both |
 
-Possible options:
+Windows UEFI Firmware Update
+:  Whether to allow Windows UEFI Firmware Update.
 
-1.	**Off** – Default.
-2.	On
+    Possible options:
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| SecureRollBackPrevention | Disable, Enable | Yes | Both |
+    1. **On** – Default.
+    2. Off
 
-</details>
-
-<details><summary>Windows UEFI Firmware Update</summary>
-
-Whether to allow Windows UEFI Firmware Update.
-
-Possible options:
-
-1.	**On** – Default.
-2.	Off
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| WindowsUEFIFirmwareUpdate | Disable, Enable | Yes | Both |
-
-</details>
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | WindowsUEFIFirmwareUpdate | Disable, Enable | Yes | Both |

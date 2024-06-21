@@ -1,54 +1,37 @@
-# Advanced #
+# Advanced
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
-   /tc_advanced.png)
+![Advanced](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_advanced.png)
 
-<details><summary>Intel(R) Total Memory Encryption</summary>
+Intel(R) Total Memory Encryption
+:  Intel(R) Total Memory Encryption(TME) is a technology that encrypts data written to system memory to protect DRAM data from physical attacks.
 
-Intel(R) Total Memory Encryption(TME) is a technology that encrypts
-data written to system memory to protect DRAM data from physical
-attacks.
+    Options:
 
-Options:
+    1. **Disabled** - Default.
+    2. Enabled.
 
-1. **Disabled** - Default.
-2. Enabled.
+    | WMI Setting name | Values | Locked by SVP |
+    |:---|:---|:---|
+    | IntelTotalMemoryEncryption | Disabled, Enabled | yes |
 
-| WMI Setting name | Values | Locked by SVP |
-|:---|:---|:---|
-| IntelTotalMemoryEncryption | Disabled, Enabled | yes |
+Intel (R) SIPP Support
+:  Intel (R) Stable Image Platform Program aligns and stabilizes key Intel platform components, enabling a predictable transition from one technology generation to the next.
 
+    Options:
 
-</details>
+    1. **Enabled** - Default.
+    2. Disabled - disables SIPP.
 
-<details><summary>Intel (R) SIPP Support</summary>
+    | WMI Setting name | Values | Locked by SVP |
+    |:---|:---|:---|
+    | IntelSIPPSupport | Disabled, Enabled | yes |
 
-Intel (R) Stable Image Platform Program aligns and stabilizes key Intel platform components, enabling a predictable transition from one technology generation to the next.
+Intel (R) Thunderbolt
+:  
+    Options:
 
-Options:
-
-1. **Enabled** - Default.
-2. Disabled - disables SIPP.
-
-| WMI Setting name | Values | Locked by SVP |
-|:---|:---|:---|
-| IntelSIPPSupport | Disabled, Enabled | yes |
-
-
-</details>
-
-<details><summary>Intel (R) Thunderbolt</summary>
-
-Options:
-
-1.  **Disabled** - Default.
-2.  Enabled.
-
-<!-- NO WMI -->
-
-
-</details>
-
+    1.  **Disabled** - Default.
+    2.  Enabled.
 
 <details><summary>Dust Shield Alert</summary>
 

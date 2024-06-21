@@ -1,250 +1,200 @@
-# Network Settings #
+# Network Settings
 
-### General ###
+## General
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_network.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_network.png)
 
-<details><summary>Wake On Lan</summary>
+Wake On Lan
+:  Whether Wake On LAN function works only when AC is attached, or also when with battery power.
 
-Whether Wake On LAN function works only when AC is attached, or also when with battery power.
+    !!! info ""
+        Only for ThinkPads with built-in Ethernet port.
 
-!!! info ""
-    Only for ThinkPads with built-in Ethernet port.
+    Possible options:
 
-Possible options: <br>
+    1. **AC Only** - Default.
+    2. Disabled
+    3. AC and Battery
 
-1.	**AC Only** - Default.
-2.	Disabled
-3.	AC and Battery
+    !!! info ""
+        AC is required with magic packet type Wake On LAN.
 
-!!! info ""
-    AC is required with magic packet type Wake On LAN.
+    !!! info ""
+        Wake On LAN function may be blocked due to password configuration.
 
-!!! info ""
-    Wake On LAN function may be blocked due to password configuration.
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | WakeOnLAN | Disable, ACOnly, ACandBattery, Enable | No | Both |
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| WakeOnLAN | Disable, ACOnly, ACandBattery, Enable | No | Both |
+Wake On LAN from Dock
+:  
+    !!! note
+        - Only for ThinkPads with no Ethernet port.
+        - Will not work while Secure Boot is disabled.
+        - Works only when ThinkPad USB-C Dock or ThinkPad Thunderbolt Dock is attached.
+        - May be blocked due to password configuration.
 
-</details>
+    Possible options:
 
-<details><summary>Wake On LAN from Dock</summary>
+    1. **On** - Default.
+    2. Off
 
-!!! info ""
-    Only for ThinkPads with no Ethernet port.
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | WakeOnLANDock  | Disable, Enable | No | Both |
 
-!!! info ""
-     Will not work while Secure Boot is disabled.
+Lenovo Cloud Services
+:  System connects Lenovo Cloud Services via HTTPs. DHCP option settings are not required.
 
-Possible options:
+    !!! info ""
+        This feature will not work while Secure Boot is disabled.
 
-1.	**On** - Default.
-2.	Off
+    Possible options:
 
-!!! info ""
-    Works only when ThinkPad USB-C Dock or ThinkPad Thunderbolt Dock is attached.
+    1. **On** - Default.
+    2. Off
 
-!!! info ""
-    May be blocked due to password configuration.
+    **Lenovo Cloud Services Features**
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| WakeOnLANDock  | Disable, Enable | No | Both |
+    Once this feature is switched `On`, it becomes available for selection in BIOS: [Startup](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/startup), at either `Edit Boot Order`, or `Network Boot`, or via F12 Boot Menu.
 
-</details>
+    Lenovo Cloud Services enables these additional options:
 
-<details><summary>Lenovo Cloud Services</summary>
+    1. **Lenovo Cloud Deploy (ITC)** – sends Factory-Style images to customers for deployment in the field. More information: [Lenovo Cloud Deploy](https://www.lenovoclouddeploy.com/en/auth/welcome)
+    2. **Windows Virtual Desktop (VDI)** – provides VDI environment to customer. VDI itself will be setup by the customer (IT Admin). If this option is selected, then it will become available as a boot option.  
+    More information: <br> - [Client Virtualization & Infrastructure Solutions - Lenovo](https://www.lenovo.com/lt/lt/data-center/solutions/client-virtualization) <br> - [Windows Virtual Desktop](https://www.microsoft.com/en-us/microsoft-365/blog/2019/09/30/windows-virtual-desktop-generally-available-worldwide/).
 
-!!! info ""
-    System connects Lenovo Cloud Services via HTTPs. DHCP option settings are not required.
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | LenovoCloudServices  | Disable, Enable | No | Intel |
 
-!!! info ""
-    This feature will not work while Secure Boot is disabled.
+UEFI WI-FI Network Boot
+:  Wether to load UEFI Wi-Fi driver at next boot, able to connect to Access point.
 
-Possible options:
+    Possible options:
 
-1.	**On** - Default.
-2.	Off
+    1. On
+    2. **Off** - Default.
 
-**Lenovo Cloud Services Features**
+    !!! info ""
+        Secure Boot must be enabled to use UEFI Network Boot.
 
-Once this feature is switched `On`, it becomes available for selection in BIOS: [Startup](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/startup), at either `Edit Boot Order`, or `Network Boot`, or via F12 Boot Menu.
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | WiFiNetworkBoot  | Disable, Enable | No | Intel |
 
-Lenovo Cloud Services enables these additional options:
+UEFI IPv4 Network Stack
+:  Whether to enable UEFI IPv4 Network Stack for UEFI environment.
 
-1. **Lenovo Cloud Deploy (ITC)** – sends Factory-Style images to customers for deployment in the field. More information: [Lenovo Cloud Deploy](https://www.lenovoclouddeploy.com/en/auth/welcome)
-2. **Windows Virtual Desktop (VDI)** – provides VDI environment to customer. VDI itself will be setup by the customer (IT Admin). If this option is selected, then it will become available as a boot option.  
-More information: <br> - [Client Virtualization & Infrastructure Solutions - Lenovo](https://www.lenovo.com/lt/lt/data-center/solutions/client-virtualization) <br> - [Windows Virtual Desktop](https://www.microsoft.com/en-us/microsoft-365/blog/2019/09/30/windows-virtual-desktop-generally-available-worldwide/).
+    Possible options:
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| LenovoCloudServices  | Disable, Enable | No | Intel |
+    1. **On** - Default.
+    2. Off
 
-</details>
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | IPv4NetworkStack  | Disable, Enable | No | Both |
 
-<details><summary>UEFI WI-FI Network Boot</summary>
+UEFI IPv6 Network Stack
+:  Whether to enable UEFI IPv6 Network Stack for UEFI environment.
 
-Wether to load UEFI Wi-Fi driver at next boot, able to connect to Access point.
+    Possible options:
 
-Possible options:<br>
+    1. **On** - Default.
+    2. Off
 
-1. On
-2. **Off** - Default.
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | IPv6NetworkStack  | Disable, Enable | No | Both |
 
-!!! info ""
-    Secure Boot must be enabled to use UEFI Network Boot.
+UEFI Network Boot Priority
+:  Select Network Stack priority for UEFI PXE Boot.
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| WiFiNetworkBoot  | Disable, Enable | No | Intel |
+    Possible options:
 
-</details>
+    1. **IPv4 First** – Default.
+    2. IPv6 First
 
-<details><summary>UEFI IPv4 Network Stack</summary>
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | UefiPxeBootPriority  | IPv6First, IPv4First | No | Both |
 
-Whether to enable UEFI IPv4 Network Stack for UEFI environment.
+Wireless Auto Disconnection
+:  Whether to Auto Disconnect Wireless feature when Ethernet cable is connected to Ethernet LAN.
 
-Possible options:<br>
+    Possible states:
 
-1. **On** - Default.
-2. Off
+    1. On
+    2. **Off** - Default.
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| IPv4NetworkStack  | Disable, Enable | No | Both |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | WirelessAutoDisconnection  | Disable, Enable | No | Both |
 
-</details>
+MAC Address Pass Through
+:  Whether to enable MAC Address Pass Through when dock is attached.
 
-<details><summary>UEFI IPv6 Network Stack</summary>
+    Possible options:
 
-Whether to enable UEFI IPv6 Network Stack for UEFI environment.
+    1. **Disabled** - Dock Ethernet uses its own MAC address. Default
+    2. Internal MAC Address - Dock Ethernet uses same MAC address as internal LAN.
+    3. Second MAC Address - Dock Ethernet uses the second MAC address that is stored in the system's EEPROM. This allows for a device-specific MAC address that is different from the internal NIC's MAC address so they can be managed separately if necessary.
 
-Possible options:<br>
+    !!! info ""
+        For systems that do not have an internal NIC, the options are: <br> **off** - the dock will use it's own MAC Address <br> **on** - dock will use MAC address stored in the system EEPROM.
 
-1. **On** - Default.
-2. Off
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | MACAddressPassThrough  | Disable, Enable, Second | No | Both |
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| IPv6NetworkStack  | Disable, Enable | No | Both |
+Reinstall Windows from Cloud
+:  Enable/Disable “Reinstall Windows from Cloud (Microsoft® Connected System Recovery)” in the App Menu invoked by F12.
 
-</details>
+    Choosing Reinstall Windows from Cloud from the F12 menu will completely replace the system software, including all user files, and cannot be undone.This feature works with system-integrated Ethernet LAN or wireless LAN (only WPA2 personal). Secure Boot must be enabled to use Reinstall Windows from Cloud.
+    Please note that this feature is not compatible with Lenovo Cloud Boot. Do not attempt to start Lenovo Cloud Boot while Reinstall Windows from Cloud is enabled.
 
-<details><summary>UEFI Network Boot Priority</summary>
+    Possible options:
 
-Select Network Stack priority for UEFI PXE Boot.
+    1. **Disabled** - Default.
+    2. Enable.
 
-Possible options:
+## WiFi Configuration
 
-1. **IPv4 First** – Default.
-2. IPv6 First
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| UefiPxeBootPriority  | IPv6First, IPv4First | No | Both |
-
-</details>
-
-<details><summary>Wireless Auto Disconnection</summary>
-
-Whether to Auto Disconnect Wireless feature when Ethernet cable is connected to Ethernet LAN.
-
-Possible states:
-
-1. On
-2. **Off** - Default.
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| WirelessAutoDisconnection  | Disable, Enable | No | Both |
-
-</details>
-
-<details><summary>MAC Address Pass Through</summary>
-
-Whether to enable MAC Address Pass Through when dock is attached.
-
-Possible options:
-
-1. **Disabled** - Dock Ethernet uses its own MAC address. Default
-2. Internal MAC Address - Dock Ethernet uses same MAC address as internal LAN.
-3. Second MAC Address - Dock Ethernet uses the second MAC address that is stored in the system's EEPROM. This allows for a device-specific MAC address that is different from the internal NIC's MAC address so they can be managed separately if necessary.
-
-!!! info ""
-    For systems that do not have an internal NIC, the options are: <br> **off** - the dock will use it's own MAC Address <br> **on** - dock will use MAC address stored in the system EEPROM.
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| MACAddressPassThrough  | Disable, Enable, Second | No | Both |
-
-</details>
-
-<details><summary>Reinstall Windows from Cloud</summary>
-
-Enable/Disable “Reinstall Windows from Cloud (Microsoft® Connected System Recovery)” in the App Menu invoked by F12.
-Choosing Reinstall Windows from Cloud from the F12 menu will completely replace the system software, including all user files, and cannot be undone.This feature works with system-integrated Ethernet LAN or wireless LAN (only WPA2 personal). Secure Boot must be enabled to use Reinstall Windows from Cloud.
-Please note that this feature is not compatible with Lenovo Cloud Boot. Do not attempt to start Lenovo Cloud Boot while Reinstall Windows from Cloud is enabled.
-
-Possible options:
-
-1. **Disabled** - Default.
-2. Enable.
-
-
-</details>
-
-### WiFi Configuration ###
-
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_wifi1.png)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_wifi2.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_wifi1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_wifi2.png)
 
 !!! info ""
     All the settings in this group are not available via WMI.
 
-<details><summary>MAC Address</summary>
+MAC Address
+:  Media access control (MAC) address of the wireless network interface controller.
 
-Media access control (MAC) address of the wireless network interface controller.
+    !!! info ""
+        There could be several MAC addresses for machines that have several wireless network interface controllers (NICs).
 
-!!! info ""
-    View only.
+    For every MAC Address the following information is shown:
 
-!!! info ""
-    There could be several MAC addresses for machines that have several wireless network interface controllers (NICs).
+    * MAC Address - Media access control (MAC) address of the selected wireless network interface controller.
 
-For every MAC Address the following information is shown:
+    !!! info ""
+        View only.
 
-* MAC Address - Media access control (MAC) address of the selected wireless network interface controller.
+    Possible options:
 
-!!! info ""
-    View only.
+    1. **Disconnected** - Default.
+    2. Connected to [SSID]
 
-Possible options:
+    !!! info ""
+        Option `Connected to [SSID]` displays the ID of the wireless network.
 
-   1. **Disconnected** - Default.
-   2. Connected to [SSID]
+### Wi-Fi Network List
 
-!!! info ""
-    Option `Connected to [SSID]` displays the ID of the wireless network.
-
-</details>
-<br>
-
-### Wi-Fi Network List ###
-
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_wifinetworklist.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_wifinetworklist.png)
 
 !!! info ""
      All the settings in this group are not available via WMI.
 
 **Number of networks:** Number of current available networks.
-
-!!! info ""
-    View only.
 
 For each network the Security Type is shown.
 
@@ -255,295 +205,232 @@ For each network the Security Type is shown.
     View only.
 
 Each SSID can be selected to display more details.
-<details><summary>[SSID Value](Status)</summary>
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_wifinetworkconfig.png)
+!!! note "```[SSID Value](Status)```"
 
-<details><summary>Connection Status</summary>
+    ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_wifinetworkconfig.png)
 
-Whether device is connected to this Wi-Fi network.
+    ??? info "Connection Status"
+        
+        Whether device is connected to this Wi-Fi network.
 
-!!! info ""
-    View only.
+        !!! info ""
+            View only.
 
-Possible statuses:
+        Possible statuses:
 
-1.	**Disconnected** - Default.
-2.	Connected
+        1. **Disconnected** - Default.
+        2. Connected
 
-</details>
+    ??? info "SSID"
 
-<details><summary>SSID</summary>
+        SSID (Service Set Identifier) is the name of the wireless network.
 
-SSID (Service Set Identifier) is the name of the wireless network.
+        !!! info ""
+            View only.
 
-!!! info ""
-    View only.
+    ??? info "Security"
 
-</details>
+        Security type of this Wi-Fi network.
 
-<details><summary>Security</summary>
+        !!! info ""
+            View only.
 
-Security type of this Wi-Fi network.
+        Possible options:
 
-!!! info ""
-    View only.
+        1. Open
+        2. WPA2-Personal
+        3. **WPA2-Enterprise** - Default.
+        4. PEAP
+        5. EAP-TLS
 
-Possible options:
+    ??? info "Password"
 
-1.	Open
-2.	WPA2-Personal
-3.	**WPA2-Enterprise** - Default.
-4. PEAP
-5. EAP-TLS
+        Enter password.
 
-</details>
+        !!! info ""
+            Visible only for networks with security WPA2-Personal.
 
-<details><summary>Password</summary>
+        !!! info ""
+            Password length: 8-63 characters.
 
-Enter password.
+    ??? info "EAP Authentication Method"
 
-!!! info ""
-    Visible only for networks with security WPA2-Personal.
+        Select EAP Authentication Method.
 
-!!! info ""
-    Password length: 8-63 characters.
+        Possible options:
 
-</details>
+        1. PEAP
+        2. EAP-TLS
 
-<details><summary>EAP Authentication Method</summary>
+    ??? info "EAP Second Authentication Method"
 
-Select EAP Authentication Method.
+        Select EAP Second Authentication Method.
 
-Possible options:
+        Possible options:
 
-1. PEAP
-2.	EAP-TLS
+        1. MSCHAPv2
 
-</details>
+    ??? info "Enroll CA Cert"
 
-<details><summary>EAP Second Authentication Method</summary>
+        Enroll CA (Certification Authority) certificate.
 
-Select EAP Second Authentication Method.
+        Empty by default.
 
-Possible options:
+        !!! info ""
+            Visible only for networks with security WPA2-Enterprise.
 
-1. MSCHAPv2
+    ??? info "Enroll Client Cert"
 
-</details>
+        Enroll client certificate.
 
-<details><summary>Enroll CA Cert</summary>
+        Empty by default.
 
-Enroll CA (Certification Authority) certificate.
+        !!! info ""
+            Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
 
-Empty by default.
+    ??? info "Enroll Client Private Key"
 
-!!! info ""
-    Visible only for networks with security WPA2-Enterprise.
+        Enroll client private key.
 
-</details>
+        Empty by default.
 
-<details><summary>Enroll Client Cert</summary>
+        !!! info ""
+            Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
 
-Enroll client certificate.
+    ??? info "Identity"
 
-Empty by default.
+        Identity value if there is any.
 
-!!! info ""
-    Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
+        View only.
 
-</details>
+        !!! info ""
+            Identity length: 6-20 characters.
 
-<details><summary>Enroll Client Private Key</summary>
+        !!! info ""
+            Visible only for networks with security WPA2-Enterprise.
 
-Enroll client private key.
+    ??? info "EAP Password"
 
-Empty by default.
+        Field for entering EAP password.
 
-!!! info ""
-    Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
+        !!! info ""
+            Password length: 1-63 characters.
 
-</details>
+        !!! info ""
+            Visible only for networks with security WPA2-Enterprise.
 
-<details><summary>Identity</summary>
+    ??? info "[Action]"
 
-Identity value if there is any.
+        Possible actions:
 
-View only.
+        1. Connect to this network - visible if device is not connected to this Wi-Fi network
+        2. Disconnect - visible if device is connected to this Wi-Fi network
 
-!!! info ""
-    Identity length: 6-20 characters.
+## Add Wi-Fi Network
 
-!!! info ""
-    Visible only for networks with security WPA2-Enterprise.
-
-</details>
-
-<details><summary>EAP Password</summary>
-
-Field for entering EAP password.
-
-!!! info ""
-    Password length: 1-63 characters.
-
-!!! info ""
-    Visible only for networks with security WPA2-Enterprise.
-
-</details>
-
-<details><summary>[Action]</summary>
-
-Possible actions:
-
-1.	Connect to this network - visible if device is not connected to this Wi-Fi network
-2.	Disconnect - visible if device is connected to this Wi-Fi network
-
-</details>
-
-</details>
-<br>
-
-### Add Wi-Fi Network ###
-(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_addwifinetwork.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_addwifinetwork.png)
 
 !!! info ""
      All the settings in this group are not available via WMI.
 
-<details><summary>SSID</summary>
+SSID
+:  Field for entering SSID value.
 
-Field for entering SSID value.
+Security
+:  Select the security type of this Wi-Fi network.
 
-</details>
+    Possible options:
 
-<details><summary>Security</summary>
+    1. **Open** – Default
+    2. WPA2 – Personal
+    3. WPA2 – Enterprise
 
-Select the security type of this Wi-Fi network.
+Password
+:  Enter password.
 
-Possible options:
+    !!! info ""
+        Visible only for a network with security WPA2-Personal.
 
-1.	**Open** – Default
-2.	WPA2 – Personal
-3.	WPA2 – Enterprise
+    !!! info ""
+        Password length: 8-63 characters.
 
-</details>
+EAP Authentication Method
+:  
+    !!! info ""
+        Visible only for a network with security WPA2-Enterprise.
 
-<details><summary>Password</summary>
+    Possible options:
 
-Enter password.
+    1. **PEAP** – Default
+    2. EAP-TLS
 
-!!! info ""
-    Visible only for a network with security WPA2-Personal.
+EAP Second Authentication Method
+:  
+    !!! info ""
+        Visible only for a network with security WPA2-Enterprise and if `EAP Authentication Method` is `PEAP`.
 
-!!! info ""
-    Password length: 8-63 characters.
+    Possible options:
 
-</details>
+    1. **MSCHAPv2** – Default.
 
-<details><summary>EAP Authentication Method</summary>
+Enroll CA Cert
+:  Enroll CA (Certification Authority) certificate.
 
-!!! info ""
+    Empty by default.
+
+    !!! info ""
+        Visible only for networks with security WPA2-Enterprise.
+
+Enroll Client Cert
+:  Enroll client certificate.
+
+    Empty by default.
+
+    !!! info ""
+        Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
+
+Enroll Client Private Key
+:  Enroll client private key.
+
+    Empty by default.
+
+    !!! info ""
+        Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
+
+Identity
+: Enter identity value (if there is any).
+
+    !!! info ""
+        Identity length: 6-20 characters.
+
+    !!! info ""
+        Visible only for a network with security WPA2-Enterprise.
+
+EAP Password
+:  
+    Field for entering EAP password.
+
+    !!! info ""
+        Password length: 1-63 characters.
+
+    !!! info ""
+        Visible only for a network with security WPA2-Enterprise.
+
+Scan Anyway
+:  Possible options:
+
+    1. **On** - the network will be scanned when it does not broadcast its name. Default.
+    2. Off - the network will not be scanned when it does not broadcast its name.
+
     Visible only for a network with security WPA2-Enterprise.
 
-Possible options:
+Commit Changes and Exit
+:  This is the option to save changes and exits back to the Manage Wi-Fi network page.
 
-1.	**PEAP** – Default
-2.	EAP-TLS
+## Manage Wi-Fi Network
 
-</details>
-
-<details><summary>EAP Second Authentication Method</summary>
-
-!!! info ""
-    Visible only for a network with security WPA2-Enterprise and if `EAP Authentication Method` is `PEAP`.
-
-Possible options:
-
-1.	**MSCHAPv2** – Default.
-
-</details>
-
-<details><summary>Enroll CA Cert</summary>
-
-Enroll CA (Certification Authority) certificate.
-
-Empty by default.
-
-!!! info ""
-    Visible only for networks with security WPA2-Enterprise.
-
-</details>
-
-<details><summary>Enroll Client Cert</summary>
-
-Enroll client certificate.
-
-Empty by default.
-
-!!! info ""
-    Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
-
-</details>
-
-<details><summary>Enroll Client Private Key</summary>
-
-Enroll client private key.
-
-Empty by default.
-
-!!! info ""
-    Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
-
-</details>
-
-<details><summary>Identity</summary>
-
-Enter identity value (if there is any).
-
-!!! info ""
-    Identity length: 6-20 characters.
-
-!!! info ""
-    Visible only for a network with security WPA2-Enterprise.
-
-</details>
-
-<details><summary>EAP Password</summary>
-
-Field for entering EAP password.
-
-!!! info ""
-    Password length: 1-63 characters.
-
-!!! info ""
-    Visible only for a network with security WPA2-Enterprise.
-
-</details>
-
-<details><summary>Scan Anyway</summary>
-
-Possible options:
-
-1.	**On** - the network will be scanned when it does not broadcast its name. Default.
-2.	Off - the network will not be scanned when it does not broadcast its name.
-
-Visible only for a network with security WPA2-Enterprise.
-
-</details>
-
-<details><summary>Commit Changes and Exit</summary>
-
-This is the option to save changes and exits back to the Manage Wi-Fi network page.
-
-</details>
-
-### Manage Wi-Fi Network ###
-
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_managewifilist.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_managewifilist.png)
 
 !!! info ""
      All the settings in this group are not available via WMI.
@@ -551,183 +438,131 @@ This is the option to save changes and exits back to the Manage Wi-Fi network pa
 !!! info ""
     Each listed network is represented by a `[SSID Value][Type]` and has its own sub-group of settings - open the items below for details.
 
-<details><summary>[SSID Value][Type] </summary>
+??? info "`[SSID Value][Type]`"
+    SSID value and its type.
 
-SSID value and its type.
+    Every SSID on the list leads to details for this network.
 
-Every SSID on the list leads to details for this network.
+    See descriptions below.
 
-See descriptions below.
+    ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
+    /tp_managewificonfig.png)
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_managewificonfig.png)
+    !!! info "SSID"
+        Field for editing SSID value.
 
-<details><summary>SSID</summary>
+    !!! info "Security"
+        Select the security type of this Wi-Fi network.
 
-Field for editing SSID value.
+        !!! info ""
+            Default value depends on the network.
 
-</details>
+        Possible options:
 
-<details><summary>Security</summary>
+        1. Open
+        2. WPA2-Personal
+        3. WPA2-Enterprise
 
-Select the security type of this Wi-Fi network.
+    !!! info "Password"
+        Enter password.
 
-!!! info ""
-    Default value depends on the network.
+        !!! info ""
+            Visible only for a network with security WPA2-Personal.
 
-Possible options:
+        !!! info ""
+            Password length: 8-63 characters.
 
-1.	Open
-2.	WPA2-Personal
-3.	WPA2-Enterprise
+    !!! info "EAP Authentication Method"
+        Select EAP Authentication Method.
 
-</details>
+        Possible options:
 
-<details><summary>Password</summary>
+        1. **PEAP** – Default
+        2. EAP-TLS
 
-Enter password.
+        Visible only for a network with security WPA2-Enterprise.
 
-!!! info ""
-    Visible only for a network with security WPA2-Personal.
+    !!! info "EAP Second Authentication Method"
+        Select Second EAP Authentication Method.
 
-!!! info ""
-    Password length: 8-63 characters.
+        Possible options:
 
-</details>
+        1. **MSCHAPv2** – Default.
 
-<details><summary>EAP Authentication Method</summary>
+        !!! info ""
+            Visible only for a network with security WPA2-Enterprise and if `EAP Authentication Method` is `PEAP`.
 
-Select EAP Authentication Method.
+    !!! info "Enroll CA Cert"
+        Enroll CA (Certification Authority) certificate.
 
-Possible options:
+        Empty by default.
 
-1.	**PEAP** – Default
-2.	EAP-TLS
+        !!! info ""
+            Visible only for networks with security WPA2-Enterprise.
 
-Visible only for a network with security WPA2-Enterprise.
+    !!! info "Enroll Client Cert"
+        Enroll client certificate.
 
-</details>
+        Empty by default.
 
-<details><summary>EAP Second Authentication Method</summary>
+        !!! info ""
+            Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
 
-Select Second EAP Authentication Method.
+    !!! info "Enroll Client Private Key"
+        Enroll client private key.
 
-Possible options:
+        Empty by default.
 
-1.	**MSCHAPv2** – Default.
+        !!! info ""
+            Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
 
-!!! info ""
-    Visible only for a network with security WPA2-Enterprise and if `EAP Authentication Method` is `PEAP`.
+    !!! info "Identity"
+        Enter identity value (if there is any).
 
-</details>
+        !!! info ""
+            Identity length: 6-20 characters.<br>
 
-<details><summary>Enroll CA Cert</summary>
+        !!! info ""
+            Visible only for a network with security WPA2-Enterprise.
 
-Enroll CA (Certification Authority) certificate.
+    !!! info "EAP Password"
+        Enter EAP password.
 
-Empty by default.
+        !!! info ""
+            Password length: 1-63 characters.
 
-!!! info ""
-    Visible only for networks with security WPA2-Enterprise.
+        !!! info ""
+            Visible only for a network with security WPA2-Enterprise.
 
-</details>
+    !!! info "Scan Anyway"
+        Whether the network will be scanned anyway, even if it does not broadcast its name.
 
-<details><summary>Enroll Client Cert</summary>
+        Possible options:
 
-Enroll client certificate.
+        1. On
+        2. **Off** - Default.
 
-Empty by default.
+        !!! info ""
+            Visible only for a network with security WPA2-Enterprise.
 
-!!! info ""
-    Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
+    !!! info "Commit Changes and Exit"
+        Save changes and exits back to the Manage Wi-Fi network page.
 
-</details>
+    !!! info "Forget This Network"
+        Forget the settings for the selected network and disconnect from it.
 
-<details><summary>Enroll Client Private Key</summary>
+Change Priority
+:  View list of saved Wi-Fi networks.
 
-Enroll client private key.
+    !!! info ""
+        The option will show a warning message if Network List is empty.
 
-Empty by default.
+    See descriptions below.
 
-!!! info ""
-    Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
+    ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/managewifipriority.png)
 
-</details>
+    !!! info "Priority List"
+        List of SSIDs of the saved networks.
 
-<details><summary>Identity</summary>
-
-Enter identity value (if there is any).
-
-!!! info ""
-    Identity length: 6-20 characters.<br>
-
-!!! info ""
-    Visible only for a network with security WPA2-Enterprise.
-
-</details>
-
-<details><summary>EAP Password</summary>
-
-Enter EAP password.
-
-!!! info ""
-    Password length: 1-63 characters.
-
-!!! info ""
-    Visible only for a network with security WPA2-Enterprise.
-
-</details>
-
-<details><summary>Scan Anyway</summary>
-
-Whether the network will be scanned anyway, even if it does not broadcast its name.
-
-Possible options:
-
-1.	On
-2.	**Off** - Default.
-
-!!! info ""
-    Visible only for a network with security WPA2-Enterprise.
-
-</details>
-
-<details><summary>Commit Changes and Exit</summary>
-
-Save changes and exits back to the Manage Wi-Fi network page.
-
-</details>
-
-<details><summary>Forget This Network</summary>
-
-Forget the settings for the selected network and disconnect from it.
-
-</details>
-
-</details>
-
-<details><summary>Change Priority</summary>
-
-View list of saved Wi-Fi networks.
-
-!!! info ""
-    The option will show a warning message if Network List is empty.
-
-See descriptions below.
-
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /managewifipriority.png)
-
-<details><summary>Priority List</summary>
-
-List of SSIDs of the saved networks.
-
-</details>
-
-<details><summary>Commit Changes and Exit</summary>
-
-Save changes and exits back to the Manage Wi-Fi network page.
-
-</details>
-
-</details>
+    !!! info "Commit Changes and Exit"
+        Save changes and exits back to the Manage Wi-Fi network page.

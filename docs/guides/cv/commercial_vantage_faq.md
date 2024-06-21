@@ -1,4 +1,4 @@
-## Commercial Vantage FAQ <!-- {docsify-ignore} -->
+## Commercial Vantage FAQ
 
 <details>
 <summary>Can I control the System Update process by command line?</summary>

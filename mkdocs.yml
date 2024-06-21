@@ -1,8 +1,10 @@
 site_name: Lenovo CDRT Docs Site
+site_url: https://cdrt.github.io/mk_docs/
 
 theme:
   name: material
   logo: img/CDRT-REV-Red_s.png
+  favicon: img/fav/favicon.ico
   features:
     - navigation.tracking
     - navigation.path
@@ -183,6 +185,7 @@ nav:
           - ....Boot Priority Order: ref/bios/settings/thinkstation/bootpriorityorder.md
           - Exit: ref/bios/settings/thinkstation/exit.md
       - Glossary: ref/bios/glossary.md
+      - BIOS Logging: ref/bios/settings/bios_logging.md
     - Docks Reference:
       - ref/docks/index.md
       - Deployment Guide: ref/docks/docks_main.md
@@ -199,6 +202,7 @@ plugins:
 
 markdown_extensions:
   - admonition
+  - tables
   - def_list
   - attr_list
   - pymdownx.highlight:
@@ -209,6 +213,11 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.details
+  - toc:
+      permalink: "#"
 
 copyright: |
   &copy; 2024 <a href="https://docs.lenovocdrt.com"  target="_blank" rel="noopener">Lenovo Commercial Deployment Readiness Team</a>
+
+extra_css :
+  - stylesheets/extra.css

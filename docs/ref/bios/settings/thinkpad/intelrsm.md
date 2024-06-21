@@ -1,54 +1,42 @@
-# Intel(R) Standard Manageability #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_intelrsm.png)
+# Intel(R) Standard Manageability
 
-<details><summary>Intel(R) Standard Manageability</summary>
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_intelrsm.png)
 
-This option enables or disables Intel® Standard Manageability (ISM) function.
+Intel(R) Standard Manageability
+:  This option enables or disables Intel® Standard Manageability (ISM) function.
 
-Possible options:
+   Possible options:
 
-1.	**Enabled** - Default.
-2.	Disabled
-3.	Permanently Disabled
- 
+   1. **Enabled** - Default.
+   2. Disabled
+   3. Permanently Disabled
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-|  | Disable, Enable, Permanently Disabled | No | Intel |
+   | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+   |:---|:---|:---|:---|
+   |  | Disable, Enable, Permanently Disabled | No | Intel |
 
-</details>
+USB Key Provisioning
+:  This option enables or disables USB key provisioning.
 
-<details><summary>USB Key Provisioning</summary>
+   Possible options:
 
-This option enables or disables USB key provisioning.
+   1. **Enabled** - Default.
+   2. Disabled
 
-Possible options:
+   | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+   |:---|:---|:---|:---|
+   |  | Disable, Enable | No | Intel |
 
-1.	**Enabled** - Default.
-2.	Disabled
+Console Type
+:  Enables to specified console type.
 
+   Possible options:
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-|  | Disable, Enable | No | Intel |
+   1. **VT100+** - Default.
+   2. VT100
+   3. VT-UTF8
+   4. PC ANSI
 
-</details>
-
-<details><summary>Console Type</summary>
-
-Enables to specified console type.
-
-Possible options:
-
-1.	**VT100+** - Default.
-2.	VT100
-3.	VT-UTF8
-4.	PC ANSI
-
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-|  | VT100, VT100+, VT-UTF8, PC ANSI | No | Intel |
-
-</details>
+   | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+   |:---|:---|:---|:---|
+   |  | VT100, VT100+, VT-UTF8, PC ANSI | No | Intel |

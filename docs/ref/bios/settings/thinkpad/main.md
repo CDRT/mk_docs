@@ -1,14 +1,10 @@
-# Main #
+# Main
 
-![Main page in BIOS Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_main.png)
+![Main page in BIOS Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_main.png)
 
 The Main display shows (view-only) system information.
 
-It also gives access to the [BIOS Event Log feature](/bios/settings/bios_logging).
+It also gives access to the [BIOS Event Log feature](https://cdrt.github.io/mk_docs/ref/bios/settings/bios_logging.md).
 
-<details><summary>BIOS Event Log</summary>
-
-The BIOS Event Log tracks BIOS configuration and boot events. These provide insight into the health of a device.
-
-</details>
+BIOS Event Log
+:  The BIOS Event Log tracks BIOS configuration and boot events. These provide insight into the health of a device.

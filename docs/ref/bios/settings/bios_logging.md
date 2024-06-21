@@ -3,7 +3,7 @@
 
 This feature logs system and BIOS configuration change events.
 
-## How to view event logs <!-- {docsify-ignore} -->
+## How to view event logs
 
 A log viewer application can be launched from the BIOS Setup Menu.
 
@@ -18,11 +18,11 @@ It allows you to
 !!! info ""
     The clear operation is protected by SVP.
 
-- [Main (ThinkPad )](/bios/settings/thinkpad/main)
-- [Main (ThinkCentre)](/bios/settings/thinkcentre/main)
-- [Main (ThinkStation)](/bios/settings/thinkstation/main.md)
+- [Main (ThinkPad )](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/main/)
+- [Main (ThinkCentre)](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/main)
+- [Main (ThinkStation)](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/main.md)
 
-## Details of event logs <!-- {docsify-ignore} -->
+## Details of event logs
 
 The number of slots (16 or 64) varies between events.
 

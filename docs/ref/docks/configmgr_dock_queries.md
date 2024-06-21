@@ -5,6 +5,7 @@ This section contains example queries that can be used in your ConfigMgr hierarc
 [Thunderbolt 3 Workstation Gen 2](https://support.lenovo.com/solutions/PD500333)
 
 [Thunderbolt 3 Gen 2](https://support.lenovo.com/solutions/pd500265)
+
 ```wql
 SELECT DISTINCT sms_r_system.NAME,
                 sms_r_system.ipaddresses,
@@ -24,6 +25,7 @@ WHERE  sms_g_system_pnp_device_driver.pnpdeviceid LIKE "usb\\vid_2109&pid_8887%"
 ```
 
 [Thunderbolt Essential](https://support.lenovo.com/solutions/PD500373)
+
 ```wql
 SELECT DISTINCT sms_r_system.NAME,
                 sms_r_system.ipaddresses,
@@ -43,6 +45,7 @@ WHERE  sms_g_system_pnp_device_driver.pnpdeviceid LIKE "usb\\vid_17ef&pid_308d%"
 ```
 
 [USB-C Gen 2](https://support.lenovo.com/solutions/acc500106)
+
 ```wql
 SELECT DISTINCT sms_r_system.NAME,
                 sms_r_system.ipaddresses,
@@ -62,6 +65,7 @@ WHERE  sms_g_system_pnp_device_driver.pnpdeviceid LIKE "usb\\vid_17ef&pid_a38f%"
 ```
 
 [Hybrid USB-C with USB-A](https://support.lenovo.com/solutions/pd500180)
+
 ```wql
 SELECT DISTINCT sms_r_system.NAME,
                 sms_r_system.ipaddresses,
@@ -81,6 +85,7 @@ WHERE  sms_g_system_pnp_device_driver.pnpdeviceid LIKE "usb\\vid_17ef&pid_a354%"
 ```
 
 [Thunderbolt 3](https://support.lenovo.com/solutions/acc100356)
+
 ```wql
 SELECT sms_r_system.NAME,
        sms_r_system.ipaddresses,
@@ -100,6 +105,7 @@ WHERE  sms_g_system_pnp_device_driver.pnpdeviceid LIKE "usb\\vid_17ef&pid_3069%"
 ```
 
 [USB-C](https://support.lenovo.com/accessories/ACC100348)
+
 ```wql
 SELECT DISTINCT sms_r_system.NAME,
                 sms_r_system.ipaddresses,
@@ -119,6 +125,7 @@ WHERE  sms_g_system_pnp_device_driver.pnpdeviceid LIKE "usb\\vid_17ef&pid_3060%"
 ```
 
 [OneLink+](https://support.lenovo.com/solutions/acc100252)
+
 ```wql
 SELECT sms_r_system.NAME,
        sms_r_system.ipaddresses,
@@ -139,6 +146,7 @@ WHERE  sms_g_system_pnp_device_driver.pnpdeviceid LIKE "usb\\vid_17ef&pid_1019%"
 ```
 
 [Mechanical Pro ](https://support.lenovo.com/solutions/pd027981)
+
 ```wql
 SELECT sms_r_system.NAME,
        sms_r_system.ipaddresses,
@@ -152,6 +160,7 @@ WHERE  sms_g_system_pnp_device_driver.pnpdeviceid LIKE "usb\\vid_17ef&pid_1012%"
 ```
 
 [Mechanical Ultra](https://support.lenovo.com/solutions/pd028010)
+
 ```wql
 SELECT sms_r_system.NAME,
        sms_r_system.ipaddresses,
@@ -163,7 +172,9 @@ FROM   sms_r_system
 WHERE  sms_g_system_pnp_device_driver.pnpdeviceid LIKE "usb\\vid_17ef&pid_1010%"
        AND sms_g_system_pnp_device_driver.NAME = "generic superspeed usb hub"
 ```
+
 [Mechanical Workstation](https://support.lenovo.com/solutions/acc100247)
+
 ```wql
 SELECT sms_r_system.NAME,
        sms_r_system.ipaddresses,

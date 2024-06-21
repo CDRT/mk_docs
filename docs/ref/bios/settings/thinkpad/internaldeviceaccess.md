@@ -1,45 +1,39 @@
-# Internal Device Access Settings #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_internaldeviceaccess.png)
+# Internal Device Access Settings
 
-<details><summary>Bottom Cover Tamper Detection</summary>
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_internaldeviceaccess.png)
 
-Whether to enable tamper detection.
+Bottom Cover Tamper Detection
+:  Whether to enable tamper detection.
 
-!!! info ""
-    If tampering is detected, Supervisor Password is required to boot the system.
+    !!! info ""
+        If tampering is detected, Supervisor Password is required to boot the system.
 
-Possible options:
+    Possible options:
 
-1.	On
-2.	**Off** - Default.
+    1. On
+    2. **Off** - Default.
 
-!!! info ""
-     Bottom Cover Tamper Detection will not take effect unless Supervisor Password is enabled.
+    !!! info ""
+        Bottom Cover Tamper Detection will not take effect unless Supervisor Password is enabled.
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| BottomCoverTamperDetected | Disable, Enable | Yes | Both |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | BottomCoverTamperDetected | Disable, Enable | Yes | Both |
 
-</details>
+Internal Storage Tamper Detection
+:  Whether to detect removal of any fixed or removable Internal storage while the system is in sleep state (S3).
 
-<details><summary>Internal Storage Tamper Detection</summary>
+    !!! info ""
+        If a storage device is removed while the system is in S3 state, the system will shutdown when woken from S3.
 
-Whether to detect removal of any fixed or removable Internal storage while the system is in sleep state (S3).
+    !!! info ""
+        Unsaved data will be lost.
 
-!!! info ""
-    If a storage device is removed while the system is in S3 state, the system will shutdown when woken from S3.
+    Possible options:
 
-!!! info ""
-    Unsaved data will be lost.
+    1. On
+    2. **Off** – Default.
 
-Possible options:
-
-1.	On
-2.	**Off** – Default.
-
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| InternalStorageTamper | Disable, Enable | Yes | Both |
-
-</details>
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | InternalStorageTamper | Disable, Enable | Yes | Both |

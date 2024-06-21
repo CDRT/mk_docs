@@ -1,34 +1,27 @@
-# Absolute Persistence(R) Module Settings #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_abspersistencemodule.png)
+# Absolute Persistence(R) Module Settings
 
-<details><summary>Current Settings</summary>
+![Absolute Persistence](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_abspersistencemodule.png)
 
-The Absolute Persistence module is an optional monitoring service from Absolute Software.
+Current Settings
+:  The Absolute Persistence module is an optional monitoring service from Absolute Software.
 
-One of 3 Possible options:
+    One of 3 Possible options:
 
-1.	**Enabled** – Default.
-2.	Disabled
-3.	Permanently Disabled
+    1. **Enabled** – Default.
+    2. Disabled
+    3. Permanently Disabled
 
-!!! info ""
-    If the module is permanently disabled, it cannot be reenabled. `Permanently Disabled` requires additional confirmation and can only be done through the BIOS Setup screens. 
+    !!! info ""
+        If the module is permanently disabled, it cannot be reenabled. `Permanently Disabled` requires additional confirmation and can only be done through the BIOS Setup screens. 
 
-| WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| AbsolutePersistenceModuleActivation | Disable, Enable | Yes | Both |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | AbsolutePersistenceModuleActivation | Disable, Enable | Yes | Both |
 
-</details>
+Current State
+:   Whether Absolute Persistence is activated in OS.
 
-<details><summary>Current State</summary>
+    Possible options:
 
-Whether Absolute Persistence is activated in OS.
-
-Possible options:
-
-1.	**Not Activated** – Default.
-2.	Activated
-
-
-</details>
+    1. **Not Activated** – Default.
+    2. Activated
