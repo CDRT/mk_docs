@@ -204,6 +204,7 @@ markdown_extensions:
   - admonition
   - tables
   - def_list
+  - attr_list
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: ......span

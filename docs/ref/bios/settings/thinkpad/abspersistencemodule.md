@@ -1,9 +1,8 @@
 # Absolute Persistence(R) Module Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_abspersistencemodule.png)
+![Absolute Persistence](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_abspersistencemodule.png)
 
 Current Settings
-
 :  The Absolute Persistence module is an optional monitoring service from Absolute Software.
 
     One of 3 Possible options:
@@ -20,7 +19,6 @@ Current Settings
     | AbsolutePersistenceModuleActivation | Disable, Enable | Yes | Both |
 
 Current State
-
 :   Whether Absolute Persistence is activated in OS.
 
     Possible options:

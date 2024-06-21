@@ -4,11 +4,11 @@
 
 Lenovo View is a hardware support app for the Lenovo View device driver that enhances camera quality and provides collaboration features for some mainstream video call apps.
 
-### Deploying Lenovo View
+## Deploying Lenovo View
 
 As an HSA, the Lenovo View app is available in the HSA pack for models that support it. The Lenovo View device driver, which is included in the SCCM driver packs and available on Lenovo Support site, must be deployed to the device in order for the Lenovo View app to work. For systems which have access to the Microsoft Store, simply deploy the device driver to the device and the OS will automatically install the Lenovo View app. Otherwise, refer to this article for detail on how to 'sideload' the app from the HSA pack: [Hardware Support Apps Without Microsoft Store](https://blog.lenovocdrt.com/#/2020/hsa-1)
 
-### Access Lenovo View
+## Access Lenovo View
 
 Type Lenovo View in the Windows search box and then press Enter.
 
@@ -61,37 +61,29 @@ Download:  [LenovoViewADMX.zip](https://download.lenovo.com/cdrt/tools/LenovoVie
 
 ---
 
-!!! note
+!!! info ""
     All of the below items can be configured as Enabled or Disabled.  If the policy is not configured, then the default behavior is enabled.
 
 `Auto Framing`
-
 :  Auto Framing keeps the user in the center of the video by changing the region of interest. The camera follows the person, and video conference participant should see the user always in the center of the frame.
 
 `Background Concealment`
-
 :  Background Concealment separates the user from his/her background and blurs it.
 
 `Eye Wellness`
-
 :  Eye Wellness tracks the user's display time and reminds him/her to look at something different after 20 minutes to protect the user's eyes. The effect shows a banner across the display that reminds the user when it is time for a break.
 
 `Light Enhancement`
-
 :  Light Enhancement improves the overall image brightness, contrast, and saturation. On certain products, this feature can perform temporal noise reduction and high dynamic range (HDR) to increase contrast and colors in bright light conditions.
 
 `Posture Warning`
-
 :  Posture Warning observes the user and notifies him/her when the user's posture is unhealthy and slouching. The effect shows a banner across the display that warns the user of an incorrect posture.
 
 `Privacy Alert`
-
 :  Privacy Alert notifies a laptop user if onlookers have been detected (a second or third person who tries to look at the content on the display). The notification appears as a floating image on the screen.
 
 `Privacy Guard`
-
 :  Privacy Guard protects the display by blurring the screen if onlookers have been detected.
 
 `Virtual Presenter`
-
 :  Virtual Presenter shows the user in a floating decal-like window overlay on the screen.
