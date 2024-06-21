@@ -7,7 +7,7 @@
 
 Exit system setup after saving the changes.
 
-!!! info ""
+!!! note ""
     Save configuration and reset.
 
 </details>
@@ -16,7 +16,7 @@ Exit system setup after saving the changes.
 
 Exit system setup without saving any changes.
 
-!!! info ""
+!!! note ""
     Reset without saving.
 
 </details>
@@ -31,7 +31,7 @@ Save the current changes as the customized BIOS default settings.
 
 Restore / load default values for all the setup options.
 
-!!! info ""
+!!! note ""
     Load default configuration.
 
 </details>

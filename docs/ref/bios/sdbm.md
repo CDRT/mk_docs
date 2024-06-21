@@ -16,7 +16,7 @@ No longer requires user interaction if a call to clear the TPM was performed. In
 
 ## Supported Systems
 
-!!! info ""
+!!! note ""
     It is expected that this feature will continue to be included in follow-on models.
 
 | L-Series | P-Series | T-Series | X-Series |
@@ -33,7 +33,7 @@ No longer requires user interaction if a call to clear the TPM was performed. In
 | | P53s | | |
 | | P73 | | |
 
-!!! info ""
+!!! note ""
    For L14/15 AMD Gen 1 models, be sure to update to the latest BIOS to ensure you have the System Deployment Boot Mode feature.
 
 ## Activating System Deployment Boot Mode
@@ -127,7 +127,7 @@ SELECT * FROM Lenovo_SystemDeploymentBootMode WHERE CurrentSetting = 'Enable'
 
 You can also use the Think BIOS Config [Tool](https://docs.lenovocdrt.com/#/tbct/tbct_top) or higher to apply these changes in your operating system deployment task sequence.  
 
-!!! info ""
+!!! note ""
    Supported on version 1.28 or higher of the TBCT
 
 On a test system, PXE boot (or USB boot) to WinPE and perform the following:
@@ -183,5 +183,5 @@ Now navigate to **Security > Security Chip** and verify the Physical Presence fo
 
 ![BIOS-TPM](https://cdrt.github.io/mk_docs/img/reference/sdbm/image10.jpg)
 
-!!! info ""
+!!! note ""
    If you're configuring other BIOS settings via WMI on top of what's described above, you should be able to do so in the same WinPE session.  There should be no need to set an initial Supervisor Password, reboot, activate SDB mode again, PXE boot back to WinPE and configure other settings.

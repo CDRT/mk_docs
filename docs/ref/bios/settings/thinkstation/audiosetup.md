@@ -16,7 +16,7 @@ Options:
 1. **Enabled**. Default. 
 2. Disabled.
 
-!!! info ""
+!!! note ""
     If set to `Disabled`, the `Internal Speaker` setting will be unavailable.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -34,7 +34,7 @@ Options:
 1. **Enabled** - Default. 
 2. Disabled 
 
-!!! info ""
+!!! note ""
     Unavailable if `Onboarding Audio Controller` is set to `Disabled`.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -53,7 +53,7 @@ Options:
 
 Whether to enable Front Audio Controller.
 
-!!! info ""
+!!! note ""
     Setting to disabled also disables all front USB ports (both 2.0 and 3.0) and Rear Audio Controller.
 
 Options:

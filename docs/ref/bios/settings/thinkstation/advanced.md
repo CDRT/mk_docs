@@ -46,7 +46,7 @@ Options:
 
 <details><summary>Intel(R) SIPP Support</summary>
 
-!!! info ""
+!!! note ""
     Intel(R) Stable Image Platform Program (SIPP) aligns and stabilizes key Intel platform components, enabling a predictable transition from one technology generation to the next.
 
 Options:
@@ -72,7 +72,7 @@ Options:
 
 <details><summary>Dust Shield Alert</summary>
 
-!!! info ""
+!!! note ""
    If the Dust Shield is not cleaned then it will lose its
 effectiveness and the machine may overheat.
 
@@ -88,7 +88,7 @@ Options:
 
 <details><summary>Intel(R) DPTF Support</summary>
 
-!!! info ""
+!!! note ""
     Intel(R) Dynamic Platform and Thermal Framework (DPTF) assists with managing power to the CPU vs temperature, keeping CPU temperature down while still delivering good performance.
 
 Options:
@@ -96,7 +96,7 @@ Options:
 1. **Enabled** – Default.
 2. Disabled.
 
-!!! info ""
+!!! note ""
     This feature is optional, so may not be available on all models.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -116,7 +116,7 @@ Options:
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /amd_advanced.png)-->
 
-<!-- !!! info ""
+<!-- !!! note ""
     Please see sidebar for Advnaced AMD Settings
 TODO: confirm layout because each setting is a seperate page in the sidebar Maybe put a statement there -->
 

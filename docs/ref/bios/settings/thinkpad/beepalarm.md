@@ -9,7 +9,7 @@ Password Beep
    1. **Off** - Default.
    2. On
 
-   !!! info ""
+   !!! note ""
       Different beeps will be sounded when the entered password matches or does not match the configured password.
 
    | WMI Setting name | Values | Locked by SVP | AMD/Intel |

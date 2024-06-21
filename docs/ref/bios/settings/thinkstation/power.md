@@ -29,7 +29,7 @@ Options:
 1. Enabled. 
 2. **Disabled** – Default.
 
-!!! info ""
+!!! note ""
     When `Enabled`, only the `Wake Up on Alarm` function is supported. Other wake up functions are not supported. System will not enter `Enhanced Power Saving Mode` if Intel ME (Management Engine) is required to be active in Sx states (aka Sleep states) and host is in AC mode.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |

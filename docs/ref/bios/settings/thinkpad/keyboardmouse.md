@@ -29,10 +29,10 @@ Trackpad
 Fn and Ctrl Key swap
 :  Whether to swap behaviors of Fn key and Ctrl key.
 
-    !!! info ""
+    !!! note ""
         When switched `On`, Fn key works as Ctrl key. Ctrl key works as Fn key.
 
-    !!! info ""
+    !!! note ""
         Bottom-Left key will wake the system from sleep state.
 
     Possible options:
@@ -47,7 +47,7 @@ Fn and Ctrl Key swap
 Fn Sticky Key
 :  Whether User can press Fn key to keep it in a pressed condition, then press the desired function key.
 
-    !!! info ""
+    !!! note ""
         Equivalent to pressing the required key and the Fn key simultaneously. When User presses the Fn key twice, the state is locked until User presses the Fn key again.
 
     Possible options:
@@ -62,10 +62,10 @@ Fn Sticky Key
 F1-F12 as Primary Function
 :  Whether to disable the hotkey functionality of the function keys (F1, F2, and so on) in Windows 8.1/10, to avoid having to press Fn to use the function.
 
-    !!! info ""
+    !!! note ""
         When switched `Off`, the special hotkey functionality will be enabled.
 
-    !!! info ""
+    !!! note ""
         The methods differ by model. Examples: <br>  - ["How to use the function keys without pressing Fn in Windows 8.1/10" at Lenovo Support](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-l-series-laptops/thinkpad-l15-type-20u7-20u8/solutions/HT103044) <br> - ["Function keys are not working" at Lenovo Support](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-l-series-laptops/thinkpad-l15-type-20u7-20u8/solutions/ht510960) <br>
 
     Possible options:
@@ -73,7 +73,7 @@ F1-F12 as Primary Function
     1. On -
     2. **Off** - Default.
 
-    !!! info ""
+    !!! note ""
         Alternatively, to switch to above two options, press Fn+Esc to use FnLk (Fn Lock). LED is on when FnLk is enabled.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -83,7 +83,7 @@ F1-F12 as Primary Function
 Keyboard Layout
 :  Select keyboard layout in pre-OS environment.
 
-    !!! info ""
+    !!! note ""
         This configuration does not affect OS.
 
     Possible options:
@@ -116,7 +116,7 @@ Keyboard Layout
     26. Finnish
     27. Czech
 
-    !!! info ""
+    !!! note ""
         On latest machines, BIOS added support for ASCII special characters and symbols such as `@`, `!` , `?`, etc. Those characters depend on keyboard layout and BIOS cannot know the attached keyboard, therefore users have to select keyboard layout if they replace keyboard.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |

@@ -5,7 +5,7 @@
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /atadrivesetup.png)-->
 
-!!! info ""
+!!! note ""
     The number of ATA drives may vary depending on model.
 
 <details><summary>SATA Controller</summary>
@@ -17,7 +17,7 @@ Options:
 1. **Enabled**. Default.
 2. Disabled.
 
-!!! info ""
+!!! note ""
     When SATA controller is disabled, the following settings become unavailable:<br>    a. SATA Drive (drives 1 to 5) <br>    b. SATA Drive * Hot-Plug Support <br>    c. Configure SATA as <br>
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -33,14 +33,14 @@ Whether to enable each SATA Drive numbered {X}:
 1. **Enabled**. Default. 
 2. Disabled.
 
-!!! info ""
+!!! note ""
     Unavailable if `SATA Controller` is set to `Disabled`.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 |:---|:---|:---|:---|
 | SATADriveX | Disabled, Enabled | yes | Both |
 
-!!! info ""
+!!! note ""
     In the WMI class name, X represents the drive number.
 
 </details>
@@ -55,14 +55,14 @@ Options:
 1. Enabled
 2. **Disabled** - Default.
 
-!!! info ""
+!!! note ""
     Unavailable if `SATA Controller` is set to `Disabled`.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 |:---|:---|:---|:---|
 | SATADrivexHotPlugSupport | Disabled, Enabled | yes | Both |
 
-!!! info ""
+!!! note ""
     `x` is the port number. May vary depending on model.
 
 </details>
@@ -72,7 +72,7 @@ Options:
 
 SATA configuration mode.
 
-!!! info ""
+!!! note ""
     The AHCI and RAID options require additional confirmation.
 
 Options:
@@ -81,7 +81,7 @@ Options:
 2. Intel(R) RST with Intel(R) Optane
 3. RAID<br> 
 
-!!! info ""
+!!! note ""
     If you change the SATA mode to `AHCI` you may not boot the system due to the failure of Intel(R) RST with Intel(R) Optane (RAID) function.<br /><br />Do not disable SATA drives in RAID mode. Otherwise you may not boot the system due to the failure of RAID function. <br /><br /> Device driver support is required for `AHCI` or `RAID` or Intel(R) RST with Intel(R) Optane. 
 Depending on how the hard disk image was installed, changing the setting may prevent the system from booting.
 
@@ -98,7 +98,7 @@ Depending on how the hard disk image was installed, changing the setting may pre
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /intelrapidstoragetechnology.png)
 
-!!! info ""
+!!! note ""
     Only appears when the item `Configure SATA as` is set to `Intel(R) RST with Intel(R) Optane`
 
 For each disk listed, shows information including:

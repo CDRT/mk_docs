@@ -208,7 +208,7 @@ Through WMI, you can work with BIOS settings in the following ways:
 
 This section will describe how to perform various actions using PowerShell to interact with the WMI BIOS Interface. These examples can be used as-is or modified for your particular environment or requirements.
 
-!!! info ""
+!!! note ""
     1. BIOS settings and values are case sensitive. </br> 2. Settings may vary between models; list settings first to identify the BIOS setting you want to change. </br> 3. After making changes to the BIOS settings, you must reboot the computer before the changes will take effect.
 
 ### Get all Current BIOS Settings
@@ -290,14 +290,14 @@ $cimSaveBiosSettings = gcim -namespace root/WMI -class Lenovo_SaveBiosSettings
 icim $cimSaveBiosSettings -MethodName SaveBiosSettings
 ```
 
-!!! info ""
+!!! note ""
    The setting string is case sensitive and should be in the format ```<item>,<value>```.
 
 ### Set a BIOS Setting When a Supervisor Password Exists on legacy models
 
 Use the following command as a template to set the value of a setting when a supervisor password exists on older models (ThinkPad prior to 2020 and ThinkCentre/ThinkStation prior to 2017). This is a two-step process: set and then save.
 
-!!! info ""
+!!! note ""
    The setting string is case sensitive and should be in the format
 ```<item>, <value>, <password + encoding>```.
 
@@ -401,7 +401,7 @@ To change the boot order, complete the following steps:
 Example: Change primary boot sequence,
 ```"Primary Boot Sequence" "Network 1:SATA 1:USB HDD:SATA 2:USB CDROM:USB Key"```
 
-!!! info ""
+!!! note ""
      **1**. "Boot Order" settings are case sensitive.<br>
 **2**. Settings may different from projects, recommend List all settings first to identify the BIOS setting wants to change, and put all the listed device to the script parameters, just sequence could be changed. <br>
 **3**. After making changes to the BIOS settings, you must reboot the computer before the changes will take effect.

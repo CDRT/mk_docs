@@ -39,7 +39,7 @@ Options:
 1. **Enabled** – Default. 
 2. Disabled. 
 
-!!! info ""
+!!! note ""
     If `TxT` is set to `Enabled`, then this item will always be `Enabled`. 
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -57,7 +57,7 @@ Options:
 1. **Enabled** – All CPU cores. Default. 
 2. Disabled – Only one core.
 
-!!! info ""
+!!! note ""
     If `TxT` is set to `Enabled`, then this item will always be `Enabled`.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -86,7 +86,7 @@ Options:
 1. **Enabled** – Default.
 2. Disabled.
 
-!!! info ""
+!!! note ""
     When Intel(R) Virtualization Technology is turned off and the following are set to `Disabled` and cannot be changed:<br>  a. VT-d Feature<br>  b. TxT
 
 Additional information is available here: [How to enable Virtualization Technology on Lenovo PC computers](https://support.lenovo.com/de/en/solutions/ht500006).
@@ -99,7 +99,7 @@ Additional information is available here: [How to enable Virtualization Technolo
 
 <details><summary>VT-d Feature</summary>
 
-!!! info ""
+!!! note ""
     VT-d support on Intel platforms provides the capability to ensure improved isolation of I/O resources for greater reliability, security, and availability.
 
 Options:
@@ -117,7 +117,7 @@ Additional information is available here: [VT-d Feature](https://www.intel.com/c
 
 <details><summary>TxT</summary>
 
-!!! info ""
+!!! note ""
     Trusted Execution Technology (TxT) provides hardware-based mechanisms that help protect against software-based attacks and protects the confidentiality and integrity of all data stored or created on the client PC.
 
 Options:
@@ -125,7 +125,7 @@ Options:
 1. Enabled
 2. **Disabled** - Default.
 
-!!! info ""
+!!! note ""
     If TxT is set to `Enabled`, then the `Security Chip` setting will be set to `Enabled` automatically.
 
 Additional information is available here: [Intel(R) TXT Overview](https://www.intel.com/content/www/us/en/support/articles/000025873/technologies.html).
@@ -138,7 +138,7 @@ Additional information is available here: [Intel(R) TXT Overview](https://www.in
 
 <details><summary>IOMMU</summary>
 
-!!! info ""
+!!! note ""
     Intel Input/Output Memory Management Unit (IOMMU) is a hardware component that performs address translation from I/O device virtual addresses to physical addresses. This hardware-assisted I/O address translation improves the system performance within a virtual environment.
 
 Options:
@@ -188,7 +188,7 @@ Options:
 
 <details><summary>Turbo Mode</summary>
 
-!!! info ""
+!!! note ""
     Turbo Mode allows the processor to assess its own thermals, current and power to come up with a dynamic upper limit on its frequency benefit.
 
 Options:

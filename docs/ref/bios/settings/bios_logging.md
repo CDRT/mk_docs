@@ -12,10 +12,10 @@ It allows you to
 - show logs
 - clear logs
 
-!!! info ""
+!!! note ""
     The clear log process will be run after setup exit.
 
-!!! info ""
+!!! note ""
     The clear operation is protected by SVP.
 
 - [Main (ThinkPad )](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/main/)

@@ -83,7 +83,7 @@ Options:
 |:---|:---|:---|:---|
 | PCIeSlotXPort | Enabled, Disabled | Yes | Both | 
 
-!!! info ""
+!!! note ""
     In the WMI class name, X represents the slot number.
 </details>
 
@@ -104,7 +104,7 @@ Options:
 |:---|:---|:---|:---|
 | PCIeSlotXBifurcation   | x4x4x4x4, x8x8, x16, Auto | Yes | Both | 
 
-!!! info ""
+!!! note ""
     In the WMI class name, X represents the slot number.
 </details>
 
@@ -123,7 +123,7 @@ Options:
 |:---|:---|:---|:---|
 | PCIeSlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s) | Yes | Both | 
 
-!!! info ""
+!!! note ""
     In the WMI class name, X represents the slot number.
 </details>
 
@@ -148,7 +148,7 @@ Options:
 |:---|:---|:---|:---|
 | M2SlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s), Gen 5 (32 GT/s) | Yes | Both | 
 
-!!! info ""
+!!! note ""
     In the WMI class name, X represents the slot number.
 </details>
 
@@ -173,6 +173,6 @@ Options:
 |:---|:---|:---|:---|
 | MCIOSlotXYLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s), Gen 5 (32 GT/s) | Yes | Intel | 
 
-!!! info ""
+!!! note ""
     In the WMI class name, X & Y represents the slot numbers.
 </details>

@@ -10,7 +10,7 @@ PCIe Tunneling
     1. **On** - Default.
     2. Off
 
-    !!! info ""
+    !!! note ""
         * Some Thunderbolt devices, such as external GPUs and storage drives, may not work properly.
         * The USB functions of USB4 based devices that are Thunderbolt 4 certified may still work.
 

@@ -21,7 +21,7 @@ Also in this document you will find information that affects deployment options 
 
 The information below pertains to deploying Windows 7 and Windows 10 on Lenovo’s enterprise class Think branded laptops using Lenovo's docking solutions. Each family of docks has at least one corresponding Ethernet adapter or Ethernet + video adapter. The basic information in this guide applies to those devices as well.
 
-!!! info ""
+!!! note ""
     With modern docking solutions, it is critical to the docking experience to ensure several components on the attached system are up to date. Therefore it is important to focus on these other components as well as the individual dock firmware and drivers when deploying and maintaing these solutions. To simplify finding the appropriate content use the [Docking tab on the Driver and Software Matrix for Admins](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html#Docking).
 
 The base process for deployments via the Lenovo docks and dongles all require:
@@ -76,7 +76,7 @@ WQL*:
 SELECT * FROM Win32_PNPEntity WHERE DeviceID LIKE "USB\\VID_17EF&PID_308D"
 ```
 
-!!! info ""
+!!! note ""
    WQL requires a second “\” character to escape the first “\” character so it is processed as part of the search string.
 
 ### Deployment Related BIOS Settings
@@ -89,12 +89,12 @@ Intel 5th generation processors with CPU designation i3-5xxx, i5-5xxx, i7-5xxx
 
 - USB 3.0 supported on all Broadwell models.
 
-!!! info ""
+!!! note ""
     If you are deploying via one of our USB 3.0 docks, the default setting of "Auto" for USB 3.0 Mode should allow you to successfully deploy Windows 7, Windows 8.1. and Windows 10.
 
 - OneLink/OneLink+ docks supported only on models with either OneLink or OneLink+ port.
 
-!!! info ""
+!!! note ""
     There are no Default BIOS settings that affect OneLink and OneLink+ docks.
 
 ![USB 3.0](https://cdrt.github.io/mk_docs/img/guides/docks/img1.PNG)
@@ -132,7 +132,7 @@ When MAC Address PassThrough is Enabled you will still need the Realtek NIC driv
 
 ![MAC Address Passthru](https://cdrt.github.io/mk_docs/img/guides/docks/img4.PNG)
 
-!!! info ""
+!!! note ""
     Power Pass-Through on Skylake ThinkPad 13 is not supported with USB-C dock. The dock will charge the system with the supplied power adapter but you cannot power the system on or off via the dock's power switch.
 
 ## ThinkPad Universal Thunderbolt 4 Dock (40B0)

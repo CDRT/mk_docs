@@ -38,7 +38,7 @@ This feature works as an alternative to password-based authentication to achieve
 
     1. Press ESC to exit and restart your computer.
 
-!!! info ""
+!!! note ""
     * If you want to unregister your devices, click the available FIDO2 USB device that you want to unregister in the My Device field and enter the correct power-on password for verification.
 
     * If you use more than one FIDO2 USB device with a common identifier for registration, only one device is available.

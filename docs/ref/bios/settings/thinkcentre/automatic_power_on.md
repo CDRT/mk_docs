@@ -42,10 +42,10 @@ Options to turn on your system on a specific day of the month, specific day of t
 
 A single wake up event, or series of alarm events, can also be defined.
 
-!!! info ""
+!!! note ""
     Selecting `User Defined` enables the `User Defined Alarm` settings.
 
-!!! info ""
+!!! note ""
     Values in these fields may be overwritten by the operating system.
 
 Options:
@@ -155,7 +155,7 @@ Options:
 |:---|:---|:---|
 | UserDefinedAlarmFriday | Disabled, Enabled | yes |
 
-!!! info ""
+!!! note ""
     The WMI setting name for the wake-up timer week shown here is for Friday. For the other weekdays replace `Friday` with the weekday's name.
 
 

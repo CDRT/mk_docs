@@ -4,7 +4,7 @@ The following passwords can be set on all models.
 
 In particular, the Supervisor Password (SVP) controls whether many settings can be applied via [WMI](https://docs.lenovocdrt.com/#/bios/glossary?id=wmi).
 
-!!! info ""
+!!! note ""
     Specific behaviors vary depending on model.
 
 ## Supervisor Password (SVP)
@@ -15,7 +15,7 @@ Protects the system information stored in UEFI BIOS.
 
 When entering the UEFI BIOS menu, enter the correct supervisor password in the window prompted.
 
-!!! info ""
+!!! note ""
     If the user presses `Enter`, the password prompt will be skipped, but then most of the system configuration options in UEFI BIOS will be unavailble.
 
  - _Setting the SVP_

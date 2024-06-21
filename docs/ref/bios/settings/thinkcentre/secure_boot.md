@@ -46,10 +46,10 @@ Reset to setup mode will change secure boot to setup mode.
 
 Enter Audit Mode workflow.
 
-!!! info ""
+!!! note ""
     Transition from user to Audit Mode will result in erasing PK (Platform Key) variable.
 
-!!! info ""
+!!! note ""
     Removing PK (Platform Key) will reset the system to setup / audit mode.
 
 </details>
@@ -72,7 +72,7 @@ Options:
 |:---|:---|:---|
 | AllowMicrosoft3rdPartyUEFICA | Enabled, Disabled | yes |
 
-!!! info ""
+!!! note ""
     If add-on cards are supported, Microsoft 3rd Party UEFI CA will not be removed until the boot loader is loaded.
 
 <!-- MODEL: Only M90t/s-3 -->

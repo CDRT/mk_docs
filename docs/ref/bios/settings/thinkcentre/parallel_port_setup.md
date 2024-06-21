@@ -36,7 +36,7 @@ Options:
 1.  **1.9** - enables version 1.9. Default.
 2.  1.7 - enables version 1.7.
 
-!!! info ""
+!!! note ""
     Version 1.7 is supported as an optional setting for backward compatibility with older devices. There are differences between versions 1.9 and 1.7 which may affect the operation of devices.
 
 <!-- NO WMI -->

@@ -18,7 +18,7 @@ Options:
 
 <details><summary>Console Redirection Terminal Type</summary>
 
-!!! info ""
+!!! note ""
    The following emulation types are available.
   ANSI: Extended ASCII char set.
   VT100: ASCII char set.

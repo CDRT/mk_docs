@@ -27,7 +27,7 @@ Options:
 
 Select the first boot device from the designated group.
 
-!!! info ""
+!!! note ""
     if disabled, the system will try to boot from all the devices in the group.
 
 Options:
@@ -75,7 +75,7 @@ Options:
 
 Record the last successful startup state to reduce the POST time at the next startup.
 
-!!! info ""
+!!! note ""
     We recommended turning off Fast Boot if you often use CD/DVD or network to load your operating system.
 
 Options:
@@ -99,7 +99,7 @@ Options:
 1.  **Disabled** - Default.
 2.  Enabled.
 
-!!! info ""
+!!! note ""
     Disabling the prompts will not affect the function of a specific key.
 
 | WMI Setting name | Values | Locked by SVP |

@@ -10,7 +10,7 @@ Boot Display Device
     1. **ThinkPad LCD** - Default.
     2. External Display
 
-    !!! info ""
+    !!! note ""
         If multiple displays are attached, the boot screen appears on the first recognized one.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -39,7 +39,7 @@ Total Graphics Memory
     1. **256 MB** - Default. 
     2. 512 MB
 
-    !!! info ""
+    !!! note ""
         If 512 MB is selected, the maximum usable memory may be reduced on 32-bit OS.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -74,7 +74,7 @@ Boot Time Extension
     5. 5 seconds
     6. 10 seconds
 
-    !!! info ""
+    !!! note ""
         The System cannot detect some external monitors during boot because they need a few seconds to be ready. Try this option if the monitor being used does not display the boot screen.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -84,10 +84,10 @@ Boot Time Extension
 ePrivacy Lock
 :  Whether to set Privacy Guard always on.
 
-    !!! info ""
+    !!! note ""
         If switched on, prevents the user from disabling it.
 
-    !!! info ""
+    !!! note ""
         If switched off, can be toggled any time with hotkey `Fn` + `D`.
 
     Options:

@@ -18,7 +18,7 @@ Options:
 9. 11 Characters
 10. 12 Characters
 
-!!! info ""
+!!! note ""
     A minimum length set here applies to <br /> - Supervisor Password (SVP) <br /> - System Management Password (SMP) <br /> - Power-On Password (PoP) <br /> - Hard Disk Password (HDP).
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -28,7 +28,7 @@ Options:
 
 <details><summary>Set Strong Password</summary>
 
-!!! info ""
+!!! note ""
     A strong password is defined as: <br /> - Upper case, lower case, and numeric characters are all required <br /> -  Special characters are optional <br /> - The minimum length is 8
 
 Options:
@@ -67,7 +67,7 @@ Options:
 1. **Yes** –  Default.
 2. No.
 
-!!! info ""
+!!! note ""
     To prevent unauthorized access to the system we recommend to setting user authentication on the OS. 
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -94,7 +94,7 @@ Options:
 
 Whether user is prompted for a password when F12 is pressed during POST (Power On Self Test).
 
-!!! info ""
+!!! note ""
     Password prompt requires that Administrator Password is set.
 
 Options:
@@ -141,7 +141,7 @@ Options:
 
 Whether to allow the hardware jumper to clear the Supervisor Password.
 
-!!! info ""
+!!! note ""
     No action can reset the SVP if user forgets it.
 
 Options:
@@ -163,7 +163,7 @@ Options:
 1. **Enabled** – Default.
 2. Disabled.
 
-!!! info ""
+!!! note ""
     If `Enabled`, then after 3 attempts with an incorrect password, the system will show a 0199 error. <br /> - User can  bypass the error by pressing F2.  <br /> -  0199 error is still shown. <br /> -  Clear the error condition by pressing F10, or saving the settings after this has been verified, by entering bios with correct SVP. <br /> - If a user attempts to change BIOS settings and uses the wrong password, the system will deny access. <br /> - After a third failed attempt, all other attempts will fail. No further changes can be made, and user needs to reboot.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |

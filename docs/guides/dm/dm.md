@@ -154,5 +154,5 @@ Example of what can be gathered using SSRS
 
 ![SSRS](https://cdrt.github.io/mk_docs/img/guides/dm/image15.PNG)
 
-!!! info ""
+!!! note ""
     Sample report can be downloaded [here](https://download.lenovo.com/cdrt/docs/LenovoDockManager.zip). Update the Data Source properties for your environment.

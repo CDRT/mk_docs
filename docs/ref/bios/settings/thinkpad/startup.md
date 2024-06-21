@@ -19,7 +19,7 @@ Network Boot
     8. Other CD
     9. Other HDD
 
-    !!! info ""
+    !!! note ""
         `LENOVO CLOUD` and `ON-PREMISE` may not be available on all models.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -58,7 +58,7 @@ Boot device List F12 Option
     1. **On** – Default.
     2. Off
 
-    !!! info ""
+    !!! note ""
         This option is only available when Supervisor enters setup.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -68,7 +68,7 @@ Boot device List F12 Option
 Boot Order Lock
 :  Prevent other software from altering the Boot Order when it is enabled.
 
-    !!! info ""
+    !!! note ""
         * May be required in situations where an alternative boot loaded is required to be first in the boot order.
         * When enabled, the Boot Order can only be changed using the BIOS Setup or the WMI interface.
 
@@ -88,7 +88,7 @@ Boot Order Lock
 Boot Priority Order
 :  The ordered list of currently defined boot priority order.
 
-    !!! info ""
+    !!! note ""
         Keys used to view or configure devices:
         
         - '↑' and '↓' arrows Select a device.
@@ -109,7 +109,7 @@ Boot Priority Order
     7. LENOVO CLOUD
     8. ON-PREMISE
 
-    !!! info ""
+    !!! note ""
         `LENOVO CLOUD` and `ON-PREMISE` may not be available on all models.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |

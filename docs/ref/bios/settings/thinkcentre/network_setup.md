@@ -10,7 +10,7 @@ Options:
 1.  **Enabled** - Default.
 2.  Disabled.
 
-!!! info ""
+!!! note ""
     Setting to `Disabled` also disables all [Intel (R) AMT](https://software.intel.com/sites/manageability/AMT_Implementation_and_Reference_Guide/default.htm) related functions.
 
 | WMI Setting name | Values | Locked by SVP |
@@ -123,7 +123,7 @@ Options:
 1.  **Disabled** - Default.
 2.  Enabled.
 
-!!! info ""
+!!! note ""
     If enabled, `HTTPs Boot Configuration` and `Tls Auth Configuration` will be shown.
 
 <!-- NO WMI -->
@@ -162,12 +162,12 @@ Options:
 
 Create a new boot option based on a HTTPS URL.
 
-!!! info ""
+!!! note ""
     Only one configuration can be entered at a time. The configuration will take effect after a system reboot.
 
 <details><summary>Input the description</summary>
 
-!!! info ""
+!!! note ""
     Press `Enter` to input a label for the newly created URL and it will be displayed in the boot sequence menu.
 
 <!-- NO WMI -->
@@ -189,7 +189,7 @@ Options:
 
 <details><summary>Boot URL</summary>
 
-!!! info ""
+!!! note ""
     Use the `TLS Auth configuration` to import the CA to support the HTTPs boot 
 
 <!-- NO WMI -->
@@ -199,7 +199,7 @@ Options:
 
 ### Delete HTTPs Boot Option from List ###
 
-!!! info ""
+!!! note ""
     Select and press `Enter` to remove an EFI HTTPs boot option.
 
 <!-- NO WMI -->
@@ -213,7 +213,7 @@ Options:
 
 Server CA configuration (display only).
 
-!!! info ""
+!!! note ""
     Press `Enter` to select TLS auto configuration for HTTPS boot.
 
 ## WiFi Configuration ##
@@ -243,7 +243,7 @@ Displays the current WiFi connection.
 
 <details><summary>Wi-Fi Scan </summary>
 
-!!! info ""
+!!! note ""
     Press `Enter` to scan the available connections.
 
 </details>

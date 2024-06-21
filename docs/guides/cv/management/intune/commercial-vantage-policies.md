@@ -220,7 +220,7 @@ Values:
 
 #### Write battery information to WMI
 
-!!! info ""
+!!! note ""
    Added in version 10.2109
 
 This policy setting allows Commercial Vantage to write the computer battery information into the Lenovo Namespace WMI table. If you enable it, the battery information will be written to WMI.  The information written will appear as follows:
@@ -242,7 +242,7 @@ If you disable or do not configure this policy setting, the battery information 
 ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~E4F5170489B8C677D42DEB4590E140A7/64F93BB9BFC0EB1C9ADD81981905E061
 ```
 
-!!! info ""
+!!! note ""
      `ADE41242A9F8CE596481FE945E5FE5D8 = Schedule Type`
     `F04F922293A120999D4EB95012CA0C64 = Schedule Day`
     `AC72B4BC066D807C760A11748C39F451 = Schedule Time`
@@ -262,7 +262,7 @@ Values:
 
 #### Turn off DPM Power Settings
 
-!!! info ""
+!!! note ""
    Added in version 10.2104
 
 When this policy is enabled, the Desktop Power Manager Power Settings of Commercial Vantage will be turned off.
@@ -283,10 +283,10 @@ Values:
 
 #### Turn off Battery Settings
 
-!!! info ""
+!!! note ""
    Added in version 10.2104
 
-!!! info ""
+!!! note ""
     If this policy is enabled, the Battery Settings section in the GUI will disappear.
 
 When this policy is enabled, the Battery Settings features of Commercial Vantage will be turned off.
@@ -305,7 +305,7 @@ When the toggle to "Automatically Set Threshold" is on, then Battery Threshold "
 ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~E4F5170489B8C677D42DEB4590E140A7/6A6C1333A96BD99C316FC0AC169C6B8D
 ```
 
-!!! info ""
+!!! note ""
      `30B3EB897294AF0A770737E004CCE7B0 = Enable custom battery threshold settings`
     `4B9DE8D61B215393ED7255D0719FA5FA = Threshold Start`
     `2FE339B04615BBA5C913F45FB6A1B34D = Threshold Stop`
@@ -327,7 +327,7 @@ Values:
 
 #### Turn off Power Smart Settings
 
-!!! info ""
+!!! note ""
     Added in version 10.2104
 
 When this policy is Enabled,  the Power Smart Settings (Intelligent Cooling/Intelligent Cooling Engine) of Commercial Vantage will be hidden.
@@ -352,7 +352,7 @@ Values:
 
 #### Turn off Standby Settings
 
-!!! info ""
+!!! note ""
     Added in version 10.2104
 
 When this policy is enabled, the Standby Settings feature of Commercial Vantage will be turned off.
@@ -373,7 +373,7 @@ Values:
 
 #### Turn off Energy Star
 
-!!! info ""
+!!! note ""
     Added in version 10.2104
 
 When this policy is enabled, the Energy Star features of Commercial Vantage will be turned off
@@ -396,7 +396,7 @@ Values:
 
 #### Turn off Active Protection System Settings
 
-!!! info ""
+!!! note ""
     Added in version 10.2104
 
 When this policy is enabled, the Active Protection System Settings features of Commercial Vantage will be turned off.
@@ -461,7 +461,7 @@ Values:
 
 Defines the location of where System Update will pickup available content.
 
-!!! info ""
+!!! note ""
     Supports UNC paths or a local drive only
 
 ```oma-uri
@@ -512,7 +512,7 @@ Values:
 `<disabled/>`
 ```
 
-!!! info ""
+!!! note ""
     All elements must be specified with a value of either True or False.  Reference the legend below for Boolean id elements to string match.
 
 `602015B22CFEA08C53FEC8C3E81356BF = Critical Applications`
@@ -535,7 +535,7 @@ Values:
 
 #### Schedule the Month for Auto Update
 
-!!! info ""
+!!! note ""
     Note: This policy will be combined with the configuration of Schedule the Day for Auto Update to determine the exact schedule of Auto Update.
 
 This policy setting provides the ability for the Administrator to configure the months in which Auto Update will occur.
@@ -589,7 +589,7 @@ Values:
 
 #### Defer Update
 
-!!! info ""
+!!! note ""
     Added in version 10.2104 v2
 
 This policy setting provides the ability for the Administrator to control how updates can be deferred.
@@ -639,7 +639,7 @@ Values:
 
 #### Turn off Run-Once Task
 
-!!! info ""
+!!! note ""
     Added in version 10.2104 v2
 
 When this policy is enabled, the initial check for updates by Commercial Vantage is turned off.
@@ -662,7 +662,7 @@ Values:
 
 This policy setting provides the ability for the Administrator to configure the time for auto updates.
 
-!!! info ""
+!!! note ""
     For example, 18: 30:00 for 6:30 PM
 
 ```oma-uri
@@ -682,7 +682,7 @@ Values:
 
 #### Schedule the Day for Auto Update
 
-!!! info ""
+!!! note ""
     Note:  This policy will be combined with the configuration of Schedule the Month for Auto Update to determine the exact schedule of Auto Update.
 
 This policy setting provides the ability for the Administrator to configure the day(s) on which the Auto Update will occur.
@@ -756,7 +756,7 @@ Values:
 
 #### Hide Warranty Information
 
-!!! info ""
+!!! note ""
     Added in version 10.2104
 
 This policy setting allows the Administrator to hide the warranty information in Commercial Vantage.  If you enable it, the warranty information will be removed from the Commercial Vantage GUI.  If you disable or not configure it, the warranty information will be shown.
@@ -779,7 +779,7 @@ Values:
 
 #### Write Warranty Information to WMI
 
-!!! info ""
+!!! note ""
     Added in version 10.2104
 
 This policy setting allows the Administrator to enable Commercial Vantage to writing the warranty information of the system into the Lenovo Namespace WMI table.  If you enable it, the warranty information will be written to the WMI table.  If you disable or not configure it, the warranty information will not be written to WMI table.
@@ -822,7 +822,7 @@ Values:
 
 ### Turn Off Hardware Scan
 
-!!! info ""
+!!! note ""
     Added in version 10.2201
 
 When this policy is enabled, Hardware Scan feature of Commercial Vantage will be turned off.

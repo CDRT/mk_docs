@@ -5,13 +5,13 @@
 Exit Saving Changes
 :  Exit Setup and save your changes.
 
-    !!! info ""
+    !!! note ""
         The option requires additional confirmation.
 
 Exit Discarding Changes
 :  Exit Setup without saving changes.
 
-    !!! info ""
+    !!! note ""
         The following changes WILL NOT be discarded and must be reset within ThinkPad Setup:
         
         - Date & Time
@@ -19,7 +19,7 @@ Exit Discarding Changes
         - Power-on password
         - Hard disk password
 
-    !!! info ""
+    !!! note ""
         The option requires additional confirmation.
 
 Save Custom Defaults -and- Load Custom Defaults
@@ -27,7 +27,7 @@ Save Custom Defaults -and- Load Custom Defaults
 
     It is important to note that Security, Date & Time, and Boot Order settings are excluded from the custom defaults.
 
-    !!! info ""
+    !!! note ""
         If a user performs the Reset System to Factory Defaults function under the Security menu, the custom defaults will be cleared and the system will revert back to the factory default settings.
 
     The following WMI methods are available to exercise this feature and are subject to Supervisor Password or Certificate-based authentication:
@@ -41,7 +41,7 @@ Save Custom Defaults -and- Load Custom Defaults
 Load Setup Defaults -or- Load Factory Defaults
 :  Load default values for all Setup items. The name shown in BIOS Setup for this feature changed to Load Factory Defaults in 2023 products.
 
-    !!! info ""
+    !!! note ""
         The following changes WILL NOT be discarded and must be reset within ThinkPad Setup:
         
         - Security
@@ -54,7 +54,7 @@ OS Optimized Defaults
     - Secure RollBack Prevention
     - Virtualization features
 
-    !!! info ""
+    !!! note ""
         * Select **On** to meet Microsoft (R) Windows 10 (R) Certification Requirement.
         * When switching from **Enabled** state the option will require additional confirmation.
 
@@ -66,7 +66,7 @@ OS Optimized Defaults
 Discard Changes
 :  Load previous values for most Setup items.
 
-    !!! info ""
+    !!! note ""
         The following changes WILL NOT be discarded and must be reset within ThinkPad Setup:
         
         - Date & Time
@@ -74,7 +74,7 @@ Discard Changes
         - Power-on password
         - Hard disk password 
 
-    !!! info ""
+    !!! note ""
         The option requires additional confirmation.
 
 Save Changes

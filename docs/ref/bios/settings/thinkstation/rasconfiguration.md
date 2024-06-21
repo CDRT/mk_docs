@@ -6,7 +6,7 @@
 
 Whether to enable PPR support hard Post Package Repair.
 
-!!! info ""
+!!! note ""
     On detection of runtime correctable memory errors, this allows one row to be swapped with a spare row.  Only one spare row per bank exists, and this repair process is not reversible.
 
 Options:

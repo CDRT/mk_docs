@@ -24,10 +24,10 @@ Select the type of TCG Security Device:
 1. Firmware TPM 
 2. **Discrete TPM** – Default.
 
-!!! info ""
+!!! note ""
     Selecting a different option requires additional confirmation.
 
-!!! info ""
+!!! note ""
     Before changing the TCG Security Device, all TPM related applications must be disabled, otherwise you may not be able to access your data.
 
 
@@ -43,7 +43,7 @@ Options:
 1. **Enabled** - Default. 
 2. Disabled.
 
-!!! info ""
+!!! note ""
     When set to `Disabled`, then TxT will be set to `Disabled` automatically and `Clear TCG Security Feature` becomes unavailable. 
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -57,7 +57,7 @@ Options:
 
 Available only when `Security Chip 2.0` is `Enabled`.<br>
 
-!!! info ""
+!!! note ""
     If set to `Yes`, any data in TPM will be cleared.
 
 One of two options:
@@ -72,7 +72,7 @@ One of two options:
 
 Whether confirmation of a user’s physical presence is needed when clearing the security chip.
 
-!!! info ""
+!!! note ""
     When `Enabled`, the system will display a user confirmation screen when clearing.
 
 1. **Enabled** – Default.

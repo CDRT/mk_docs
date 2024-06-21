@@ -42,10 +42,10 @@ Type Lenovo View in the Windows search box and then press Enter.
 
  ![Wellness](https://cdrt.github.io/mk_docs/img/guides/view/a_temp_digital_wellness_2023.jpg)
 
-!!! info ""
+!!! note ""
    The available features vary depending on the computer model.
 
-!!! info ""
+!!! note ""
     The Lenovo View app periodically updates features to improve your camera and video call experience. The feature description might be different from that on your actual user interface.
 
 ## Managing Configuration with Group Policy
@@ -61,7 +61,7 @@ Download:  [LenovoViewADMX.zip](https://download.lenovo.com/cdrt/tools/LenovoVie
 
 ---
 
-!!! info ""
+!!! note ""
     All of the below items can be configured as Enabled or Disabled.  If the policy is not configured, then the default behavior is enabled.
 
 `Auto Framing`

@@ -10,10 +10,10 @@ Options:
 1. **Enabled** – Default.
 2. Disabled.
 
-!!! info ""
+!!! note ""
     When `Disabled`:<br>    a. If system is provisioned, MEBx (Management Engine BIOS Extension) will be unprovisioned first.<br>    b. Manageability functions will be disabled. You can enter BIOS to re-enable Intel(R) Manageability.<br>
 
-!!! info ""
+!!! note ""
     When changing from `Enabled` to `Disabled`, after saving and exiting SETUP, you need to unplug the AC power cord and plug it in again.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -27,14 +27,14 @@ Options:
 1. Enabled.
 2. **Disabled** – Default.
 
-!!! info ""
+!!! note ""
     When `Enabled`, Intel(R) Manageability settings will reset to default configuration.<br> The MEBx password will also be reset.<br>
 
 </details>
 
 <details><summary>Press < Ctrl-P > to Enter MEBx</summary>
 
-!!! info ""
+!!! note ""
     Management Engine BIOS Extension (MEBx) provides platform-level configuration options for you to configure the behavior of Management Engine (ME) platform.
 
 Options:
@@ -51,7 +51,7 @@ Options:
 
 Management Engine (ME) Firmware version. View only.
 
-!!! info ""
+!!! note ""
     Intel(R) based models only.
 
 ### Manageability Type ###

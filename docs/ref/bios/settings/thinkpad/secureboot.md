@@ -7,7 +7,7 @@
 Secure Boot
 :  Whether to prevent unauthorized operating systems from running at boot time.
 
-    !!! info ""
+    !!! note ""
         Set to **On** if `OS Optimized Defaults` has value **On**.
 
     Possible options:
@@ -19,7 +19,7 @@ Secure Boot
     |:---|:---|:---|:---|
     | SecureBoot | Disable, Enable | Yes* | Both |
 
-    !!! info ""
+    !!! note ""
         * On systems produced after 2020, Secure Boot setting can only be set to **Disable** using WMI when an SVP is passed.
         * Secure Boot can always be set to **Enable** without a password.
 
@@ -38,7 +38,7 @@ Secure Boot Key State
 Reset to Setup Mode
 :  This option is used to clear the current Platform Key and put the system into setup mode.
 
-    !!! info ""
+    !!! note ""
         * You can install your own Platform Key and customize the Secure Boot signature databases in setup mode.
         * Secure Boot Mode will be set to Custom Mode.
         * Requires additional confirmation.
@@ -46,7 +46,7 @@ Reset to Setup Mode
 Restore Factory Keys
 :  Restore all keys and certificates in Secure Boot databases to factory defaults.
 
-    !!! info ""
+    !!! note ""
         * Any customized Secure Boot settings will be erased.
         * The default Platform key will be re-established along with the original signature databases including certificate for Microsoft (R) Windows 10 (R).
         * Requires additional confirmation.
@@ -54,14 +54,14 @@ Restore Factory Keys
 Clear All Secure Boot Keys
 :  Clear all keys and certificates in Secure Boot databases.
 
-    !!! info ""
+    !!! note ""
         * You can install your own keys and certificates after selecting this option.
         * Requires additional confirmation.
 
 Allow Microsoft 3rd Party UEFI CA
 :  Whether to allow installation of Microsoft 3rd Party UEFI CA in Secure Boot DB, and trust it in Secure Boot.
 
-    !!! info ""
+    !!! note ""
         If add-on cards are supported, Microsoft 3rd Party UEFI CA will not be removed until load boot loader.
 
     Options:

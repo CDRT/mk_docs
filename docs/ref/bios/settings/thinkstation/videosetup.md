@@ -4,7 +4,7 @@
 
 <details><summary>Select Active Video</summary>
 
-!!! info ""
+!!! note ""
     The Select Active Video setting will vary depending on if the platform is Intel or AMD. Select the appropriate platform below for the details.
 
 <details><summary>Select Active Video - Intel(R)</summary>
@@ -21,7 +21,7 @@ Options:
 2. IGD – Internal Graphics Device will be used.
 3. PEG – PCI-e Graphics Device will be used.
 
-!!! info ""
+!!! note ""
     If CPU does not support integrated graphics, there will be no `IGD` option.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -34,7 +34,7 @@ Options:
 
 Select primary video device for graphics output.
 
-!!! info ""
+!!! note ""
     If selected slot video device fails to initialize, `Auto` mode follow the order: <br> <br> Slot 3, 1, 5, 4, 2, 6
 
 Options:

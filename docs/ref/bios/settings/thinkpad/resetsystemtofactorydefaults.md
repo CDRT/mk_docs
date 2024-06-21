@@ -6,7 +6,7 @@ This option was introduced in 2023 products and is different than the Load Setup
 
 This option will clear all data stored in the UEFI system.  It does not affect the SSD storage data. After selecting this item the system will automatically reboot and reset to factory default settings.
 
-!!! info ""
+!!! note ""
     Some important notes about this feature:
 
     - If a Supervisor Password is set, you will be prompted to enter it before proceeding. The password will be cleared once the system reboots.

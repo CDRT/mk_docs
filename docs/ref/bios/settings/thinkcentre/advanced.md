@@ -46,7 +46,7 @@ Options:
 |:---|:---|:---|
 | DustShieldAlert | Disabled, Enabled | yes |
 
-!!! info ""
+!!! note ""
     If the Dust Shield is not cleaned, it will lose its effectiveness and the machine may overheat.
 
 

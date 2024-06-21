@@ -7,7 +7,7 @@
 
 Whether the system will stay on after AC power is removed and then restored.
 
-!!! info ""
+!!! note ""
     Select `Power on` if you use a power strip to turn the system on.
 
 Options:
@@ -28,7 +28,7 @@ Options:
 
 When enabled,  total power consumption is lower during power off.
 
-!!! info ""
+!!! note ""
     In Enhanced Power Saving Mode, only the `Wake up on Alarm` function is supported. Other wake-up functions are not. System will not enter `Enhanced Power Saving Mode` if Intel ME is required to be active in Sx states, and host is in AC mode.
 
 Options:

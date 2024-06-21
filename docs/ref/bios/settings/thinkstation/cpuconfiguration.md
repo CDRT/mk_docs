@@ -37,7 +37,7 @@ View only.
 
 Whether to enable AMD Virtualization Technology.
 
-!!! info ""
+!!! note ""
     AMD Virtualization Technology on-chip features enable AMD PRO-based clients to run multiple operating systems and applications on a single machine.
 
 Options:
@@ -69,7 +69,7 @@ Options:
 
 <details><summary>AMD Memory Guard</summary>
 
-!!! info ""
+!!! note ""
     AMD Memory Guard provides real time encryption to system memory to help protect against physical attacks.
 
 Options:
@@ -85,7 +85,7 @@ Options:
 
 <details><summary>CPB Mode</summary>
 
-!!! info ""
+!!! note ""
     Core Performance Boost (CPB) allows the processor to dynamically control and adjust its operating frequency to increase performance when needed and maintain lower power and thermal characteristics during normal operation.
 
 Options:
@@ -118,7 +118,7 @@ Options:
 
 Whether to enable CPU C6 report to OS.
 
-!!! info ""
+!!! note ""
     Recommended to be Enabled.
 
 Options:

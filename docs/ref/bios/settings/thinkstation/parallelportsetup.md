@@ -8,7 +8,7 @@
 
 Whether the Parallel Port will be seen by the OS.
 
-!!! info ""
+!!! note ""
     If `Disabled`, the `Parallel Port Mode`,  `EPP Version` and `Parallel Port IRQ` settings will become unavailable.
 
 Options:
@@ -41,7 +41,7 @@ One option:
 
 Sets the Enhanced Parallel Port version to use.
 
-!!! info ""
+!!! note ""
     Differences between the two versions may affect the operation of devices.
 
 Options:

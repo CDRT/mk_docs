@@ -24,7 +24,7 @@ Options:
 
 Whether to enable Single Root IO Virtualization Support.
 
-!!! info ""
+!!! note ""
     Assumes system has SR-IOV capable PCIe Devices.
 
 Options:
@@ -40,7 +40,7 @@ Options:
 
 <details><summary>ASPM Support</summary>
 
-!!! info ""
+!!! note ""
     When set to `Auto`, configures ASPM automatically according to what each device supports.
 
 Options:
@@ -52,7 +52,7 @@ Options:
 |:---|:---|:---|:---|
 | ASPMSupport | Disabled,Auto | yes | AMD |
 
-!!! info ""
+!!! note ""
     Enabling ASPM may cause some PCIe devices to fail.
 
 </details>
@@ -93,7 +93,7 @@ Options:
 </details>
 <details><summary>Unpopulated Links</summary>
 
-!!! info ""
+!!! note ""
     When `Disabled`, unpopulated PCI Express links are disabled to save power.
 
 Options:
@@ -125,7 +125,7 @@ Options:
 |:---|:---|:---|:---|
 | PCIeSlotXPort | Disable, Enable | yes | AMD |
 
-!!! info ""
+!!! note ""
     In the WMI class name, X represents the slot number, from 1 to 6.
 
 </details>
@@ -134,7 +134,7 @@ Options:
 
 Select PCIe port bifurcation.
 
-!!! info ""
+!!! note ""
     If `Auto`, system will auto-configure PCIe port bifurcation and auto-detect Quad M.2 PCIe Card.
 
 Options:
@@ -152,7 +152,7 @@ Options:
 |:---|:---|:---|:---|
 | PCIeSlotXBifurcation | Auto, x4x4x4x4, x8x8, x16 | yes | AMD |
 
-!!! info ""
+!!! note ""
     In the WMI class name, X represents the slot number, from 1 to 6.
 
 </details>
@@ -173,7 +173,7 @@ Options:
 |:---|:---|:---|:---|
 | PCIeSlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s) | yes | AMD |
 
-!!! info ""
+!!! note ""
     In the WMI class name, X represents the slot number, from 1 to 6.
 
 </details>
@@ -196,7 +196,7 @@ Options:
 |:---|:---|:---|:---|
 | M2SlotXPort | Disable, Enable | yes | AMD |
 
-!!! info ""
+!!! note ""
     In the WMI class name, X represents the slot number, 1 or 2.
 
 </details>
@@ -215,7 +215,7 @@ Options:
 |:---|:---|:---|:---|
 | M2SlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s) | yes | AMD |
 
-!!! info ""
+!!! note ""
     In the WMI class name, X represents the slot number, 1 or 2.
 
 </details>

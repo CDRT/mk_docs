@@ -18,15 +18,15 @@
 
 The supervisor password (SVP) protects the system information stored in UEFI BIOS.
 
-!!! info ""
+!!! note ""
     When entering the UEFI BIOS menu, enter the correct supervisor password in the window prompted. You also can press Enter to skip the password prompt. However, you cannot change most of the system configuration options in UEFI BIOS.
 
-!!! info ""
+!!! note ""
     **The supervisor password can be set only through the UEFI BIOS menu**. Once it is in place, then it can be modified Windows Management Instrumentation (WMI) with the Lenovo client-management interface.
 
 If you have set both the supervisor password and power-on password, you can use the supervisor password to access your computer when you turn it on.
 
-!!! info ""
+!!! note ""
     The supervisor password overrides the power-on password.
 
 View only.
@@ -59,7 +59,7 @@ Possible values:
 
 The system management password (SMP) protects the system information stored in UEFI BIOS like a supervisor password, but it has lower authority by default.
 
-!!! info ""
+!!! note ""
     The system management password can be set through the UEFI BIOS menu or through Windows Management Instrumentation (WMI) with the Lenovo client-management interface. You can enable the system management password to have the same authority as the supervisor password to control security-related features.
 
 View only.
@@ -77,7 +77,7 @@ Possible values:
 
 Set, change or delete the Supervisor Password (SVP).<br>
 
-!!! info ""
+!!! note ""
     To delete Supervisor Password, enter blank fields for each new password line item.
 
 Parameters:
@@ -92,7 +92,7 @@ Parameters:
 <details><summary>Set Power-On Password</summary>
 Set, change or delete the Power-On Password.
 
-!!! info ""
+!!! note ""
     To delete Power-On Password, enter blank fields for each new password line item.
 
 Parameters:
@@ -108,7 +108,7 @@ Parameters:
 
 Set, change or delete the System Management Password (SMP).
 
-!!! info ""
+!!! note ""
     To delete System Management Password, enter blank fields for each new password line item.
 
 Parameters:
@@ -165,7 +165,7 @@ Options:
 
 Settings for Absolute Persistence Module.
 
-!!! info ""
+!!! note ""
     Absolute(c) is a service designed to help track devices and provide recovery services in the event a device is lost or stolen. Once installed, the Absolute agent communicates with the Absolute Monitoring Center and programmed intervals to provide the tracking service. By installing the agent and activating the service, you consent to the transmission of information between your device and the Absolute Monitoring Center. For customers who have purchased the Absolute service, the firmware Persistence Module checks for the presence and health of Absolute on boot, and restores the functionality in case of agent removal or tampering. Absolute and Persistence are registered trademarks of Absolute Software Corporation.
 
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
@@ -187,7 +187,7 @@ Options:
 2.	Disabled.
 3.	Permanently Disabled.
 
-!!! info ""
+!!! note ""
     Selecting `Permanently Disabled` requires additional confirmation and cannot be done by WMI, because if Computrace activation is permanently disabled, then you can never enable it again. <br> More information on the official site of [Absolute Software Corporation](https://www.absolute.com/partners/device-manufacturers/lenovo/).
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -221,7 +221,7 @@ Options:
 1. Lock. 
 2. **Unlock** – Default. 
 
-!!! info ""
+!!! note ""
     The setting is effective on the next startup after BIOS setting is saved. <br /> For more information, please refer to [user manual](https://thinkstation-specs.com/thinkstation/p350-tower/). 
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -249,7 +249,7 @@ Options:
 1. **Disabled** – Default.
 2. Enabled.
 
-!!! info ""
+!!! note ""
     If chassis tamper occurs, you must enter setup to clear this error.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -261,7 +261,7 @@ Options:
 
 Whether the system will notify the user during POST (Power On Self Test), when a device is installed or removed.
 
-!!! info ""
+!!! note ""
     This notice can only be cleared by entering BIOS setup, saving, and then exiting.
 
 Options:
@@ -317,7 +317,7 @@ Options:
 
 Set maximum number of  supervisor password attempts from any software on the operating system.
 
-!!! info ""
+!!! note ""
     If password attempts exceeds this, BIOS does not accept further password attempts.
 
 Options:
@@ -375,13 +375,13 @@ Options:
 
 <details><summary>Set Strong Password</summary>
 
-!!! info ""
+!!! note ""
     Affects: <br> - Supervisor Password <br> - System Management Password <br> - Power-On password <br> - Hard Disk password
 
-!!! info ""
+!!! note ""
     For a strong password, length must <br> - be equal to or more than 8 characters <br> - include at least one uppercase character, one lowercase character and one number.
 
-!!! info ""
+!!! note ""
     Otherwise, minimum length depends on the minimum password length setting.
 
 Options:
@@ -427,7 +427,7 @@ Options:
 
 Whether to allow the hardware jumper to clear the Supervisor Password.
 
-!!! info ""
+!!! note ""
     No action can reset the SVP if you forget it.
 
 Options:
@@ -492,7 +492,7 @@ to set user authentication on the OS.
 
 Whether to prompt for passwords when the system starts from the full off or hibernate state.
 
-!!! info ""
+!!! note ""
     To prevent unauthorized access to the system, we recommend setting user authentication on the OS.
 
 Options:
@@ -540,7 +540,7 @@ Options:
 
 Whether the user is prompted for a password when F12 is pressed during POST.
 
-!!! info ""
+!!! note ""
     A supervisor password must be set.
 
 Options:

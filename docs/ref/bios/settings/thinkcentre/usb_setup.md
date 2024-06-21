@@ -31,7 +31,7 @@ BIOS support for USB mouse and keyboard:
 
 Provides extra delay to USB enumeration (detection and recognition of connected USB devices), to improve compatibility.
 
-!!! info ""
+!!! note ""
     This may increase POST time.
 
 1.  Enable.
@@ -51,7 +51,7 @@ Affects all of the front USB ports (numbered):
 1.  **Enabled** - Default.
 2.  Disabled - disables front USB ports, numbered.
 
-!!! info ""
+!!! note ""
     When `Disabled` is selected, settings for all front USB ports will not be shown.
 
 | WMI Setting name | Values | Locked by SVP |
@@ -74,7 +74,7 @@ Options:
 |:---|:---|:---|
 | USBPort1 | Disabled, Enabled | yes |
 
-!!! info ""
+!!! note ""
     The WMI setting name is shown here for USB port 1. For other ports 2-10 replace the 1 with the port number.
 
 
@@ -87,7 +87,7 @@ Affects all of the rear USB ports (numbered):
 1.  **Enabled** - Default.
 2.  Disabled - disables rear USB ports, numbered.
 
-!!! info ""
+!!! note ""
     When `Disabled` is selected, settings for all rear USB ports will not be shown.
 
 | WMI Setting name | Values | Locked by SVP |

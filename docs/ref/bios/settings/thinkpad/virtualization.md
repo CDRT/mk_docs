@@ -5,7 +5,7 @@
 Kernel DMA Protection
 :  Whether to enable Kernel DMA protection, to prevent drive-by Direct Memory Access (DMA) attacks using PCI hot plug devices connected to system.
 
-    !!! info ""
+    !!! note ""
         * Defaults to `On`, if `OS Optimized Defaults` has value `On`.
         * When switched `On`, automatically enables Intel (R) Virtualization Technology and Intel (R) VT-d Feature.
         * Requires additional confirmation of changing these settings.
@@ -32,7 +32,7 @@ Intel (R) Virtualization Technology \ AMD-V
     1. On 
     2. **Off** - Default.
 
-    !!! info ""
+    !!! note ""
         It is automatically enabled and cannot be disabled if ‘Kernel DMA Protection’ is enabled.
 
     Additional information: [How to enable Virtualization Technology on Lenovo PC computers](https://support.lenovo.com/de/en/solutions/ht500006).
@@ -50,7 +50,7 @@ Intel (R) Virtualization Technology \ AMD-V
     1. **On** - Default.
     2. Off
 
-    !!! info ""
+    !!! note ""
         Enabled automatically when `Device Guard` is set to `On`.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -60,7 +60,7 @@ Intel (R) Virtualization Technology \ AMD-V
 Intel (R) VT-d Feature
 :  Whether to enable Intel (R) VT-d Feature ( Intel (R) Virtualization Technology for Directed I/O).
 
-    !!! info ""
+    !!! note ""
         Defaults to `On`, if `OS Optimized Defaults` has value `On`.
 
     Possible options:
@@ -68,7 +68,7 @@ Intel (R) VT-d Feature
     1. On
     2. **Off** - Default
 
-    !!! info ""
+    !!! note ""
         Automatically enabled and cannot be disabled if `Kernel DMA Protection` is enabled.
 
     More information on the [official Intel site](https://software.intel.com/content/www/us/en/develop/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices.html).
@@ -85,7 +85,7 @@ Enhanced Windows Biometric Security
     1. On
     2. **Off** – Default.
 
-    !!! info ""
+    !!! note ""
         This option should only be enabled for Windows 10 version 2004 and later. Prior versions of the OS do not support this feature.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |

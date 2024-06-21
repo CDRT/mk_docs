@@ -5,10 +5,10 @@
 Device Guard
 :  Whether to enable Microsoft (R) Device Guard.
 
-    !!! info ""
+    !!! note ""
         To configure Device Guard, Supervisor Password must be set.
 
-    !!! info ""
+    !!! note ""
         Device Guard is no longer available as a BIOS Setting starting with 2023 products.
 
     Possible options:
@@ -16,13 +16,13 @@ Device Guard
     1. **Off** - Default.
     2. On
 
-    !!! info ""
+    !!! note ""
         When enabled, Intel Virtualization Technology, Intel VT-d Feature, Secure Boot and OS Optimized Defaults are automatically enabled.
 
-    !!! info ""
+    !!! note ""
         Boot Order is restricted to customer image only.
 
-    !!! info ""
+    !!! note ""
         This option requires additional confirmation.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |

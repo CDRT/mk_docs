@@ -17,7 +17,7 @@ Flash BIOS Updating by End-Users
 Secure RollBack Prevention
 :  Whether to prevent flashing to older version of UEFI BIOS.
 
-    !!! info ""
+    !!! note ""
         Defaults to `On`, if `OS Optimized Defaults` has value `On`.
 
     Possible options:

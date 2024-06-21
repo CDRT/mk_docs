@@ -11,7 +11,7 @@
 
 <details><summary>Intel Thunderbolt Technology</summary>
 
-!!! info ""
+!!! note ""
     Cable standard combining data, video, and power.
 
 Options:

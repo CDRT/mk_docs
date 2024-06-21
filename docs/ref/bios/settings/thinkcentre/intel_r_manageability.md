@@ -16,13 +16,13 @@ Setting Intel(R) Manageability Control to "Disabled":
 
 1. If system is provisioned, MEBx will be unprovisioned first.
 
-  !!! info ""
+  !!! note ""
    When MEBX prompt unprovisioning, you should press YES.
 
 2. Manageability functions will be disabled
 You can enter BIOS to re-enable Intel(R) Manageability.
 
-  !!! info ""
+  !!! note ""
    When changing the setting from “Enabled” to “Disabled”, after saving and exiting SETUP, need to unplug the AC power cord and plug it in again.
 
 </details>
@@ -36,7 +36,7 @@ Options:
 1. **Enabled** - Default.
 2. Disabled.
 
-!!! info ""
+!!! note ""
     the MEBx password will also be reset.
 
 

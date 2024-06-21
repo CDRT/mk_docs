@@ -14,7 +14,7 @@ Options:
 1. **Enabled** - Default.
 2. Disabled.
 
-!!! info ""
+!!! note ""
     Controls the wake up event from onboard LAN (Local Area Network) and PCI (Peripheral Component Interconnect) LAN.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -52,7 +52,7 @@ Options:
 4. Weekly Event - every week, on the specified day and time.
 5. User Defined - enables `User Defined Alarm` group of settings. 
 
-!!! info ""
+!!! note ""
     Values in these fields may be overwritten by the operating system. 
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -110,7 +110,7 @@ Options:
 
 Select the exact week day for the system to turn on. <br>
 
-!!! info ""
+!!! note ""
     Active only when `Wake Up on Alarm` has value `Weekly Event`.
 
 Options:
@@ -146,7 +146,7 @@ Whether the system will turn on automatically on this day of the week.
 |:---|:---|:---|:---|
 | UserDefinedAlarmSunday  | Disabled, Enabled | yes | Both |
 
-!!! info ""
+!!! note ""
     The WMI setting name shown here is for Sunday. For other week days, change `Sunday` to the desired day of the week.
 
 </details>

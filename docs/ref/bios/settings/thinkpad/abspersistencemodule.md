@@ -11,7 +11,7 @@ Current Settings
     2. Disabled
     3. Permanently Disabled
 
-    !!! info ""
+    !!! note ""
         If the module is permanently disabled, it cannot be reenabled. `Permanently Disabled` requires additional confirmation and can only be done through the BIOS Setup screens. 
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |

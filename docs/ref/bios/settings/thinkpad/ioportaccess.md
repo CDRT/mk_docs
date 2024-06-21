@@ -11,7 +11,7 @@ Ethernet LAN
      1. **On** – Default.
      2. Off
 
-     !!! info ""
+     !!! note ""
           The setting is removed in the recent versions.
 
      | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -48,7 +48,7 @@ Bluetooth
      1. **On** – Default.
      2. Off
 
-     !!! info ""
+     !!! note ""
           Enabling Bluetooth requires setting ‘Wireless LAN’ to ‘Enabled’ state.
 
      | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -58,7 +58,7 @@ Bluetooth
 USB Port
 :  Whether to enable all USB ports in the OS environment.
 
-     !!! info ""
+     !!! note ""
           This setting does not affect USB-C (R) ports with a thunderbolt icon.
 
      Possible options:
@@ -102,7 +102,7 @@ RFID
      1. **On** – Default.
      2. Off
 
-     !!! info ""
+     !!! note ""
      This feature is supported only for the [healthcare model](https://techtoday.lenovo.com/jp/ja/solutions/media/3970), where RFID is installed instead of Smart Card. Therefore, parameter for WMI command will be the same as for Smart Card.
 
      | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -124,7 +124,7 @@ Integrated Camera
 Integrated Audio
 :  Whether to enable all audio functions (Microphone/Speaker) in the OS environment.
 
-     !!! info ""
+     !!! note ""
      To enable audio functions, select `Enabled` and save the setting. Then fully shut down and power on the system.
 
      Possible options:
@@ -139,7 +139,7 @@ Integrated Audio
 Microphone
 :  Select whether to enable or disable Microphone (Internal/External/Line-In) in the OS environment.
 
-     !!! info ""
+     !!! note ""
           To enable Microphone, select ‘Enabled’ save the setting. Then fully shut down and power on the system.
 
      Possible options:
@@ -166,7 +166,7 @@ Fingerprint Reader
 Thunderbolt (TM) 4
 :  Select whether to enable or disable Thunderbolt 4 (PCIe/USB) in the OS environment.
 
-     !!! info ""
+     !!! note ""
           Affects only USB-C ports with a thunderbolt icon.
 
      One of 2 Possible options:
