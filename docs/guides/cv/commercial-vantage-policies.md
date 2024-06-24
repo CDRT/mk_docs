@@ -251,7 +251,7 @@
 #### Turn off DPM Power Settings
 :	
 	!!! note
-	   Added in version 10.2104
+	    Added in version 10.2104
 
 	When this policy is enabled, the Desktop Power Manager Power Settings of Commercial Vantage will be turned off.
 
