@@ -217,6 +217,7 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.details
+  - pymdownx.keys
   - toc:
       permalink: "#"
 

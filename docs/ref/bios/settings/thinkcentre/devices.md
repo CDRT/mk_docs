@@ -1,59 +1,21 @@
-# Devices #
+# Devices
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
-   /tc_devices.png)
+![Devices](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_devices.PNG)
 
-<details><summary>Bluetooth</summary>
+Bluetooth
+:  
+    Options:
 
-Options:
+    1. **Enabled** - Default.
+    1. Disabled - disables Bluetooth connections. Bluetooth will not be available in the OS.
 
-1.  **Enabled** - Default.
-1.	Disabled - disables Bluetooth connections. Bluetooth will not be available in the OS.
+    | WMI Setting name | Values | Locked by SVP |
+    |:---|:---|:---|
+    | Bluetooth  | Disabled, Enabled | yes |
 
-| WMI Setting name | Values | Locked by SVP |
-|:---|:---|:---|
-| Bluetooth  | Disabled, Enabled | yes |
+Card Reader
+:  
+    Options:
 
-
-</details>
-
-<details><summary>Card Reader</summary>
-
-Options:
-
-1.  **Enabled** - Default.
-1.  Disabled - disables card reader.
-
-<!-- NO WMI -->
-
-<!-- MODEL: S only -->
-
-
-</details>
-
-<!-- MODEL: Neo 50a 24 Gen 3
-
-<details><summary>Integrated Camera</summary>
-
-Options:
-
-1.  **Enabled** - Default.
-1.  Disabled - disables card reader.
-
-!> Camera will not be available in OS.
-
-
-
-</details>
-
-<details><summary>Touch Screen</summary>
-
-Options:
-
-1.  **Enabled** - Default.
-1.  Disabled - disables card reader.
-
-!> Touch Screen will not be available in OS.
-
-
-</details> -->
+    1.  **Enabled** - Default.
+    1.  Disabled - disables card reader.

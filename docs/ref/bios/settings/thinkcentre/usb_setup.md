@@ -1,110 +1,82 @@
-# USB Setup #
+# USB Setup
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
-   /tc_usb_setup.png)
+![USB Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_usb_setup.PNG)
 
-<details><summary>USB Port Access</summary>
+USB Port Access
+:  
+    Options:
 
-Options:
+    1.  **Enabled** - Default.
+    2.  Disabled - disables USB.
 
-1.  **Enabled** - Default.
-2.  Disabled - disables USB.
+    | WMI Setting name | Values | Locked by SVP |
+    |:---|:---|:---|
+    | USBPortAccess | Disabled, Enabled | yes |
 
-| WMI Setting name | Values | Locked by SVP |
-|:---|:---|:---|
-| USBPortAccess | Disabled, Enabled | yes |
+USB Bios Support
+:  BIOS support for USB mouse and keyboard:
 
+    1.  **Enabled** - Default.
+    2.  Disabled.
 
-</details>
+USB Enumeration Delay
+:  Provides extra delay to USB enumeration (detection and recognition of connected USB devices), to improve compatibility.
 
-<details><summary>USB Bios Support</summary>
+    !!! note ""
+        This may increase POST time.
 
-BIOS support for USB mouse and keyboard:
+    1.  Enable.
+    2.  **Disabled** - Default.
 
-1.  **Enabled** - Default.
-2.  Disabled.
+    | WMI Setting name | Values | Locked by SVP |
+    |:---|:---|:---|
+    | USBEnumerationDelay | Disabled, Enabled | yes |
 
+Front USB Ports
+:  Affects all of the front USB ports (numbered):
 
-</details>
+    1.  **Enabled** - Default.
+    2.  Disabled - disables front USB ports, numbered.
 
-<details><summary>USB Enumeration Delay</summary>
+    !!! note ""
+        When `Disabled` is selected, settings for all front USB ports will not be shown.
 
-Provides extra delay to USB enumeration (detection and recognition of connected USB devices), to improve compatibility.
+    | WMI Setting name | Values | Locked by SVP |
+    |:---|:---|:---|
+    | FrontUSBPorts | Disabled, Enabled | yes |
 
-!!! note ""
-    This may increase POST time.
+USB Port {Number}
+:  One of the front USB ports, total number depending on model.
 
-1.  Enable.
-2.  **Disabled** - Default.
+    Options:
 
-| WMI Setting name | Values | Locked by SVP |
-|:---|:---|:---|
-| USBEnumerationDelay | Disabled, Enabled | yes |
+    1.  **Enable** - Default.
+    2.  Disable.
 
+    | WMI Setting name | Values | Locked by SVP |
+    |:---|:---|:---|
+    | USBPort1 | Disabled, Enabled | yes |
 
-</details>
+    !!! note ""
+        The WMI setting name is shown here for USB port 1. For other ports 2-10 replace the 1 with the port number.
 
-<details><summary>Front USB Ports</summary>
+Rear USB Ports
+:  Affects all of the rear USB ports (numbered):
 
-Affects all of the front USB ports (numbered):
+    1.  **Enabled** - Default.
+    2.  Disabled - disables rear USB ports, numbered.
 
-1.  **Enabled** - Default.
-2.  Disabled - disables front USB ports, numbered.
+    !!! note ""
+        When `Disabled` is selected, settings for all rear USB ports will not be shown.
 
-!!! note ""
-    When `Disabled` is selected, settings for all front USB ports will not be shown.
+    | WMI Setting name | Values | Locked by SVP |
+    |:---|:---|:---|
+    | RearUSBPorts | Disabled, Enabled | yes |
 
-| WMI Setting name | Values | Locked by SVP |
-|:---|:---|:---|
-| FrontUSBPorts | Disabled, Enabled | yes |
+USB Port {Number / Letter}
+:  One of the rear USB ports, total number (and labeling) depending on model.
 
+    Options:
 
-</details>
-
-<details><summary>USB Port {Number}</summary>
-
-One of the front USB ports, total number depending on model.
-
-Options:
-
-1.  **Enable** - Default.
-2.  Disable.
-
-| WMI Setting name | Values | Locked by SVP |
-|:---|:---|:---|
-| USBPort1 | Disabled, Enabled | yes |
-
-!!! note ""
-    The WMI setting name is shown here for USB port 1. For other ports 2-10 replace the 1 with the port number.
-
-
-</details>
-
-<details><summary>Rear USB Ports</summary>
-
-Affects all of the rear USB ports (numbered):
-
-1.  **Enabled** - Default.
-2.  Disabled - disables rear USB ports, numbered.
-
-!!! note ""
-    When `Disabled` is selected, settings for all rear USB ports will not be shown.
-
-| WMI Setting name | Values | Locked by SVP |
-|:---|:---|:---|
-| RearUSBPorts | Disabled, Enabled | yes |
-
-
-</details>
-
-<details><summary>USB Port {Number / Letter}</summary>
-
-One of the rear USB ports, total number (and labeling) depending on model.
-
-Options:
-
-1.  **Enable** - Default.
-2.  Disable.
-
-
-</details>
+    1.  **Enable** - Default.
+    2.  Disable.

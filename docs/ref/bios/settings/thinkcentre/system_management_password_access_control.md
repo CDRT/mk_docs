@@ -1,36 +1,27 @@
 # System Management Password Access Control
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
-   /tc_smp_access_control.png)
+![System Management Password](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_smp_access_control.PNG)
 
-<details><summary>Access Security Settings</summary>
+Access Security Settings
+:  Allow SMP (System Management Password) to have the same authority as SVP (Supervisor Password) to control security settings.
 
-Allow SMP (System Management Password) to have the same authority as SVP (Supervisor Password) to control security settings.
+    Options:
 
-Options:
+    1.  **Disabled** - Default.
+    2.  Enabled.
 
-1.  **Disabled** - Default.
-2.  Enabled.
+    | WMI Setting name | Values | Locked by SVP |
+    |:---|:---|:---|
+    | AccessSecuritySettings | Disabled, Enabled | yes |
 
-| WMI Setting name | Values | Locked by SVP |
-|:---|:---|:---|
-| AccessSecuritySettings | Disabled, Enabled | yes |
+Remote Set SMP
+:  Allow remote setting of the SMP via WMI without SVP (Supervisor Password) verification.
 
+    Options:
 
-</details>
+    1.  **Disabled** - Default.
+    2.  Enabled.
 
-<details><summary>Remote Set SMP</summary>
-
-Allow remote setting of the SMP via WMI without SVP (Supervisor Password) verification.
-
-Options:
-
-1.  **Disabled** - Default.
-2.  Enabled.
-
-| WMI Setting name | Values | Locked by SVP |
-|:---|:---|:---|
-| RemoteSetSMP | Disabled, Enabled | yes |
-
-
-</details>
+    | WMI Setting name | Values | Locked by SVP |
+    |:---|:---|:---|
+    | RemoteSetSMP | Disabled, Enabled | yes |

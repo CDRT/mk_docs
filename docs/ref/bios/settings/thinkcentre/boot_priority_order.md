@@ -1,7 +1,6 @@
-# Boot Priority Order #
+# Boot Priority Order
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
-   /tc_boot_priority_order.png)
+![Boot Priority Order](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_boot_priority_order.PNG)
 
 This sequence is used when the system is powered up normally.
 
@@ -10,16 +9,6 @@ This sequence is used when the system is powered up normally.
 
 The exact BIOS interface is determined by the model.
 
-| WMI Setting name | Values | Locked by SVP |
-|:---|:---|:---|
-| BootOrder |  |  |
+![Boot Priority Order](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/thinkcentre_boot_priority_order.PNG)
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
-   /./thinkcentre_boot_priority_order.png)
-
-<!-- MODEL: M70s, M90 s & q -->
-
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
-   /thinkcentre_manufacturing_boot_sequence.png)
-
-<!-- MODEL: M90q -->
+![Manufacturing Boot sequence](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/thinkcentre_manufacturing_boot_sequence.png)

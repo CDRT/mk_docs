@@ -1,22 +1,19 @@
-# Certificate Based Bios Authentication #
+# Certificate Based BIOS Authentication
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
-   /tc_cert_based_bios_auth.png)
+![Certificate Based BIOS Authentication](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_cert_based_bios_auth.PNG)
 
-Digital signatures replace SVP for authentication.
+Digital certificates can be used to replace SVP for BIOS authentication.
 
- - [More information at Lenovo.com](https://download.lenovo.com/pccbbs/thinkcentre_pdf/certificate_based_bios_management_guide.pdf)
+ [More information at Lenovo.com](https://download.lenovo.com/pccbbs/thinkcentre_pdf/certificate_based_bios_management_guide.pdf)
 
-### Certificate Information (display only) ###
+Certificate Information (display only)
 
-### Subject (display only) ###
+Subject (display only)
 
-### Issuer (display only) ###
+Issuer (display only)
 
-### Reset Certificate ###
+Reset Certificate
 
 Press `Enter` to remove the enrolled certificate.
 
 Requires confirmation.
-
-<!-- SIMULATOR DOES NOT SUPPORT -->

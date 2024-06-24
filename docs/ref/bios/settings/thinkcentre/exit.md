@@ -1,50 +1,21 @@
 # Exit
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
-   /tc_exit.png)
+![Exit](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_exit.PNG)
 
-<details><summary>Save Changes and Exit</summary>
+Save Changes and Exit
+:  Exit system setup after saving the changes.
 
-Exit system setup after saving the changes.
+Discard Changes and Exit
+:  Exit system setup without saving any changes.
 
-!!! note ""
-    Save configuration and reset.
+Save Custom Defaults
+:  Save the current changes as the customized BIOS default settings.
 
-</details>
+Load Optimal Defaults
+:  Restore / load default values for all the setup options.
 
-<details><summary>Discard Changes and Exit</summary>
+Load Custom Defaults
+:  Restore/Load customized defaults settings.
 
-Exit system setup without saving any changes.
-
-!!! note ""
-    Reset without saving.
-
-</details>
-
-<details><summary>Save Custom Defaults</summary>
-
-Save the current changes as the customized BIOS default settings.
-
-</details>
-
-<details><summary>Load Optimal Defaults</summary>
-
-Restore / load default values for all the setup options.
-
-!!! note ""
-    Load default configuration.
-
-</details>
-
-<details><summary>Load Custom Defaults</summary>
-
-Restore/Load customized defaults settings.
-
-</details>
-
-
-<details><summary>Load Factory Defaults</summary>
-
-Restore/Load Factory defaults values for all the Setup options.
-
-</details>
+Load Factory Defaults
+:  Restore/Load Factory defaults values for all the Setup options.

@@ -1,21 +1,13 @@
 # System Event Log
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
-   /tc_system_event_log.png)
+![System Event Log](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_system_event_log.PNG)
 
-<details><summary>View System Event Log</summary>
+View System Event Log
+:  View the system event log.
 
-View the system event log.
+![System Event Log View](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_view_system_event_log.PNG)
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
-   /tc_view_system_event_log.png)
+Clear System Event Log
+:  Clear the system event log.
 
-
-</details>
-
-<details><summary>Clear System Event Log</summary>
-
-Clear the system event log.
-
-Requires confirmation.
-</details>
+    Requires confirmation.

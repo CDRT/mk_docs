@@ -1,50 +1,36 @@
-# Audio Setup #
+# Audio Setup
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
-   /tc_audio_setup.png)
+![Audio Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_audio_setup.PNG)
 
-<details><summary>Onboard Audio Controller</summary>
+Onboard Audio Controller
+:  
+    Options:
 
-Options:
+    1.  **Enabled** - Default.
+    2.  Disabled - disables onboard audio controller.
 
-1.  **Enabled** - Default.
-2.  Disabled - disables onboard audio controller.
+    | WMI Setting name | Values | Locked by SVP |
+    |:---|:---|:---|
+    | OnboardAudioController | Disabled, Enabled | yes |
 
-| WMI Setting name | Values | Locked by SVP |
-|:---|:---|:---|
-| OnboardAudioController | Disabled, Enabled | yes |
+Internal Speaker
+:  
+    Options:
 
+    1.  **Enabled** - Default.
+    2.  Disabled - disables the internal speaker.
 
-</details>
+    | WMI Setting name | Values | Locked by SVP |
+    |:---|:---|:---|
+    | InternalSpeaker | Disabled, Enabled | yes |
 
-<details><summary>Internal Speaker</summary>
+Microphone
+:  
+    Options:
 
-Options:
+    1.  **Enabled** - Default.
+    2.  Disabled - Disable the use of Microphone.
 
-1.  **Enabled** - Default.
-2.  Disabled - disables the internal speaker.
-
-| WMI Setting name | Values | Locked by SVP |
-|:---|:---|:---|
-| InternalSpeaker | Disabled, Enabled | yes |
-
-<!-- MODEL: NOT M90q -->
-
-
-</details>
-
-<details><summary>Microphone</summary>
-
-Options:
-
-1.  **Enabled** - Default.
-2.  Disabled - Disable the use of Microphone.
-
-| WMI Setting name | Values | Locked by SVP |
-|:---|:---|:---|
-| Microphone | Disabled, Enabled | yes |
-
-<!-- MODEL: M90a gen 2 -->
-
-
-</details>
+    | WMI Setting name | Values | Locked by SVP |
+    |:---|:---|:---|
+    | Microphone | Disabled, Enabled | yes |

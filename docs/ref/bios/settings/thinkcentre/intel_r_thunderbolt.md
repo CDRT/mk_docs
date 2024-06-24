@@ -1,62 +1,49 @@
-# Intel(R) Thunderbolt #
+# Intel(R) Thunderbolt
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
-   /tc_intel_r_thunderbolt.png)
+![Intel Thunderbolt](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_intel_r_thunderbolt.PNG)
 
-<details><summary>Intel Thunderbolt Technology</summary>
+Intel Thunderbolt Technology
+:  
+    Options:
 
-Options:
+    1. **Disabled** - Default.
+    1. Enabled.
 
-1.  **Disabled** - Default.
-1.	Enabled.
+Security Level
+:  
+    Options:
 
-</details>
+    1. **Use Authorization** - Default.
+    1. No Security.
+    1. Secure Connection.
+    1. Display Port Only.
 
-<details><summary>Security Level</summary>
+Wake From Thunderbolt Devices
+:  
+    Options:
 
-Options:
+    1. **Enabled** - Default.
+    1. Disabled.
 
-1.  **Use Authorization** - Default.
-1.	No Security.
-1.  Secure Connection.
-1.  Display Port Only.
+SwSMI Support
+:  Enable or disable SwSMI support in ASL code.
 
-</details>
+    Options:
 
-<details><summary>Wake From Thunderbolt Devices</summary>
+    1. **Enabled** - Default.
+    1. Disabled.
 
-Options:
+Notify Support
+:  Enable or disable Notify support in ASL code.
 
-1.  **Enabled** - Default.
-1.	Disabled.
+    Options:
 
-</details>
+    1. **Enabled** - Default.
+    1. Disabled.
 
-<details><summary>SwSMI Support</summary>
+Ignore Thunderbolt Device Option ROM
+:  
+    Options:
 
-Enable or disable SwSMI support in ASL code.
-
-Options:
-
-1.  **Enabled** - Default.
-1.	Disabled.
-
-</details>
-
-<details><summary>Notify Support</summary>
-
-Options:
-
-1.  **Enabled** - Default.
-1.	Disabled.
-
-</details>
-
-<details><summary>Ignore Thunderbolt Option ROM</summary>
-
-Options:
-
-1.  **Enabled** - Default.
-1.	Disabled.
-
-</details>
+    1. **Enabled** - Default.
+    1. Disabled.
