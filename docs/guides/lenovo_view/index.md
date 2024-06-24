@@ -6,7 +6,7 @@ Lenovo View is a hardware support app for the Lenovo View device driver that enh
 
 ## Deploying Lenovo View
 
-As an HSA, the Lenovo View app is available in the HSA pack for models that support it. The Lenovo View device driver, which is included in the SCCM driver packs and available on Lenovo Support site, must be deployed to the device in order for the Lenovo View app to work. For systems which have access to the Microsoft Store, simply deploy the device driver to the device and the OS will automatically install the Lenovo View app. Otherwise, refer to this article for detail on how to 'sideload' the app from the HSA pack: [Hardware Support Apps Without Microsoft Store](https://blog.lenovocdrt.com/#/2020/hsa-1)
+As an HSA, the Lenovo View app is available in the HSA pack for models that support it. The Lenovo View device driver, which is included in the SCCM driver packs and available on Lenovo Support site, must be deployed to the device in order for the Lenovo View app to work. For systems which have access to the Microsoft Store, simply deploy the device driver to the device and the OS will automatically install the Lenovo View app. Otherwise, refer to this article for detail on how to 'sideload' the app from the HSA pack: [Hardware Support Apps Without Microsoft Store](https://blog.lenovocdrt.com/#/2020/hsa-1){:target="_blank"} 
 
 ## Access Lenovo View
 
@@ -42,26 +42,26 @@ Type Lenovo View in the Windows search box and then press Enter.
 
  ![Wellness](https://cdrt.github.io/mk_docs/img/guides/view/a_temp_digital_wellness_2023.jpg)
 
-!!! info ""
-   The available features vary depending on the computer model.
+!!! note
+    The available features vary depending on the computer model.
 
-!!! info ""
+!!! note
     The Lenovo View app periodically updates features to improve your camera and video call experience. The feature description might be different from that on your actual user interface.
 
 ## Managing Configuration with Group Policy
 
 The Lenovo View app supports group policy controls of the configuration settings listed below. To define a policy for you devices running Lenovo View, download the ADMX template and use the standard procedure to implement your desired settings through Active Directory.  You may also import the ADMX template for Lenovo View into Intune to manage the policies.
 
-More about Intune here: [Import custom and third party partner ADMX templates in Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/mem/intune/configuration/administrative-templates-import-custom)
+More about Intune here: [Import custom and third party partner ADMX templates in Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/mem/intune/configuration/administrative-templates-import-custom){:target="_blank"} 
 
 If testing on a local machine, copy the contents of the zip file below to C:\Windows\PolicyDefinitions, then open Group Policy Editor. The Lenovo View items will be available under Administrative Templates.
 ![Lenovo View policies](https://cdrt.github.io/mk_docs/img/guides/view/gpedit.png)
 
-Download:  [LenovoViewADMX.zip](https://download.lenovo.com/cdrt/tools/LenovoViewADMX.zip)
+Download:  [LenovoViewADMX.zip](https://download.lenovo.com/cdrt/tools/LenovoViewADMX.zip){:target="_blank"} 
 
 ---
 
-!!! info ""
+!!! note
     All of the below items can be configured as Enabled or Disabled.  If the policy is not configured, then the default behavior is enabled.
 
 `Auto Framing`

@@ -23,7 +23,7 @@ Think BIOS Config Tool from Lenovo is a free, lightweight HTML Application (HTA)
 
 **Download link**
 
-[https://download.lenovo.com/cdrt/tools/tbct141.zip](https://download.lenovo.com/cdrt/tools/tbct141.zip)
+[https://download.lenovo.com/cdrt/tools/tbct141.zip](https://download.lenovo.com/cdrt/tools/tbct141.zip){:target="_blank"} 
 
 ---
 
