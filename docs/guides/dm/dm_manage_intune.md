@@ -2,10 +2,10 @@
 
 This section will present the policies found in the Dock Manager ADMX template, along with the OMA-URIs which can be used to configure the application on Intune managed clients.
 
-!!! note ""
+!!! note
     If new policies have been introduced, you will need to ingest the updated ADMX file contained in the Commercial Vantage zip.
 
-!!! note ""
+!!! note
     Introduced in the [2208](https://learn.microsoft.com/mem/intune/fundamentals/whats-new-archive#import-create-and-manage-custom-admx-and-adml-administrative-templates) Intune Service release, you can import, create, and manage custom ADMX and ADML administrative templates.
 
 ## ADMX Ingestion
@@ -35,7 +35,7 @@ On the **Configuration Settings** screen, click **Add** and enter the following:
 
 - **Value**: Copy the contents of the Dock Manager ADMX file into this field
 
-!!! note ""
+!!! note
     The **Group Policy Template File** that contains the ADMX can be found under the Dock Manager section on [Lenovo Tools for Administrators](https://support.lenovo.com/solutions/ht037099) page.
 
 ## Command
@@ -285,7 +285,7 @@ Do not turn this feature on until the dock has been upgraded to a supported firm
 
 Values:
 
-!!! note ""
+!!! note
     Enter the dock type (four characters), which can be found on the label on the back of the dock. Multiple dock types must be specified as comma separated list.
 
 ```xml
@@ -314,7 +314,7 @@ If this settings is enabled, it will edit the frequency on how the next schedule
 
 Values:
 
-!!! note ""
+!!! note
     Values include DAILY, WEEKLY, or MONTHLY which can be configured on the dropdown provided inside the options panel.
 
 ```xml
@@ -336,7 +336,7 @@ If this setting is enabled, it will edit the time upon when the next scheduled t
 
 Values:
 
-!!! note ""
+!!! note
     Valid inputs includes any time of the day in `24:MM:SS` format which can be inputted inside the textbox in the options panel.
 
 ```xml
@@ -362,7 +362,7 @@ This configuration will be used when the Frequency policy is enabled and set to 
 
 Values:
 
-!!! note ""
+!!! note
     Enter dates when scheduled task should run. (1,2,etc.). Multiple dates must be specified as comma separated list.
 
 ```xml
@@ -388,7 +388,7 @@ This configuration will be used when the Frequency policy is enabled and set to 
 
 Values:
 
-!!! note ""
+!!! note
     Enter months when scheduled task should run. (January,February,etc.). Multiple months must be specified as comma separated list.
 
 ```xml
@@ -414,7 +414,7 @@ This configuration will be use when the Frequency policy is enabled and set to "
 
 Values:
 
-!!! note ""
+!!! note
     Enter run monthly on when scheduled task should run. (First,Second,Third,Fourth,Last or combination of comma separated option). Executed in combination with **RunOn** value and is optional input.
 
 ```xml

@@ -18,15 +18,15 @@ Value: [REG\_SZ] AdminCommandLine
 Example: /CM -search A -action INSTALL -includerebootpackages 3 -nolicense -exporttowmi
 ```
 
-!!! info ""
+!!! note
     When using a custom scheduled task, a new task should be created, and the default task created when System Update is installed should be disabled. Additionally, the &quot;SchedulerAbility&quot; setting must be set to &quot;NO&quot; in the registry at ```HKLM:\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UserSettings\Scheduler```
 
 This will prevent System Update from re-enabling the default tasks.
 
 ### Parameters:
 
-!!! info ""
-   The parameter of -schtask should not be used in a custom command line.
+!!! note
+	The parameter of -schtask should not be used in a custom command line.
 
 #### /CM
 
@@ -63,8 +63,8 @@ Optional. Specifies by number the reboot types to include in the set of updates 
    **4:** Forces shutdown (update itself initiates shutdown)<br>
    **5:** Delayed forced reboot (used for firmware, System Update will enforce reboot with dialog displaying count-down timer)
 
-!!! info ""
-   When used with -packagetypes, the resulting set of updates is the intersection of both filters.
+!!! note
+	When used with -packagetypes, the resulting set of updates is the intersection of both filters.
 
 #### -packagetypes
 
@@ -76,8 +76,8 @@ Optional. Specifies by number a filter for the package types to be applied. Mult
    **3** : Bios<br/>
    **4** : Firmware<br/>
 
-!!! info ""
-   When used with -includerebootpackages, the resulting set of updates is the intersection of both filters.
+!!! note
+	When used with -includerebootpackages, the resulting set of updates is the intersection of both filters.
 
 #### -noreboot
 
@@ -149,8 +149,8 @@ Required. Specifies the action to take with the updates found. It can only speci
    - **SCAN** : Assesses applicability of updates available in the repository; generates an Update\_ApplicabilityRulesTrace.txt file automatically; as of version 1.3.0041 updates can be filtered using -includerebootpackages and -packagetypes parameters
    - **INSTALLDEFERRED** : install the updates which were previously downloaded using the DOWNLOAD parameter; any filtering parameters on the command line are **ignored**
 
-!!! info ""
-   The return codes used by Thin Installer will vary by the action performed. See section 5.2.1 Thin Installer Return Codes
+!!! note
+	The return codes used by Thin Installer will vary by the action performed. See section 5.2.1 Thin Installer Return Codes
 
 #### -includerebootpackages
 
@@ -164,8 +164,8 @@ Optional. Specifies by number the reboot types to include in the set of updates 
    
    **5** : Delayed forced reboot (used for firmware, Thin Installer will enforce reboot with dialog displaying count-down timer)
 
-!!! info ""
-   When used with -packagetypes, the resulting set of updates is the intersection of both filters.
+!!! note
+	When used with -packagetypes, the resulting set of updates is the intersection of both filters.
 
 #### -packagetypes
 
@@ -181,8 +181,8 @@ Optional. Specifies by number a filter for the package types to be applied. Mult
    
    **4** : Firmware
 
-!!! info ""
-   When used with -includerebootpackages, the resulting set of updates is the intersection of both filters.
+!!! note
+	When used with -includerebootpackages, the resulting set of updates is the intersection of both filters.
 
 #### -noreboot
 
@@ -232,6 +232,8 @@ Optional. Specifies fully qualified path for storing the log file
 
 There are specific return codes used by Thin Installer based on which -action parameter is used.
 
+<center>
+
  |     INSTALL     |              |                                                                                                                                         |
 |-----------------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------|
 |                 | 3010         |     Indicates a reboot is required because one or more Reboot Type 3   updates were installed with the -noreboot parameter specified    |
@@ -246,6 +248,7 @@ There are specific return codes used by Thin Installer based on which -action pa
 |                 |     20002    |     Applicable packages were found but none were downloaded   successfully                                                              |
 |                 |     20003    |     No applicable updates were found to download                                                                                        |                                                                                  |
 
+</center>
 
 ## 5.3 Update Retriever
 

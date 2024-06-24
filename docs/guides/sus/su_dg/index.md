@@ -2,8 +2,8 @@
 
 **_System Update, Update Retriever, Thin Installer_**
 
-!!! info ""
-   Before using this information and the product it supports, read the general information in **Appendix C: Notices**
+!!! note
+	Before using this information and the product it supports, read the general information in **Appendix C: Notices**
 
 **Online Edition (November 2021)**
 

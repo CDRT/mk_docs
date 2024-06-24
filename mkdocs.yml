@@ -40,6 +40,7 @@ nav:
       - Deployment Guide: guides/cv/commercial_vantage.md
       - Managing with Intune: guides/cv/manage_intune.md
       - Commercial Vantage Policies: guides/cv/commercial-vantage-policies.md
+      - Commercial Vantage FAQ: guides/cv/commercial_vantage_faq.md
     - System Update - Update Retriever - Thin Installer:
       - guides/sus/index.md
       - Deployment Guide:
@@ -64,6 +65,8 @@ nav:
       - User Guide: guides/tbct/tbct.md
     - Lenovo BIOS Certs Tool:
       - guides/lbct/index.md
+    - Lenovo Device Management Module:
+        - guides/ldmm/ldmm_top.md
     - Lenovo View:
       - guides/lenovo_view/index.md
   - References:
