@@ -1,13 +1,7 @@
 # Intel(R) VMD Technology #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   _1.png)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   telvmd_2.png)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_intelvmd_3.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_1.PNG)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_2.PNG)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_3.PNG)
 
 Enable the VMD(Volume Management Device) technology to 
 support configure PCIe storages to VROC(Virtual RAID on 
@@ -19,46 +13,40 @@ look at atadriversetup for ex on how they did it
 EX: M.2 Slot 1, M.2 Slot 2, M.2 Slot3
 	PCIe Slot1, etc -->
 
-<details><summary>M.2 Slot{X}</summary>
+M.2 Slot{X}
+:	Enable/Disable Intel(R) Volume Management Device Technologyon M.2 Slot1.
 
-Enable/Disable Intel(R) Volume Management Device Technology
-on M.2 Slot1.
+	Options:
 
-Options:
+	1. **PCIe** – Default.
+	2. VMD.
 
-1. **PCIe** – Default.
-2. VMD.
+	!!! note ""
+		X represents the slot number, 1 to 3.
 
-!!! note ""
-    X represents the slot number, 1 to 3.
 
-</details>
 
-<details><summary>PCIe Slot{X} </summary>
+PCIe Slot{X} 
+:	Enable/Disable Intel(R) Volume Management Device Technology on PCIe Slot1.
 
-Enable/Disable Intel(R) Volume Management Device Technology
-on PCIe Slot1.
+	Options:
 
-Options:
+	1. **PCIe** – Default.
+	2. VMD.
 
-1. **PCIe** – Default.
-2. VMD.
+	!!! note ""
+		X represents the slot number, 1 to 9.
 
-!!! note ""
-    X represents the slot number, 1 to 9.
-</details>
 
-<details><summary>MCIO Slot{X}-{Y}</summary>
+MCIO Slot{X}-{Y}
+:	Enable/Disable Intel(R) Volume Management Device Technology on MCIO Slot1-1.
 
-Enable/Disable Intel(R) Volume Management Device Technology
-on MCIO Slot1-1.
+	Options:
 
-Options:
+	1. **PCIe** – Default.
+	2. VMD.
 
-1. **PCIe** – Default.
-2. VMD.
+	!!! note ""
+		X & Y represent the slot numbers, 1 and 2 (interchangeably).
 
-!!! note ""
-    X & Y represent the slot numbers, 1 and 2 (interchangeably).
-</details>
 

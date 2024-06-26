@@ -1,4 +1,4 @@
-# Lenovo BIOS Settings Dictionary  <!-- {docsify-ignore-all} -->
+# Lenovo BIOS Settings Dictionary  
 
 This section will be divided between ThinkPad, ThinkCentre and ThinkStation to describe the various BIOS settings available on these platforms.
 

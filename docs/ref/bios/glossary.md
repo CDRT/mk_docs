@@ -9,11 +9,11 @@ Hard disk password, available if `Dual Password` is enabled.
 Admin and Master are synonyms.
 
 *More information:*
-- ["Types of password for ThinkPad" at Lenovo Support](https://support.lenovo.com/lt/en/solutions/ht036206-types-of-password-for-thinkpad)
+- ["Types of password for ThinkPad" at Lenovo Support](https://support.lenovo.com/lt/en/solutions/ht036206-types-of-password-for-thinkpad){:target=”_blank”}
 - [BIOS Security Settings](https://docs.lenovocdrt.com/#/bios/bios_guide?id=bios-security-settings)
 
 *Relevant settings:*
-- [Hard Disk Password (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/hard_disk_password)
+- [Hard Disk Password (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/hard_disk_password) 
 - [Password Policies (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/password_policies) 
 - [NVMe1 Password (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/password) 
 
@@ -24,7 +24,7 @@ Admin and Master are synonyms.
   Advanced Host Controller Interface 
  
  *More information:* 
- - ["Serial ATA AHCI: Specification" at Intel.com](https://www.intel.com/content/www/us/en/io/serial-ata/serial-ata-ahci-spec-rev1-3-1.html) 
+ - ["Serial ATA AHCI: Specification" at Intel.com](https://www.intel.com/content/www/us/en/io/serial-ata/serial-ata-ahci-spec-rev1-3-1.html){:target=”_blank”} 
  
  *Relevant settings:* 
  - [Configure SATA As (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/ata_drive_setup) 
@@ -42,7 +42,7 @@ Admin and Master are synonyms.
  Remote management solution from Intel®. 
  
 *More information:* 
- - ["Intel® Active Management Technology" at Intel.com](https://www.intel.com/content/www/us/en/architecture-and-technology/intel-active-management-technology.html) 
+ - ["Intel® Active Management Technology" at Intel.com](https://www.intel.com/content/www/us/en/architecture-and-technology/intel-active-management-technology.html){:target=”_blank”} 
 
  *Relevant settings:* 
  - [Intel® Manageability (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/intel_r_manageability) 
@@ -63,7 +63,7 @@ PCI Express power management for power saving while fully active.
 
  *More information:* 
  
- - [More information at PCISIG.com](https://pcisig.com/specifications/pciexpress/specifications/)
+ - [More information at PCISIG.com](https://pcisig.com/specifications/pciexpress/specifications/){:target=”_blank”} 
 
  *Relevant settings:* 
 
@@ -83,7 +83,7 @@ PCI Express power management for power saving while fully active.
  
  *More information:* 
  
-   - ["Developers Can Trust Intel Leadership in Serial ATA" at Intel.com](https://www.intel.com/content/www/us/en/io/serial-ata/serial-ata-developer.html) 
+   - ["Developers Can Trust Intel Leadership in Serial ATA" at Intel.com](https://www.intel.com/content/www/us/en/io/serial-ata/serial-ata-developer.html){:target=”_blank”} 
 
  *Relevant settings:* 
  - [SATA Controller](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/ata_drive_setup) 
@@ -103,7 +103,7 @@ PCI Express power management for power saving while fully active.
  Chosen signature lists configurations can be tested to ensure the system will continue to boot after the system is transitioned out of Audit Mode.
  
  *More information:* 
- - [UEFI Specification Version 2.9 (March 2021) at UEFI.org](https://uefi.org/sites/default/files/resources/UEFI_Spec_2_9_2021_03_18.pdf) 
+ - [UEFI Specification Version 2.9 (March 2021) at UEFI.org](https://uefi.org/sites/default/files/resources/UEFI_Spec_2_9_2021_03_18.pdf){:target=”_blank”} 
 
  *Relevant settings:* 
  - [Enter Audit Mode (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/secure_boot?id=enter-audit-mode) 
@@ -123,7 +123,7 @@ PCI Express power management for power saving while fully active.
   Overrides user OS permissions to access settings in all cases; has no access to OS settings.
  
  *More information:* 
-  - ["What Is BIOS?" at Lenovo Support](https://support.lenovo.com/lt/en/videos/vid100790-what-is-bios) 
+  - ["What Is BIOS?" at Lenovo Support](https://support.lenovo.com/lt/en/videos/vid100790-what-is-bios){:target=”_blank”} 
  
 *See also:*
 
@@ -137,7 +137,7 @@ PCI Express power management for power saving while fully active.
 
 *More information:*
 
- - [More information at Lenovo.com](https://www.lenovo.com/origind8/sites/default/files/2019-09/ThinkShield_SolutionsGuide_FINAL.pdf)
+ - [More information at Lenovo.com](https://www.lenovo.com/origind8/sites/default/files/2019-09/ThinkShield_SolutionsGuide_FINAL.pdf){:target=”_blank”} 
 
 *Relevant settings:* 
  - [BIOS Self-healing (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/advanced.md)
@@ -151,8 +151,8 @@ PCI Express power management for power saving while fully active.
 Organization that verifies identity and issues public key certificates to parties.
 
  *More information:* 
-  - ["Windows Secure Boot Key Creation and Management Guidance" at Microsoft.com](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-secure-boot-key-creation-and-management-guidance) 
-  - [More information at UEFI.org](https://uefi.org/sites/default/files/resources/UEFI_Plugfest_2013_-_New_Orleans_-_Microsoft_UEFI_CA.PDF)
+  - ["Windows Secure Boot Key Creation and Management Guidance" at Microsoft.com](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-secure-boot-key-creation-and-management-guidance){:target=”_blank”} 
+  - [More information at UEFI.org](https://uefi.org/sites/default/files/resources/UEFI_Plugfest_2013_-_New_Orleans_-_Microsoft_UEFI_CA.PDF){:target=”_blank”} 
  
  *Relevant settings:* 
  - [Allow Microsoft 3rd Party UEFI CA (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/secure_boot) 
@@ -171,7 +171,7 @@ Organization that verifies identity and issues public key certificates to partie
  A series of states numbered 0 to n, where each successive lower state number represents lower power consumption. 
  
 *More information:* 
- - ["C-State" at Intel.com](https://www.intel.com/content/www/us/en/develop/documentation/vtune-help/top/reference/energy-analysis-metrics-reference/c-state.html) 
+ - ["C-State" at Intel.com](https://www.intel.com/content/www/us/en/develop/documentation/vtune-help/top/reference/energy-analysis-metrics-reference/c-state.html){:target=”_blank”} 
  
 *Relevant settings:* 
  - [C State Support (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/cpu_setup) 
@@ -186,7 +186,7 @@ Organization that verifies identity and issues public key certificates to partie
   
   *More information:*
 
-   - [More information at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht507181-how-to-enable-the-secure-boot-option-in-uefi-setup-lenovo-flex-system-x240-m5-compute-node-9532#Additional_Information_HT)
+   - [More information at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht507181-how-to-enable-the-secure-boot-option-in-uefi-setup-lenovo-flex-system-x240-m5-compute-node-9532#Additional_Information_HT){:target=”_blank”} 
   
   *Relevant settings:* 
   - [Secure Boot Key State](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/secureboot) 
@@ -203,7 +203,7 @@ Organization that verifies identity and issues public key certificates to partie
  
  *More information:* 
    - [DASH article at Lenovo CDRT](https://docs.lenovocdrt.com/#/dash/dash_top) 
-  -  ["Desktop and Mobile Architecture for System Hardware" at DTMF.org](https://www.dmtf.org/standards/dash) 
+  -  ["Desktop and Mobile Architecture for System Hardware" at DTMF.org](https://www.dmtf.org/standards/dash){:target=”_blank”} 
 
 
 ---
@@ -229,7 +229,7 @@ In Deployed Mode, PK must be installed and the BIOS performs signature verificat
  
  *More information:* 
  
- - [More information at Microsoft.com](https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-top)
+ - [More information at Microsoft.com](https://learn.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-top){:target=”_blank”} 
  
  *Relevant settings:* 
  - [Lenovo Cloud Services (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/network) 
@@ -273,8 +273,8 @@ Intel Dynamic Platform and Thermal Framework (IDPTF) is a power and thermal mana
  Authentication framework supporting multiple authentication methods. 
 
  *More information:* 
- - ["Extensible Authentication Protocol (EAP)" at IETF.org](https://datatracker.ietf.org/doc/html/rfc3748) 
- - ["802.1X Overview and EAP Types" at Intel.com](https://www.intel.com/content/www/us/en/support/articles/000006999/wireless/legacy-intel-wireless-products.html) 
+ - ["Extensible Authentication Protocol (EAP)" at IETF.org](https://datatracker.ietf.org/doc/html/rfc3748){:target=”_blank”} 
+ - ["802.1X Overview and EAP Types" at Intel.com](https://www.intel.com/content/www/us/en/support/articles/000006999/wireless/legacy-intel-wireless-products.html){:target=”_blank”} 
 
  *Relevant settings:* 
  - [EAP Authentication Method (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/network) 
@@ -320,7 +320,7 @@ Used in the context of HTTPS Boot.
  Dynamically adjusts processor voltage and core frequency, to decrease average power consumption and heat production. 
  
   *More information:* 
- - ["Overview of Enhanced Intel SpeedStep® Technology for Intel® Processors"at Intel.com](https://www.intel.com/content/www/us/en/support/articles/000007073/processors.html) 
+ - ["Overview of Enhanced Intel SpeedStep® Technology for Intel® Processors"at Intel.com](https://www.intel.com/content/www/us/en/support/articles/000007073/processors.html){:target=”_blank”} 
 
  *Relevant settings:* 
  - [EIST Support (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/cpu_setup)
@@ -335,7 +335,7 @@ Used in the context of HTTPS Boot.
  
  *More information:* 
 
- - [More information at IEEE.org](https://standards.ieee.org/ieee/1284/1956/)
+ - [More information at IEEE.org](https://standards.ieee.org/ieee/1284/1956/){:target=”_blank”} 
 
  *Relevant settings:* 
  - [Parallel Port Mode & EPP Version (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/parallel_port_setup.md)
@@ -348,10 +348,10 @@ Used in the context of HTTPS Boot.
   Updating the BIOS.
    
    *More information:* 
-   - ["How to update BIOS" at Intel.com](https://www.intel.com/content/www/us/en/gaming/resources/how-to-update-bios.html) 
+   - ["How to update BIOS" at Intel.com](https://www.intel.com/content/www/us/en/gaming/resources/how-to-update-bios.html){:target=”_blank”} 
 
    *Relevant settings:* 
-   - ["How to update system BIOS - Windows" at Lenovo.com](https://support.lenovo.com/uu/en/solutions/ht500008-how-to-update-system-bios-windows) 
+   - ["How to update system BIOS - Windows" at Lenovo.com](https://support.lenovo.com/uu/en/solutions/ht500008-how-to-update-system-bios-windows){:target=”_blank”} 
    - [Flash BIOS Updating by End-Users (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/uefibiosupdate.md) 
   
 
@@ -371,14 +371,14 @@ Graphics Processing Unit
 Specialized processor originally designed to accelerate graphics rendering, able to process many pieces of data simultaneously, useful for machine learning, video editing, and gaming applications, and may be integrated into the computer’s CPU or offered as a discrete hardware unit.
  
  *More information:* 
-  - ["What Is a GPU?" at Intel.com](https://www.intel.com/content/www/us/en/products/docs/processors/what-is-a-gpu.html) 
+  - ["What Is a GPU?" at Intel.com](https://www.intel.com/content/www/us/en/products/docs/processors/what-is-a-gpu.html){:target=”_blank”}  
 
  *Relevant settings:* 
  - [PCIe Tunneling (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/thunderbolttm4.md) 
 
 *See also:*
 
-[UMA](https://docs.lenovocdrt.com/#/bios/glossary?id=uma)
+[UMA](https://docs.lenovocdrt.com/#/bios/glossary?id=uma){:target=”_blank”} 
 
 ---
 
@@ -387,7 +387,7 @@ Specialized processor originally designed to accelerate graphics rendering, able
   Hard Disk Drive 
  
  *More information:* 
- - ["Laptop Hard Drives, SSD & Storage" at Lenovo.com](https://www.lenovo.com/us/en/faqs/laptop-faqs/hard-drives-ssd-guide/) 
+ - ["Laptop Hard Drives, SSD & Storage" at Lenovo.com](https://www.lenovo.com/us/en/faqs/laptop-faqs/hard-drives-ssd-guide/){:target=”_blank”} 
  
  *Relevant settings:* 
  - [First Boot Device (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/startup.md) 
@@ -395,7 +395,7 @@ Specialized processor originally designed to accelerate graphics rendering, able
 
 *See also:*
 
-[ATA](https://docs.lenovocdrt.com/#/bios/glossary?id=ata), [HDP](https://docs.lenovocdrt.com/#/bios/glossary?id=hdp), [RST](https://docs.lenovocdrt.com/#/bios/glossary?id=rst), [SATA](https://docs.lenovocdrt.com/#/bios/glossary?id=sata)
+[ATA](https://docs.lenovocdrt.com/#/bios/glossary?id=ata){:target=”_blank”} , [HDP](https://docs.lenovocdrt.com/#/bios/glossary?id=hdp){:target=”_blank”} , [RST](https://docs.lenovocdrt.com/#/bios/glossary?id=rst){:target=”_blank”} , [SATA](https://docs.lenovocdrt.com/#/bios/glossary?id=sata){:target=”_blank”} 
 
 
 ---
@@ -427,7 +427,7 @@ Specialized processor originally designed to accelerate graphics rendering, able
  Hardware assisted address translation from I/O device virtual addresses to physical addresses, to improve the system performance in virtual environments. 
  
  *More information:* 
- - [More information at Lenovo.com](https://lenovopress.lenovo.com/lp1467.pdf) 
+ - [More information at Lenovo.com](https://lenovopress.lenovo.com/lp1467.pdf){:target=”_blank”} 
  
  *Relevant settings:* 
  - [Device Guard (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/security) 
@@ -456,8 +456,8 @@ Specialized processor originally designed to accelerate graphics rendering, able
  Lenovo's Cloud Deployment solutions. 
  
  *More information:* 
-  - ["Welcome to Lenovo Cloud Deploy" at lenovoclouddeploy.com](https://www.lenovoclouddeploy.com/en/auth/welcome) 
-  - ["CLOUD RECOVERY FROM THE LENOVO CLOUD" at Lenovo.com](https://static.lenovo.com/na/services/pdfs/4390_Cloud_Imaging_Flyer_FINAL_High_Res.pdf) 
+  - ["Welcome to Lenovo Cloud Deploy" at lenovoclouddeploy.com](https://www.lenovoclouddeploy.com/en/auth/welcome){:target=”_blank”} 
+  - ["CLOUD RECOVERY FROM THE LENOVO CLOUD" at Lenovo.com](https://static.lenovo.com/na/services/pdfs/4390_Cloud_Imaging_Flyer_FINAL_High_Res.pdf){:target=”_blank”} 
  
  *Relevant settings:* 
  - [Lenovo Cloud Services (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/network) 
@@ -470,7 +470,7 @@ Specialized processor originally designed to accelerate graphics rendering, able
   Tool for testing Lenovo computers. Composed from Modules (diagnostics for a group of devices), tools for creating custom diagnostic scripts, system information, and log history. 
 
   *More information:* 
-   - ["Lenovo Diagnostics for Windows" at Lenovo PC Support](https://pcsupport.lenovo.com/us/en/downloads/ds102687) 
+   - ["Lenovo Diagnostics for Windows" at Lenovo PC Support](https://pcsupport.lenovo.com/us/en/downloads/ds102687){:target=”_blank”}  
   
   *Relevant settings:* 
   - [Intel® Total Memory Encryption (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/memoryprotection) 
@@ -484,7 +484,7 @@ Specialized processor originally designed to accelerate graphics rendering, able
 
  *More information:* 
   
- - [More information at Microsoft.com](https://learn.microsoft.com/en-us/mem/configmgr/core/clients/deploy/configure-wake-on-lan)
+ - [More information at Microsoft.com](https://learn.microsoft.com/en-us/mem/configmgr/core/clients/deploy/configure-wake-on-lan){:target=”_blank”} 
 
  *Relevant settings:* 
  - [Wake On Lan (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/network) 
@@ -514,7 +514,7 @@ Admin (hard disk) password.
   Microsoft Deployment Toolkit 
  
  *More information:*
- - ["Microsoft Deployment Toolkit documentation" at Microsoft.com](https://docs.microsoft.com/en-us/mem/configmgr/mdt/) 
+ - ["Microsoft Deployment Toolkit documentation" at Microsoft.com](https://docs.microsoft.com/en-us/mem/configmgr/mdt/){:target=”_blank”} 
  - ["Lenovo BIOS/UEFI Deployment Guide" at Lenovo CDRT](https://docs.lenovocdrt.com/#/bios/bios_guide)
 
 ---
@@ -526,7 +526,7 @@ Admin (hard disk) password.
 A BIOS menu extension on the Intel® AMT system that can be used to view and manually configure some of Intel® AMT settings. 
 
  *More information:* 
-  - [More information at Intel.com](https://www.intel.com/content/dam/support/us/en/documents/software/software-applications/Intel_SCS_Deployment_Guide.pdf) 
+  - [More information at Intel.com](https://www.intel.com/content/dam/support/us/en/documents/software/software-applications/Intel_SCS_Deployment_Guide.pdf){:target=”_blank”} 
 
  *Relevant settings:* 
  - [Intel® MEBx (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/intel_r_manageability) 
@@ -545,7 +545,7 @@ A BIOS menu extension on the Intel® AMT system that can be used to view and man
  An embedded microcontroller providing features including OOB (out of band) management. 
 
  *More information:* 
- - [More information at Intel.com](https://www.intel.com/content/www/us/en/support/articles/000008927/software/chipset-software.html) 
+ - [More information at Intel.com](https://www.intel.com/content/www/us/en/support/articles/000008927/software/chipset-software.html){:target=”_blank”} 
 
  *Relevant settings:* 
  - [Enhanced Power Saving Mode (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/power) 
@@ -561,7 +561,7 @@ A BIOS menu extension on the Intel® AMT system that can be used to view and man
   Commonly used memory (RAM) testing application. 
  
  *More information:* 
-  - [More information at memtest86.com](https://www.memtest86.com/) 
+  - [More information at memtest86.com](https://www.memtest86.com/){:target=”_blank”} 
  
  *Relevant settings:* 
  - [Intel(R) Total Memory Encryption (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/memoryprotection) 
@@ -585,7 +585,7 @@ A BIOS menu extension on the Intel® AMT system that can be used to view and man
 
  *More information:* 
 
- - [More information at Lenovo.com](https://techtoday.lenovo.com/origind8/sites/default/files/2019-05/Workforce%20Mobility_Static%20Infographic_042618.pdf)
+ - [More information at Lenovo.com](https://techtoday.lenovo.com/origind8/sites/default/files/2019-05/Workforce%20Mobility_Static%20Infographic_042618.pdf){:target=”_blank”} 
 
  *Relevant settings:* 
  - [NFC Device (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/ioportaccess) 
@@ -617,7 +617,7 @@ Open, logical-device interface specification for accessing a computer's non-vola
   
  *More information:* 
  
- - [More information at nvmexpress.org](https://nvmexpress.org/)
+ - [More information at nvmexpress.org](https://nvmexpress.org/){:target=”_blank”} 
 
  *Relevant settings:* 
  - [NVMe1 Password (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/password) 
@@ -637,7 +637,7 @@ A company that designs and manufactures a product that is eventually rebranded b
 
  *More information:* 
   - ["Lenovo CSP Is For You!" at Lenovo YouTube](https://www.youtube.com/watch?v=2dFgkv2OQ5Y)   
-  - ["Lenovo's Secret Recipe For Hyperscale Success Is Called ODM+" at Forbes.com](https://www.forbes.com/sites/patrickmoorhead/2018/10/22/lenovos-secret-recipe-for-hyperscale-success-is-called-odm/) 
+  - ["Lenovo's Secret Recipe For Hyperscale Success Is Called ODM+" at Forbes.com](https://www.forbes.com/sites/patrickmoorhead/2018/10/22/lenovos-secret-recipe-for-hyperscale-success-is-called-odm/){:target=”_blank”} 
 
 ---
 
@@ -649,7 +649,7 @@ A company that designs and manufactures a product that is eventually rebranded b
  
  *More information:* 
  
-- [More information at Microsoft Docs](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure)
+- [More information at Microsoft Docs](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure){:target=”_blank”} 
 
  *Relevant settings:* 
 
@@ -665,7 +665,7 @@ A company that designs and manufactures a product that is eventually rebranded b
 
  *More information:* 
  
- - [More information at Intel.com](https://www.intel.com/content/www/us/en/business/enterprise-computers/resources/out-of-band-management.html)
+ - [More information at Intel.com](https://www.intel.com/content/www/us/en/business/enterprise-computers/resources/out-of-band-management.html){:target=”_blank”} 
 
 *See also:*
 
@@ -678,7 +678,7 @@ A company that designs and manufactures a product that is eventually rebranded b
 Standalone memory device that combines storage capacity and system acceleration.
  
  *More information:* 
-  - ["Intel® Optane™ Memory - Responsive Memory, Accelerated Performance"at Lenovo.com](https://www.intel.com/content/www/us/en/products/details/memory-storage/optane-memory.html) 
+  - ["Intel® Optane™ Memory - Responsive Memory, Accelerated Performance"at Lenovo.com](https://www.intel.com/content/www/us/en/products/details/memory-storage/optane-memory.html){:target=”_blank”} 
 
  *Relevant settings:* 
   - [ATA Drive Setup (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/ata_drive_setup) 
@@ -693,7 +693,7 @@ Standalone memory device that combines storage capacity and system acceleration.
  *More information:* 
  
  - ["Dock Deployment Guide" at Lenovo CDRT](https://docs.lenovocdrt.com/#/docks/docks_main.md)
- - ["Enterprise Deployment Solutions" at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht104232)
+ - ["Enterprise Deployment Solutions" at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht104232){:target=”_blank”} 
 
 
 
@@ -715,7 +715,7 @@ Serial expansion bus standard.
 
 *See also:*
 
-[ASPM](https://docs.lenovocdrt.com/#/bios/glossary?id=aspm), [GPU](https://docs.lenovocdrt.com/#/bios/glossary?id=gpu)
+[ASPM](https://docs.lenovocdrt.com/#/bios/glossary?id=aspm){:target=”_blank”} , [GPU](https://docs.lenovocdrt.com/#/bios/glossary?id=gpu)
 
 ### PCR 
 
@@ -725,7 +725,7 @@ Serial expansion bus standard.
  
  *More information:* 
  
-  - [More information at Microsoft Support](https://learn.microsoft.com/en-us/windows/security/information-protection/tpm/switch-pcr-banks-on-tpm-2-0-devices)
+  - [More information at Microsoft Support](https://learn.microsoft.com/en-us/windows/security/information-protection/tpm/switch-pcr-banks-on-tpm-2-0-devices){:target=”_blank”} 
  
  *Relevant settings:*  
  - [Security Chip (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/securitychip) 
@@ -744,7 +744,7 @@ EAP is an authentication framework that supports multiple authentication methods
 
  *More information:* 
  
- - [More information at Microsoft.com](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-peap/73da9658-3dc6-4b97-9c0f-532f6a9b814d)
+ - [More information at Microsoft.com](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-peap/73da9658-3dc6-4b97-9c0f-532f6a9b814d){:target=”_blank”} 
 
  *Relevant settings:* 
  - [Security (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/network.md) 
@@ -806,7 +806,7 @@ EAP is an authentication framework that supports multiple authentication methods
  
  *More information:* 
 
-  - [More information at Intel.com](https://www.intel.com/content/www/us/en/gaming/resources/why-wont-my-computer-turn-on.html)
+  - [More information at Intel.com](https://www.intel.com/content/www/us/en/gaming/resources/why-wont-my-computer-turn-on.html){:target=”_blank”} 
 
  *Relevant settings:* 
  - [Password Count Exceeded Error (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/password_policies) 
@@ -820,7 +820,7 @@ The Rescue and Recovery Predesktop Area provides an emergency workspace for user
   
   *More information:* 
 
-  - [More information at Lenovo.com](https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/rnr421mst.pdf)
+  - [More information at Lenovo.com](https://download.lenovo.com/ibmdl/pub/pc/pccbbs/thinkvantage_en/rnr421mst.pdf){:target=”_blank”} 
   
   *Relevant settings:* 
   - [Predesktop Authentication (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/fingerprint.md)
@@ -835,7 +835,7 @@ The Rescue and Recovery Predesktop Area provides an emergency workspace for user
  Method for booting computers using a network interface, independent of local storage devices or installed operating systems. 
  
  *More information:* 
-  - ["Preboot Execution Environment (PXE)" at Microsoft.com](https://learn.microsoft.com/en-us/previous-versions/ms818762(v=msdn.10\)) 
+  - ["Preboot Execution Environment (PXE)" at Microsoft.com](https://learn.microsoft.com/en-us/previous-versions/ms818762(v=msdn.10\)){:target=”_blank”} 
  
  *Relevant settings:* 
  - [Network Setup (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/network_setup) 
@@ -855,7 +855,7 @@ The Rescue and Recovery Predesktop Area provides an emergency workspace for user
  A standard configuration of multiple, redundant hard disks into logical units for scale and reliability. 
  
  *More information:* 
-  - ["Common RAID Disk Data Format (DDF)" at Storage Networking Industry Association](https://www.snia.org/tech_activities/standards/curr_standards/ddf) 
+  - ["Common RAID Disk Data Format (DDF)" at Storage Networking Industry Association](https://www.snia.org/tech_activities/standards/curr_standards/ddf){:target=”_blank”} 
 
  *Relevant settings:* 
  - [ATA Drive Setup(ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/ata_drive_setup) 
@@ -874,7 +874,7 @@ Gives enhanced performance and lower power consumption. When using more than one
 
  *More information:* 
  
- - [More information at Intel.com](https://www.intel.com/content/www/us/en/support/articles/000005610/technologies.html)
+ - [More information at Intel.com](https://www.intel.com/content/www/us/en/support/articles/000005610/technologies.html){:target=”_blank”} 
 
  *Relevant settings:* 
  - [Configure SATA As (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/ata_drive_setup) 
@@ -893,7 +893,7 @@ Gives enhanced performance and lower power consumption. When using more than one
  Standard interface between computer bus and storage devices. 
 
  *More information:* 
-  - ["Developers Can Trust Intel Leadership in Serial ATA" at Intel.com](https://www.intel.com/content/www/us/en/io/serial-ata/serial-ata-developer.html) 
+  - ["Developers Can Trust Intel Leadership in Serial ATA" at Intel.com](https://www.intel.com/content/www/us/en/io/serial-ata/serial-ata-developer.html){:target=”_blank”} 
 
  *Relevant settings:* 
  - [ATA Drive Setup (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/ata_drive_setup) 
@@ -911,8 +911,8 @@ Gives enhanced performance and lower power consumption. When using more than one
  
  *More information:* 
 
-  - ["What is Configuration Manager?" at Microsoft.com](https://learn.microsoft.com/en-us/mem/configmgr/core/understand/introduction)
-  - ["What happened to System Center Configuration Manager?" at Microsoft.com](https://learn.microsoft.com/en-us/mem/configmgr/core/understand/what-happened-to-sccm)
+  - ["What is Configuration Manager?" at Microsoft.com](https://learn.microsoft.com/en-us/mem/configmgr/core/understand/introduction){:target=”_blank”} 
+  - ["What happened to System Center Configuration Manager?" at Microsoft.com](https://learn.microsoft.com/en-us/mem/configmgr/core/understand/what-happened-to-sccm){:target=”_blank”} 
  
 ---
 
@@ -961,10 +961,10 @@ TPM
   
   *More information:* 
   
- - [More information at microsoft.com](https://learn.microsoft.com/en-us/powershell/module/secureboot/)
+ - [More information at microsoft.com](https://learn.microsoft.com/en-us/powershell/module/secureboot/){:target=”_blank”} 
 
   *Relevant settings:* 
-  - [Secure Boot Mode (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/secureboot) 
+  - [Secure Boot Mode (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/secureboot){:target=”_blank”} 
  
 *See also:*
 
@@ -979,7 +979,7 @@ TPM
  Protect selected code and data from modification, by partitioning applications into hardened enclaves or trusted execution modules. 
  
  *More information:* 
-  - ["Intel® Software Guard Extensions" at Intel.com](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/overview.html) 
+  - ["Intel® Software Guard Extensions" at Intel.com](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/overview.html){:target=”_blank”}  
  
 ---
 
@@ -988,7 +988,7 @@ TPM
   Security Identifier
 
  *More information:* 
- - [More information at trustedcomputinggroup.org](https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Feature_Set_Block_SID_Authentication_v1.01_r1.00.pdf)
+ - [More information at trustedcomputinggroup.org](https://trustedcomputinggroup.org/wp-content/uploads/TCG_Storage-Feature_Set_Block_SID_Authentication_v1.01_r1.00.pdf){:target=”_blank”} 
 
  *Relevant settings:* 
  - [Block SID Authentication (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/hard_disk_password) 
@@ -1004,7 +1004,7 @@ TPM
  Validation program that aims for no hardware changes throughout the buying cycle, for at least 15 months or until the next generational release. 
 
  *More information:* 
-  - ["PC Upgrade: Intel® SIPP" at Intel.com](https://www.intel.com/content/www/us/en/architecture-and-technology/stable-it-platform-program.html) 
+  - ["PC Upgrade: Intel® SIPP" at Intel.com](https://www.intel.com/content/www/us/en/architecture-and-technology/stable-it-platform-program.html){:target=”_blank”} 
 
  *Relevant settings:* 
  - [Intel (R) SIPP Support (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/advanced) 
@@ -1020,7 +1020,7 @@ TPM
 client-management interface.
 
  *More information:* 
-  - [More information at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht036206-types-of-password-for-thinkpad)
+  - [More information at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht036206-types-of-password-for-thinkpad){:target=”_blank”} 
 
  *Relevant settings:*  
  - [System Management Password (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/security)  
@@ -1040,8 +1040,8 @@ client-management interface.
  Specification for integration of BIOS information into operating systems and higher-level management applications. 
  
  *More information:* 
-  - ["System Management Bios Reference Specification Eases Implementation for Managed PCs" at Intel.com](https://newsroom.intel.com/news-releases/system-management-bios-reference-specification-eases-implementation-for-managed-pcs/)
-  - ["System Management BIOS" at DMTF.org](https://www.dmtf.org/standards/smbios) 
+  - ["System Management Bios Reference Specification Eases Implementation for Managed PCs" at Intel.com](https://newsroom.intel.com/news-releases/system-management-bios-reference-specification-eases-implementation-for-managed-pcs/){:target=”_blank”} 
+  - ["System Management BIOS" at DMTF.org](https://www.dmtf.org/standards/smbios){:target=”_blank”} 
  
  *Relevant settings:*  
  - [BIOS Reporting (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/securitychip) 
@@ -1057,7 +1057,7 @@ client-management interface.
   DOS application to allow ThinkPad Setup settings to be common to all machines and to be controlled remotely. 
  
  *More information:*
- - ["ThinkPad Setup Settings Capture/Playback Utility (SRSETUP) for UEFI - ThinkPad" at Lenovo Support](https://support.lenovo.com/us/en/downloads/ds112377-thinkpad-setup-settings-captureplayback-utility-srsetup-for-uefi-thinkpad)
+ - ["ThinkPad Setup Settings Capture/Playback Utility (SRSETUP) for UEFI - ThinkPad" at Lenovo Support](https://support.lenovo.com/us/en/downloads/ds112377-thinkpad-setup-settings-captureplayback-utility-srsetup-for-uefi-thinkpad){:target=”_blank”} 
 
 ---
 
@@ -1070,7 +1070,7 @@ client-management interface.
 
  *More information:* 
  
- - [More information at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht511652)
+ - [More information at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht511652){:target=”_blank”} 
   
 ---
 
@@ -1079,7 +1079,7 @@ client-management interface.
 Storage solution based on collections of memory microchips. Faster, lighter, and more reliable than HDD, but less capacity at the same price.
 
  *More information:* 
- - ["Laptop Hard Drives, SSD & Storage" at Lenovo.com](https://www.lenovo.com/us/en/faqs/laptop-faqs/hard-drives-ssd-guide/) 
+ - ["Laptop Hard Drives, SSD & Storage" at Lenovo.com](https://www.lenovo.com/us/en/faqs/laptop-faqs/hard-drives-ssd-guide/){:target=”_blank”}  
 
  *See also:*
 
@@ -1093,10 +1093,10 @@ Storage solution based on collections of memory microchips. Faster, lighter, and
  
  *More information:* 
  
- - [More information at Lenovo Support](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-p-series-laptops/thinkpad-p50/solutions/ht510960-function-keys-are-not-working)
+ - [More information at Lenovo Support](https://pcsupport.lenovo.com/us/en/products/laptops-and-netbooks/thinkpad-p-series-laptops/thinkpad-p50/solutions/ht510960-function-keys-are-not-working){:target=”_blank”} 
  
  *Relevant settings:*  
- - [Fn Sticky Key (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/keyboardmouse) 
+ - [Fn Sticky Key (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/keyboardmouse){:target=”_blank”}  
 
 
 ---
@@ -1108,7 +1108,7 @@ Storage solution based on collections of memory microchips. Faster, lighter, and
 The Supervisor Password (SVP) protects the system information stored in UEFI BIOS.
 
  *More information:* 
- - [More information at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht036206-types-of-password-for-thinkpad)
+ - [More information at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht036206-types-of-password-for-thinkpad){:target=”_blank”} 
 
  *Relevant settings:*   
  - [Device Guard Settings (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/deviceguard) 
@@ -1127,7 +1127,7 @@ The Supervisor Password (SVP) protects the system information stored in UEFI BIO
   System power states 
  
  *More information:* 
-  - ["System Power States" at Microsoft.com](https://learn.microsoft.com/en-us/windows/win32/power/system-power-states) 
+  - ["System Power States" at Microsoft.com](https://learn.microsoft.com/en-us/windows/win32/power/system-power-states){:target=”_blank”} 
 
  *Relevant settings:* 
  - [Enhanced Power Saving Mode (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/power) 
@@ -1172,7 +1172,7 @@ Encrypts a computer’s entire memory with a single transient key. All memory da
 
  *More information:* 
  
- - ["Intel® Hardware Shield – Intel® Total Memory Encryption" at Lenovo Support](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/white-paper-intel-tme.pdf)
+ - ["Intel® Hardware Shield – Intel® Total Memory Encryption" at Lenovo Support](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/white-paper-intel-tme.pdf){:target=”_blank”} 
 
  *Relevant settings:* 
   - [Intel(R) Total Memory Encryption (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/memoryprotection.md)
@@ -1187,8 +1187,8 @@ Encrypts a computer’s entire memory with a single transient key. All memory da
    A secure cryptoprocessor, which is either logically or physically separate from the main chipset, and used for security functions. 
 
 *More information:* 
-  - ["Lenovo Trusted Platform Module (TPM) FAQ" at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht512598) 
-  - ["Trusted Platform Module" at Microsoft.com](https://learn.microsoft.com/en-us/windows/security/information-protection/tpm/trusted-platform-module-top-node) 
+  - ["Lenovo Trusted Platform Module (TPM) FAQ" at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht512598){:target=”_blank”} 
+  - ["Trusted Platform Module" at Microsoft.com](https://learn.microsoft.com/en-us/windows/security/information-protection/tpm/trusted-platform-module-top-node){:target=”_blank”} 
  
  *Relevant settings:* 
   - [TCG Security Device State (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/tcg_feature_setup.md)
@@ -1201,7 +1201,7 @@ Encrypts a computer’s entire memory with a single transient key. All memory da
   Transparent Secure Memory Encryption  
  
  *More information:*  
- - [White paper (PDF) at AMD.com](https://www.amd.com/system/files/documents/amd-memory-guard-white-paper.pdf) 
+ - [White paper (PDF) at AMD.com](https://www.amd.com/system/files/documents/amd-memory-guard-white-paper.pdf){:target=”_blank”} 
  
 *AKA:*
 
@@ -1218,7 +1218,7 @@ AMD Memory Guard
 Touch-sensitive interface surface that allows you to manipulate and interact with your laptop computer through finger gestures.
   
   *More information:* 
-   - ["Popular Topics: Keyboard, Mouse, Touchpad, TrackPad, TrackPoint" at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht503907) 
+   - ["Popular Topics: Keyboard, Mouse, Touchpad, TrackPad, TrackPoint" at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht503907){:target=”_blank”} 
 
   *Relevant settings:* 
   - [Trackpad (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/keyboardmouse) 
@@ -1232,7 +1232,7 @@ Touch-sensitive interface surface that allows you to manipulate and interact wit
 Pointing device, controls the mouse pointer with a joystick mounted in the center of the keyboard.
   
   *More information:* 
-   - ["Popular Topics: Keyboard, Mouse, Touchpad, TrackPad, TrackPoint" at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht503907) 
+   - ["Popular Topics: Keyboard, Mouse, Touchpad, TrackPad, TrackPoint" at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht503907){:target=”_blank”} 
 
   *Relevant settings:* 
    - [TrackPoint (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/keyboardmouse) 
@@ -1250,7 +1250,7 @@ Pointing stick
  UEFI specifications define an interface in which the implementation of UEFI performs the equivalent of the BIOS, by initiating the platform and loading the operating system. 
  
  *More information:* 
-  - ["UEFI FAQS" at UEFI.org](https://uefi.org/faq) 
+  - ["UEFI FAQS" at UEFI.org](https://uefi.org/faq){:target=”_blank”} 
  
  *Relevant settings:* 
   - [UEFI BIOS Update Option Settings (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/uefibiosupdate) 
@@ -1276,7 +1276,7 @@ BIOS, Firmware
 Architecture using part of RAM rather than dedicated graphics memory.
 
  *More information:* 
-  - ["Configuring UMA Frame Buffer Size" at AMD.com](https://www.amd.com/en/support/kb/faq/pa-280) 
+  - ["Configuring UMA Frame Buffer Size" at AMD.com](https://www.amd.com/en/support/kb/faq/pa-280){:target=”_blank”}  
 
  *Relevant settings:* 
  - [Total Graphics Memory (ThinkPad)](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/display) 
@@ -1295,8 +1295,8 @@ API for network cards.
  
  *More information:* 
  
- - ["UEFI Driver Development Guide for Network Boot Devices" at Intel.com](https://www.intel.com/content/dam/doc/guide/uefi-driver-network-boot-devices-guide.pdf)
-  - ["UEFI Drivers" at Intel.com](https://www.intel.com/content/dam/develop/external/us/en/documents/uefi-drivers.ppt)
+ - ["UEFI Driver Development Guide for Network Boot Devices" at Intel.com](https://www.intel.com/content/dam/doc/guide/uefi-driver-network-boot-devices-guide.pdf){:target=”_blank”} 
+  - ["UEFI Drivers" at Intel.com](https://www.intel.com/content/dam/develop/external/us/en/documents/uefi-drivers.ppt){:target=”_blank”} 
 
  *Relevant settings:* 
   
@@ -1316,7 +1316,7 @@ Connectivity specification that allows peripheral devices like scanners, printer
  
  *More information:* 
  
- - [USB Implementers Forum at USB.org](https://www.usb.org/)
+ - [USB Implementers Forum at USB.org](https://www.usb.org/){:target=”_blank”} 
 
  *Relevant settings:* 
  - [USB Provisioning (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/intel_r_manageability.md)
@@ -1349,8 +1349,8 @@ User interface for changing hardware settings, checking for Lenovo software and 
 
   *More information:* 
   - ["Commercial Vantage" at Lenovo CDRT](https://docs.lenovocdrt.com/#/cv/cv_top) 
-  - ["Lenovo Vantage - Using your PC just got easier" at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht505081-lenovo-vantage-using-your-pc-just-got-easier)
-  - ["Lenovo Vantage (download)" at Lenovo.com](https://www.lenovo.com/us/en/software/vantage)
+  - ["Lenovo Vantage - Using your PC just got easier" at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht505081-lenovo-vantage-using-your-pc-just-got-easier){:target=”_blank”} 
+  - ["Lenovo Vantage (download)" at Lenovo.com](https://www.lenovo.com/us/en/software/vantage){:target=”_blank”} 
  
 ---
 
@@ -1361,7 +1361,7 @@ User interface for changing hardware settings, checking for Lenovo software and 
  IT infrastructure that allows access enterprise computer systems from almost any device. 
 
  *More information:* 
- - [More information at Lenovo Support](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-virtual-desktop-infrastructure-vdi/#what-is-virtualization) 
+ - [More information at Lenovo Support](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-virtual-desktop-infrastructure-vdi/#what-is-virtualization)
  
  *Relevant settings:* 
  - [Win VDI Boot (ThinkCentre)](https://docs.lenovocdrt.com/#/bios/settings/thinkcentre/network_setup)

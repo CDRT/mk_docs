@@ -1,49 +1,41 @@
 # Exit Settings #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   ng)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_exit.PNG)
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /exit.png)-->
 
-<details><summary>Save Changes and Exit</summary>
+Save Changes and Exit
+:	Exit system Setup after saving the changes.
 
-Exit system Setup after saving the changes.
+	The action will require additional confirmation.
 
-The action will require additional confirmation.
 
-</details>
 
-<details><summary>Discard Changes and Exit</summary>
+Discard Changes and Exit
+:	Exit system Setup without saving any changes.
 
-Exit system Setup without saving any changes.
+	The action will require additional confirmation.
 
-The action will require additional confirmation.
 
-</details>
 
-<details><summary>Save Custom Defaults</summary>
+Save Custom Defaults
+:	Save the current changes as the customized BIOS default settings.
 
-Save the current changes as the customized BIOS default settings.
 
-</details>
 
-<details><summary>Load Custom Defaults</summary>
+Load Custom Defaults
+:	Restore/Load customized defaults settings.
 
-Restore/Load customized defaults settings.
 
-</details>
 
-<details><summary>Load Factory Defaults</summary>
+Load Factory Defaults
+:	Restore/Load Factory defaults values for all the Setup options.
 
-Restore/Load Factory defaults values for all the Setup options.
 
-</details>
 
-<details><summary>Load Optimal Defaults</summary>
+Load Optimal Defaults
+:	Restore/Load Default values for all the setup options.
 
-Restore/Load Default values for all the setup options.
+	The action will require additional confirmation.
 
-The action will require additional confirmation.
 
-</details>

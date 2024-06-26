@@ -1,4 +1,4 @@
-!!! info "How to run System Update by command line?"
+!!! note "How to run System Update by command line?"
     System Update can be controlled via command line by leveraging the group policy control for the Administrator Command Line. A typical scenario would have System Update executed by a task in the Windows Task Scheduler set to run on a recurring basis to ensure the device stays current. That scheduled task would execute:
 
     ```
@@ -21,7 +21,7 @@
     ```
     This will prevent System Update from re-enabling the default tasks.
 
-!!! info "Does System Update create temporary admin accounts?"
+!!! note "Does System Update create temporary admin accounts?"
     Yes.  When System Update is used by a standard user, a temporary admin account is created to enable the installation of updates.  This account has a long, complex, random password that is not recorded anywhere.  
 
     After the updates have been installed, the account will be deleted automatically. In the case where a Reboot Type 1 (Forces Reboot) update is applied, the system will reboot before the account can be removed.  System Update will remove the account the next time it runs.

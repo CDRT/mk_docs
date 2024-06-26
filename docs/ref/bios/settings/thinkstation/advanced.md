@@ -1,11 +1,10 @@
 # Advanced #
 
 
-<details><summary>Advanced - Intel version</summary>
+Advanced - Intel version
 
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_advanced_p3twr1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_advanced_p3twr1.PNG)
 <!-- ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /ts_advanced_px1.png)
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
@@ -16,103 +15,97 @@
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /advanced.png)-->
 
-<details><summary>WHEA Support</summary>
-Enable or Disable Windows Hardware Error Architechture.
+WHEA Support
+:	Enable or Disable Windows Hardware Error Architechture.
 
-Options:
+	Options:
 
-1. **Enabled** – Default.
-2. Disabled.
+	1. **Enabled** – Default.
+	2. Disabled.
 
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| WHEASupport | Disabled, Enabled | Yes | Intel |
-</details>
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| WHEASupport | Disabled, Enabled | Yes | Intel |
+	
 
-<details><summary>Intel(R) Total Memory Encryption</summary>
-Intel(R) Total Memory Encryption(TME) is a technology
-that encrypts data written to system memory to
-protect DRAM data from physical attacks.
+Intel(R) Total Memory Encryption
+:	Intel(R) Total Memory Encryption(TME) is a technology that encrypts data written to system memory to protect DRAM data from physical attacks.
 
-Options:
+	Options:
 
-1. **Disabled** – Default.
-2. Enabled.
+	1. **Disabled** – Default.
+	2. Enabled.
 
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| IntelTotalMemoryEncryption | Disabled, Enabled | yes | Intel |
-</details>
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| IntelTotalMemoryEncryption | Disabled, Enabled | yes | Intel |
 
-<details><summary>Intel(R) SIPP Support</summary>
 
-!!! note ""
-    Intel(R) Stable Image Platform Program (SIPP) aligns and stabilizes key Intel platform components, enabling a predictable transition from one technology generation to the next.
+Intel(R) SIPP Support
+:	
+	!!! note ""
+		Intel(R) Stable Image Platform Program (SIPP) aligns and stabilizes key Intel platform components, enabling a predictable transition from one technology generation to the next.
 
-Options:
+	Options:
 
-1. **Enabled** – Default.
-2. Disabled.
+	1. **Enabled** – Default.
+	2. Disabled.
 
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| IntelSIPPSupport | Disabled, Enabled | yes | Intel |
-</details>
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| IntelSIPPSupport | Disabled, Enabled | yes | Intel |
 
-<details><summary>Intel(R) Thunderbolt</summary>
-Options:
 
-1. **Disabled** – Default.
-2. Enabled. 
+Intel(R) Thunderbolt
+:	
+	Options:
 
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| IntelThunderboltTechnology | Enabled, Disabled | yes | Intel |
-</details>
+	1. **Disabled** – Default.
+	2. Enabled. 
 
-<details><summary>Dust Shield Alert</summary>
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| IntelThunderboltTechnology | Enabled, Disabled | yes | Intel |
+	
 
-!!! note ""
-   If the Dust Shield is not cleaned then it will lose its
-effectiveness and the machine may overheat.
+Dust Shield Alert
+:	
+	!!! note ""
+	    If the Dust Shield is not cleaned then it will lose its effectiveness and the machine may overheat.
 
-Options:
+	Options:
 
-1. **Disabled** – Default. The user is not reminded to clean the Dust Shield.
-2. Enabled - The user is reminded to clean the Dust Shield.
+	1. **Disabled** – Default. The user is not reminded to clean the Dust Shield.
+	2. Enabled - The user is reminded to clean the Dust Shield.
 
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| DustShieldAlert | Disabled, Enabled | yes | Intel |
-</details>
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| DustShieldAlert | Disabled, Enabled | yes | Intel |
 
-<details><summary>Intel(R) DPTF Support</summary>
 
-!!! note ""
-    Intel(R) Dynamic Platform and Thermal Framework (DPTF) assists with managing power to the CPU vs temperature, keeping CPU temperature down while still delivering good performance.
+Intel(R) DPTF Support
+:	
+	!!! note ""
+		Intel(R) Dynamic Platform and Thermal Framework (DPTF) assists with managing power to the CPU vs temperature, keeping CPU temperature down while still delivering good performance.
 
-Options:
+	Options:
 
-1. **Enabled** – Default.
-2. Disabled.
+	1. **Enabled** – Default.
+	2. Disabled.
 
-!!! note ""
-    This feature is optional, so may not be available on all models.
+	!!! note ""
+		This feature is optional, so may not be available on all models.
 
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| IntelDPTFSupport | Disabled, Enabled | yes | Intel |
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| IntelDPTFSupport | Disabled, Enabled | yes | Intel |
 
-</details>
-</details>
-</details>
 
-<de(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   <summary>Advanced - AMD version</summary>
-(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_amdadvanced.png)
+
+
+
+Advanced - AMD version
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amdadvanced.PNG)
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /amd_advanced.png)-->
 
@@ -121,4 +114,3 @@ Options:
 TODO: confirm layout because each setting is a seperate page in the sidebar Maybe put a statement there -->
 
 
-</details>
