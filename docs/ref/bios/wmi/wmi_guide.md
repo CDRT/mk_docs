@@ -11,7 +11,7 @@ modify the boot order either at client computers or remotely.
 
 If you have suggestions, comments, or questions, please talk to us on our forum! A team of deployment engineers
 (including the author of this document) is standing by, ready to help with any deployment challenges you are facing:
-<https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg>{:target=”_blank”} 
+<https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg> 
 
 ### Using Windows Management Instrumentation
 

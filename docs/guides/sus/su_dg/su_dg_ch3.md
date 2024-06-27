@@ -430,7 +430,7 @@ The following table provides the values that an administrator can set for the se
 |     License        |     • (Blank)<br />      • Display<br />      • No display                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 |     Status         |     • (Blank)<br /> • Active<br /> • Archive<br /> • Test<br /> • Hidden<br /><br />      **Attention:** By default, System Update and Thin Installer will only see packages marked as **Active**. The default value was set in the first-time setup of Update Retriever. You can change the default value by using the **Modify settings** option in the Update Retriever navigation pane. <br><br>Selecting **Hidden** will hide the selected update for the **Updates view** and can be restored by using the **Restore hidden updates** selection under **Options**. <br><br>Selecting **Archive** will leave the update in the view; however, the update will not be offered to any clients. |
 
-Table 3-2. Configurable values for an update package
+_Table 3-2. Configurable values for an update package_
 
 </center>
 

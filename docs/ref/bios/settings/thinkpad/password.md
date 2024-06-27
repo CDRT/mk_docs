@@ -19,13 +19,13 @@ Supervisor Password
 
       While enabling the following parameters are available:
 
-      * Enter New Password
-      * Confirm New Password
-      * Show Password – [On\Off] statuses
-         * Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/keyboardmouse.md)
-      * < Actions >:
-          * **Save** – default
-          * Cancel<br>
+      - Enter New Password
+      - Confirm New Password
+      - Show Password – [On\Off] statuses
+         - Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/keyboardmouse.md)
+      - < Actions >:
+          - **Save** – default
+          - Cancel<br>
 
         !!! note ""
             When enabled, Supervisor Password prevents unauthorized users from accessing these items in ThinkPad Setup: <br> - Boot priority lists <br> - Network related items <br> - Date & Time <br>

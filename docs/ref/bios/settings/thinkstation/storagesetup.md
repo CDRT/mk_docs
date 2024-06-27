@@ -129,14 +129,14 @@ Hard Disk Pre-delay
 
 	Options:
 
-	1. **Disabled** – Default.
-	2. 3 Seconds
-	3. 6 Seconds
-	4. 9 Seconds
-	5. 12 Seconds
-	5. 15 Seconds
-	6. 21 Seconds
-	7. 30 Seconds
+	- **Disabled** – Default.
+	- 3 Seconds
+	- 6 Seconds
+	- 9 Seconds
+	- 12 Seconds
+	- 15 Seconds
+	- 21 Seconds
+	- 30 Seconds
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|

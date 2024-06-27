@@ -37,7 +37,7 @@ The following table lists the configurable and modifiable items for System Updat
 | **SearchMode**                                                                                                                           | HKLM\SOFTWARE\WOW6432Node\Lenovo\System   Update\Preferences\UserSettings\Scheduler        |
 
 
-Table 7-1. Advanced System Update Registry settings
+_Table 7-1. Advanced System Update Registry settings_
 
 </center>
 
@@ -82,13 +82,15 @@ To add the ADMX file and customize the settings, do the following:
     Example:
 	``` 
 	\\contoso.com\SYSVOL\Contoso.com\Policies\PolicyDefinitions
-	```    
+	```  
+	
    6. Then, copy the ADMX language file (tvsu.adml) from the en-US folder, and paste it into the ```\\\<domain>\SYSVOL\\<domain>\Policies\PolicyDefinitions\en-US ``` _folder._
 
     Example: 
 	```
 		\\contoso.com\SYSVOL\Contoso.com\Policies\PolicyDefinitions\en-US
 	```
+	
    7. The **ThinkVantage** tab is created under the Administrative Templates folder.
 
 	!!! note
@@ -120,6 +122,8 @@ To apply policy settings immediately after configuring the settings for the ADM 
 
    1. From the Windows **Start** menu, click **Run**.
    2. Type _ **gpedit.msc /force** _ and then click **OK**.
+   
+
 
 ### 6.1.4 Group Policy Settings
 
@@ -153,7 +157,7 @@ This table provides the settings for the User Settings policies.
 |                                   |     User                                                                                                                                              |     This setting enables you to use the mapdrv.exe /view  command to create an encrypted value for this field.  The default value is none.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 |                                   |     Password                                                                                                                                          |     This setting enables you to use the mapdrv.exe /view  command to create an encrypted value for this field.  The default value is none.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
-Table 7-2. Computer Configuration \> Administrative Templates \> ThinkVantage \> System Update \> User Settings.
+_Table 7-2. Computer Configuration \> Administrative Templates \> ThinkVantage \> System Update \> User Settings._
 
 </center>
 
@@ -170,10 +174,14 @@ The following table and example provide the settings and values for the **Connec
 |     User                      |     Specifies the username to  use for the connection.                                                    |     Default value: None<br/><br/>      This setting is only used for the  connection type of proxy, the HTTP  proxy, when the proxy server requires  authentication.<br/><br/>     Possible values: Any string |     This setting is used for  authentication to access  the HTTP proxy server.                                                                                                                                                                                                                  |
 |     Password                  |     Specifies the password to  use for the connection.                                                    |     Default value: None<br/><br/>     Possible values: Any string                                                                                                                                    |     This setting is used for  authentication to access  the HTTP proxy server.<br/><br/>     System Update will connect  to the   HTTP proxy server  defined in **ServerName** using  the username defined in **User**.  The end user is prompted for  this information when the  information is needed.          |
 |     AllowProxyFailToDirect    |     If enabled, System Update will  attempt a direct connection if  it cannot connect to proxy server.    |     Default vale:  No<br/><br/>     Possible values:<br/> Yes, No                                                                                                                                         |     This allows users to get updates  while connected to the Internet  away from the office network.                                                                                                                                                                                            |
+_Table 7-3. \UserSettings\Connection_
 
-<div style="text-align:center;padding-bottom:40px;font-style: italic;">Table 7-3. \UserSettings\Connection</div>
+</center>
+
 
 The following table and example provide the settings and values for the **General** key.
+
+<center>
 
 |     Configurable Item                                                                                                                                                                                                                                                                                                                                                              |     Description                                                                                                                                                                                  |     Value                                                                                                                                                           |     Action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -187,7 +195,7 @@ The following table and example provide the settings and values for the **Genera
 |     RepositoryLocation1                                                                                                                                                                                                                                                                                                                                                            |     Specifies the repository folder  path. The key value name should be  RepositoryLocation%N% where N is a  number between 1 and 20,  including 1 and 20.                                       |     Default value: SUPPORTCENTER<br/><br/>      Possible values:<br/>  •SUPPORTCENTER<br/> • A local folder path<br/> • A UNC path to a network share<br/> • A URL path to a web-hosted repository |     This setting specifies the repository location that  update packages will be downloaded from and installed.  The default setting is **SUPPORTCENTER** and enables  System Update to download updates from the Lenovo Help Center.    When SUPPORTCENTER is used it should always be specified as  RepositoryLocation1. You can also specify a repository path  on a network share drive or a URL to a web server, and this  will enable System Update to search for update packages in  the network share or web-hosted repository folder.  System Update will present the most current update packages  from the available repositories when multiple locations are  specified.    |
 |     UNCMaxAttempts                                                                                                                                                                                                                                                                                                                                                                 |     Specifies the maximum number of tries  that System Update will attempt when  connecting to a network share folder  before it completely fails.                                               |     Default value: 2<br/><br/>     Possible values: Any valid integer                                                                                                         |     System Update will attempt the number of tries when connecting  to a network share folder.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |                                                                  
 
-Table 7-4. HKEY\_LOCAL\_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UserSettings\General
+_Table 7-4. HKEY\_LOCAL\_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UserSettings\General_
 
 </center>
 
@@ -234,7 +242,7 @@ _Figure 7-1. ThinInstaller.exe.configuration file._
 |     DebugEnable             |     Specifies whether Thin Installer should  create the log file named  Updates_ApplicabilityRulesTrace.txt.                                                                                                                                                                                              |     Default value: NO<br/><br/>     Possible values:<br/> • YES<br/> • NO                                                                   |     • If **YES**, Thin Installer will  create the log file.<br/>      • If **NO**, Thin Installer will  not create the log file.                                                                                                                                                                                                                                                                                                             |
 |     ContentMode             |     Refers to the status of the update packages.  Set the value depending on the status of  update packages in the repository.                                                                                                                                                                            |     Default value: Active<br/><br/>     Possible values:<br/> • Active<br/> • Test                                                          |     • If **Active**, Thin Installer will search the Update Retriever repository  for update packages in active status.<br/>      • If **Test**, Thin Installer will search  the Update Retriever repository for  update packages in test status.<br/><br/>       **Note**: If there is no database.xml file  in the Update Retriever repository folder,  Thin Installer will ignore the value of  ContentMode and search for all the update  packages.    |
 
-Table 7-5. Description of configurable items.
+_Table 7-5. Description of configurable items._
 
 </center>
 

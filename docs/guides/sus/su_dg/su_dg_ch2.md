@@ -166,7 +166,7 @@ Update Retriever is supported on the following operating systems:
 
 Update Retriever requires Microsoft .NET Framework version 4.5.2 or higher. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
-[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download){:target="_blank"} 
+[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download) 
 
 ### 2.3.2 Languages
 

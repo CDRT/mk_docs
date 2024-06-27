@@ -194,9 +194,9 @@ Finish out the wizard and assign to a group.
 
 ## WMI Classes
 
-You can [extend hardware inventory](https://docs.microsoft.com/en-us/mem/configmgr/core/clients/manage/inventory/extend-hardware-inventory){:target="_blank"}  in Config Manager to collect the data written by Dock Manager on your clients by importing the provided .mof file below:
+You can [extend hardware inventory](https://docs.microsoft.com/en-us/mem/configmgr/core/clients/manage/inventory/extend-hardware-inventory)  in Config Manager to collect the data written by Dock Manager on your clients by importing the provided .mof file below:
 
-[Download](https://download.lenovo.com/cdrt/blog/ConfigMgr-MOF-DockManager.zip){:target="_blank"} 
+[Download](https://download.lenovo.com/cdrt/blog/ConfigMgr-MOF-DockManager.zip) 
 
 An example from Resource Explorer
 
