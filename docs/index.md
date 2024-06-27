@@ -13,6 +13,6 @@ The Commercial Deployment Readiness Team is a small group of dedicated professio
 - [Think Deploy Blog](https://blog.lenovocdrt.com/)
 - [Enterprise Deployment Solutions](https://support.lenovo.com/us/en/solutions/ht104232)
 - [Enterprise Client Management Forum](https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg)
-- On Twitter [@joe_lenovo](https://www.twitter.com/joe_lenovo) or [@LenovoCDRT](https://www.twitter.com/LenovoCDRT)
+- On X (Twitter) [@joe_lenovo](https://www.x.com/joe_lenovo)
 
 We also try to make it to the popular community events such as [Midwest Management Summit](https://mmsmoa.com/), [Workplace Ninja Summit](https://www.wpninjas.ch/), and [Microsoft Ignite](https://myignite.microsoft.com/home).
