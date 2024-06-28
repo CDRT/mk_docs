@@ -36,7 +36,6 @@ The following table lists the configurable and modifiable items for System Updat
 | **SchedulerLock**                                                                                                                        | HKLM\SOFTWARE\WOW6432Node\Lenovo\System   Update\Preferences\UserSettings\Scheduler        |
 | **SearchMode**                                                                                                                           | HKLM\SOFTWARE\WOW6432Node\Lenovo\System   Update\Preferences\UserSettings\Scheduler        |
 
-
 _Table 7-1. Advanced System Update Registry settings_
 
 </center>
@@ -68,14 +67,14 @@ To add the ADMX file and customize the settings, do the following:
     This will extract the System Update ADMX file into the ```C:\SWTOOLS\TOOLS\Admin\ ```	folder.
 
 	!!! note
-		If using an ADMX file and the Group Policy Editor to set policy settings, make sure that you are using the ADMX file released specifically for each application. For example, if customizing policies for System Update, you must use the ADMX file designed for System Update.
+		 If using an ADMX file and the Group Policy Editor to set policy settings, make sure that you are using the ADMX file released specifically for each application. For example, if customizing policies for System Update, you must use the ADMX file designed for System Update.
 
    2. On your server, launch Active Directory.
    3. Click **servername.com** and then click **Properties**.
    4. On the **Group Policy** tab, highlight New **Group Policy Object** and click **Edit.**
 
 	!!! note
-		You can also type _gpedit.msc_ in the **Open** or **Start Search** box to launch the Group Policy Editor.
+		 You can also type _gpedit.msc_ in the **Open** or **Start Search** box to launch the Group Policy Editor.
 
    5. Copy the ADMX file (tvsu.admx) located in the ```C:\SWTOOLS\TOOLS\Admin\ ``` folder and paste the file to ```\\\<domain\>\SYSVOL\\<domain\>\Policies\PolicyDefinitions ``` folder.
 

@@ -1,5 +1,6 @@
 # Memory Configuration #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_memconfig_px1.PNG)
+
+![Memory Config](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_memconfig_px1.PNG)
 
 MRC Promote Warnings
 :	Determines if MRC warnings are promoted to system Level.
@@ -29,8 +30,9 @@ Attempt Fast Cold Boot
 
 
 
-### Memory Topology ###  
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_memtopologysnip.jpg)
+## Memory Topology ##
+
+![Memory Topology](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_memtopologysnip.jpg)
 
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /ts_memtopology.png)-->

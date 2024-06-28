@@ -1,5 +1,7 @@
 # Storage Setup #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_storagesetup_p3twr1.PNG)
+
+![Storage Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_storagesetup_p3twr1.PNG)
+
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /ts_storagesetup_p3twr2.png)
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
@@ -14,8 +16,6 @@
    /ts_storagesetup_px_1.png)
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /ts_storagesetup_px_2.png)-->
-
-
 
 SATA Controller
 :	

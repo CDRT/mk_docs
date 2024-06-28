@@ -1,5 +1,6 @@
-# ATA Drive Setup Settings #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_atadrivesetup.PNG)
+# ATA Drive Setup Settings
+
+![ATA Drive Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_atadrivesetup.PNG)
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /atadrivesetup.png)-->
 
@@ -84,15 +85,14 @@ Configure SATA as
 	| ConfigureSATAas | AHCI, Intel(R) RST with Intel(R) Optane, RAID | yes | Both |
 
 
-### Intel(R) Rapid Storage Technology ###
+## Intel(R) Rapid Storage Technology
    
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/intelrapidstoragetechnology.png)
+![Intel Rapid Storage](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/intelrapidstoragetechnology.png)
 
 !!! note ""
     Only appears when the item `Configure SATA as` is set to `Intel(R) RST with Intel(R) Optane`
 
 For each disk listed, shows information including:
- 
 - Port
 - Model Number
 - Serial Number

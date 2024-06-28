@@ -1,6 +1,6 @@
-# Power Settings 
+# Power Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/power.png)
+![Power](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/power.png)
 
 After Power Loss
 :	Whether the system will stay on after AC power is removed and then restored.
@@ -35,7 +35,7 @@ Enhanced Power Saving Mode
 
 
 Smart Power On
-:	Whether the user can use `Alt` + `P` to power on if the USB keyboard is plugged in the correct USB port. 
+:	Whether the user can use `Alt` + `P` to power on if the USB keyboard is plugged in the correct USB port.
 
 	Options:
 
@@ -47,12 +47,10 @@ Smart Power On
 	| SmartPowerOn | Disabled, Enabled | yes | Intel |
 
 
-
-
 ## Intelligent Cooling - Intel (R) only
-Lenovo's unique system thermal management solution. 
+Lenovo's unique system thermal management solution.
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/intelligentcooling.png)
+![Intelligent Cooling](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/intelligentcooling.png)
 
 Performance Mode
 :	
@@ -69,7 +67,7 @@ Performance Mode
 
 ## AMD-only features
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_power.PNG)
+![AMD Power](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_power.PNG)
 
 <!-- PSU Over load Warning
 

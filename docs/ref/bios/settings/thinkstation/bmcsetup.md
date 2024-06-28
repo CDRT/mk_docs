@@ -10,7 +10,3 @@ BMC Card Support
 
 	1. **Disabled**. Default. Disables use of BMC card and the following BMC items will be hidden.
 	2. Enabled - Enables use of BMC card.
-
-
-
-

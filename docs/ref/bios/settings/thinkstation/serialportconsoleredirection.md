@@ -1,6 +1,6 @@
 # Serial Port Console Redirection #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_serialport.PNG)
+![Serial Port](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_serialport.PNG)
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /amd_serialportconsoleredirection.png)-->
 

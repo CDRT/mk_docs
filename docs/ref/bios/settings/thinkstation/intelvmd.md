@@ -1,7 +1,8 @@
 # Intel(R) VMD Technology #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_1.PNG)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_2.PNG)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_3.PNG)
+
+![Intel VMD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_1.PNG)
+![Intel VMD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_2.PNG)
+![Intel VMD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_3.PNG)
 
 Enable the VMD(Volume Management Device) technology to 
 support configure PCIe storages to VROC(Virtual RAID on 
@@ -26,7 +27,7 @@ M.2 Slot{X}
 
 
 
-PCIe Slot{X} 
+PCIe Slot{X}
 :	Enable/Disable Intel(R) Volume Management Device Technology on PCIe Slot1.
 
 	Options:

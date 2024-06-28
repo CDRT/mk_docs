@@ -210,8 +210,8 @@ Through WMI, you can work with BIOS settings in the following ways:
 This section will describe how to perform various actions using PowerShell to interact with the WMI BIOS Interface. These examples can be used as-is or modified for your particular environment or requirements.
 
 !!! note
-    - BIOS settings and values are case sensitive. 
-	- Settings may vary between models; list settings first to identify the BIOS setting you want to change. 
+    - BIOS settings and values are case sensitive.
+	- Settings may vary between models; list settings first to identify the BIOS setting you want to change.
 	- After making changes to the BIOS settings, you must reboot the computer before the changes will take effect.
 
 ### Get all Current BIOS Settings

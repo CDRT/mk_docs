@@ -1,6 +1,6 @@
 # DASH Configuration #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_dashconfiguration.PNG)
+![AMD Dash Configuration](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_dashconfiguration.PNG)
 
 DASH Support
 :	
@@ -14,11 +14,9 @@ DASH Support
 	| DASHSupport | Disabled, Enabled | yes | AMD |
 
 
+## Console Redirection Settings ##
 
-## Console Redirection Settings 
-
-
-Console Redirection 
+Console Redirection
 :	
 	Options:
 
@@ -33,7 +31,7 @@ Console Redirection
 Console Redirection Terminal Type
 :	
 	!!! note ""
-		The following emulation types are available. <br> ANSI: Extended ASCII char set. <br> VT100: ASCII char set. <br> VT100+: Extends VT100 to support color, function keys, etc. <br> VT-UTF8: Uses UTF8 encoding to map Unicode chars onto 1 or more bytes.<br>
+		The following emulation types are available: <br> - ANSI: Extended ASCII char set. <br> - VT100: ASCII char set. <br> - VT100+: Extends VT100 to support color, function keys, etc. <br> - VT-UTF8: Uses UTF8 encoding to map Unicode chars onto 1 or more bytes.
 
 	Options:
 

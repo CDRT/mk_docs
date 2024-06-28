@@ -1,11 +1,8 @@
 # PCIe Setup #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_pciesetup_px1.PNG)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_pciesetup_px2.PNG)
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_pciesetup_px.PNG)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_pciesetup_px_2.PNG)-->
+![PCIe Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_pciesetup_px1.PNG)
+![PCIe Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_pciesetup_px2.PNG)
+
 
 Re-Size BAR Support
 :	If system has Resizable BAR capable PCIe Devices, this optionEnables or Disables Resizable BAR Support.
@@ -64,9 +61,9 @@ Link Training Timeout(uS)
 <!-- Need to add all of the PCIe Slotx Configurations 
 These will likely be subheader drop downs
 -->
-### PCIe Slot{X} Configuration ###
+## PCIe Slot{X} Configuration ##
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_pcieslotconfig.PNG)
+![PCIe Configuration](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_pcieslotconfig.PNG)
 
 PCIe Port
 :	Select whether to enable or disable this PCIe port.
@@ -123,9 +120,9 @@ Link Speed
 		In the WMI class name, X represents the slot number.
 
 
-### M.2 Slot{X} Configuration ###
+## M.2 Slot{X} Configuration ##
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_m2slotconfig.PNG)
+![M2 Slot Config](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_m2slotconfig.PNG)
 
 Link Speed
 :	Select PCIe Link Speed.
@@ -147,9 +144,9 @@ Link Speed
 		In the WMI class name, X represents the slot number.
 
 
-### MCIO Slot{X}-{Y} Configuration
+## MCIO Slot{X}-{Y} Configuration ##
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_mcioslotconfig.PNG)
+![MCIO Slot Config](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_mcioslotconfig.PNG)
 
 Link Speed
 :	Select PCIe Link Speed.

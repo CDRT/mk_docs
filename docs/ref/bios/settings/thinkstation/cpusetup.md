@@ -1,6 +1,8 @@
 # CPU Setup - Intel (R) #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_cpusetup.PNG)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_cpusetup2.PNG)
+
+![CPU Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_cpusetup.PNG)
+![CPU Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_cpusetup2.PNG)
+
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /cpusetup.png)
 I t(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
@@ -23,7 +25,6 @@ Intel(R) Speed Shift Technology
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| SpeedShiftTechnology | Disabled, Enabled | yes | Intel |
-
 
 
 
@@ -147,7 +148,7 @@ IOMMU
 
 
 C1E Support
-:	C1 is a state where the processor is not executing instructions, but can return to an executing state immediately.<br>
+:	C1 is a state where the processor is not executing instructions, but can return to an executing state immediately.
 
 	Enhanced C1 state (C1E) provides lower power consumption when the computer is idle.  
 

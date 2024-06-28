@@ -1,6 +1,6 @@
 # Security #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_security_1.PNG)
+![Secuirty](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_security_1.PNG)
 
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /ts_security1.png)
@@ -13,6 +13,7 @@
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /security.png)
 -->
+
 Supervisor Password
 :	The supervisor password (SVP) protects the system information stored in UEFI BIOS.
 

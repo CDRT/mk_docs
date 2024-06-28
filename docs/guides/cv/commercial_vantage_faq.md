@@ -1,4 +1,4 @@
-## Commercial Vantage FAQ
+# Commercial Vantage FAQ
 
 !!! note "Can I control the System Update process by command line?"
 	No.  Because Commercial Vantage is a UWP app, the process to get driver and firmware updates cannot be initiated by command line.

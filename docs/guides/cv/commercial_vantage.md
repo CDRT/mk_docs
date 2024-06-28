@@ -13,15 +13,15 @@
 
 This guide is intended for skilled IT administrators who are responsible for deploying and configuring **Commercial Vantage** to PCs in their organization.
 
-If you have suggestions, comments, or questions, please talk to us on our forum! A team of deployment engineers (including the author of this document) is standing by, ready to help with any deployment challenges you are facing: [https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01\_eg](https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg) 
+If you have suggestions, comments, or questions, please talk to us on our forum! A team of deployment engineers (including the author of this document) is standing by, ready to help with any deployment challenges you are facing: [https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01\_eg](https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg)
 
 ## Deployment
 
 ### Commercial Vantage Application
 
-Commercial Vantage is a Windows 10 Modern Application that can be installed directly from the Microsoft Store: [https://www.microsoft.com/store/apps/9NR5B8GVVM13](https://www.microsoft.com/store/apps/9NR5B8GVVM13) 
+Commercial Vantage is a Windows 10 Modern Application that can be installed directly from the Microsoft Store: [https://www.microsoft.com/store/apps/9NR5B8GVVM13](https://www.microsoft.com/store/apps/9NR5B8GVVM13)
 
-Lenovo also makes available the MSIXBUNDLE (and related files) that can be used for side-loading. This type of installation can be performed using commands provided by Windows 10. For more information, please refer to the following Microsoft documentation: [https://technet.microsoft.com/library/dn376490(v=wps.640).aspx](https://technet.microsoft.com/library/dn376490(v=wps.640).aspx) 
+Lenovo also makes available the MSIXBUNDLE (and related files) that can be used for side-loading. This type of installation can be performed using commands provided by Windows 10. For more information, please refer to the following Microsoft documentation: [https://technet.microsoft.com/library/dn376490(v=wps.640).aspx](https://technet.microsoft.com/library/dn376490(v=wps.640).aspx)
 
 ### Lenovo System Interface Foundation (LSIF)
 
@@ -29,11 +29,12 @@ By default, Lenovo System Interface Foundation keeps itself up to date with upda
 
 The installer for Lenovo System Interface Foundation can be downloaded from here (it is also included in the zip file):
 
-[https://filedownload.lenovo.com/enm/sift/core/System-Interface-Foundation-Update-64.exe](https://filedownload.lenovo.com/enm/sift/core/System-Interface-Foundation-Update-64.exe) 
+[https://filedownload.lenovo.com/enm/sift/core/System-Interface-Foundation-Update-64.exe](https://filedownload.lenovo.com/enm/sift/core/System-Interface-Foundation-Update-64.exe)
 
 Installation of this package can be performed silently as follows:
 
-```cmd
+```
+cmd
 System-Interface-Foundation-Update-64.exe /verysilent /NORESTART
 ```
 
@@ -41,7 +42,8 @@ System-Interface-Foundation-Update-64.exe /verysilent /NORESTART
 
 The installer for Lenovo Vantage Service is included in the zip file. It is installed silently as follows:
 
-```cmd
+```
+cmd
 VantageService.3.6.15.0-lite.exe /verysilent /NORESTART
 ```
 
@@ -113,9 +115,9 @@ This diagram illustrates the System Update workflow in Commercial Vantage
 ![img](https://cdrt.github.io/mk_docs/img/cv/vantage_su_flow.png)
 
 !!! note
-	With version 10.2208.22.0 the repository path can now also be specified as a URL path to an accessible cloud storage location.
+ With version 10.2208.22.0 the repository path can now also be specified as a URL path to an accessible cloud storage location.
 
-See here for more information about using Update Retriever to create your own custom repository of updates: [https://support.lenovo.com/us/en/solutions/ht037099](https://support.lenovo.com/us/en/solutions/ht037099) 
+See here for more information about using Update Retriever to create your own custom repository of updates: [https://support.lenovo.com/us/en/solutions/ht037099](https://support.lenovo.com/us/en/solutions/ht037099)
 
 ### Warranty Information
 
@@ -125,4 +127,4 @@ You can use Commercial Vantage to write the system warranty information to WMI (
 
 On ThinkPads, you can use Commercial Vantage to write the battery information to WMI (in the ROOT\Lenovo namespace) by setting the policy in **Computer Configuration -> Administrative Templates -> Commercial Vantage -> Device -> Device Settings -> Power**. The Lenovo\_Battery class stores the same information about the battery that you can see in the Commercial Vantage application.
 
-Need help with other configurations? Have questions? Reach out to us on our forum! [https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01\_eg](https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg) 
+Need help with other configurations? Have questions? Reach out to us on our forum! [https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01\_eg](https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg)

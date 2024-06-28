@@ -27,10 +27,9 @@ There are multiple functional tabs in System Update, located to the left-hand si
 
 Following the numerical order above, the upcoming sections will explain each of the System Update functions in further detail.
 
-!!! note 
+!!! note
 	If the user does not want to proceed with the System Update function they are currently on, the user must click  **Cancel**  before the tool will allow you to exit the function tab and move on to another one.
    
-
 ### 1. Get New Updates
 
 System Update will automatically search for new updates from the Lenovo support site based on the machine type and operating system. Once the updates are found, the tool separates each update applicable to the machine, into critical updates, recommended updates, and optional updates. The critical updates will automatically be checked to download, unlike the recommended or optional updates. The user can check and uncheck any of the updates. The user must click on each individual update tab (critical, recommended, and optional updates) to select the desired update packages before continuing. There is an option to select all the updates or the user can individually select them one by one.
@@ -79,7 +78,6 @@ When using System Update to search for update packages, System Update will displ
 !!! note
 	Some of updates may depend on certain Window components. Ensure that your Windows operating system is up to date by running Windows Update.
    
-
 Once all the updates desired have been selected, press **Next**. A review of the updates selected will be displayed. This will also provide a second chance to select updates to defer installation or deselect a package before they are downloaded and installed on the machine. Once the &quot;Download&quot; button is clicked, if any of the packages require a reboot after installation, a message box will appear letting the user know which package(s) requires it. Wait for the machine to reboot and finish the installation before doing anything else. Do not manually shut off the machine or put it into sleep mode during this time.
 
 <center>
@@ -203,6 +201,7 @@ The following table provides the keyboard shortcuts for the main functions of Sy
 | Context Help  | F1  |
 
 _Table 3-1. System Update keyboard shortcuts_
+
 </center>
 
 ## 3.2 Thin Installer
@@ -218,7 +217,6 @@ _![image](https://cdrt.github.io/mk_docs/img/guides/su/img3-14.png)_
 _Figure 3-14. Default repository._
 
 </center>
-
 
 ### Running Thin Installer Manually
 
@@ -266,10 +264,8 @@ _Figure 3-19. Thin Installer reboot message._
 
 </center>
 
-
 !!! note
 	BIOS installations require user's attention to ensure the update is not interrupted. They cannot be deployed in an unattended mode. <br/> 2. Thin Installer installs the updates that force a reboot or shut down after all other updates to reduce the number of reboots.
-
 
 ### Windows 7 and Later OS Considerations
 
@@ -277,7 +273,7 @@ Some updates that Thin Installer will install may automatically reboot or shut d
 
 With considerations for Windows 7 and later operating systems, after you log in to the Windows desktop, the UAC might stop the program from continuing to install the remaining update packages. To install the remaining update packages, you need to manually click the **Windows has blocked some startup programs** message on the system tray and select **Run blocked program** to run Thin Installer.
 
-!!! warning 
+!!! warning
 	If the **Windows has blocked some startup programs** message does not display on the system tray, you will need to manually run Thin Installer, search for the remaining updates, and install them.
 
 ## 3.3 Update Retriever
@@ -500,7 +496,6 @@ To import updates, do the following:
 	!!! note
 		Each update must be in its own subfolder. If you are importing one update, specify the directory that contains that update. If you are importing multiple updates, put each update subfolder under the same parent directory and specify that parent directory.
    
-
    4. Select **Search subfolders** if you want Update Retriever to search through all subfolders located in the specified directory.
    5. Click **Next**. Update Retriever searches the folder that you specified for updates. When the search completes, the Review updates to import window opens. You can double-click the title of an update to view its additional details.
    6. Select updates that you want to import or select **Select all** to include all updates displayed. Then click **Import**. The import process begins. When the import process completes, the Import completed window opens and the updates that you have selected are imported into your repository folder.
@@ -512,8 +507,6 @@ To import updates, do the following:
 _Figure 3-31. Import Updates with Update Retriever_
 
 </center>
-
-
 
 #### Assigning Systems
 

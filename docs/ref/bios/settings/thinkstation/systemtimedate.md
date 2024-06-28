@@ -1,9 +1,10 @@
 # System Time and Date #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_systemtimedate.PNG)
+
+![System Time Date](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_systemtimedate.PNG)
 
 
 System Time
-:	Set the system time. 
+:	Set the system time.
 
 	Use arrow keys to switch between time fields.
 

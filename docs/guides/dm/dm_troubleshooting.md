@@ -1,8 +1,8 @@
-## Dock Manager Troubleshooting Tips
+# Dock Manager Troubleshooting Tips
 
-### Scheduled Task Does Not Launch
+## Scheduled Task Does Not Launch
 
-#### Background & Problem
+### Background & Problem
 
 Dock Manager checks the new firmware in the repository at a scheduled time. IT admins can use Windows Group Policy to push scheduling settings to client's PCs.​
 
@@ -10,7 +10,7 @@ Dock Manager checks the new firmware in the repository at a scheduled time. IT a
 
 Sometimes customer's may encounter an issue that the scheduled firmware checking task does not launch at an expected time.​ This document will explain how to troubleshoot the issue.
 
-#### Critical Steps for Troubleshooting
+### Critical Steps for Troubleshooting
 
 There are 3 critical steps for troubleshooting​:
 
@@ -22,9 +22,9 @@ There are 3 critical steps for troubleshooting​:
 
 The following example is based on a weekly firmware checking task is set to run at **6:05 am** on **every Monday and Tuesday**.
 
-##### Check Group Policy
+#### Check Group Policy
 
-1. IT admins should first check Group Policy settings on domain controller. 
+1. IT admins should first check Group Policy settings on domain controller.
 
 	![Group Policy](https://cdrt.github.io/mk_docs/img/guides/dm/ts1.PNG)
 
@@ -36,21 +36,21 @@ The following example is based on a weekly firmware checking task is set to run 
 
 	![RunOn](https://cdrt.github.io/mk_docs/img/guides/dm/ts3.PNG)
 
-4. Make sure **RunAt** is set to **Enabled** and configured as **06: 05:00**. 
+4. Make sure **RunAt** is set to **Enabled** and configured as **06: 05:00**.
 
 	![RunAt](https://cdrt.github.io/mk_docs/img/guides/dm/ts4.PNG)
 
-##### Check the Registry
+#### Check the Registry
 
 IT admins should then check the registry on a client PC where the issue can be replicated. In the illustrated path, make sure **Frequency**, **RunAt** and **RunOn** exists with correct values. Refer to the screenshot below:
 
 ![Registry](https://cdrt.github.io/mk_docs/img/guides/dm/ts5.PNG)
 
-##### Check Task Scheduler
+#### Check Task Scheduler
 
-As the last steps, IT admins should check Task Scheduler on the same client PC. 
+As the last steps, IT admins should check Task Scheduler on the same client PC.
 
-1. Right click **Run as administrator** to launch Task Scheduler.​
+1. Right click **Run as administrator** to launch Task Scheduler.
 
 	- Task Scheduler should be launched with elevated privileges otherwise some tasks may not be shown.
 
@@ -64,7 +64,7 @@ As the last steps, IT admins should check Task Scheduler on the same client PC.
 
 4. Check **Last Run Time** and **Last Run Result** to find more details and possible cause.
 
-#### Conclusion
+### Conclusion
 
 In Dock Manager, scheduled firmware checking task failing to run is normally caused by improperly deployed group policy settings.​
 

@@ -2,7 +2,6 @@
 
 ![Main](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_main_p3twr.PNG)
 
-
 These settings affect the appearance of the BIOS Setup interface on the system.
 
 Language

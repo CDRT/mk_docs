@@ -353,7 +353,7 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 
 	This cmdlet gets the BIOS password state of the system and interprets it to return the set of passwords set on the device. If the -Number switch is used, then the PasswordState number will be returned instead.
 
-	#### Parameters	
+	#### Parameters
 
 	| Parameter | Type | Mandatory |
 	| --- | --- | --- |

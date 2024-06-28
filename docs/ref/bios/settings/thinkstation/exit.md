@@ -1,8 +1,7 @@
 # Exit Settings #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_exit.PNG)
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /exit.png)-->
+![Exit](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_exit.PNG)
+
 
 Save Changes and Exit
 :	Exit system Setup after saving the changes.
