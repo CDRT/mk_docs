@@ -28,5 +28,3 @@
 	Yes.  When System Update is used by a standard user, a temporary admin account is created to enable the installation of updates.  This account has a long, complex, random password that is not recorded anywhere.  
 
 	After the updates have been installed, the account will be deleted automatically. In the case where a Reboot Type 1 (Forces Reboot) update is applied, the system will reboot before the account can be removed.  System Update will remove the account the next time it runs.
-
-

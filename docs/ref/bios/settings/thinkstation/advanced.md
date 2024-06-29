@@ -1,10 +1,9 @@
-# Advanced #
-
+# Advanced
 
 Advanced - Intel version
 
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_advanced_p3twr1.PNG)
+![Advanced](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_advanced_p3twr1.PNG)
 <!-- ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /ts_advanced_px1.png)
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
@@ -101,16 +100,11 @@ Intel(R) DPTF Support
 	| IntelDPTFSupport | Disabled, Enabled | yes | Intel |
 
 
-
-
-
 Advanced - AMD version
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amdadvanced.PNG)
+![Advanced AMD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amdadvanced.PNG)
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /amd_advanced.png)-->
 
 <!-- !!! note ""
     Please see sidebar for Advnaced AMD Settings
 TODO: confirm layout because each setting is a seperate page in the sidebar Maybe put a statement there -->
-
-

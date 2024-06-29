@@ -1,6 +1,6 @@
-# Automatic Power On Settings #
+# Automatic Power On Settings
 
-### General ###
+## General
 
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/autopoweron.png)
 
@@ -20,8 +20,6 @@ Wake on LAN
 	| WakeonLAN | Enabled, Disabled | yes | Both |
 
 
-
-
 Wake from Serial Port Ring
 :	
 	Options:
@@ -34,11 +32,10 @@ Wake from Serial Port Ring
 	| WakefromSerialPortRing | Enabled, Disabled | yes | Both |
 
 
-
-Wake Up on Alarm 
+Wake Up on Alarm
 :	Whether to turn on your system
 	 - one time,
-	 - repeating on a specific day of the month, or week, or 
+	 - repeating on a specific day of the month, or week, or
 	 - daily
 
 	Options:
@@ -123,7 +120,8 @@ Alarm Day of Week
 
 
 ## User Defined Alarm
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_userdefinedalarm.PNG)
+
+![User Defined Alarm](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_userdefinedalarm.PNG)
 
 Settings per {Weekday}.
 
@@ -142,7 +140,7 @@ Settings per {Weekday}.
 
 
 
-## User Defined Alarm Time (HH : MM : SS) ###
+## User Defined Alarm Time (HH : MM : SS)
 
 Specify the time when the system is to wake up in the format of hh:mm:ss.
 

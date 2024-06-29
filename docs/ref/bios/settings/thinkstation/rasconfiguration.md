@@ -1,5 +1,6 @@
 # RAS Configuration #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_rasconfiguration.PNG)
+
+![AMD RAS Config](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_rasconfiguration.PNG)
 
 Post Package Repair (PPR)
 :	Whether to enable PPR support hard Post Package Repair.

@@ -1,10 +1,6 @@
 # Intel(R) Thunderbolt Settings #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelthunderbolt2.PNG)
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   telthunderbolt.png)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /intelthunderbolt.png)-->
+
+![Intel Thunderbolt](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelthunderbolt2.PNG)
 
 Intel Thunderbolt Technology
 :	
@@ -94,4 +90,3 @@ Ignore Thunderbolt Option ROM
 	|:---|:---|:---|:---|
 	|  |  |  | Both |
 -->
-

@@ -1,7 +1,8 @@
 # Audio Setup Settings #
 
-### Intel version ###
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_audiosetup.PNG)
+## Intel version
+
+![Audio Setup Intel](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_audiosetup.PNG)
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /audiosetup.png)-->
 
@@ -41,7 +42,7 @@ Internal Speaker
 
 ### AMD Version ###
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_audiosetup.PNG)
+![Audio Setup AMD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_audiosetup.PNG)
 
 Front Audio Controller
 :	Whether to enable Front Audio Controller.
@@ -71,5 +72,3 @@ Rear Audio Controller
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| RearAudioController | Disable, Enable | yes | AMD |
-
-

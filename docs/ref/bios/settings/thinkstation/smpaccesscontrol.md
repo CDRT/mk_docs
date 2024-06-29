@@ -1,6 +1,6 @@
 # System Management Password Access Control Settings #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_smpaccesscontrol.png)
+![SMP Access Control](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_smpaccesscontrol.png)
 
 Access Security Settings
 :	Whether to allow SMP (System Management Password) to have the same authority as SVP (Supervisor Password) to control security settings.

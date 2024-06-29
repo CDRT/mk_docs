@@ -23,7 +23,7 @@ Example: /CM -search A -action INSTALL -includerebootpackages 3 -nolicense -expo
 
 This will prevent System Update from re-enabling the default tasks.
 
-### Parameters:
+### Parameters
 
 !!! note
 	The parameter of -schtask should not be used in a custom command line.
@@ -125,7 +125,7 @@ Thin Installer must be executed with administrative privileges in order to funct
 C:\\<source folder>\ThinInstaller.exe /CM -search R -action INSTALL -includerebootpackages 3 -noreboot -noicon -repository <path> -exporttowmi
 ```
 
-### Parameters:
+### Parameters
 
 #### /CM
 

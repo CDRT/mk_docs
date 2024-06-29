@@ -1,6 +1,6 @@
 # Secure Boot Settings #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_secureboot.png)
+![Secure Boot](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_secureboot.png)
 
 ## General
 
@@ -91,14 +91,13 @@ Allow Microsoft 3rd Party UEFI CA
 
 
 ## Key Management
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/securebootkeysmanagement.png)
+
+![Key Management](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/securebootkeysmanagement.png)
 
 Platform Key (PK)</summary>
 :	
 	!!! note ""
 		The platform key establishes a trust relationship between the platform owner and the platform firmware. The platform owner enrolls the public half of the key into the platform firmware. The platform owner can later use the private half of the key to change platform ownership or to enroll a Key Exchange Key. 
-
-
 
 
 Key Exchange Key (KEK)</summary>

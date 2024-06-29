@@ -1,4 +1,4 @@
-## Deploying with Microsoft Configuration Manager (MEMCM)
+# Deploying with Microsoft Configuration Manager (MEMCM)
 
 Dock Manager is provided as an executable.  Here's an example of how to deploy with Microsoft Endpoint Manager Configuration Manager (ConfigMgr) using the Application model.
 
@@ -47,14 +47,19 @@ Set the deployment type name and click **Next**
 Enter the content location path to the Dock Manager executable
 
 Install command:
+
 ```
 "dock_manager_setup.exe" /VERYSILENT
 ```
+
 Uninstall command:
+
 ```
 unins000.exe /SILENT
 ```
+
 Uninstall start in:
+
 ```
 %ProgramFiles%\Lenovo\Dock Manager
 ```
@@ -70,10 +75,13 @@ Set the detection rule setting type to **Registry**
 Hive: **HKLM**
 
 Key:
+
 ```
 SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DockManager_is1
 ```
+
 Value:
+
 ```
 DisplayVersion
 ```
@@ -83,6 +91,7 @@ Data Type: **String**
 Tick the radio button for **This registry setting must satisfy the following rule...**
 Operator: **Equals**
 Value:
+
 ```
 1.0.0.125
 ```
@@ -196,7 +205,7 @@ Finish out the wizard and assign to a group.
 
 You can [extend hardware inventory](https://docs.microsoft.com/en-us/mem/configmgr/core/clients/manage/inventory/extend-hardware-inventory)  in Config Manager to collect the data written by Dock Manager on your clients by importing the provided .mof file below:
 
-[Download](https://download.lenovo.com/cdrt/blog/ConfigMgr-MOF-DockManager.zip) 
+[Download](https://download.lenovo.com/cdrt/blog/ConfigMgr-MOF-DockManager.zip)
 
 An example from Resource Explorer
 

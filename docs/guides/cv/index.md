@@ -16,4 +16,4 @@ This driver is required to allow the **Commercial Vantage** to provide control o
 
 This package installs the Lenovo System Interface Foundation plugins that are required for **Commercial Vantage**
 
-The latest version can always be found at [https://support.lenovo.com/solutions/hf003321-lenovo-vantage-for-enterprise](https://support.lenovo.com/solutions/hf003321-lenovo-vantage-for-enterprise) 
+The latest version can always be found at [https://support.lenovo.com/solutions/hf003321-lenovo-vantage-for-enterprise](https://support.lenovo.com/solutions/hf003321-lenovo-vantage-for-enterprise)

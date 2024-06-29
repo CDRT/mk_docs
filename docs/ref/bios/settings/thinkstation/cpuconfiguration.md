@@ -1,7 +1,7 @@
 # CPU Configuration #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_cpuconfiguration.PNG)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_cpuconfiguration2.PNG)
+![AMD Configuration](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_cpuconfiguration.PNG)
+![AMD Configuration](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_cpuconfiguration2.PNG)
 
 ### Processor ID ###
 
@@ -124,6 +124,3 @@ CPU C6 report
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| CPUC6Report | Disable, Enable | yes | AMD |
-
-
-

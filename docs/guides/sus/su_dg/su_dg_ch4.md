@@ -9,7 +9,7 @@ When pulling content from Lenovo, System Update uses HTTPS to access content at 
 There are no special ports required to be opened for System Update. In some cases the System Update application itself will need to be white listed to have access to the Internet. To ensure complete access for System Update to function properly, enable the following programs:
 
 ```CMD
-	%PROGRAMFILES%\Lenovo\System Update\TvsuCommandLauncher.exe	
+	%PROGRAMFILES%\Lenovo\System Update\TvsuCommandLauncher.exe
 
 	%PROGRAMFILES%\Lenovo\System Update\Tvsukernel.exe
 ```

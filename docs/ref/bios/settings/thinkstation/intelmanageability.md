@@ -1,6 +1,6 @@
-# Intel(R) Manageability Settings 
+# Intel(R) Manageability Settings #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelmanageability.PNG)
+![Intel Manageability](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelmanageability.PNG)
 
 Intel(R) Manageability
 :	
@@ -89,7 +89,7 @@ Console Type
 
 
 
-USB Provisioning 
+USB Provisioning
 :	
 	Options:
 

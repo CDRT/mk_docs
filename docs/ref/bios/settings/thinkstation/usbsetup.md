@@ -1,5 +1,6 @@
 # USB Setup Settings #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_usbsetup.PNG)
+
+![USB Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_usbsetup.PNG)
 
 AMD version of USB Setup
 :	
@@ -70,7 +71,7 @@ XHCI Hand-off
 
 
 
-### USB hardware delays and time-outs: ###
+## USB hardware delays and time-outs: ##
 
 USB Enumeration Delay
 :	Whether extra delay is added when host performs USB enumeration.

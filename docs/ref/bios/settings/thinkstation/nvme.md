@@ -1,7 +1,7 @@
 # NVMe Setup #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_nvme.PNG)
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /amd_nvme.png)-->
+
+![NVME](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_nvme.PNG)
+
 
 NVMe RAID Mode
 :	Whether to enable NVMe RAID mode.
@@ -19,4 +19,3 @@ NVMe RAID Mode
 	| NVMeRAIDMode | Disable, Enable | ACL | AMD |
 
 <!-- TODO: clarify ACL -->
-

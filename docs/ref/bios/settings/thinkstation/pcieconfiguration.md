@@ -1,8 +1,7 @@
 # PCIe Configuration #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_pcieconfiguration.PNG)
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /amd_pcieconfiguration.png)-->
+![PCIe Config](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_pcieconfiguration.PNG)
+
 
 Above 4G Decoding
 :	Whether to enable 64bit capable devices to be decoded in Above 4G Address Space (only if system supports 64bit PCI decoding).
@@ -51,9 +50,6 @@ ASPM Support
 
 	!!! note ""
 		Enabling ASPM may cause some PCIe devices to fail.
-
-
-
 
 
 Extended Synch

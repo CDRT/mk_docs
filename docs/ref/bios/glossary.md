@@ -1,6 +1,6 @@
 # Glossary of Terms #
 
-### Administrator (hard disk) Password
+## Administrator (hard disk) Password
 
 Hard disk password, available if `Dual Password` is enabled.
 - ThinkPad: Admin + User password
@@ -19,7 +19,7 @@ Admin and Master are synonyms.
 
 ---
 
-### AHC 
+## AHC 
 
   Advanced Host Controller Interface 
  
@@ -35,7 +35,7 @@ Admin and Master are synonyms.
 
 ---
 
-### AMT 
+## AMT 
 
   Intel® Active Management Technology
  
@@ -55,7 +55,7 @@ Admin and Master are synonyms.
 
 ---
 
-### ASPM 
+## ASPM 
 
   Active State Power Management 
  
@@ -75,7 +75,7 @@ PCI Express power management for power saving while fully active.
 
 ---
 
-### ATA 
+## ATA 
 
   Advanced Technology Attachment (Hard Disk Drive)
 
@@ -96,7 +96,7 @@ PCI Express power management for power saving while fully active.
 
 ---
 
-### Audit mode
+## Audit mode
 
  Enables programmatic discovery of signature list combinations that successfully authenticate installed EFI images without the risk of rendering a system unbootable.
  
@@ -115,7 +115,7 @@ PCI Express power management for power saving while fully active.
 
 ---
 
-### BIOS 
+## BIOS 
 
 
   Basic Input/Output System
@@ -131,7 +131,7 @@ PCI Express power management for power saving while fully active.
 
 ---
 
-### BIOS Self-healing 
+## BIOS Self-healing 
 
  BIOS is programmed to restore the machine to its previous state through an uncorrupted, secure backup. 
 
@@ -144,7 +144,7 @@ PCI Express power management for power saving while fully active.
 
 ---
 
-### CA 
+## CA 
 
   Certification Authority
  
@@ -164,7 +164,7 @@ Organization that verifies identity and issues public key certificates to partie
 
 ---
 
-### C State
+## C State
 
  Core Power States 
  
@@ -180,7 +180,7 @@ Organization that verifies identity and issues public key certificates to partie
 
 ---
 
-### Custom Mode
+## Custom Mode
  
   Custom Mode allows a user to install their own set of keys. The specifications for Secure Boot state allow a boot to occur in Custom Mode without a PK. This allows an OS to enroll a new PK which would then be used to validate its own KEK, db, and dbx.
   
@@ -195,7 +195,7 @@ Organization that verifies identity and issues public key certificates to partie
 
 ---
 
-### DASH 
+## DASH 
 
   Desktop and mobile Architecture for System Hardware
  
@@ -208,7 +208,7 @@ Organization that verifies identity and issues public key certificates to partie
 
 ---
 
-### Deployed mode
+## Deployed mode
 
 In Deployed Mode, PK must be installed and the BIOS performs signature verification on programmatic attempts to update policy objects.
 
@@ -221,7 +221,7 @@ In Deployed Mode, PK must be installed and the BIOS performs signature verificat
 
 ---
 
-### DHCP 
+## DHCP 
 
   Dynamic Host Configuration Protocol 
  
@@ -238,7 +238,7 @@ In Deployed Mode, PK must be installed and the BIOS performs signature verificat
 
 ---
 
-### DPTF 
+## DPTF 
 
   Dynamic Platform and Thermal Framework 
 
@@ -250,7 +250,7 @@ Intel Dynamic Platform and Thermal Framework (IDPTF) is a power and thermal mana
 
 ---
 
-### DRAM 
+## DRAM 
 
   Dynamic Random-Access Memory 
  
@@ -266,7 +266,7 @@ Intel Dynamic Platform and Thermal Framework (IDPTF) is a power and thermal mana
 
 ---
 
-### EAP 
+## EAP 
 
   Extensible Authentication Protocol 
 
@@ -285,7 +285,7 @@ Intel Dynamic Platform and Thermal Framework (IDPTF) is a power and thermal mana
 
 ---
 
-### EEPROM 
+## EEPROM 
 
 Electrically Erasable Programmable Read-Only Memory
  
@@ -297,7 +297,7 @@ Electrically Erasable Programmable Read-Only Memory
 
 ---
 
-### EFI 
+## EFI 
 
 Extensible Firmware Interface
 
@@ -313,7 +313,7 @@ Used in the context of HTTPS Boot.
 
 ---
 
-### EIST 
+## EIST 
 
   Enhanced Intel SpeedStep® Technology 
  
@@ -327,7 +327,7 @@ Used in the context of HTTPS Boot.
 
 ---
 
-### EPP 
+## EPP 
 
   Enhanced Parallel Port 
  
@@ -343,7 +343,7 @@ Used in the context of HTTPS Boot.
 
 ---
 
-### Flash BIOS
+## Flash BIOS
 
   Updating the BIOS.
    
@@ -357,14 +357,14 @@ Used in the context of HTTPS Boot.
 
 ---
 
-###  Form Factor
+##  Form Factor
   
   The size and spatial design of the computer and its individual components. Broadly similar or the same across a model line. 
    
 
 ---
 
-### GPU 
+## GPU 
 
 Graphics Processing Unit
 
@@ -382,7 +382,7 @@ Specialized processor originally designed to accelerate graphics rendering, able
 
 ---
 
-### HDD 
+## HDD 
 
   Hard Disk Drive 
  
@@ -400,7 +400,7 @@ Specialized processor originally designed to accelerate graphics rendering, able
 
 ---
 
-### HDP 
+## HDP 
 
   Hard Disk Password 
  
@@ -420,7 +420,7 @@ Specialized processor originally designed to accelerate graphics rendering, able
 
 ---
 
-### IOMMU 
+## IOMMU 
 
    Input-Output Memory Management Unit
  
@@ -436,7 +436,7 @@ Specialized processor originally designed to accelerate graphics rendering, able
 
 ---
 
-### IRQ 
+## IRQ 
 
   Interrupt Request Line
  
@@ -449,7 +449,7 @@ Specialized processor originally designed to accelerate graphics rendering, able
 
 ---
 
-### ITC 
+## ITC 
 
   Imaging Technology Center
 
@@ -465,7 +465,7 @@ Specialized processor originally designed to accelerate graphics rendering, able
 
 ---
 
-### Lenovo Diagnostics
+## Lenovo Diagnostics
  
   Tool for testing Lenovo computers. Composed from Modules (diagnostics for a group of devices), tools for creating custom diagnostic scripts, system information, and log history. 
 
@@ -478,7 +478,7 @@ Specialized processor originally designed to accelerate graphics rendering, able
 
 ---
 
-### Magic Packet
+## Magic Packet
 
  Network packet specific to the network card, used in the Wake On LAN feature. 
 
@@ -492,7 +492,7 @@ Specialized processor originally designed to accelerate graphics rendering, able
 
 ---
 
-### (M)HDP 
+## (M)HDP 
 
   (Master) Hard Disk Password. 
 
@@ -509,7 +509,7 @@ Admin (hard disk) password.
 
 ---
 
-### MDT 
+## MDT 
 
   Microsoft Deployment Toolkit 
  
@@ -519,7 +519,7 @@ Admin (hard disk) password.
 
 ---
 
-### MEBx 
+## MEBx 
 
    Intel® Management Engine BIOS Extension
 
@@ -537,7 +537,7 @@ A BIOS menu extension on the Intel® AMT system that can be used to view and man
 
 ---
 
-### ME 
+## ME 
 
   
  Intel ® Management Engine
@@ -556,7 +556,7 @@ A BIOS menu extension on the Intel® AMT system that can be used to view and man
 
 ---
 
-### MemTest86 
+## MemTest86 
 
   Commonly used memory (RAM) testing application. 
  
@@ -569,7 +569,7 @@ A BIOS menu extension on the Intel® AMT system that can be used to view and man
 
 ---
 
-### MFG (mode) 
+## MFG (mode) 
 
   Manufacturing Mode 
  
@@ -579,7 +579,7 @@ A BIOS menu extension on the Intel® AMT system that can be used to view and man
 
 ---
 
-### NFC 
+## NFC 
 
   Near-Field Communication
 
@@ -593,7 +593,7 @@ A BIOS menu extension on the Intel® AMT system that can be used to view and man
 
 ---
 
-### NIC 
+## NIC 
 
   Network Interface Controller / Card
   
@@ -609,7 +609,7 @@ A BIOS menu extension on the Intel® AMT system that can be used to view and man
 
 ---
 
-### NVMe 
+## NVMe 
 
 Non-Volatile Memory Host Controller Interface Specification
 
@@ -629,7 +629,7 @@ Open, logical-device interface specification for accessing a computer's non-vola
 
 ---
 
-### ODM 
+## ODM 
 
   Original Design Manufacturer 
  
@@ -641,7 +641,7 @@ A company that designs and manufactures a product that is eventually rebranded b
 
 ---
 
-### OEM 
+## OEM 
 
   Original Equipment Manufacturer  
  
@@ -657,7 +657,7 @@ A company that designs and manufactures a product that is eventually rebranded b
 
 ---
 
-### OOB 
+## OOB 
 
   Out-of-band
 
@@ -673,7 +673,7 @@ A company that designs and manufactures a product that is eventually rebranded b
 
 ---
 
-### Optane™
+## Optane™
 
 Standalone memory device that combines storage capacity and system acceleration.
  
@@ -686,7 +686,7 @@ Standalone memory device that combines storage capacity and system acceleration.
 
 ---
 
-### OSD 
+## OSD 
 
   Operating System Deployment 
  
@@ -699,7 +699,7 @@ Standalone memory device that combines storage capacity and system acceleration.
 
 ---
 
-### PCIe
+## PCIe
 
 PCI (Peripheral Component Interconnect) Express
 
@@ -717,7 +717,7 @@ Serial expansion bus standard.
 
 [ASPM](https://docs.lenovocdrt.com/#/bios/glossary?id=aspm){:target=”_blank”} , [GPU](https://docs.lenovocdrt.com/#/bios/glossary?id=gpu)
 
-### PCR 
+## PCR 
 
   Platform Configuration Register
 
@@ -736,7 +736,7 @@ Serial expansion bus standard.
 
 ---
 
-### PEAP / EAP 
+## PEAP / EAP 
 
   (Protected) Extensible Authentication Protocol
  
@@ -752,7 +752,7 @@ EAP is an authentication framework that supports multiple authentication methods
 
 ---
 
-### PK 
+## PK 
 
   Platform Key 
 
@@ -768,7 +768,7 @@ EAP is an authentication framework that supports multiple authentication methods
 
 ---
 
-### Platform
+## Platform
 
  
   A specific combination of hardware and software. 
@@ -780,7 +780,7 @@ EAP is an authentication framework that supports multiple authentication methods
 
 ---
 
-### POP 
+## POP 
 
   Power On Password 
 
@@ -798,7 +798,7 @@ EAP is an authentication framework that supports multiple authentication methods
 
 ---
 
-### POST 
+## POST 
 
   Power On Self Test 
 
@@ -814,7 +814,7 @@ EAP is an authentication framework that supports multiple authentication methods
 
 ---
 
-### Predesktop
+## Predesktop
 
 The Rescue and Recovery Predesktop Area provides an emergency workspace for users who are unable to start Windows on their computers. Running under Windows PE (Preinstallation Environment), the environment offers the Windows look, feel, and function and helps users solve problems without consuming IT staff time.
   
@@ -828,7 +828,7 @@ The Rescue and Recovery Predesktop Area provides an emergency workspace for user
 
 ---
 
-### PXE 
+## PXE 
 
   Preboot eXecution Environment 
 
@@ -848,7 +848,7 @@ The Rescue and Recovery Predesktop Area provides an emergency workspace for user
 
 ---
 
-### RAID 
+## RAID 
 
   Redundant Array of Independent Disks 
 
@@ -866,7 +866,7 @@ The Rescue and Recovery Predesktop Area provides an emergency workspace for user
 
 ---
 
-### RST 
+## RST 
 
   Rapid Storage Technology 
  
@@ -886,7 +886,7 @@ Gives enhanced performance and lower power consumption. When using more than one
 
 ---
 
-### SATA 
+## SATA 
 
   Serial AT ("Advanced Technology") Attachment 
 
@@ -905,7 +905,7 @@ Gives enhanced performance and lower power consumption. When using more than one
 
 ---
 
-### (SC)CM 
+## (SC)CM 
 
   Configuration Manager or System Center Configuration Manager 
  
@@ -916,7 +916,7 @@ Gives enhanced performance and lower power consumption. When using more than one
  
 ---
 
-### SDB(M) 
+## SDB(M) 
 
   System Deployment Boot Mode 
 
@@ -927,7 +927,7 @@ Gives enhanced performance and lower power consumption. When using more than one
 
 ---
 
-### Security Chip
+## Security Chip
  
   A type of Trusted Platform Module (TPM) implemented as a separate chip. 
   
@@ -945,7 +945,7 @@ TPM
 
 ---
 
-### SEL 
+## SEL 
 
   System Event Log 
  
@@ -955,7 +955,7 @@ TPM
 
 ---
 
-### Setup mode
+## Setup mode
 
  Enables installation of Platform Key and customization of Secure Boot signature databases.
   
@@ -972,7 +972,7 @@ TPM
 
 ---
 
-### SGX 
+## SGX 
 
    Intel® Software Guard Extensions 
 
@@ -983,7 +983,7 @@ TPM
  
 ---
 
-### SID 
+## SID 
 
   Security Identifier
 
@@ -997,7 +997,7 @@ TPM
 
 ---
 
-### SIPP 
+## SIPP 
 
   Intel® Stable Image Platform Program 
 
@@ -1012,7 +1012,7 @@ TPM
 
 ---
 
-### SMP 
+## SMP 
 
   System Management Password 
 
@@ -1033,7 +1033,7 @@ client-management interface.
 
 ---
 
-### SMBIOS 
+## SMBIOS 
 
   System Management BIOS 
  
@@ -1052,7 +1052,7 @@ client-management interface.
 
 ---
 
-### SRSETUP 
+## SRSETUP 
 
   DOS application to allow ThinkPad Setup settings to be common to all machines and to be controlled remotely. 
  
@@ -1061,7 +1061,7 @@ client-management interface.
 
 ---
 
-### SR TOOL 
+## SR TOOL 
 
  IBM Service Request (SR) tool.
 
@@ -1074,7 +1074,7 @@ client-management interface.
   
 ---
 
-### SSD (Solid State Disk) 
+## SSD (Solid State Disk) 
  
 Storage solution based on collections of memory microchips. Faster, lighter, and more reliable than HDD, but less capacity at the same price.
 
@@ -1087,7 +1087,7 @@ Storage solution based on collections of memory microchips. Faster, lighter, and
 
 ---
 
-### Sticky Key 
+## Sticky Key 
 
  When a modifier key (such as shift, CTRL, ALT) remains active until another key is pressed. 
  
@@ -1101,7 +1101,7 @@ Storage solution based on collections of memory microchips. Faster, lighter, and
 
 ---
 
-### SVP 
+## SVP 
 
   Supervisor Password 
 
@@ -1122,7 +1122,7 @@ The Supervisor Password (SVP) protects the system information stored in UEFI BIO
 ---
 
 
-### Sx states 
+## Sx states 
 
   System power states 
  
@@ -1136,7 +1136,7 @@ The Supervisor Password (SVP) protects the system information stored in UEFI BIO
 
 ---
 
-### TBCT 
+## TBCT 
 
   Think BIOS Config Tool 
  
@@ -1145,7 +1145,7 @@ The Supervisor Password (SVP) protects the system information stored in UEFI BIO
 
 ---
 
-### TCG 
+## TCG 
 
   Trusted Computing Group 
 
@@ -1164,7 +1164,7 @@ The Supervisor Password (SVP) protects the system information stored in UEFI BIO
 
 ---
 
-### TME 
+## TME 
 
   Total Memory Encryption 
  
@@ -1180,7 +1180,7 @@ Encrypts a computer’s entire memory with a single transient key. All memory da
 
 ---
 
-### TPM 
+## TPM 
 
   Trusted Platform Module 
   
@@ -1196,7 +1196,7 @@ Encrypts a computer’s entire memory with a single transient key. All memory da
 
 ---
 
-### TSME 
+## TSME 
 
   Transparent Secure Memory Encryption  
  
@@ -1213,7 +1213,7 @@ AMD Memory Guard
 
 ---
 
-### TrackPad
+## TrackPad
 
 Touch-sensitive interface surface that allows you to manipulate and interact with your laptop computer through finger gestures.
   
@@ -1227,7 +1227,7 @@ Touch-sensitive interface surface that allows you to manipulate and interact wit
 
 ---
 
-### TrackPoint
+## TrackPoint
 
 Pointing device, controls the mouse pointer with a joystick mounted in the center of the keyboard.
   
@@ -1243,7 +1243,7 @@ Pointing stick
 
 ---
 
-### UEFI 
+## UEFI 
 
   Unified Extensible Firmware Interface 
  
@@ -1269,7 +1269,7 @@ BIOS, Firmware
 
 ---
 
-### UMA 
+## UMA 
 
   Unified Memory Architecture 
  
@@ -1287,7 +1287,7 @@ Architecture using part of RAM rather than dedicated graphics memory.
 
 ---
 
-### UNDI 
+## UNDI 
 
 Universal Network Driver Interface 
  
@@ -1308,7 +1308,7 @@ API for network cards.
 
 ---
 
-### USB 
+## USB 
 
 Universal Serial Bus 
  
@@ -1329,7 +1329,7 @@ Connectivity specification that allows peripheral devices like scanners, printer
  
 ---
 
-### User mode
+## User mode
   
 Default mode for secure boot. Includes secure boot authentication.
 
@@ -1343,7 +1343,7 @@ Default mode for secure boot. Includes secure boot authentication.
 
 ---
 
-### Vantage (Lenovo)
+## Vantage (Lenovo)
 
 User interface for changing hardware settings, checking for Lenovo software and driver updates, and more.
 
@@ -1354,7 +1354,7 @@ User interface for changing hardware settings, checking for Lenovo software and 
  
 ---
 
-### VDI 
+## VDI 
 
   Windows Virtual Desktop 
 
@@ -1371,7 +1371,7 @@ User interface for changing hardware settings, checking for Lenovo software and 
 
 ---
 
-### VMM 
+## VMM 
 
 Virtual Machine Monitor 
  
@@ -1388,7 +1388,7 @@ The code that creates, manages, and destroys virtualized hardware.
 
 ---
 
-### WMI 
+## WMI 
 
 Windows Management Instrumentation 
  

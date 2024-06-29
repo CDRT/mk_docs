@@ -1,6 +1,6 @@
 # Startup #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_startup.PNG)
+![Startup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_startup.PNG)
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /startup.png)-->
 

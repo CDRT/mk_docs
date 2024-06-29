@@ -1,6 +1,6 @@
 # TCG Feature Setup Settings #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_tcgfeaturesetup.png)
+![TCG](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_tcgfeaturesetup.png)
 
 TCG Security Device State
 :	Shows TCG (Trusted Computing Group) Security Device State.
@@ -13,8 +13,6 @@ TCG Security Device State
 	2. Firmware TPM 2.0
 
 	
-
-
 TCG Security Device
 :	Select the type of TCG Security Device:
 
@@ -27,8 +25,6 @@ TCG Security Device
 	!!! note ""
 		Before changing the TCG Security Device, all TPM related applications must be disabled, otherwise you may not be able to access your data.
 
-
-	
 
 
 Security Chip 2.0
@@ -47,10 +43,8 @@ Security Chip 2.0
 	| SecurityChip | Disabled, Enabled | yes | Both |
 
 
-
-
 Clear TCG Security Feature
-:	Available only when `Security Chip 2.0` is `Enabled`.<br>
+:	Available only when `Security Chip 2.0` is `Enabled`.
 
 	!!! note ""
 		If set to `Yes`, any data in TPM will be cleared.

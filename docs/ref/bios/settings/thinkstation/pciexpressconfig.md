@@ -1,5 +1,6 @@
 # PCI Express Configuration Settings #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_pciexpressconfig.PNG)
+
+![PCI Express Config](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_pciexpressconfig.PNG)
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /pciexpressconfig.png)-->
 

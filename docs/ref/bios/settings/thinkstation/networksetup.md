@@ -1,9 +1,8 @@
 # Network Setup Settings #
 
-### General 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_networksetup.PNG)
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /networksetup.PNG)-->
+![Netwrok Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_networksetup.PNG)
+
+## General 
 
 Onboard Ethernet Controller
 :	Whether to enable the Onboard Ethernet Controller.
@@ -54,7 +53,7 @@ Wireless LAN PXE boot
 	| WirelessLANPXE | Disabled, Enabled  | yes | Both |
 	
 
-### Wireless Certified Information 
+## Wireless Certified Information 
 
 Wireless device information. View only.
 :	
@@ -157,9 +156,9 @@ Win VDI Boot
 	-->
 
 
-### Boot Configuration
+## Boot Configuration
   
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/httpsbootconfig.PNG) 
+![Boot Configuration](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/httpsbootconfig.PNG)
 
 Input the description
 :	Input a label for new created URL, press `Enter`, and it will be displayed in the boot sequence menu.
@@ -213,7 +212,8 @@ Delete HTTPs Boot Option from List
 	-->
 
 
-### Tls Auth Configuration ###
+## Tls Auth Configuration ##
+
 :	Visible only if `HTTPs Boot` has `Enabled` status.
 
 	Press `Enter` to configure Server CA (Certificate Authority) for HTTPs Boot. 
@@ -225,9 +225,9 @@ Delete HTTPs Boot Option from List
 	-->
 
    
-### Wifi Configuration
+## Wifi Configuration
    
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_wificonfig.PNG)
+![Wifi Config](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_wificonfig.PNG)
 
 Automatic Connection Support
 :	Whether to enable or disable automatic Wifi connection on every boot.
@@ -242,15 +242,15 @@ Automatic Connection Support
 	-->
 
 
-### Current Connection ###
+## Current Connection ##
 :	View only.
 
 	Shows Connection State, if the device is connected to a Wi-Fi network, or
 
 	`No Connection.`
 
-### Wi-Fi Scan ###
+## Wi-Fi Scan ##
 :	Press `Enter` to scan the available connections.
 
-### Scanned List ###
+## Scanned List ##
 :	Scanned Wi-Fi nodes for selection to connect.

@@ -1,12 +1,9 @@
 # Hard Disk Password Settings #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_harddiskpass.png)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_harddiskpass2.png)
+![Hard Disk Password](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_harddiskpass.png)
+![Hard Disk Password](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_harddiskpass2.png)
 
 ## General 
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   iskpass.png)-->
 
 !!! note ""
     Number of drives depends on the model and platform.
@@ -93,12 +90,11 @@ Block SID Authentication
 
 
 
-## Security Erase HDD Data
+## Security Erase HDD Data ##
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_securityerasehdd.png)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_securityerasehdd2.png)
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /securityerasehdd.png)-->
+![Security Erase HHD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_securityerasehdd.png)
+![Security Erase HHD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_securityerasehdd2.png)
+
 
 Erase {DriveType} {X} Data
 :	Erase data per individual drive.

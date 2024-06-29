@@ -1,6 +1,6 @@
 # Common RefCode Configuration #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_commonrefcodeconfiguration.PNG)
+![AMD Common RefCode](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_commonrefcodeconfiguration.PNG)
 
 MMIO Above 4G Limit
 :	Set PCIe device aperture range to Auto/40/42/44/46/48 bits limit.
@@ -17,7 +17,6 @@ MMIO Above 4G Limit
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| MmioAbove4GLimit | Auto, 40, 42, 44, 46, 48 | yes | AMD |
-
 
 
 NUMA Nodes
