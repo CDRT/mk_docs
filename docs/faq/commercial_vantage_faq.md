@@ -4,4 +4,4 @@
 
     To control the update process, use the Commercial Vantage policies that define the timing and filtering as needed.  
 
-    See [Commercial Vantage Policies](https://cdrt.github.io/mk_docs/guides/cv/commercial-vantage-policies/) under the System Update category for more details.
+    See [Commercial Vantage Policies](https://docs.lenovocdrt.com//guides/cv/commercial-vantage-policies/) under the System Update category for more details.
