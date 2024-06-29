@@ -38,8 +38,9 @@ nav:
     - Commercial Vantage: 
       - guides/cv/index.md
       - Deployment Guide: guides/cv/commercial_vantage.md
-      - Managing with Intune: guides/cv/manage_intune.md
-      - Commercial Vantage Policies: guides/cv/commercial-vantage-policies.md
+      - Managing with Intune: 
+        - guides/cv/management/intune/index.md
+        - guides/cv/management/intune/commercial-vantage-policies.md
       - Commercial Vantage FAQ: guides/cv/commercial_vantage_faq.md
     - System Update - Update Retriever - Thin Installer:
       - guides/sus/index.md
@@ -53,13 +54,13 @@ nav:
         - guides/sus/su_dg/su_dg_ch6.md
         - guides/sus/su_dg/su_dg_ch7.md
         - guides/sus/su_dg/su_dg_ch8.md
-      - FAQ: guides/sus/system_update_faq.md
+      - System Update FAQ: guides/sus/system_update_faq.md
     - Dock Manager:
       - guides/dm/index.md
       - Deployment Guide: guides/dm/dm.md
       - Managing with Intune: guides/dm/dm_manage_intune.md
       - Troubleshooting: guides/dm/dm_troubleshooting.md
-      - FAQ: guides/dm/dock_manager_faq.md
+      - Dock Manager FAQ: guides/dm/dock_manager_faq.md
     - Think BIOS Config Tool:
       - Overview: guides/tbct/tbct_top.md
       - User Guide: guides/tbct/tbct.md
@@ -195,10 +196,10 @@ nav:
       - Configuration Manager Queries: ref/docks/configmgr_dock_queries.md
     - AMD DASH: ref/dash/index.md
     - Scripting Samples: ref/scripts/samples.md
-  - FAQ:
-    - System Update FAQ: faq/system_update_faq.md
-    - Commercial Vantage FAQ: faq/commercial_vantage_faq.md
-    - Dock Manager FAQ: faq/dock_manager_faq.md
+  - Frequently Asked Questions:
+    - System Update FAQ: guides/sus/system_update_faq.md
+    - Commercial Vantage FAQ: guides/cv/commercial_vantage_faq.md
+    - Dock Manager FAQ: guides/dm/dock_manager_faq.md
 
 plugins:
   - search
