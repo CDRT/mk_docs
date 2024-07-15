@@ -2,7 +2,7 @@
 
 ## Overview
 
-The SUHelper.exe utility is a companion to Lenovo Commercial Vantage that provides command-line control over the System Update process. This utility can be leveraged directly in a terminal window on a device or by sending a script containing the command line from a systems management solutions such as Configuration Manager or Intune. This reference guide will document the command line parameters and usage of this utility.
+The SU Helper utility is a companion to Lenovo Commercial Vantage that provides command-line control over the System Update process. This utility can be leveraged directly in a terminal window on a device or by sending a script containing the command line from a systems management solutions such as Configuration Manager or Intune. This reference guide will document the command line parameters and usage of this utility.
 
 ## Installation
 
