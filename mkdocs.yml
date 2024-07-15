@@ -1,5 +1,5 @@
 site_name: Lenovo CDRT Docs Site
-site_url: https://cdrt.github.io/mk_docs/
+site_url: https://docs.lenovocdrt.com/
 
 theme:
   name: material
