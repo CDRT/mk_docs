@@ -125,7 +125,7 @@ SELECT * FROM Lenovo_SystemDeploymentBootMode WHERE CurrentSetting = 'Enable'
 
 ### Preparing the Configuration File
 
-You can also use the Think BIOS Config [Tool](https://docs.lenovocdrt.com/#/tbct/tbct_top) or higher to apply these changes in your operating system deployment task sequence.  
+You can also use the [Think BIOS Config Tool](https://docs.lenovocdrt.com/guides/tbct/tbct_top/) or higher to apply these changes in your operating system deployment task sequence.  
 
 !!! note ""
    Supported on version 1.28 or higher of the TBCT

@@ -54,7 +54,7 @@ Lenovo Cloud Services
 
     **Lenovo Cloud Services Features**
 
-    Once this feature is switched `On`, it becomes available for selection in BIOS: [Startup](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/startup), at either `Edit Boot Order`, or `Network Boot`, or via F12 Boot Menu.
+    Once this feature is switched `On`, it becomes available for selection in BIOS: [Startup](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/startup/), at either `Edit Boot Order`, or `Network Boot`, or via F12 Boot Menu.
 
     Lenovo Cloud Services enables these additional options:
 

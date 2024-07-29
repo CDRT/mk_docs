@@ -8,7 +8,7 @@ Learn more here:
 
 [ThinkDeploy Blog article: Certificate-based BIOS Authentication](https://blog.lenovocdrt.com/certificate-based-bios-authentication/)
 
-[Lenovo BIOS Certs Tool Reference](https://docs.lenovocdrt.com/#/lnvbioscerts/lnvbioscerts_top)
+[Lenovo BIOS Certs Tool Reference](https://docs.lenovocdrt.com/guides/lbct/)
 
 Reset Certificate
 :  Remove the enrolled certificate.
