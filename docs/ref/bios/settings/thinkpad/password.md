@@ -22,7 +22,7 @@ Supervisor Password
       - Enter New Password
       - Confirm New Password
       - Show Password – [On\Off] statuses
-         - Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/keyboardmouse.md)
+         - Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
       - < Actions >:
           - **Save** – default
           - Cancel<br>
@@ -31,7 +31,7 @@ Supervisor Password
             When enabled, Supervisor Password prevents unauthorized users from accessing these items in ThinkPad Setup: <br> - Boot priority lists <br> - Network related items <br> - Date & Time <br>
 
         !!! note ""
-            To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/beepalarm).
+            To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm).
 
 System Management Password
 :  Whether system will request the user to set and confirm System Management Password password.
@@ -46,7 +46,7 @@ System Management Password
     * [Enter New Password]
     * [Confirm New Password]
     * Show Password – [On\Off] statuses
-    * Keyboard layout: XXXX – Possible values are the same as in [Keyboard\Mouse -> Keyboard Layout](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/keyboardmouse.md)
+    * Keyboard layout: XXXX – Possible values are the same as in [Keyboard\Mouse -> Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
     * < Actions >:
         * **Save** – default
         * Cancel
@@ -55,7 +55,7 @@ System Management Password
         When enabled System Management Password presents unauthorized users from accessing these items in ThinkPad Setup: <br> - Boot priority lists <br> - Network related items <br> - Date & Time
 
     !!! note ""
-        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/beepalarm.md).
+        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm.md).
 
 Power-On Password
 :  Whether will request user to set and confirm Power-On Password password.
@@ -73,7 +73,7 @@ Power-On Password
     * [Enter New Password]
     * [Confirm New Password]
     * Show Password – [On\Off] statuses
-    * Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/keyboardmouse.md)
+    * Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
     * < Actions >:
         * **Save** – default
         * Cancel
@@ -81,7 +81,7 @@ Power-On Password
     When enabled Power-On Password prevents unauthorized users from booting your computer.
 
     !!! note ""
-        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/beepalarm.md).
+        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm.md).
 
 NVMe1 Password
 :  Also known as **Hard Disk Password (HDP)**.
@@ -102,13 +102,13 @@ NVMe1 Password
     * [Enter New Password]
     * [Confirm New Password]
     * Show Password – [On\Off] statuses
-    * Keyboard layout: XXXX – Possible values are the same as in [Keyboard\Mouse -> Keyboard Layout](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/keyboardmouse.md)
+    * Keyboard layout: XXXX – Possible values are the same as in [Keyboard\Mouse -> Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
     * < Actions >:
         * **Save** – default
         * Cancel
 
     !!! note ""
-        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/beepalarm.md).
+        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm.md).
 
     !!! note ""
         When prompted to enter an NVMe password, press F1 to switch between the admin NVMe password and user NVMe password.

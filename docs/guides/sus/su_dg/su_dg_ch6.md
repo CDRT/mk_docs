@@ -62,7 +62,7 @@ As described previously, computer and user policies are defined by the administr
 
 To add the ADMX file and customize the settings, do the following:
 
-   1. Download and install the System Update Administrator Tools package from the Lenovo Web site at: [https://support.lenovo.com/us/en/solutions/ht037099](https://support.lenovo.com/us/en/solutions/ht037099){:target="_blank"} 
+   1. Download and install the System Update Administrator Tools package from the Lenovo Web site at: [https://support.lenovo.com/us/en/solutions/ht037099](https://support.lenovo.com/us/en/solutions/ht037099) 
 
     This will extract the System Update ADMX file into the ```C:\SWTOOLS\TOOLS\Admin\ ```	folder.
 
@@ -249,6 +249,6 @@ _Table 7-5. Description of configurable items._
 
 A common desire when working with Update Retriever is to store the local repository in a cloud storage solution to make it easier to reach by clients over the Internet. Azure Cloud Storage offers a couple of options that can be leveraged with Update Retriever.  These are documented in the following ThinkDeploy Blog articles:
 
-- [Hosting a repository in an Azure File Share](https://blog.lenovocdrt.com/hosting-a-repository-in-an-azure-file-share/){:target="_blank"} 
-- [Hosting a repository in an Azure blob](https://blog.lenovocdrt.com/hosting-a-repository-in-an-azure-blob){:target="_blank"}
-    - [Revisiting Update Retriever and Azure blob storage](https://blog.lenovocdrt.com/revisiting-update-retriever-and-azure-blob-storage/){:target="_blank"} 
+- [Hosting a repository in an Azure File Share](https://blog.lenovocdrt.com/hosting-a-repository-in-an-azure-file-share/) 
+- [Hosting a repository in an Azure blob](https://blog.lenovocdrt.com/hosting-a-repository-in-an-azure-blob)
+    - [Revisiting Update Retriever and Azure blob storage](https://blog.lenovocdrt.com/revisiting-update-retriever-and-azure-blob-storage/) 

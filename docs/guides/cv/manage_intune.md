@@ -8,4 +8,4 @@ For steps on how to create and deploy Commercial Vantage as a Win32 app, referen
     If new policies have been introduced, you will need to ingest the updated ADMX file contained in the Commercial Vantage zip.
 
 !!! note
-    Introduced in the [2208](https://learn.microsoft.com/mem/intune/fundamentals/whats-new-archive#import-create-and-manage-custom-admx-and-adml-administrative-templates){:target="_blank"}  Intune Service release, you can import, create, and manage custom ADMX and ADML administrative templates.
+    Introduced in the [2208](https://learn.microsoft.com/mem/intune/fundamentals/whats-new-archive#import-create-and-manage-custom-admx-and-adml-administrative-templates)  Intune Service release, you can import, create, and manage custom ADMX and ADML administrative templates.
