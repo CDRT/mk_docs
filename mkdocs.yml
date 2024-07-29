@@ -190,6 +190,7 @@ nav:
           - Exit: ref/bios/settings/thinkstation/exit.md
       - Glossary: ref/bios/glossary.md
       - BIOS Logging: ref/bios/settings/bios_logging.md
+      - System Deployment Boot Mode: ref/bios/sdbm.md
     - Docks Reference:
       - ref/docks/index.md
       - Deployment Guide: ref/docks/docks_main.md
