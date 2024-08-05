@@ -14,6 +14,10 @@ The utility can be installed on devices silently using the following command:
 
 The utility is designed to be installed in a fixed, secure location under Program Files so that it cannot be altered without Administrator privileges.
 
+The utility can be uninstalled with the following command:
+
+```C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT```
+
 ## Intended Usage Scenarios
 
 SUHelper is designed to support a few scenarios to provide IT administrators more control over the updating of their devices.
