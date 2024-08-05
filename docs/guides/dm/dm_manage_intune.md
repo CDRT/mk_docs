@@ -3,7 +3,7 @@
 This section will present the policies found in the Dock Manager ADMX template, along with the OMA-URIs which can be used to configure the application on Intune managed clients.
 
 !!! note
-    If new policies have been introduced, you will need to ingest the updated ADMX file contained in the Commercial Vantage zip.
+    If new policies have been introduced, you will need to ingest the updated ADMX file.
 
 !!! note
     Introduced in the [2208](https://learn.microsoft.com/mem/intune/fundamentals/whats-new-archive#import-create-and-manage-custom-admx-and-adml-administrative-templates) Intune Service release, you can import, create, and manage custom ADMX and ADML administrative templates.
@@ -121,10 +121,30 @@ If this setting is disabled, notification will not be shown.
 ./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/EnableNotifications
 ```
 
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
+### Firmware White List
+
+If this setting is enabled, the device can be upgraded only to the firmware version in the whitelist.
+
+```oma-uri
+./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/FWWhiteList
+```
+
 Values:
+
+!!! note
+    Dock type (four characters) : Firmware version (multiple versions must be separated by commas); Other dock type: Firmware version;
 
 ```xml
 <enabled/>
+<data id="FWWhitelist_Prompt" value="40AY:3.0.85,3.0.92;40B0:;"/>
 ```
 
 ```xml
@@ -273,11 +293,30 @@ Values:
 <disabled/>
 ```
 
+### Update Firmware on First Connection
+
+If this setting is enabled, dock will check and update firmware automatically when it connect to the computer for the first time after installing Dock Manager.
+
+```oma-uri
+./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/UpdateFWOnFirstConnection
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
 ### Update Firmware Without Disconnect
 
-If this setting is enabled, it will configure the dock types (which complete firmware updating after disconnecting dock form the computer) to update firmware without disconnecting from the computer.
+If this setting is enabled, it will configure the dock types (which complete firmware updating after disconnecting dock from the computer) to update firmware without disconnecting from the computer.
 
-Do not turn this feature on until the dock has been upgraded to a supported firmware version!
+!!! warning
+    Do not turn this feature on until the dock has been upgraded to a supported firmware version!
 
 ```oma-uri
 ./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/UpdateFWWithoutDisconnect

@@ -17,7 +17,7 @@ System Update supports the following operating systems:
 
 System Update requires Microsoft .NET Framework 4.5.2 or a later version. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
-[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download){:target="_blank"}
+[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
 
 ### 2.1.2 Languages
 
@@ -139,7 +139,7 @@ Thin Installer is supported on the following operating systems:
 
 Thin Installer requires Microsoft .NET Framework version 4.5.2 or higher. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
-[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download){:target="_blank"}
+[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
 
 ### 2.2.2 Removing Thin Installer
 

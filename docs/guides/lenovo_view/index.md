@@ -6,7 +6,7 @@ Lenovo View is a hardware support app for the Lenovo View device driver that enh
 
 ## Deploying Lenovo View
 
-As an HSA, the Lenovo View app is available in the HSA pack for models that support it. The Lenovo View device driver, which is included in the SCCM driver packs and available on Lenovo Support site, must be deployed to the device in order for the Lenovo View app to work. For systems which have access to the Microsoft Store, simply deploy the device driver to the device and the OS will automatically install the Lenovo View app. Otherwise, refer to this article for detail on how to 'sideload' the app from the HSA pack: [Hardware Support Apps Without Microsoft Store](https://blog.lenovocdrt.com/#/2020/hsa-1)
+As an HSA, the Lenovo View app is available in the HSA pack for models that support it. The Lenovo View device driver, which is included in the SCCM driver packs and available on Lenovo Support site, must be deployed to the device in order for the Lenovo View app to work. For systems which have access to the Microsoft Store, simply deploy the device driver to the device and the OS will automatically install the Lenovo View app. Otherwise, refer to this article for detail on how to 'sideload' the app from the HSA pack: [Hardware Support Apps Without Microsoft Store](https://blog.lenovocdrt.com/hardware-support-apps-without-microsoft-store)
 
 ## Access Lenovo View
 

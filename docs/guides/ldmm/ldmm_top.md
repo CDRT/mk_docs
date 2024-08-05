@@ -8,7 +8,7 @@ The Lenovo Device Management Module requires 64-bit PowerShell v5.1 or higher an
 
 ## Installing Lenovo Device Management Module
 
-The module itself is currently available for download here: [ldmm_1.0.0.zip](https://download.lenovo.com/cdrt/tools/ldmm_1.0.0.zip){:target="_blank"} 
+The module itself is currently available for download here: [ldmm_1.0.0.zip](https://download.lenovo.com/cdrt/tools/ldmm_1.0.0.zip) 
 
 The plan is to eventually have it published in the PowerShell Gallery so it can easily be installed with the Install-Module command. For now, the module can be copied to a system and the Import-Module command can be used to install it.
 

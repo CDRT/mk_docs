@@ -2,6 +2,21 @@
 
 ## 4.1 System Update
 
+!!! note "Enable Logging"
+    In System Update versions released in 2024 and later, logging is disabled by default as a security precaution. To enable logging set the following registry value:
+
+    ``` 
+    KEY:  Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UCSettings\Log
+
+    VALUE: FileName
+
+    DATA:  tvsu.log
+    ```
+
+    The log files will be created here:
+
+    ```C:\ProgramData\Lenovo\SystemUpdate\logs```
+
 Typically the first step in isolating issues when running System Update is to make sure System Update can access the repository, whether that is over the Internet to access content directly from Lenovo or over an intranet network to access a local repository. Use standard network troubleshooting steps to verify the logged-on user account has access as required.
 
 When pulling content from Lenovo, System Update uses HTTPS to access content at [https://download.lenovo.com/catalog](https://download.lenovo.com/catalog)  and [https://download.lenovo.com/pccbbs](https://download.lenovo.com/pccbbs) . It will also access https://chifsr.lenovomm.com to record metrics of failed updates if metrics are enabled. These sites may need to be white listed to have access through a corporate firewall. These sites are hosted on a Content Delivery Network (CDN) which consists of hundreds of "edge" servers around the world.  A device will connect to the closest edge server to download content. The specific IP addresses of the available edge servers is always changing as the CDN is being maintained. Therefore, it is not possible to provide a specific IP address or addresses for white listing.
@@ -75,7 +90,6 @@ The following is a list of strings that can be searched for in the log file to f
 
 If assistance is required in troubleshooting System Update issues, please consider posting a question in the Enterprise Client Management forum which can be linked to from the Enterprise Deployment Solutions page ([https://support.lenovo.com/us/en/solutions/ht104232](https://support.lenovo.com/us/en/solutions/ht104232)) . Please provide the applicable log files, the machine type (e.g. 20AN) and operating system (e.g. Windows 10 1903) where the problem is occurring, and a detailed description of the symptoms.
 
-
 ## 4.2 Thin Installer
 
 Troubleshooting Thin Installer issues will generally follow the same path as troubleshooting System Update (see section above). Although Thin Installer does not pull content directly from Lenovo it may still require troubleshooting access to the local repository on the intranet network. Typically network related issues for Thin Installer are access related. For instance, if Thin Installer is launched using a process under the Local System context, it may not have access to a network share that has been granted read/write access to Everyone. This is because Thin Installer in this case is not running under the context of a known user on the domain; &quot;Everyone&quot; does not include Local System.
@@ -125,7 +139,6 @@ In the Update\_ApplicabilityRulesTrace.txt file, installed updates will be shown
 
 If assistance is required in troubleshooting Thin Installer issues, please consider posting a question in the Enterprise Client Management forum which can be linked to from the Enterprise Deployment Solutions page ([https://support.lenovo.com/us/en/solutions/ht104232](https://support.lenovo.com/us/en/solutions/ht104232)) . Please provide the applicable log files, the machine type (e.g. 20AN) and operating system (e.g. Windows 10 1903) where the problem is occurring, and a detailed description of the symptoms.
 
-
 ## 4.3 Update Retriever
 
 The most common issues encountered with Update Retriever are typically related to the catalogs and the content being pulled from Lenovo servers. Within the process used by Update Retriever to process catalogs for specified models, there are several CRC checks performed on the files that are downloaded. There may be times when the catalogs and the content are out of synch as the catalogs are being refreshed. In this case Update Retriever may report that it failed to download an update or may not offer any update that should be available. These types of issues are typically addressed automatically due to the continuous nature of the catalog maintenance processes but may take a day or two to be resolved. In other cases there may be an incorrect CRC value specified for a file causing it to continuously fail to download. These issues will be identified in the error messages presented by Update Retriever and can be reported in the Enterprise Client Management forum which can be linked to from the Enterprise Deployment Solutions page ([https://support.lenovo.com/us/en/solutions/ht104232](https://support.lenovo.com/us/en/solutions/ht104232)) . Please specify the machine type (e.g. 20AN) and operating system combination that was used in the search.
@@ -149,4 +162,3 @@ The following list contain some common issues and how to address them:
    Computer\HKEY\_LOCAL\_MACHINE\SOFTWARE\WOW6432Node\Lenovo
    \Update Retriever\Preferences\UserSettings\General
    ```
-

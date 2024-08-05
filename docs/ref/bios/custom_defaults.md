@@ -12,6 +12,6 @@ It is important to note that Security, Date & Time, and Boot Order settings are 
 
 Relevant settings:
 
-- [Restart (ThinkPad)](http://localhost:3000/#/bios/settings/thinkpad/restart)
-- [Exit (ThinkCentre)](http://localhost:3000/#/bios/settings/thinkcentre/exit)
-- [Exit (ThinkStation)](http://localhost:3000/#/bios/settings/thinkstation/exit)
+- [Restart (ThinkPad)](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/restart/)
+- [Exit (ThinkCentre)](https://docs.lenovocdrt.com/ref/bios/settings/thinkcentre/exit/)
+- [Exit (ThinkStation)](https://docs.lenovocdrt.com/ref/bios/settings/thinkstation/exit/)

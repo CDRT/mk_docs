@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Lenovo BIOS Certs Tool and Module is a PowerShell-based solution for working with certificate-based BIOS authentication. For a detailed view of how to get started using this solution with Lenovo commercial PC products which support it, please visit this [article](https://blog.lenovocdrt.com/#/2023/cert_based_bios_authentication)
+The Lenovo BIOS Certs Tool and Module is a PowerShell-based solution for working with certificate-based BIOS authentication. For a detailed view of how to get started using this solution with Lenovo commercial PC products which support it, please visit this [article](https://blog.lenovocdrt.com/certificate-based-bios-authentication/)
 
 This page will provide a cmdlet reference for the functions provided in the LnvBiosCerts module.
 
@@ -97,7 +97,7 @@ This page will provide a cmdlet reference for the functions provided in the LnvB
 	```
 
 ### Set-LnvBiosCertificate
-:	Switches the BIOS to certificate based authorization. This requires a Supervisor password to be set (if not in [System Deployment Boot Mode](https://docs.lenovocdrt.com/#/bios/sdbm)). Installing a certificate will remove the Supervisor and the System Management passwords if set. A reboot is required to take effect.
+:	Switches the BIOS to certificate based authorization. This requires a Supervisor password to be set (if not in [System Deployment Boot Mode](https://docs.lenovocdrt.com/ref/bios/sdbm)). Installing a certificate will remove the Supervisor and the System Management passwords if set. A reboot is required to take effect.
 
 	#### Parameters
 

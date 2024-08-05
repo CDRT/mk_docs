@@ -264,7 +264,7 @@ The result will map to one of the values in the table below:
 | **6** | Supervisor password and (User HDD or User HDD and Master password) set                     |
 | **7** | Power on password, Supervisor password, and (User HDD or User HDD and Master password) set |
 
-!!! note ""
+!!! note
     The information provided by the script will only return the state of the passwords, it will not return the actual passwords.
 
 ### OS Optimized Defaults
