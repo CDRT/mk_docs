@@ -17,3 +17,7 @@ This driver is required to allow the **Commercial Vantage** to provide control o
 This package installs the Lenovo System Interface Foundation plugins that are required for **Commercial Vantage**
 
 The latest version can always be found at [https://support.lenovo.com/solutions/hf003321-lenovo-vantage-for-enterprise](https://support.lenovo.com/solutions/hf003321-lenovo-vantage-for-enterprise)
+
+## SUHelper
+
+SUHelper.exe is a companion utility introduced in 2024 that works in conjunction with the SU-Addin of Commercial Vantage. This utility finally brings a command-line interface to Commercial Vantage for controlling the System Update process. For more information, please review the [SUHelper Reference](https://docs.lenovocdrt.com/guides/cv/suhelper.md)
