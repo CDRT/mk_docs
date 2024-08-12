@@ -41,7 +41,6 @@ nav:
       - Managing with Intune: 
         - guides/cv/management/intune/index.md
         - guides/cv/management/intune/commercial-vantage-policies.md
-      - SUHelper Reference: guides/cv/suhelper.md
       - Commercial Vantage FAQ: guides/cv/commercial_vantage_faq.md
     - System Update - Update Retriever - Thin Installer:
       - guides/sus/index.md
