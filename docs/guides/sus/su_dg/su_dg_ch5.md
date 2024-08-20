@@ -56,11 +56,16 @@ Optional. Specifies that System Update is running from a scheduled task so the p
 
 #### -includerebootpackages
 
-Optional. Specifies by number the reboot types to include in the set of updates found. Possible values are 1, 3, 4, 5. The values of 0 and 2 have no effect. Multiple reboot types can be specified by separating with a comma.
+Optional. Specifies by number the reboot types to include in the set of updates found. Possible values are 1, 3, 4, 5. If this parameter is not specified, only reboot type 0 packages will be included. The value 2 is never used. Multiple reboot types can be specified by separating with a comma. This filter will always be applied first.
 
-   **1:** Forced reboot (update itself initiates the reboot)<br>
-   **3:** Requires reboot (System Update initiates the reboot)<br>
-   **4:** Forces shutdown (update itself initiates shutdown)<br>
+   **0:** No reboot is required - no need to specify on command line
+
+   **1:** Forced reboot (update itself initiates the reboot)
+
+   **3:** Requires reboot (System Update initiates the reboot)
+
+   **4:** Forces shutdown (update itself initiates shutdown)
+
    **5:** Delayed forced reboot (used for firmware, System Update will enforce reboot with dialog displaying count-down timer)
 
 !!! note
@@ -77,7 +82,7 @@ Optional. Specifies by number a filter for the package types to be applied. Mult
    **4** : Firmware<br/>
 
 !!! note
-	When used with -includerebootpackages, the resulting set of updates is the intersection of both filters.
+	When used with -includerebootpackages, the resulting set of updates is the intersection of both filters. If -includerebootpackages is not specified, only reboot type 0 packages will be considered.
 
 #### -noreboot
 
@@ -154,7 +159,9 @@ Required. Specifies the action to take with the updates found. It can only speci
 
 #### -includerebootpackages
 
-Optional. Specifies by number the reboot types to include in the set of updates found to be downloaded and/or installed. Possible values are 1, 3, 4, 5. The values of 0 and 2 have no effect. Multiple reboot types can be specified by separating with a comma.
+Optional. Specifies by number the reboot types to include in the set of updates found to be downloaded and/or installed. Possible values are 1, 3, 4, 5. If this parameter is not specified, only reboot type 0 packages will be included. The value 2 is never used. Multiple reboot types can be specified by separating with a comma. This filter will always be applied first.
+
+   **0:** No reboot is required - no need to specify on command line
 
    **1** : Forced reboot (update itself initiates the reboot)
    
@@ -182,7 +189,7 @@ Optional. Specifies by number a filter for the package types to be applied. Mult
    **4** : Firmware
 
 !!! note
-	When used with -includerebootpackages, the resulting set of updates is the intersection of both filters.
+	When used with -includerebootpackages, the resulting set of updates is the intersection of both filters. If -includerebootpackages is not specified, only reboot type 0 packages will be considered.
 
 #### -noreboot
 
