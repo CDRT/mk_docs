@@ -113,6 +113,9 @@ Run the following PowerShell command to verify the **Lenovo_SystemDeploymentBoot
 Get-CimInstance -Namespace root/WMI -Class Lenovo_SystemDeploymentBootMode
 ```
 
+!!! note
+    This particular class was not implemented on L14/L15 AMD Gen 1, 2, or 3.
+
 If you want to perform specific actions that require a supervisor password in a ConfigMgr Task Sequence, you can add the following WMI query condition against a step or group that will only execute if the system is in SDBM.
 
 - Namespace: **root\WMI**
