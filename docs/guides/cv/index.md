@@ -20,4 +20,4 @@ The latest version can always be found at [https://support.lenovo.com/solutions/
 
 ## SUHelper
 
-SUHelper.exe is a companion utility introduced in 2024 that works in conjunction with the SU-Addin of Commercial Vantage. This utility finally brings a command-line interface to Commercial Vantage for controlling the System Update process. For more information, please review the [SUHelper Reference](https://docs.lenovocdrt.com/guides/cv/suhelper.md)
+SUHelper.exe is a companion utility introduced in 2024 that works in conjunction with the SU-Addin of Commercial Vantage. This utility finally brings a command-line interface to Commercial Vantage for controlling the System Update process. For more information, please review the [SUHelper Reference](https://docs.lenovocdrt.com/guides/cv/suhelper)

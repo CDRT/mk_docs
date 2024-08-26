@@ -1,11 +1,11 @@
 # Commercial Vantage FAQ
 
 !!! note "Can I control the System Update process by command line?"
-    No.  Because Commercial Vantage is a UWP app, the process to get driver and firmware updates cannot be initiated by command line.
+    Yes, it is now possible to control the System Update process by command line. This requires the latest version of Commercial Vantage released July 2024 and the SU Helper utility deployed on the clients.  Refer to this introduction article with links to the SU Helper reference guide:  [https://blog.lenovocdrt.com/introducing-su-helper-utility/](https://blog.lenovocdrt.com/introducing-su-helper-utility/)
 
- To control the update process, use the Commercial Vantage policies that define the timing and filtering as needed.  
+    You may also continue to use the group policy controls to control the update process by defining the timing and filtering as needed.  
 
- Refer to the **CommercialVantage.admx** under the System Update category for more details.
+    Refer to the **CommercialVantage.admx** under the System Update category for more details.
 
 !!! note "When Commercial Vantage is installed, will it automatically create a scheduled task to install System Updates?"
     A scheduled task is created by a background process a few minutes after installation.  The scheduled task is configured to run weekly, at a random day/time.  The randomness helps manage the load on Lenovo's server (e.g. so that not every Lenovo PC in the world is checking for updates at the same time).  If the PC happens to be turned off (or sleeping) at the time the scheduled task is triggered, then Windows itself should try to execute the scheduled task as soon as possible after it is missed.  The scheduled task can be found in Task Scheduler -> Task Scheduler Library -> Lenovo -> ImController -> Plugins -> LenovoSystemUpdatePlugin_WeeklyTask.  There is an additional task (LenovoSystemUpdatePlugin_TVSUUpdateTask_Once) which is designed to run 1 time shortly after installation to install any pending critical updates.
