@@ -36,7 +36,7 @@ nav:
   - Home: 'index.md'
   - Product Guides: 
     - Commercial Vantage: 
-      - guides/cv/index.md
+      - Overview and What's New: guides/cv/index.md
       - Deployment Guide: guides/cv/commercial_vantage.md
       - Managing with Intune: 
         - guides/cv/management/intune/index.md

@@ -48,12 +48,14 @@ Press < Ctrl-P > to Enter MEBx
 
 
 ## ME Firmware Version
+
 Management Engine (ME) Firmware version. View only.
 
 !!! note ""
 	Intel(R) based models only.
 
 ## Manageability Type
+
 Manageability Type. View only.
 
 Options:
@@ -66,6 +68,7 @@ Options:
 
 
 ## SOL Configuration
+
 SOL (Serial over LAN) configuration group of settings.
 
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_solconfig.png)
