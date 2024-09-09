@@ -26,14 +26,14 @@ The latest version of the Enterprise package for sideloading can always be found
 
 ### v10.2407.66.0 - August 2024
 
-#### Main Application
+**Main Application**
 
 - Improved the Power page by adding Power Controller and Display Brightness Control
 - Changed section name from Power Smart settings to System Total Power Management
 - Improved the description of Intelligent Cooling for new products shipping in 2024
 - Add a tip for Windows 11 touch screen devices for the Clean My Device feature
 
-#### System Update Feature
+**System Update Feature**
 
 - **Separate filtering policies for Manual versus Auto Update**:  Previously, the policies for System Update provided one set of filtering options for package types and severity levels and these applied to both the Auto Update scenario and the manual Check for Updates. Now it is possible to specify filtering for the manual Check for Updates scenario separately from the Auto Update scenario. This policy is added under Administrative Templates - Commercial Vantage - Device - System Update - Auto Update.  The policy name is **Configure Auto System Update**. If this policy is not configured, then the **Configure System Update** policy in the System Update folder will take affect if configured.
 
@@ -43,6 +43,6 @@ The latest version of the Enterprise package for sideloading can always be found
 
 - **Remove XML Schema Check**:  Previously, the System Update Add-in would check each XML Package Descriptor for each update against an XML Schema. Since the System Update Add-in is already validating the digital signature of the XML file, this schema check is redundant and has been removed to improve performance.
 
-#### New Group Policies
+**New Group Policies**
 
 - **Device - System Update - Auto Update - Configure Auto System Update**: Separate filter for Manual vs Auto Update. See above.
