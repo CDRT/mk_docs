@@ -38,6 +38,7 @@ nav:
     - Commercial Vantage: 
       - Overview and What's New: guides/cv/index.md
       - Deployment Guide: guides/cv/commercial_vantage.md
+      - SU Helper Reference: guides/cv/suhelper.md
       - Managing with Intune: 
         - guides/cv/management/intune/index.md
         - guides/cv/management/intune/commercial-vantage-policies.md
