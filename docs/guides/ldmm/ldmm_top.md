@@ -567,12 +567,12 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	| RT5toRT3 | Switch | False |
 	| ScanOnly | Switch | False |
 
-	##### OS  
+	**OS**  
 
 	Must be a string of '10' or '11'. The default if no value is specified will
 	be determined by the OS of the device the script is running on.
 
-	##### PackageTypes   
+	**PackageTypes**   
 
 	Must be a string of Package Type integers separated by commas and surrounded by single quotes. The possible values are:<br>
 	&nbsp;&nbsp; 1: Application<br>
@@ -581,7 +581,7 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	&nbsp;&nbsp; 4: Firmware<br>
 	The default if no value is specified will be all package types.
 
-	##### RebootTypes  
+	**RebootTypes**
 
 	Must be a string of integers, separated by commas, representing the different boot types and surrounded by single quotes:<br>
 	&nbsp;&nbsp; 0: No reboot required<br>
@@ -591,29 +591,29 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	&nbsp;&nbsp; 5: Delayed forced reboot (used by many firmware updates)<br>
 	The default if no value is specified will be all RebootTypes.
 
-	##### RepositoryPath  
+	**RepositoryPath**
 
 	Must be a fully qualified path to the folder where the local repository will be saved. Must be surrounded by single quotes.
 
-	##### LogPath  
+	**LogPath**
 
 	Must be a fully qualified path. If not specified, ti-auto-repo.log will be  stored in the repository folder.
 	Must be surrounded by single quotes.
 
-	##### RT5toRT3  
+	**RT5toRT3**
 
 	Specify this parameter if you want to convert Reboot Type 5 (Delayed Forced Reboot) packages to be Reboot Type 3 (Requires Reboot). Only do this in task sequence scenarios where a Restart can be performed after the Thin Installer task. Use the -noreboot parameter on the Thin Installer command line to suppress reboot to allow the task sequence to control the restart.
 
 	!!! note
-	    This parameter can only be used when Thin Installer will be processing the updates in the repository.
+        This parameter can only be used when **Thin Installer** will be processing the updates in the repository because changing the reboot type will break the XML digital signature. When using version **1.04.02.00024** or later of Thin Installer, you must also specify the **-ignorexmlsignature** to ensure Thin Installer does not skip the updates that have been altered.
 
-	##### ScanOnly  
+	**ScanOnly**
 
 	Specify this parameter to create a repository that only contains the package
 	descriptor XML and external detection routine files to be used with Thin
 	Installer's SCAN action.
 
-	##### PackageList
+	**PackageList**
 
 	Specify a list of updates by their package IDs which can be obtained using Update
 	Retriever. One or more updates can be specified, separated by a comma.
