@@ -38,12 +38,13 @@ SUHELPER [-autoupdate] [-include [string]] [-exclude [string]] [-packagetype [st
 
 ### -autoupdate
 
-Required parameter. Triggers an Auto Update process by the System Update Addin. Additional parameters may be passed which will filter the updates to be applied. If used alone, any group policies that are set to filter the System Updates will be applied. Otherwise, the command line
-filters will take priority over the group policies.
+Required parameter. Triggers an Auto Update process by the System Update Addin. Additional parameters may be passed which will filter the updates to be applied. If used alone, any group policies that are set to filter the System Updates will be applied. Otherwise, the command line filters will take priority over the group policies.
 
 ### -include [string]
 
 Optional. Specifies list of one or more package IDs, separated by comma (","). When this parameter is specified, these are the only packages that should be installed if they are applicable to this device.
+
+You can easily find the package IDs for updates by either using Update Retriever or the [Driver & Software Matrix for IT Admins](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html). The latter has been updated to provide checkboxes in the list of search results so that one or more updates can be selected, then clicking the **Copy Package ID(s)** button will copy a string to the clipboard consisting of the selected Package IDs separated by a comma. This string can be used after the -include parameter in the command line.
 
 ### -exclude [string]
 
