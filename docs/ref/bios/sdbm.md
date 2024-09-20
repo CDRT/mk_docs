@@ -19,6 +19,8 @@ No longer requires user interaction if a call to clear the TPM was performed. In
 !!! note ""
     It is expected that this feature will continue to be included in follow-on models.
 
+### ThinkPad
+
 | L-Series | P-Series | T-Series | X-Series |
 |----------|----------|----------|----------|
 | L13 Gen 1/3 (Intel) | P1 Gen 2/3/4 | T14 Gen 1 (AMD) | X1 Carbon Gen 7/8/9/10 |
@@ -35,6 +37,14 @@ No longer requires user interaction if a call to clear the TPM was performed. In
 
 !!! note ""
    For L14/15 AMD Gen 1 models, be sure to update to the latest BIOS to ensure you have the System Deployment Boot Mode feature.
+
+### ThinkCentre
+
+All 2022 and later products
+
+### ThinkStation
+
+All 2022 and later products
 
 ## Activating System Deployment Boot Mode
 
