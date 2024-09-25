@@ -94,6 +94,7 @@ The following interface details can be used to access Lenovo BIOS settings.
 | Lenovo_DiscardBiosSettings | Method  | “Password,Encoding,KbdLang;” | “pswd,ascii,us;” |
 | Lenovo_LoadDefaultSettings | Method  | “Password,Encoding,KbdLang;” | “pswd,ascii,us;” |
 | Lenovo_SetBiosPassword <br>***Deprecated - use Lenovo_WmiOpcodeInterface*** | Method | “PasswordType,CurrentPassword, <br>NewPassword,Encoding,KbdLang;” | “pop,oldpop,newpop, <br> ascii,us;” |
+| Lenovo_BiosPasswordSettings | Query | [See section below.](#detecting-password-state) | |
 
 _Table 1.** ThinkPad Interface Details_
 
@@ -112,6 +113,7 @@ _Table 1.** ThinkPad Interface Details_
 | Lenovo_LoadDefault Settings  | Method  | none |  |
 | Lenovo_WmiOpcodeInterface | Method  | WmiOpcodePasswordAdmin:{value};<br>WmiOpcodePasswordType:{value};<br>WmiOpcodePasswordCurrent01:{value};<br>   WmiOpcodePasswordNew01:{value};<br>WmiOpcodePasswordSetUpdate; | WmiOpcodePasswordAdmin:MyPassword!;<br>WmiOpcodePasswordType:pap;<br>WmiOpcodePasswordCurrent01:123;<br>WmiOpcodePasswordNew01:456;<br>WmiOpcodePasswordSetUpdate; |
 | Lenovo_SetBios Password <br>***Deprecated - use Lenovo_WmiOpcodeInterface*** | Method | "PasswordType,CurrentPassword, NewPassword, <br>Encoding,KbdLang;" | “pop,oldpop,<br>newpop,<br>ascii,us;” |
+| Lenovo_BiosPasswordSettings | Query | [See section below.](#detecting-password-state) | |
 <!--| Lenovo_BiosPasswordSettings 	| Method 	| PasswordMode:”Value”<br>-0:Legacy Mode<br>-Others: Reserved PasswordState:”Value”<br>-BIT0=1: User password is installed<br>-BIT1=1:Admin password isinstalled<br>-BIT2=1:Hard disk passwords are installed <br>MinLength:”Value”<br>-1:always one byte MaxLength:”Value”<br>-64:always 64 byte SupportedKeyboard:”Value”<br>-BIT0=1:Support US keyboard<br>-BIT1=1:Support French keyboard<br>-BIT2=1:Support German keyboard <br>SupportedEncodings:”Value”<br>-BIT0=1: support ASCII password input<br>-BIT1=1:support scancode password input <br>Port0HardDiskPasswordState:”Value”<br>-BIT0=1:User hard disk password is installed<br>-BIT1=1:Master hard disk password is installed<br>   Port1HardDiskPasswordState:”Value”<br>   Port2HardDiskPasswordState:”Value”<br>   Port3HardDiskPasswordState:”Value”<br>   Port4HardDiskPasswordState:”Value”<br>   Port5HardDiskPasswordState:”Value” 	| PasswordMode:1 <br>PasswordState:0 <br>MinLength:1 <br>MaxLength:64 <br>SuportedKeyboard:7 <br>SupportedEncodings:3 <br>Port0HardDiskPasswordState:00 <br>Port1HardDiskPasswordState:00 <br>Port2HardDiskPasswordState:00 <br>Port3HardDiskPasswordState:00 <br>Port4HardDiskPasswordState:00 <br>Port5HardDiskPasswordState:00 	| -->
 
 
@@ -166,6 +168,41 @@ The old process is executed in the following order:
 
 1. Lenovo_SetBiosSetting("Item,Value,Password,Encoding,KbdLang")
 2. Lenovo_SaveBiosSettings("Password,Encoding,KbdLang")
+
+### Detecting Password State
+
+The WMI Class **Lenovo_BiosPasswordSettings** can be queried for the PasswordState value to determine which passwords have been set.  The return value corresponds to a bit mask representation of the passwords set which may include Power On Password, Supervisor Password, System Management Password, Hard Disk 1 Password, Hard Disk 2 Password, etc.
+
+The following line of PowerShell code can return the PasswordState value:
+
+``` PowerShell
+
+(gwmi -class Lenovo_BiosPasswordSettings -namespace root\wmi).PasswordState 
+
+```
+
+The return values representing the various combinations of passwords possible follows.
+
+```
+PasswordState | POP | SVP | SMP | HDP 1 | HDP 2 | HDP 3 | HDP 4 | Description
+----------------------------------------------------------------------------------------------------------------
+        0                                                         No passwords set
+        1        x                                                Only the Power On Password set
+        2              x                                          Only the Supervisor Password set
+        3        x     x                                          Supervisor + Power On Passwords set
+        4                           x                             HDD 1 Password set
+        5        x                  x                             Power On + HDD 1 Passwords set
+        6              x            x                             Supervisor + HDD 1 Passwords set
+        7        x     x            x                             Power On + Superversor + HDD 1 Passwords set
+        8                                   x                     HDD 2 Password set
+        9        x                          x                     Power On + HDD 2 Password set
+        :        Values continue to increment accordingly. 
+        64                   x                                    Only the System Management Password set
+        65       x           x                                    Power On + System Management Passwords set
+        66             x     x                                    Supervisor + System Management Password set
+        :        Values continue to increment accordingly.
+        128                                                       No passwords - BIOS Certificate in use.
+```
 
 ### Password Authentication
 
