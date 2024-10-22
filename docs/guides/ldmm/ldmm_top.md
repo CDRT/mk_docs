@@ -215,6 +215,7 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	#### Example
 
 	```Find-LnvMachineType -ModelName 'ThinkPad P1 Gen 5'```
+	
 	```Find-LnvMachineType -ModelName 'ThinkPad P1 '```
 
 	!!! note
@@ -234,8 +235,10 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 
 	#### Example
 
-	```Find-LnvModel -MachineType 21DD```
 	```Find-LnvModel 21DD```
+	
+	```Find-LnvModel -MachineType 21DD```
+	
 
 	!!! note
 	    The output will also show the other machine types associated with this model.
@@ -305,11 +308,11 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 
 	#### Example
 
-	```Find-LnvUpdate -MachineType 20C1 -PackageType 2 -RebootType 1 -WindowsVersion 11```
+	```Find-LnvUpdate -MachineType 21DD -PackageType 2 -RebootType 1 -WindowsVersion 11```
 
-	```Find-LnvUpdates 20C1 2```
+	```Find-LnvUpdates 21DD 2```
 
-	```Find-LnvUpdate 20C1 -PackageType 2```
+	```Find-LnvUpdate 21DD -PackageType 2```
 
 ### Get-LnvAvailableBiosVersion
 :	
@@ -335,7 +338,7 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 
 	#### Example
 
-	```Get-LnvAvailableBiosVersion -MachineType 21DD -OS win10 -Download -ReadMe```
+	```Get-LnvAvailableBiosVersion -MachineType 21DD -WindowsVersion 10 -Download -ReadMe```
 
 ### Get-LnvBiosCode
 :	
@@ -377,6 +380,7 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	#### Example
 
 	```Get-LnvBiosUpdateUrl -MachineType '21AH'```
+	
 	```Get-LnvBiosUpdateUrl```
 
 	!!! note
@@ -399,6 +403,7 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	#### Example
 
 	```Get-LnvBiosVersion -Format 'decimal'```
+	
 	```Get-LnvBiosVersion```
 
 	!!! note
@@ -621,6 +626,7 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	#### Example
 
 	```Get-LnvUpdatesRepo -RepositoryPath 'C:\Program Files (x86)\Lenovo\ThinInstaller\Repository'```
+	
 	``` -PackageTypes '1,2' -RebootTypes '0,3'```
 
 	```Get-LnvUpdatesRepo -RepositoryPath 'Z:\21DD' -PackageTypes '1,2,3' -RebootTypes '0,3,5' -RT5toRT3```
