@@ -152,6 +152,25 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 
 	```Find-LnvBiosCode 21F3```
 
+### Find-LnvBiosInfo
+:	
+	#### Description
+
+	Returns table results for search string representing model friendly name or bios code. The returned BIOS information includes the BIOS code, available version, url to updated executable, link to readme file, and list of CVEs.
+
+	#### Parameter
+
+	| Parameter | Type | Mandatory |
+	| --- | --- | --- |
+	| ModelName | String | True |
+	| BiosCode | String | True |
+
+	#### Example
+
+	```Find-LnvBiosInfo -MachineType '21DD'```
+	
+	```Find-LnvBiosInfo -BiosCode 'n3je'```
+
 ### Find-LnvDockModel
 :	
 	#### Description
@@ -341,11 +360,22 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 :	
 	#### Description
 
-	 This cmdlet will read the BIOS image name from the device and return the first four characters which can be used as the BIOS code in targeting actions to the model uniquely.
+	  This cmdlet will read the BIOS image name from the device and return the first four characters which can be used as the BIOS code in targeting actions to the model uniquely.
+	
 
 	#### Example
 
 	```Get-LnvBiosCode```
+
+### Get-LnvBiosInfo
+:	
+	#### Description
+
+	This cmdlet will read the BIOS image name from the device and return a table of bios information such as as the BIOS version, bios code, link to executable, link to readme, and list of CVEs unique to the targeting machine.
+
+	#### Example
+
+	```Get-LnvBiosInfo```
 
 ### Get-LnvBiosPasswordsSet
 :	
@@ -502,6 +532,22 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	#### Example
 
 	```Get-LnvSerial```
+	
+### Get-LnvWarranty
+:	
+	#### Description
+
+	Returns the devices available warranty status.
+
+	#### Parameters
+
+	None
+
+	#### Example
+
+	```Get-LnvWarranty```
+	
+
 
 ### Get-LnvUpdate
 :	
