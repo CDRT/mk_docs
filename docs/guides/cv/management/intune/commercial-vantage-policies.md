@@ -200,6 +200,31 @@ Values:
 
 ### Power
 
+#### Turn off Global Power Management
+
+!!! note ""
+    Added in version 2407.66
+
+When this policy is Enabled, the Global Power Management (Intelligent Cooling/Intelligent Cooling Engine) of Commercial Vantage will be hidden.
+
+When this policy is Disabled, the Global Power Management (Intelligent Cooling/Intelligent Cooling Engine) of Commercial Vantage will be shown.
+
+When this policy is Not Configured, the Global Power Management (Intelligent Cooling/Intelligent Cooling Engine) of Commercial Vantage will be shown.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~E4F5170489B8C677D42DEB4590E140A7/453AC4524829A51ADCB398A55E146EBA
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
 #### Turn off Power Settings
 
 When this policy is enabled, the Power Settings of Commercial Vantage will be turned off.
@@ -223,7 +248,7 @@ Values:
 !!! note ""
     Added in version 10.2109
 
-This policy setting allows Commercial Vantage to write the computer battery information into the Lenovo Namespace WMI table. If you enable it, the battery information will be written to WMI.  The information written will appear as follows:
+This policy setting allows Commercial Vantage to write the computer battery information into the Lenovo Namespace WMI table. If you enable it, the battery information will be written to WMI. The information written will appear as follows:
 
 ![battery info](https://cdrt.github.io/mk_docs/img/cv/battery_info.png)
 
@@ -325,31 +350,6 @@ Values:
 <disabled/>
 ```
 
-#### Turn off Power Smart Settings
-
-!!! note ""
-    Added in version 10.2104
-
-When this policy is Enabled,  the Power Smart Settings (Intelligent Cooling/Intelligent Cooling Engine) of Commercial Vantage will be hidden.
-
-When this policy is Disabled,  the Power Smart Settings (Intelligent Cooling/Intelligent Cooling Engine) of Commercial Vantage will be shown.
-
-When this policy is Not Configured,  the Power Smart Settings (Intelligent Cooling/Intelligent Cooling Engine) of Commercial Vantage will be shown.
-
-```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~E4F5170489B8C677D42DEB4590E140A7/ADB803E7378E121123D5E08D9A2D0AE3
-```
-
-Values:
-
-```xml
-<enabled/>
-```
-
-```xml
-<disabled/>
-```
-
 #### Turn off Standby Settings
 
 !!! note ""
@@ -403,6 +403,48 @@ When this policy is enabled, the Active Protection System Settings features of C
 
 ```xml
 ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~45D8B8B2CBDB4610CAB05A18CF2C9868/3E5A8FB355FCCB817AD1D3DEFAC78170
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
+#### Turn off Intelligent Screen
+
+!!! note ""
+    Added in version 2407.66
+
+When this policy is enabled, the Intelligent Screen features of Commercial Vantage will be turned off.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~45D8B8B2CBDB4610CAB05A18CF2C9868/9DB9CAC9C421AFDB3A3381486210EA6C
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
+#### Turn off Intelligent Security Settings
+
+!!! note ""
+    Added in version 2407.66
+
+When this policy is enabled, the  Intelligent Security Settings features of Commercial Vantage will be turned off.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~45D8B8B2CBDB4610CAB05A18CF2C9868/E01515303271B7087B61546ECED61B39
 ```
 
 Values:
@@ -508,7 +550,7 @@ Values:
 
 #### System Update Configuration
 
-This policy setting provides the ability for the Administrator to configure the filter of searching updates.  If you enable this policy setting, Commercial Vantage will search for updates based on this filter. This policy affects both manual and auto update.
+This policy setting provides the ability for the Administrator to configure the filter of searching updates. If you enable this policy setting, Commercial Vantage will search for updates based on this filter. This policy affects manual update, but if 'Configure Auto System Update' is not configured, it affects both manual and auto update.
 
 ```xml
 ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7/E1181AE4156C9E11CAF88FC6416AE108
@@ -615,6 +657,70 @@ Values:
 <disabled/>
 ```
 
+#### Configure Auto System Update
+
+!!! note ""
+    Added in version 2407.66
+
+This policy setting provides the ability for the Administrator to config the filter of searching updates.
+
+If you enable this policy setting, Commercial Vantage will searching for updates base on this filter.
+
+If you disable this policy setting, Commercial Vantage will searching for all available updates.
+
+Not configured follows the settings of 'Configure System Update'.
+
+This policy affects auto update.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7~E4FF6280DA9B32B3629E2DCFE74DCCDB/4299A9B51C4F0D8CC6ADE9235CACF855
+```
+
+Values:
+
+```xml
+<enabled/>  
+<data id="602015B22CFEA08C53FEC8C3E81356BF" value="true"/>
+<data id="CE7D1526B3D8674705FF75DFF52B4416" value="true"/>
+<data id="7C75C7AA6FF288235BCA3886FA9A4176" value="true"/>
+<data id="94803C37291A574BB4CAF4DFAE682CC2" value="true"/>
+<data id="7326616EB323392D1BB0E6436A4A02AF" value="false"/>
+<data id="6564E6607DD79991C0A56F009A4102FA" value="true"/>
+<data id="B78D824B47B0EC632B7EDEF30B63E2D9" value="true"/>
+<data id="A0DEF98CD96C592582382A3453CB78BA" value="true"/>
+<data id="8E6885D7C10107B5CD98053B7D8B2A6E" value="true"/>
+<data id="A45D902F95DDD3B8597B21175A66A804" value="true"/>
+<data id="46302403B9C32072305518FE20DC6720" value="false"/>
+<data id="FDC13AFD3BA418958D122D78105C2F90" value="false"/>
+<data id="3297105136FCEC5D3432C0FA2FDB73BB" value="false"/>
+<data id="C62002C924CF75712313AC1CF94525AB" value="false"/>
+<data id="9A82A62C3EF3BA2FCC142413A1FAC951" value="false"/>
+```
+
+```xml
+`<disabled/>`
+```
+
+!!! note ""
+    All elements must be specified with a value of either True or False. Reference the legend below for Boolean id elements to string match.
+
+!!! info "GUID Reference"
+    602015B22CFEA08C53FEC8C3E81356BF = Critical Applications<br>
+    CE7D1526B3D8674705FF75DFF52B4416 = Critical Drivers<br>
+    7C75C7AA6FF288235BCA3886FA9A4176 = Critical BIOS<br>
+    94803C37291A574BB4CAF4DFAE682CC2 = Critical Firmware<br>
+    7326616EB323392D1BB0E6436A4A02AF = Critical Others<br>
+    6564E6607DD79991C0A56F009A4102FA = Recommended Applications<br>
+    B78D824B47B0EC632B7EDEF30B63E2D9 = Recommended Drivers<br>
+    A0DEF98CD96C592582382A3453CB78BA = Recommended BIOS<br>
+    8E6885D7C10107B5CD98053B7D8B2A6E = Recommended Firmware<br>
+    A45D902F95DDD3B8597B21175A66A804 = Recommended Others<br>
+    46302403B9C32072305518FE20DC6720 = Optional Applications<br>
+    FDC13AFD3BA418958D122D78105C2F90 = Optional Drivers<br>
+    3297105136FCEC5D3432C0FA2FDB73BB = Optional BIOS<br>
+    C62002C924CF75712313AC1CF94525AB = Optional Firmware<br>
+    9A82A62C3EF3BA2FCC142413A1FAC951 = Optional Others
+
 #### Defer Update
 
 !!! note ""
@@ -702,6 +808,33 @@ Values:
 ```xml
 <enabled/>
 <data id="EC653B23E1449655915FA566BEA54E40" value="10:00:00"/>
+```
+
+```xml
+<disabled/>
+```
+
+#### Turn off Dock Auto Update
+
+!!! note ""
+    Added in version 2407.66
+
+Dock Auto Update is a separate feature from Auto Update for the system and does not follow the filtering or scheduling configuration of the System Update policies.
+
+This feature focuses only on updating the firmware of docks that are attached to the system.
+
+When this policy is Enabled, the Dock Auto Update feature is turned off. Also, if the policy is Not Configured or not present, the Dock Auto Update feature is turned off.
+
+If Dock Auto Update feature needs to be turned on, then set this policy to Disabled. This will cause Commercial Vantage to check for an available Dock firmware update for the specific Dock when it is attached to the system.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7~E4FF6280DA9B32B3629E2DCFE74DCCDB/FE78C222D70C11FCD9E1B7C2C13DA89D
+```
+
+Values:
+
+```xml
+<enabled/>
 ```
 
 ```xml
