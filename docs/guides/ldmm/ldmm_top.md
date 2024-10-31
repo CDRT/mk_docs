@@ -6,6 +6,16 @@ The Lenovo Device Management Module is a PowerShell Module containing numerous c
 
 The Lenovo Device Management Module requires 64-bit PowerShell v5.1 or higher and runs on Windows 10 and Windows 11.
 
+??? note "What's New"
+    
+    ### November 1, 2024:  Version 1.2.0
+
+    - Added new cmdlet Get-LnvBiosInfo and Find-LnvBiosInfo which return an object containing details about the BIOS for the running device or device specified by Machine Type or BIOS code, respectively.
+
+    - Added new cmdlet Get-LnvWarranty which returns the details collected by Commercial Vantage in WMI. Commercial Vantage is required and must be configured in group policy to enable writing the warranty information to WMI.
+
+    - Made several fixes to Get-LnvUpdatesRepo. The ScanOnly option is no longer available as it will not work with Thin Installer. Added -PackageList as a parameter to specify a string of specific updates, by Package ID, which should be included in the repository.
+
 ## Installing Lenovo Device Management Module
 
 The module itself is currently available for download here: [ldmm_1.0.0.zip](https://download.lenovo.com/cdrt/tools/ldmm_1.0.0.zip) 
@@ -32,7 +42,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 ## Cmdlet Reference
 
 ### Add-LnvSUCommandLine
-:	
+
+:  
 	#### Description
 
 	Run Script to set Admin command line Windows Registry settings for Lenovo System Update.
@@ -95,7 +106,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	    Read messages to determine the result of the script working.
 
 ### Add-LnvSULogging
-:	
+
+:  
 	#### Description
 
 	This cmdlet sets the appropriate registry key to cause the System Update Add-in to perform logging during update sessions. If neither the -Enable or -Disable switches are specified, then logging will be ENABLED.
@@ -113,7 +125,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	    When logging is enabled a restart may be required and the log file will be located at ```%ProgramData%\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\logs```
 
 ### Export-LnvUpdateRetrieverConfig
-:	
+
+:  
 	#### Description
 
 	Generates a .reg file containing an export of the Update Retriever settings found at:
@@ -133,10 +146,14 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	```Export-LnvUpdateRetrieverConfig -Outfile C:\users\admin\Downloads\urconfig```
 
 ### Find-LnvBiosCode
-:	
+
+:  
 	#### Description
 
 	Shows results for search string representing model friendly name or machine type. The BIOS code is the first four characters of the BIOS image name. It is a useful data point for uniquely targeting a model.
+
+    !!! note
+        When specifying the friendly model name, it may be necessary to remove any reference to the generation in order to find the desired model because the representation of the generation may vary. By not specifying the generation as in the second example below, the results will contain a list of all the generations.
 
 	#### Parameter
 
@@ -148,15 +165,16 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 
 	```Find-LnvBiosCode -ModelName 'ThinkPad X13 Yoga Gen 4'```
 
-	```Find-LnvBiosCode 'ThinkPad X13 Yoga Gen 4'```
+	```Find-LnvBiosCode 'ThinkPad X13 Yoga'```
 
 	```Find-LnvBiosCode 21F3```
 
 ### Find-LnvBiosInfo
-:	
+
+:  
 	#### Description
 
-	Returns table results for search string representing model friendly name or bios code. The returned BIOS information includes the BIOS code, available version, url to updated executable, link to readme file, and list of CVEs.
+	Returns table results for search string representing model friendly name or bios code. Only one is required. The parameter name and value must be specified in order to distinguish which is being searched. The returned BIOS information includes the BIOS code, available version, url to updated executable, link to readme file, and list of CVEs.
 
 	#### Parameter
 
@@ -172,7 +190,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	```Find-LnvBiosInfo -BiosCode 'n3je'```
 
 ### Find-LnvDockModel
-:	
+
+:  
 	#### Description
 
 	- The first four characters of the dock product number is the machine type.
@@ -193,7 +212,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	```Find-LnvDockModel -MachineType 40AN -Details```
 
 ### Find-LnvDriverPack
-:	
+
+:  
 	#### Description
 
 	Returns a list of the available driver packs for the machine type specified which includes the OS and the OS build version, the CRC of the pack, and the URL to the package executable. The OS will be "win10" or "win11" and the OS build version will be the four character designator like "21H2" or "22H2".
@@ -220,7 +240,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 		The Where-Object cmdlet can be used to filter on OS and version to return just one URL.  The URL is in the '#text' field of the returned object.
 
 ### Find-LnvMachineType
-:	
+
+:  
 	#### Description
 
 	By specifying a search string representing model friendly name, this cmdlet will return the possible machine types that match. Most models have more than one possible machine type. Providing a more detailed model name to search for will help reduce the number of results returned.
@@ -241,7 +262,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 		A space after the model name such as 'ThinkPad P1 ' will limit the search to ThinkPad P1 models and not include ThinkPad P15 or ThinkPad P16 models. Likewise, use 'ThinkPad X1 ' to search for ThinkPad X1 Carbon and Yoga models and exclude ThinkPad X13 models.
 
 ### Find-LnvModel
-:	
+
+:  
 	#### Description
 
 	This cmdlet returns the friendly model name that will be found in WMI on a device with the specified machine type. This is useful in cases where a management portal may display the 10 character machine type model number and the user needs to know the model name of that device.
@@ -263,7 +285,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	    The output will also show the other machine types associated with this model.
 
 ### Find-LnvUpdate
-:	
+
+:  
 	#### Description
 
 	This script allows users to search for updates for a specified machine type.
@@ -334,7 +357,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	```Find-LnvUpdate 21DD -PackageType 2```
 
 ### Get-LnvAvailableBiosVersion
-:	
+
+:  
 	#### Description
 
 	If you specify a machine type, the cmdlet will return the version of the  currently available BIOS update. If no machine type is specified, the cmdlet will use the running system's machine type and will compare the version of the currently available update to the version of the system and return an alert if the update is newer. 
@@ -359,8 +383,37 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 
 	```Get-LnvAvailableBiosVersion -MachineType 21DD -WindowsVersion 10 -Download -ReadMe```
 
+### Get-LnvBatteryInfo
+
+:  
+    #### Description
+
+      This cmdlet will return a list of custom objects which represent each battery in the system. For systems with more than one battery, you can iterate through the list to get the details for each battery.
+
+    #### Example
+
+    ``` 
+        $ Get-LnvBatteryInfo
+
+        InstanceName        : ACPI\PNP0C0A\0_0
+        DeviceName          : 5B11H56411
+        DesignedCapacity    : 86000
+        Manufacturer        : Celxpert
+        FullChargedCapacity : 85690
+        Location            : Front
+        DesignVoltage       : 15440
+        RemainingCapacity   : 85580
+        PowerOnline         : True
+        Charging            : False
+        Discharging         : False
+        Voltage             : 17215
+        ChargeRate          : 0
+        DischargeRate       : 0
+    ```
+
 ### Get-LnvBiosCode
-:	
+
+:  
 	#### Description
 
 	  This cmdlet will read the BIOS image name from the device and return the first four characters which can be used as the BIOS code in targeting actions to the model uniquely.
@@ -371,17 +424,30 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	```Get-LnvBiosCode```
 
 ### Get-LnvBiosInfo
-:	
+
+:  
 	#### Description
 
-	This cmdlet will read the BIOS image name from the device and return a table of bios information such as as the BIOS version, bios code, link to executable, link to readme, and list of CVEs unique to the targeting machine.
+	This cmdlet will read the BIOS image name from the device and return an object of bios information such as as the BIOS version, bios code, link to executable, link to readme, and list of CVEs unique to the targeting machine.
 
 	#### Example
 
-	```Get-LnvBiosInfo```
+    ```
+        $ Get-LnvBiosInfo
+
+        Version          : 1.10
+        VersionString    : N47ET21W (1.10 )
+        ImageCode        : N47E
+        AvailableVersion : 1.10.1.08
+        UpdateUrl        : https://download.lenovo.com/pccbbs/mobiles/n47uj05w.exe
+        ReadmeUrl        : https://download.lenovo.com/pccbbs/mobiles/n47uj05w.html
+        CVEs             :
+        PasswordsSet     : 0: No BIOS Password Set
+    ```
 
 ### Get-LnvBiosPasswordsSet
-:	
+
+:  
 	#### Description
 
 	This cmdlet gets the BIOS password state of the system and interprets it to return the set of passwords set on the device. If the -Number switch is used, then the PasswordState number will be returned instead.
@@ -396,7 +462,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	    THIS CMDLET REQUIRES ADMIN RIGHTS TO EXECUTE. Make sure the PowerShell session is running with elevated privileges.
 
 ### Get-LnvBiosUpdateUrl
-:	
+
+:  
 	#### Description
 
 	This command will return the URL to the current BIOS update package for either the specified machine type or for the machine type of the device running the command.
@@ -417,7 +484,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 		The device must be a Lenovo ThinkPad, ThinkCentre, or ThinkStation.
 
 ### Get-LnvBiosVersion
-:	
+
+:  
 	#### Description
 
 	Returns the BIOS version in the specified format.
@@ -443,7 +511,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	    If no Format is specified, the function will return the full string of the SMBIOSBIOSVersion value.
 
 ### Get-LnvCVE
-:	
+
+:  
 	#### Description
 
 	Returns a list of the CVE identifiers that are listed as addressed
@@ -465,7 +534,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	```Get-LnvCVE```
 
 ### Get-LnvDriverPack
-:	
+
+:  
 	#### Description
 
 	This cmdlet will download the SCCM Driver Pack based on the specified machine type, OS and OS build version. Tab completion can be used to select the OS build version in the correct format. The cmdlet will leverage the default browser for downloading the pack so the user can select the location to save the file to.
@@ -483,7 +553,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	```Get-LnvDriverPack -MachineType 21DD -WindowsVersion 10 -OSBuildVersion 22H2```
 
 ### Get-LnvMachineType
-:	
+
+:  
 	#### Description
 
 	Returns the 4 character machinetype of the running device.
@@ -497,7 +568,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	```Get-LnvMachineType```
 
 ### Get-LnvModelName
-:	
+
+:  
 	#### Description
 
 	Returns the model name of the running device.
@@ -511,7 +583,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	```Get-LnvModelName```
 
 ### Get-LnvProductNumber
-:	
+
+:  
 	#### Description
 
 	Returns the full 10-character product number of the running device.
@@ -525,7 +598,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	```Get-LnvProductNumber```
 
 ### Get-LnvSerial
-:	
+
+:  
 	#### Description
 
 	Returns the serial number of the running device.
@@ -538,24 +612,9 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 
 	```Get-LnvSerial```
 	
-### Get-LnvWarranty
-:	
-	#### Description
-
-	Returns the devices available warranty status.
-
-	#### Parameters
-
-	None
-
-	#### Example
-
-	```Get-LnvWarranty```
-	
-
-
 ### Get-LnvUpdate
-:	
+
+:  
 	#### Description
 
 	This script allows users to search for updates that will be downloaded to a folder of their choice
@@ -600,7 +659,8 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	```Get-LnvUpdate -MachineType "20E6" -RepositoryFolder "C:\repository"```
 
 ### Get-LnvUpdatesRepo
-:	
+
+:  
 	#### Description
 
 	For instances where Update Retriever cannot be used to create the local repository or where full automation of the repository creation is desired. This PowerShell script can be customized and executed on a regular basis to get the latest update packages.
@@ -609,16 +669,19 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 
 	| Parameter | Type | Mandatory |
 	| --- | --- | --- |
+	| RepositoryPath | String | True |
 	| MachineType | String | False |
-	| OS | String | False |
+	| WindowsVersion | String | False |
 	| PackageTypes | String | False |
 	| RebootTypes | String | False |
-	| RepositoryPath | String | True |
-	| LogPath | String | False |
 	| RT5toRT3 | Switch | False |
-	| ScanOnly | Switch | False |
+	| PackageList | String | False |
 
-	**OS**  
+	**RepositoryPath**
+
+	Must be a fully qualified path to the folder where the local repository will be saved. Must be surrounded by single quotes.
+
+	**WindowsVersion**  
 
 	Must be a string of '10' or '11'. The default if no value is specified will
 	be determined by the OS of the device the script is running on.
@@ -642,15 +705,6 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	&nbsp;&nbsp; 5: Delayed forced reboot (used by many firmware updates)<br>
 	The default if no value is specified will be all RebootTypes.
 
-	**RepositoryPath**
-
-	Must be a fully qualified path to the folder where the local repository will be saved. Must be surrounded by single quotes.
-
-	**LogPath**
-
-	Must be a fully qualified path. If not specified, ti-auto-repo.log will be  stored in the repository folder.
-	Must be surrounded by single quotes.
-
 	**RT5toRT3**
 
 	Specify this parameter if you want to convert Reboot Type 5 (Delayed Forced Reboot) packages to be Reboot Type 3 (Requires Reboot). Only do this in task sequence scenarios where a Restart can be performed after the Thin Installer task. Use the -noreboot parameter on the Thin Installer command line to suppress reboot to allow the task sequence to control the restart.
@@ -658,16 +712,9 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	!!! note
         This parameter can only be used when **Thin Installer** will be processing the updates in the repository because changing the reboot type will break the XML digital signature. When using version **1.04.02.00024** or later of Thin Installer, you must also specify the **-ignorexmlsignature** to ensure Thin Installer does not skip the updates that have been altered.
 
-	**ScanOnly**
-
-	Specify this parameter to create a repository that only contains the package
-	descriptor XML and external detection routine files to be used with Thin
-	Installer's SCAN action.
-
 	**PackageList**
 
-	Specify a list of updates by their package IDs which can be obtained using Update
-	Retriever. One or more updates can be specified, separated by a comma.
+	Specify a list of updates by their package IDs which can be obtained using Update Retriever. One or more updates can be specified, separated by a comma.
 
 	#### Example
 
@@ -684,8 +731,24 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 		System.Int32. 0 - success
 		System.Int32. 1 - fail
 
+### Get-LnvWarranty
+
+:  
+	#### Description
+
+	Returns the devices available warranty status. This requires that Commercial Vantage be installed and configured through group policy to write warranty information to WMI.
+
+	#### Parameters
+
+	None
+
+	#### Example
+
+	```Get-LnvWarranty```
+
 ### Show-LnvApplicableUpdate
-:	
+
+:  
 	#### Description
 
 	Read an Update_ApplicabilityRulesTrace.txt from Thin Installer or ApplicabilityRulesTrace.txt from Lenovo System Update and show list of package IDs that are applicable.  This output string can be passed to the Get-LnvUpdatesRepo cmdlet in the -PackageList parameter to create a local repository of just the specified updates.
