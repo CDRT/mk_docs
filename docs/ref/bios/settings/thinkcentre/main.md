@@ -1,31 +1,19 @@
-# Main #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img
-   /tc_main.png)
+# Main
 
-<details><summary>Language</summary>
+![Main](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_main.PNG)
 
-Options:
+Language
+:  
+    Options:
 
-1.  **English**
-2.	French
-3.  Russian
-4.  Chinese (Mandarin)
+    1. **English**
+    2. French
+    3. Russian
+    4. Chinese (Mandarin)
 
-<!-- NO WMI -->
+Setup Mode Select
+:  
+    Options:
 
-
-</details>
-
-<details><summary>Setup Mode Select</summary>
-
-<!-- MODEL: S only-->
-
-Options:
-
-1.  **Text** - simple text interface with navigation and actions available only via keyboard. Default.
-2.	Graphic - graphical interface with possibility to additionally use mouse for navigation and actions.
-
-<!-- NO WMI -->
-
-
-</details>
+    1. **Text** - simple text interface with navigation and actions available only via keyboard. Default.
+    2. Graphic - graphical interface with possibility to additionally use mouse for navigation and actions.

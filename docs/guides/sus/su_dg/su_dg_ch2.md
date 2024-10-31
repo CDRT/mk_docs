@@ -15,11 +15,9 @@ System Update supports the following operating systems:
 !!! note
 	System Update is qualified and supported on Windows 7, Windows 10 and Windows 11. System Update is not qualified and supported on Windows 8/8.1. If End User decides to install System Update on Windows 8/8.1 it may work without issue and may be used as is, but Lenovo makes no representations about this and has not tested such installation and such installation would not be supported. If having System Update is important to End User Lenovo recommends changing to a Windows version where it is qualified and supported.
 
-
 System Update requires Microsoft .NET Framework 4.5.2 or a later version. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
-[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download){:target="_blank"}
-
+[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
 
 ### 2.1.2 Languages
 
@@ -52,8 +50,6 @@ The following table presents the languages and the corresponding language overri
 | Swedish | 1053 | SV |
 | Simplified Chinese | 2052 | CHS |
 | Traditional Chinese | 1028 | CHT |
-
-
 
 _Table 2-1. System Update language codes_
 </center>
@@ -143,7 +139,7 @@ Thin Installer is supported on the following operating systems:
 
 Thin Installer requires Microsoft .NET Framework version 4.5.2 or higher. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
-[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download){:target="_blank"} 
+[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
 
 ### 2.2.2 Removing Thin Installer
 
@@ -166,7 +162,7 @@ Update Retriever is supported on the following operating systems:
 
 Update Retriever requires Microsoft .NET Framework version 4.5.2 or higher. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
-[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download){:target="_blank"} 
+[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download) 
 
 ### 2.3.2 Languages
 
@@ -181,7 +177,6 @@ The following table presents the languages supported by Update Retriever and the
 | German | 1031 | DE |
 | Japanese | 1041 | JP |
 | Simplified Chinese | 2052 | CHS |
-
 
 _Table 2-2. Update Retriever language codes_
 
@@ -229,7 +224,7 @@ If a previous version of Update Retriever is already installed, the following po
 
 ![](https://cdrt.github.io/mk_docs/img/guides/su/img2-1.png)
 
-*Figure 2-1. Removing existing version of Update Retriever to download the newest version.*
+_Figure 2-1. Removing existing version of Update Retriever to download the newest version._
 
 </center>
 

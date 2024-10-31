@@ -24,7 +24,7 @@ Scheme for AC
     1. **Maximize Performance** - reduces CPU throttling. Default.
     2. Balanced - balanced sound, temperature, and performance.
 
-    !!! info ""
+    !!! note ""
         Each scheme affects fan sound, temperature, and performance.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -39,7 +39,7 @@ Scheme for Battery
     1. Maximize Performance - reduces CPU throttling.
     2. **Balanced** - balanced sound, temperature, and performance. Default.
 
-    !!! info ""
+    !!! note ""
         Each scheme affects fan sound, temperature, and performance.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -49,10 +49,10 @@ Scheme for Battery
 Intelligent Cooling Boost
 :  Whether to  improve power efficiency by limiting system power based on the selected OS application, when Intelligent Cooling is on.
 
-    !!! info ""
+    !!! note ""
         This feature is Windows only.
 
-    !!! info ""
+    !!! note ""
         For more details about Intelligent Cooling mode, please refer to Vantage or the user guide.
 
     Options:
@@ -72,7 +72,7 @@ CPU Power Management
     1. **Automatic** - Default.
     2. Disabled
 
-    !!! info ""
+    !!! note ""
         Normally, it is not necessary to change this setting.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -82,7 +82,7 @@ CPU Power Management
 Power On with AC Attach
 :  Whether to power on the system when AC is attached.
 
-    !!! info ""
+    !!! note ""
         If the system is in hibernate state, the system resumes upon AC connect.
 
     Possible options:
@@ -97,7 +97,7 @@ Power On with AC Attach
 Sleep State
 :  Optimized Sleep States.
 
-    !!! info ""
+    !!! note ""
         * Sleep State for Windows® and versions of Linux are compatible with Suspend-to-Idle.
         * Optimized Sleep State for S3 are not compatible with Suspend-to-Idle.
         * Windows® OS should be used with **Windows** setting only.
@@ -119,7 +119,7 @@ Disable Built-in Battery
 
     This option requires additional confirmation.
 
-    !!! info ""
+    !!! note ""
         * After selecting this item, the system will be automatically powered off, ready to be serviced.
         * The battery will be automatically enabled when the AC adapter is reconnected.
 
@@ -138,7 +138,7 @@ Wake Up on Alarm
     4. Weekly Event - the system will turn on every week on the specified day and time.
     5. User Defined - this option enables ‘User Defined Alarm’ group of settings.
 
-    !!! info ""
+    !!! note ""
         Wake up will only occur on AC power.  Values for the `Wake Up on Alarm` group of settings can be overwritten by the operating system.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -148,7 +148,7 @@ Wake Up on Alarm
 Alarm Date (MM/DD/YYYY)
 :  Select the exact day for the system to turn on.
 
-    !!! info ""
+    !!! note ""
         Active only when `Wake Up on Alarm` has value `Single Event`.
 
     Possible options:

@@ -1,38 +1,32 @@
 # Main #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_main_p3twr.png)
+![Main](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_main_p3twr.PNG)
 
 These settings affect the appearance of the BIOS Setup interface on the system.
 
-<details><summary>Language</summary>
-Specifies the language to be displayed.
+Language
+:	Specifies the language to be displayed.
 
-Options:
+	Options:
 
-1. **English** - Default.
-1. Français
-1. Pусский
-1. 中文
+	1. **English** - Default.
+	1. Français
+	1. Pусский
+	1. 中文
 
-</details>
+Setup Mode Select
+:	Species whether to use the graphical UI mode or the text based mode.
 
-<details><summary>Setup Mode Select</summary>
-Species whether to use the graphical UI mode or the text based mode.
+	Options:
 
-Options:
+	1. **Graphic** - Default.
+	1. Text
 
-1. **Graphic** - Default.
-1. Text
+Setup Content
+:	Controls the level of settings displayed between just the basic settings versus the more advanced settings.
 
-</details>
+	Options:
 
-<details><summary>Setup Content</summary>
-Controls the level of settings displayed between just the basic settings versus the more advanced settings.
+	1. **Advanced** - Default.
+	2. Basic
 
-Options:
-
-1. **Advanced** - Default.
-2. Basic
-
-</details>

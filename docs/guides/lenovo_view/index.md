@@ -6,7 +6,7 @@ Lenovo View is a hardware support app for the Lenovo View device driver that enh
 
 ## Deploying Lenovo View
 
-As an HSA, the Lenovo View app is available in the HSA pack for models that support it. The Lenovo View device driver, which is included in the SCCM driver packs and available on Lenovo Support site, must be deployed to the device in order for the Lenovo View app to work. For systems which have access to the Microsoft Store, simply deploy the device driver to the device and the OS will automatically install the Lenovo View app. Otherwise, refer to this article for detail on how to 'sideload' the app from the HSA pack: [Hardware Support Apps Without Microsoft Store](https://blog.lenovocdrt.com/#/2020/hsa-1){:target="_blank"} 
+As an HSA, the Lenovo View app is available in the HSA pack for models that support it. The Lenovo View device driver, which is included in the SCCM driver packs and available on Lenovo Support site, must be deployed to the device in order for the Lenovo View app to work. For systems which have access to the Microsoft Store, simply deploy the device driver to the device and the OS will automatically install the Lenovo View app. Otherwise, refer to this article for detail on how to 'sideload' the app from the HSA pack: [Hardware Support Apps Without Microsoft Store](https://blog.lenovocdrt.com/hardware-support-apps-without-microsoft-store)
 
 ## Access Lenovo View
 
@@ -52,12 +52,12 @@ Type Lenovo View in the Windows search box and then press Enter.
 
 The Lenovo View app supports group policy controls of the configuration settings listed below. To define a policy for you devices running Lenovo View, download the ADMX template and use the standard procedure to implement your desired settings through Active Directory.  You may also import the ADMX template for Lenovo View into Intune to manage the policies.
 
-More about Intune here: [Import custom and third party partner ADMX templates in Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/mem/intune/configuration/administrative-templates-import-custom){:target="_blank"} 
+More about Intune here: [Import custom and third party partner ADMX templates in Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/mem/intune/configuration/administrative-templates-import-custom) 
 
 If testing on a local machine, copy the contents of the zip file below to C:\Windows\PolicyDefinitions, then open Group Policy Editor. The Lenovo View items will be available under Administrative Templates.
 ![Lenovo View policies](https://cdrt.github.io/mk_docs/img/guides/view/gpedit.png)
 
-Download:  [LenovoViewADMX.zip](https://download.lenovo.com/cdrt/tools/LenovoViewADMX.zip){:target="_blank"} 
+Download:  [LenovoViewADMX.zip](https://download.lenovo.com/cdrt/tools/LenovoViewADMX.zip) 
 
 ---
 

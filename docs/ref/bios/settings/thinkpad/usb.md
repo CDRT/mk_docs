@@ -5,7 +5,7 @@
 Always on USB
 :  Whether the USB ports can charge external device during low power states (standby, hibernate or power-off).
 
-    !!! info ""
+    !!! note ""
         If the system runs on battery mode, this works only in standby mode.
 
     Possible options:
@@ -20,7 +20,7 @@ Always on USB
 Charge in Battery Mode
 :  Whether to enable charging when system is in hibernate or power-off state and in battery mode.
 
-    !!! info ""
+    !!! note ""
         Visible only if 'Always on USB' is Enabled.
 
     Possible options:

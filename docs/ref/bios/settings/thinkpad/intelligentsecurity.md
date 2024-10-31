@@ -6,13 +6,13 @@ The Intelligent Security functions provide a convenient way to securely lock and
 
 - [More information at Lenovo Support](https://support.lenovo.com/solutions/ht511536-smart-features)
 
-!!! info ""
+!!! note ""
     Some of these features may be unavailable, depending on your model and configuration.
 
 User Presence Sensing
 :  Whether to enable functions that rely on using the IR camera to recognize the user's presence and if the user is looking at the screen.
 
-    !!! info ""
+    !!! note ""
         Before using this feature, ensure you create your Face ID with the IR camera.
 
     - [More information at Lenovo Support](https://support.lenovo.com/uu/en/solutions/ht511536-smart-features)
@@ -37,7 +37,7 @@ Allow Lenovo Vantage to Override Setting Below
     1. **On** - Default.
     2. Off
 
-    !!! info ""
+    !!! note ""
         System will enforce BIOS settings if set to `Off`.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -74,7 +74,7 @@ DISTANCE SENSITIVITY ADJUSTING
 Zero Touch Lock
 :  Whether to dim the display and lock the computer when user presence is not detected.
 
-    !!! info ""
+    !!! note ""
         Can reduce the chances of unauthorized access to the computer if you leave the computer unattended and unlocked.
 
     Options:

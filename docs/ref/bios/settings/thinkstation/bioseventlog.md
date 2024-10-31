@@ -1,12 +1,8 @@
-# BIOS Event Logging #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_biosevent.png)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_(https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   entlog.png)
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_biosevent_p3twr.png)-->
+# BIOS Event Logging
 
+![Bios Event Log](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_biosevent.PNG)
+
+![Bios Event Log](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_bioseventlog.PNG)
 
 Displays information on system components such as:
 

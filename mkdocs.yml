@@ -1,5 +1,5 @@
 site_name: Lenovo CDRT Docs Site
-site_url: https://cdrt.github.io/mk_docs/
+site_url: https://docs.lenovocdrt.com/
 
 theme:
   name: material
@@ -36,10 +36,12 @@ nav:
   - Home: 'index.md'
   - Product Guides: 
     - Commercial Vantage: 
-      - guides/cv/index.md
+      - Overview and What's New: guides/cv/index.md
       - Deployment Guide: guides/cv/commercial_vantage.md
-      - Managing with Intune: guides/cv/manage_intune.md
-      - Commercial Vantage Policies: guides/cv/commercial-vantage-policies.md
+      - SU Helper Reference: guides/cv/suhelper.md
+      - Managing with Intune: 
+        - guides/cv/management/intune/index.md
+        - guides/cv/management/intune/commercial-vantage-policies.md
       - Commercial Vantage FAQ: guides/cv/commercial_vantage_faq.md
     - System Update - Update Retriever - Thin Installer:
       - guides/sus/index.md
@@ -53,13 +55,13 @@ nav:
         - guides/sus/su_dg/su_dg_ch6.md
         - guides/sus/su_dg/su_dg_ch7.md
         - guides/sus/su_dg/su_dg_ch8.md
-      - FAQ: guides/sus/system_update_faq.md
+      - System Update FAQ: guides/sus/system_update_faq.md
     - Dock Manager:
       - guides/dm/index.md
       - Deployment Guide: guides/dm/dm.md
       - Managing with Intune: guides/dm/dm_manage_intune.md
       - Troubleshooting: guides/dm/dm_troubleshooting.md
-      - FAQ: guides/dm/dock_manager_faq.md
+      - Dock Manager FAQ: guides/dm/dock_manager_faq.md
     - Think BIOS Config Tool:
       - Overview: guides/tbct/tbct_top.md
       - User Guide: guides/tbct/tbct.md
@@ -189,25 +191,31 @@ nav:
           - Exit: ref/bios/settings/thinkstation/exit.md
       - Glossary: ref/bios/glossary.md
       - BIOS Logging: ref/bios/settings/bios_logging.md
+      - System Deployment Boot Mode: ref/bios/sdbm.md
     - Docks Reference:
       - ref/docks/index.md
       - Deployment Guide: ref/docks/docks_main.md
       - Configuration Manager Queries: ref/docks/configmgr_dock_queries.md
     - AMD DASH: ref/dash/index.md
     - Scripting Samples: ref/scripts/samples.md
-  - FAQ:
-    - System Update FAQ: faq/system_update_faq.md
-    - Commercial Vantage FAQ: faq/commercial_vantage_faq.md
-    - Dock Manager FAQ: faq/dock_manager_faq.md
+  - Frequently Asked Questions:
+    - System Update FAQ: guides/sus/system_update_faq.md
+    - Commercial Vantage FAQ: guides/cv/commercial_vantage_faq.md
+    - Dock Manager FAQ: guides/dm/dock_manager_faq.md
 
 plugins:
   - search
+  - open-in-new-tab
 
 markdown_extensions:
   - admonition
   - tables
   - def_list
   - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: ......span
@@ -216,11 +224,28 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.superfences
   - pymdownx.details
+  - pymdownx.keys
   - toc:
       permalink: "#"
 
+extra:
+  analytics:
+    provider: google
+    property: G-288025816
+  consent:
+    title: Cookie consent
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
+    actions:
+      - accept
+      - reject
+      - manage
+
 copyright: |
-  &copy; 2024 <a href="https://docs.lenovocdrt.com"  target="_blank" rel="noopener">Lenovo Commercial Deployment Readiness Team</a>
+  &copy; 2024 <a href="https://docs.lenovocdrt.com"  target="_blank" rel="noopener">Lenovo Commercial Deployment Readiness Team</a><br><a href="#__consent" style="text-decoration:underline;">Change cookie settings</a>
 
 extra_css :
   - stylesheets/extra.css

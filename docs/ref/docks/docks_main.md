@@ -21,7 +21,7 @@ Also in this document you will find information that affects deployment options 
 
 The information below pertains to deploying Windows 7 and Windows 10 on Lenovo’s enterprise class Think branded laptops using Lenovo's docking solutions. Each family of docks has at least one corresponding Ethernet adapter or Ethernet + video adapter. The basic information in this guide applies to those devices as well.
 
-!!! info ""
+!!! note
     With modern docking solutions, it is critical to the docking experience to ensure several components on the attached system are up to date. Therefore it is important to focus on these other components as well as the individual dock firmware and drivers when deploying and maintaing these solutions. To simplify finding the appropriate content use the [Docking tab on the Driver and Software Matrix for Admins](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html#Docking).
 
 The base process for deployments via the Lenovo docks and dongles all require:
@@ -48,7 +48,7 @@ This document may make references to deployment tools such as Microsoft’s Syst
 Use the table below to find the appropriate WinPE driver for your dock:
 
 | Docks | WinPE Driver |
-| :--------: | :-------:|
+| :-------- | :-------|
 | USB-C Dock<br/>  USB-C Travel Hub<br/>  Thunderbolt Dock<br/>  Hybrid USB-C with USB-A Dock<br/>  OneLink Dock<br/>  OneLink+ Dock<br/>  OneLink+ to RJ45 Adapter<br/>  3-in-1 ThinkPad<br/> OneLink Adapter <br/> USB 3.0 Ethernet Adapter <br/>USB-C to Ethernet Adapter | [Realtek USB Driver](https://pcsupport.lenovo.com/us/en/downloads/ds504778) |
 | USB 3.0 Basic Dock<br/>  USB 3.0 Pro Dock<br/>  USB 3.0 Ultra Dock | [DisplayLink Driver](https://pcsupport.lenovo.com/solutions/HT104480) |
 
@@ -76,8 +76,8 @@ WQL*:
 SELECT * FROM Win32_PNPEntity WHERE DeviceID LIKE "USB\\VID_17EF&PID_308D"
 ```
 
-!!! info ""
-   WQL requires a second “\” character to escape the first “\” character so it is processed as part of the search string.
+!!! note
+    WQL requires a second “\” character to escape the first “\” character so it is processed as part of the search string.
 
 ### Deployment Related BIOS Settings
 
@@ -89,12 +89,12 @@ Intel 5th generation processors with CPU designation i3-5xxx, i5-5xxx, i7-5xxx
 
 - USB 3.0 supported on all Broadwell models.
 
-!!! info ""
+!!! note
     If you are deploying via one of our USB 3.0 docks, the default setting of "Auto" for USB 3.0 Mode should allow you to successfully deploy Windows 7, Windows 8.1. and Windows 10.
 
 - OneLink/OneLink+ docks supported only on models with either OneLink or OneLink+ port.
 
-!!! info ""
+!!! note
     There are no Default BIOS settings that affect OneLink and OneLink+ docks.
 
 ![USB 3.0](https://cdrt.github.io/mk_docs/img/guides/docks/img1.PNG)
@@ -115,7 +115,7 @@ Intel 6th generation processors with CPU designation i3-6xxx, i5-6xxx, i7-6xxx
 | ThinkPad P50       | Supported | Supported         | Not Supported                |
 | ThinkPad P70       | Supported | Supported         | Not Supported                |
 
-!!! alert ""
+!!! alert
     Requires BIOS R0CET28W – Ver. 1.16 or newer for Mac Address Pass-Through
 
 On ThinkPad 13 systems, when MAC Address PassThrough is Enabled you will still need the Realtek NIC driver as it is actually "cloning" (or passing through) the laptop's built-in Intel NIC card's MAC Address. OSD deployments in SCCM are generally targeted to the "unknown computers" collection which is determined by MAC Address up to version 1610 which allows you to Manage Duplicate Identifiers. Whether you have configured SCCM to use an alternate Identifier or not, MAC Address Pass-Through setting allows you to use the same dock for multiple deployments over time. This setting is also suggested for pushing software updates because it will allow management of the system even when it is not docked.
@@ -132,7 +132,7 @@ When MAC Address PassThrough is Enabled you will still need the Realtek NIC driv
 
 ![MAC Address Passthru](https://cdrt.github.io/mk_docs/img/guides/docks/img4.PNG)
 
-!!! info ""
+!!! note
     Power Pass-Through on Skylake ThinkPad 13 is not supported with USB-C dock. The dock will charge the system with the supplied power adapter but you cannot power the system on or off via the dock's power switch.
 
 ## ThinkPad Universal Thunderbolt 4 Dock (40B0)

@@ -12,15 +12,13 @@ It allows you to
 - show logs
 - clear logs
 
-!!! info ""
-    The clear log process will be run after setup exit.
+!!! note
+    - The clear log process will be run after setup exit.
+	- The clear operation is protected by SVP.
 
-!!! info ""
-    The clear operation is protected by SVP.
-
-- [Main (ThinkPad )](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/main/)
-- [Main (ThinkCentre)](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/main)
-- [Main (ThinkStation)](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/main.md)
+- [Main (ThinkPad )](https://docs.lenovocdrt.com//ref/bios/settings/thinkpad/main/)
+- [Main (ThinkCentre)](https://docs.lenovocdrt.com//ref/bios/settings/thinkcentre/main)
+- [Main (ThinkStation)](https://docs.lenovocdrt.com//ref/bios/settings/thinkstation/main.md)
 
 ## Details of event logs
 

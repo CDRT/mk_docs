@@ -1,28 +1,21 @@
 # Boot Priority Order #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_bootpriorityorder.png)
+![Boot Priority Order](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_bootpriorityorder.PNG)
 
-<details><summary>UEFI Boot Options</summary>
+UEFI Boot Options
+:	The ordered list of currently defined boot priority order.
 
-The ordered list of currently defined boot priority order.<br>
+	* User Up and Down arrows to select a device.
+	* `+`  and `-` move the device up or down.
+	* `x` excludes/includes the device to boot.
 
-* User Up and Down arrows to select a device.
-* `+`  and `-` move the device up or down.
-* `x` excludes/includes the device to boot.
+	Possible items on the list depends on the machine configuration.
 
-Possible items on the list depends on the machine configuration.
+	For every item on the list system shows:
 
-For every item on the list system shows:
+	`[Device Type] [Device Model Number]`
 
-`[Device Type] [Device Model Number]`
+Excluded from boot priority order
+:	Shows the items which are excluded from boot priority order.
 
-</details>
-
-<details><summary>Excluded from boot priority order</summary>
-
-Shows the items which are excluded from boot priority order.
-
-Can be empty, if there are no excluded items.
-
-</details>
+	Can be empty, if there are no excluded items.

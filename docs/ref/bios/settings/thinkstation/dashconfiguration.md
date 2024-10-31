@@ -1,220 +1,213 @@
 # DASH Configuration #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_amd_dashconfiguration.png)
+![AMD Dash Configuration](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_dashconfiguration.PNG)
 
-<details><summary>DASH Support</summary>
+DASH Support
+:	
+	Options:
 
-Options:
+	1. **Disabled** - Default.
+	2. Enabled.
 
-1. **Disabled** - Default.
-2. Enabled.
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| DASHSupport | Disabled, Enabled | yes | AMD |
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| DASHSupport | Disabled, Enabled | yes | AMD |
 
-</details>
+## Console Redirection Settings ##
 
-### Console Redirection Settings ###
+Console Redirection
+:	
+	Options:
 
+	1. Enabled
+	1. **Disabled** - Default.
 
-<details><summary>Console Redirection </summary>
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| ConsoleRedirection | Disabled, Enabled | yes | AMD |
 
-Options:
 
-1. Enabled
-1. **Disabled** - Default.
+Console Redirection Terminal Type
+:	
+	!!! note ""
+		The following emulation types are available: <br> - ANSI: Extended ASCII char set. <br> - VT100: ASCII char set. <br> - VT100+: Extends VT100 to support color, function keys, etc. <br> - VT-UTF8: Uses UTF8 encoding to map Unicode chars onto 1 or more bytes.
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| ConsoleRedirection | Disabled, Enabled | yes | AMD |
+	Options:
 
-</details>
-<details><summary>Console Redirection Terminal Type</summary>
+	1. VT100
+	1. VT100+
+	1. VT-UTF8
+	1. **ANSI** - Default.
 
-!!! info ""
-    The following emulation types are available. <br> ANSI: Extended ASCII char set. <br> VT100: ASCII char set. <br> VT100+: Extends VT100 to support color, function keys, etc. <br> VT-UTF8: Uses UTF8 encoding to map Unicode chars onto 1 or more bytes.<br>
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| ConsoleRedirectionTerminalType | VT100, VT100+, VT-UTF8, ANSI | yes | AMD |
 
-Options:
 
-1. VT100
-1. VT100+
-1. VT-UTF8
-1. **ANSI** - Default.
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| ConsoleRedirectionTerminalType | VT100, VT100+, VT-UTF8, ANSI | yes | AMD |
+Bits Per Second
+:	
+	Options:
 
-</details>
+	1. 9600
+	1. 19200
+	1. 38400
+	1. 57600
+	1. **115200** - Default.
 
-<details><summary>Bits Per Second</Summary>
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| BitsPerSecond | 9600, 19200, 38400, 57600, 115200 | yes | AMD |
 
-Options:
 
-1. 9600
-1. 19200
-1. 38400
-1. 57600
-1. **115200** - Default.
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| BitsPerSecond | 9600, 19200, 38400, 57600, 115200 | yes | AMD |
+Data Bits
+:	
+	Options:
 
-</details>
+	1. 7
+	1. **8** - Default.
 
-<details><summary>Data Bits</Summary>
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| DataBits | 7, 8 | yes | AMD |
 
-Options:
 
-1. 7
-1. **8** - Default.
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| DataBits | 7, 8 | yes | AMD |
+Parity Mode
+:	A parity bit can be sent with the data bits to detect some transmission errors.
 
-</details>
+	- Even: parity bit is 0 if the number of 1's in the data bits is even.
+	- Odd: parity bit is 1 if the number of 1's in the data bits is odd.
+	- Mark: parity bit is always 1.
+	- Space: Parity bit is always 0.
 
-<details><summary>Parity Mode</Summary>
+	Mark and Space Parity do not allow for error detection.  They can be used as an additional data bit.
 
-A parity bit can be sent with the data bits to detect some transmission errors.
+	Options:
 
-- Even: parity bit is 0 if the number of 1's in the data bits is even.
-- Odd: parity bit is 1 if the number of 1's in the data bits is odd.
-- Mark: parity bit is always 1.
-- Space: Parity bit is always 0.
+	1. **None** - Default.
+	1. Even
+	1. Odd
+	1. Mark
+	1. Space
 
-Mark and Space Parity do not allow for error detection.  They can be used as an additional data bit.
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| ParityMode | None, Even, Odd, Mark, Space | yes | AMD |
 
-Options:
 
-1. **None** - Default.
-1. Even
-1. Odd
-1. Mark
-1. Space
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| ParityMode | None, Even, Odd, Mark, Space | yes | AMD |
+Stop Bits
+:	
+	Options:
 
-</details>
+	1. **1** - Default.
+	1. 2
 
-<details><summary>Stop Bits</Summary>
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| StopBits | 1, 2 | yes | AMD |
 
-Options:
 
-1. **1** - Default.
-1. 2
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| StopBits | 1, 2 | yes | AMD |
+Flow Control
+:	
+	Options:
 
-</details>
+	1. Hardware RTS/CTS
+	1. **None** - Default.
 
-<details><summary>Flow Control</Summary>
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| FlowControl | Hardware RTS/CTS, None | yes | AMD |
 
-Options:
 
-1. Hardware RTS/CTS
-1. **None** - Default.
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| FlowControl | Hardware RTS/CTS, None | yes | AMD |
+VT UTF8 Combo Key Support
+:	
+	Options:
 
-</details>
+	1. Disabled
+	1. **Enabled** - Default.
 
-<details><summary>VT UTF8 Combo Key Support</Summary>
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| VTUTF8ComboKeySupport | Disabled, Enabled | yes | AMD |
 
-Options:
 
-1. Disabled
-1. **Enabled** - Default.
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| VTUTF8ComboKeySupport | Disabled, Enabled | yes | AMD |
+Recorder Mode
+:	
+	Options:
 
-</details>
+	1. Disabled
+	1. **Enabled** - Default.
 
-<details><summary>Recorder Mode</Summary>
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| RecorderMode | Disabled, Enabled | yes | AMD |
 
-Options:
 
-1. Disabled
-1. **Enabled** - Default.
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| RecorderMode | Disabled, Enabled | yes | AMD |
+Resolution 100x31
+:	
+	Options:
 
-</details>
+	1. **Disabled** - Default.
+	1. Enabled
 
-<details><summary>Resolution 100x31</Summary>
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| Resolution100x31 | Disabled, Enabled | yes | AMD |
 
-Options:
 
-1. **Disabled** - Default.
-1. Enabled
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| Resolution100x31 | Disabled, Enabled | yes | AMD |
+Legacy OS Redirection Resolution
+:	On Legacy OS, specifies the number of Columns and Rows supported in the console redirection.
 
-</details>
+	Options:
 
-<details><summary>Legacy OS Redirection Resolution</Summary>
+	1. **80x24** - Default.
+	1. 80x20
 
-On Legacy OS, specifies the number of Columns and Rows supported in the console redirection.
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| LegacyOSRedirectionResolution | 80x24, 80x20 | yes | AMD |
 
-Options:
 
-1. **80x24** - Default.
-1. 80x20
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| LegacyOSRedirectionResolution | 80x24, 80x20 | yes | AMD |
+Putty KeyPad
+:	Select FunctionKey and KeyPad on Putty
 
-</details>
+	Options:
 
-<details><summary>Putty KeyPad</Summary>
+	1. **VT100** - Default.
+	1. Linux
+	1. XTERMR6
+	1. SCO
+	1. ESCN
+	1. VT401
 
-Select FunctionKey and KeyPad on Putty
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| PuttyKeyPad | VT100, Linux, XTERM6, SCO, ESCN, VT401 | yes | AMD |
 
-Options:
 
-1. **VT100** - Default.
-1. Linux
-1. XTERMR6
-1. SCO
-1. ESCN
-1. VT401
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| PuttyKeyPad | VT100, Linux, XTERM6, SCO, ESCN, VT401 | yes | AMD |
+Redirection After BIOS POST
+:	This setting specifies if BootLoader is selected then Legacy console redirection is disabled before booting to Legacy OS.
 
-</details>
+	Default value is Always Enable which means Legacy console Redirection is enabled for Legacy OS.
 
-<details><summary>Redirection After BIOS POST</Summary>
+	Options:
 
-This setting specifies if BootLoader is selected then Legacy console redirection is disabled before booting to Legacy OS.
+	1. **Always Enable** - Default.
+	1. BootLoader
 
-Default value is Always Enable which means Legacy console Redirection is enabled for Legacy OS.
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| RedirectionAfterBIOSPOST | Always Enable, BootLoader | yes | AMD |
 
-Options:
 
-1. **Always Enable** - Default.
-1. BootLoader
-
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| RedirectionAfterBIOSPOST | Always Enable, BootLoader | yes | AMD |
-
-</details>

@@ -11,10 +11,10 @@ Intel (R) AMT Control
     2. Disabled
     3. Permanently Disabled
 
-    !!! info ""
+    !!! note ""
         `Permanently Disabled` can be selected only once and permanently turns off Intel (R) ATM Control (cannot be reenabled). 
 
-    !!! info ""
+    !!! note ""
         Additional confirmation for this action will be required because it cannot be undone.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -24,7 +24,7 @@ Intel (R) AMT Control
 USB Key Provisioning
 :  Whether to enable USB Key Provisioning.
 
-    !!! info ""
+    !!! note ""
         Active only when ‘Intel (R) ATM Control’ has value ‘Enabled’.
 
     Possible options:
@@ -39,10 +39,10 @@ USB Key Provisioning
 CIRA Timeout
 :  Define timeout for Client Initiated Remote Access connection to be established.
 
-    !!! info ""
+    !!! note ""
         The value is in seconds and can be varied from 1 to 254.
 
-    !!! info ""
+    !!! note ""
         0 and 255 have the following special meanings: <br> **0** - use the default timeout of 60 seconds. Default.<br> 255 - wait until the connection succeeds.
 
 Console Type
@@ -55,5 +55,5 @@ Console Type
     3. VT-UTF8 - Adds function key F8
     4. PC ANSI
 
-    !!! info ""
+    !!! note ""
         This console type must match the Intel AMT remote console.

@@ -1,178 +1,169 @@
 # PCIe Setup #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_pciesetup_px1.png)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_pciesetup_px2.png)
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_pciesetup_px.png)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_pciesetup_px_2.png)-->
-
-<details><summary>Re-Size BAR Support</summary>
-If system has Resizable BAR capable PCIe Devices, this option
-Enables or Disables Resizable BAR Support.
-Options:
-
-1. **Disabled** – Default.
-2. Enabled.
-
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| ReSizeBARSupport  | Enabled, Disabled | Yes | Both |
-</details>
+![PCIe Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_pciesetup_px1.PNG)
+![PCIe Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_pciesetup_px2.PNG)
 
 
-<details><summary>SR-IOV Support</summary>
-If system has SR-IOV capable PCIe Devices, this option Enables
-or Disables Single Root IO Virtualization Support.
+Re-Size BAR Support
+:	If system has Resizable BAR capable PCIe Devices, this optionEnables or Disables Resizable BAR Support.
+	
+	Options:
 
-Options:
+	1. **Disabled** – Default.
+	2. Enabled.
 
-1. **Disabled** – Default.
-2. Enabled.
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| ReSizeBARSupport  | Enabled, Disabled | Yes | Both |
 
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| SRIOVSupport   | Enabled, Disabled | Yes | Both |
-</details>
 
-<details><summary>ASPM Support</summary>
-<Auto> Configure ASPM automatically according to what the
-attached device supports in each PCI Express port
-<Disabled> Disable ASPM support of all PCI Express ports.
 
-Options:
+SR-IOV Support
+:	If system has SR-IOV capable PCIe Devices, this option Enables or Disables Single Root IO Virtualization Support.
 
-1. **Disabled** – Default.
-2. Auto.
+	Options:
 
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| ASPMSupport   | Disabled, Auto | Yes | Both | 
-</details>
+	1. **Disabled** – Default.
+	2. Enabled.
 
-<details><summary>Link Training Timeout(uS)</summary>
-Defines number of Microseconds software will wait before polling
-'Link Training' bit in Link Status register. Value range from 10 to 10000 uS.
-Options:
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| SRIOVSupport   | Enabled, Disabled | Yes | Both |
+	
 
-1. **1000** – Default.
-2. Simulator not support.
+ASPM Support
+:	
+	<Auto> Configure ASPM automatically according to what the
+	attached device supports in each PCI Express port
+	<Disabled> Disable ASPM support of all PCI Express ports.
 
-</details>
+	Options:
+
+	1. **Disabled** – Default.
+	2. Auto.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| ASPMSupport   | Disabled, Auto | Yes | Both | 
+
+
+Link Training Timeout(uS)
+:	Defines number of Microseconds software will wait before polling 'Link Training' bit in Link Status register. Value range from 10 to 10000 uS.
+
+	Options:
+
+	1. **1000** – Default.
+	2. Simulator not support.
+
+
 
 
 <!-- Need to add all of the PCIe Slotx Configurations 
 These will likely be subheader drop downs
 -->
-### PCIe Slot{X} Configuration ###
+## PCIe Slot{X} Configuration ##
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_pcieslotconfig.png)
+![PCIe Configuration](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_pcieslotconfig.PNG)
 
-<details><summary>PCIe Port</summary>
-Select whether to enable or disable this PCIe port.
+PCIe Port
+:	Select whether to enable or disable this PCIe port.
 
-Options:
+	Options:
 
-1. **Enabled** – Default.
-2. Disabled.
+	1. **Enabled** – Default.
+	2. Disabled.
 
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| PCIeSlotXPort | Enabled, Disabled | Yes | Both | 
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| PCIeSlotXPort | Enabled, Disabled | Yes | Both | 
 
-!!! info ""
-    In the WMI class name, X represents the slot number.
-</details>
+	!!! note ""
+		In the WMI class name, X represents the slot number.
 
 
 
-<details><summary>PCIe Port Bifurcationt</summary>
-Select PCIe port bifurcation. If select [Auto], system will auto
-configurate PCIe port bifurcation and auto detect Quad M.2 PCIe Card.
 
-Options:
+PCIe Port Bifurcationt
+:	Select PCIe port bifurcation. If select [Auto], system will auto configurate PCIe port bifurcation and auto detect Quad M.2 PCIe Card.
 
-1. **Auto** – Default.
-2. x4x4x4x4.
-3. x8x8.
-4. x16
+	Options:
 
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| PCIeSlotXBifurcation   | x4x4x4x4, x8x8, x16, Auto | Yes | Both | 
+	1. **Auto** – Default.
+	2. x4x4x4x4.
+	3. x8x8.
+	4. x16
 
-!!! info ""
-    In the WMI class name, X represents the slot number.
-</details>
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| PCIeSlotXBifurcation   | x4x4x4x4, x8x8, x16, Auto | Yes | Both | 
 
-<details><summary>Link Speed</summary>
-Select PCEi Link Speed.
+	!!! note ""
+		In the WMI class name, X represents the slot number.
+	
 
-Options:
+Link Speed
+:	Select PCEi Link Speed.
 
-1. **Auto** – Default.
-2. Gen 1 (2.5 GT/s).
-3. Gen 2 (5 GT/s).
-4. Gen 3 (8 GT/s).
-5. Gen 4 (16 GT/s)
+	Options:
 
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| PCIeSlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s) | Yes | Both | 
+	1. **Auto** – Default.
+	2. Gen 1 (2.5 GT/s).
+	3. Gen 2 (5 GT/s).
+	4. Gen 3 (8 GT/s).
+	5. Gen 4 (16 GT/s)
 
-!!! info ""
-    In the WMI class name, X represents the slot number.
-</details>
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| PCIeSlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s) | Yes | Both | 
 
-### M.2 Slot{X} Configuration ###
+	!!! note ""
+		In the WMI class name, X represents the slot number.
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_m2slotconfig.png)
 
-<details><summary>Link Speed</summary>
-Select PCIe Link Speed.
+## M.2 Slot{X} Configuration ##
 
-Options:
+![M2 Slot Config](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_m2slotconfig.PNG)
 
-1. **Auto** – Default.
-2. Gen 1 (2.5 GT/s).
-3. Gen 2 (5 GT/s).
-4. Gen 3 (8 GT/s).
-5. Gen 4 (16 GT/s)
-6. Gen 5 (32 GT/s)
+Link Speed
+:	Select PCIe Link Speed.
 
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| M2SlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s), Gen 5 (32 GT/s) | Yes | Both | 
+	Options:
 
-!!! info ""
-    In the WMI class name, X represents the slot number.
-</details>
+	1. **Auto** – Default.
+	2. Gen 1 (2.5 GT/s).
+	3. Gen 2 (5 GT/s).
+	4. Gen 3 (8 GT/s).
+	5. Gen 4 (16 GT/s)
+	6. Gen 5 (32 GT/s)
 
-### MCIO Slot{X}-{Y} Configuration
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| M2SlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s), Gen 5 (32 GT/s) | Yes | Both | 
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_mcioslotconfig.png)
+	!!! note ""
+		In the WMI class name, X represents the slot number.
 
-<details><summary>Link Speed</summary>
-Select PCIe Link Speed.
 
-Options:
+## MCIO Slot{X}-{Y} Configuration ##
 
-1. **Auto** – Default.
-2. Gen 1 (2.5 GT/s).
-3. Gen 2 (5 GT/s).
-4. Gen 3 (8 GT/s).
-5. Gen 4 (16 GT/s)
-6. Gen 5 (32 GT/s)
+![MCIO Slot Config](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_mcioslotconfig.PNG)
 
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| MCIOSlotXYLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s), Gen 5 (32 GT/s) | Yes | Intel | 
+Link Speed
+:	Select PCIe Link Speed.
 
-!!! info ""
-    In the WMI class name, X & Y represents the slot numbers.
-</details>
+	Options:
+
+	1. **Auto** – Default.
+	2. Gen 1 (2.5 GT/s).
+	3. Gen 2 (5 GT/s).
+	4. Gen 3 (8 GT/s).
+	5. Gen 4 (16 GT/s)
+	6. Gen 5 (32 GT/s)
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| MCIOSlotXYLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s), Gen 5 (32 GT/s) | Yes | Intel | 
+
+	!!! note ""
+		In the WMI class name, X & Y represents the slot numbers.
+

@@ -8,7 +8,7 @@ The Lenovo Device Management Module requires 64-bit PowerShell v5.1 or higher an
 
 ## Installing Lenovo Device Management Module
 
-The module itself is currently available for download here: [ldmm_1.0.0.zip](https://download.lenovo.com/cdrt/tools/ldmm_1.0.0.zip){:target="_blank"} 
+The module itself is currently available for download here: [ldmm_1.0.0.zip](https://download.lenovo.com/cdrt/tools/ldmm_1.0.0.zip) 
 
 The plan is to eventually have it published in the PowerShell Gallery so it can easily be installed with the Install-Module command. For now, the module can be copied to a system and the Import-Module command can be used to install it.
 
@@ -234,6 +234,7 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	#### Example
 
 	```Find-LnvMachineType -ModelName 'ThinkPad P1 Gen 5'```
+	
 	```Find-LnvMachineType -ModelName 'ThinkPad P1 '```
 
 	!!! note
@@ -253,8 +254,10 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 
 	#### Example
 
-	```Find-LnvModel -MachineType 21DD```
 	```Find-LnvModel 21DD```
+	
+	```Find-LnvModel -MachineType 21DD```
+	
 
 	!!! note
 	    The output will also show the other machine types associated with this model.
@@ -324,11 +327,11 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 
 	#### Example
 
-	```Find-LnvUpdate -MachineType 20C1 -PackageType 2 -RebootType 1 -WindowsVersion 11```
+	```Find-LnvUpdate -MachineType 21DD -PackageType 2 -RebootType 1 -WindowsVersion 11```
 
-	```Find-LnvUpdates 20C1 2```
+	```Find-LnvUpdates 21DD 2```
 
-	```Find-LnvUpdate 20C1 -PackageType 2```
+	```Find-LnvUpdate 21DD -PackageType 2```
 
 ### Get-LnvAvailableBiosVersion
 :	
@@ -354,7 +357,7 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 
 	#### Example
 
-	```Get-LnvAvailableBiosVersion -MachineType 21DD -OS win10 -Download -ReadMe```
+	```Get-LnvAvailableBiosVersion -MachineType 21DD -WindowsVersion 10 -Download -ReadMe```
 
 ### Get-LnvBiosCode
 :	
@@ -383,7 +386,7 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 
 	This cmdlet gets the BIOS password state of the system and interprets it to return the set of passwords set on the device. If the -Number switch is used, then the PasswordState number will be returned instead.
 
-	#### Parameters	
+	#### Parameters
 
 	| Parameter | Type | Mandatory |
 	| --- | --- | --- |
@@ -407,6 +410,7 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	#### Example
 
 	```Get-LnvBiosUpdateUrl -MachineType '21AH'```
+	
 	```Get-LnvBiosUpdateUrl```
 
 	!!! note
@@ -429,6 +433,7 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	#### Example
 
 	```Get-LnvBiosVersion -Format 'decimal'```
+	
 	```Get-LnvBiosVersion```
 
 	!!! note
@@ -613,12 +618,12 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	| RT5toRT3 | Switch | False |
 	| ScanOnly | Switch | False |
 
-	##### OS  
+	**OS**  
 
 	Must be a string of '10' or '11'. The default if no value is specified will
 	be determined by the OS of the device the script is running on.
 
-	##### PackageTypes   
+	**PackageTypes**   
 
 	Must be a string of Package Type integers separated by commas and surrounded by single quotes. The possible values are:<br>
 	&nbsp;&nbsp; 1: Application<br>
@@ -627,7 +632,7 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	&nbsp;&nbsp; 4: Firmware<br>
 	The default if no value is specified will be all package types.
 
-	##### RebootTypes  
+	**RebootTypes**
 
 	Must be a string of integers, separated by commas, representing the different boot types and surrounded by single quotes:<br>
 	&nbsp;&nbsp; 0: No reboot required<br>
@@ -637,29 +642,29 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	&nbsp;&nbsp; 5: Delayed forced reboot (used by many firmware updates)<br>
 	The default if no value is specified will be all RebootTypes.
 
-	##### RepositoryPath  
+	**RepositoryPath**
 
 	Must be a fully qualified path to the folder where the local repository will be saved. Must be surrounded by single quotes.
 
-	##### LogPath  
+	**LogPath**
 
 	Must be a fully qualified path. If not specified, ti-auto-repo.log will be  stored in the repository folder.
 	Must be surrounded by single quotes.
 
-	##### RT5toRT3  
+	**RT5toRT3**
 
 	Specify this parameter if you want to convert Reboot Type 5 (Delayed Forced Reboot) packages to be Reboot Type 3 (Requires Reboot). Only do this in task sequence scenarios where a Restart can be performed after the Thin Installer task. Use the -noreboot parameter on the Thin Installer command line to suppress reboot to allow the task sequence to control the restart.
 
 	!!! note
-	    This parameter can only be used when Thin Installer will be processing the updates in the repository.
+        This parameter can only be used when **Thin Installer** will be processing the updates in the repository because changing the reboot type will break the XML digital signature. When using version **1.04.02.00024** or later of Thin Installer, you must also specify the **-ignorexmlsignature** to ensure Thin Installer does not skip the updates that have been altered.
 
-	##### ScanOnly  
+	**ScanOnly**
 
 	Specify this parameter to create a repository that only contains the package
 	descriptor XML and external detection routine files to be used with Thin
 	Installer's SCAN action.
 
-	##### PackageList
+	**PackageList**
 
 	Specify a list of updates by their package IDs which can be obtained using Update
 	Retriever. One or more updates can be specified, separated by a comma.
@@ -667,6 +672,7 @@ Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine,
 	#### Example
 
 	```Get-LnvUpdatesRepo -RepositoryPath 'C:\Program Files (x86)\Lenovo\ThinInstaller\Repository'```
+	
 	``` -PackageTypes '1,2' -RebootTypes '0,3'```
 
 	```Get-LnvUpdatesRepo -RepositoryPath 'Z:\21DD' -PackageTypes '1,2,3' -RebootTypes '0,3,5' -RT5toRT3```

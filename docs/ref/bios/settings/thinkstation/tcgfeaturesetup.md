@@ -1,84 +1,71 @@
 # TCG Feature Setup Settings #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_tcgfeaturesetup.png)
+![TCG](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_tcgfeaturesetup.png)
 
-<details><summary>TCG Security Device State</summary>
+TCG Security Device State
+:	Shows TCG (Trusted Computing Group) Security Device State.
 
-Shows TCG (Trusted Computing Group) Security Device State.
+	View only.
 
-View only.
+	Possible values: 
 
-Possible values: 
+	1. Discrete TPM 2.0
+	2. Firmware TPM 2.0
 
-1. Discrete TPM 2.0
-2. Firmware TPM 2.0
+	
+TCG Security Device
+:	Select the type of TCG Security Device:
 
-</details>
+	1. Firmware TPM 
+	2. **Discrete TPM** – Default.
 
+	!!! note ""
+		Selecting a different option requires additional confirmation.
 
-<details><summary>TCG Security Device</summary>
-
-Select the type of TCG Security Device:
-
-1. Firmware TPM 
-2. **Discrete TPM** – Default.
-
-!!! info ""
-    Selecting a different option requires additional confirmation.
-
-!!! info ""
-    Before changing the TCG Security Device, all TPM related applications must be disabled, otherwise you may not be able to access your data.
+	!!! note ""
+		Before changing the TCG Security Device, all TPM related applications must be disabled, otherwise you may not be able to access your data.
 
 
-</details>
+
+Security Chip 2.0
+:	Whether to enable TCG security feature.
+
+	Options:
+
+	1. **Enabled** - Default. 
+	2. Disabled.
+
+	!!! note ""
+		When set to `Disabled`, then TxT will be set to `Disabled` automatically and `Clear TCG Security Feature` becomes unavailable. 
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| SecurityChip | Disabled, Enabled | yes | Both |
 
 
-<details><summary>Security Chip 2.0</summary>
+Clear TCG Security Feature
+:	Available only when `Security Chip 2.0` is `Enabled`.
 
-Whether to enable TCG security feature.
+	!!! note ""
+		If set to `Yes`, any data in TPM will be cleared.
 
-Options:
+	One of two options:
 
-1. **Enabled** - Default. 
-2. Disabled.
-
-!!! info ""
-    When set to `Disabled`, then TxT will be set to `Disabled` automatically and `Clear TCG Security Feature` becomes unavailable. 
-
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| SecurityChip | Disabled, Enabled | yes | Both |
-
-</details>
+	1.  Yes.
+	2. **No** – Default.
 
 
-<details><summary>Clear TCG Security Feature</summary>
-
-Available only when `Security Chip 2.0` is `Enabled`.<br>
-
-!!! info ""
-    If set to `Yes`, any data in TPM will be cleared.
-
-One of two options:
-
-1.  Yes.
-2. **No** – Default.
-
-</details>
 
 
-<details><summary>Physical Presence for Clear</summary>
+Physical Presence for Clear
+:	Whether confirmation of a user’s physical presence is needed when clearing the security chip.
 
-Whether confirmation of a user’s physical presence is needed when clearing the security chip.
+	!!! note ""
+		When `Enabled`, the system will display a user confirmation screen when clearing.
 
-!!! info ""
-    When `Enabled`, the system will display a user confirmation screen when clearing.
+	1. **Enabled** – Default.
+	2. Disabled.
 
-1. **Enabled** – Default.
-2. Disabled.
-
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| PhysicalPresenceforClear | Disabled, Enabled | yes | Both |
-</details>
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| PhysicalPresenceforClear | Disabled, Enabled | yes | Both |

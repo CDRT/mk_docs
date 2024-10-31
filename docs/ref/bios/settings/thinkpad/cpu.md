@@ -15,7 +15,7 @@ Efficient-cores Support
 Intel (R) Hyper-Threading Technology
 :  Whether to enable additional CPU threads, which appear as additional processors but share some resources with the other threads within a CPU. 
 
-    !!! info ""
+    !!! note ""
         When disable, allows only one thread within each execution core unit.
 
     1. **On** - Default.

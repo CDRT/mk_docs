@@ -19,19 +19,19 @@ Supervisor Password
 
       While enabling the following parameters are available:
 
-      * Enter New Password
-      * Confirm New Password
-      * Show Password – [On\Off] statuses
-         * Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/keyboardmouse.md)
-      * < Actions >:
-          * **Save** – default
-          * Cancel<br>
+      - Enter New Password
+      - Confirm New Password
+      - Show Password – [On\Off] statuses
+         - Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
+      - < Actions >:
+          - **Save** – default
+          - Cancel<br>
 
-        !!! info ""
+        !!! note ""
             When enabled, Supervisor Password prevents unauthorized users from accessing these items in ThinkPad Setup: <br> - Boot priority lists <br> - Network related items <br> - Date & Time <br>
 
-        !!! info ""
-            To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/beepalarm).
+        !!! note ""
+            To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm).
 
 System Management Password
 :  Whether system will request the user to set and confirm System Management Password password.
@@ -46,21 +46,21 @@ System Management Password
     * [Enter New Password]
     * [Confirm New Password]
     * Show Password – [On\Off] statuses
-    * Keyboard layout: XXXX – Possible values are the same as in [Keyboard\Mouse -> Keyboard Layout](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/keyboardmouse.md)
+    * Keyboard layout: XXXX – Possible values are the same as in [Keyboard\Mouse -> Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
     * < Actions >:
         * **Save** – default
         * Cancel
 
-    !!! info ""
+    !!! note ""
         When enabled System Management Password presents unauthorized users from accessing these items in ThinkPad Setup: <br> - Boot priority lists <br> - Network related items <br> - Date & Time
 
-    !!! info ""
-        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/beepalarm.md).
+    !!! note ""
+        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm.md).
 
 Power-On Password
 :  Whether will request user to set and confirm Power-On Password password.
 
-    !!! info ""
+    !!! note ""
         When enabled Power-On Password prevents unauthorized users from booting your computer.
 
     Possible options:
@@ -73,15 +73,15 @@ Power-On Password
     * [Enter New Password]
     * [Confirm New Password]
     * Show Password – [On\Off] statuses
-    * Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/keyboardmouse.md)
+    * Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
     * < Actions >:
         * **Save** – default
         * Cancel
 
     When enabled Power-On Password prevents unauthorized users from booting your computer.
 
-    !!! info ""
-        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/beepalarm.md).
+    !!! note ""
+        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm.md).
 
 NVMe1 Password
 :  Also known as **Hard Disk Password (HDP)**.
@@ -102,18 +102,18 @@ NVMe1 Password
     * [Enter New Password]
     * [Confirm New Password]
     * Show Password – [On\Off] statuses
-    * Keyboard layout: XXXX – Possible values are the same as in [Keyboard\Mouse -> Keyboard Layout](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/keyboardmouse.md)
+    * Keyboard layout: XXXX – Possible values are the same as in [Keyboard\Mouse -> Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
     * < Actions >:
         * **Save** – default
         * Cancel
 
-    !!! info ""
-        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/#/bios/settings/thinkpad/beepalarm.md).
+    !!! note ""
+        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm.md).
 
-    !!! info ""
+    !!! note ""
         When prompted to enter an NVMe password, press F1 to switch between the admin NVMe password and user NVMe password.
 
-    !!! info ""
+    !!! note ""
         The NVMe password is not available in the following situations:
 
         * A Trusted Computing Group (TCG) Opal-compliant storage drive and a TCG Opal management software program are installed in the computer, and the TCG Opal management software program is activated.
@@ -122,7 +122,7 @@ NVMe1 Password
 Block SID Authentication
 :  Whether TCG (Trusted Computing Group) Storage device will block attempts to authenticate the SID (Security Identifier) authority until a subsequent device power cycle occurs.
 
-    !!! info ""
+    !!! note ""
         If switched `Off`, system will allow SID authentication in TCG Storage device at the next system boot only, but not subsequent boots.
 
     Possible options:
@@ -142,7 +142,7 @@ Lock UEFI BIOS Settings
     1. On
     2. **Off** - Default.
 
-    !!! info ""
+    !!! note ""
         UEFI BIOS Lock will not take effect unless Supervisor password is enabled.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -157,7 +157,7 @@ Password at Unattended Boot
     1. **On** - Default.
     2. Off
 
-    !!! info ""
+    !!! note ""
         To protect unauthorized access to the system we recommended setting user authentication on the OS.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -172,7 +172,7 @@ Password at Restart
     1. On
     2. **Off** - Default.
 
-    !!! info ""
+    !!! note ""
         To protect unauthorized access to the system we recommended setting user authentication on the OS.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -182,7 +182,7 @@ Password at Restart
 Password at Boot Device List
 :  Whether the system prompts for the Security password.
 
-    !!! info ""
+    !!! note ""
         If the Security password is set, this option is used to specify whether the Security password must be entered to display the F12 boot device list.
 
     Possible options:
@@ -208,7 +208,7 @@ Password Count Exceeded Error
 
 Set Minimum Length
 :  
-    !!! info ""
+    !!! note ""
         Applies to:
 
         - Supervisor Password 
@@ -228,7 +228,7 @@ Set Minimum Length
     - 11 characters
     - 12 characters
 
-    !!! info ""
+    !!! note ""
         If a supervisor password is set, you cannot change the minimum length until you log in as a supervisor.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -241,7 +241,7 @@ Set Strong Password
     * 8 or more characters
     * must include at least one uppercase character, one lowercase character and one number.
 
-    !!! info ""
+    !!! note ""
         Applies to:
 
         - Supervisor Password
@@ -333,7 +333,7 @@ Supervisor Password (SVP)
 
     When entering the UEFI BIOS menu, enter the correct supervisor password in the window prompted.
 
-    !!! info ""
+    !!! note ""
         If the user presses `Enter`, the password prompt will be skipped, but then most of the system configuration options in UEFI BIOS will be unavailble.
 
     **_Setting the SVP_**

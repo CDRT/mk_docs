@@ -22,7 +22,7 @@ Security Mode
     1. **Normal** - Default.
     2. High
 
-    !!! info ""
+    !!! note ""
         When `High` security mode is enabled, **only** the Supervisor Password will allow boot.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -32,7 +32,7 @@ Security Mode
 Password Authentication
 :  Whether to enable authentication by password when fingerprint is not available. 
 
-    !!! info ""
+    !!! note ""
         Visible and active only if ‘Security Mode’ has value ‘High’.
 
     Possible options:
@@ -40,7 +40,7 @@ Password Authentication
     1. **On** - Default.
     2. Off
 
-    !!! info ""
+    !!! note ""
         Administrators are authenticated by a Supervisor Password.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -50,7 +50,7 @@ Password Authentication
 Single-touch authentication
 :  Whether to allow a single touch fingerprint authentication to work through all security levels.
 
-    !!! info ""
+    !!! note ""
         Switching off means requiring individual fingerprint authentication for each security level.
 
     Options:
@@ -65,8 +65,8 @@ Single-touch authentication
 Reset Fingerprints Data
 :  Erase all fingerprint data stored in the fingerprint reader and reset settings to the factory state (ex. Power-on security, LEDs, etc.).
 
-    !!! info ""
+    !!! note ""
         Any power-on security features previously enabled will not be able to work until they are re-enabled in fingerprint software.
 
-    !!! info ""
+    !!! note ""
         Requires additional confirmation.

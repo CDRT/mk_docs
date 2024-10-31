@@ -2,17 +2,11 @@
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    csetup.png)-->
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_bmcsetup1.png)
+![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_bmcsetup1.PNG)
 
-<details><summary>BMC Card Support</summary>
+BMC Card Support
+:	
+	Options:
 
-Options:
-
-1. **Disabled**. Default. Disables use of BMC card and the following BMC items will be hidden.
-2. Enabled - Enables use of BMC card.
-
-
-</detail>
-
-
+	1. **Disabled**. Default. Disables use of BMC card and the following BMC items will be hidden.
+	2. Enabled - Enables use of BMC card.
