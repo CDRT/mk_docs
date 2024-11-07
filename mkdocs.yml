@@ -67,8 +67,8 @@ nav:
       - User Guide: guides/tbct/tbct.md
     - Lenovo BIOS Certs Tool:
       - guides/lbct/index.md
-    - Lenovo Device Management Module:
-        - guides/ldmm/ldmm_top.md
+    - Lenovo Client Scripting Module:
+        - guides/lcsm/lcsm_top.md
     - Lenovo View:
       - guides/lenovo_view/index.md
   - References:

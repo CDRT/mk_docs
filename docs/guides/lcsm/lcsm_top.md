@@ -1,14 +1,16 @@
-# Lenovo Device Management Module
+# Lenovo Client Scripting Module
 
 ## Overview
 
-The Lenovo Device Management Module is a PowerShell Module containing numerous cmdlets which provide useful information or simplified actions that can be leveraged in day to day management of Lenovo commercial PCs (ThinkPad, ThinkCentre, ThinkStation).
+The Lenovo Client Scripting Module is a PowerShell Module containing numerous cmdlets which provide useful information or simplified actions that can be leveraged in day to day management of Lenovo commercial PCs (ThinkPad, ThinkCentre, ThinkStation).
 
-The Lenovo Device Management Module requires 64-bit PowerShell v5.1 or higher and runs on Windows 10 and Windows 11.
+The Lenovo Client Scripting Module requires 64-bit PowerShell v5.1 or higher and runs on Windows 10 and Windows 11.
 
 ??? note "What's New"
     
-    ### November 1, 2024:  Version 1.2.0
+    ### November 7, 2024:  Version 2.0.0
+    
+    - Changed name to Lenovo.Client.Scripting to avoid confusion with Lenovo Device Manager product and to provide consistency with other PowerShell modules. The version is reset 1.0.0. This version supersedes all prior versions of the Lenovo Device Management Module (LDMM). Prior versions of LDMM should be removed from devices.
 
     - Added new cmdlet Get-LnvBiosInfo and Find-LnvBiosInfo which return an object containing details about the BIOS for the running device or device specified by Machine Type or BIOS code, respectively.
 
@@ -16,27 +18,27 @@ The Lenovo Device Management Module requires 64-bit PowerShell v5.1 or higher an
 
     - Made several fixes to Get-LnvUpdatesRepo. The ScanOnly option is no longer available as it will not work with Thin Installer. Added -PackageList as a parameter to specify a string of specific updates, by Package ID, which should be included in the repository.
 
-## Installing Lenovo Device Management Module
+## Installing Lenovo Client Scripting Module
 
-The module itself is currently available for download here: [ldmm_1.0.0.zip](https://download.lenovo.com/cdrt/tools/ldmm_1.0.0.zip) 
+The module itself is currently available for download here: [Lenovo.Client.Scripting.zip](https://download.lenovo.com/cdrt/tools/lenovo.client.scripting.zip)
 
 The plan is to eventually have it published in the PowerShell Gallery so it can easily be installed with the Install-Module command. For now, the module can be copied to a system and the Import-Module command can be used to install it.
 
-The zip file contains the module folder, LnvDeviceManagement, which contains the LnvDeviceManagement.psm1 and LnvDeviceManagement.psd1 files plus the Public and Private sub-folders containing individual PowerShell scripts for the various functions. To manually install the module, there are two locations that the module folder can be copied to:
+The zip file contains the module folder, Lenovo.Client.Scripting, which contains the Lenovo.Client.Scripting.psm1 and Lenovo.Client.Scripting.psd1 files plus the Public and Private sub-folders containing individual PowerShell scripts for the various functions. To manually install the module, there are two locations that the module folder can be copied to:
 
 1. Per User:  %UserProfile%\Documents\WindowsPowerShell\Modules
 1. All Users:  %ProgramFiles%\WindowsPowerShell\Modules
 
-To ensure the module is loaded you will need to Import it first:
+To ensure the module is loaded it is recommended that you first remove the LnvDeviceManagementModule first:
 
 ``` PowerShell
-PS C:\> Import-Module LnvDeviceManagement -Force
+PS C:\> Remove-Module LnvDeviceManagement
+```
 
-PS C:\> Get-Module LnvDeviceManagement
+Then import the Lenovo.Client.Scripting module:
 
-ModuleType Version    Name                                ExportedCommands                                                                                               
----------- -------    ----                                ----------------                                                                                               
-Script     1.0.0      LnvDeviceManagement                 {Add-LnvSUCommandLine, Add-LnvSULogging, Export-LnvUpdateRetrieverConfig...}   
+``` PowerShell
+PS C:\> Import-Module Lenovo.Client.Scripting -Force
 ```
 
 ## Cmdlet Reference
