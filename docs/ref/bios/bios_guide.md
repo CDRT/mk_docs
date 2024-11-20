@@ -18,7 +18,7 @@ Updating the BIOS in the Operating System can be done a few different ways: manu
 
 #### ThinkPad Manual Installation
 
-ThinkPad executes WINUPTP.exe or WINUPTP64.exe from the extracted files location, depending on the operating system architecture. To manually install a ThinkPad BIOS update, navigate to the Lenovo Support page, enter in the model of ThinkPad, and download the BIOS Update for Windows (BIOS Update Utility). After it is downloaded, run the downloaded program to begin the extraction process.
+ThinkPad uses the WINUPTP tool to apply the updates under the OS or WinPE.  Under the OS, WINUPTP.exe can be used.  Under WinPE and depending on the model the WINPEUPTP.exe or WINUPTP64.exe should be used. These come from the extracted files location of the BIOS update package from the support site. To manually install a ThinkPad BIOS update, navigate to the Lenovo Support page, enter in the model of ThinkPad, and download the BIOS Update for Windows (BIOS Update Utility). After it is downloaded, run the downloaded program to begin the extraction process.
 
 <center>![License Agreement](https://cdrt.github.io/mk_docs/img/guides/bios/bios1.png)</center>
 
@@ -71,13 +71,44 @@ ThinkPad executes WINUPTP.exe or WINUPTP64.exe from the extracted files location
 
 #### ThinkPad Automated Installation
 
-To automate the ThinkPad BIOS update, the WINUPTP.exe and WINUPTP64.exe both have a –s command line parameter to suppress any prompts or message boxes from displaying during installation of the update. WINUPTP.exe and WINUPTP64.exe also supports a –r command line parameter to force a reboot after prestaging the new BIOS image file. During the reboot, the computer may boot three times, once to apply the BIOS update to the ROM, once to potentially install an embedded controller update, and a final time to boot back into the operating system.
+To automate the ThinkPad BIOS update, the WINUPTP tool (including WINUPTP64 and WINPEUPTP) has a –s command line parameter to suppress any prompts or message boxes from displaying during installation of the update. WINUPTP also supports a –r command line parameter to force a reboot after prestaging the new BIOS image file. During the reboot, the computer may boot three times, once to apply the BIOS update to the ROM, once to potentially install an embedded controller update, and a final time to boot back into the operating system.
 
-Assuming that the BIOS update is to be applied during a task sequence, from either MDT or SCCM, in the full operating system, there are a few items that need to be touched on. First, installing the BIOS update from a local hard drive is the safest choice. Since that is a requirement, use a copy command to copy the BIOS installer from the network to the local hard drive. Second, in a step to run an executable, call the WINUPTP.exe or WINUPTP64.exe with the –s command line parameter. The final step is to initiate a system reboot through the task sequence.
+Assuming that the BIOS update is to be applied during a task sequence, from either MDT or SCCM, in the full operating system, there are a few items that need to be touched on. First, installing the BIOS update from a local hard drive is the safest choice. Since that is a requirement, use a copy command to copy the BIOS installer from the network to the local hard drive. Second, in a step to run an executable, call the WINUPTP tool with the –s command line parameter. The final step is to initiate a system reboot through the task sequence.
 
 It is best practice to not use the –r command line parameter in a task sequence. When running task sequences, it is best practice to allow the task sequence to control the reboot and not allow the installing executable to do so. Allowing the task sequence to control the reboot will allow the task sequence to make all necessary changes to the computer, including setting up to resume the task sequence in the correct location after the reboot sequence has completed.
 
 When updating a ThinkPad BIOS, if a Supervisor password is set and the “Flash BIOS Updating by End-Users” is set to factory default (Enabled), there are no additional steps to be taken to update the BIOS. If the “Flash BIOS Updating by End-Users” is not set to factory default (Enabled), then steps will need to be taken to switch the setting to Enabled using the Think BIOS Configuration Tool or the BIOS Settings VBScripts. After that is set to allow the update to be run, the BIOS can be updated. If needed, utilize the tools mentioned to change the setting back after applying the BIOS update.
+
+##### WINUPTP Options
+
+| **Option** | **Description** | **WinPEUPTP Support?** |
+|:---|:---|:---|
+| /s or -s | Silent update. No GUI, return to Windows after BIOS/ECFW update. | Always Support |
+| /r or -r | Reboot after BIOS/ECFW update | Support |
+| /sr or -sr | Reboot after BIOS/ECFW update. (Silent update) | Support |
+| /bcp or -bcp | Clear customized logo. | Support(*) |
+| /w or -w | Command line password.  How to use: WINUPTP -w "Supervisor password" | Support |
+| /fbc or -fbc | Clear MOR flag | Support(*) |
+| /m or -m | Update model number | Support |
+| /f or -f | No warning message for update BIOS/ECFW though less than 25% Battery capacity | Support |
+
+(*) X13s is not supported for this feature.
+
+##### WINUPT Return Codes
+ 	
+| **Return Code** | *Des*cription* |
+|:---|:---|
+| 0	| BIOS update is successful and system reboots.(normal update) |
+| 1	| BIOS update is successful and system does not reboot. (silent update) |
+| -1 | WINUPTP Option is undefined. |
+| -3 | This utility does not support this system or OS. |
+| -4 | This utility works on Administrator authority. |
+| -5 | BIOS image file does not match this system. |
+| -6 | EC image file is damaged. |
+| -7 | EC image file does not match this system. |
+| -8 | The custom start up image file is not support. |
+| -9 | BIOS image file is same as BIOS ROM. |
+| -10 | AC/Battery is detached or battery is not charged. |
 
 #### ThinkCentre Manual Installation
 

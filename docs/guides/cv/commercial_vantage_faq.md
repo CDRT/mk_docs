@@ -1,5 +1,15 @@
 # Commercial Vantage FAQ
 
+!!! note "Are there IP addresses I need to whitelist for Commercial Vantage to function properly?"
+    No. The content that Commercial Vantage consumes comes from a Content Delivery Network that uses "edge" servers located all around the world. This allows the content to be pulled from a server that is geographically close. However, there are thousands of IP addresses used in the Content Delivery Network which change over time as the network infrastructure is maintained. There are, however, several domain names that can be whitelisted which cover the endpoints that Commercial Vantage retrieves content from: (HTTPS)
+
+    ```
+    download.lenovo.com
+    filedownload.lenovo.com
+    filedownload.csw.lenovo.com
+    supportapi.lenovo.com
+    ```
+
 !!! note "Can I control the System Update process by command line?"
     Yes, it is now possible to control the System Update process by command line. This requires the latest version of Commercial Vantage released July 2024 and the SU Helper utility deployed on the clients.  Refer to this introduction article with links to the SU Helper reference guide:  [https://blog.lenovocdrt.com/introducing-su-helper-utility/](https://blog.lenovocdrt.com/introducing-su-helper-utility/)
 
@@ -22,7 +32,7 @@
 !!! note "Why can't I find a log file for the LenovoSystemUpdateAddin?"
     Due to requirements from the Lenovo Product Security team, logging is not enabled by default any longer.  To enable logging, set the following registry value to "True":
 
- ```Registry
- [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\SystemUpdateAddin\Logs]
- "EnableLogs"="True"
- ```
+    ```Registry
+    [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\SystemUpdateAddin\Logs]
+    "EnableLogs"="True"
+    ```
