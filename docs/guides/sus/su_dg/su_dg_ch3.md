@@ -110,7 +110,7 @@ _Figure 3-9. Installing Deferred Update Packages._
 
 ### 3. Scheduling Updates
 
-System Update provides an option to schedule an automatic search for new updates, at a specified time interval. The user can download and install updates automatically or receive notifications when updates are available. When enabling the automatic search for updates, the user can define the package type, the search frequency, and the time of day when System Update searches for new updates.
+System Update provides an option to schedule an automatic search for new updates on a weekly basis. The user can download and install updates automatically or receive notifications when updates are available.
 
 <center>
 
