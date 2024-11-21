@@ -124,8 +124,8 @@ _Figure 3-10. Scheduling Updates for installation._
 
 When configuring System Update to search for new updates automatically on a scheduled basis, the following options are available:
 
-- **Schedule:**  administrators can choose to search for new updates weekly or monthly. For weekly checks, a day of the week and time must be selected. For monthly checks, a date in the month and time must be selected.
-- **Notification:**  For recommended and optional updates, users can be notified when new updates are found and have the choice to either download the updates or defer the download. For critical updates, users can configure the application to automatically download and notify them when the download has completed, or they can configure it to download and install all new updates and get notified after the download and installation is completed.
+- **Schedule:**  Users can enable an automatic check for updates to occur weekly. The time is randomized. The package types can be filtered by severity with the possible choices of "Critical" or "Critical updates and recommended drivers". The day of the week can also be selected.
+- **Notification:**  Users can configure the application to automatically download and install the updates or to notify them when updates are available, but not download or install them. If the option to automatically download and install the updates is chosen, the user can choose whether or not to include updates that would restart the system after being notified.
 
 **Configuring the Notification Option for an Automatic Search**
 
