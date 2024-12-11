@@ -302,11 +302,7 @@ PS C:\> Import-Module Lenovo.Client.Scripting -Force
     ```Find-LnvTool -Tool UpdateRetriever -Url```
 
     !!! note
-        If the -Url parameter is not specified then object containing the full set of details will be returned which include:
-        - name
-        - sha256
-        - version
-        - '#text' (which is the URL to the installer package)
+        If the -Url parameter is not specified then an object containing the full set of details will be returned which include: name, sha256, version, '#text' (which is the URL to the installer package)
 
 ### Find-LnvUpdate
 
