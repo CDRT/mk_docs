@@ -4,9 +4,9 @@
 
 DASH (Desktop and mobile Architecture for System Hardware) is a secure out-of-band and remote client management standard. Out-of-band management tasks include powering a system on when it is powered off and obtaining asset and health information when the operating system is not available.
 
-DASH was developed and released by the DMTF (Distributed Management Task Force). DASH profile specification source material can be found at [DMTF - Management Profiles](http://www.dmtf.org/standards/profiles){:target=”_blank”} 
+DASH was developed and released by the DMTF (Distributed Management Task Force). DASH profile specification source material can be found at [DMTF - Management Profiles](http://www.dmtf.org/standards/profiles){:target=”_blank”}
 
-For more information refer to [DMTF - Desktop and Mobile Architecture for System Hardware](https://www.dmtf.org/standards/dash){:target=”_blank”} 
+For more information refer to [DMTF - Desktop and Mobile Architecture for System Hardware](https://www.dmtf.org/standards/dash){:target=”_blank”}
 
 AMD Management Console can be downloaded here: [Tools for DMTF DASH](https://developer.amd.com/tools-for-dmtf-dash/){:target=”_blank”} . It can be installed on any Windows workstation or Windows Server OS to use for monitoring and managing the client systems.
 
@@ -95,10 +95,7 @@ Two different DashConfig tools are available: DashConfig for Broadcom and DashCo
 
 		![DASH Support setting](https://cdrt.github.io/mk_docs/img/dash/5-dash.jpg)
 
-	 3. **RealTek LAN Controller** - Reset the DASH Credentials under RealManage Setup. These credentials are used for Digest Authentication of the management service to the client.  You may need to scroll down to see **Realtek Manage Setup**.
-
-		!!! note
-			The default credentials are Administrator/Realtek. *Both* username and password are case sensitive.
+	 3. **RealTek LAN Controller** - Reset the DASH Credentials under RealManage Setup. These credentials are used for Digest Authentication of the management service to the client.  You may need to scroll down to see **Realtek Manage Setup**. Some systems are shipped with default credentials already set. If they are set, the possible username/password values are either Administrator/Realtek or Administrator/Password. *Both* username and password are case sensitive.
 
 		![RealManage Setup](https://cdrt.github.io/mk_docs/img/dash/6-dash.png)
 
@@ -187,9 +184,9 @@ AMC can be used to monitor, report, and manage the power state of client systems
 	| Power Cycle (Off - Hard Graceful) | 16 | N/A | Transition the system to power off state, , in which the power consumption is zero except for the real-time clock, followed by a transition to on state | G3 to G0/S0 |
 	| Diagnostic Interrupt (NMI) | 11 | Immediate Diagnostic Interrupt | Assert an NMI on the system. |
 	| Master Bus Reset | 10 | Immediate Warm Reset | Perform hardware reset on the system. |
-	  
+
 ### Power Operation on a Single System
-:	
+:
 	1. Right click on the specific system on which the power operation is to be performed.
 	2. Select **Power** from the menu. You will get the Power screen.
 	3. The **Power Screen** will show:
@@ -200,7 +197,7 @@ AMC can be used to monitor, report, and manage the power state of client systems
 	5. The result of the operation will be displayed. Click **Finish** to close the Power window.
 
 	![ Power operation on single system](https://cdrt.github.io/mk_docs/img/dash/10-dash.png)
-  
+
 ### Power Operation on a Group
 
 :	![Power management on Group.](https://cdrt.github.io/mk_docs/img/dash/11-dash.png)
@@ -242,7 +239,7 @@ AMC can be used to monitor, report, and manage the power state of client systems
 	 9. Close the power screen by clicking **Close**.
 
 	![ Boot Configuration](https://cdrt.github.io/mk_docs/img/dash/12-dash.png)
-	  
+
 ### Text Redirection
 
 :	Text redirection provides BIOS-assisted console and keyboard redirection to a remote computer terminal. Boot progress, BIOS setup screen, command line OS or command line diagnostic console text are redirected to the AMC terminal. Text redirection can be set to use either Telnet or SSH
@@ -284,7 +281,7 @@ AMC can be used to monitor, report, and manage the power state of client systems
 	AMC has its own ISO webserver. Use AMC to initiate an action to attach the managed systems&#39; USB to a remote URL. This operation can be performed against a single system or on a group of systems. Place ISOs in C:/AMC-ISO and http://xxx.xx.xxxx:3274/ can be used as USB URL (e.g. http://10.10.10.2:3274/dos.iso.)
 
 	![USB Redirection](https://cdrt.github.io/mk_docs/img/dash/38-dash.png)
-  
+
 ### Boot to Text Image Feature
 
 :	The AMC Boot to Text Image feature provides an environment where user can boot the managed system to a user defined text based remote image (e.g. .iso image).
@@ -331,7 +328,7 @@ AMC can be used to monitor, report, and manage the power state of client systems
 		User must provide the configuration inputs in the XML file
 
 ### Tasks Supported in DASHConfigRT Tool
-:	
+:
 	- Enable/Disable DASH management controller
 	- Set HTTP/HTTPS ports
 	- Set digital certificates
@@ -357,7 +354,7 @@ AMC can be used to monitor, report, and manage the power state of client systems
 ### Example Config.xml
 
         <?xml version="1.0" encoding="utf-8"!!! note ""
-   
+
         <DASHPROVISIONSETTINGS>
           <MANAGEMENTTARGET>
           <GLOBAL>
@@ -384,7 +381,7 @@ AMC can be used to monitor, report, and manage the power state of client systems
         </DASHPROVSIONSETTINGS>
 
 ### XML Nodes List
-:	
+:
 	  | \<DASHPROVISIONSETTINGS\> | Root node |
 	| --- | --- |
 	| \<USERID\> | Provides the name of the account to be created |
@@ -409,7 +406,7 @@ AMC can be used to monitor, report, and manage the power state of client systems
 AMC collects and displays sensors of managed computer systems. Administrators can configure alerts and subscribe to notifications.
 
 ### Monitor the health of system:
-:	
+:
 	1. Select the target system
 	2. Either right click on the system and select **System Health** menu item or click on the**System Health** ribbon icon.
 
@@ -422,7 +419,7 @@ AMC collects and displays sensors of managed computer systems. Administrators ca
 	  ![Health Inventory](https://cdrt.github.io/mk_docs/img/dash/18-dash.png)
 
 ### Subscribe/ Unsubscribe to Alerts
-:	
+:
 	!!! note
 	    The port used for alerts should be configured during AMPS installation.**
 
@@ -577,7 +574,7 @@ Authentication must be configured in both Active Directory and in the DASH targe
 	Also add the domain user accounts that require access to the DASH Systems to the new &quot;DASHAdmins&quot; security group.
 
 ### Use DASHConfigRT.exe to add the configured parameters to DASH systems
-:	
+:
 	#### Update the DASHConfig provisioning XML file for distribution:
 
 	 1. Make a backup copy of the _DASHConfig.xml_ file located at _C:\Program Files (x86)\AMD Management Console\DASHConfigRT._
@@ -590,7 +587,7 @@ Authentication must be configured in both Active Directory and in the DASH targe
 
 	#### Example Config.xml
 			<?xml version="1.0" encoding="utf-8"!!! note ""
-	   
+
 			<DASHPROVISIONSETTINGS>
 			  <MANAGEMENTTARGET>
 			  <GLOBAL>
@@ -624,12 +621,12 @@ Authentication must be configured in both Active Directory and in the DASH targe
 						  <ROLES>
 							  <ROLE>Administrator Role<ROLE>
 						   </ROLES>
-				  </ACTIVEDIRECTORY_GROUP>  
+				  </ACTIVEDIRECTORY_GROUP>
 				  </ACTIVEDIRECTORY_GROUPS>
 			  </ACTIVEDIRECTORY>
 			  </MANAGEMENTTARGET>
 			 </DASHPROVISIONSETTINGS>
-			
+
 ### Run DASHConfig utility on DASH managed system
 
 :	The **DASHConfig/DASHConfigRT** utility can run on DASH systems manually or you can use Configuration Manager to run the script.
@@ -753,7 +750,7 @@ To distribute the software package:
 
 	 2. Invoke DASHConfigRT using following command line:
 
-			DASHConfigRT -xf:DASHConfig.xml -dxf -mif 
+			DASHConfigRT -xf:DASHConfig.xml -dxf -mif
 
 	!!! note
 	    The optional _-dxf_ switch deletes the Config.xml file, whih is recommended as the file includes the password. The _-mif_ parameter
@@ -835,7 +832,7 @@ Devices in **All DASH Capable Systems** support the following DASH operations:
 	![DASH Power schedule](https://cdrt.github.io/mk_docs/img/dash/28-dash.png)
 
 ### Boot Control
-:	 
+:
 	#### Text Redirection
 
 	Text Redirection provides BIOS-assisted console and keyboard redirection to a remote computer terminal. This includes Boot progress, BIOS setup screen, command line OS or command line diagnostic program screens.
@@ -926,7 +923,7 @@ Devices in **All DASH Capable Systems** support the following DASH operations:
 	 3. Use the **Next** and **Previous** navigation buttons to view additional log entries. Double click an entry to launch the **Status Message Detail** window for that entry.
 
 	![DASH Log](https://cdrt.github.io/mk_docs/img/dash/31-dash.png)
-  
+
 ### Firmware Update
 
 :	AMPS allow you update the firmware for an individual system or a Collection.
@@ -951,7 +948,7 @@ Devices in **All DASH Capable Systems** support the following DASH operations:
 	The types of alerts are Platform, Boot Progress, and Lifecycle Events (temperature alerts, fan failure, chassis intrusion, and BIOS boot failure).
 
 #### To configure alerts:
-:	
+:
 	 1. Navigate to **Assets and Compliance/Overview/All Systems**
 	 2. In the right pane, right-click the device on which you want to perform Alert configuration. The shortcut menu appears.
 	 3. In the shortcut menu, point to **DASH** and then click **Alerts**.
@@ -969,7 +966,7 @@ Devices in **All DASH Capable Systems** support the following DASH operations:
 AMPS extends the Configurations Manager&#39;s security model to define which groups of users can perform DASH tasks and which groups of users can modify the DASH configuration.
 
 ### Security Role
-:	
+:
 	**Security Role** defines the Configuration Manager administrative users&#39; job functions. Configuration Manager provides several built-in roles which perform functions such as Software Update Manager for managing software updates, and Full Administrator and Remote Tools Operator for performing restrictive DASH operations.
 
 	- **Full Administrators** possess all permissions in Configuration Manager. The administrative user who first creates a new Configuration Manager installation is associated with this security role, all scopes, and all collections. All DASH operations can be performed by users having Full Administrator role.
@@ -1047,7 +1044,7 @@ AMPS extends the Configurations Manager&#39;s security model to define which gro
 	The **Schedule** button is provided on supported screens. When a user clicks **Schedule** , the **DASH Task Scheduler** screen launches.
 
 	![DASH Task Scheduler](https://cdrt.github.io/mk_docs/img/dash/34-dash.png)
-	  
+
 ### View DASH Scheduled Tasks
 
 :	The **DASH Scheduled Tasks** console enables you to view, as well as disable/enable or delete all the scheduled DASH tasks.
@@ -1177,7 +1174,7 @@ AMPS Status message in **Monitoring** category of Configuration Manager allows u
 
 More details about AMPS features and AMPS updates can be found at:
 
-Link: [_http://www.amd.com/DASH_](http://www.amd.com/DASH) 
+Link: [_http://www.amd.com/DASH_](http://www.amd.com/DASH)
 
 DASH Support email: dashsupport@amd.com
 
