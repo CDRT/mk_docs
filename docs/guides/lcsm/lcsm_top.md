@@ -36,7 +36,8 @@ The Lenovo Client Scripting Module requires 64-bit PowerShell v5.1 or higher and
 
 ## Installing Lenovo Client Scripting Module
 
-The module itself is currently available for download here: [Lenovo.Client.Scripting.zip](https://download.lenovo.com/cdrt/tools/lenovo.client.scripting.zip)
+The module itself is currently available for download here: [Lenovo.Client.Scripting_2.1.0.zip](https://download.lenovo.com/cdrt/tools/Lenovo.Client.Scripting_2.1.0
+.zip)
 
 The plan is to eventually have it published in the PowerShell Gallery so it can easily be installed with the Install-Module command. For now, the module can be copied to a system and the Import-Module command can be used to install it.
 
