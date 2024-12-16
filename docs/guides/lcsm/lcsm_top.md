@@ -37,10 +37,13 @@ The Lenovo Client Scripting Module requires 64-bit PowerShell v5.1 or higher and
 
 ## Installing Lenovo Client Scripting Module
 
-The module itself is currently available for download here: [Lenovo.Client.Scripting_2.1.0.zip](https://download.lenovo.com/cdrt/tools/Lenovo.Client.Scripting_2.1.0
-.zip)
+As of December 16, 2024, version 2.1.0 of the module is published in the PowerShell Gallery so it can easily be installed with the Install-Module command. To install from the PowerShell Gallery, simply run
 
-The plan is to eventually have it published in the PowerShell Gallery so it can easily be installed with the Install-Module command. For now, the module can be copied to a system and the Import-Module command can be used to install it.
+``` PowerShell
+Install-Module -Name Lenovo.Client.Scripting -Force
+```
+
+The module itself is currently available for manual download here: [Lenovo.Client.Scripting_2.1.0.zip](https://download.lenovo.com/cdrt/tools/Lenovo.Client.Scripting_2.1.0.zip)
 
 The zip file contains the module folder, Lenovo.Client.Scripting, which contains the Lenovo.Client.Scripting.psm1 and Lenovo.Client.Scripting.psd1 files plus the Public and Private sub-folders containing individual PowerShell scripts for the various functions. To manually install the module, there are two locations that the module folder can be copied to:
 
