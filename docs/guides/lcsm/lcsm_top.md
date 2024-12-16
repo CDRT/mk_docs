@@ -10,6 +10,7 @@ The Lenovo Client Scripting Module requires 64-bit PowerShell v5.1 or higher and
 
     ### December 11, 2024:  Version 2.1.0
 
+    - Now available in the PowerShell Gallery. Use ```Install-Module -Name Lenovo.Client.Scripting``` to install from the gallery.
     - Added Find-LnvTool to get URL and version information for the installer packages of our tools:
         - Dock Manager
         - System Update
