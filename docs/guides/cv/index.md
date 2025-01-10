@@ -24,6 +24,42 @@ The latest version of the Enterprise package for sideloading can always be found
 
 ## What's New
 
+### v10.2501.15.0 - January 2025
+
+**Main Application**
+
+- Small business devices now come with the Commercial Vantage preinstalled.
+- Introduction of smart noise-canceling features to enhance audio quality.
+- Automatic adjustment of keyboard backlighting based on ambient lighting conditions.
+- Screen dimming adapts based on user presence detected by the time-of-flight (ToF) sensor.
+- New settings available for managing true wireless earbuds.
+- Ability to defer group policies within Lenovo Device Manager (LDM).
+- Feature to predict battery end-of-life for proactive maintenance.
+- Support for human presence detection (HPD) in M90a Gen6 AIO devices.
+- Enables zero touch locking and login when an AIO device is connected to an external monitor.
+- Replaces screen blurring with dimming in high contrast mode for users utilizing Privacy Guard.
+- Removal of on-screen keyboard graphics when not needed.
+
+**System Update Feature**
+
+- **Separate Filtering Policies for Manual vs. Auto Update**: Different filtering policies implemented for manual and automatic updates.
+
+- **Improved Handling of Type 3 (RT3) Install Status Prior to Reboot**: Enhancements in managing RT3 install statuses before system reboot.
+
+- **Command Line Control for IT Admins**: IT administrators can now control the System Update process via command line interface (CMD).
+
+- **Removal of Reboot Prompt for Successful Type 3 Updates**: Eliminates reboot prompts after successful RT3 updates.
+
+- **Improved Cancellation Tips**: Enhanced tips provided when users cancel the UI and scheduled pending updates.
+
+- **"Pending Restart" Display for Failed RT3 Package Installs**: Displays "Pending restart" status for failed RT3 package installations.
+
+- **Support for Test/Active Status in Update Retriever Repositories**: System Update Add-in now supports test and active statuses in Update Retriever repositories.
+
+- **Customizable System Update Dialogs**: Allows customization of System Update dialogs with customer branding.
+
+- **New User Interface for System Update Add-in**: Introduction of a new UI for the System Update Add-in.
+
 ### v10.2407.66.0 - August 2024
 
 **Main Application**
