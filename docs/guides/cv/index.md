@@ -28,12 +28,12 @@ The latest version of the Enterprise package for sideloading can always be found
 
 **Main Application**
 
-- Small business devices now come with the Commercial Vantage preinstalled.
+- Some SMB models now come with the Commercial Vantage preinstalled.
+- Models that are Aura Edition will have a Mode (F8) function key that provides quick access to the new Smart Modes through a modal pop-up widget.
 - Introduction of smart noise-canceling features to enhance audio quality.
 - Automatic adjustment of keyboard backlighting based on ambient lighting conditions.
 - Screen dimming adapts based on user presence detected by the time-of-flight (ToF) sensor.
-- New settings available for managing true wireless earbuds.
-- Ability to defer group policies within Lenovo Device Manager (LDM).
+- New settings available for managing Lenovo's True Wireless earbuds.
 - Feature to predict battery end-of-life for proactive maintenance.
 - Support for human presence detection (HPD) in M90a Gen6 AIO devices.
 - Enables zero touch locking and login when an AIO device is connected to an external monitor.
@@ -42,23 +42,17 @@ The latest version of the Enterprise package for sideloading can always be found
 
 **System Update Feature**
 
-- **Separate Filtering Policies for Manual vs. Auto Update**: Different filtering policies implemented for manual and automatic updates.
+- **Support for Test/Active Status in Update Retriever Repositories**: System Update Add-in now supports test and active statuses in Update Retriever repositories. A new group policy setting, Test Content Mode, is added to control the behavior.
 
-- **Improved Handling of Type 3 (RT3) Install Status Prior to Reboot**: Enhancements in managing RT3 install statuses before system reboot.
+- **Customizable System Update Dialogs**: Allows customization of System Update dialogs with customer branding.  A 32px by 32px image file (png, bmp, gif (static), etc.) can be placed in the ```C:\ProgramData\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\session\resources``` folder. The company name can be specified in a new group policy setting, Company Name. These will appear on the dialogs that are shown when updates are available that will reboot the user's system.
 
-- **Command Line Control for IT Admins**: IT administrators can now control the System Update process via command line interface (CMD).
+- **Ability to control deferral group policies within Lenovo Device Manager (LDM)**: Now LDM admins can control the deferral limits when managing System Updates leveraging Commercial Vantage on the clients.
 
-- **Removal of Reboot Prompt for Successful Type 3 Updates**: Eliminates reboot prompts after successful RT3 updates.
+**New Group Policies**
 
-- **Improved Cancellation Tips**: Enhanced tips provided when users cancel the UI and scheduled pending updates.
+- **Device - System Update - Company Name**: Defines the Company Name to be displayed on the System Update dialogs. Excessively long names may be truncated.
 
-- **"Pending Restart" Display for Failed RT3 Package Installs**: Displays "Pending restart" status for failed RT3 package installations.
-
-- **Support for Test/Active Status in Update Retriever Repositories**: System Update Add-in now supports test and active statuses in Update Retriever repositories.
-
-- **Customizable System Update Dialogs**: Allows customization of System Update dialogs with customer branding.
-
-- **New User Interface for System Update Add-in**: Introduction of a new UI for the System Update Add-in.
+- **Device - System Update - Test Content Mode**: When enabled, this policy will cause System Update to only process packages that have a Status of "Test" in the local repository.  This policy only takes effect if a local repository is configured by the System Update Repository policy.  If this policy is not configured or disabled, then only packages with a Status of "Active" will be processed from the local repository.
 
 ### v10.2407.66.0 - August 2024
 
