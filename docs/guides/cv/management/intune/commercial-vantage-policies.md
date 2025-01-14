@@ -275,7 +275,7 @@ If you disable or do not configure this policy setting, the battery information 
 Values:
 
 ```xml
-<enabled/>  
+<enabled/>
 <data id="ADE41242A9F8CE596481FE945E5FE5D8" value="1"/>
 <data id="F04F922293A120999D4EB95012CA0C64" value="1"/>
 <data id="AC72B4BC066D807C760A11748C39F451" value="10:00:00"/>
@@ -339,7 +339,7 @@ When the toggle to "Automatically Set Threshold" is on, then Battery Threshold "
 Values:
 
 ```xml
-<enabled/>  
+<enabled/>
 <data id="30B3EB897294AF0A770737E004CCE7B0" value="true"/>
 <data id="4B9DE8D61B215393ED7255D0719FA5FA" value="60"/>
 <data id="2FE339B04615BBA5C913F45FB6A1B34D" value="80"/>
@@ -526,6 +526,28 @@ Values:
 
 ### System Update
 
+#### Company Name
+
+!!! note ""
+    Added in version 2501.15
+
+Defines the Company Name to be displayed on the System Update dialogs. Excessively long names may be truncated.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7/2E380F5F44ADD0C3911D0528A5A35CB6
+```
+
+Values:
+
+```xml
+<enabled/>
+<data id="2E380F5F44ADD0C3911D0528A5A35CB6" value="Commercial Deployment Readiness Team"/>
+```
+
+```xml
+<disabled/>
+```
+
 #### System Update Repository
 
 Defines the location of where System Update will pickup available content.
@@ -540,7 +562,7 @@ Defines the location of where System Update will pickup available content.
 Values:
 
 ```xml
-<enabled/> 
+<enabled/>
 <data id="BD0C70F0CE887CC46496DD7BF81C0B8C" value="\\your_repository"/>
 ```
 
@@ -559,7 +581,7 @@ This policy setting provides the ability for the Administrator to configure the 
 Values:
 
 ```xml
-<enabled/>  
+<enabled/>
 <data id="602015B22CFEA08C53FEC8C3E81356BF" value="true"/>
 <data id="CE7D1526B3D8674705FF75DFF52B4416" value="true"/>
 <data id="7C75C7AA6FF288235BCA3886FA9A4176" value="true"/>
@@ -601,6 +623,27 @@ Values:
     C62002C924CF75712313AC1CF94525AB = Optional Firmware<br>
     9A82A62C3EF3BA2FCC142413A1FAC951 = Optional Others
 
+#### Test Content Mode
+
+!!! note ""
+    Added in version 2501.15
+
+When enabled, this policy will cause System Update to only process packages that have a Status of "Test" in the local repository. This policy only takes effect if a local repository is configured by the System Update Repository policy. If this policy is not configured or disabled, then only packages with a Status of "Active" will be processed from the local repository.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7/F840EF719B3473570D4E02FA060EC19A
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
 ### Auto Update
 
 #### Schedule the Month for Auto Update
@@ -637,7 +680,7 @@ If this policy is enabled, the Run Once task will be disabled automatically.
 Values:
 
 ```xml
-<enabled/>  
+<enabled/>
 <data id="B2DD6109EA2E207C836383CECF4A9BEC" value="true"/>
 <data id="ED5C30B56EF8F5365D9C42831CF04BD8" value="false"/>
 <data id="BF9C2D60C64BF8F3B5099FE91F9B5089" value="false"/>
@@ -679,7 +722,7 @@ This policy affects auto update.
 Values:
 
 ```xml
-<enabled/>  
+<enabled/>
 <data id="602015B22CFEA08C53FEC8C3E81356BF" value="true"/>
 <data id="CE7D1526B3D8674705FF75DFF52B4416" value="true"/>
 <data id="7C75C7AA6FF288235BCA3886FA9A4176" value="true"/>
@@ -852,7 +895,7 @@ Either specify specific day(s) of the month or specify a frequency and day of th
 
 If both "Day(s)" and "Frequency/Day of the Week" are specified,"Day(s)" will take precedence and "Frequency/Day of the Week" will be ignored.
 
-If "Day(s)" is configured, Auto Update will only occur on the specified days. The desired days can be specified by the number of the day in the month or by specifying "Last Day" for the last day of the month or "All" for all days of the month. Multiple days can be specified by separating with semi-colon ( ; ).  
+If "Day(s)" is configured, Auto Update will only occur on the specified days. The desired days can be specified by the number of the day in the month or by specifying "Last Day" for the last day of the month or "All" for all days of the month. Multiple days can be specified by separating with semi-colon ( ; ).
 
 Example for Day(s) input:
 
@@ -862,7 +905,7 @@ Example for Day(s) input:
 - LastDay  --> will only occur on the last day of the month
 - LastDay;1;13;25  --> will only occur on the days: 1, 13, 25 and the last day of the month
 
-When Frequency and Days of the Week are configured, a selection must be set for both or else the policy will be ignored.  
+When Frequency and Days of the Week are configured, a selection must be set for both or else the policy will be ignored.
 
 Example for Frequency/Days of the Week:
 
