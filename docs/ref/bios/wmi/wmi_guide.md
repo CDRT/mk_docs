@@ -248,21 +248,23 @@ This section will describe how to perform various actions using PowerShell to in
 
 !!! note
     - BIOS settings and values are case sensitive.
-	- Settings may vary between models; list settings first to identify the BIOS setting you want to change.
-	- After making changes to the BIOS settings, you must reboot the computer before the changes will take effect.
+    - Settings may vary between models; list settings first to identify the BIOS setting you want to change.
+    - After making changes to the BIOS settings, you must reboot the computer before the changes will take effect.
 
 ### Get all Current BIOS Settings
 
 Use the following command to display all current BIOS settings:
 
-```
-PowerShell 5.1 
+*PowerShell 5.1*
+
+``` PowerShell
 gwmi -class Lenovo_BiosSetting -namespace root\wmi | ForEach-Object `
 { if ($_.CurrentSetting -ne "") { Write-Host $_.CurrentSetting.replace(",", " = ") } }
 ```
 
-```
-PowerShell 7.x
+*PowerShell 7.x*
+
+``` PowerShell
 gcim -Namespace root/WMI -class Lenovo_BiosSetting | ForEach-Object `
 { if ($_.CurrentSetting -ne "") { Write-Host $_.CurrentSetting.replace(",", " = ") } }
 ```
@@ -271,13 +273,16 @@ gcim -Namespace root/WMI -class Lenovo_BiosSetting | ForEach-Object `
 
 Use the following command as a template to display a particular BIOS setting:
 
-```
-PowerShell 5.1
+*PowerShell 5.1*
+
+``` PowerShell
 gwmi -class Lenovo_BiosSetting -namespace root\wmi | Where-Object `
 { $_.CurrentSetting.split(",", [StringSplitOptions]::RemoveEmptyEntries) -eq "SecureBoot" } | Format-List CurrentSetting
 ```
-```
-PowerShell 7.x
+
+*PowerShell 7.x*
+
+``` PowerShell
 gcim -Namespace root/WMI -class Lenovo_BiosSetting | Where-Object `
 { $_.CurrentSetting.split(",", [StringSplitOptions]::RemoveEmptyEntries) -eq "SecureBoot" } | Format-List CurrentSetting
 ```
@@ -286,13 +291,15 @@ gcim -Namespace root/WMI -class Lenovo_BiosSetting | Where-Object `
 
 Use the following command as a template to display all possible values for a particular BIOS setting:
 
-```
-PowerShell 5.1
+*PowerShell 5.1*
+
+``` PowerShell
 (gwmi –class Lenovo_GetBiosSelections –namespace root\wmi).GetBiosSelections("BootOrder") | Format-List Selections
 ```
 
-```
-PowerShell 7.x
+*PowerShell 7.x*
+
+``` PowerShell
 $cimLenovoGetBiosSelections = gcim -namespace root/WMI -class Lenovo_GetBiosSelections
 # Replace $SettingName with the appropriate string, i.e. BootOrder
 (icim $cimLenovoGetBiosSelections -MethodName "GetBiosSelections" -Arguments @{ Item = "$SettingName" }).Selections
@@ -304,39 +311,45 @@ Use the following commands to set the value of a BIOS setting. This is a multi-s
 
 **1**. Change the setting
 
-```
-PowerShell 5.1
+*PowerShell 5.1*
+
+``` PowerShell
 (gwmi -class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting("WakeOnLANDock,Disable")
 ```
 
-```
-PowerShell 7.x
+*PowerShell 7.x*
+
+``` PowerShell
 $cimSetBiosSetting = gcim -namespace root/WMI -class Lenovo_SetBiosSetting
 icim $cimSetBiosSetting -MethodName SetBiosSetting -Arguments @{ parameter = "WakeOnLANDock,Disable" }
 ```
 
 **2**. If a supervisor password is set, specify the supervisor password, otherwise skip this step.
 
-```
-PowerShell 5.1
-(gwmi -class Lenovo_WmiOpcodeInterface -namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordAdmin:MyPassword")
+*PowerShell 5.1*
+
+``` PowerShell
+(gwmi -class Lenovo_WmiOpcodeInterface -namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordAdmin:MyPassword;")
 ```
 
-```
-PowerShell 7.x
+*PowerShell 7.x*
+
+``` PowerShell
 $cimOpInt = gcim -namespace root/WMI -class Lenovo_WmiOpcodeInterface
-icim $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordAdmin:MyPassword"}
+icim $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordAdmin:MyPassword;"}
 ```
 
 **3**. Save the new setting
 
-```
-PowerShell 5.1
+*PowerShell 5.1*
+
+``` PowerShell
 (gwmi -class Lenovo_SaveBiosSettings -namespace root\wmi).SaveBiosSettings()
 ```
 
-```
-PowerShell 7.x
+*PowerShell 7.x*
+
+``` PowerShell
 $cimSaveBiosSettings = gcim -namespace root/WMI -class Lenovo_SaveBiosSettings
 icim $cimSaveBiosSettings -MethodName SaveBiosSettings
 ```
@@ -344,7 +357,7 @@ icim $cimSaveBiosSettings -MethodName SaveBiosSettings
 !!! note
     The setting string is case sensitive and should be in the format ```<item>,<value>```.
 
-### Set a BIOS Setting When a Supervisor Password Exists on legacy models
+### Set a BIOS Setting When a Supervisor Password Exists on **legacy models**
 
 Use the following command as a template to set the value of a setting when a supervisor password exists on older models (ThinkPad prior to 2020 and ThinkCentre/ThinkStation prior to 2017). This is a two-step process: set and then save.
 
@@ -353,23 +366,28 @@ Use the following command as a template to set the value of a setting when a sup
 	
 ```<item>, <value>, <password + encoding>```.
 
-```
-PowerShell 5.1
+*PowerShell 5.1*
+
+``` PowerShell
 (gwmi -class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting("WakeOnLAN,Disable,password,ascii,us")
 ```
 
-```PowerShell 7.x
+*PowerShell 7.x*
+
+``` PowerShell
 $cimSetBiosSetting = gcim -Namespace root/WMI -class Lenovo_SetBiosSetting
 icim $cimSetBiosSetting -MethodName SetBiosSetting -Arguments @{ parameter = "WakeOnLANDock,Disable,password,ascii,us" }
 ```
 
-```
-PowerShell 5.1
+*PowerShell 5.1*
+
+``` PowerShell
 (gwmi -class Lenovo_SaveBiosSettings -namespace root\wmi).SaveBiosSettings("password,ascii,us”)
 ```
 
-```
-PowerShell 7.x
+*PowerShell 7.x*
+
+``` PowerShell
 $cimSaveBiosSettings = gcim -Namespace root/WMI -class Lenovo_SaveBiosSettings
 icim $cimSaveBiosSettings -MethodName SaveBiosSettings -Arguments @{ parameter = "password,ascii,us" }
 ```
@@ -381,50 +399,58 @@ set an initial password; it can only be used to change an existing password. Thi
 
 **1**. Specify the password type
 
-```
-PowerShell 5.1
+*PowerShell 5.1*
+
+``` PowerShell
 (gwmi -class Lenovo_WmiOpcodeInterface -namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordType:pap")
 ```
 
-```
-PowerShell 7.x
+*PowerShell 7.x*
+
+``` PowerShell
 $cimOpInt = gcim -namespace root/WMI -class Lenovo_WmiOpcodeInterface
 icim $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordType:pap" }
 ```
 
 **2**. Specify the current password
 
-```
-PowerShell 5.1
+*PowerShell 5.1*
+
+``` PowerShell
 (gwmi -class Lenovo_WmiOpcodeInterface -namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordCurrent01:MyCurrentPassword")
 ```
 
-```
-PowerShell 7.x
+*PowerShell 7.x*
+
+``` PowerShell
 icim $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordCurrent01:MyCurrentPassword" }
 ```
 
 **3**. Specify the new password
 
-```
-PowerShell 5.1
+*PowerShell 5.1*
+
+``` PowerShell
 (gwmi -class Lenovo_WmiOpcodeInterface -namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordNew01:MyNewPassword")
 ```
 
-```
-PowerShell 7.x
+*PowerShell 7.x*
+
+``` PowerShell
 icim $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordNew01:MyNewPassword" }
 ```
 
 **4**. Save the new password
 
-```
-PowerShell 5.1
+*PowerShell 5.1*
+
+``` PowerShell
 (gwmi -class Lenovo_WmiOpcodeInterface -namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordSetUpdate")
 ```
 
-```
-PowerShell 7.x
+*PowerShell 7.x*
+
+``` PowerShell
 icim $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordSetUpdate" }
 ```
 
@@ -464,10 +490,10 @@ To change the boot order, complete the following steps:
 Example: Change primary boot sequence,
 ```"Primary Boot Sequence" "Network 1:SATA 1:USB HDD:SATA 2:USB CDROM:USB Key"```
 
-!!! note 
+!!! note
     - "Boot Order" settings are case sensitive.
-	- Settings may be different from projects, recommend List all settings first to identify the BIOS setting wants to change, and put all the listed device to the script parameters, just sequence could be changed.
-	- After making changes to the BIOS settings, you must reboot the computer before the changes will take effect.
+    - Settings may be different from projects, recommend List all settings first to identify the BIOS setting wants to change, and put all the listed device to the script parameters, just sequence could be changed.
+    - After making changes to the BIOS settings, you must reboot the computer before the changes will take effect.
 
 ### Restoring Default Settings
 
@@ -475,23 +501,22 @@ To restore default BIOS settings, use the Lenovo_LoadDefaultSettings class, then
 
 ### Limitations and Notes
 
-- When setting multiple BIOS settings during the same session prior to restarting, only call the SaveBiosSettings method once at the end instead of after each call to SetBiosSetting. This will prevent possible issues with overloading the WMI handler. All settings that have been changed will be saved with one call to SaveBiosSettings.
++ When setting multiple BIOS settings during the same session prior to restarting, only call the SaveBiosSettings method once at the end instead of after each call to SetBiosSetting. This will prevent possible issues with overloading the WMI handler. All settings that have been changed will be saved with one call to SaveBiosSettings.
 
-- A password cannot be set using this method when one does not already exist. Passwords can only be changed or cleared.
-- To remove the power-on password when a supervisor password is set, it must be done in three steps total:
-	1. Change the supervisor password. It’s OK to specify the same password as both the current and the new, in case you don’t really want to change it. But you must do this step.
-	2. Change the power-on password by specifying the current password and a NULL string as the new password.
-	3. Reboot (do not reboot between steps 1 and 2).
--  Some security-related settings can only be disabled when a Supervisor password exists. For example, the following BIOS settings cannot be changed from Enable to Disable unless you have a Supervisor password:
-	- SecureBoot
-	- SecureRollbackPrevention
-	- PhysicalPresenceForTpmClear
-	- PhysicalPresenceForTpmProvision
-
++ A password cannot be set using this method when one does not already exist. Passwords can only be changed or cleared.
++ To remove the power-on password when a supervisor password is set, it must be done in three steps total:
+    1. Change the supervisor password. It’s OK to specify the same password as both the current and the new, in case you don’t really want to change it. But you must do this step.
+    2. Change the power-on password by specifying the current password and a NULL string as the new password.
+    3. Reboot (do not reboot between steps a and b).
++ Some security-related settings can only be disabled when a Supervisor password exists. For example, the following BIOS settings cannot be changed from Enable to Disable unless you have a Supervisor password:
+  + SecureBoot
+  + SecureRollbackPrevention
+  + PhysicalPresenceForTpmClear
+  + PhysicalPresenceForTpmProvision
 
 ## Security over Remote Connections
 
 WMI-based administration scripts operating over a remote connection send data over the network in clear text by default. You can enhance security by modifying WMI-based administration scripts to establish an encrypted remote connection as follows:
 
-- Set an impersonation level of "impersonate"
--  Set an authentication level of "pktPrivacy"
++ Set an impersonation level of "impersonate"
++ Set an authentication level of "pktPrivacy"
