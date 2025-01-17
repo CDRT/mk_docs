@@ -24,21 +24,21 @@ management of BIOS settings.
 
 The Lenovo BIOS WMI interface provides the following benefits:
 
-**Functions**
+#### Functions
 
 + Flexible BIOS configuration, including the ability to change a single BIOS setting or all BIOS settings
 + BIOS password management, including updating supervisor passwords, power-on passwords, and hard
 disk drive (HDD) passwords
 + No dependency on a specific BIOS level
 
-**Environment**
+#### Environment
 
 + Remote or local capabilities
 + Support of unattended operations
 + No software installation, including managed object format (MOF), required
 + Replaces DOS-based BIOS configuration tools
 
-**Interface**
+#### Interface
 
 + Easy to adopt for various management solutions
 + Replaces current SMI interface
@@ -82,8 +82,6 @@ The following interface details can be used to access Lenovo BIOS settings.
 
 **ThinkPad**:
 
-<center>
-
 | Class Name | Type | Parameter / Return | Example |
 |----------- |----- |------------------- |-------- |
 | Lenovo_BiosSetting | Query | CurrentSetting: “Item,Value” | “WakeOnLAN,Enable” |
@@ -96,13 +94,7 @@ The following interface details can be used to access Lenovo BIOS settings.
 | Lenovo_SetBiosPassword <br>***Deprecated - use Lenovo_WmiOpcodeInterface*** | Method | “PasswordType,CurrentPassword, <br>NewPassword,Encoding,KbdLang;” | “pop,oldpop,newpop, <br> ascii,us;” |
 | Lenovo_BiosPasswordSettings | Query | [See section below.](#detecting-password-state) | |
 
-_Table 1.** ThinkPad Interface Details_
-
-</center>
-
 **ThinkCentre/ThinkStation**:
-
-<center>
 
 | Class Name | Type | Parameter / Return | Example |
 |----------- | ---- | ---------------- | ---------------- |
@@ -116,15 +108,9 @@ _Table 1.** ThinkPad Interface Details_
 | Lenovo_BiosPasswordSettings | Query | [See section below.](#detecting-password-state) | |
 <!--| Lenovo_BiosPasswordSettings 	| Method 	| PasswordMode:”Value”<br>-0:Legacy Mode<br>-Others: Reserved PasswordState:”Value”<br>-BIT0=1: User password is installed<br>-BIT1=1:Admin password isinstalled<br>-BIT2=1:Hard disk passwords are installed <br>MinLength:”Value”<br>-1:always one byte MaxLength:”Value”<br>-64:always 64 byte SupportedKeyboard:”Value”<br>-BIT0=1:Support US keyboard<br>-BIT1=1:Support French keyboard<br>-BIT2=1:Support German keyboard <br>SupportedEncodings:”Value”<br>-BIT0=1: support ASCII password input<br>-BIT1=1:support scancode password input <br>Port0HardDiskPasswordState:”Value”<br>-BIT0=1:User hard disk password is installed<br>-BIT1=1:Master hard disk password is installed<br>   Port1HardDiskPasswordState:”Value”<br>   Port2HardDiskPasswordState:”Value”<br>   Port3HardDiskPasswordState:”Value”<br>   Port4HardDiskPasswordState:”Value”<br>   Port5HardDiskPasswordState:”Value” 	| PasswordMode:1 <br>PasswordState:0 <br>MinLength:1 <br>MaxLength:64 <br>SuportedKeyboard:7 <br>SupportedEncodings:3 <br>Port0HardDiskPasswordState:00 <br>Port1HardDiskPasswordState:00 <br>Port2HardDiskPasswordState:00 <br>Port3HardDiskPasswordState:00 <br>Port4HardDiskPasswordState:00 <br>Port5HardDiskPasswordState:00 	| -->
 
-
-_Table 2. ThinkCentre/ThinkStation Interface Details_
-</center>
-
 ### Return Values
 
 You will receive one of the following return values after making changes to BIOS settings:
-
-<center>
 
 | Return Value | Description |
 |------------- |------------ |
@@ -135,10 +121,6 @@ You will receive one of the following return values after making changes to BIOS
 | System Busy | BIOS changes have already been made that need to be committed. Reboot the system and try again. |
 | Item is show only, inaccessible | The item cannot be changed, can only show the status |
 
-
-_Table 3. Return Types_
-</center>
-
 ## Password Handling
 
 Recent models (2020 and newer ThinkPads, 2017 and newer ThinkCentre and ThinkStations) support complex BIOS passwords.
@@ -148,7 +130,7 @@ Acceptable characters for BIOS password are the following:
 + Number {‘0-9‘}
 + Space ! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ ¥ ] ^ _ ` { | } ~
 
-To support these complex BIOS passwords, a new WMI class, Lenovo_WmiOpcodeInterface, is required. This new class supports legacy passwords as well as new complex passwords; therefore, it is recommended to use this method whenever possible.
+To support these complex BIOS passwords, a new WMI class, **Lenovo_WmiOpcodeInterface**, is required. This new class supports legacy passwords as well as new complex passwords; therefore, it is recommended to use this method whenever possible.
 
 ### Current method to Set/Save a Setting
 
@@ -177,7 +159,7 @@ The following line of PowerShell code can return the PasswordState value:
 
 ``` PowerShell
 
-(gwmi -class Lenovo_BiosPasswordSettings -namespace root\wmi).PasswordState 
+(Get-WmiObject -Class Lenovo_BiosPasswordSettings -Namespace root\wmi).PasswordState 
 
 ```
 
@@ -212,28 +194,17 @@ For the newer models, the password is specified using the Lenovo_WmiOpcodeInterf
 
 For legacy models, if a supervisor password is already set, you must specify that supervisor password before you can change any BIOS settings. The format for password parameters is "abc,ascii,us" with descriptions in the following table. For Example, if the Current password is “abc”, Password encoding is “ascii”, Keyboard language is “us” then Lenovo_SaveBiosSettings should be called with parameters as “abc,ascii,us;”
 
-<center>
-
 | Parameter | Description | Possible Selections |
 |---------- |------------ |-------------------- |
 | Parameter 1 | Current Password | “abc” - as raw ascii character<br>“1e302e” - as scancodes |
 | Parameter 2 | Password encoding | “ascii”<br>“scancode”|
 | Parameter 3 | Keyboard languages <br>(used only if encoding <br>is “ascii”)  | “us” - English US, English, UK,<br>Chinese-Traditional, Danish, Dutch, <br>  French, Canadian, Italian, Japanese, <br>  Korean, Norwegian, Polish, Portuguese, <br>  Spanish, European, Spanish-Latin American, <br>  Swiss, Turkish<br>“fr” - French-European, Belgian<br>“gr” - German, Cz |
 
-
-_Table 4. Password parameters format, legacy password authentication for older models_
-</center>
-
 For newer computers, you must first call Lenovo_WmiOpcodeInterface with below parameters before changing any BIOS settings, and the password only supports ascii encoding.
-
-<center>
 
 | Parameters | Description | Possible Selections |
 |----------- |------------ |-------------------- |
 | Parameter 1 | Current password, need begin <br> with the key words:<br> WmiOpcodePasswordAdmin: | For example, if BIOS password is set with “abc”: <br> "WmiOpcodePasswordAdmin:abc;" |
-
-_Table 5. Password parameters format, modern password authentication for newer models_
-</center>
 
 ## Typical Usage
 
@@ -255,17 +226,13 @@ This section will describe how to perform various actions using PowerShell to in
 
 Use the following command to display all current BIOS settings:
 
-*PowerShell 5.1*
-
 ``` PowerShell
-gwmi -class Lenovo_BiosSetting -namespace root\wmi | ForEach-Object `
+#PowerShell 5.1
+Get-WmiObject -Class Lenovo_BiosSetting -Namespace root\wmi | ForEach-Object `
 { if ($_.CurrentSetting -ne "") { Write-Host $_.CurrentSetting.replace(",", " = ") } }
-```
 
-*PowerShell 7.x*
-
-``` PowerShell
-gcim -Namespace root/WMI -class Lenovo_BiosSetting | ForEach-Object `
+#PowerShell 7.x
+Get-CimInstance -Namespace root/WMI -Class Lenovo_BiosSetting | ForEach-Object `
 { if ($_.CurrentSetting -ne "") { Write-Host $_.CurrentSetting.replace(",", " = ") } }
 ```
 
@@ -273,17 +240,13 @@ gcim -Namespace root/WMI -class Lenovo_BiosSetting | ForEach-Object `
 
 Use the following command as a template to display a particular BIOS setting:
 
-*PowerShell 5.1*
-
 ``` PowerShell
-gwmi -class Lenovo_BiosSetting -namespace root\wmi | Where-Object `
+#PowerShell 5.1
+Get-WmiObject -Class Lenovo_BiosSetting -Namespace root\wmi | Where-Object `
 { $_.CurrentSetting.split(",", [StringSplitOptions]::RemoveEmptyEntries) -eq "SecureBoot" } | Format-List CurrentSetting
-```
 
-*PowerShell 7.x*
-
-``` PowerShell
-gcim -Namespace root/WMI -class Lenovo_BiosSetting | Where-Object `
+#PowerShell 7.x
+Get-CimInstance -Namespace root/WMI -Class Lenovo_BiosSetting | Where-Object `
 { $_.CurrentSetting.split(",", [StringSplitOptions]::RemoveEmptyEntries) -eq "SecureBoot" } | Format-List CurrentSetting
 ```
 
@@ -291,67 +254,44 @@ gcim -Namespace root/WMI -class Lenovo_BiosSetting | Where-Object `
 
 Use the following command as a template to display all possible values for a particular BIOS setting:
 
-*PowerShell 5.1*
-
 ``` PowerShell
-(gwmi –class Lenovo_GetBiosSelections –namespace root\wmi).GetBiosSelections("BootOrder") | Format-List Selections
-```
+#PowerShell 5.1
+(Get-WmiObject –class Lenovo_GetBiosSelections –namespace root\wmi).GetBiosSelections("BootOrder") | Format-List Selections
 
-*PowerShell 7.x*
-
-``` PowerShell
-$cimLenovoGetBiosSelections = gcim -namespace root/WMI -class Lenovo_GetBiosSelections
+#PowerShell 7.x
+$cimLenovoGetBiosSelections = Get-CimInstance -Namespace root/WMI -Class Lenovo_GetBiosSelections
 # Replace $SettingName with the appropriate string, i.e. BootOrder
-(icim $cimLenovoGetBiosSelections -MethodName "GetBiosSelections" -Arguments @{ Item = "$SettingName" }).Selections
+(Invoke-CimMethod $cimLenovoGetBiosSelections -MethodName "GetBiosSelections" -Arguments @{ Item = "$SettingName" }).Selections
 ```
 
 ### Set and Save a BIOS Setting on newer models
 
 Use the following commands to set the value of a BIOS setting. This is a multi-step process:
 
-**1**. Change the setting
-
-*PowerShell 5.1*
-
 ``` PowerShell
-(gwmi -class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting("WakeOnLANDock,Disable")
-```
+#1. Change the setting
+#PowerShell 5.1
+(Get-WmiObject -Class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting("WakeOnLANDock,Disable")
 
-*PowerShell 7.x*
+#PowerShell 7.x
+$cimSetBiosSetting = Get-CimInstance -Namespace root/WMI -Class Lenovo_SetBiosSetting
+Invoke-CimMethod $cimSetBiosSetting -MethodName SetBiosSetting -Arguments @{ parameter = "WakeOnLANDock,Disable" }
 
-``` PowerShell
-$cimSetBiosSetting = gcim -namespace root/WMI -class Lenovo_SetBiosSetting
-icim $cimSetBiosSetting -MethodName SetBiosSetting -Arguments @{ parameter = "WakeOnLANDock,Disable" }
-```
+#2. If a supervisor password is set, specify the supervisor password, otherwise skip this step.
+#PowerShell 5.1
+(Get-WmiObject -Class Lenovo_WmiOpcodeInterface -Namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordAdmin:MyPassword;")
 
-**2**. If a supervisor password is set, specify the supervisor password, otherwise skip this step.
+#PowerShell 7.x
+$cimOpInt = Get-CimInstance -Namespace root/WMI -Class Lenovo_WmiOpcodeInterface
+Invoke-CimMethod $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordAdmin:MyPassword;"}
 
-*PowerShell 5.1*
+#3. Save the new setting
+#PowerShell 5.1
+(Get-WmiObject -Class Lenovo_SaveBiosSettings -Namespace root\wmi).SaveBiosSettings()
 
-``` PowerShell
-(gwmi -class Lenovo_WmiOpcodeInterface -namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordAdmin:MyPassword;")
-```
-
-*PowerShell 7.x*
-
-``` PowerShell
-$cimOpInt = gcim -namespace root/WMI -class Lenovo_WmiOpcodeInterface
-icim $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordAdmin:MyPassword;"}
-```
-
-**3**. Save the new setting
-
-*PowerShell 5.1*
-
-``` PowerShell
-(gwmi -class Lenovo_SaveBiosSettings -namespace root\wmi).SaveBiosSettings()
-```
-
-*PowerShell 7.x*
-
-``` PowerShell
-$cimSaveBiosSettings = gcim -namespace root/WMI -class Lenovo_SaveBiosSettings
-icim $cimSaveBiosSettings -MethodName SaveBiosSettings
+#PowerShell 7.x
+$cimSaveBiosSettings = Get-CimInstance -Namespace root/WMI -Class Lenovo_SaveBiosSettings
+Invoke-CimMethod $cimSaveBiosSettings -MethodName SaveBiosSettings
 ```
 
 !!! note
@@ -362,96 +302,66 @@ icim $cimSaveBiosSettings -MethodName SaveBiosSettings
 Use the following command as a template to set the value of a setting when a supervisor password exists on older models (ThinkPad prior to 2020 and ThinkCentre/ThinkStation prior to 2017). This is a two-step process: set and then save.
 
 !!! note
-    The setting string is case sensitive and should be in the format
-	
-```<item>, <value>, <password + encoding>```.
-
-*PowerShell 5.1*
+    The setting string is case sensitive and should be in the format ```<item>, <value>, <password + encoding>```.
 
 ``` PowerShell
-(gwmi -class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting("WakeOnLAN,Disable,password,ascii,us")
-```
+#PowerShell 5.1
+(Get-WmiObject -Class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting("WakeOnLAN,Disable,password,ascii,us")
+(Get-WmiObject -Class Lenovo_SaveBiosSettings -Namespace root\wmi).SaveBiosSettings("password,ascii,us")
 
-*PowerShell 7.x*
-
-``` PowerShell
-$cimSetBiosSetting = gcim -Namespace root/WMI -class Lenovo_SetBiosSetting
-icim $cimSetBiosSetting -MethodName SetBiosSetting -Arguments @{ parameter = "WakeOnLANDock,Disable,password,ascii,us" }
-```
-
-*PowerShell 5.1*
-
-``` PowerShell
-(gwmi -class Lenovo_SaveBiosSettings -namespace root\wmi).SaveBiosSettings("password,ascii,us”)
-```
-
-*PowerShell 7.x*
-
-``` PowerShell
-$cimSaveBiosSettings = gcim -Namespace root/WMI -class Lenovo_SaveBiosSettings
-icim $cimSaveBiosSettings -MethodName SaveBiosSettings -Arguments @{ parameter = "password,ascii,us" }
+#PowerShell 7.x
+$cimSetBiosSetting = Get-CimInstance -Namespace root/WMI -Class Lenovo_SetBiosSetting
+Invoke-CimMethod $cimSetBiosSetting -MethodName SetBiosSetting -Arguments @{ parameter = "WakeOnLANDock,Disable,password,ascii,us" }
+$cimSaveBiosSettings = Get-CimInstance -Namespace root/WMI -Class Lenovo_SaveBiosSettings
+Invoke-CimMethod $cimSaveBiosSettings -MethodName SaveBiosSettings -Arguments @{ parameter = "password,ascii,us" }
 ```
 
 ### Change a BIOS Password
 
 Use the following commands to change the BIOS supervisor password. Note that you cannot use this method to
-set an initial password; it can only be used to change an existing password. This is a multi-step process:
+set an initial password; it can only be used to change an existing password. This is a multi-step process.
 
-**1**. Specify the password type
-
-*PowerShell 5.1*
-
-``` PowerShell
-(gwmi -class Lenovo_WmiOpcodeInterface -namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordType:pap")
-```
-
-*PowerShell 7.x*
+!!! note
+    The first step is only required for ThinkCentre and ThinkStation models. Skip step 1 on ThinkPads.
 
 ``` PowerShell
-$cimOpInt = gcim -namespace root/WMI -class Lenovo_WmiOpcodeInterface
-icim $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordType:pap" }
-```
+#1. For ThinkCentre and ThinkStation only - do not include this step on ThinkPad - Provide the current SVP
+#PowerShell 5.1
+(Get-WmiObject -Class Lenovo_WmiOpcodeInterface -Namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordAdmin:MyCurrentPassword;")
 
-**2**. Specify the current password
+#PowerShell 7.x
+$cimOpInt = Get-CimInstance -Namespace root/WMI -Class Lenovo_WmiOpcodeInterface
+Invoke-CimMethod $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordAdmin:MyCurrentPassword;" }
 
-*PowerShell 5.1*
+#2. Specify the password type
+#PowerShell 5.1
 
-``` PowerShell
-(gwmi -class Lenovo_WmiOpcodeInterface -namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordCurrent01:MyCurrentPassword")
-```
+(Get-WmiObject -Class Lenovo_WmiOpcodeInterface -Namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordType:pap;")
 
-*PowerShell 7.x*
+#PowerShell 7.x
+$cimOpInt = Get-CimInstance -Namespace root/WMI -Class Lenovo_WmiOpcodeInterface
+Invoke-CimMethod $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordType:pap;" }
 
-``` PowerShell
-icim $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordCurrent01:MyCurrentPassword" }
-```
+#3. Specify the current password
+#PowerShell 5.1
+(Get-WmiObject -Class Lenovo_WmiOpcodeInterface -Namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordCurrent01:MyCurrentPassword;")
 
-**3**. Specify the new password
+#PowerShell 7.x
+Invoke-CimMethod $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordCurrent01:MyCurrentPassword;" }
 
-*PowerShell 5.1*
+#4. Specify the new password
+#PowerShell 5.1
+(Get-WmiObject -Class Lenovo_WmiOpcodeInterface -Namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordNew01:MyNewPassword;")
 
-``` PowerShell
-(gwmi -class Lenovo_WmiOpcodeInterface -namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordNew01:MyNewPassword")
-```
+#PowerShell 7.x
+Invoke-CimMethod $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordNew01:MyNewPassword;" }
 
-*PowerShell 7.x*
+#5. Save the new password
+#PowerShell 5.1
+(Get-WmiObject -Class Lenovo_WmiOpcodeInterface -Namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordSetUpdate")
 
-``` PowerShell
-icim $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordNew01:MyNewPassword" }
-```
-
-**4**. Save the new password
-
-*PowerShell 5.1*
-
-``` PowerShell
-(gwmi -class Lenovo_WmiOpcodeInterface -namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordSetUpdate")
-```
-
-*PowerShell 7.x*
-
-``` PowerShell
-icim $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordSetUpdate" }
+#PowerShell 7.x
+Invoke-CimMethod $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordSetUpdate" }
 ```
 
 The password type can be one of the following values:
