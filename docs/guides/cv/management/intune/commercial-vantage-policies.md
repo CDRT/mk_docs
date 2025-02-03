@@ -1131,7 +1131,7 @@ If you enable this setting, the Smart Care page will not be displayed and the us
 If you disable or do not configure this setting, the Smart Care will be shown in the Commercial Vantage if the device is connected to the internet. The end user will be able to see the Smart Care support service.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~3DF937718C9E5B329933E1B978EF7778/263921D188F7062A7CC5A40647C7B6A8
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~3DF937718C9E5B329933E1B978EF7778/6236A5717DA5B69DED52C56A98ED0614
 ```
 
 Values:
