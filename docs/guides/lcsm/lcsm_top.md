@@ -8,6 +8,15 @@ The Lenovo Client Scripting Module requires 64-bit PowerShell v5.1 or higher and
 
 ??? note "What's New"
 
+    ### February nn, 2025:  Version 2.2.0
+
+    - Added Find-LnvHSAPack cmdlet.  This cmdlet lets you see what HSA packs have been released for a specified Machine Type.
+	- Added Release Date to the return from Find-LnvUpdate.
+	- Added DownloadPath parameter to Get-LnvDriverPack so you can control where the package is downloaded to.
+	- Fixed issue that occurs if a driver pack for the OS Build Version specified is not found in Get-LnvDriverPack.
+	- Changed to display size in MB in Get-LnvUpdatesRepo.
+	- Added CloudRepo as a switch parameter for Get-LnvUpdatesRepo to generate the repository as a Lenovo Cloud repository (the update packages are left on Lenovo's site).
+
     ### December 11, 2024:  Version 2.1.0
 
     - Now available in the PowerShell Gallery. Use ```Install-Module -Name Lenovo.Client.Scripting``` to install from the gallery.
@@ -240,6 +249,31 @@ PS C:\> Import-Module Lenovo.Client.Scripting -Force
 	!!! note
 		The Where-Object cmdlet can be used to filter on OS and version to return just one URL.  The URL is in the '#text' field of the returned object.
 
+### Find-LnvHSAPack
+
+: #### Description
+
+	Returns a list of the available HSA packs for the machine type specified which includes the OS and the OS build version, the CRC of the pack, and the URL to the package executable. This cmdlet does not implement an OS filter; however, you may specify -Latest to get the most current HSA pack for the specified Machine Type.
+
+	#### Parameter
+
+	| Parameter | Type | Mandatory |
+	| --- | --- | --- |
+	| MachineType | String | True |
+	| Latest | Switch | False |
+
+	#### Example
+
+	```Find-LnvDriverPack -MachineType 21DD```
+
+	```Find-LnvDriverPack -MachineType 21DD -Latest```
+
+	```$url = (Find-LnvHSAPack -MachineType 21DD | Where-Object { (($_.OS -eq 'win10') -and ($_.version -eq '21H2')) }).'#text'```
+
+	!!! note
+		The output will be an object consisting of "os", "version", "crc", and "#text" elements where
+		"#text" represents the URL to the package executable file.
+
 ### Find-LnvMachineType
 
 : #### Description
@@ -318,21 +352,25 @@ PS C:\> Import-Module Lenovo.Client.Scripting -Force
 	- Defaults to Windows 10 updates. WindowsVersion parameter is currently limited to 10 or 11 and can be populated with tab completion.
 	- Requires users to enter at least a machine type
 	- Can be called without identifiers so long as you use the right order
-	- PackageType can be:  <br>
-	 1: Application <br>
-	 2: Driver <br>
-	 3: Bios <br>
-	 4: Firmware <br>
-	- RebootType can be: <br>
-	 1: Forced reboot (update itself initiates the reboot)<br>
-	 3: Requires reboot (Thin Installer/System Update/CV initiates the reboot)<br>
-	 4: Forces shutdown (update itself initiates shutdown)<br>
-	 5: Delayed forced reboot (used for firmware, Thin Installer/System Update/CV will enforce reboot with
-	 dialog displaying count-down timer)<br>
-	- Severity can be: <br>
-	 1: Critical <br>
-	 2: Recommended <br>
-	 3: Optional <br>
+	- PackageType can be:
+
+	    - 1: Application
+	    - 2: Driver
+	    - 3: Bios
+	    - 4: Firmware
+
+	- RebootType can be:
+
+	    - 1: Forced reboot (update itself initiates the reboot)
+	    - 3: Requires reboot (Thin Installer/System Update/CV initiates the reboot)
+	    - 4: Forces shutdown (update itself initiates shutdown)
+	    - 5: Delayed forced reboot (used for firmware, Thin Installer/System Update/CV will enforce reboot with dialog displaying count-down timer)
+
+	- Severity can be:
+
+	    - 1: Critical
+	    - 2: Recommended
+	    - 3: Optional
 
 	!!! note
 	    9 can be used for these three parameters to represent 'All'. Multiples can be combined by separating with comma, for example:  "2,3,4" or "1,5" or "1,2"
@@ -636,25 +674,31 @@ PS C:\> Import-Module Lenovo.Client.Scripting -Force
 
 : #### Description
 
-	This script allows users to search for updates that will be downloaded to a folder of their choice
+	This script allows users to search for updates that will be downloaded to a folder of their choice.
+
 	- Defaults to Windows 10 updates and a repo folder in downloads if you do not specify
 	- Requires users to enter at least a machine type
 	- Can be called without identifiers so long as you use the right order
 	- If a repository folder is specified that doesn't exist the script will create it
-	- PackageType can be:  <br>
-	&nbsp;&nbsp; 1: Application <br>
-	&nbsp;&nbsp; 2: Driver <br>
-	&nbsp;&nbsp; 3: Bios <br>
-	&nbsp;&nbsp; 4: Firmware <br>
-	- RebootType can be: <br>
-	&nbsp;&nbsp; 1: Forced reboot (update itself initiates the reboot) <br>
-	&nbsp;&nbsp; 3: Requires reboot (Thin Installer/System Update/CV initiates the reboot) <br>
-	&nbsp;&nbsp; 4: Forces shutdown (update itself initiates shutdown) <br>
-	&nbsp;&nbsp; 5: Delayed forced reboot (used for firmware, Thin Installer/System Update/CV will enforce reboot with dialog displaying count-down timer)<br>
-	- Severity can be:<br>
-	&nbsp;&nbsp; 1: Critical <br>
-	&nbsp;&nbsp; 2: Recommended <br>
-	&nbsp;&nbsp; 3: Optional <br>
+	- PackageType can be:
+	
+	    - 1: Application
+	    - 2: Driver
+	    - 3: Bios
+	    - 4: Firmware
+
+	- RebootType can be:
+
+	    - 1: Forced reboot (update itself initiates the reboot)
+	    - 3: Requires reboot (Thin Installer/System Update/CV initiates the reboot)
+	    - 4: Forces shutdown (update itself initiates shutdown)
+	    - 5: Delayed forced reboot (used for firmware, Thin Installer/System Update/CV will enforce reboot with dialog displaying count-down timer)
+
+	- Severity can be:
+
+	    - 1: Critical
+	    - 2: Recommended
+	    - 3: Optional
 
 	!!! note
 	    9 can be used for these three parameters to represent 'All'
@@ -699,6 +743,7 @@ PS C:\> Import-Module Lenovo.Client.Scripting -Force
 	| RebootTypes | String | False |
 	| RT5toRT3 | Switch | False |
 	| PackageList | String | False |
+	| CloudRepo | Switch | False |
 
 	**RepositoryPath**
 
@@ -711,48 +756,50 @@ PS C:\> Import-Module Lenovo.Client.Scripting -Force
 
 	**PackageTypes**
 
-	Must be a string of Package Type integers separated by commas and surrounded by single quotes. The possible values are:<br>
-	&nbsp;&nbsp; 1: Application<br>
-	&nbsp;&nbsp; 2: Driver<br>
-	&nbsp;&nbsp; 3: BIOS<br>
-	&nbsp;&nbsp; 4: Firmware<br>
+	Must be a string of Package Type integers separated by commas and surrounded by single quotes. The possible values are:
+
+	- 1: Application
+	- 2: Driver
+	- 3: Bios
+	- 4: Firmware
+
 	The default if no value is specified will be all package types.
 
 	**RebootTypes**
 
-	Must be a string of integers, separated by commas, representing the different boot types and surrounded by single quotes:<br>
-	&nbsp;&nbsp; 0: No reboot required<br>
-	&nbsp;&nbsp; 1: Forces a reboot (not recommended in a task sequence)<br>
-	&nbsp;&nbsp; 3: Requires a reboot (but does not initiate it)<br>
-	&nbsp;&nbsp; 4: Forces a shutdown (not used much anymore)<br>
-	&nbsp;&nbsp; 5: Delayed forced reboot (used by many firmware updates)<br>
+	Must be a string of integers, separated by commas, representing the different boot types and surrounded by single quotes:
+
+	- 1: Forced reboot (update itself initiates the reboot)
+	- 3: Requires reboot (Thin Installer/System Update/CV initiates the reboot)
+	- 4: Forces shutdown (update itself initiates shutdown)
+	- 5: Delayed forced reboot (used for firmware, Thin Installer/System Update/CV will enforce reboot with dialog displaying count-down timer)
+
 	The default if no value is specified will be all RebootTypes.
 
 	**RT5toRT3**
 
 	Specify this parameter if you want to convert Reboot Type 5 (Delayed Forced Reboot) packages to be Reboot Type 3 (Requires Reboot). Only do this in task sequence scenarios where a Restart can be performed after the Thin Installer task. Use the -noreboot parameter on the Thin Installer command line to suppress reboot to allow the task sequence to control the restart.
 
-	!!! note
+	!!! warning
         This parameter can only be used when **Thin Installer** will be processing the updates in the repository because changing the reboot type will break the XML digital signature. When using version **1.04.02.00024** or later of Thin Installer, you must also specify the **-ignorexmlsignature** to ensure Thin Installer does not skip the updates that have been altered.
 
 	**PackageList**
 
 	Specify a list of updates by their package IDs which can be obtained using Update Retriever. One or more updates can be specified, separated by a comma.
 
+    **CloudRepo**
+
+	Specify this parameter to cause the local repository to be created as a "Lenovo Cloud repo" which means the update package itself will be left on Lenovo's servers and only the package descriptor XML and any external detection routines will be downloaded.
+
 	#### Example
 
-	```Get-LnvUpdatesRepo -RepositoryPath 'C:\Program Files (x86)\Lenovo\ThinInstaller\Repository'```
+	``` PowerShell
+	Get-LnvUpdatesRepo -RepositoryPath 'C:\Program Files (x86)\Lenovo\ThinInstaller\Repository' -PackageTypes '1,2' -RebootTypes '0,3'
+	```
 
-	``` -PackageTypes '1,2' -RebootTypes '0,3'```
-
-	```Get-LnvUpdatesRepo -RepositoryPath 'Z:\21DD' -PackageTypes '1,2,3' -RebootTypes '0,3,5' -RT5toRT3```
-
-		INPUTS:
-		None
-
-		OUTPUTS:
-		System.Int32. 0 - success
-		System.Int32. 1 - fail
+	``` PowerShell
+	Get-LnvUpdatesRepo -RepositoryPath 'Z:\21DD' -PackageTypes '1,2,3' -RebootTypes '0,3,5' -RT5toRT3 -CloudRepo
+	```
 
 ### Get-LnvWarranty
 
