@@ -9,6 +9,6 @@ This sequence is used when the system is powered up normally.
 
 The exact BIOS interface is determined by the model.
 
-![Boot Priority Order](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/thinkcentre_boot_priority_order.PNG)
+![Boot Priority Order](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/thinkcentre_boot_priority_order.png)
 
 ![Manufacturing Boot sequence](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/thinkcentre_manufacturing_boot_sequence.png)
