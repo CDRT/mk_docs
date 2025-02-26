@@ -16,6 +16,7 @@ The Lenovo Client Scripting Module requires 64-bit PowerShell v5.1 or higher and
 	- Fixed issue that occurs if a driver pack for the OS Build Version specified is not found in Get-LnvDriverPack.
 	- Changed to display size in MB in Get-LnvUpdatesRepo.
 	- Added CloudRepo as a switch parameter for Get-LnvUpdatesRepo to generate the repository as a Lenovo Cloud repository (the update packages are left on Lenovo's site).
+	- Fixed an issue with Get-LnvUpdatesRepo if ran without specifying -WindowsVersion.
 
     ### December 11, 2024:  Version 2.1.0
 
