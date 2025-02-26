@@ -8,7 +8,7 @@ The Lenovo Client Scripting Module requires 64-bit PowerShell v5.1 or higher and
 
 ??? note "What's New"
 
-    ### February nn, 2025:  Version 2.2.0
+    ### February 26, 2025:  Version 2.2.0
 
     - Added Find-LnvHSAPack cmdlet.  This cmdlet lets you see what HSA packs have been released for a specified Machine Type.
 	- Added Release Date to the return from Find-LnvUpdate.
