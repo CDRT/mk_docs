@@ -53,7 +53,7 @@ As of December 16, 2024, version 2.1.0 of the module is published in the PowerSh
 Install-Module -Name Lenovo.Client.Scripting -Force
 ```
 
-The module itself is currently available for manual download here: [Lenovo.Client.Scripting_2.1.0.zip](https://download.lenovo.com/cdrt/tools/Lenovo.Client.Scripting_2.1.0.zip)
+The module itself is currently available for manual download here: [Lenovo.Client.Scripting_2.2.0.zip](https://download.lenovo.com/cdrt/tools/Lenovo.Client.Scripting_2.2.0.zip)
 
 The zip file contains the module folder, Lenovo.Client.Scripting, which contains the Lenovo.Client.Scripting.psm1 and Lenovo.Client.Scripting.psd1 files plus the Public and Private sub-folders containing individual PowerShell scripts for the various functions. To manually install the module, there are two locations that the module folder can be copied to:
 
@@ -682,7 +682,7 @@ PS C:\> Import-Module Lenovo.Client.Scripting -Force
 	- Can be called without identifiers so long as you use the right order
 	- If a repository folder is specified that doesn't exist the script will create it
 	- PackageType can be:
-	
+
 	    - 1: Application
 	    - 2: Driver
 	    - 3: Bios
