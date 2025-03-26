@@ -33,8 +33,7 @@ The installer for Lenovo System Interface Foundation can be downloaded from here
 
 Installation of this package can be performed silently as follows:
 
-```
-cmd
+``` cmd
 System-Interface-Foundation-Update-64.exe /verysilent /NORESTART
 ```
 
@@ -42,8 +41,7 @@ System-Interface-Foundation-Update-64.exe /verysilent /NORESTART
 
 The installer for Lenovo Vantage Service is included in the zip file. It is installed silently as follows:
 
-```
-cmd
+``` cmd
 VantageService.3.6.15.0-lite.exe /verysilent /NORESTART
 ```
 
