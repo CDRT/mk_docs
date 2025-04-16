@@ -21,25 +21,25 @@ theme:
   palette:
     - scheme: default
       toggle:
-        icon: material/toggle-switch-off-outline 
+        icon: material/toggle-switch-off-outline
         name: Switch to dark mode
       primary: blue
-      accent: light blue 
-    - scheme: slate 
+      accent: light blue
+    - scheme: slate
       toggle:
         icon: material/toggle-switch
-        name: Switch to light mode    
+        name: Switch to light mode
       primary: black
       accent: blue grey
 
 nav:
   - Home: 'index.md'
-  - Product Guides: 
-    - Commercial Vantage: 
+  - Product Guides:
+    - Commercial Vantage:
       - Overview and What's New: guides/cv/index.md
       - Deployment Guide: guides/cv/commercial_vantage.md
       - SU Helper Reference: guides/cv/suhelper.md
-      - Managing with Intune: 
+      - Managing with Intune:
         - guides/cv/management/intune/index.md
         - guides/cv/management/intune/commercial-vantage-policies.md
       - Commercial Vantage FAQ: guides/cv/commercial_vantage_faq.md
@@ -72,12 +72,12 @@ nav:
     - Lenovo View:
       - guides/lenovo_view/index.md
   - References:
-    - BIOS Reference: 
+    - BIOS Reference:
       - ref/bios/index.md
       - ref/bios/bios_guide.md
       - WMI BIOS Interface: ref/bios/wmi/wmi_guide.md
-      - BIOS Settings Dictionary: 
-        - ThinkPad: 
+      - BIOS Settings Dictionary:
+        - ThinkPad:
           - Main: ref/bios/settings/thinkpad/main.md
           - Config: ref/bios/settings/thinkpad/config.md
           - ....Network: ref/bios/settings/thinkpad/network.md
@@ -192,6 +192,7 @@ nav:
       - Glossary: ref/bios/glossary.md
       - BIOS Logging: ref/bios/settings/bios_logging.md
       - System Deployment Boot Mode: ref/bios/sdbm.md
+      - Startup Interrupt Menu: ref/bios/startup_menu.md
     - Docks Reference:
       - ref/docks/index.md
       - Deployment Guide: ref/docks/docks_main.md
@@ -234,7 +235,7 @@ extra:
     property: G-288025816
   consent:
     title: Cookie consent
-    description: >- 
+    description: >-
       We use cookies to recognize your repeated visits and preferences, as well
       as to measure the effectiveness of our documentation and whether users
       find what they're searching for. With your consent, you're helping us to
