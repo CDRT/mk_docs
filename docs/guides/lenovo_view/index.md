@@ -52,12 +52,12 @@ Type Lenovo View in the Windows search box and then press Enter.
 
 The Lenovo View app supports group policy controls of the configuration settings listed below. To define a policy for you devices running Lenovo View, download the ADMX template and use the standard procedure to implement your desired settings through Active Directory.  You may also import the ADMX template for Lenovo View into Intune to manage the policies.
 
-More about Intune here: [Import custom and third party partner ADMX templates in Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/mem/intune/configuration/administrative-templates-import-custom) 
+More about Intune here: [Import custom and third party partner ADMX templates in Microsoft Intune | Microsoft Learn](https://learn.microsoft.com/en-us/mem/intune/configuration/administrative-templates-import-custom)
 
 If testing on a local machine, copy the contents of the zip file below to C:\Windows\PolicyDefinitions, then open Group Policy Editor. The Lenovo View items will be available under Administrative Templates.
 ![Lenovo View policies](https://cdrt.github.io/mk_docs/img/guides/view/gpedit.png)
 
-Download:  [LenovoViewADMX.zip](https://download.lenovo.com/cdrt/tools/LenovoViewADMX.zip) 
+Download:  [LenovoViewADMX.zip](https://download.lenovo.com/cdrt/tools/LenovoViewADMX.zip)
 
 ---
 
