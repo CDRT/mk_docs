@@ -48,27 +48,27 @@ Bluetooth
      1. **On** – Default.
      2. Off
 
-     !!! note ""
-          Enabling Bluetooth requires setting ‘Wireless LAN’ to ‘Enabled’ state.
+    !!! note ""
+        Enabling Bluetooth requires setting ‘Wireless LAN’ to ‘Enabled’ state.
 
-     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-     |:---|:---|:---|:---|
-     | BluetoothAccess | Disable, Enable | Yes | Both |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | BluetoothAccess | Disable, Enable | Yes | Both |
 
 USB Port
 :  Whether to enable all USB ports in the OS environment.
 
-     !!! note ""
-          This setting does not affect USB-C (R) ports with a thunderbolt icon.
+    !!! note ""
+        This setting does not affect USB-C (R) ports with a thunderbolt icon.
 
-     Possible options:
+    Possible options:
 
-     1. **On** – Default.
-     2. Off
+    1. **On** – Default.
+    2. Off
 
-     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-     |:---|:---|:---|:---|
-     | USBPortAccess | Disable, Enable | Yes | Both |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | USBPortAccess | Disable, Enable | Yes | Both |
 
 Memory Card Slot
 :  Whether to enable memory card slot (SD Card/MultimediaCard/Memory Stick) in the OS environment.
