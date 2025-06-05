@@ -8,6 +8,13 @@ The Lenovo Client Scripting Module requires 64-bit PowerShell v5.1 or higher and
 
 ??? note "What's New"
 
+    ### June n, 2025:  Version 2.3.0
+
+    - Added Get-LnvUpdateNotification, Get-LnvMTOSList, Add-LnvMTOS, Remove-LnvMTOS cmdlets. These allow you to create a list of Machine Type + OS combinations you care about and keep track of what updates have been added to their System Update catalogs since the last time you checked.
+    - Added Get-LnvWUFriendlyNames cmdlet that provides a list of the drivers and firmware installed by Windows Update with their associated Device Names to make it easier to tell what Windows Update is providing.
+    - Added-DeltaUpdate option to Get-LnvUpdatesRepo which will allow you to just download new updates to an existing repository.
+    - Fixed error handling when system does not have a battery in Get-LnvBatteryInfo.
+
     ### February 26, 2025:  Version 2.2.0
 
     - Added Find-LnvHSAPack cmdlet.  This cmdlet lets you see what HSA packs have been released for a specified Machine Type.
@@ -74,11 +81,38 @@ PS C:\> Import-Module Lenovo.Client.Scripting -Force
 
 ## Cmdlet Reference
 
+### Add-LnvMTOS
+
+: #### Description
+    Stores list of available updates, based on machine type and OS input, into an updates database file (lnvUpdatesDatabase.json). The database consists of Machine Type, OS, CRC, and Available Updates. The updates come from the System Update catalog for the machine type & OS combination.
+
+    This cmdlet will populate the database file with the specified MT, OS and a list of the current updates available in that model's catalog. The database file will be saved by default to ProgramData\Lenovo\ClientScriptingModule unless the Path parameter is otherwise specified. If the updates database file does not exist, one will be created.
+
+    #### Parameters
+
+	| Parameter | Type | Mandatory |
+	| --- | --- | --- |
+	| MachineType | String | True |
+	| OS | String ("Win10","Win11")| True |
+	| ListPath | String | False |
+
+    ##### MachineType
+
+    Must be the four-character machine type of the model.
+
+    ##### OS
+
+    Must be one of "Win10" or "Win11". Can use tab-complete to select.
+
+    ##### ListPath
+
+    A valid path to the folder where the lnvUpdatesDatabase.json file will be stored. The default path if not specified will be C:\ProgramData\Lenovo\ClientScriptingModule\. This will allow for monitoring separate collections of machine types if needed.
+
 ### Add-LnvSUCommandLine
 
 : #### Description
 
-	Run Script to set Admin command line Windows Registry settings for Lenovo System Update.
+	Cmdlet to set Admin command line Windows Registry settings for Lenovo System Update.
 
 	#### Parameters
 
@@ -643,6 +677,26 @@ PS C:\> Import-Module Lenovo.Client.Scripting -Force
 
 	```Get-LnvModelName```
 
+### Get-LnvMTOSList
+
+: #### Description
+
+    Returns the list of Machine Types + OS pairs in the lnvUpdatesDatabase.json file
+
+    #### Parameters
+
+	| Parameter | Type | Mandatory |
+	| --- | --- | --- |
+	| ListPath | String | False |
+
+    ##### ListPath
+
+    Path to the lnvUpdatesDatabase.json file. Default if not specified will be C:\ProgramData\Lenovo\ClientScriptingModule.
+
+    #### Example
+
+    ```Get-LnvMTOSList```
+
 ### Get-LnvProductNumber
 
 : #### Description
@@ -726,6 +780,31 @@ PS C:\> Import-Module Lenovo.Client.Scripting -Force
 
     !!! note
         The -Csv parameter will cause a CSV file to be created in the repository folder listing the updates downloaded. The -Expand parameter will cause each update downloaded to be extracted into a subfolder named using the Package ID of the update.
+
+### Get-LnvUpdatesNotification
+
+: #### Description
+
+    This cmdlet will present a list of any new updates that have been added to the tracked System Update catalogs.  The list is created using the Add-LnvMTOS cmdlet which is also used to add additional models. When this cmdlet runs, it will identify any catalogs which have a different CRC than what was previously seen the last time this cmdlet was executed. Those catalogs with a different CRC will be processed to get a list of new updates. Once all catalogs are processed, the list of new updates, displayed per model, will be returned in a grid-view by default. If you select an update in the grid-view and click OK, the readme for that update will be opened. You can get the full list of new updates directly without the grid-view by specifying the -ListAll parameter. If you are maintaining more than one list you can specify the -ListPath to select the appropriate folder containing the desired lnvUpdatesDatabase.json file.
+
+    #### Parameters
+
+    | Parameter | Type | Mandatory |
+	| --- | --- | --- |
+	| ListPath | String | False |
+    | ListAll | Switch | False |
+
+    ##### ListPath
+
+    Path to the folder containing the lnvUpdatesDatabase.json file to use.
+
+    ##### ListAll
+
+    Show the full list at the command prompt instead of displaying a grid-view.
+
+    #### Example
+
+    ```Get-LnvUpdatesNotification -ListAll```
 
 ### Get-LnvUpdatesRepo
 
@@ -816,6 +895,65 @@ PS C:\> Import-Module Lenovo.Client.Scripting -Force
 
 	```Get-LnvWarranty```
 
+### Get-LnvWUFriendlyNames
+
+: #### Description
+
+    This cmdlet will return a list of drivers and firmware that were applied by Windows Update and will show the title used by Windows Update and the more useful friendly name used by Lenovo. This cmdlet will also return the version and install date of the driver or firmware that was applied by Windows Update. The output will only include information about drivers that
+    are currently active. Windows Update History may show multiple entries for the same driver or firmware, but this cmdlet will only return the most recent version of each driver or firmware. It will also only return information about drivers for components currently attached and not for components that have been removed or are not currently attached.
+
+    *** ATTRIBUTION ***
+    This cmdlet is based on the work of Trevor Jones and the original can be found on his blog at [smsagent.blog](https://smsagent.blog/2023/07/07/translating-windows-update-driver-names-to-friendly-driver-names/)
+
+	| Parameter | Type | Mandatory |
+	| --- | --- | --- |
+	| GridView | Switch | False |
+    | SortbyInstallDate | Switch | False |
+
+    **GridView**
+
+    If specified, the output will be displayed in an Out-GridView window.
+
+    **SortbyInstallDate**
+
+    If specified, the output will be sorted by InstallDate instead of WUName.
+
+    #### Example
+
+    ```Get-LnvWUFriendlyNames -GridView -SortbyInstallDate```
+
+### Remove-LnvMTOS
+
+: #### Description
+
+    This cmdlet removes models and their updates from the machine updates database (lnvUpdatesDatabase.json) based on specified Machine Type and OS parameters. This cmdlet requires the appropriate parameters such as machine type, os, and path. If the ListPath is not specified the default path will be searched. If specified MT+OS pair is found in the database file, it will be removed. If the MT+OS pair is not found, it will return a message indicating that no machine was found with the specified criteria.
+
+	| Parameter | Type | Mandatory |
+	| --- | --- | --- |
+	| Path | String | True |
+
+	| Parameter | Type | Mandatory |
+	| --- | --- | --- |
+	| MachineType | String | True |
+    | OS | String | True |
+    | ListPath | String | True |
+
+    **MachineType**
+
+    The four-character Machine Type to search for (e.g., "21DD").
+
+    **OS**
+
+    The operating system to search for. Use tab complete to select from OS options ("Win10", "Win11").
+
+    **ListPath**
+
+    Set the file path where the json file is stored. Or it will searh by default at "C:\ProgramData\Lenovo\ClientScriptingModule\lnvUpdatesDatabase.json."
+
+    #### Example
+
+    ```Remove-LnvMTOS -MachineType 11W2 -OS Win11 -Path "C:\ProgramData\Lenovo\ClientScriptingModule\lnvUpdatesDatabase.json"```
+
 ### Show-LnvApplicableUpdate
 
 : #### Description
@@ -824,7 +962,11 @@ PS C:\> Import-Module Lenovo.Client.Scripting -Force
 
 	| Parameter | Type | Mandatory |
 	| --- | --- | --- |
-	| Path | String | True |
+    | Path | String | True |
+
+    **Path**
+
+    The full path to the Update_ApplicabilityRulesTrace.txt or ApplicabilityRulesTrace.txt file to be read.
 
 	#### Example
 
