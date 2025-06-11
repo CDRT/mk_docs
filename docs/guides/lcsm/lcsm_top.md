@@ -794,11 +794,11 @@ PS C:\> Import-Module Lenovo.Client.Scripting -Force
 	| ListPath | String | False |
     | ListAll | Switch | False |
 
-    ##### ListPath
+    **ListPath**
 
     Path to the folder containing the lnvUpdatesDatabase.json file to use.
 
-    ##### ListAll
+    **ListAll**
 
     Show the full list at the command prompt instead of displaying a grid-view.
 
@@ -895,7 +895,7 @@ PS C:\> Import-Module Lenovo.Client.Scripting -Force
 
 	```Get-LnvWarranty```
 
-### Get-LnvWUFriendlyNames
+### Get-LnvWUFriendlyName
 
 : #### Description
 
