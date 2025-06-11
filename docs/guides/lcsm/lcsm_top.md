@@ -8,11 +8,11 @@ The Lenovo Client Scripting Module requires 64-bit PowerShell v5.1 or higher and
 
 ??? note "What's New"
 
-    ### June n, 2025:  Version 2.3.0
+    ### June 11, 2025:  Version 2.3.0
 
     - Added Get-LnvUpdateNotification, Get-LnvMTOSList, Add-LnvMTOS, Remove-LnvMTOS cmdlets. These allow you to create a list of Machine Type + OS combinations you care about and keep track of what updates have been added to their System Update catalogs since the last time you checked.
-    - Added Get-LnvWUFriendlyNames cmdlet that provides a list of the drivers and firmware installed by Windows Update with their associated Device Names to make it easier to tell what Windows Update is providing.
-    - Added-DeltaUpdate option to Get-LnvUpdatesRepo which will allow you to just download new updates to an existing repository.
+    - Added Get-LnvWUFriendlyName cmdlet that provides a list of the drivers and firmware installed by Windows Update with their associated Device Names to make it easier to tell what Windows Update is providing.
+    - Added -DeltaUpdate option to Get-LnvUpdatesRepo which will allow you to just download new updates to an existing repository.
     - Fixed error handling when system does not have a battery in Get-LnvBatteryInfo.
 
     ### February 26, 2025:  Version 2.2.0
