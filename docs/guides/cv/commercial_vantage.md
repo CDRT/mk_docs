@@ -23,20 +23,6 @@ Commercial Vantage is a Windows 10 Modern Application that can be installed dire
 
 Lenovo also makes available the MSIXBUNDLE (and related files) that can be used for side-loading. This type of installation can be performed using commands provided by Windows 10. For more information, please refer to the following Microsoft documentation: [https://technet.microsoft.com/library/dn376490(v=wps.640).aspx](https://technet.microsoft.com/library/dn376490(v=wps.640).aspx)
 
-### Lenovo System Interface Foundation (LSIF)
-
-By default, Lenovo System Interface Foundation keeps itself up to date with updates from Lenovo servers. These updates include The System Interface Foundation service itself, as well as the plugins which are used to provide specific features within Vantage. Lenovo recommends allowing these kinds of self-updates as we are constantly adding features and improving reliability. However, if you want to disable these updates, you can import the **SifDisableSelfUpdate.reg** registry during your deployment.
-
-The installer for Lenovo System Interface Foundation can be downloaded from here (it is also included in the zip file):
-
-[https://filedownload.lenovo.com/enm/sift/core/System-Interface-Foundation-Update-64.exe](https://filedownload.lenovo.com/enm/sift/core/System-Interface-Foundation-Update-64.exe)
-
-Installation of this package can be performed silently as follows:
-
-``` cmd
-System-Interface-Foundation-Update-64.exe /verysilent /NORESTART
-```
-
 ### Lenovo Vantage Service
 
 The installer for Lenovo Vantage Service is included in the zip file. It is installed silently as follows:
