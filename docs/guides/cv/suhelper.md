@@ -85,7 +85,7 @@ Optional.  Displays this parameter reference text.
 The following list shows the possible return codes from SUHelper.exe.
 
 !!! note
-    Keep in mind that the return code only represents the result of calling suhelper.exe and does not represent the result of the update session that is triggered.  The results of the udpate session can be found in the Lenovo_Updates WMI class.
+    Keep in mind that the return code only represents the result of calling suhelper.exe and does not represent the result of the update session that is triggered. The results of the update session can be found in the Lenovo_Updates WMI class.
 
 0 = Success
 
