@@ -6,7 +6,7 @@ The SU Helper utility is a companion to Lenovo Commercial Vantage that provides 
 
 ## Installation
 
-SUHelper is provided by its own installer and is not included directly with Lenovo Commercial Vantage. Therefore, only customers that choose to deploy SUHelper to their devices will have it. The installer can be found in the [Lenovo Commercial Vanatage Application and Deployment Guide for Large Enterprise](https://support.lenovo.com/us/en/solutions/hf003321) package zip file. When extracted, the installer file for SU Helper will be located in the ```\SystemUpdate``` subfolder.
+SUHelper is provided by its own installer and is not included directly with Lenovo Commercial Vantage. Therefore, only customers that choose to deploy SUHelper to their devices will have it. The installer can be found in the [Lenovo Commercial Vantage Application and Deployment Guide for Large Enterprise](https://support.lenovo.com/us/en/solutions/hf003321) package zip file. When extracted, the installer file for SU Helper will be located in the ```\SystemUpdate``` subfolder.
 
 The utility can be installed as part of the installation process of the enterprise package of Commercial Vantage. It is not installed by default, so if you choose to install it, please uncomment the installation line near the end of the setup-commercial-vantage.bat file by removing ```@REM``` from the beginning of the line.
 
