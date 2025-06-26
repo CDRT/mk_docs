@@ -68,7 +68,9 @@ nav:
     - Lenovo BIOS Certs Tool:
       - guides/lbct/index.md
     - Lenovo Client Scripting Module:
-        - guides/lcsm/lcsm_top.md
+      - guides/lcsm/lcsm_top.md
+    - Lenovo Updates Catalog:
+      - guides/luc/luc_top.md
     - Lenovo View:
       - guides/lenovo_view/index.md
   - References:
