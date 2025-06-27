@@ -70,7 +70,9 @@ nav:
     - Lenovo Client Scripting Module:
       - guides/lcsm/lcsm_top.md
     - Lenovo Updates Catalog:
-      - guides/luc/luc_top.md
+      - guides/luc/luc_ovrvw.md
+      - guides/luc/luc_agnt.md
+      - guides/luc/luc_ts.md
     - Lenovo View:
       - guides/lenovo_view/index.md
   - References:
