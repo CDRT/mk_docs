@@ -52,6 +52,25 @@ To report on compliance information for Lenovo Updates in Configuration Manager,
 - LUCAgent1003 - Lenovo Updates Catalog Agent 1003.1
 	- (New) Initial release.
 
+
+## **Lenovo Updates Catalog Sync Status of Trust Failed**
+### Purpose
+To address results in the Third-Party Software Update Catalogs node where the Last Sync Status for the Lenovo Updates entry is Trust Failed.
+### Symptom
+In the Software Library > Overview > Software Updates > Third-Party Software Update Catalogs, the Lenovo Updates catalog entry has a Last Sync Status of Trust Failed.
+### Cause
+Upon the initial synchronization of the Lenovo Updates Third-Party Software Updates Catalog, a request is made to approve or allow the certificates associated with the catalog.  In subsequent catalogs, new certificates may be provided to sign content.  These certificates are not automatically approved or allowed by Configuration Manager.  The error message in the log file is indicating that a new signing certificate is available for one or more updates and is blocked in the Configuration Manager console.
+### Resolution
+In the log file, there is an entry stating "SyncUpdateCatalog: Certificate 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' is not yet approved, try again after approval."  The 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' is the Certificate GUID.  To find and unblock the certificate, perform the following steps.
+![img](https://cdrt.github.io/mk_docs/guides/luc/luc_cat_trust_failed_01.png)
+
+1. In the Configuration Manager console, navigate to Administration > Overview > Security > Certificates
+2. ![img](https://cdrt.github.io/mk_docs/guides/luc/luc_cat_trust_failed_02.png)
+	Copy the Certificate GUID from the log file and paste it into the search bar of the Certificates node.
+3. Right click on the certificate item returned in the Certificates node and click Unblock from the context menu.
+4. Repeat for any other blocked certificates.
+5. Once all unapproved certificates referenced in the SMS_ISVUPDATES_SYNCAGENT.log file have been unblocked, manually synchronize the catalog and verify it completed correctly.
+
 ## **Logs: Updates Failed to Publish When Synchronizing Metadata Only**
 ### Purpose
 To address the results in the SMS_ISVUPDATES_SYNCAGENT.log when the Lenovo Updates third party catalog synchronizes with a message of "X number of updates were synchronized to WSUS successfully, and Y failed to publish" and using the "Do not stage content, synchronize for scanning automatically (recommended)" selection on the Stage Content tab.
