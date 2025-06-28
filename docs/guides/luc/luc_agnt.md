@@ -23,11 +23,11 @@ The 2 triggers that cause the Lenovo Updates Catalog Agent to run are the Softwa
 
 After subscribing and synchronizing the Lenovo Updates Catalog in Configuration Manager, in the console, navigate to Administration > Overview > Site Configuration > Sites. Click on the Site Server and, in the ribbon bar, click the Configure Site Components button and select Software Update Point. In the Software Update Point Component Properties dialog, click the Products tab. In the Products tree, check the box beside Lenovo, Lenovo Updates, and LUCAgent. Click OK.
 
-![img](https://cdrt.github.io/mk_docs/guides/luc/luc_luca_01.png)
+![](https://cdrt.github.io/mk_docs/img/guides/luc/luc_luca_01.png)
 
 Navigate back to the Software Library > Overview > Software Updates > All Software Updates workspace. Click the Synchronize Software Updates button in the ribbon bar. When the synchronization is complete, the Lenovo Updates Catalog Agent 1007 will display in the All Software Updates workspace as metadata only, as indicated by the blue arrow in the icon column.
 
-![img](https://cdrt.github.io/mk_docs/guides/luc/luc_luca_02.png)
+![](https://cdrt.github.io/mk_docs/img/guides/luc/luc_luca_02.png)
 
 **How to Target the Lenovo Updates Catalog Agent to the Estate**
 
