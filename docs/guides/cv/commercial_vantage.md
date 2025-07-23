@@ -17,21 +17,33 @@ If you have suggestions, comments, or questions, please talk to us on our forum!
 
 ## Deployment
 
-### Commercial Vantage Application
+Starting with the enterprise package released in July 2025, the VantageInstaller.exe is provided to simplify the installation of the Commercial Vantage application and its dependencies, as well as the SU Helper utility.
 
-Commercial Vantage is a Windows 10 Modern Application that can be installed directly from the Microsoft Store: [https://www.microsoft.com/store/apps/9NR5B8GVVM13](https://www.microsoft.com/store/apps/9NR5B8GVVM13)
+Commercial Vantage is a Windows 10 Modern Application that can also be installed directly from the Microsoft Store: [https://www.microsoft.com/store/apps/9NR5B8GVVM13](https://www.microsoft.com/store/apps/9NR5B8GVVM13)
 
-Lenovo also makes available the MSIXBUNDLE (and related files) that can be used for side-loading. This type of installation can be performed using commands provided by Windows 10. For more information, please refer to the following Microsoft documentation: [https://technet.microsoft.com/library/dn376490(v=wps.640).aspx](https://technet.microsoft.com/library/dn376490(v=wps.640).aspx)
+### Using VantageInstaller.exe
 
-### Lenovo Vantage Service
+VantageInstaller must be executed with Administrator rights in order to install the application and dependencies. The installation can be controlled by using the following parameters which are **case sensitive**.
 
-The installer for Lenovo Vantage Service is included in the zip file. It is installed silently as follows:
+```[Install | Uninstall]```
+Parameter indicates the intention to either install or uninstall the application. It must be specified first and is used in combination with the parameters below
 
-``` cmd
-VantageService.3.6.15.0-lite.exe /verysilent /NORESTART
-```
+``` -Vantage ```
+Indicates the Commercial Vantage app and its dependencies such as Lenovo Vantage Service and the Add-ins.
 
-Lenovo provides a batch file, `setup-commercial-vantage.bat`, that deploys the above components. This batch file can be used as-is, or it can be modified to deploy optional configurations as documented in the next chapters.
+``` -App ```
+Indicates just the Commercial Vantage app and not the Lenovo Vantage Service and Add-ins.
+
+``` -SuHelper ```
+Indicates the SU Helper companion utility.
+
+#### Examples
+
+``` \VantageInstaller.exe Install -Vantage -SuHelper ```
+Installs both the Commercial Vantage app and dependencies as well as SU Helper utility.
+
+``` \VantageInstaller.exe Uninstall -Vantage ```
+Uninstall the Commercial Vantage app and dependencies.
 
 ## Configuration
 

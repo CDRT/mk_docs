@@ -24,6 +24,29 @@ The latest version of the Enterprise package for sideloading can always be found
 
 ## What's New
 
+### v20.2506.39.0 - July 23 2025
+
+**Main Application**
+
+- New UI throughout application with Light/Dark mode options configurable under Preferences
+- Hidden Keyboard Functions
+    - Depending on model, if there are available keyboard functions that are not illustrated on the keyboard physically, these will be listed on the Device Settings - Input page
+- Accessible Trackpad - Palm rejection (depends on model)
+- Upgraded to .Net8
+
+**System Update Features**
+
+- Auto Update Settings
+    - Can now control which updates are provided automatically on a scheduled basis by selecting from "Drivers and other" and "BIOS and firmware". (Note: BIOS and Firmware typically require reboot where as Drivers and othe will not.)
+    - Schedule is weekly and the day and time can be configured in the UI
+
+**New Features Support**
+
+- Smart Care (for Aura Edition models)
+- Smart Modes (for Aura Edition models)
+- Dynamic App Tuning for ThinkPad X9 models
+- ThinkSmart Core G2 Support
+
 ### v10.2501.15.0 - January 2025
 
 **Main Application**
