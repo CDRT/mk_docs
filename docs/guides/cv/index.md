@@ -44,7 +44,11 @@ The latest version of the Enterprise package for sideloading can always be found
 
 - **Support for Test/Active Status in Update Retriever Repositories**: System Update Add-in now supports test and active statuses in Update Retriever repositories. A new group policy setting, Test Content Mode, is added to control the behavior.
 
-- **Customizable System Update Dialogs**: Allows customization of System Update dialogs with customer branding.  A 32px by 32px image file (png, bmp, gif (static), etc.) can be placed in the ```C:\ProgramData\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\session\resources``` folder. The company name can be specified in a new group policy setting, Company Name. These will appear on the dialogs that are shown when updates are available that will reboot the user's system.
+- **Customizable System Update Dialogs**: Allows customization of System Update dialogs with customer branding.
+    - A 32px by 32px image file (png, bmp, gif (static), etc.) can be placed in the ```C:\ProgramData\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\session\resources``` folder.
+    - **The image file must be named ```"companylogo.<ext>"```.**
+    - The company name can be specified in a new group policy setting, **Company Name**.
+    - These will appear on the dialogs that are shown when updates are available that will reboot the user's system and the restart prompt.
 
 - **Ability to control deferral group policies within Lenovo Device Manager (LDM)**: Now LDM admins can control the deferral limits when managing System Updates leveraging Commercial Vantage on the clients.
 
