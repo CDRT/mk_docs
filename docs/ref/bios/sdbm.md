@@ -46,6 +46,15 @@ All 2022 and later products
 
 All 2022 and later products
 
+### Education Series
+
+The Education series of models began including System Deployment Boot Mode for new 2025 models:
+
+- 100w Gen 5
+- 300w 2-in-1 Gen 5
+- 500w 2-in-1 Gen 5
+- 13w 2-in-1 Gen 3
+
 ## Activating System Deployment Boot Mode
 
 - Boot the system and press F12 until the boot menu appears
@@ -138,7 +147,7 @@ SELECT * FROM Lenovo_SystemDeploymentBootMode WHERE CurrentSetting = 'Enable'
 
 ### Preparing the Configuration File
 
-You can also use the [Think BIOS Config Tool](https://docs.lenovocdrt.com/guides/tbct/tbct_top/) or higher to apply these changes in your operating system deployment task sequence.  
+You can also use the [Think BIOS Config Tool](https://docs.lenovocdrt.com/guides/tbct/tbct_top/) or higher to apply these changes in your operating system deployment task sequence.
 
 !!! note ""
    Supported on version 1.28 or higher of the TBCT
