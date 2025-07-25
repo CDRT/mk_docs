@@ -11,7 +11,7 @@ modify the boot order either at client computers or remotely.
 
 If you have suggestions, comments, or questions, please talk to us on our forum! A team of deployment engineers
 (including the author of this document) is standing by, ready to help with any deployment challenges you are facing:
-<https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg> 
+<https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg>
 
 ### Using Windows Management Instrumentation
 
@@ -159,13 +159,13 @@ The following line of PowerShell code can return the PasswordState value:
 
 ``` PowerShell
 
-(Get-WmiObject -Class Lenovo_BiosPasswordSettings -Namespace root\wmi).PasswordState 
+(Get-WmiObject -Class Lenovo_BiosPasswordSettings -Namespace root\wmi).PasswordState
 
 ```
 
 The return values representing the various combinations of passwords possible follows.
 
-```
+```table
 PasswordState | POP | SVP | SMP | HDP 1 | HDP 2 | HDP 3 | HDP 4 | Description
 ----------------------------------------------------------------------------------------------------------------
         0                                                         No passwords set
@@ -178,7 +178,7 @@ PasswordState | POP | SVP | SMP | HDP 1 | HDP 2 | HDP 3 | HDP 4 | Description
         7        x     x            x                             Power On + Superversor + HDD 1 Passwords set
         8                                   x                     HDD 2 Password set
         9        x                          x                     Power On + HDD 2 Password set
-        :        Values continue to increment accordingly. 
+        :        Values continue to increment accordingly.
         64                   x                                    Only the System Management Password set
         65       x           x                                    Power On + System Management Passwords set
         66             x     x                                    Supervisor + System Management Password set
@@ -419,10 +419,10 @@ To restore default BIOS settings, use the Lenovo_LoadDefaultSettings class, then
     2. Change the power-on password by specifying the current password and a NULL string as the new password.
     3. Reboot (do not reboot between steps a and b).
 + Some security-related settings can only be disabled when a Supervisor password exists. For example, the following BIOS settings cannot be changed from Enable to Disable unless you have a Supervisor password:
-  + SecureBoot
-  + SecureRollbackPrevention
-  + PhysicalPresenceForTpmClear
-  + PhysicalPresenceForTpmProvision
+    + SecureBoot
+    + SecureRollbackPrevention
+    + PhysicalPresenceForTpmClear
+    + PhysicalPresenceForTpmProvision
 
 ## Security over Remote Connections
 
