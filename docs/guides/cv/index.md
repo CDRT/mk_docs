@@ -18,7 +18,7 @@
 
 - **SU Helper**
 
-    SUHelper.exe is a companion utility introduced in 2024 that works in conjunction with the System Update Addin of Commercial Vantage. This utility finally brings a command-line interface to Commercial Vantage for controlling the System Update process. For more information, please review the [SUHelper Reference](https://docs.lenovocdrt.com/guides/cv/suhelper).  It is also provided in the Enterprise package and is an optional install that can be enabled in the setup script.
+    SUHelper.exe is a companion utility introduced in 2024 that works in conjunction with the System Update Addin of Commercial Vantage. This utility finally brings a command-line interface to Commercial Vantage for controlling the System Update process. For more information, please review the [SUHelper Reference](https://docs.lenovocdrt.com/guides/cv/suhelper).  It is also provided in the Enterprise package as a stand-alone installer as well as installable using the [VantageInstaller.exe](http://docs.lenovocdrt.com/guides/cv/commercial_vantage/#using-vantageinstallerexe).
 
 The latest version of the Enterprise package for sideloading can always be found at [https://support.lenovo.com/solutions/hf003321-lenovo-vantage-for-enterprise](https://support.lenovo.com/solutions/hf003321-lenovo-vantage-for-enterprise). Additional resources such as deployment guide, ADMX template, install and uninstall scripts are also included.
 
@@ -33,12 +33,14 @@ The latest version of the Enterprise package for sideloading can always be found
     - Depending on model, if there are available keyboard functions that are not illustrated on the keyboard physically, these will be listed on the Device Settings - Input page
 - Accessible Trackpad - Palm rejection (depends on model)
 - Upgraded to .Net8
+- Added VantageInstaller.exe to provide a simpler installation mechanism
 
 **System Update Features**
 
 - Auto Update Settings
     - Can now control which updates are provided automatically on a scheduled basis by selecting from "Drivers and other" and "BIOS and firmware". (Note: BIOS and Firmware typically require reboot where as Drivers and othe will not.)
-    - Schedule is weekly and the day and time can be configured in the UI
+    - Schedule is weekly and the day and time can be configured in the UI if not specified by group policy configuration.
+    - If the Auto Update Settings are configured through policies by the IT administrator, these controls will not be accessible and a message will be shown to indicate this to the user.
 
 **New Features Support**
 
@@ -46,6 +48,18 @@ The latest version of the Enterprise package for sideloading can always be found
 - Smart Modes (for Aura Edition models)
 - Dynamic App Tuning for ThinkPad X9 models
 - ThinkSmart Core G2 Support
+
+**New Group Policies**
+
+- **Device - Device settings - Power - Turn off At a glance**: The "At a glance" section is new and displays various details about the battery. When this policy is enabled, the section will be hidden.
+
+- **Device - Device settings - Power - Turn off Battery health**: The Battery health section displays current charge, full charge capacity and original design capacity with an overall health indicator for the battery.  When this policy is enabled, the section will be hidden.
+
+- **Device - Device settings - Power - Turn off Battery temperature**: The battery temperature is a new section. When this policy is enabled, the section will be hidden.
+
+- The **WiFi Security** policy has been renamed to **Network**
+
+- The **Turn off Modes** policy is moved to **Device - Device settings**
 
 ### v10.2501.15.0 - January 2025
 

@@ -20,6 +20,9 @@ The utility can be uninstalled with the following command:
 
 ```C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT```
 
+!!! note
+    In the Enterprise package released in July 2025, there is a new option for installing SU Helper. The package includes [VantageInstaller.exe](http://docs.lenovocdrt.com/guides/cv/commercial_vantage/#using-vantageinstallerexe) which can also be used to install SU Helper. With VantageInstaller.exe it is possible to install Commercial Vantage and SU Helper at the same time.
+
 ## Intended Usage Scenarios
 
 SUHelper is designed to support a few scenarios to provide IT administrators more control over the updating of their devices.
