@@ -57,6 +57,8 @@ The latest version of the Enterprise package for sideloading can always be found
 
 - **Device - Device settings - Power - Turn off Battery temperature**: The battery temperature is a new section. When this policy is enabled, the section will be hidden.
 
+- **Device - Device settings - Microphone - Turn off Smart noice cancelling**: This Group Policy setting affects the Smart noise cancelling setting in the Microphone tab in Commercial Vantage. **Enabled**: Enabling this setting turns off and hides the Smart noise cancelling feature from Commercial Vantage. In case the noise cancelling settings have been modified prior to enabling this group policy, all the changes will be rolled back and the settings will be reset to default. **Disabled**: If you disable this setting, the Smart noise cancelling feature will be visible and the users will be able to update the settings through Commercial Vantage. **Not Configured**: Leaving this setting unconfigured maintains the default behavior. Users can freely access and update the Smart noise cancelling settings in the Microphone page in Commercial Vantage.
+
 - The **WiFi Security** policy has been renamed to **Network**
 
 - The **Turn off Modes** policy is moved to **Device - Device settings**
