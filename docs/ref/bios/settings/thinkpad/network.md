@@ -145,6 +145,14 @@ MAC Address Pass Through
     |:---|:---|:---|:---|
     | MACAddressPassThrough  | Disable, Enable, Second | No | Both |
 
+Custom URL Support
+:  Enable/Disable Custom URL Support
+
+    Possible options:
+
+    1. **Disabled** - Default
+    2. Enable.
+
 Reinstall Windows from Cloud
 :  Enable/Disable “Reinstall Windows from Cloud (Microsoft® Connected System Recovery)” in the App Menu invoked by F12.
 
@@ -315,7 +323,7 @@ Each SSID can be selected to display more details.
         1. Connect to this network - visible if device is not connected to this Wi-Fi network
         2. Disconnect - visible if device is connected to this Wi-Fi network
 
-## Add Wi-Fi Network
+### Add Wi-Fi Network
 
 ![Add Wi-Fi Network](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_addwifinetwork.png)
 
@@ -410,7 +418,7 @@ Scan Anyway
 Commit Changes and Exit
 :  This is the option to save changes and exits back to the Manage Wi-Fi network page.
 
-## Manage Wi-Fi Network
+### Manage Wi-Fi Network
 
 ![Manage Wi-Fi Network List](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_managewifilist.png)
 
@@ -539,3 +547,79 @@ Change Priority
 
     !!! note  "Commit Changes and Exit"
         Save changes and exits back to the Manage Wi-Fi network page.
+
+## Custom URL Support Setting
+
+!!! note ""
+    All the settings in this group are not available via WMI.
+
+Add Custom HTTPS Boot Option
+
+:   Accesses interface to enter custom entry descriptions and URLs.
+
+Delete Custom HTTPS Boot Option
+
+:  Accesses interface to remove custom entries by description.
+
+Enroll  OnPremise Server CA Cert
+
+:   Accesses interface to supply the required certificate to validate the https:// URL.
+
+Delete OnPremise Server CA Cert
+
+:   Deletes the OnPremise Server CA Certificate.  Since only one certificate is allowed, there is nothing to choose.
+
+### Add Custom HTTPS Boot Option
+Description text to display
+
+:    Description for Custom HTTPS Boot Option displayed in the Boot Menu.
+
+    !!! note "Description Length"
+        The description must be a unique string.  Maximum character length is 255.
+
+Boot URL Address
+
+:  The URL must start with "https://" for Custom HTTPS Boot Option.  The supported bootable file types are .EFI, .IMG, and .ISO.
+
+    !!! note "URL Formatting"
+        http:// is not supported.  Maximum character length is 255.
+
+Apply
+
+:    A new HTTPS Boot Option will be created according to the provided boot URL.
+
+    !!! note "Duplicate Entries"
+        Duplcate entries are not allowed.
+
+### Delete Custom HTTPS Boot Option
+
+`[Description Text]`
+
+:    Choosing a boot entry will display a dialog confirming to delete the entry.
+
+### Enroll OnPremise Server CA Cert
+
+Enroll Cert Using File
+
+:   List of EFI Formatted drives on the system, including the boot partition and any USB drives inserted into the system.
+
+
+Commit Changes and Exit
+
+:   Commits the selected certificate file to the device and is queued to be committed on the next Save and Exit (F10).  Once the commit completes, the interface exits out of the enrollment screen to the Custom URL Support Setting screen.
+
+#### File Explorer (List of Drives)
+
+`[EFI Formatted Drive]`
+
+:   Specific EFI formatted drive in the system.
+
+#### File Explorer (List of File and Folders on Selected Drive)
+
+`-> <[Text]>`
+
+:   Indicates a folder.  Select and click to navigate into the folder.
+
+`[Text.extension]`
+
+:   Indicates a file.  Select the appropriate certificate file to import.  Once selected, use the Commit Changes and Exit functionality to begin to store the certificate on the device.
