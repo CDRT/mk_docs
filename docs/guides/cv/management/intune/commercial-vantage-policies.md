@@ -25,7 +25,7 @@ Values:
 When this policy is enabled, the Give Feedback feature of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~8EB4B7362B69050BFD52D7A0636C0562~2AD92E0D6F8EE99CDE71A2B3EB963BE9/933718AEF2636F2105C769A90F3D2753
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~8EB4B7362B69050BFD52D7A0636C0562~3DD3DE15E0C7A9EB9EF9D505E92E74B1/392FE587856B9D466DE27527614D5EE2
 ```
 
 Values:
@@ -45,7 +45,7 @@ Values:
 When this policy is enabled, the Device Settings feature of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB/45F6F49C7B88A4F6681C08269E51869F
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB/AD7C83D4D02A207DE73A16DBA3E41299
 ```
 
 Values:
@@ -65,7 +65,7 @@ Values:
 When this policy is enabled, the System Update feature of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB/C2A1B40F7DC05396F6FC85A58E76A0A2
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB/47CE09B9482EAC9FD541B9E673E25EBC
 ```
 
 Values:
@@ -85,7 +85,7 @@ Values:
 When this policy is enabled, the My Device feature of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB/E39E265DD63799F578A4F5EF9ED9E271
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB/536EE0FCEA046E2AE885243C193998DD
 ```
 
 Values:
@@ -105,7 +105,7 @@ Values:
 When this policy is enabled, the Smart Assist feature of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB/1631A70618C59A6199301D764A23F246
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD/48D766A8D16EA17A7C0BA73A8A8FD521
 ```
 
 Values:
@@ -125,7 +125,7 @@ Values:
 When this policy is enabled, the Camera features of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~2F1A3379F15869B17CDC4166675CF9F4/70DA5C43A08ABFF6465613AD5E3426D8
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~253B0EFA38D70AA281E219F0608579F7/2E012166F382F702A96FACF6CB2AD9BF
 ```
 
 Values:
@@ -145,7 +145,7 @@ Values:
 When this policy is enabled, the Display features of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~2F1A3379F15869B17CDC4166675CF9F4/BCC3FA02172D8F220765BCC0DAF5897A
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~253B0EFA38D70AA281E219F0608579F7/7EFB17AA327FB4413D8CFBC79A7BC0DC
 ```
 
 Values:
@@ -165,7 +165,7 @@ Values:
 When this policy is enabled, the Intelligent Keyboard feature of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~DC6ABC1D9A065D6934DBBF4A781C1743/B472A13920E69AD5EA4E8C8AE4F32DBA
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~8B4FEEBFA703E3CDB065A0BC9F60E2B8/C9E7C956C24B3611C29FF18FD27B5817
 ```
 
 Values:
@@ -185,7 +185,31 @@ Values:
 When this policy is enabled, the Microphone Settings features of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~385B0718B3A5821F493B8F1F0424A68D/A30CAD3DBAA23B6415BEF60574689D96
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~BA6F60313310EFF34E59B7FAB53CF7B0/5FD85C9FE3983DEF5D98453B5A1A31BE
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
+#### Turn off Smart noise cancelling
+
+This policy setting affects the Smart noise cancelling setting in the Microphone tab in the Commercial Vantage. It determines whether the setting is displayed and whether the users can utilize the features of AI noise suppression. By default, the setting is visible and can be updated by the end user of the device.
+
+Enabled: Enabling this setting turns off and hides the Smart noise cancelling feature from the Commercial Vantage. In case the noise cancelling settings have been modified prior to enabling this policy, all the changes will be rolled back and the settings will be reset to default.
+
+Disabled: If you disable this setting, the Smart noise cancelling feature will be visible and the users will be able to update the settings  through Commercial Vantage.
+
+Not Configured: Leaving this setting unconfigured maintains the default behavior. Users can freely access and update the Smart noise cancelling section in the Microphone page in  the Commercial Vantage.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~BA6F60313310EFF34E59B7FAB53CF7B0/772EAFEFB12384522846346824FA2EF4
 ```
 
 Values:
@@ -200,85 +224,21 @@ Values:
 
 ### Power
 
-#### Turn off Global Power Management
+#### Turn off Battery health
 
 !!! note ""
-    Added in version 2407.66
+    Added in version 20.2506.39.0
 
-When this policy is Enabled, the Global Power Management (Intelligent Cooling/Intelligent Cooling Engine) of Commercial Vantage will be hidden.
-
-When this policy is Disabled, the Global Power Management (Intelligent Cooling/Intelligent Cooling Engine) of Commercial Vantage will be shown.
-
-When this policy is Not Configured, the Global Power Management (Intelligent Cooling/Intelligent Cooling Engine) of Commercial Vantage will be shown.
+When this policy is Enabled, the status of battery health of Commercial Vantage will be hidden.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~E4F5170489B8C677D42DEB4590E140A7/453AC4524829A51ADCB398A55E146EBA
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/08BBF44CA2CC0873631A35AF193B452B
 ```
 
 Values:
 
 ```xml
 <enabled/>
-```
-
-```xml
-<disabled/>
-```
-
-#### Turn off Power Settings
-
-When this policy is enabled, the Power Settings of Commercial Vantage will be turned off.
-
-```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~E4F5170489B8C677D42DEB4590E140A7/5C2B0833E82D16B3417540950063B3B1
-```
-
-Values:
-
-```xml
-<enabled/>
-```
-
-```xml
-<disabled/>
-```
-
-#### Write battery information to WMI
-
-!!! note ""
-    Added in version 10.2109
-
-This policy setting allows Commercial Vantage to write the computer battery information into the Lenovo Namespace WMI table. If you enable it, the battery information will be written to WMI. The information written will appear as follows:
-
-![battery info](https://cdrt.github.io/mk_docs/img/cv/battery_info.png)
-
-This policy setting allows the Administrator to configure the schedule type, schedule day, and schedule time for writing the computer battery information to WMI.
-The Schedule type value should be a number (0-2), where 0 means daily, 1 means weekly, 2 means monthly.
-
-If the Schedule type value is set to 0, the Schedule day value should be set to 0 (and this value will be ignored). If the Schedule type is set to 1, the Schedule day value should be a number (0-6), where 0 means Sunday, 1 means Monday, 2 means Tuesday...
-
-If the Schedule type is set to 2, the Schedule day value should be a number (-1 or 1-31), where -1 means the last day of the month, 1 means the first day of the month, 2 means the second day of the month...
-
-The Schedule time value format should be HH: mm:ss. For example, 18: 30:00 represents 6:30PM.
-
-If you disable or do not configure this policy setting, the battery information will not be written to WMI.
-
-```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~E4F5170489B8C677D42DEB4590E140A7/64F93BB9BFC0EB1C9ADD81981905E061
-```
-
-!!! info "GUID Reference"
-    ADE41242A9F8CE596481FE945E5FE5D8 = Schedule Type <br>
-    F04F922293A120999D4EB95012CA0C64 = Schedule Day <br>
-    AC72B4BC066D807C760A11748C39F451 = Schedule Time
-
-Values:
-
-```xml
-<enabled/>
-<data id="ADE41242A9F8CE596481FE945E5FE5D8" value="1"/>
-<data id="F04F922293A120999D4EB95012CA0C64" value="1"/>
-<data id="AC72B4BC066D807C760A11748C39F451" value="10:00:00"/>
 ```
 
 ```xml
@@ -293,7 +253,32 @@ Values:
 When this policy is enabled, the Desktop Power Manager Power Settings of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~E4F5170489B8C677D42DEB4590E140A7/664C30E3A0368439C2BF8EEA05E32EE9
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/114BBBE0F57582EEBF1ACE595FDDFD92
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
+#### Turn off Global Power Management
+
+!!! note ""
+    Added in version 2407.66
+
+When this policy is Enabled, the Global Power Management (Intelligent Cooling/Intelligent Cooling Engine) of Commercial Vantage will be hidden.
+
+When this policy is Disabled, the Global Power Management (Intelligent Cooling/Intelligent Cooling Engine) of Commercial Vantage will be shown.
+
+When this policy is Not Configured, the Global Power Management (Intelligent Cooling/Intelligent Cooling Engine) of Commercial Vantage will be shown.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/1A406616747B4AEEB4184F7408D8C182
 ```
 
 Values:
@@ -327,7 +312,7 @@ Ex: If checkbox selected and "Stop Charging" is set to 90, then "Start Charging"
 When the toggle to "Automatically Set Threshold" is on, then Battery Threshold "Start" cannot be set.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~E4F5170489B8C677D42DEB4590E140A7/6A6C1333A96BD99C316FC0AC169C6B8D
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/1B92BAC1630DE2689D54D68B7EC60A78
 ```
 
 !!! info "GUID Reference"
@@ -350,6 +335,69 @@ Values:
 <disabled/>
 ```
 
+#### Turn off Battery temperature
+
+!!! note ""
+    Added in version 20.2506.39.0
+
+When this policy is Enabled, the battery temperature section of Commercial Vantage will be hidden.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/3EAD4546EEBB230B32DFBB487C7E5EA0
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
+#### Write battery information to WMI
+
+!!! note ""
+    Added in version 10.2109
+
+This policy setting allows Commercial Vantage to write the computer battery information into the Lenovo Namespace WMI table. If you enable it, the battery information will be written to WMI. The information written will appear as follows:
+
+![battery info](https://cdrt.github.io/mk_docs/img/cv/battery_info.png)
+
+This policy setting allows the Administrator to configure the schedule type, schedule day, and schedule time for writing the computer battery information to WMI.
+The Schedule type value should be a number (0-2), where 0 means daily, 1 means weekly, 2 means monthly.
+
+If the Schedule type value is set to 0, the Schedule day value should be set to 0 (and this value will be ignored). If the Schedule type is set to 1, the Schedule day value should be a number (0-6), where 0 means Sunday, 1 means Monday, 2 means Tuesday...
+
+If the Schedule type is set to 2, the Schedule day value should be a number (-1 or 1-31), where -1 means the last day of the month, 1 means the first day of the month, 2 means the second day of the month...
+
+The Schedule time value format should be HH: mm:ss. For example, 18: 30:00 represents 6:30PM.
+
+If you disable or do not configure this policy setting, the battery information will not be written to WMI.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/B01A9475F26627063E7913B9D74C9658
+```
+
+!!! info "GUID Reference"
+    ADE41242A9F8CE596481FE945E5FE5D8 = Schedule Type <br>
+    F04F922293A120999D4EB95012CA0C64 = Schedule Day <br>
+    AC72B4BC066D807C760A11748C39F451 = Schedule Time
+
+Values:
+
+```xml
+<enabled/>
+<data id="ADE41242A9F8CE596481FE945E5FE5D8" value="1"/>
+<data id="F04F922293A120999D4EB95012CA0C64" value="1"/>
+<data id="AC72B4BC066D807C760A11748C39F451" value="10:00:00"/>
+```
+
+```xml
+<disabled/>
+```
+
 #### Turn off Standby Settings
 
 !!! note ""
@@ -358,7 +406,46 @@ Values:
 When this policy is enabled, the Standby Settings feature of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~E4F5170489B8C677D42DEB4590E140A7/B0FE740B6951DD55D924F47EE0577466
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/BFDBD5BBEE7822675EC26177C62820D6
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
+#### Turn off At a glance
+
+!!! note ""
+    Added in version 20.2506.39.0
+
+When this policy is Enabled, the At a glance section of Commercial Vantage will be hidden.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/D8B285396E09B47C7853FC260DA26E49
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
+#### Turn off Power Settings
+
+When this policy is enabled, the Power Settings of Commercial Vantage will be turned off.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/DAFCD675AF1BF429DDE3C7DBA278F84D
 ```
 
 Values:
@@ -379,7 +466,7 @@ Values:
 When this policy is enabled, the Energy Star features of Commercial Vantage will be turned off
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~E4F5170489B8C677D42DEB4590E140A7/D2EF91148F6CAD7276895C6CB7051E06
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/EC7DDEAF97A500A0EE95864114E7CD52
 ```
 
 Values:
@@ -402,7 +489,7 @@ Values:
 When this policy is enabled, the Active Protection System Settings features of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~45D8B8B2CBDB4610CAB05A18CF2C9868/3E5A8FB355FCCB817AD1D3DEFAC78170
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~CBAB71D9A1E135A0FA3A6EA2DA0C9904/506259864F9C994767F6530DE643B36E
 ```
 
 Values:
@@ -423,7 +510,7 @@ Values:
 When this policy is enabled, the Intelligent Screen features of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~45D8B8B2CBDB4610CAB05A18CF2C9868/9DB9CAC9C421AFDB3A3381486210EA6C
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~CBAB71D9A1E135A0FA3A6EA2DA0C9904/EEF7C410105EFB7805171740190C6965
 ```
 
 Values:
@@ -444,7 +531,7 @@ Values:
 When this policy is enabled, the  Intelligent Security Settings features of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~8BFC79DE8BB6F9B73316906802BA1CF8~45D8B8B2CBDB4610CAB05A18CF2C9868/E01515303271B7087B61546ECED61B39
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~CBAB71D9A1E135A0FA3A6EA2DA0C9904/F849A86B6C88FB37AFB14BAB268A8E2A
 ```
 
 Values:
@@ -464,7 +551,7 @@ Values:
 When this policy is enabled, Dolby Access page will be hidden. Then, the Advanced microphone effects section on Microphone page should be hidden as well.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~5593D70C6C768EF5E4F873DC7545DD92/8DDD9FBE18C7FF4D293D6C0EEF91540C
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7F1A82A306BBA4A0AE1E88DACC971B98/5893778C126AECE6153BAC92D216D439
 ```
 
 Values:
@@ -484,14 +571,14 @@ Values:
 !!! note ""
     Added in version 10.2407.66.0
 
-This Group Policy setting prevents the end-users of the device from using the the Modes page in My Device page. It determines whether the Modes functionality is available in the Commercial Vantage or not, and whether the users will be able to use Lenovo Desktop Widget. By default, the page is displayed and can be accessed by the end user of the device.
+This policy setting prevents the end-users of the device from using the the Modes page in My Device page. It determines whether the Modes functionality is available in the Commercial Vantage or not, and whether the users will be able to use Lenovo Desktop Widget. By default, the page is displayed and can be accessed by the end user of the device.
 
 If you enable this setting, the Modes page will be hidden from the Commercial Vantage. The end user will not be able to see the Modes tab in the Device Settings and will not be able to use Lenovo Desktop Widget on the device.
 
 If you disable or do not configure this setting, the Modes will be displayed and the user will be able to use the Lenovo Desktop Widget.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~01117C8E37FB5C5F1D126E386D8788DA/FEA7860918ABE78B4E663EC380018BFA
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~DA73FA95EE6D6962459DAFAE9957BA01/6950037C7735BA43482EEC668D0C45DA
 ```
 
 Values:
@@ -511,7 +598,7 @@ Values:
 When this policy is enabled, My Software page will be hidden.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~186FBE576D28BCB6D08F2A9065E9416A/F147A737BAA820A4301FFE69F3516044
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~C5F2E398EC7B34FE44B522453172955A/93F1E6046DD02C5953747188D106EDC8
 ```
 
 Values:
@@ -534,7 +621,7 @@ Values:
 Defines the Company Name to be displayed on the System Update dialogs. Excessively long names may be truncated.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7/2E380F5F44ADD0C3911D0528A5A35CB6
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089/1B712E2FAB2CBBC36596C1D66EEDDFED
 ```
 
 Values:
@@ -548,34 +635,12 @@ Values:
 <disabled/>
 ```
 
-#### System Update Repository
-
-Defines the location of where System Update will pickup available content.
-
-!!! note ""
-    Supports UNC paths or a local drive only
-
-```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7/BD0C70F0CE887CC46496DD7BF81C0B8C
-```
-
-Values:
-
-```xml
-<enabled/>
-<data id="BD0C70F0CE887CC46496DD7BF81C0B8C" value="\\your_repository"/>
-```
-
-```xml
-<disabled/>
-```
-
 #### System Update Configuration
 
 This policy setting provides the ability for the Administrator to configure the filter of searching updates. If you enable this policy setting, Commercial Vantage will search for updates based on this filter. This policy affects manual update, but if 'Configure Auto System Update' is not configured, it affects both manual and auto update.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7/E1181AE4156C9E11CAF88FC6416AE108
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089/5456F227323F901F6CAF5C2F3F1AC9A5
 ```
 
 Values:
@@ -623,6 +688,28 @@ Values:
     C62002C924CF75712313AC1CF94525AB = Optional Firmware<br>
     9A82A62C3EF3BA2FCC142413A1FAC951 = Optional Others
 
+#### System Update Repository
+
+Defines the location of where System Update will pickup available content.
+
+!!! note ""
+    Supports UNC paths or a local drive only
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089/7D125BC7E172D57BBD95107ECECB6C0D
+```
+
+Values:
+
+```xml
+<enabled/>
+<data id="7D125BC7E172D57BBD95107ECECB6C0D" value="\\your_repository"/>
+```
+
+```xml
+<disabled/>
+```
+
 #### Test Content Mode
 
 !!! note ""
@@ -631,7 +718,7 @@ Values:
 When enabled, this policy will cause System Update to only process packages that have a Status of "Test" in the local repository. This policy only takes effect if a local repository is configured by the System Update Repository policy. If this policy is not configured or disabled, then only packages with a Status of "Active" will be processed from the local repository.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7/F840EF719B3473570D4E02FA060EC19A
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089/C6A61B1F0CCC910157C4FD733BBFBA69
 ```
 
 Values:
@@ -646,6 +733,126 @@ Values:
 
 ### Auto Update
 
+#### Schedule the Day for Auto Update
+
+!!! note ""
+    This policy will be combined with the configuration of Schedule the Month for Auto Update to determine the exact schedule of Auto Update.
+
+This policy setting provides the ability for the Administrator to configure the day(s) on which the Auto Update will occur.
+
+Either specify specific day(s) of the month or specify a frequency and day of the week.
+
+If both "Day(s)" and "Frequency/Day of the Week" are specified,"Day(s)" will take precedence and "Frequency/Day of the Week" will be ignored.
+
+If "Day(s)" is configured, Auto Update will only occur on the specified days. The desired days can be specified by the number of the day in the month or by specifying "Last Day" for the last day of the month or "All" for all days of the month. Multiple days can be specified by separating with semi-colon ( ; ).
+
+Example for Day(s) input:
+
+- All  -->  Auto Update will occur on all days of the month
+- 1;7;13;25  --> will only occur on the days: 1, 7, 13, and 25
+- All;1;13;25  --> will only occur on the days:  1, 13, 25 and "All" is ignored
+- LastDay  --> will only occur on the last day of the month
+- LastDay;1;13;25  --> will only occur on the days: 1, 13, 25 and the last day of the month
+
+When Frequency and Days of the Week are configured, a selection must be set for both or else the policy will be ignored.
+
+Example for Frequency/Days of the Week:
+
+- If "All" is checked under Frequency and "Friday" is checked under Day of the Week, then Auto Update will occur every Friday.
+- If "First" and "Third" are checked under Frequency and "Tuesday" is checked under Day of the Week, then Auto Update will occur on the first and third Tuesday of each month.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/21E270BB2BEDC888DE041CA38981726B
+```
+
+| id | valueName |
+| :--- | :--- |
+| `8954B312E3ABB22A17F7E50723750B80` | All Weeks |
+| `001C72322736D14CFC56E1F4653019F6` | First Week |
+| `806D1BC85455150F0DCD44BDFC9839FA` | Second Week |
+| `0E8030803EB7BFD27581D3A2BEFE771E` | Third Week |
+| `E68FFD0829E277997C8972276A02E92B` | Fourth Week |
+| `AFA05A1BB42D873987FFD971D4B1B6A2` | Last Week |
+| `4BBE69DF32A6A22FDA4FF162C53C7154` | Sunday |
+| `A48090544BD0587769808CA01B8D1670` | Monday |
+| `159A93568F287E05F64F599B64034E2F` | Tuesday |
+| `B2CF1DA1B0B639B6B14ED2CCC1E26B80` | Wednesday |
+| `24E625869762ABC41BA468897B581394` | Thursday |
+| `606C484482FDC09861E8DCFD5EFFBB2A` | Friday |
+| `C6F63436FC3A9ECA03116BB2624763E3` | Saturday |
+
+Values:
+
+```xml
+<enabled/>
+<data id="9B56ECD989102ABD1C7FEAF701B20490" value="1"/>
+<data id="8954B312E3ABB22A17F7E50723750B80" value="false"/>
+<data id="001C72322736D14CFC56E1F4653019F6" value="true"/>
+<data id="806D1BC85455150F0DCD44BDFC9839FA" value="false"/>
+<data id="0E8030803EB7BFD27581D3A2BEFE771E" value="true"/>
+<data id="E68FFD0829E277997C8972276A02E92B" value="false"/>
+<data id="AFA05A1BB42D873987FFD971D4B1B6A2" value="false"/>
+<data id="4BBE69DF32A6A22FDA4FF162C53C7154" value="false"/>
+<data id="A48090544BD0587769808CA01B8D1670" value="false"/>
+<data id="159A93568F287E05F64F599B64034E2F" value="true"/>
+<data id="B2CF1DA1B0B639B6B14ED2CCC1E26B80" value="false"/>
+<data id="24E625869762ABC41BA468897B581394" value="false"/>
+<data id="606C484482FDC09861E8DCFD5EFFBB2A" value="false"/>
+<data id="C6F63436FC3A9ECA03116BB2624763E3" value="false"/>
+```
+
+```xml
+<disabled/>
+```
+
+#### Turn off Dock Auto Update
+
+!!! note ""
+    Added in version 2407.66
+
+Dock Auto Update is a separate feature from Auto Update for the system and does not follow the filtering or scheduling configuration of the System Update policies.
+
+This feature focuses only on updating the firmware of docks that are attached to the system.
+
+When this policy is Enabled, the Dock Auto Update feature is turned off. Also, if the policy is Not Configured or not present, the Dock Auto Update feature is turned off.
+
+If Dock Auto Update feature needs to be turned on, then set this policy to Disabled. This will cause Commercial Vantage to check for an available Dock firmware update for the specific Dock when it is attached to the system.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/3D58DE8904B4C497EB9181BEDC868A50
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
+#### Turn off Run-Once Task
+
+!!! note ""
+    Added in version 10.2104 v2
+
+When this policy is enabled, the initial check for updates by Commercial Vantage is turned off.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/41055A4D350BB08B7B35250ABCD2A4B1
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
 #### Schedule the Month for Auto Update
 
 !!! note ""
@@ -658,7 +865,7 @@ You can mark the checkbox that corresponds to the desired month(s). If you click
 If this policy is enabled, the Run Once task will be disabled automatically.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7~E4FF6280DA9B32B3629E2DCFE74DCCDB/1BBDD1238563F503D50D0E79F54DA94A
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/5352EE76841C80672B56A0CEDF41837E
 ```
 
 | id | valueName |
@@ -700,6 +907,78 @@ Values:
 <disabled/>
 ```
 
+#### Schedule the Time for Auto Update
+
+This policy setting provides the ability for the Administrator to configure the time for auto updates.
+
+!!! note ""
+    For example, 18: 30:00 for 6:30 PM
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/5D601BAD50217031B2F5939DF58ED0CE
+```
+
+Values:
+
+```xml
+<enabled/>
+<data id="5D601BAD50217031B2F5939DF58ED0CE" value="10:00:00"/>
+```
+
+```xml
+<disabled/>
+```
+
+#### Defer Update
+
+!!! note ""
+    Added in version 10.2104 v2
+
+This policy setting provides the ability for the Administrator to control how updates can be deferred.
+
+If you enable this policy, then you may configure the number of times the end-user is allowed to defer updates (DeferLimit) and the amount of time for each deferral (DeferTime). If these options are not configured, then the end-user may defer unlimited times for 60 minutes each deferral.
+
+If you disable this policy or the policy is not configured, then the end-user may only continue with the updates or cancel the updates. If cancelled, the updates will be presented again by the next scheduled scan for updates.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/6E62038B159F1CC622C1E80F3BD3D1E8
+```
+
+| id | valueName |
+|:---|:---|
+| 311D60F57C54D2DD03394368BDFCED99 | DeferLimit |
+| 95E579A1A0BABCEDAC4AF1BC81B042F4 | DeferTime |
+
+Values:
+
+```xml
+<enabled/>
+<data id="311D60F57C54D2DD03394368BDFCED99" value="4"/>
+<data id="95E579A1A0BABCEDAC4AF1BC81B042F4" value="30"/>
+```
+
+```xml
+<disabled/>
+```
+
+#### Auto Update
+
+This policy setting provides the ability for the Administrator to control auto update.  If you enable this policy setting, the auto update will be enabled. If you disable this policy setting, the auto update will be disabled.  If you do not configure this policy setting, it will keep the last status and can be controlled by the end user.  By default, auto update will install critical updates and recommended drivers.  If you want customization, please change the setting "Configure System Update".
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/DE2E5946D5FC36D6F175D99C651F8408
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
 #### Configure Auto System Update
 
 !!! note ""
@@ -716,7 +995,7 @@ Not configured follows the settings of 'Configure System Update'.
 This policy affects auto update.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7~E4FF6280DA9B32B3629E2DCFE74DCCDB/4299A9B51C4F0D8CC6ADE9235CACF855
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/F3E50D676ED09F059CDA62D68516F80D
 ```
 
 Values:
@@ -763,198 +1042,6 @@ Values:
     3297105136FCEC5D3432C0FA2FDB73BB = Optional BIOS<br>
     C62002C924CF75712313AC1CF94525AB = Optional Firmware<br>
     9A82A62C3EF3BA2FCC142413A1FAC951 = Optional Others
-
-#### Defer Update
-
-!!! note ""
-    Added in version 10.2104 v2
-
-This policy setting provides the ability for the Administrator to control how updates can be deferred.
-
-If you enable this policy, then you may configure the number of times the end-user is allowed to defer updates (DeferLimit) and the amount of time for each deferral (DeferTime). If these options are not configured, then the end-user may defer unlimited times for 60 minutes each deferral.
-
-If you disable this policy or the policy is not configured, then the end-user may only continue with the updates or cancel the updates. If cancelled, the updates will be presented again by the next scheduled scan for updates.
-
-```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7~E4FF6280DA9B32B3629E2DCFE74DCCDB/C015CAB39D5B210745DC6D0F43029C21
-```
-
-| id | valueName |
-|:---|:---|
-| 311D60F57C54D2DD03394368BDFCED99 | DeferLimit |
-| 95E579A1A0BABCEDAC4AF1BC81B042F4 | DeferTime |
-
-Values:
-
-```xml
-<enabled/>
-<data id="311D60F57C54D2DD03394368BDFCED99" value="4"/>
-<data id="95E579A1A0BABCEDAC4AF1BC81B042F4" value="30"/>
-```
-
-```xml
-<disabled/>
-```
-
-#### Auto Update
-
-This policy setting provides the ability for the Administrator to control auto update.  If you enable this policy setting, the auto update will be enabled. If you disable this policy setting, the auto update will be disabled.  If you do not configure this policy setting, it will keep the last status and can be controlled by the end user.  By default, auto update will install critical updates and recommended drivers.  If you want customization, please change the setting "Configure System Update".
-
-```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7~E4FF6280DA9B32B3629E2DCFE74DCCDB/CD787218E9D584BCE873273A0AFD7F05
-```
-
-Values:
-
-```xml
-<enabled/>
-```
-
-```xml
-<disabled/>
-```
-
-#### Turn off Run-Once Task
-
-!!! note ""
-    Added in version 10.2104 v2
-
-When this policy is enabled, the initial check for updates by Commercial Vantage is turned off.
-
-```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7~E4FF6280DA9B32B3629E2DCFE74DCCDB/D89714B27390B0E22E66BCA5C8A43FAE
-```
-
-Values:
-
-```xml
-<enabled/>
-```
-
-```xml
-<disabled/>
-```
-
-#### Schedule the Time for Auto Update
-
-This policy setting provides the ability for the Administrator to configure the time for auto updates.
-
-!!! note ""
-    For example, 18: 30:00 for 6:30 PM
-
-```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7~E4FF6280DA9B32B3629E2DCFE74DCCDB/EC653B23E1449655915FA566BEA54E40
-```
-
-Values:
-
-```xml
-<enabled/>
-<data id="EC653B23E1449655915FA566BEA54E40" value="10:00:00"/>
-```
-
-```xml
-<disabled/>
-```
-
-#### Turn off Dock Auto Update
-
-!!! note ""
-    Added in version 2407.66
-
-Dock Auto Update is a separate feature from Auto Update for the system and does not follow the filtering or scheduling configuration of the System Update policies.
-
-This feature focuses only on updating the firmware of docks that are attached to the system.
-
-When this policy is Enabled, the Dock Auto Update feature is turned off. Also, if the policy is Not Configured or not present, the Dock Auto Update feature is turned off.
-
-If Dock Auto Update feature needs to be turned on, then set this policy to Disabled. This will cause Commercial Vantage to check for an available Dock firmware update for the specific Dock when it is attached to the system.
-
-```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7~E4FF6280DA9B32B3629E2DCFE74DCCDB/FE78C222D70C11FCD9E1B7C2C13DA89D
-```
-
-Values:
-
-```xml
-<enabled/>
-```
-
-```xml
-<disabled/>
-```
-
-#### Schedule the Day for Auto Update
-
-!!! note ""
-    This policy will be combined with the configuration of Schedule the Month for Auto Update to determine the exact schedule of Auto Update.
-
-This policy setting provides the ability for the Administrator to configure the day(s) on which the Auto Update will occur.
-
-Either specify specific day(s) of the month or specify a frequency and day of the week.
-
-If both "Day(s)" and "Frequency/Day of the Week" are specified,"Day(s)" will take precedence and "Frequency/Day of the Week" will be ignored.
-
-If "Day(s)" is configured, Auto Update will only occur on the specified days. The desired days can be specified by the number of the day in the month or by specifying "Last Day" for the last day of the month or "All" for all days of the month. Multiple days can be specified by separating with semi-colon ( ; ).
-
-Example for Day(s) input:
-
-- All  -->  Auto Update will occur on all days of the month
-- 1;7;13;25  --> will only occur on the days: 1, 7, 13, and 25
-- All;1;13;25  --> will only occur on the days:  1, 13, 25 and "All" is ignored
-- LastDay  --> will only occur on the last day of the month
-- LastDay;1;13;25  --> will only occur on the days: 1, 13, 25 and the last day of the month
-
-When Frequency and Days of the Week are configured, a selection must be set for both or else the policy will be ignored.
-
-Example for Frequency/Days of the Week:
-
-- If "All" is checked under Frequency and "Friday" is checked under Day of the Week, then Auto Update will occur every Friday.
-- If "First" and "Third" are checked under Frequency and "Tuesday" is checked under Day of the Week, then Auto Update will occur on the first and third Tuesday of each month.
-
-```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~162A79B7E43E726881D582DBA5C8B0B7~E4FF6280DA9B32B3629E2DCFE74DCCDB/FF58478F9C192E8D002D1838C81A8B9A
-```
-
-| id | valueName |
-| :--- | :--- |
-| `8954B312E3ABB22A17F7E50723750B80` | All Weeks |
-| `001C72322736D14CFC56E1F4653019F6` | First Week |
-| `806D1BC85455150F0DCD44BDFC9839FA` | Second Week |
-| `0E8030803EB7BFD27581D3A2BEFE771E` | Third Week |
-| `E68FFD0829E277997C8972276A02E92B` | Fourth Week |
-| `AFA05A1BB42D873987FFD971D4B1B6A2` | Last Week |
-| `4BBE69DF32A6A22FDA4FF162C53C7154` | Sunday |
-| `A48090544BD0587769808CA01B8D1670` | Monday |
-| `159A93568F287E05F64F599B64034E2F` | Tuesday |
-| `B2CF1DA1B0B639B6B14ED2CCC1E26B80` | Wednesday |
-| `24E625869762ABC41BA468897B581394` | Thursday |
-| `606C484482FDC09861E8DCFD5EFFBB2A` | Friday |
-| `C6F63436FC3A9ECA03116BB2624763E3` | Saturday |
-
-Values:
-
-```xml
-<enabled/>
-<data id="9B56ECD989102ABD1C7FEAF701B20490" value="1"/>
-<data id="8954B312E3ABB22A17F7E50723750B80" value="false"/>
-<data id="001C72322736D14CFC56E1F4653019F6" value="true"/>
-<data id="806D1BC85455150F0DCD44BDFC9839FA" value="false"/>
-<data id="0E8030803EB7BFD27581D3A2BEFE771E" value="true"/>
-<data id="E68FFD0829E277997C8972276A02E92B" value="false"/>
-<data id="AFA05A1BB42D873987FFD971D4B1B6A2" value="false"/>
-<data id="4BBE69DF32A6A22FDA4FF162C53C7154" value="false"/>
-<data id="A48090544BD0587769808CA01B8D1670" value="false"/>
-<data id="159A93568F287E05F64F599B64034E2F" value="true"/>
-<data id="B2CF1DA1B0B639B6B14ED2CCC1E26B80" value="false"/>
-<data id="24E625869762ABC41BA468897B581394" value="false"/>
-<data id="606C484482FDC09861E8DCFD5EFFBB2A" value="false"/>
-<data id="C6F63436FC3A9ECA03116BB2624763E3" value="false"/>
-```
-
-```xml
-<disabled/>
-```
 
 ### Warranty
 
@@ -1006,10 +1093,10 @@ Values:
 
 ### Accept EULA Automatically
 
-When you use this policy to disable the EULA and Privacy window, a notification will go back to Lenovo that the EULA has been accepted.  No other data is collected.
+This policy disables the Lenovo End User License Agreement (EULA) and the Lenovo privacy statement pop up displayed at the first time Commercial Vantage is launched.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~261C3D29FFEB46D46D29941DC7D22786/423D78F64EDE5D50939BFF9E369A1FC4
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~261C3D29FFEB46D46D29941DC7D22786/01A7464C3D337F1E15D54CA31D7FF83B
 ```
 
 Values:
@@ -1032,7 +1119,7 @@ Values:
 When this policy is enabled, Hardware Scan feature of Commercial Vantage will be turned off.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~672B78317E5E489502DF875C1DDBFA5C/1057F3806CBD334F560026BE4D5A57C8
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~3BB252355E5322463EC33426BF919239/5A6D93CCF9612C47FFF7FE6C13293CAF
 ```
 
 Values:
@@ -1049,12 +1136,35 @@ Values:
 
 ### Turn off Metrics Collection
 
-This Group Policy prevents Data Collection by Commercial Vantage. If this group policy is enabled, the Lenovo Commercial Vantage will not report any metrics information for example the EULA acceptance.
+This policy prevents Data Collection by Commercial Vantage. If this policy is enabled, the Lenovo Commercial Vantage will not report any metrics information for example the EULA acceptance.
 
-If this group policy is disabled or not configured, the Lenovo Commercial Vantage will send a report to Lenovo
+If this policy is disabled or not configured, the Lenovo Commercial Vantage will send a report to Lenovo.
 
 ```xml
 ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~856C8C55266137062827DD27AEDB1FA5/CB15F021F0DF07589CBAE6214CDA5C02
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
+## Network
+
+### Turn Off Network
+
+!!! ""
+    Previously named Wifi Security
+
+When this policy is enabled, Network feature of Commercial Vantage will be turned off.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~D5E41712EF76F886457EC1401FAEEF01/F11439A9B68301F4EC7AF579B71B30DF
 ```
 
 Values:
@@ -1080,7 +1190,7 @@ If you disable this policy, Commercial Vantage will show Preference settings pag
 Not config is default value of this policy and it works as same as disabled.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~F397BA36AB8172032068DED867F1008D/25B56173AE94ED5581C3EB41E1A8E3B8
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~A3295309178C5F1CEC24529B03C24C6E/1E4CBA1B408B04FD46F365871B89A237
 ```
 
 Values:
@@ -1104,7 +1214,7 @@ If you disable this policy setting, LSB integration will be disabled and end use
 If you do not configure this policy setting,  end user will be able to control it from the UI.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~F397BA36AB8172032068DED867F1008D~05D7BD01003FF7B51B42669826BEA9BF/247702B460D3861CFE59DC0AF4B7AE21
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~A3295309178C5F1CEC24529B03C24C6E~57BCEFF7C7874F4EC6423F75E5CF84B9/FAD50692743BADEBB3D3B7905708B767
 ```
 
 Values:
@@ -1124,14 +1234,14 @@ Values:
 !!! note ""
     Added in version 10.2407.66.0
 
-This Group Policy determines whether the Smart Care is available in the Commercial Vantage or not.
+This policy determines whether the Smart Care is available in the Commercial Vantage or not.
 
 If you enable this setting, the Smart Care page will not be displayed and the user will not be able to access the Smart Care support service via Commercial Vantage.
 
 If you disable or do not configure this setting, the Smart Care will be shown in the Commercial Vantage if the device is connected to the internet. The end user will be able to see the Smart Care support service.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~3DF937718C9E5B329933E1B978EF7778/6236A5717DA5B69DED52C56A98ED0614
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~BD3A80EB0DDAB86A9E706C6CF8F64037/8E9D639B4B94B49D617C636DDC19B42F
 ```
 
 Values:
@@ -1151,27 +1261,7 @@ Values:
 When this policy is enabled, toast messages will not be displayed to end-users.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~8BEB3CE1E181B089EC89D4C4E6A3D448/4498A4DA9A6A147019FA52B5240D51CD
-```
-
-Values:
-
-```xml
-<enabled/>
-```
-
-```xml
-<disabled/>
-```
-
-## Wifi Security
-
-### Turn Off Wifi Security
-
-When this policy is enabled, the Wifi Security feature of Commercial Vantage will be turned off.
-
-```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~247D6178BE8CC3C83409E26C3E1CE0D9/11116BCCD9E515307397B1CE23E74D13
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~827FE50BF937C098237E83855BDE934A/12EA5BA045FD172E4FE8593904E47A4A
 ```
 
 Values:
