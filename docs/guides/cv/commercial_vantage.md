@@ -45,6 +45,16 @@ Installs both the Commercial Vantage app and dependencies as well as SU Helper u
 ``` \VantageInstaller.exe Uninstall -Vantage ```
 Uninstall the Commercial Vantage app and dependencies.
 
+!!!note
+    If VantageInstaller.exe is invoked in a PowerShell script, it's recommended to use the call operator (&) as the Start-Process cmdlet can be inconsistent due to argument parsing.
+
+```powershell
+& .\VantageInstaller.exe Install -Vantage -SuHelper
+$process = Get-Process -Name "Lenovo.Vantage.InstallerHelper" -ErrorAction SilentlyContinue
+if ($process) { Wait-Process -Id $process.Id }
+```
+
+
 ## Configuration
 
 Lenovo understands that some features of Commercial Vantage may not be appropriate for end users in a managed corporate environment. Therefore, most features of Commercial Vantage can be hidden or disabled so that your end users cannot access them. There are two ways to configure Commercial Vantage:
