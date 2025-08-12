@@ -1141,7 +1141,7 @@ This policy prevents Data Collection by Commercial Vantage. If this policy is en
 If this policy is disabled or not configured, the Lenovo Commercial Vantage will send a report to Lenovo.
 
 ```xml
-./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~856C8C55266137062827DD27AEDB1FA5/CB15F021F0DF07589CBAE6214CDA5C02
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~856C8C55266137062827DD27AEDB1FA5/C850CEF61E7247F07CD8519AE87DA2AF
 ```
 
 Values:
