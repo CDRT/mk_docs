@@ -381,6 +381,9 @@ To create a report, do the following:
 
 #### Import Updates
 
+!!! info
+    This feature has been deprecated in version **5.08.02.33**
+
 Update Retriever enables you to import updates to your repository from a local location or network share. Once the updates are in the repository, you can assign them to specific systems and deploy them to multiple computers.
 
 !!! note
