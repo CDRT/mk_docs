@@ -1,0 +1,19 @@
+table.PDComparisonTable {
+    font-size: small;
+    margin-bottom: 40px;
+    border: 1px solid darkgray;
+    text-align: center;
+    vertical-align: middle;
+}
+
+th.PDCT, td.PDCT {
+    border: 1px solid darkgray;
+    text-align: center;
+    vertical-align: middle;
+    padding:6px;
+}
+
+dt {
+    font-weight: bold !important;
+    font-size: larger !important;
+}
