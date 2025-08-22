@@ -2,7 +2,7 @@
 
 ## Overview
 
-ThinkVantage BIOS Config Tool is a PowerShell-based WPF GUI front-end (`ThinkBIOSConfigUI.ps1`) that uses the `Lenovo.BIOS.Config` module to read and modify Lenovo BIOS settings via WMI. It supports:
+ThinkVantage BIOS Config Tool is a PowerShell-based WPF GUI front-end (`ThinkBIOSConfigUI.ps1`) that uses the `Lenovo.BIOS.Config` module to read and modify Lenovo BIOS settings via WMI. This solution replaces the older Think BIOS Config Tool which was implemented as an HTA. It supports:
 
 - Viewing and editing BIOS settings interactively.
 - Exporting/importing BIOS settings (.ini) with optional encrypted Supervisor password.
@@ -15,19 +15,260 @@ ThinkVantage BIOS Config Tool is a PowerShell-based WPF GUI front-end (`ThinkBIO
 
 - Windows with PowerShell (desktop PowerShell or PowerShell Core) and administrative privileges.
 - Start PowerShell with the single-threaded apartment model (`-STA`) because the GUI uses WPF/XAML.
-- WMI access to target Lenovo machines (hostname-based targeting).
+- When targeting remote Lenovo devices, WMI access to the target machines (hostname-based targeting) and the appropriate credentials for WMI access when connecting to remote targets are required.
 - For Intune packaging/upload: `IntuneWinAppUtil.exe` (tool will be downloaded if missing) and Microsoft Graph modules with appropriate tenant permissions.
 
 ## Installation / setup recommendations
 
-This solution can be
-
-1. Keep the repository layout intact so the GUI can find the module and templates.
-1. (Optional) To use Graph/Intune features interactively, install Microsoft Graph modules (the GUI can prompt and install automatically):
+The ThinkVantage BIOS Config Tool UI is provided as a PowerShell script that is hosted on the PowerShell Gallery. It can be easily installed with the following command:
 
 ```pwsh
-Install-Module Microsoft.Graph -Scope CurrentUser -Force
+Install-Script 'Lenovo.BIOS.Config.UI'
 ```
 
-!!!note
-    Ensure the target machine hostnames are resolvable and you have appropriate credentials for WMI access when connecting to remote targets.
+The required PowerShell module that support the UI can be installed from the PowerShell Gallery as well:
+
+```pwsh
+Install-Module 'Lenovo.BIOS.Config'
+```
+
+!!!note "(Optional)"
+    To use Graph/Intune features interactively, install Microsoft Graph modules (the GUI can prompt and install automatically):
+
+    ```pwsh
+    Install-Module Microsoft.Graph -Scope CurrentUser -Force
+    ```
+
+## Quick start — launch the GUI
+
+1. Open an elevated PowerShell terminal (Run as Administrator).
+2. Run the GUI with STA:
+
+```pwsh
+# From the repository root (adjust path as needed)
+pwsh -sta -File .\ThinkBIOSConfigUI.ps1
+```
+
+<!--
+TODO:  Figure out where the script resides when installed from the Gallery
+-->
+
+Notes:
+
+- The script includes `#Requires -RunAsAdministrator` and requires `-STA` for WPF support.
+- The GUI auto-imports `Lenovo.BIOS.Config` if already installed from the PowerShell Gallery.
+
+## UI layout and walkthrough
+
+Top-level navigation (left column): `Settings`, `Actions`, `Preferences` — each opens a panel on the right. Important elements:
+
+- Header: application title and a small reboot-pending indicator appear at the top of the window.
+- Status bar: runtime messages and progress appear at the bottom of the window.
+
+Panels and major controls:
+
+- Settings (always shown first when UI is launched): <!-- Insert screen capture -->
+    - Target: shows the targeted computer and BIOS version.
+    - Settings list: two-column view; each setting is either a ComboBox (Analog) or TextBox (Time/Date/BootOrder).
+    - Unsaved-change indicator: labels turn red when a value differs from initial value.
+    - Buttons: Save Changed Settings, Revert Changes, Reset to Factory Defaults, Save/Reset Custom Defaults, Generate INI.
+
+- Actions: <!-- Insert screen capture -->
+    - Apply Settings: open Apply INI panel.
+    - Remove Password or Fingerprint Data: opens password and fingerprint data removal panel.
+    - Change Password: opens change password panel.
+    - Create Intune Package: opens Intune packaging panel (packages INI into Win32 / Proactive Remediation and can upload to Intune).
+
+- Apply INI panel: <!-- Insert screen capture -->
+    - INI file path and browse button to pick an INI.
+    - Password input box for supervisor password, password input box for passphrase to decrypt encrypted Supervisor Password in the INI.
+    - Button to apply settings from INI (can handle password-change file vs settings INI automatically).
+
+- Clear Supervisor Password / Fingerprint Data panel: <!-- Insert screen capture -->
+    - Enter current Supervisor password, then click 'Clear SVP' or 'Clear Fingerprint Data'.
+
+- Change Supervisor Password panel: <!-- Insert screen capture -->
+    - Enter current password, new password, and confirm new password, then click Change Password (on device) or 'Password Change File` (create a password-change file).
+
+- Create Intune Package panel: <!-- Insert screen capture -->
+    - Select INI file and output folder, optional password/passphrase, choose Win32 and/or Proactive Remediation package types.
+    - Click 'Create Intune Package` begins packaging and (optionally) interactive upload to Intune.
+
+- Preferences: <!-- Insert screen capture -->
+    - Output location folder path for saving generated INI files
+    - Checkbox to enable logging, and input for log location.
+    - Save Preferences / Generate Debug File.
+
+Dialog boxes: <!-- Insert screen capture -->
+
+- `Password Save Changes` — shown when a supervisor password is required for Save/Reset actions.
+- `Password Generate INI` — used when generating INI with optional password and passphrase.
+
+Status and logging: the UI writes runtime messages to the `StatusBar` and uses the module logger to write log files to `%ProgramData%\Lenovo\ThinkBiosConfig\Logs` by default.
+
+## Module cmdlet reference (summary)
+
+These are the primary cmdlets exposed by the included `Lenovo.BIOS.Config` module; the GUI wraps and calls these:
+
+- `Read-LnvTBCPreferenceFile` — returns preferences object and initializes logger.
+- `Update-LnvTBCPreferenceFile -Logging (bool) -Output (path)` — update preferences.
+- `Get-LnvTBCTargetComputer` — returns target computer info (name, BIOS version, password status).
+- `Open-LnvTBCRemoteComputer -Hostname (name) -Credential (PSCredential)` — connect to remote target.
+- `Close-LnvTBCRemoteComputer` — clear target connection.
+- `Show-LnvWmiSettings [-Force] [-OnlyChanged]` — list settings used to populate GUI.
+- `Get-LnvWmiSetting -Name (setting)` — get a single setting.
+- `Set-LnvWmiSetting -Name (setting) -Value (value)` — change a setting (dynamic parameter validation available).
+- `Save-LnvWmiSettings [-Current (SecureString)]` — commit pending changes.
+- `Reset-LnvWmiSettings` — revert unsaved changes.
+- `Restore-LnvDefaultSettings [-Current (SecureString)]` — reset to factory defaults.
+- `Save-LnvCustomDefault` / `Restore-LnvCustomDefault` — manage and restore custom defaults.
+- `Export-LnvWmiSettings -ConfigFile (path) [-Key (encryptKey)] [-NoKey] [-OnlyChanged]` — export to INI; optional encryption key for Supervisor password.
+- `Import-LnvWmiSettings -ConfigFile (path) [-K (key)] [-Current (SecureString)]` — import settings or password-change file.
+- `Export-LnvPasswordChangeFile` / `Import-LnvPasswordChangeFile` — create/apply encrypted password-change files.
+- `Update-LnvPassword -Old (SecureString) -New (SecureString) -Ty (pap|smp|...)` — update password on device.
+- `ConvertTo-LnvIntunePackage -in (sourceFolder) -setup (script) -out (outputFolder)` — create `.intunewin` using IntuneWinAppUtil tool.
+- `ReadIntunePackageMetadata -FilePath (.intunewin)` — inspect a packaged intunewin for metadata.
+
+Tip: run an explicit example such as `Get-Help Read-LnvTBCPreferenceFile -Full` after importing the module to get parameter details for a cmdlet.
+
+## Typical workflows (step-by-step)
+
+1. Export current BIOS settings to INI (GUI):
+    - GUI: Settings → Generate INI → optionally provide Supervisor password and passphrase → choose folder → Continue.
+
+    - CLI:
+
+        ```pwsh
+        Export-LnvWmiSettings -ConfigFile "C:\Temp\mysettings.ini" -NoKey
+        ```
+
+1. Apply an INI to a target (GUI):
+    - GUI: Actions → Apply Settings → Browse INI → provide required Supervisor password or passphrase → Apply Settings.
+
+    - CLI:
+
+        ```pwsh
+        $pw = Read-Host -AsSecureString 'Supervisor password (if required)'
+        Import-LnvWmiSettings -ConfigFile 'C:\Temp\mysettings.ini' -K 'MyEncryptKey' -Current $pw
+        ```
+
+1. Create a password-change file (for remote deployment):
+    - GUI: Actions → Change Password → Fill current/new/confirm + encrypting passphrase → Create Password Change File.
+
+    - CLI (interactive):
+
+        ```pwsh
+        Export-LnvPasswordChangeFile -FileLocation 'C:\Temp\Password.ini' -Type pap
+        ```
+
+1. Clear Supervisor password or fingerprint data:
+    - GUI: Actions → Remove Password or Fingerprint Data → enter current password → use Clear actions.
+
+    - CLI:
+
+        ```pwsh
+        $cur = Read-Host -AsSecureString 'Current Supervisor password'
+        Submit-LnvFunctionRequest -Method ResetFingerprintData -Value Yes -C $cur
+        # or
+        Update-LnvPassword -Old $cur -New $null -Ty 'pap'
+        ```
+
+1. Create an Intune package and optionally upload to Intune (GUI):
+    - GUI: Actions → Create Intune Package: choose INI, output path, select Win32/Proactive Remediation, click Create Package.
+        - You will be asked if you want to upload the generated content directly to Intune.
+        - GUI checks/installs Microsoft Graph modules and prompts to sign in.
+        - Packaging the Win32 package uses Intune Win32 Content Prep Tool.
+
+    CLI: packaging example (create `.intunewin`):  <!-- Is this real? -->
+
+        ```pwsh
+        ConvertTo-LnvIntunePackage -in 'C:\SourceFolder' -setup 'ApplyBIOSConfig.ps1' -out 'C:\Output'
+        ```
+
+## Verification / smoke tests
+
+- Launch GUI and confirm StatusBar contains `Gui v` and module version.
+- On Settings panel, confirm `tbTarget` shows the target system and BIOS version.
+- Change a setting and observe label turns red, then click `Save Changed Settings` and verify StatusBar reports the save result.
+- Export an INI and verify file appears in Output folder configured in Preferences.
+
+## Logs, preferences and storage
+
+- Preferences file: `%ProgramData%\Lenovo\ThinkBiosConfig\preferences.json`
+- Default output folder: `%ProgramData%\Lenovo\ThinkBiosConfig\Output`
+- Logs: `%ProgramData%\Lenovo\ThinkBiosConfig\Logs`
+- Use the Preferences panel to change Output and Log locations or call `Update-LnvTBCPreferenceFile`.
+
+## Troubleshooting (common problems)
+
+- GUI fails to load or reports STA errors: start PowerShell with `-STA` and run elevated.
+- Module import error: manually import module using the PSD1 path and ensure files are not blocked by Windows (Unblock-File if needed).
+
+```pwsh
+Import-Module 'C:\git\cdrt\PS-ThinkBiosConfig\Lenovo.BIOS.Config\0.9.6\Lenovo.BIOS.Config.psd1' -Force -ErrorAction Stop
+```
+
+- Intune packaging issues: ensure `IntuneWinAppUtil.exe` is present or allow the tool to download it. Confirm you have Microsoft Graph modules and tenant permissions for upload.
+- Remote connection failures: use hostnames (not IPs), provide valid credentials, and ensure the account can access the Lenovo WMI provider on the target.
+- If you see unexpected failures, check the log files in the Logs folder for stack traces and contextual messages.
+
+## Security & best practices
+
+- Always run the GUI in an elevated, trusted environment.
+- Treat Supervisor passwords and encryption passphrases as secrets. Do not store them in plain text.
+- Remove or rotate any hard-coded secrets. (The module contains a helper `ConnectToGraphClientSecret` with a client secret in source — treat this as a placeholder and remove or replace it for production use.)
+- Restrict permissions and delete temporary password-change files after use or protect with strict filesystem ACLs.
+- Test changes on non-production hardware first.
+
+## FAQ
+
+- Q: Do I need a Supervisor password to change BIOS settings?
+
+    - A: Many operations require the Supervisor password if one is set on the device. The GUI will prompt for it when necessary.
+
+- Q: Can I run the module headless for automation?
+
+    - A: Yes — use the module cmdlets directly in scripts (Export-LnvWmiSettings, Import-LnvWmiSettings, ConvertTo-LnvIntunePackage, etc.).
+
+- Q: Does the GUI automatically upload to Intune?
+
+    - A: The GUI supports packaging and contains code to upload via Microsoft Graph, but upload requires Graph modules and proper tenant permissions and frequently requires interactive consent.
+
+## Appendix — useful commands & examples
+
+- Start GUI (STA & elevated):
+
+```pwsh
+pwsh -sta -File C:\git\cdrt\PS-ThinkBiosConfig\ThinkBIOSConfigUI.ps1
+```
+
+- Import module manually:
+
+```pwsh
+Import-Module C:\git\cdrt\PS-ThinkBiosConfig\Lenovo.BIOS.Config\0.9.6\Lenovo.BIOS.Config.psd1 -Force
+```
+
+- Export settings to INI (no key):
+
+```pwsh
+Export-LnvWmiSettings -ConfigFile 'C:\Temp\machine.ini' -NoKey
+```
+
+- Export with encryption key (CLI will prompt for Supervisor password if needed):
+
+```pwsh
+Export-LnvWmiSettings -ConfigFile 'C:\Temp\machine_secure.ini' -Key 'MySecretKey'
+```
+
+- Import settings INI (with optional key and current password):
+
+```pwsh
+$pw = Read-Host -AsSecureString 'Supervisor password'
+Import-LnvWmiSettings -ConfigFile 'C:\Temp\machine.ini' -K 'MySecretKey' -Current $pw
+```
+
+- Create an Intune package (CLI):
+
+```pwsh
+ConvertTo-LnvIntunePackage -in 'C:\SourceFolder' -setup 'ApplyBIOSConfig.ps1' -out 'C:\Output'
+```
