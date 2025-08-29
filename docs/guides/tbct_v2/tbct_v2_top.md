@@ -60,55 +60,78 @@ Notes:
 
 ## UI layout and walkthrough
 
-Top-level navigation (left column): `Settings`, `Actions`, `Preferences` — each opens a panel on the right. Important elements:
+The main user interface for the application includes the following elements:
 
+- Top-level navigation (left column): `Settings`, `Actions`, `Preferences` — each opens a panel on the right.
 - Header: application title and a small reboot-pending indicator appear at the top of the window.
 - Status bar: runtime messages and progress appear at the bottom of the window.
 
 Panels and major controls:
 
-- Settings (always shown first when UI is launched): <!-- Insert screen capture -->
-    - Target: shows the targeted computer and BIOS version.
-    - Settings list: two-column view; each setting is either a ComboBox (Analog) or TextBox (Time/Date/BootOrder).
-    - Unsaved-change indicator: labels turn red when a value differs from initial value.
-    - Buttons: Save Changed Settings, Revert Changes, Reset to Factory Defaults, Save/Reset Custom Defaults, Generate INI.
+### Settings
 
-- Actions: <!-- Insert screen capture -->
-    - Apply Settings: open Apply INI panel.
-    - Remove Password or Fingerprint Data: opens password and fingerprint data removal panel.
-    - Change Password: opens change password panel.
-    - Create Intune Package: opens Intune packaging panel (packages INI into Win32 / Proactive Remediation and can upload to Intune).
+The Settings panel is always shown first when the UI is launched. It will display two columns of settings and their values with controls for selecting from the possible values for each setting.<!-- Insert screen capture -->
 
-- Apply INI panel: <!-- Insert screen capture -->
-    - INI file path and browse button to pick an INI.
-    - Password input box for supervisor password, password input box for passphrase to decrypt encrypted Supervisor Password in the INI.
-    - Button to apply settings from INI (can handle password-change file vs settings INI automatically).
+- Target: shows the targeted computer and BIOS version.
+- Settings list: two-column view; each setting is either a ComboBox (Analog) or TextBox (Time/Date/BootOrder).
+- Unsaved-change indicator: labels turn red when a value differs from initial value.
+- Buttons:
+    - **Save Changed Settings**: this will make the necessary calls to save any changes that are in a changed state. Once saved, the system will need to reboot before the changes will be active
+    - **Revert Changes**: this will cause any settings that are in a changed state to be reverted back to their original values
+    - **Reset to Factory Defaults**: this will configure all settings to their Factory Defaults
+    - **Save Custom Defaults**: this will allow saving the current settings as a Custom Default. This allows you to have a profile of settings that you can revert back to which may be different than the Factory Defaults.
+    - **Reset to Custom Defaults**: this will configure all settings to match the Custom Defaults.
+    - **Generate INI**: this will prompt for a location to save an .ini file containing the current profile of settings. If a Supervisor Password may be needed when applying this INI to other devices, that password can be specified and a passphrase must be entered which will allow the Supervisor Password to be encrypted so it is not stored as plain text in the .ini file. If a path is not specified, the .ini file will be saved in the output folder defined in Preferences. The default location is ```%ProgramData%\Lenovo\ThinkBiosConfig\Output```
 
-- Clear Supervisor Password / Fingerprint Data panel: <!-- Insert screen capture -->
-    - Enter current Supervisor password, then click 'Clear SVP' or 'Clear Fingerprint Data'.
+### Actions
 
-- Change Supervisor Password panel: <!-- Insert screen capture -->
-    - Enter current password, new password, and confirm new password, then click Change Password (on device) or 'Password Change File` (create a password-change file).
+Actions displays a panel of cards for each of the possible actions you can take with this tool. <!-- Insert screen capture -->
 
-- Create Intune Package panel: <!-- Insert screen capture -->
-    - Select INI file and output folder, optional password/passphrase, choose Win32 and/or Proactive Remediation package types.
-    - Click 'Create Intune Package` begins packaging and (optionally) interactive upload to Intune.
+- **Apply Settings**: opens the "Apply settings from saved INI file" panel
+- **Remove Password or Fingerprint Data**: opens the "Clear Supervisor Password or Fingerprint Data" panel
+- **Change Password**: opens the "Change Supervisor Password" panel
+- **Create Intune Package**: opens the "Create Intune Package" panel
 
-- Preferences: <!-- Insert screen capture -->
-    - Output location folder path for saving generated INI files
-    - Checkbox to enable logging, and input for log location.
-    - Save Preferences / Generate Debug File.
+#### Apply settings from saved INI file <!-- Insert screen capture -->
 
-Dialog boxes: <!-- Insert screen capture -->
+This panel displays inputs for the following information:
 
-- `Password Save Changes` — shown when a supervisor password is required for Save/Reset actions.
-- `Password Generate INI` — used when generating INI with optional password and passphrase.
+- INI file path and browse button to pick an INI.
+- Password input box for supervisor password, password input box for passphrase to decrypt encrypted Supervisor Password in the INI.
+- Button to apply settings from INI (can handle password-change file vs settings INI automatically).
 
-Status and logging: the UI writes runtime messages to the `StatusBar` and uses the module logger to write log files to `%ProgramData%\Lenovo\ThinkBiosConfig\Logs` by default.
+#### Clear Supervisor Password or Fingerprint Data <!-- Insert screen capture -->
 
-## Module cmdlet reference (summary)
+- Enter current Supervisor password, then click 'Clear SVP' or 'Clear Fingerprint Data'. This action can only be taken when a Supervisor Password is set.
 
-These are the primary cmdlets exposed by the included `Lenovo.BIOS.Config` module; the GUI wraps and calls these:
+#### Change Supervisor Password <!-- Insert screen capture -->
+
+- Enter current password, new password, and confirm new password, then click **Change Password** to change the password on the current device or click **Create Password Change File** to create a password-change file that can be used on other devices.
+
+#### Create Intune Package <!-- Insert screen capture -->
+
+- Select INI file and output folder, optional password/passphrase, choose Win32 and/or Proactive Remediation package types.
+- Click 'Create Intune Package` begins packaging and (optionally) interactive upload to Intune.
+
+### Preferences <!-- Insert screen capture -->
+
+- Output Location: specify the folder path for saving generated INI files
+- Logging: Checkbox to enable logging, and input for folder to store log files. The default is ```%ProgramData%\Lenovo\ThinkBiosConfig\Logs```
+- Save Preferences:  the preferences are saved to a .json file in ```%ProgramData%\Lenovo\ThinkBiosConfig``` folder
+- Generate Debug File: <todo>
+
+### Dialog boxes <!-- Insert screen capture -->
+
+- **Password Save Changes** — shown when a supervisor password is required for Save/Reset actions.
+- **Password Generate INI** — used when generating INI with optional password and passphrase.
+
+### Status and logging
+
+The UI writes runtime messages to the `StatusBar` and uses the module logger to write log files to ```%ProgramData%\Lenovo\ThinkBiosConfig\Logs``` by default.
+
+## Module Cmdlet Reference
+
+These are the primary cmdlets exposed by the included `Lenovo.BIOS.Config` module:
 
 - `Read-LnvTBCPreferenceFile` — returns preferences object and initializes logger.
 - `Update-LnvTBCPreferenceFile -Logging (bool) -Output (path)` — update preferences.
