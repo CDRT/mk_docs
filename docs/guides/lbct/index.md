@@ -12,7 +12,7 @@ The Lenovo BIOS Certs Tool and Module package can be downloaded from [here: http
 
 ### Convert_LnvBiosConfigFile
 
-:	Coverts the provided ThinkBiosConfig file with or without a password and converts the settings to the signed Lenovo SetBiosSettingEx command. Also adds a SaveBiosSettings command to confirm the settings to the machine. Paths can be relative or absolute.
+:	Converts the provided ThinkBiosConfig file with or without a password and converts the settings to the signed Lenovo SetBiosSettingEx command. Also adds a SaveBiosSettings command to confirm the settings to the machine. Paths can be relative or absolute.
 
 	#### Parameters
 
