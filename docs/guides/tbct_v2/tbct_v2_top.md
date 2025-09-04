@@ -22,20 +22,20 @@ ThinkVantage BIOS Config Tool is a PowerShell-based WPF GUI front-end (`ThinkBIO
 
 The ThinkVantage BIOS Config Tool UI is provided as a PowerShell script that is hosted on the PowerShell Gallery. It can be easily installed with the following command:
 
-```pwsh
+```PowerShell
 Install-Script 'Lenovo.BIOS.Config.UI'
 ```
 
 The required PowerShell module that support the UI can be installed from the PowerShell Gallery as well:
 
-```pwsh
+```PowerShell
 Install-Module 'Lenovo.BIOS.Config'
 ```
 
 !!!note "(Optional)"
     To use Graph/Intune features interactively, install Microsoft Graph modules (the GUI can prompt and install automatically):
 
-    ```pwsh
+    ```PowerShell
     Install-Module Microsoft.Graph -Scope CurrentUser -Force
     ```
 
@@ -44,9 +44,9 @@ Install-Module 'Lenovo.BIOS.Config'
 1. Open an elevated PowerShell terminal (Run as Administrator).
 2. Run the GUI with STA:
 
-```pwsh
+```PowerShell
 # From the repository root (adjust path as needed)
-pwsh -sta -File .\ThinkBIOSConfigUI.ps1
+PowerShell -sta -File .\ThinkBIOSConfigUI.ps1
 ```
 
 <!--
@@ -118,7 +118,7 @@ This panel displays inputs for the following information:
 - Output Location: specify the folder path for saving generated INI files
 - Logging: Checkbox to enable logging, and input for folder to store log files. The default is ```%ProgramData%\Lenovo\ThinkBiosConfig\Logs```
 - Save Preferences:  the preferences are saved to a .json file in ```%ProgramData%\Lenovo\ThinkBiosConfig``` folder
-- Generate Debug File: <todo>
+- Generate Debug File: TODO
 
 ### Dialog boxes <!-- Insert screen capture -->
 
@@ -131,28 +131,10 @@ The UI writes runtime messages to the `StatusBar` and uses the module logger to 
 
 ## Module Cmdlet Reference
 
-These are the primary cmdlets exposed by the included `Lenovo.BIOS.Config` module:
+The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are documented in this [reference guide.](Lenovo.BIOS.Config.Functions.Reference.md)
 
-- `Read-LnvTBCPreferenceFile` — returns preferences object and initializes logger.
-- `Update-LnvTBCPreferenceFile -Logging (bool) -Output (path)` — update preferences.
-- `Get-LnvTBCTargetComputer` — returns target computer info (name, BIOS version, password status).
-- `Open-LnvTBCRemoteComputer -Hostname (name) -Credential (PSCredential)` — connect to remote target.
-- `Close-LnvTBCRemoteComputer` — clear target connection.
-- `Show-LnvWmiSettings [-Force] [-OnlyChanged]` — list settings used to populate GUI.
-- `Get-LnvWmiSetting -Name (setting)` — get a single setting.
-- `Set-LnvWmiSetting -Name (setting) -Value (value)` — change a setting (dynamic parameter validation available).
-- `Save-LnvWmiSettings [-Current (SecureString)]` — commit pending changes.
-- `Reset-LnvWmiSettings` — revert unsaved changes.
-- `Restore-LnvDefaultSettings [-Current (SecureString)]` — reset to factory defaults.
-- `Save-LnvCustomDefault` / `Restore-LnvCustomDefault` — manage and restore custom defaults.
-- `Export-LnvWmiSettings -ConfigFile (path) [-Key (encryptKey)] [-NoKey] [-OnlyChanged]` — export to INI; optional encryption key for Supervisor password.
-- `Import-LnvWmiSettings -ConfigFile (path) [-K (key)] [-Current (SecureString)]` — import settings or password-change file.
-- `Export-LnvPasswordChangeFile` / `Import-LnvPasswordChangeFile` — create/apply encrypted password-change files.
-- `Update-LnvPassword -Old (SecureString) -New (SecureString) -Ty (pap|smp|...)` — update password on device.
-- `ConvertTo-LnvIntunePackage -in (sourceFolder) -setup (script) -out (outputFolder)` — create `.intunewin` using IntuneWinAppUtil tool.
-- `ReadIntunePackageMetadata -FilePath (.intunewin)` — inspect a packaged intunewin for metadata.
-
-Tip: run an explicit example such as `Get-Help Read-LnvTBCPreferenceFile -Full` after importing the module to get parameter details for a cmdlet.
+!!!info "Tip"
+    Run an explicit example such as `Get-Help Read-LnvTBCPreferenceFile -Full` after importing the module to get parameter details for a cmdlet.
 
 ## Typical workflows (step-by-step)
 
@@ -161,7 +143,7 @@ Tip: run an explicit example such as `Get-Help Read-LnvTBCPreferenceFile -Full` 
 
     - CLI:
 
-        ```pwsh
+        ```PowerShell
         Export-LnvWmiSettings -ConfigFile "C:\Temp\mysettings.ini" -NoKey
         ```
 
@@ -170,7 +152,7 @@ Tip: run an explicit example such as `Get-Help Read-LnvTBCPreferenceFile -Full` 
 
     - CLI:
 
-        ```pwsh
+        ```PowerShell
         $pw = Read-Host -AsSecureString 'Supervisor password (if required)'
         Import-LnvWmiSettings -ConfigFile 'C:\Temp\mysettings.ini' -K 'MyEncryptKey' -Current $pw
         ```
@@ -180,7 +162,7 @@ Tip: run an explicit example such as `Get-Help Read-LnvTBCPreferenceFile -Full` 
 
     - CLI (interactive):
 
-        ```pwsh
+        ```PowerShell
         Export-LnvPasswordChangeFile -FileLocation 'C:\Temp\Password.ini' -Type pap
         ```
 
@@ -189,7 +171,7 @@ Tip: run an explicit example such as `Get-Help Read-LnvTBCPreferenceFile -Full` 
 
     - CLI:
 
-        ```pwsh
+        ```PowerShell
         $cur = Read-Host -AsSecureString 'Current Supervisor password'
         Submit-LnvFunctionRequest -Method ResetFingerprintData -Value Yes -C $cur
         # or
@@ -204,7 +186,7 @@ Tip: run an explicit example such as `Get-Help Read-LnvTBCPreferenceFile -Full` 
 
     CLI: packaging example (create `.intunewin`):  <!-- Is this real? -->
 
-        ```pwsh
+        ```PowerShell
         ConvertTo-LnvIntunePackage -in 'C:\SourceFolder' -setup 'ApplyBIOSConfig.ps1' -out 'C:\Output'
         ```
 
@@ -227,7 +209,7 @@ Tip: run an explicit example such as `Get-Help Read-LnvTBCPreferenceFile -Full` 
 - GUI fails to load or reports STA errors: start PowerShell with `-STA` and run elevated.
 - Module import error: manually import module using the PSD1 path and ensure files are not blocked by Windows (Unblock-File if needed).
 
-```pwsh
+```PowerShell
 Import-Module 'C:\git\cdrt\PS-ThinkBiosConfig\Lenovo.BIOS.Config\0.9.6\Lenovo.BIOS.Config.psd1' -Force -ErrorAction Stop
 ```
 
@@ -261,37 +243,37 @@ Import-Module 'C:\git\cdrt\PS-ThinkBiosConfig\Lenovo.BIOS.Config\0.9.6\Lenovo.BI
 
 - Start GUI (STA & elevated):
 
-```pwsh
-pwsh -sta -File C:\git\cdrt\PS-ThinkBiosConfig\ThinkBIOSConfigUI.ps1
+```PowerShell
+PowerShell -sta -File C:\git\cdrt\PS-ThinkBiosConfig\ThinkBIOSConfigUI.ps1
 ```
 
 - Import module manually:
 
-```pwsh
+```PowerShell
 Import-Module C:\git\cdrt\PS-ThinkBiosConfig\Lenovo.BIOS.Config\0.9.6\Lenovo.BIOS.Config.psd1 -Force
 ```
 
 - Export settings to INI (no key):
 
-```pwsh
+```PowerShell
 Export-LnvWmiSettings -ConfigFile 'C:\Temp\machine.ini' -NoKey
 ```
 
 - Export with encryption key (CLI will prompt for Supervisor password if needed):
 
-```pwsh
+```PowerShell
 Export-LnvWmiSettings -ConfigFile 'C:\Temp\machine_secure.ini' -Key 'MySecretKey'
 ```
 
 - Import settings INI (with optional key and current password):
 
-```pwsh
+```PowerShell
 $pw = Read-Host -AsSecureString 'Supervisor password'
 Import-LnvWmiSettings -ConfigFile 'C:\Temp\machine.ini' -K 'MySecretKey' -Current $pw
 ```
 
 - Create an Intune package (CLI):
 
-```pwsh
+```PowerShell
 ConvertTo-LnvIntunePackage -in 'C:\SourceFolder' -setup 'ApplyBIOSConfig.ps1' -out 'C:\Output'
 ```
