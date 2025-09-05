@@ -17,3 +17,9 @@ dt {
     font-weight: bold !important;
     font-size: larger !important;
 }
+
+.centered-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
