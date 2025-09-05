@@ -177,7 +177,7 @@ Microsoft outlines a multi-stage process for implementing the new certificates a
         1. In File Manager, right-click the file C:\bootmgfw_2023.efi, click Properties, and then select the Digital Signatures tab.
         1. In the Signature list, confirm that the certificate chain includes Windows UEFI CA 2023. The certificate chain should match the following screenshot:
 
-        ![Certificates](\img\reference\bios\certificates.png){ .centered-image width="400" }
+        ![Certificates](https://cdrt.github.io/mk_docs/img/reference/bios/certificates.png){ .centered-image width="400" }
 
 1. **Apply Revocation Lists (DBX Update).** After ensuring the system boots with the new boot manager and all boot media has been updated, the vulnerable bootloaders can be revoked. This is done by updating the Forbidden Signature Database (DBX).
     1. Add the “Windows Production PCA 2011” certificate to the Secure Boot UEFI Forbidden List (DBX). To do this, open a Command Prompt window as an Administrator, type each of the following commands separately, and then press Enter:
