@@ -96,7 +96,7 @@ With Windows Autopilot Pre-provisioning, devices are pre-configured for the end 
 - **Vendor configuration**: Lenovo provisions devices from 2024 onwards in Deployed Mode by default to ensure that the secure boot configuration remains protected by the OEM. Devices from 2023 and older do not yet have this feature and are automatically operated in User Mode after installing the PK.
 - **Autopilot behavior**: Autopilot does not write UEFI variables (PK/KEK/db/dbx); therefore, it does not change the mode. The expectation that Pro-Provisioning will change the mode from Deployed Mode to User Mode is therefore not fulfilled. This is in line with the UEFI standard; operation in Deployed Mode is intended for end users.
 
-### Should the device be delivered to end users in deployed mode?
+### Should the device be delivered to end users in Deployed Mode?
 
 Yes. According to the UEFI standard and Lenovo recommendation, Deployed Mode is the intended operating mode for shipped devices, as it offers the highest level of security. The end user does not notice any difference in everyday life: the Windows boot process is identical, drivers are checked and unsigned software cannot manipulate the boot process. Only if you have to perform specific tasks, e.g. import your own Secure Boot keys or use firmware test signatures, is it recommended to switch to User Mode or Audit Mode.
 
