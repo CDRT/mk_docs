@@ -1,8 +1,8 @@
-# ThinkVantage BIOS Config Tool V2
+# Think BIOS Config Tool V2
 
 ## Overview
 
-ThinkVantage BIOS Config Tool is a PowerShell-based WPF GUI front-end (`ThinkBIOSConfigUI.ps1`) that uses the `Lenovo.BIOS.Config` module to read and modify Lenovo BIOS settings via WMI. This solution replaces the older Think BIOS Config Tool which was implemented as an HTA. It supports:
+Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSConfigUI.ps1`) that uses the `Lenovo.BIOS.Config` module to read and modify Lenovo BIOS settings via WMI. This solution replaces the older Think BIOS Config Tool which was implemented as an HTA. It supports:
 
 - Viewing and editing BIOS settings interactively.
 - Exporting/importing BIOS settings (.ini) with optional encrypted Supervisor password.
@@ -20,7 +20,7 @@ ThinkVantage BIOS Config Tool is a PowerShell-based WPF GUI front-end (`ThinkBIO
 
 ## Installation / setup recommendations
 
-The ThinkVantage BIOS Config Tool UI is provided as a PowerShell script that is hosted on the PowerShell Gallery. It can be easily installed with the following command:
+The Think BIOS Config Tool UI is provided as a PowerShell script that is hosted on the PowerShell Gallery. It can be easily installed with the following command:
 
 ```PowerShell
 Install-Script 'Lenovo.BIOS.Config.UI'
@@ -111,7 +111,7 @@ This panel displays inputs for the following information:
 #### Create Intune Package <!-- Insert screen capture -->
 
 - Select INI file and output folder, optional password/passphrase, choose Win32 and/or Proactive Remediation package types.
-- Click 'Create Intune Package` begins packaging and (optionally) interactive upload to Intune.
+- Click 'Create Intune Package` begins packaging and interactive upload to Intune (optional).
 
 ### Preferences <!-- Insert screen capture -->
 
@@ -180,9 +180,9 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
 
 1. Create an Intune package and optionally upload to Intune (GUI):
     - GUI: Actions → Create Intune Package: choose INI, output path, select Win32/Proactive Remediation, click Create Package.
-        - You will be asked if you want to upload the generated content directly to Intune.
+        - You will be asked if you want to upload the generated content directly to Intune. Only do this if you have the necessary access rights to do so.
         - GUI checks/installs Microsoft Graph modules and prompts to sign in.
-        - Packaging the Win32 package uses Intune Win32 Content Prep Tool.
+        - Packaging the Win32 package uses Intune Win32 Content Prep Tool which is available here: [https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe).
 
     CLI: packaging example (create `.intunewin`):  <!-- Is this real? -->
 
