@@ -8,12 +8,11 @@ This chapter provides the installation instructions and requirements for System 
 
 System Update supports the following operating systems:
 
-- Microsoft® Windows® 7 32 &amp; 64 bit
 - Windows 10 64-bit
 - Windows 11 64-bit
 
 !!! note
-	System Update is qualified and supported on Windows 7, Windows 10 and Windows 11. System Update is not qualified and supported on Windows 8/8.1. If End User decides to install System Update on Windows 8/8.1 it may work without issue and may be used as is, but Lenovo makes no representations about this and has not tested such installation and such installation would not be supported. If having System Update is important to End User Lenovo recommends changing to a Windows version where it is qualified and supported.
+	System Update is qualified and supported on Windows 10 and Windows 11. System Update is no longer qualified or supported on Windows 7/8/8.1. If End User decides to install System Update on these versions, it may work without issue and may be used as is, but Lenovo makes no representations about this and has not tested such installation and such installation would not be supported. If having System Update is important to End User Lenovo recommends changing to a Windows version where it is qualified and supported.
 
 System Update requires Microsoft .NET Framework 4.5.2 or a later version. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
@@ -60,7 +59,7 @@ The following are scenarios in which System Update will load the substitute NLS 
 - **_Loading the language pack set in the DefaultLanguage field_**: If the language pack corresponding to the language set in the Regional and Language Options settings is not available on the system, System Update will attempt to get the default language that has been set in the DefaultLanguage field when the end user used the System Update installer and selected a language during the installation. System Update will load the language pack corresponding to the default language set in the DefaultLanguage field, and display the rest of the session in that language. If the 8 System Update Solution Deployment Guide language pack corresponding to the default language set in the DefaultLanguage field is on the system, System Update will load the default language pack and display the rest of the session. The registry location for the DefaultLanguage field is:
 
 	```Registry
-	HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\DefaultLanguage 
+	HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\DefaultLanguage
 	```
 
 - **_Loading the US English language pack_**: If the DefaultLanguage field is empty or contains an invalid value, or if the language pack corresponding to the default language set in the DefaultLanguage field is not on the system, the default language will not be used. System Update will attempt to load the US English language pack. If the US English language pack is not on the system, an error message will be displayed, saying &quot;System Update has found a critical problem and must close.&quot; This error message is in the US English language.
@@ -121,7 +120,7 @@ It is recommended to keep System Update running on the most current version; how
 2. Delete the ServerName string value, for example:
 
 	```URL
-	https://download.lenovo.com/ibmdl/pub/pc/pcbs/agent/ 
+	https://download.lenovo.com/ibmdl/pub/pc/pcbs/agent/
 	```
 
 3. Click **OK**.
@@ -135,7 +134,7 @@ Thin Installer is provided as an installation package which simply extracts the 
 Thin Installer is supported on the following operating systems:
 
 - Windows 10 64 bit
-- Windows 7 32 &amp; 64 bit
+- Windows 11 64 bit
 
 Thin Installer requires Microsoft .NET Framework version 4.5.2 or higher. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
@@ -153,16 +152,14 @@ Update Retriever is intended to be installed on an administrator's system and is
 
 Update Retriever is supported on the following operating systems:
 
-- Windows 7
-- Windows 8.1
 - Windows 10
-- Windows Server 2012
+- Windows 11
 - Windows Server 2016
 - Windows Server 2019
 
 Update Retriever requires Microsoft .NET Framework version 4.5.2 or higher. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
-[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download) 
+[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
 
 ### 2.3.2 Languages
 

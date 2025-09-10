@@ -231,7 +231,6 @@ When launching Update Retriever the first time, some initial configuration items
 	!!! note
 		Update Retriever requires elevated privileges to run. Therefore, a UAC prompt may be displayed when launching the program.
 
-
    2. Choose between a **Local repository** or a **Lenovo cloud repository** by clicking the appropriate radio button. The **Local repository** option will host packages in a local directory or network share. The **Lenovo cloud repository** will host the actual packages on Lenovo&#39;s global Content Delivery Network and only the repository database and package descriptors will be stored in the local directory or network share. System Update, Commercial Vantage, and Thin Installer support the **Lenovo cloud repository** feature.
 
     !!! info
