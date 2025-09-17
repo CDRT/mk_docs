@@ -1,5 +1,8 @@
 # Think BIOS Config Tool V2
 
+!!! warning
+    This is pre-release documentation for the Think BIOS Config Tool v2 which has not been officially released yet nor published in the PowerShell Gallery. There may be inaccuracies and features that do not yet work as described below.
+
 ## Overview
 
 Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSConfigUI.ps1`) that uses the `Lenovo.BIOS.Config` module to read and modify Lenovo BIOS settings via WMI. **This solution replaces the older Think BIOS Config Tool which was implemented as an HTA.** It supports:
@@ -14,7 +17,7 @@ Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSCon
 ## Prerequisites
 
 - Windows with PowerShell (desktop PowerShell or PowerShell Core) and administrative privileges.
-- Start PowerShell with the single-threaded apartment model (`-STA`) because the GUI uses WPF/XAML.
+- Start PowerShell with the **single-threaded apartment model** (`-STA`) because the GUI uses WPF/XAML.
 - When targeting remote Lenovo devices, WMI access to the target machines (hostname-based targeting) and the appropriate credentials for WMI access when connecting to remote targets are required.
 - For Intune packaging/upload: `IntuneWinAppUtil.exe` (tool will be downloaded if missing) and Microsoft Graph modules with appropriate tenant permissions.
 
@@ -42,7 +45,7 @@ Install-Module 'Lenovo.BIOS.Config'
 ## Quick start — launch the GUI
 
 1. Open an elevated PowerShell terminal (Run as Administrator).
-2. Run the GUI with STA (Single Thread Application):
+2. Run the GUI with STA:
 
 ```PowerShell
 # Adjust path as needed
@@ -137,6 +140,8 @@ This panel displays inputs for the following information:
 ### Dialog boxes
 
 **Password Save Changes** — shown when a supervisor password is required for Save/Reset actions.
+
+![Password Prompt](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/password-prompt.png)
 
 **Password Generate INI** — used when generating INI with optional password and passphrase.
 
