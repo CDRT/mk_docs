@@ -2,14 +2,14 @@
 
 ## Overview
 
-Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSConfigUI.ps1`) that uses the `Lenovo.BIOS.Config` module to read and modify Lenovo BIOS settings via WMI. This solution replaces the older Think BIOS Config Tool which was implemented as an HTA. It supports:
+Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSConfigUI.ps1`) that uses the `Lenovo.BIOS.Config` module to read and modify Lenovo BIOS settings via WMI. **This solution replaces the older Think BIOS Config Tool which was implemented as an HTA.** It supports:
 
 - Viewing and editing BIOS settings interactively.
 - Exporting/importing BIOS settings (.ini) with optional encrypted Supervisor password.
 - Creating and importing password-change files.
 - Clearing or changing Supervisor password and fingerprint data.
 - Creating Intune-friendly artifacts (Win32 / Proactive Remediation) and optionally uploading via Microsoft Graph.
-- Saving and restoring custom defaults and remote targeting.
+- Saving and restoring custom defaults.
 
 ## Prerequisites
 
@@ -42,10 +42,10 @@ Install-Module 'Lenovo.BIOS.Config'
 ## Quick start — launch the GUI
 
 1. Open an elevated PowerShell terminal (Run as Administrator).
-2. Run the GUI with STA:
+2. Run the GUI with STA (Single Thread Application):
 
 ```PowerShell
-# From the repository root (adjust path as needed)
+# Adjust path as needed
 PowerShell -sta -File .\ThinkBIOSConfigUI.ps1
 ```
 
@@ -70,7 +70,9 @@ Panels and major controls:
 
 ### Settings
 
-The Settings panel is always shown first when the UI is launched. It will display two columns of settings and their values with controls for selecting from the possible values for each setting.<!-- Insert screen capture -->
+The Settings panel is always shown first when the UI is launched. It will display two columns of settings and their values with controls for selecting from the possible values for each setting.
+
+![Opening screen](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/initial-settings.png)
 
 - Target: shows the targeted computer and BIOS version.
 - Settings list: two-column view; each setting is either a ComboBox (Analog) or TextBox (Time/Date/BootOrder).
@@ -85,14 +87,18 @@ The Settings panel is always shown first when the UI is launched. It will displa
 
 ### Actions
 
-Actions displays a panel of cards for each of the possible actions you can take with this tool. <!-- Insert screen capture -->
+Actions displays a panel of cards for each of the possible actions you can take with this tool.
+
+![Actions panel](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions.png)
 
 - **Apply Settings**: opens the "Apply settings from saved INI file" panel
 - **Remove Password or Fingerprint Data**: opens the "Clear Supervisor Password or Fingerprint Data" panel
 - **Change Password**: opens the "Change Supervisor Password" panel
 - **Create Intune Package**: opens the "Create Intune Package" panel
 
-#### Apply settings from saved INI file <!-- Insert screen capture -->
+#### Apply settings from saved INI file
+
+![Apply INI File](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-applysettings.png)
 
 This panel displays inputs for the following information:
 
@@ -100,15 +106,21 @@ This panel displays inputs for the following information:
 - Password input box for supervisor password, password input box for passphrase to decrypt encrypted Supervisor Password in the INI.
 - Button to apply settings from INI (can handle password-change file vs settings INI automatically).
 
-#### Clear Supervisor Password or Fingerprint Data <!-- Insert screen capture -->
+#### Clear Supervisor Password or Fingerprint Data
+
+![Clear password or fingerprint data](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-removepassword.png)
 
 - Enter current Supervisor password, then click 'Clear SVP' or 'Clear Fingerprint Data'. This action can only be taken when a Supervisor Password is set.
 
-#### Change Supervisor Password <!-- Insert screen capture -->
+#### Change Supervisor Password
+
+![Change password](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-changepassword.png)
 
 - Enter current password, new password, and confirm new password, then click **Change Password** to change the password on the current device or click **Create Password Change File** to create a password-change file that can be used on other devices.
 
-#### Create Intune Package <!-- Insert screen capture -->
+#### Create Intune Package
+
+![Create Intune Package](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-intunepackage.png)
 
 - Select INI file and output folder, optional password/passphrase, choose Win32 and/or Proactive Remediation package types.
 - Click 'Create Intune Package` begins packaging and interactive upload to Intune (optional).
