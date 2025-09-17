@@ -125,17 +125,22 @@ This panel displays inputs for the following information:
 - Select INI file and output folder, optional password/passphrase, choose Win32 and/or Proactive Remediation package types.
 - Click 'Create Intune Package` begins packaging and interactive upload to Intune (optional).
 
-### Preferences <!-- Insert screen capture -->
+### Preferences
+
+![Preferences](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/preferences.png)
 
 - Output Location: specify the folder path for saving generated INI files
 - Logging: Checkbox to enable logging, and input for folder to store log files. The default is ```%ProgramData%\Lenovo\ThinkBiosConfig\Logs```
 - Save Preferences:  the preferences are saved to a .json file in ```%ProgramData%\Lenovo\ThinkBiosConfig``` folder
 - Generate Debug File: TODO
 
-### Dialog boxes <!-- Insert screen capture -->
+### Dialog boxes
 
-- **Password Save Changes** — shown when a supervisor password is required for Save/Reset actions.
-- **Password Generate INI** — used when generating INI with optional password and passphrase.
+**Password Save Changes** — shown when a supervisor password is required for Save/Reset actions.
+
+**Password Generate INI** — used when generating INI with optional password and passphrase.
+
+![Generate INI](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/generate-ini.png)
 
 ### Status and logging
 
