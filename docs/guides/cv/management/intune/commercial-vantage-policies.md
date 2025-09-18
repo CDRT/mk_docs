@@ -1158,8 +1158,8 @@ Values:
 
 ### Turn Off Network
 
-!!! ""
-    Previously named Wifi Security
+!!! note ""
+    Previously named **Wifi Security**
 
 When this policy is enabled, Network feature of Commercial Vantage will be turned off.
 
