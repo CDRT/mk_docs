@@ -65,8 +65,6 @@ nav:
     - Think BIOS Config Tool:
       - Overview: guides/tbct/tbct_top.md
       - User Guide: guides/tbct/tbct.md
-    - ThinkVantage BIOS Config Tool v2:
-      - User Guide: guides/tbct_v2/tbct_v2_top.md
     - Lenovo BIOS Certs Tool:
       - guides/lbct/index.md
     - Lenovo Client Scripting Module:

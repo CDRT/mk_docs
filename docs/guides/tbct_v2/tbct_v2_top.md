@@ -5,7 +5,7 @@
 
 ## Overview
 
-Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSConfigUI.ps1`) that uses the `Lenovo.BIOS.Config` module to read and modify Lenovo BIOS settings via WMI. **This solution replaces the older Think BIOS Config Tool which was implemented as an HTA.** It supports:
+Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSConfigUI.ps1`) that uses the `Lenovo.BIOS.Config` module \[[Reference Guide](./Lenovo.BIOS.Config.Functions.Reference.md)] to read and modify Lenovo BIOS settings via WMI. **This solution replaces the older Think BIOS Config Tool which was implemented as an HTA.** It supports:
 
 - Viewing and editing BIOS settings interactively.
 - Exporting/importing BIOS settings (.ini) with optional encrypted Supervisor password.
@@ -41,6 +41,8 @@ Install-Module 'Lenovo.BIOS.Config'
     ```PowerShell
     Install-Module Microsoft.Graph -Scope CurrentUser -Force
     ```
+
+    When creating a Win32 Package, the IntuneWinAppUtil.exe tool will be downloaded to the `C:\ProgramData\Lenovo\ThinkBiosConfig\Download` folder.
 
 ## Quick start — launch the GUI
 
@@ -81,9 +83,9 @@ The Settings panel is always shown first when the UI is launched. It will displa
 - Settings list: two-column view; each setting is either a ComboBox (Analog) or TextBox (Time/Date/BootOrder).
 - Unsaved-change indicator: labels turn red when a value differs from initial value.
 - Buttons:
-    - **Save Changed Settings**: this will make the necessary calls to save any changes that are in a changed state. Once saved, the system will need to reboot before the changes will be active
-    - **Revert Changes**: this will cause any settings that are in a changed state to be reverted back to their original values
-    - **Reset to Factory Defaults**: this will configure all settings to their Factory Defaults
+    - **Save Changed Settings**: this will make the necessary calls to save any changes that are in a changed state. **Once saved, the system will need to reboot before the changes will be active.**
+    - **Revert Changes**: this will cause any settings that are in a changed state to be reverted back to their original values when the session began.
+    - **Reset to Factory Defaults**: this will configure all settings to their Factory Defaults.
     - **Save Custom Defaults**: this will allow saving the current settings as a Custom Default. This allows you to have a profile of settings that you can revert back to which may be different than the Factory Defaults.
     - **Reset to Custom Defaults**: this will configure all settings to match the Custom Defaults.
     - **Generate INI**: this will prompt for a location to save an .ini file containing the current profile of settings. If a Supervisor Password may be needed when applying this INI to other devices, that password can be specified and a passphrase must be entered which will allow the Supervisor Password to be encrypted so it is not stored as plain text in the .ini file. If a path is not specified, the .ini file will be saved in the output folder defined in Preferences. The default location is ```%ProgramData%\Lenovo\ThinkBiosConfig\Output```
@@ -141,7 +143,8 @@ This panel displays inputs for the following information:
 
 **Password Save Changes** — shown when a supervisor password is required for Save/Reset actions.
 
-![Password Prompt](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/password-prompt.png)
+![Password Prompt](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/password-prompt.png){: style="width:400px; height:auto;"}
+
 
 **Password Generate INI** — used when generating INI with optional password and passphrase.
 
