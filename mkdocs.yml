@@ -35,6 +35,14 @@ theme:
 nav:
   - Home: 'index.md'
   - Product Guides:
+    - (new) Commercial Vantage:
+      - Overview and What's New: guides/lcv/index.md
+      - Deploying : guides/lcv/deployment.md
+      - Configuring : guides/lcv/configuration.md
+      - Upgrading : guides/lcv/upgrading.md
+      - Use Case Scenarios : guides/lcv/use_case_scenarios.md
+      - SU Helper Reference: guides/lcv/suhelper.md
+      - Commercial Vantage FAQ: guides/lcv/commercial_vantage_faq.md
     - Commercial Vantage:
       - Overview and What's New: guides/cv/index.md
       - Deployment Guide: guides/cv/commercial_vantage.md

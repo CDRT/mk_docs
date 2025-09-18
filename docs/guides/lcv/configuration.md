@@ -1,8 +1,8 @@
-# Microsoft Configuration Manager
+## Microsoft Configuration Manager
 
-If policies need to be set in an Operating System Deployment prior to first-logon. reference the example solutions described below.
+If policies need to be set in an Operating System Deployment prior to first-logon, reference the example solutions described below.
 
-## Package/JSON
+### Package/JSON
 
 A Package containing a JSON file with the desired policies, which are applied using a PowerShell script.
 
@@ -141,11 +141,11 @@ Edit the Operating System Deployment task sequence and perform the following:
 
 3\. Click **Ok** to apply changes to the task sequence.
 
-## Configuration Item/Baseline
+### Configuration Item/Baseline
 
 Deploy a Configuration Baseline that contains a predefined configuration item consisting of recommended Commercial Vantage policies to be enabled in an enterprise.
 
-### Configuration Item
+#### Configuration Item
 
 1\. In the Configuration Manager console, go to the **Assets and Compliance** workspace, expand **Compliance Settings**, and select the **Configuration Items** node.
 
@@ -207,7 +207,7 @@ Deploy a Configuration Baseline that contains a predefined configuration item co
 | Turn Off Network (previously named Wifi Security) | page.wifiSecurity |
 | Write Warranty Info to WMI | wmi.warranty |
 
-### Configuration Baseline
+#### Configuration Baseline
 
 1\. In the Configuration Manager console, go to the **Assets and Compliance** workspace, expand **Compliance Settings**, and select the **Configuration Baseline** node.
 
