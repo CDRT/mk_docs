@@ -1,7 +1,7 @@
 # Think BIOS Config Tool V2
 
 !!! warning
-    This is pre-release documentation for the Think BIOS Config Tool v2 which has not been officially released yet nor published in the PowerShell Gallery. There may be inaccuracies and features that do not yet work as described below.
+    This is pre-release documentation for the Think BIOS Config Tool v2 which has not been officially released yet nor published in the PowerShell Gallery. There may be inaccuracies and features that do not yet work as described below. Pre-release documentation is also available for the companion Lenovo BIOS Certs Tool [here.](.\cert_based_bios_authentication.md)
 
 ## Overview
 
@@ -144,7 +144,6 @@ This panel displays inputs for the following information:
 **Password Save Changes** — shown when a supervisor password is required for Save/Reset actions.
 
 ![Password Prompt](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/password-prompt.png){: style="width:400px; height:auto;"}
-
 
 **Password Generate INI** — used when generating INI with optional password and passphrase.
 
