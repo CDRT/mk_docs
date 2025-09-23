@@ -39,3 +39,10 @@
 
 !!! note "I have Commercial Vantage installed but I am not getting any updates, why?"
     This can happen in some managed environments which have security solutions that limit the executables that are allowed to run. Usually this can be fix in the security solution application by allowing executables in the ```C:\ProgramData\Lenovo\Vantage``` directory and its sub-directories to run. The updating process is handled by the Lenovo System Update Addin executable located under that directory.
+
+!!! note "After invoking VantageInstaller.exe with parameters, I get the error "Incorrect parameter""
+    The parameters are case-sensitive. If you supply the parameters **install -vantage -suhelper**, this will result in the **Incorrect parameter** error. The correct case should be
+
+    ```dos
+    Install -Vantage -SuHelper
+    ```
