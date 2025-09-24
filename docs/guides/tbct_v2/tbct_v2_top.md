@@ -1,7 +1,7 @@
 # Think BIOS Config Tool V2
 
 !!! warning
-    This is pre-release documentation for the Think BIOS Config Tool v2 which has not been officially released yet nor published in the PowerShell Gallery. There may be inaccuracies and features that do not yet work as described below. Pre-release documentation is also available for the companion Lenovo BIOS Certs Tool [here.](.\cert_based_bios_authentication.md)
+    This is pre-release documentation for the Think BIOS Config Tool v2 which has not been officially released yet nor published in the PowerShell Gallery. There may be inaccuracies and features that do not yet work as described below. Pre-release documentation is also available for the companion [Lenovo BIOS Certificate Tool.](.\cert_based_bios_authentication.md)
 
 ## Overview
 
@@ -17,8 +17,10 @@ Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSCon
 ## Prerequisites
 
 - Windows with PowerShell (desktop PowerShell or PowerShell Core) and administrative privileges.
-- Start PowerShell with the **single-threaded apartment model** (`-STA`) because the GUI uses WPF/XAML.
+- **Recommended**: Start PowerShell with the **single-threaded apartment model** (`-STA`) because the GUI uses WPF/XAML. This can help prevent unexpected behaviors when interacting with GUI controls.
+<!--
 - When targeting remote Lenovo devices, WMI access to the target machines (hostname-based targeting) and the appropriate credentials for WMI access when connecting to remote targets are required.
+-->
 - For Intune packaging/upload: `IntuneWinAppUtil.exe` (tool will be downloaded if missing) and Microsoft Graph modules with appropriate tenant permissions.
 
 ## Installation / setup recommendations
@@ -54,22 +56,19 @@ Install-Module 'Lenovo.BIOS.Config'
 PowerShell -sta -File .\ThinkBIOSConfigUI.ps1
 ```
 
-<!--
-TODO:  Figure out where the script resides when installed from the Gallery
--->
-
 Notes:
 
 - The script includes `#Requires -RunAsAdministrator` and requires `-STA` for WPF support.
-- The GUI auto-imports `Lenovo.BIOS.Config` if already installed from the PowerShell Gallery.
+- The GUI script auto-imports `Lenovo.BIOS.Config` if already installed from the PowerShell Gallery. If it is not already installed, it will attempt to find the module in the GUI script's location.
 
 ## UI layout and walkthrough
 
 The main user interface for the application includes the following elements:
 
 - Top-level navigation (left column): `Settings`, `Actions`, `Preferences` — each opens a panel on the right.
-- Header: application title and a small reboot-pending indicator appear at the top of the window.
-- Status bar: runtime messages and progress appear at the bottom of the window.
+- Header: application title appears at the top of the window.
+- Main Content: panels appear based on item selected from the Top-level navigation.
+- Status bar: runtime messages and progress appear at the bottom of the window. A log file can also be enabled from the **Preferences** panel.
 
 Panels and major controls:
 
@@ -108,7 +107,7 @@ Actions displays a panel of cards for each of the possible actions you can take 
 This panel displays inputs for the following information:
 
 - INI file path and browse button to pick an INI.
-- Password input box for supervisor password, password input box for passphrase to decrypt encrypted Supervisor Password in the INI.
+- Password input box for Supervisor or System Management Password, password input box for the Passphrase to decrypt encrypted password in the INI.
 - Button to apply settings from INI (can handle password-change file vs settings INI automatically).
 
 #### Clear Supervisor Password or Fingerprint Data
