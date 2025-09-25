@@ -20,7 +20,7 @@ To leverage this capability, a new set of WMI methods were introduced as part of
 1. Call the new method to set the setting on the target device
 1. Repeat steps 3 & 4 as needed
 
-To make the process easier, we have created a LnvBiosCerts PowerShell module and the Lenovo BIOS Cert Tool (LnvBiosCertsInterface.ps1) which provides a GUI interface for working with these functions. The current version of this package can be downloaded from [here (LnvBiosCertTool_1.0.2.zip)](https://download.lenovo.com/cdrt/tools/LnvBiosCertTool_1.0.2.zip).
+To make the process easier, we have created a LnvBiosCerts PowerShell module and the Lenovo BIOS Cert Tool (LnvBiosCertsInterface.ps1) which provides a GUI interface for working with these functions. <!--The current version of this package can be downloaded from [here (LnvBiosCertTool_1.0.2.zip)](https://download.lenovo.com/cdrt/tools/LnvBiosCertTool_1.0.2.zip).-->
 
 A reference guide to the PowerShell module is available at [https://docs.lenovocdrt.com/guides/lbct/index](https://docs.lenovocdrt.com/guides/lbct/index)
 

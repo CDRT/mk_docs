@@ -1,7 +1,7 @@
 # Think BIOS Config Tool V2
 
 !!! warning
-    This is pre-release documentation for the Think BIOS Config Tool v2 which has not been officially released yet nor published in the PowerShell Gallery. There may be inaccuracies and features that do not yet work as described below. Pre-release documentation is also available for the companion [Lenovo BIOS Certificate Tool.](.\cert_based_bios_authentication.md)
+    This is pre-release documentation for the Think BIOS Config Tool v2 which has not been officially released yet nor published in the PowerShell Gallery. There may be inaccuracies and features that do not yet work as described below. Pre-release documentation is also available for the companion [Lenovo BIOS Certificate Tool.](https://docs.lenovocdrt.com/guides/tbct_v2/cert_based_bios_authentication/)
 
 ## Overview
 
