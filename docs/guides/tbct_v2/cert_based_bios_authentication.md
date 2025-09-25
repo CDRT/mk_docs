@@ -46,6 +46,9 @@ openssl genrsa -out privateKey.pem 2048
 
 This file should be kept secure with access only given to an administrator. Having access to this file would be analogous to knowing a Supervisor Password.
 
+!!! warning
+    It is recommended to use key sizes of 2048 or 4096. Odd sized keys will encounter errors.
+
 Depending on your company's requirements you may need to use .DER file format instead.  These are also supported and can be generated from the .PEM file. This solution does not currently support encrypted keys.
 
 The optional command to convert the .PEM file to a .DER file:
