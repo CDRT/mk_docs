@@ -126,8 +126,10 @@ This panel displays inputs for the following information:
 
 ![Create Intune Package](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-intunepackage.png)
 
-- Select INI file and output folder, optional password/passphrase, choose Win32 and/or Proactive Remediation package types.
-- Click 'Create Intune Package` begins packaging and interactive upload to Intune (optional).
+- Select an INI file and optionally a passphrase if the INI includes an encrypted password.
+- Specify a Package Name and Version which will be shown in the Intune portal for Win32 Packages.
+- Choose Win32 and/or Proactive Remediation package types. For Win32 packages, specify a tag file name which will be used in the detection rule.
+- Click 'Create Intune Package`. The selected packages will be created in separate subfolders in the output folder specified in Preferences. You will be prompted with the option to upload the packages directly to Intune using MS Graph (optional).
 
 ### Preferences
 
