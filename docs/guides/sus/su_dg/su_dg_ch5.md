@@ -19,7 +19,7 @@ Example: /CM -search A -action INSTALL -includerebootpackages 3 -nolicense -expo
 ```
 
 !!! note
-    When using a custom scheduled task, a new task should be created, and the default task created when System Update is installed should be disabled. Additionally, the &quot;SchedulerAbility&quot; setting must be set to &quot;NO&quot; in the registry at ```HKLM:\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UserSettings\Scheduler```
+    When using a custom scheduled task, a new task should be created, and the default task created when System Update is installed should be disabled. Additionally, the **SchedulerAbility** setting must be set to **NO** in the registry at `HKLM:\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UserSettings\Scheduler`
 
 This will prevent System Update from re-enabling the default tasks.
 
@@ -36,9 +36,9 @@ Required. Identifies the running instance of System Update is executing by comma
 
 Required. Specifies the updates to search for based on severity. Possible values are:
 
-   - C = Critical only
-   - R = Recommended and Critical
-   - A = All (Optional, Recommended and Critical)
+- C = Critical only
+- R = Recommended and Critical
+- A = All (Optional, Recommended and Critical)
 
 #### -action
 
@@ -46,9 +46,9 @@ Required. Specifies the action to take with the updates found. Only specify one 
 
 Possible values are:
 
-   - **DOWNLOAD:** Updates for the system are automatically downloaded only; updates can be filtered using -includerebootpackages or -packagetypes parameters
-   - **LIST:** User is notified with a list of available updates to choose from; updates can be filtered using -includerebootpackages or -packagetypes parameter
-   - **INSTALL:** Updates are downloaded and installed; updates can be filtered using -includerebootpackages and -packagetypes parameters
+- **DOWNLOAD:** Updates for the system are automatically downloaded only; updates can be filtered using -includerebootpackages or -packagetypes parameters
+- **LIST:** User is notified with a list of available updates to choose from; updates can be filtered using -includerebootpackages or -packagetypes parameter
+- **INSTALL:** Updates are downloaded and installed; updates can be filtered using -includerebootpackages and -packagetypes parameters
 
 #### -scheduler
 
@@ -75,11 +75,15 @@ Optional. Specifies by number the reboot types to include in the set of updates 
 
 Optional. Specifies by number a filter for the package types to be applied. Multiple package types can be specified by separating with comma.
 
-   **0** : _Reserved – unused at this time._<br/>
-   **1** : Application<br/>
-   **2** : Driver<br/>
-   **3** : Bios<br/>
-   **4** : Firmware<br/>
+   **0** : _Reserved – unused at this time._
+
+   **1** : Application
+
+   **2** : Driver
+
+   **3** : Bios
+
+   **4** : Firmware
 
 !!! note
 	When used with -includerebootpackages, the resulting set of updates is the intersection of both filters. If -includerebootpackages is not specified, only reboot type 0 packages will be considered.
@@ -116,10 +120,10 @@ Root\Lenovo\Lenovo_Updates\
 
 When System Update finds updates that will cause a restart of the system, it will display a warning dialog to the end user to allow them to save their work before proceeding with the updates. There are limited ways of controlling this behavior depending on which updates are found applicable and which command line parameters are used.
 
-   - If **-noreboot** and **-noicon** are used and only Reboot Type 0 or 3 updates are found, then System Update will install the updates with no prompting and the system will not be restarted.
-   - If only **-noicon** is used and only Reboot Type 0 or 3 updates are found, then the updates will be installed and the system will be restarted with no prompting.
-   - If **-noicon** and **-rebootprompt** are used and Reboot Type 0 or 3 updates are found, then the user is prompted before installation to ensure they save their work.
-   - If Reboot Type 1, 4 or 5 updates are found then System Update will always prompt the user before proceeding to install the updates. With Reboot Type 1 and 4 updates, the system will be restarted or shutdown respectively by the update itself. With Reboot Type 5 updates, a reboot timer will be displayed and the system will be restarted within 5 minutes.
+- If **-noreboot** and **-noicon** are used and only Reboot Type 0 or 3 updates are found, then System Update will install the updates with no prompting and the system will not be restarted.
+- If only **-noicon** is used and only Reboot Type 0 or 3 updates are found, then the updates will be installed and the system will be restarted with no prompting.
+- If **-noicon** and **-rebootprompt** are used and Reboot Type 0 or 3 updates are found, then the user is prompted before installation to ensure they save their work.
+- If Reboot Type 1, 4 or 5 updates are found then System Update will always prompt the user before proceeding to install the updates. With Reboot Type 1 and 4 updates, the system will be restarted or shutdown respectively by the update itself. With Reboot Type 5 updates, a reboot timer will be displayed and the system will be restarted within 5 minutes.
 
 ## 5.2 Thin Installer
 
@@ -139,19 +143,19 @@ Required. Identifies the running instance of Thin Installer is executed with com
 
 Required. Specifies the updates to search for based on severity. Possible values are:
 
-   - **C** = Critical only
-   - **R** = Recommended and Critical
-   - **A** = All (Optional, Recommended and Critical)
+- **C** = Critical only
+- **R** = Recommended and Critical
+- **A** = All (Optional, Recommended and Critical)
 
 #### -action
 
 Required. Specifies the action to take with the updates found. It can only specify one action; cannot specify combination of actions. Possible values are:
 
-   - **DOWNLOAD** : Applicable updates for the system are automatically downloaded only; updates can be filtered using -includerebootpackages and -packagetypes parameters
-   - **LIST** : User is notified with a list of available updates to choose from; as of version 1.3.0041 the updates can be filtered using -includerebootpackages and -packagetypes parameters
-   - **INSTALL** : Updates are downloaded and installed; updates can be filtered using -includerebootpackages and -packagetypes parameters
-   - **SCAN** : Assesses applicability of updates available in the repository; generates an Update\_ApplicabilityRulesTrace.txt file automatically; as of version 1.3.0041 updates can be filtered using -includerebootpackages and -packagetypes parameters
-   - **INSTALLDEFERRED** : install the updates which were previously downloaded using the DOWNLOAD parameter; any filtering parameters on the command line are **ignored**
+- **DOWNLOAD** : Applicable updates for the system are automatically downloaded only; updates can be filtered using -includerebootpackages and -packagetypes parameters
+- **LIST** : User is notified with a list of available updates to choose from; as of version 1.3.0041 the updates can be filtered using -includerebootpackages and -packagetypes parameters
+- **INSTALL** : Updates are downloaded and installed; updates can be filtered using -includerebootpackages and -packagetypes parameters
+- **SCAN** : Assesses applicability of updates available in the repository; generates an Update\_ApplicabilityRulesTrace.txt file automatically; as of version 1.3.0041 updates can be filtered using -includerebootpackages and -packagetypes parameters
+- **INSTALLDEFERRED** : install the updates which were previously downloaded using the DOWNLOAD parameter; any filtering parameters on the command line are **ignored**
 
 !!! note
 	The return codes used by Thin Installer will vary by the action performed. See section 5.2.1 Thin Installer Return Codes
@@ -163,11 +167,11 @@ Optional. Specifies by number the reboot types to include in the set of updates 
    **0:** No reboot is required - no need to specify on command line
 
    **1** : Forced reboot (update itself initiates the reboot)
-   
+
    **3** : Requires reboot (Thin Installer initiates the reboot)
-   
+
    **4** : Forces shutdown (update itself initiates shutdown)
-   
+
    **5** : Delayed forced reboot (used for firmware, Thin Installer will enforce reboot with dialog displaying count-down timer)
 
 !!! note
@@ -178,13 +182,13 @@ Optional. Specifies by number the reboot types to include in the set of updates 
 Optional. Specifies by number a filter for the package types to be applied. Multiple package types can be specified by separating with comma.
 
    **0** : _Reserved – unused at this time._
-   
+
    **1** : Application
-   
+
    **2** : Driver
-   
+
    **3** : Bios
-   
+
    **4** : Firmware
 
 !!! note
@@ -242,23 +246,15 @@ Optional. [**Introduced in version 1.04.02.0017**](https://support.lenovo.com/us
 
 There are specific return codes used by Thin Installer based on which -action parameter is used.
 
-<center>
-
- |     INSTALL     |              |                                                                                                                                         |
-|-----------------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-|                 | 3010         |     Indicates a reboot is required because one or more Reboot Type 3   updates were installed with the -noreboot parameter specified    |
-|                 |              |                                                                                                                                         |
-|     SCAN        |              |                                                                                                                                         |
-|                 | 10000        |     No applicable updates found                                                                                                         |
-|                 | 10001        |     Applicable updates found                                                                                                            |
-|                 |              |                                                                                                                                         |
-|     DOWNLOAD    |              |                                                                                                                                         |
-|                 |     20000    |     All applicable packages were downloaded                                                                                             |
-|                 |     20001    |     Some applicable packages failed to download while others   succeeded                                                                |
-|                 |     20002    |     Applicable packages were found but none were downloaded   successfully                                                              |
-|                 |     20003    |     No applicable updates were found to download                                                                                        |                                                                                  |
-
-</center>
+| INSTALL | Code | Description |
+|---------|------|-------------|
+| INSTALL | 3010 | Indicates a reboot is required because one or more Reboot Type 3 updates were installed with the -noreboot parameter specified |
+| SCAN    | 10000 | No applicable updates found |
+| SCAN    | 10001 | Applicable updates found |
+| DOWNLOAD | 20000 | All applicable packages were downloaded |
+| DOWNLOAD | 20001 | Some applicable packages failed to download while others succeeded |
+| DOWNLOAD | 20002 | Applicable packages were found but none were downloaded successfully |
+| DOWNLOAD | 20003 | No applicable updates were found to download |
 
 ## 5.3 Update Retriever
 

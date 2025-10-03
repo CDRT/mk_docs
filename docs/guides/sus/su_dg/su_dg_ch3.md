@@ -129,7 +129,6 @@ The user can right-click and select  **Launch**  or **Exit**. Selecting  **Launc
 
 When installing multiple updates and one of the updates forces a reboot, System Update will automatically continue the installation of the next update after the reboot.
 
-
 ### 4. View Installation History
 
 The history of updates, that were downloaded and installed on each system, are available to view. For each update, the results of the download and installation are noted as either successful or failed. This section will display a list of the downloaded and installed update packages in order of the Name, Version, Date, and Status.
@@ -209,7 +208,7 @@ If a reboot is necessary to complete the installation of a package, the followin
 _Figure 3-19. Thin Installer reboot message._
 
 !!! note
-	BIOS installations require user's attention to ensure the update is not interrupted. They cannot be deployed in an unattended mode. <br/> 2. Thin Installer installs the updates that force a reboot or shut down after all other updates to reduce the number of reboots.
+	BIOS installations require user's attention to ensure the update is not interrupted. They cannot be deployed in an unattended mode. <br> 2. Thin Installer installs the updates that force a reboot or shut down after all other updates to reduce the number of reboots.
 
 ### Windows 7 and Later OS Considerations
 
@@ -260,7 +259,6 @@ When launching Update Retriever the first time, some initial configuration items
 !!! note
 	After the initial settings are complete, the Welcome screen will not open the next time Update Retriever is launched. To change the repository path and update's default status, click Modify settings.
 
-
 ### 3.3.2 Searching for and Downloading Updates
 
 After initial setup is complete, Update Retriever can be used to search for and download updates. The following will describe these steps.
@@ -297,7 +295,6 @@ After initial setup is complete, Update Retriever can be used to search for and 
 
 	!!! note
 		There is also an option to Hide updates in the Search Results. If there are some updates you will never need, you can choose to hide them so they do not appear in the Search Results. Either select to hide just the specific version being shown or this version and all future versions. Hidden updates can be restored using the **Restore hidden updates** selection under **Options**.
-
 
 4. Click **Next**. A confirmation summary of the selected updates per system is shown. Click **Finish** to begin downloading the selected updates. Update Retriever will place the updates in the repository folder and update the database file that associates the updates to the systems they support. A completion summary will be displayed at the end.
 
@@ -368,7 +365,6 @@ To create a report, do the following:
 	- **Silent install command**
 	- **Extract command**
 
-
 8. Click **Create Report**. The Report created successfully window opens. Click **View** to view the file. You also can navigate to the folder where you saved the TXT file and open the file in the folder.
 
 	!!! note
@@ -387,7 +383,6 @@ Update Retriever enables you to import updates to your repository from a local l
 
 !!! note
 	Update packages cannot be deployed until they are assigned to one or more systems. For more information, see section 3.3.3.3.1 Assigning Systems.
-
 
 To import updates, do the following:
 
@@ -570,7 +565,6 @@ To view the export history, do the following:
 
 1. Click **View history** in the left pane of the main window.
 2. Click the **View export** history link to view the following information:
-
 
 	- **Exported Time:** The date and time when the update was exported.
 	- **Status:** Successful or Failed (followed by the cause of failure).
