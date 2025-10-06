@@ -165,8 +165,6 @@ Update Retriever requires Microsoft .NET Framework version 4.5.2 or higher. A co
 
 The following table presents the languages supported by Update Retriever and their corresponding language override codes:
 
-<center>
-
 | **Language** | **Identifier** | **Language Override Code** |
 | --- | --- | --- |
 | English | 1033 | EN |
@@ -176,8 +174,6 @@ The following table presents the languages supported by Update Retriever and the
 | Simplified Chinese | 2052 | CHS |
 
 _Table 2-2. Update Retriever language codes_
-
-</center>
 
 The registry location for the **LanguageOverride** field for a 32-bit machine is:
 
@@ -215,15 +211,11 @@ If you want to install the program silently and generate installation log files,
 [Update Retriever installation file name].exe /VERYSILENT /NORESTART /LOG=c:\tvur.log
 ```
 
-If a previous version of Update Retriever is already installed, the following pop-up is displayed. In order to download the newest version of Update Retriever, the use must click **Yes**. After selecting **Yes** , to uninstall the existing version of Update Retriever, a window will appear asking for install instructions. Please proceed with install instructions.The administrator will NOT lose any of their previous downloads, update packages, machines, or any information in Update Retriever or its repository. Everything that was displayed and available in the existing version of Update Retriever, will be in the new version that is being installed **.**
+If a previous version of Update Retriever is already installed, the following pop-up is displayed. In order to download the newest version of Update Retriever, the use must click **Yes**. After selecting **Yes** , to uninstall the existing version of Update Retriever, a window will appear asking for install instructions. Please proceed with install instructions.The administrator will NOT lose any of their previous downloads, update packages, machines, or any information in Update Retriever or its repository. Everything that was displayed and available in the existing version of Update Retriever, will be in the new version that is being installed.
 
-<center>
-
-![](https://cdrt.github.io/mk_docs/img/guides/su/img2-1.png)
+![Previous version will be uninstalled first](https://cdrt.github.io/mk_docs/img/guides/su/img2-1.png)
 
 _Figure 2-1. Removing existing version of Update Retriever to download the newest version._
-
-</center>
 
 ### 2.3.4 Uninstall Update Retriever
 
