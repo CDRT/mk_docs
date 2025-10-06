@@ -54,14 +54,14 @@ The latest version of the Enterprise package for sideloading can always be found
     - Integrated LDE v5.23 SDK
 - Removed Dolby VoIP
 
-***No Enterprise Package update***
-
 **System Update Features**
 
 - Added a parameter for SU Helper that bypasses Do Not Disturb detection
 - System Update dialogs will automatically close after a set period of time (Microsoft usability requirement)
 - Enable Lenovo Device Orchestration to detect user is using an application in full screen mode to avoid prompting with updates
 - Dock update behavior fixes
+
+***No Enterprise Package update***
 
 ### v20.2506.39.0 - July 23 2025
 
