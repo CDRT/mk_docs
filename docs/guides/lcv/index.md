@@ -22,7 +22,68 @@
 
 The latest version of the Enterprise package for sideloading can always be found at [https://support.lenovo.com/solutions/hf003321-lenovo-vantage-for-enterprise](https://support.lenovo.com/solutions/hf003321-lenovo-vantage-for-enterprise). Additional resources such as deployment guide, ADMX template, install and uninstall scripts are also included.
 
+## Product Guide
+
+This guide is intended for skilled IT administrators who are responsible for deploying and configuring **Commercial Vantage** to PCs in their organization.
+
+If you have suggestions, comments, or questions, please talk to us on our forum! A team of deployment engineers (including the author of this document) is standing by, ready to help with any deployment challenges you are facing: [https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01\_eg](https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg)
+
+This product guide will cover how to deploy, configure and update Commercial Vantage in a managed environment with addition guidance on possible usage scenarios. The sections covered are:
+
+[Deployment](.\deployment.md)
+
+[Configuration](.\configuration.md)
+
+[Upgrading](.\upgrading.md)
+
+[Use Case Scenarios](.\use_case_scenarios.md)
+
+[Frequently Asked Questions](.\commercial_vantage_faq.md)
+
+[SU Helper Reference](.\suhelper.md)
+
+---
+
 ## What's New
+
+### v20.2509 - October 03, 2025
+
+**Main Application**
+
+- Additional True Wireless Stereo (TWS) support for Aura Edition models
+- Battery Assist Mode updates
+- WiFi Security improvements
+
+**System Update Features**
+
+- Improved error messaging/logging provided to Lenovo Device Orchestration (LDO)
+- Added logging of the stages that the System Update process goes through for (LDO)
+- Added driver rollback capability that will be delivered through LDO
+- Increased the size of customer logo:  minimum 32 x 32; maximum 32 x 128
+
+***Enterprise Package update coming soon***
+
+### v20.2508.42.0 - September 17 2025
+
+**Main Application**
+
+- Intelligent Cooling power management updates
+- Battery Discharge update
+- Smart Performance enablement (only available when service is purchased)
+- HW Scan:
+    - USB Type-C port test
+    - Restored Audio Controller Test
+    - Integrated LDE v5.23 SDK
+- Removed Dolby VoIP
+
+**System Update Features**
+
+- Added a parameter for SU Helper that bypasses Do Not Disturb detection
+- System Update dialogs will automatically close after a set period of time (Microsoft usability requirement)
+- Enable Lenovo Device Orchestration to detect user is using an application in full screen mode to avoid prompting with updates
+- Dock update behavior fixes
+
+***No Enterprise Package update***
 
 ### v20.2506.39.0 - July 23 2025
 
