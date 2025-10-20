@@ -61,7 +61,12 @@ This product guide will cover how to deploy, configure and update Commercial Van
 - Added driver rollback capability that will be delivered through LDO
 - Increased the size of customer logo:  minimum 32 x 32; maximum 32 x 128
 
-***Enterprise Package update coming soon***
+**New Group Policies**
+
+- **Device - System update - Auto update - Show Pre-Install Notification**: Control whether users receive a visible notification before updates are installed. When enabled, updates will be downloaded in the background and the user will be prompted regardless of whether or not the updates will force a reboot. The normal behavior when this policy is **Not Configured** or is **Disabled** will be to prompt only when there are updates that will need to force the machine to reboot.
+
+!!! alert "New ADMX template"
+    The Enterprise Package is not updated for 25.09; therefore, to obtain the updated Group Policy Template that includes this new policy, [please download this zip file.](https://download.lenovo.com/cdrt/support/lcv_grouppolicy_2509.zip) Once extracted, copy the contents of the Group Policy folder to the `C:\Windows\PolicyDefinitions` folder. Then you can use **gpedit.msc** to configure the policies under Computer Configuration - Administrative Templates - Commercial Vantage.
 
 ### v20.2508.42.0 - September 17 2025
 
@@ -82,8 +87,6 @@ This product guide will cover how to deploy, configure and update Commercial Van
 - System Update dialogs will automatically close after a set period of time (Microsoft usability requirement)
 - Enable Lenovo Device Orchestration to detect user is using an application in full screen mode to avoid prompting with updates
 - Dock update behavior fixes
-
-***No Enterprise Package update***
 
 ### v20.2506.39.0 - July 23 2025
 
