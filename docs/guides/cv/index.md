@@ -66,6 +66,11 @@ The latest version of the Enterprise package for sideloading can always be found
 - Enable Lenovo Device Orchestration to detect user is using an application in full screen mode to avoid prompting with updates
 - Dock update behavior fixes
 
+**Enterprise Package (released October 16)**
+
+- Added a new parameter to **VantageInstaller.exe**, "-Lite", which will install just the System Update feature of Commercial Vantage. To use, simply specify `VantageInstaller.exe Install -Lite -SuHelper` (case sensitive) to get just the System Update feature plus SU Helper for triggering updates by command line. This solution will eventually replace the legacy Lenovo System Update. It uses the same group policies for controlling the System Update feature as Commercial Vantage so the same ADMX template should be used. See also [Using VantageInstaller.exe](https://docs.lenovocdrt.com/guides/cv/commercial_vantage/#using-vantageinstallerexe)
+- Addressed an issue in **VantageInstaller.exe** that was affecting the installation during an OSD task sequence.
+
 ### v20.2506.39.0 - July 23 2025
 
 **Main Application**

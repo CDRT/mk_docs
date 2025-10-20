@@ -34,6 +34,9 @@ Indicates the Commercial Vantage app and its dependencies such as Lenovo Vantage
 ``` -App ```
 Indicates just the Commercial Vantage app and not the Lenovo Vantage Service and Add-ins.
 
+``` -Lite ```
+Indicates just the System Update feature of Commercial Vantage. Can be used in combination with -SuHelper; should not be used with -Vantage or -App.
+
 ``` -SuHelper ```
 Indicates the SU Helper companion utility.
 
@@ -53,7 +56,6 @@ Uninstall the Commercial Vantage app and dependencies.
 $process = Get-Process -Name "Lenovo.Vantage.InstallerHelper" -ErrorAction SilentlyContinue
 if ($process) { Wait-Process -Id $process.Id }
 ```
-
 
 ## Configuration
 
