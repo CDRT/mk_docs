@@ -38,3 +38,10 @@ Uninstall the Commercial Vantage app and dependencies.
 $process = Get-Process -Name "Lenovo.Vantage.InstallerHelper" -ErrorAction SilentlyContinue
 if ($process) { Wait-Process -Id $process.Id }
 ```
+
+## Deploying from Configuration Manager or Intune
+
+If you are managing your devices with Configuration Manager or Intune, we have articles that will guide you through deploying Commercial Vantage from these solutions.
+
+- [Deploying Commercial Vantage with ConfigMgr](https://blog.lenovocdrt.com/deploying-commercial-vantage-with-configmgr/)
+- [Deploying Commercial Vantage with Intune](https://blog.lenovocdrt.com/deploying-commercial-vantage-with-intune/)
