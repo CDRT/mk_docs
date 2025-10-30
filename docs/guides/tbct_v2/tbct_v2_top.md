@@ -5,14 +5,16 @@
 
 ## Overview
 
-Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSConfigUI.ps1`) that uses the `Lenovo.BIOS.Config` module \[[Reference Guide](./Lenovo.BIOS.Config.Functions.Reference.md)] to read and modify Lenovo BIOS settings via WMI. **This solution replaces the older Think BIOS Config Tool which was implemented as an HTA.** It supports:
+Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSConfigUI.ps1`) that uses the `Lenovo.BIOS.Config` module \[[Reference Guide](./Lenovo.BIOS.Config.Functions.Reference.md)] to read and modify Lenovo BIOS settings via WMI. It supports:
 
 - Viewing and editing BIOS settings interactively.
 - Exporting/importing BIOS settings (.ini) with optional encrypted Supervisor password.
 - Creating and importing password-change files.
 - Clearing or changing Supervisor password and fingerprint data.
-- Creating Intune-friendly artifacts (Win32 / Proactive Remediation) and optionally uploading via Microsoft Graph.
+- Creating Intune-friendly artifacts (Win32 / Proactive Remediation) and optionally uploading via Microsoft Graph. (currently only available through the UI)
 - Saving and restoring custom defaults.
+
+**This solution replaces the older Think BIOS Config Tool which was implemented as an HTA.** Archived documentation for the HTA version is still available here: [Think BIOS Config Tool - HTA](https://docs.lenovocdrt.com/guides/tbct/tbct_top/)
 
 ## Prerequisites
 
@@ -28,7 +30,7 @@ Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSCon
 The Think BIOS Config Tool UI is provided as a PowerShell script that is hosted on the PowerShell Gallery. It can be easily installed with the following command:
 
 ```PowerShell
-Install-Script 'Lenovo.BIOS.Config.UI'
+Install-Script 'ThinkBiosConfigUI'
 ```
 
 The required PowerShell module that support the UI can be installed from the PowerShell Gallery as well:
