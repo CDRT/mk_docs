@@ -60,8 +60,8 @@ PowerShell -sta -File .\ThinkBIOSConfigUI.ps1
 
 Notes:
 
-- The script includes `#Requires -RunAsAdministrator` and requires `-STA` for WPF support.
-- The GUI script auto-imports `Lenovo.BIOS.Config` if already installed from the PowerShell Gallery. If it is not already installed, it will attempt to find the module in the GUI script's location.
+- The script includes `#Requires -RunAsAdministrator` and it is recommended to run using `-STA` for WPF support.
+- The GUI script auto-imports `Lenovo.BIOS.Config` if already installed from the PowerShell Gallery. If it is not already installed, it will attempt to install the module from the PowerShell Gallery. If that fails it will try to find the module in the GUI script's location.
 
 ## UI layout and walkthrough
 
