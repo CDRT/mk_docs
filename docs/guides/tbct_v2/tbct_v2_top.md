@@ -5,7 +5,7 @@
 
 ## Overview
 
-Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSConfigUI.ps1`) that uses the `Lenovo.BIOS.Config` module \[[Reference Guide](./Lenovo.BIOS.Config.Functions.Reference.md)] to read and modify Lenovo BIOS settings via WMI. It supports:
+Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSConfigUI.ps1`) that uses the `Lenovo.BIOS.Config` module \[[Reference Guide](./tbc_module_reference.md)] to read and modify Lenovo BIOS settings via WMI. It supports:
 
 - Viewing and editing BIOS settings interactively.
 - Exporting/importing BIOS settings (.ini) with optional encrypted Supervisor password.
@@ -13,6 +13,8 @@ Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSCon
 - Clearing or changing Supervisor password and fingerprint data.
 - Creating Intune-friendly artifacts (Win32 / Proactive Remediation) and optionally uploading via Microsoft Graph. (currently only available through the UI)
 - Saving and restoring custom defaults.
+
+This solution can be used in combination with the [Lenovo BIOS Certificates Tool and Module](../lbct/index.md) for complete password-less management of BIOS settings on Lenovo commercial PCs.
 
 **This solution replaces the older Think BIOS Config Tool which was implemented as an HTA.** Archived documentation for the HTA version is still available here: [Think BIOS Config Tool - HTA](https://docs.lenovocdrt.com/guides/tbct/tbct_top/)
 
@@ -217,13 +219,6 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
         ConvertTo-LnvIntunePackage -in 'C:\SourceFolder' -setup 'ApplyBIOSConfig.ps1' -out 'C:\Output'
         ```
 
-## Verification / smoke tests
-
-- Launch GUI and confirm StatusBar contains `Gui v` and module version.
-- On Settings panel, confirm `tbTarget` shows the target system and BIOS version.
-- Change a setting and observe label turns red, then click `Save Changed Settings` and verify StatusBar reports the save result.
-- Export an INI and verify file appears in Output folder configured in Preferences.
-
 ## Logs, preferences and storage
 
 - Preferences file: `%ProgramData%\Lenovo\ThinkBiosConfig\preferences.json`
@@ -234,14 +229,9 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
 ## Troubleshooting (common problems)
 
 - GUI fails to load or reports STA errors: start PowerShell with `-STA` and run elevated.
-- Module import error: manually import module using the PSD1 path and ensure files are not blocked by Windows (Unblock-File if needed).
-
-```PowerShell
-Import-Module 'C:\git\cdrt\PS-ThinkBiosConfig\Lenovo.BIOS.Config\0.9.6\Lenovo.BIOS.Config.psd1' -Force -ErrorAction Stop
-```
 
 - Intune packaging issues: ensure `IntuneWinAppUtil.exe` is present or allow the tool to download it. Confirm you have Microsoft Graph modules and tenant permissions for upload.
-- Remote connection failures: use hostnames (not IPs), provide valid credentials, and ensure the account can access the Lenovo WMI provider on the target.
+
 - If you see unexpected failures, check the log files in the Logs folder for stack traces and contextual messages.
 
 ## Security & best practices
@@ -265,42 +255,3 @@ Import-Module 'C:\git\cdrt\PS-ThinkBiosConfig\Lenovo.BIOS.Config\0.9.6\Lenovo.BI
 - Q: Does the GUI automatically upload to Intune?
 
     - A: The GUI supports packaging and contains code to upload via Microsoft Graph, but upload requires Graph modules and proper tenant permissions and frequently requires interactive consent.
-
-## Appendix — useful commands & examples
-
-- Start GUI (STA & elevated):
-
-```PowerShell
-PowerShell -sta -File C:\git\cdrt\PS-ThinkBiosConfig\ThinkBIOSConfigUI.ps1
-```
-
-- Import module manually:
-
-```PowerShell
-Import-Module C:\git\cdrt\PS-ThinkBiosConfig\Lenovo.BIOS.Config\0.9.6\Lenovo.BIOS.Config.psd1 -Force
-```
-
-- Export settings to INI (no key):
-
-```PowerShell
-Export-LnvWmiSettings -ConfigFile 'C:\Temp\machine.ini' -NoKey
-```
-
-- Export with encryption key (CLI will prompt for Supervisor password if needed):
-
-```PowerShell
-Export-LnvWmiSettings -ConfigFile 'C:\Temp\machine_secure.ini' -Key 'MySecretKey'
-```
-
-- Import settings INI (with optional key and current password):
-
-```PowerShell
-$pw = Read-Host -AsSecureString 'Supervisor password'
-Import-LnvWmiSettings -ConfigFile 'C:\Temp\machine.ini' -K 'MySecretKey' -Current $pw
-```
-
-- Create an Intune package (CLI):
-
-```PowerShell
-ConvertTo-LnvIntunePackage -in 'C:\SourceFolder' -setup 'ApplyBIOSConfig.ps1' -out 'C:\Output'
-```

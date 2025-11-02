@@ -2,14 +2,18 @@
 
 ## Overview
 
-The Lenovo BIOS Certs Tool and Module is a PowerShell-based solution for working with certificate-based BIOS authentication. For a detailed view of how to get started using this solution with Lenovo commercial PC products which support it, please visit this [article.](https://blog.lenovocdrt.com/certificate-based-bios-authentication/)
+The Lenovo BIOS Certs Tool and Module is a PowerShell-based solution for working with certificate-based BIOS authentication.
 
-This page will provide a cmdlet reference for the functions provided in the LnvBiosCerts module.
+For a detailed view of how to get started using this solution with Lenovo commercial PC products which support it, please visit the following documentation:
 
-### Download
+- [Getting Started Guide](https://blog.lenovocdrt.com/certificate-based-bios-authentication/)
+- [Module Cmdlet Reference](./lbc_module_reference.md)
+
+## Download
 
 The Lenovo BIOS Certs Tool and Module package can be downloaded from [here: https://download.lenovo.com/cdrt/tools/LnvBiosCertTool_1.0.2.zip](https://download.lenovo.com/cdrt/tools/LnvBiosCertTool_1.0.2.zip)
 
+<!--
 ### Convert_LnvBiosConfigFile
 
 :	Converts the provided ThinkBiosConfig file with or without a password and converts the settings to the signed Lenovo SetBiosSettingEx command. Also adds a SaveBiosSettings command to confirm the settings to the machine. Paths can be relative or absolute.
@@ -166,3 +170,4 @@ The Lenovo BIOS Certs Tool and Module package can be downloaded from [here: http
 	```
 	PS C:\>Submit-LnvBiosConfigFile -ConfigFile {ConfigFile Path}
 	```
+-->
