@@ -10,7 +10,6 @@ theme:
     - navigation.path
     - navigation.top
     - toc.follow
-    - toc.integrate
     - search.suggest
     - search.highlight
     - content.tabs.link
@@ -62,9 +61,8 @@ nav:
       - Managing with Intune: guides/dm/dm_manage_intune.md
       - Troubleshooting: guides/dm/dm_troubleshooting.md
       - Dock Manager FAQ: guides/dm/dock_manager_faq.md
-    - Think BIOS Config Tool:
-      - Overview: guides/tbct/tbct_top.md
-      - User Guide: guides/tbct/tbct.md
+    - Think BIOS Config Tool V2:
+      - Overview: guides/tbct_v2/tbct_v2_top.md
     - Lenovo BIOS Certs Tool:
       - guides/lbct/index.md
     - Lenovo Client Scripting Module:
