@@ -1,8 +1,5 @@
 # Think BIOS Config Tool V2
 
-!!! warning
-    This is pre-release documentation for the Think BIOS Config Tool v2 which has not been officially released yet nor published in the PowerShell Gallery. There may be inaccuracies and features that do not yet work as described below. Pre-release documentation is also available for the companion [Lenovo BIOS Certificate Tool.](https://docs.lenovocdrt.com/guides/tbct_v2/cert_based_bios_authentication/)
-
 ## Overview
 
 Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSConfigUI.ps1`) that uses the `Lenovo.BIOS.Config` module \[[Reference Guide](./tbc_module_reference.md)] to read and modify Lenovo BIOS settings via WMI. It supports:
@@ -18,13 +15,12 @@ This solution can be used in combination with the [Lenovo BIOS Certificates Tool
 
 **This solution replaces the older Think BIOS Config Tool which was implemented as an HTA.** Archived documentation for the HTA version is still available here: [Think BIOS Config Tool - HTA](https://docs.lenovocdrt.com/guides/tbct/tbct_top/)
 
+!!! note
+    This solution currently does not support ThinkCentre desktop products due to incompatible WMI BIOS Interface implementation. Hopefully, this will be addressed in future models or through future BIOS updates.
+
 ## Prerequisites
 
-- Windows with PowerShell (desktop PowerShell or PowerShell Core) and administrative privileges.
-- **Recommended**: Start PowerShell with the **single-threaded apartment model** (`-STA`) because the GUI uses WPF/XAML. This can help prevent unexpected behaviors when interacting with GUI controls.
-<!--
-- When targeting remote Lenovo devices, WMI access to the target machines (hostname-based targeting) and the appropriate credentials for WMI access when connecting to remote targets are required.
--->
+- Windows with PowerShell (Windows PowerShell or PowerShell Core) and administrative privileges.
 - For Intune packaging/upload: `IntuneWinAppUtil.exe` (tool will be downloaded if missing) and Microsoft Graph modules with appropriate tenant permissions.
 
 ## Installation / setup recommendations
@@ -35,7 +31,14 @@ The Think BIOS Config Tool UI is provided as a PowerShell script that is hosted 
 Install-Script 'ThinkBiosConfigUI'
 ```
 
-The required PowerShell module that support the UI can be installed from the PowerShell Gallery as well:
+This will install the script to the default script path:
+
+- Windows PowerShell v5: `C:\Users\ {your user name} \WindowsPowerShell\Scripts`
+- PowerShell v7: `C:\Users\ {your user name} \Documents\PowerShell\Scripts`
+
+If this is the first time installing a script from the PowerShell Gallery, you will be given the option to establish the default script path and add it to the PATH environment variable.
+
+The GUI script can install and import the required `Lenovo.BIOS.Config` module automatically, or if you only need to work directly with the module, it can be installed from the PowerShell Gallery as well:
 
 ```PowerShell
 Install-Module 'Lenovo.BIOS.Config'
@@ -50,19 +53,25 @@ Install-Module 'Lenovo.BIOS.Config'
 
     When creating a Win32 Package, the IntuneWinAppUtil.exe tool will be downloaded to the `C:\ProgramData\Lenovo\ThinkBiosConfig\Download` folder.
 
+Alternatively, the GUI and module files can be downloaded from:
+
+[https://download.lenovo.com/cdrt/tools/tbct_202_102.zip](https://download.lenovo.com/cdrt/tools/tbct_202_102.zip)
+
+Simply unzip to a local folder and run the GUI script in an elevated terminal. The GUI script will locate the module and import it automatically.
+
 ## Quick start — launch the GUI
 
 1. Open an elevated PowerShell terminal (Run as Administrator).
-2. Run the GUI with STA:
+2. Launch the GUI
 
 ```PowerShell
-# Adjust path as needed
-PowerShell -sta -File .\ThinkBIOSConfigUI.ps1
+# Assuming installed to default script path and PATH environment variable set accordingly
+ThinkBIOSConfigUI
 ```
 
 Notes:
 
-- The script includes `#Requires -RunAsAdministrator` and it is recommended to run using `-STA` for WPF support.
+- The script includes `#Requires -RunAsAdministrator`.
 - The GUI script auto-imports `Lenovo.BIOS.Config` if already installed from the PowerShell Gallery. If it is not already installed, it will attempt to install the module from the PowerShell Gallery. If that fails it will try to find the module in the GUI script's location.
 
 ## UI layout and walkthrough
@@ -160,7 +169,7 @@ The UI writes runtime messages to the `StatusBar` and uses the module logger to 
 
 ## Module Cmdlet Reference
 
-The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are documented in this [reference guide.](Lenovo.BIOS.Config.Functions.Reference.md)
+The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are documented in this [reference guide.](tbc_module_reference.md)
 
 !!!info "Tip"
     Run an explicit example such as `Get-Help Read-LnvTBCPreferenceFile -Full` after importing the module to get parameter details for a cmdlet.
