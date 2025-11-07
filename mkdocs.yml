@@ -63,7 +63,7 @@ nav:
       - Dock Manager FAQ: guides/dm/dock_manager_faq.md
     - Think BIOS Config Tool V2:
       - Overview: guides/tbct_v2/tbct_v2_top.md
-    - Lenovo BIOS Certs Tool:
+    - Lenovo BIOS Certificate Tool:
       - guides/lbct/index.md
     - Lenovo Client Scripting Module:
       - guides/lcsm/lcsm_top.md
