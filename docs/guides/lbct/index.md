@@ -1,12 +1,12 @@
-# Lenovo BIOS Certs Tool and Module
+# Lenovo BIOS Certificate Tool and Module
 
 ## Overview
 
-The Lenovo BIOS Certs Tool and Module is a PowerShell-based solution for working with certificate-based BIOS authentication on supported Lenovo commercial PC products.
+The Lenovo BIOS Certificate Tool and Module is a PowerShell-based solution for working with certificate-based BIOS authentication on supported Lenovo commercial PC products.
 
 ## Installing
 
-The Lenovo BIOS Certs Tool and Module package can be installed directly from the PowerShell Gallery.
+The Lenovo BIOS Certificate Tool and Module package can be installed directly from the PowerShell Gallery.
 
 ```powershell
 Install-Module 'Lenovo.Bios.Certificates'
@@ -27,7 +27,9 @@ The GUI script can then be launched in an elevated terminal by running:
 LnvBiosCertInterface
 ```
 
-Alternatively, you can download from [here: https://download.lenovo.com/cdrt/tools/lbct_211_108.zip](https://download.lenovo.com/cdrt/tools/lbct_211_108.zip)
+Alternatively, you can download from:
+
+[https://download.lenovo.com/cdrt/tools/lbct_211_108.zip](https://download.lenovo.com/cdrt/tools/lbct_211_108.zip)
 
 Simply unzip to a local folder and run the GUI script in an elevated terminal. The GUI script will locate the module and import it automatically.
 
