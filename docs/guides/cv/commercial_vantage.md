@@ -40,6 +40,12 @@ Indicates just the System Update feature of Commercial Vantage. Can be used in c
 ``` -SuHelper ```
 Indicates the SU Helper companion utility.
 
+``` LogLevel -Debug ```
+Used to get detailed logging in the console as well as saved to a file specified by ```Output```
+
+``` Output -Path c:\temp\vantage-install.log```
+Used to specify the log file to create when using the ```LogLevel -Debug``` parameter.
+
 #### Examples
 
 ``` \VantageInstaller.exe Install -Vantage -SuHelper ```
