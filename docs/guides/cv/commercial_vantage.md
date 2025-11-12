@@ -26,6 +26,7 @@ Commercial Vantage is a Windows 10 Modern Application that can also be installed
 VantageInstaller must be executed with Administrator rights in order to install the application and dependencies. The installation can be controlled by using the following parameters which are **case sensitive**.
 
 ```[Install | Uninstall]```
+
 Parameter indicates the intention to either install or uninstall the application. It must be specified first and is used in combination with the parameters below
 
 ``` -Vantage ```
@@ -41,17 +42,21 @@ Indicates just the System Update feature of Commercial Vantage. Can be used in c
 Indicates the SU Helper companion utility.
 
 ``` LogLevel -Debug ```
+
 Used to get detailed logging in the console as well as saved to a file specified by ```Output```
 
 ``` Output -Path c:\temp\vantage-install.log```
+
 Used to specify the log file to create when using the ```LogLevel -Debug``` parameter.
 
 #### Examples
 
 ``` \VantageInstaller.exe Install -Vantage -SuHelper ```
+
 Installs both the Commercial Vantage app and dependencies as well as SU Helper utility.
 
 ``` \VantageInstaller.exe Uninstall -Vantage ```
+
 Uninstall the Commercial Vantage app and dependencies.
 
 !!!note
