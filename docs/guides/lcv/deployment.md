@@ -10,24 +10,40 @@ Starting with the Enterprise Package released in July 2025, the VantageInstaller
 
 VantageInstaller must be executed with Administrator privileges in order to install the application and dependencies. The installation can be controlled by using the following parameters which are **case sensitive**.
 
-```[Install | Uninstall]```
+### ```[Install | Uninstall]```
+
 Parameter indicates the intention to either install or uninstall the application. It must be specified first and is used in combination with the parameters below
 
-``` -Vantage ```
+#### ``` -Vantage ```
+
 Indicates the Commercial Vantage app and its dependencies such as Lenovo Vantage Service and the Add-ins.
 
-``` -App ```
+#### ``` -App ```
 Indicates just the Commercial Vantage app and not the Lenovo Vantage Service and Add-ins.
 
-``` -SuHelper ```
+#### ``` -SuHelper ```
 Indicates the SU Helper companion utility.
+
+#### ```-Lite```
+
+Indicates just the System Update feature of Commercial Vantage. Can be used in combination with ```-SuHelper```; should not be used with ```-Vantage``` or ```-App```.
+
+### ```LogLevel -Debug```
+
+Used to get detailed logging in the console as well as saved to a file specified by ```Output```
+
+### ```Output -Path```
+
+Used to specify the log file to create when using the ```LogLevel -Debug``` parameter.
 
 ### Examples
 
 ``` \VantageInstaller.exe Install -Vantage -SuHelper ```
+
 Installs both the Commercial Vantage app and dependencies as well as SU Helper utility.
 
 ``` \VantageInstaller.exe Uninstall -Vantage ```
+
 Uninstall the Commercial Vantage app and dependencies.
 
 !!!note
