@@ -196,7 +196,7 @@ AMC can be used to monitor, report, and manage the power state of client systems
 	4. To start the transition of the system to the new power state, click **Apply**.
 	5. The result of the operation will be displayed. Click **Finish** to close the Power window.
 
-	![ Power operation on single system](https://cdrt.github.io/mk_docs/img/dash/10-dash.png)
+![ Power operation on single system](https://cdrt.github.io/mk_docs/img/dash/10-dash.png)
 
 ### Power Operation on a Group
 
