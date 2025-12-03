@@ -186,15 +186,15 @@ AMC can be used to monitor, report, and manage the power state of client systems
 	| Master Bus Reset | 10 | Immediate Warm Reset | Perform hardware reset on the system. |
 
 ### Power Operation on a Single System
-:
-	1. Right click on the specific system on which the power operation is to be performed.
-	2. Select **Power** from the menu. You will get the Power screen.
-	3. The **Power Screen** will show:
-	- The system name against which you are going to perform the power operation,
-	- The current power state of the system.
-	- The list of power states which the system can accept from its current state is shown in the &#39;select power state to apply&#39; drop down list.
-	4. To start the transition of the system to the new power state, click **Apply**.
-	5. The result of the operation will be displayed. Click **Finish** to close the Power window.
+
+1. Right click on the specific system on which the power operation is to be performed.
+2. Select **Power** from the menu. You will get the Power screen.
+3. The **Power Screen** will show:
+    - The system name against which you are going to perform the power operation,
+    - The current power state of the system.
+    - The list of power states which the system can accept from its current state is shown in the `select power state to apply` drop down list.
+4. To start the transition of the system to the new power state, click **Apply**.
+5. The result of the operation will be displayed. Click **Finish** to close the Power window.
 
 ![ Power operation on single system](https://cdrt.github.io/mk_docs/img/dash/10-dash.png)
 
