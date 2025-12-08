@@ -256,7 +256,7 @@ Use the following command as a template to display all possible values for a par
 
 ``` PowerShell
 #PowerShell 5.1
-(Get-WmiObject –class Lenovo_GetBiosSelections –namespace root\wmi).GetBiosSelections("BootOrder") | Format-List Selections
+(Get-WmiObject -class Lenovo_GetBiosSelections -namespace root\wmi).GetBiosSelections("BootOrder") | Format-List Selections
 
 #PowerShell 7.x
 $cimLenovoGetBiosSelections = Get-CimInstance -Namespace root\wmi -ClassName Lenovo_GetBiosSelections
@@ -271,7 +271,7 @@ Use the following commands to set the value of a BIOS setting. This is a multi-s
 ``` PowerShell
 #1. Change the setting
 #PowerShell 5.1
-(Get-WmiObject -Class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting("WakeOnLANDock,Disable")
+(Get-WmiObject -Class Lenovo_SetBiosSetting -namespace root\wmi).SetBiosSetting("WakeOnLANDock,Disable")
 
 #PowerShell 7.x
 $cimSetBiosSetting = Get-CimInstance -Namespace root\wmi -ClassName Lenovo_SetBiosSetting
@@ -306,7 +306,7 @@ Use the following command as a template to set the value of a setting when a sup
 
 ``` PowerShell
 #PowerShell 5.1
-(Get-WmiObject -Class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting("WakeOnLAN,Disable,password,ascii,us")
+(Get-WmiObject -Class Lenovo_SetBiosSetting -namespace root\wmi).SetBiosSetting("WakeOnLAN,Disable,password,ascii,us")
 (Get-WmiObject -Class Lenovo_SaveBiosSettings -Namespace root\wmi).SaveBiosSettings("password,ascii,us")
 
 #PowerShell 7.x
