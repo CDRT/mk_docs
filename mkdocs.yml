@@ -67,6 +67,17 @@ nav:
       - guides/lbct/index.md
     - Lenovo Client Scripting Module:
       - guides/lcsm/lcsm_top.md
+    - Lenovo Client Update Module:
+      - guides/lcu/lcu_top.md
+      - guides/lcu/lcu_getting_started.md
+      - guides/lcu/lcu_best_practices.md
+      - guides/lcu/lcu_advanced_usage.md
+      - guides/lcu/lcu_bios_firmware_updates.md
+      - guides/lcu/lcu_versioning_info.md
+      - guides/lcu/lcu_troubleshooting.md
+      - guides/lcu/reference.md
+      - guides/lcu/lcu_faq.md
+      - guides/lcu/lcu_release_notes.md
     - Lenovo Updates Catalog:
       - guides/luc/luc_ovrvw.md
       - guides/luc/luc_agnt.md
