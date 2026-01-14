@@ -10,7 +10,7 @@ Password Beep
    2. On
 
    !!! note ""
-      Different beeps will be sounded when the entered password matches or does not match the configured password.
+       Different beeps will be sounded when the entered password matches or does not match the configured password.
 
    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
