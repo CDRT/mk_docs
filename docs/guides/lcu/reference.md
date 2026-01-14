@@ -9,8 +9,7 @@ Extracts package installers.
 **SYNTAX**
 
 ``` PowerShell
-Expand-LSUpdate [-Package] <PSObject> [-Path <DirectoryInfo>] [-ProgressAction <ActionPreference>]
- [<CommonParameters>]
+Expand-LSUpdate [-Package] <PSObject> [-Path <DirectoryInfo>] [-ProgressAction <ActionPreference>] [<CommonParameters>]
 ```
 
 **DESCRIPTION**
@@ -47,7 +46,7 @@ Accept wildcard characters: False
 
 ***-Path*** 
 
-The directory containing the previously downloaded packages. Use `Save-LSUpdate` to download packages.
+The directory containing the previously downloaded packages. Use `Save-LnvUpdate` to download packages.
 
 ```yaml
 Type: DirectoryInfo
