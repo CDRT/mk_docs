@@ -21,6 +21,9 @@ Starting with the enterprise package released in July 2025, the VantageInstaller
 
 Commercial Vantage is a Windows 10 Modern Application that can also be installed directly from the Microsoft Store: [https://www.microsoft.com/store/apps/9NR5B8GVVM13](https://www.microsoft.com/store/apps/9NR5B8GVVM13)
 
+!!! info
+    **Avoid** deploying Commercial Vantage from the Store, as it causes UAC prompts for the user to install required dependencies.
+
 ### Using VantageInstaller.exe
 
 VantageInstaller must be executed with Administrator rights in order to install the application and dependencies. The installation can be controlled by using the following parameters which are **case sensitive**.
