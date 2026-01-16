@@ -253,6 +253,7 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
 - Remove or rotate any hard-coded secrets. (The module contains a helper `ConnectToGraphClientSecret` with a client secret in source — treat this as a placeholder and remove or replace it for production use.)
 - Restrict permissions and delete temporary password-change files after use or protect with strict filesystem ACLs.
 - Test changes on non-production hardware first.
+- Ensure the **Lenovo.BIOS.Config** module is either installed/imported on endpoints before attempting to apply settings using the tool.
 
 ## FAQ
 
