@@ -37,13 +37,12 @@ Get-UpdatefromWMI -IncludeHistory
 
 Returns WMI objects with properties: Title, Version, Status, Size
 Get-UpdatefromWMI gathers information from the className `Lenovo_Updates` different from the class Export-WMI writes to `LenovoUpdate_Updates`
-Console output is color-coded (Cyan: queries, Green: success, Yellow: headers, Gray: details)
+
 
 ## Key Features
 
 - Queries `ROOT\Lenovo` namespace
 - className = `Lenovo_Updates`
 - Dynamically constructs WMI queries with filters
-- Non-blocking error handling
 - History limited to 10 most recent entries
 

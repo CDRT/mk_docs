@@ -73,7 +73,7 @@ Verifies installer signatures before installation.
 Get-LnvUpdate | `
   Where-Object { $_.Installer.Unattended } | `
   Save-LnvUpdate -Path "C:\Updates" | `
-  Install-LnvUpdate -SaveBIOSUpdateInfoToRegistry -Verbose
+  Install-LnvUpdate -Verbose
 ```
 
 ## Output
@@ -94,16 +94,7 @@ Interactive installers may hang the deployment waiting for user input.
 
 IMPORTANT - Reboots: Some packages may require reboots or system restarts. Check the result object for `ActionNeeded` property.
 
-## BIOS Update Registry Keys
 
-When `-SaveBIOSUpdateInfoToRegistry` is used, the following registry location is updated:
-
-```
-HKLM\Software\LenovoUpdate\BIOSUpdate
-  - Version: BIOS version installed
-  - InstallDate: Date/time of installation
-  - ActionNeeded: Whether reboot/shutdown is required
-```
 
 ## See Also
 

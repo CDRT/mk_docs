@@ -95,9 +95,3 @@ $updates = Get-LnvUpdate -Model '20LS' -All
 $updates | Save-LnvUpdate -Path 'C:\20LS_Drivers'
 ```
 
-## Next Steps
-
-- **[Function Reference](../functions/get-lnvupdate.md)** - Detailed documentation for all functions
-- **[Common Tasks](../examples/common-tasks.md)** - More practical examples
-- **[Proxy Configuration](../topics/proxy-configuration.md)** - Set up web proxy support
-- **[Custom Repositories](../topics/custom-repositories.md)** - Use your own package repository
