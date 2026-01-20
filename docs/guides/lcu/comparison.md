@@ -1,4 +1,4 @@
-# LSU vs LnvUpdate (LCU) 
+# LSU vs Lenovo.Client.Update (LCU)
 
 This document outlines the differences between the original **LSUClient** (LSU) by jantari and the new **Lenovo.Client.Update** (LnvUpdate/LCU) module.
 
@@ -42,7 +42,7 @@ The Lenovo.Client.Update module is a fork and enhancement of the original jantar
 
 **Original LSU had 6 public functions:**
 - Get-LSUpdate
-- Save-LSUpdate  
+- Save-LSUpdate
 - Install-LSUpdate
 - Expand-LSUpdate
 - Get-LSUClientConfiguration
@@ -138,7 +138,7 @@ Set-LSUpdateConfiguration -Proxy "http://proxy.com:8080"
 Set-LnvUpdateConfiguration -Proxy "http://proxy.com:8080"
 ```
 
-#### Get-LnvUpdateHist 
+#### Get-LnvUpdateHist
 
 ```powershell
 
@@ -195,7 +195,7 @@ Get-LnvUpdatesRepo
 #### Expand-LnvUpdate
 
 ```powershell
-# Original LSU 
+# Original LSU
 # Download and extract
 $updates = Get-LSUpdate
 $updates | Save-LSUpdate -Path C:\Packages
@@ -259,7 +259,7 @@ Install-LnvUpdate -Package $package -SkipSignatureCheck
 | `Path` | YES | YES | Downloaded package location |
 | `Proxy` | YES | YES | Proxy server URL |
 | `ProxyCredential` | YES | YES | Proxy authentication |
-| `SaveBIOSUpdateInfoToRegistry` | Yes | YES 
+| `SaveBIOSUpdateInfoToRegistry` | Yes | YES
 | `VerifySignature` | NO | YES | NEW: Verify package signatures |
 | `SkipSignatureCheck` | NO | YES | NEW: Bypass signature verification |
 
@@ -297,7 +297,7 @@ All original parameters preserved plus:
 
 **Install-LnvUpdate - NEW parameters:**
 - `-VerifySignature` - Enforce signature verification
-- `-SkipSignatureCheck` - Bypass signature verification 
+- `-SkipSignatureCheck` - Bypass signature verification
 
 
 
@@ -347,4 +347,4 @@ $updates | Install-LnvUpdate -VerifySignature  # Uses enhanced validation
 
 # Or manually test
 $updates | Test-LnvSignature
-``` 
+```

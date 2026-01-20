@@ -68,16 +68,25 @@ nav:
     - Lenovo Client Scripting Module:
       - guides/lcsm/lcsm_top.md
     - Lenovo Client Update Module:
-      - guides/lcu/lcu_top.md
-      - guides/lcu/lcu_getting_started.md
-      - guides/lcu/lcu_best_practices.md
-      - guides/lcu/lcu_advanced_usage.md
-      - guides/lcu/lcu_bios_firmware_updates.md
-      - guides/lcu/lcu_versioning_info.md
-      - guides/lcu/lcu_troubleshooting.md
-      - guides/lcu/reference.md
-      - guides/lcu/lcu_faq.md
-      - guides/lcu/lcu_release_notes.md
+      - Overview: guides/lcu/index.md
+      - Getting Started:
+        - Installation: guides/lcu/getting-started/installation.md
+        - Quick Start: guides/lcu/getting-started/quick-start.md
+      - Migration Guide:
+        - LSU Client vs Lenovo Client Update: guides/lcu/comparison.md
+      - Functions:
+        - Get-LnvUpdate: guides/lcu/functions/get-lnvupdate.md
+        - Save-LnvUpdate: guides/lcu/functions/save-lnvupdate.md
+        - Install-LnvUpdate: guides/lcu/functions/install-lnvupdate.md
+        - Get-LnvUpdateConfiguration: guides/lcu/functions/get-lnvupdateconfiguration.md
+        - Set-LnvUpdateConfiguration: guides/lcu/functions/set-lnvupdateconfiguration.md
+        - Get-LnvDownload: guides/lcu/functions/get-lnvdownload.md
+        - Get-LnvUpdateHist: guides/lcu/functions/get-lnvupdatehist.md
+        - Add-LnvUpdateHist: guides/lcu/functions/add-lnvupdatehist.md
+        - Get-LnvUpdateSummary: guides/lcu/functions/get-lnvupdatesummary.md
+        - Test-LnvSignature: guides/lcu/functions/test-lnvsignature.md
+        - Get-LnvUpdatesRepo: guides/lcu/functions/get-lnvupdatesrepo.md
+        - Expand-LnvUpdate: guides/lcu/functions/expand-lnvupdate.md
     - Lenovo Updates Catalog:
       - guides/luc/luc_ovrvw.md
       - guides/luc/luc_agnt.md

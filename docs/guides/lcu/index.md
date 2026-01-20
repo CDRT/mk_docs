@@ -1,4 +1,4 @@
-# Lenovo.Client.Update (LnvUpdate)
+# Lenovo.Client.Update
 
 PowerShell module for managing Lenovo driver, BIOS/UEFI, and firmware updates.
 
