@@ -28,6 +28,7 @@ Installs Lenovo update packages on the local computer. The function automaticall
 | `-Proxy` | Uri | Proxy URL |
 | `-ProxyCredential` | PSCredential | Proxy credentials |
 | `-ProxyUseDefaultCredentials` | switch | Use current user for proxy |
+| `-ExportToWMI` | switch | export the update information to WMI (ROOT\Lenovo namespace) |
 
 ## Examples
 

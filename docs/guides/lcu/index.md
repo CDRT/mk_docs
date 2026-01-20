@@ -23,6 +23,6 @@ $updates | Install-LnvUpdate
 - [Installation](getting-started/installation.md)
 - [Commands](functions/get-lnvupdate.md)
 - [LSU vs LnvUpdate](migration-guide.md)
-- [Signature Verification](topics/signature-verification.md)
+
 
 **Version**: 1.0.0
