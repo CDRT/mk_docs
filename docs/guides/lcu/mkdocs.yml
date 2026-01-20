@@ -1,0 +1,38 @@
+site_name: Lenovo.Client.Update Documentation
+site_description: PowerShell module for managing Lenovo computer driver, BIOS, and firmware updates
+site_author: CDRT
+theme:
+  name: material
+  palette:
+    primary: blue
+    accent: blue
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quick-start.md
+  - Migration Guide:
+    - LSU vs LnvUpdate: migration-guide.md
+  - Functions:
+    - Get-LnvUpdate: functions/get-lnvupdate.md
+    - Save-LnvUpdate: functions/save-lnvupdate.md
+    - Install-LnvUpdate: functions/install-lnvupdate.md
+    - Get-LnvUpdateConfiguration: functions/get-lnvupdateconfiguration.md
+    - Set-LnvUpdateConfiguration: functions/set-lnvupdateconfiguration.md
+    - Get-LnvDownload: functions/get-lnvdownload.md
+    - Get-LnvUpdateHist: functions/get-lnvupdatehist.md
+    - Add-LnvUpdateHist: functions/add-lnvupdatehist.md
+    - Get-LnvUpdateSummary: functions/get-lnvupdatesummary.md
+    - Test-LnvSignature: functions/test-lnvsignature.md
+    - Get-LnvUpdatesRepo: functions/get-lnvupdatesrepo.md
+    - Expand-LnvUpdate: functions/expand-lnvupdate.md
+  
+
+plugins:
+  - search
