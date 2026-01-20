@@ -27,7 +27,7 @@ Install-Module -Name LnvUpdate -Scope AllUsers
 
 ## Manual Installation
 
-1. Download from [GitHub](https://github.com/jantari/LSUClient)
+1. Download from [GitHub](https://github.com/CDRT/Lenovo.Client.Update)
 2. Extract to: `C:\Program Files\WindowsPowerShell\Modules\LnvUpdate\`
 3. Import: `Import-Module LnvUpdate`
 

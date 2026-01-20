@@ -158,4 +158,9 @@ Get-LnvUpdate | Export-WMI
 
 WMI Location: `ROOT\Lenovo\LenovoUpdate_Updates`
 
+You can view this in:
 
+- WMI Explorer
+- PowerShell (shown above)
+- SCCM Hardware Inventory
+- Any WMI management tool

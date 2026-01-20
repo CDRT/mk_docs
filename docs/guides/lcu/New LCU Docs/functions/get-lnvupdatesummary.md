@@ -20,7 +20,4 @@ Get-LnvUpdateSummary
 Get-LnvUpdateSummary | Format-Table
 ```
 
-## See Also
 
-- [Get-LnvUpdate](get-lnvupdate.md)
-- [Get-LnvUpdateHist](get-lnvupdatehist.md)

@@ -121,12 +121,8 @@ Get-LnvUpdatesRepo `
 
 ## Notes
 
-- Supported on Lenovo commercial systems
-- Internet access is required
 - Initial runs should be performed **without** `-DeltaUpdate`
 
 
 
-## See Also
 
-- [Set-LnvUpdateConfiguration](set-lnvupdateconfiguration.md)

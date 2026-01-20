@@ -2,11 +2,9 @@
 
 This document outlines the differences between the original **LSUClient** (LSU) by jantari and the new **Lenovo.Client.Update** (LnvUpdate/LCU) module.
 
-## Overview
 
-The Lenovo.Client.Update module is a fork and enhancement of the original jantari's LSUClient project. It maintains backward compatibility with core functionality while introducing significant security enhancements, additional features, and improvements for enterprise deployment.
 
-## Feature Comparison Matrix
+## Feature Comparison 
 
 | Feature | Original LSU | LnvUpdate (LCU) | Notes |
 |---------|--------------|-----------------|-------|
@@ -17,10 +15,8 @@ The Lenovo.Client.Update module is a fork and enhancement of the original jantar
 | **Silent Installation** | YES | YES | Unattended installation support |
 | **Custom Repository** | YES | YES | Host own update repository |
 | **Proxy Support** | YES | YES | Web proxy with authentication |
-| **PowerShell Pipeline** | YES | YES | Object-oriented approach |
 | **Package Extraction** | YES | YES | Extract package contents |
 | **Proxy Configuration Management** | YES | YES | Get/Set proxy and credentials |
-| **Runtime Timeout Limits** | YES | NO | MaxExternalDetectionRuntime, MaxExtractRuntime, MaxInstallerRuntime |
 | **Registry Tracking** | LIMITED | YES (Enhanced) | BIOS update info to registry |
 | **Digital Signatures** | LIMITED | YES (Enhanced) | Cryptographic verification of packages |
 | **Signature Verification** | NO | YES | Test-LnvSignature - verify package authenticity |
@@ -28,12 +24,6 @@ The Lenovo.Client.Update module is a fork and enhancement of the original jantar
 | **Skip Signature Check** | NO | YES | -SkipSignatureCheck for testing environments |
 | **Certificate Validation** | Basic | YES (Dedicated DLL) | Lenovo.CertificateValidation.dll |
 | **SCCM Integration** | LIMITED | YES (Enhanced) | Improved integration examples |
-| **Intune Support** | NO | YES | Native Intune remediation support |
-| **MDT Integration** | LIMITED | YES (Enhanced) | Task sequence integration examples |
-| **PDQ Deploy Support** | LIMITED | YES (Enhanced) | Better PDQ integration |
-| **Remote Deployment** | YES | YES (Enhanced) | PowerShell Remoting examples included |
-| **Error Handling** | LIMITED | YES (Enhanced) | Better error recovery and logging |
-| **Compliance Tracking** | NO | YES | Registry-based compliance metrics |
 | **Update History** | LIMITED | YES (Enhanced) | Better history tracking |
 
 ## Command Comparison
@@ -72,12 +62,12 @@ These commands work the same in both LSU and LnvUpdate:
 # Original LSU
 $updates = Get-LSUpdate
 $updates = Get-LSUpdate -Model "20LS" -All
-$updates = Get-LSUpdate -Repository "http://internal-repo.com"
+
 
 # LnvUpdate (fully compatible)
 $updates = Get-LnvUpdate
 $updates = Get-LnvUpdate -Model "20LS" -All
-$updates = Get-LnvUpdate -Repository "http://internal-repo.com"
+
 ```
 
 #### Save-LnvUpdate / Save-LSUpdate
@@ -115,7 +105,6 @@ $updates | Test-LnvSignature
 $package = Get-LnvUpdate | Select-Object -First 1
 Test-LnvSignature -Package $package
 ```
-
 This command **does not exist** in original LSU.
 
 #### Get-LnvUpdateConfiguration / Get-LSUpdateConfiguration
@@ -141,8 +130,6 @@ Set-LnvUpdateConfiguration -Proxy "http://proxy.com:8080"
 #### Get-LnvUpdateHist 
 
 ```powershell
-
-
 # LnvUpdate (New)
 Get-LnvUpdateHist | Where-Object { $_.InstallDate -gt (Get-Date).AddDays(-30) }
 ```
@@ -232,7 +219,7 @@ Get-WmiObject -ComputerName PC01 -Namespace ROOT\Lenovo -Class LenovoUpdate_Upda
 ```
 
 
-## Function Parameter Changes
+## Main Function Parameter Changes
 
 ### Install-LnvUpdate - New Parameters
 
@@ -283,15 +270,7 @@ All original parameters preserved plus:
 | `-LogFile` | switch| creates a logfile after the packages are retrieved |
 
 
-## What's Actually New in LnvUpdate
 
-### 6 completely new functions
-1. **Test-LnvSignature** - Cryptographic signature verification
-2. **Get-LnvDownload** - List and manage downloaded packages
-3. **Add-LnvUpdateHist** - Manually record update history
-4. **Get-LnvUpdateHist** - Enhanced update history tracking
-5. **Get-LnvUpdateSummary** - Summary statistics of updates
-6. **Get-LnvUpdatesRepo** - Repository information and status
 
 ### New Parameters on Existing Commands
 
@@ -302,10 +281,8 @@ All original parameters preserved plus:
 
 
 ### Core Infrastructure Additions
-
  **Lenovo.CertificateValidation.dll** - Dedicated certificate validation assembly
- **Improved Error Handling** - Better error messages and recovery
-4. **Enterprise Integration** - Native SCCM, Intune, MDT, PDQ support
+
 
 ## Security Enhancements
 
@@ -331,13 +308,9 @@ $updates | Install-LnvUpdate -VerifySignature
 
 ### Certificate Validation
 
-**Original LSU:**
-- Basic .NET certificate validation to impro
 
 **LnvUpdate:**
 - Dedicated `Lenovo.CertificateValidation.dll` for enhanced validation
-- Support for certificate pinning
-- Improved revocation checking
 - Better error messages for certificate issues
 
 ```powershell
