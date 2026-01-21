@@ -5,9 +5,9 @@ Get up and running with the Lenovo.Client.Update module in just a few minutes.
 ## 1. Import the Module
 
 ```powershell
-Import-Module -Name 'LnvUpdate'
+Import-Module -Name 'Lenovo.Client.Update'
 
-If the module is not in the gallery yet use : Import-Module .\LnvUpdate.psd1 -Force
+If the module is not in the gallery yet use : Import-Module .\Lenovo.Client.Update.psd1 -Force
 ```
 
 

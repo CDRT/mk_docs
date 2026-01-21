@@ -16,13 +16,13 @@ Before installing the Lenovo.Client.Update module, ensure your system meets the 
 The easiest way to install the module is from the PowerShell Gallery:
 
 ```powershell
-Install-Module -Name LnvUpdate -Scope CurrentUser
+Install-Module -Name Lenovo.Client.Update -Scope CurrentUser
 ```
 
 For all users:
 
 ```powershell
-Install-Module -Name LnvUpdate -Scope AllUsers
+Install-Module -Name Lenovo.Client.Update -Scope AllUsers
 ```
 
 ## Manual Installation
@@ -41,5 +41,5 @@ Get-Help Get-LnvUpdate
 ## Update Module
 
 ```powershell
-Update-Module -Name LnvUpdate
+Update-Module -Name Lenovo.Client.Update
 ```

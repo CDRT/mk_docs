@@ -15,7 +15,7 @@ The cmdlet supports multiple signature validation mechanisms:
 - **Authenticode signatures** (EXE, DLL, SYS, MSI, CAB, CAT, INF)
 - **XML Digital Signatures (XML-DSig)** for Lenovo XML payloads
 - **Catalog (.cat) signatures** for driver-related files
-- Optional use of Lenovo’s internal certificate validation APIs when available, with automatic fallback to Windows-native validation
+
 
 When a folder path is provided, all supported signable files are discovered and evaluated. Results can be returned as a simple Boolean value or as detailed signature metadata.
 

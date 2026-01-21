@@ -1,6 +1,6 @@
 # LSU vs Lenovo.Client.Update (LCU)
 
-This document outlines the differences between the original **LSUClient** (LSU) by jantari and the new **Lenovo.Client.Update** (LnvUpdate/LCU) module.
+This document outlines the differences between the original **LSUClient** (LSU) by jantari and the new **Lenovo.Client.Update** (LCU) module.
 
 
 
@@ -17,13 +17,10 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 | **Proxy Support** | YES | YES | Web proxy with authentication |
 | **Package Extraction** | YES | YES | Extract package contents |
 | **Proxy Configuration Management** | YES | YES | Get/Set proxy and credentials |
-| **Registry Tracking** | LIMITED | YES (Enhanced) | BIOS update info to registry |
-| **Digital Signatures** | LIMITED | YES (Enhanced) | Cryptographic verification of packages |
 | **Signature Verification** | NO | YES | Test-LnvSignature - verify package authenticity |
 | **Signature Enforcement** | NO | YES | -VerifySignature flag on installation |
 | **Skip Signature Check** | NO | YES | -SkipSignatureCheck for testing environments |
 | **Certificate Validation** | Basic | YES (Dedicated DLL) | Lenovo.CertificateValidation.dll |
-| **SCCM Integration** | LIMITED | YES (Enhanced) | Improved integration examples |
 | **Update History** | LIMITED | YES (Enhanced) | Better history tracking |
 
 ## Command Comparison
@@ -38,7 +35,7 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 - Get-LSUClientConfiguration
 - Set-LSUClientConfiguration
 
-**LnvUpdate has 12 public functions (6 from LSU + 6 NEW):**
+**LnvUpdate has 12 public functions (6 from LSU + 7 NEW):**
 - Get-LnvUpdate (renamed from Get-LSUpdate)
 - Save-LnvUpdate (renamed from Save-LSUpdate)
 - Install-LnvUpdate (renamed from Install-LSUpdate)
@@ -48,9 +45,11 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 - **Test-LnvSignature** (NEW)
 - **Get-LnvDownload** (NEW)
 - **Get-LnvUpdateHist** (NEW - enhanced version)
-- **Export-WMI** (NEW)
+- **Add-LnvUpdateHist** (NEW)
 - **Get-LnvUpdateSummary** (NEW)
 - **Get-LnvUpdatesRepo** (NEW)
+- **Get-LnvUpdatefromWMI** (NEW)
+
 
 ### Core Commands (Unchanged)
 
@@ -173,7 +172,7 @@ Add-LnvUpdateHist -Title "Custom Update" -InstallDate (Get-Date) -Result "Succes
 **NEW** - Get repository information:
 
 ```powershell
-# Original LSU - NOT AVAILABLE
+
 
 # LnvUpdate - NEW
 Get-LnvUpdatesRepo
@@ -198,26 +197,6 @@ $updates | Expand-LnvUpdate -Path C:\Packages
 Get-LnvDownload -MachineType 21N2 -RepositoryFolder C:\Repo -Expand
 
 ```
-
-#### Export-WMI
-**LSUClient:**
-```powershell
-# No WMI integration
-# Cannot query remotely
-```
-
-**Lenovo.Client.Update:**
-```powershell
-# Export to WMI
-Get-LnvUpdate | Export-WMI
-
-# Query locally
-Get-WmiObject -Namespace ROOT\Lenovo -Class LenovoUpdate_Updates
-
-# Query remote computers
-Get-WmiObject -ComputerName PC01 -Namespace ROOT\Lenovo -Class LenovoUpdate_Updates
-```
-
 
 ## Main Function Parameter Changes
 
@@ -277,7 +256,7 @@ All original parameters preserved plus:
 **Install-LnvUpdate - NEW parameters:**
 - `-VerifySignature` - Enforce signature verification
 - `-SkipSignatureCheck` - Bypass signature verification
-
+- `-ExportToWMI` - Export the update information to WMI
 
 
 ### Core Infrastructure Additions
@@ -307,11 +286,6 @@ $updates | Install-LnvUpdate -VerifySignature
 ```
 
 ### Certificate Validation
-
-
-**LnvUpdate:**
-- Dedicated `Lenovo.CertificateValidation.dll` for enhanced validation
-- Better error messages for certificate issues
 
 ```powershell
 # Examples showing enhanced validation
