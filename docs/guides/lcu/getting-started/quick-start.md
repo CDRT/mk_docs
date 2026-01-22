@@ -6,10 +6,9 @@ Get up and running with the Lenovo.Client.Update module in just a few minutes.
 
 ```powershell
 Import-Module -Name 'Lenovo.Client.Update'
-
-If the module is not in the gallery yet use : Import-Module .\Lenovo.Client.Update.psd1 -Force
 ```
 
+If the module is not in the gallery yet use : Import-Module .\Lenovo.Client.Update.psd1 -Force
 
 ## 2. Check Available Updates
 
@@ -30,11 +29,11 @@ Download the updates to a local directory:
 $updates = Get-LnvUpdate
 $updates | Save-LnvUpdate
 
-#if the package is i a local repository :
+#if the package is in a local repository :
 $updates | Save-LnvUpdate -Path "C:\Updates" -ShowProgress
 ```
 
-The `-ShowProgress` parameter displays download progress for large packages.
+The `-ShowProgress` parameter can be used to display download progress for large packages.
 
 ## 4. Install Updates
 
@@ -48,7 +47,7 @@ The `-Verbose` parameter provides detailed output about the installation process
 
 ## Complete Workflow
 
-Here's a complete example that finds, downloads, and installs updates in one pipeline:
+Here's a complete example that finds, downloads, and installs updates in one script:
 
 ```powershell
 # Get available updates for this computer
@@ -94,10 +93,3 @@ To retrieve updates for a different computer model:
 $updates = Get-LnvUpdate -Model '20LS' -All
 $updates | Save-LnvUpdate -Path 'C:\20LS_Drivers'
 ```
-
-## Next Steps
-
-- **[Function Reference](../functions/get-lnvupdate.md)** - Detailed documentation for all functions
-- **[Common Tasks](../examples/common-tasks.md)** - More practical examples
-- **[Proxy Configuration](../topics/proxy-configuration.md)** - Set up web proxy support
-- **[Custom Repositories](../topics/custom-repositories.md)** - Use your own package repository
