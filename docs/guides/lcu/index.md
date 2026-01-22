@@ -22,7 +22,7 @@ $updates | Install-LnvUpdate
 
 - [Installation](getting-started/installation.md)
 - [Commands](functions/get-lnvupdate.md)
-- [LSU vs LnvUpdate](migration-guide.md)
+- [LSU vs LnvUpdate](comparison.md)
 
 
 **Version**: 1.0.0
