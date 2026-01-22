@@ -117,6 +117,20 @@ UEFI Network Boot Priority
     |:---|:---|:---|:---|
     | UefiPxeBootPriority  | IPv6First, IPv4First | No | Both |
 
+UEFI PXE TFTP Window Size
+:  Select the TFTP Window Size used for PXE boot. This value indicates the number of consecutive blocks transmitted before stopping and waiting for the acknowledgment of the last block transmitted.
+
+    Possible options:
+
+    1. 1
+    2. 2
+    3. 3
+    4. **4** – Default.
+
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | TFTPWindowSize  | 1, 2, 3, 4 | No | Both |
+
 Wireless Auto Disconnection
 :  Whether to Auto Disconnect Wireless feature when Ethernet cable is connected to Ethernet LAN.
 
