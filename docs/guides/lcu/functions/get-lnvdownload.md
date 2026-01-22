@@ -1,16 +1,16 @@
 # Get-LnvDownload
 
-Downloads Lenovo update packages and optionally extracts them to a local repository.
+Downloads Lenovo update packages and optionally extracts them to a local folder.
 
 ## Synopsis
 
-Downloads driver, BIOS, firmware, and application updates for a specified Lenovo machine type and creates a local repository.
+Downloads driver, BIOS, firmware, and application updates for a specified Lenovo machine type and creates a local folder.
 
 ## Description
 
-`Get-LnvDownload` is a legacy function that downloads Lenovo update packages directly from Lenovo's servers for a specific machine type. It creates a local repository structure and can optionally extract package installers using the `-Expand` parameter.
+`Get-LnvDownload` is a legacy function that downloads Lenovo update packages directly from Lenovo's servers for a specific machine type. It creates a local folder structure and can optionally extract package installers using the `-Expand` parameter.
 
-This function downloads packages to individual folders named by package ID and stores them in the specified repository folder. When `-Expand` is used, the installer files are extracted directly into each package folder.
+This function downloads packages to individual folders named by package ID and stores them in the specified folder. When `-Expand` is used, the installer files are extracted directly into each package folder.
 
 !!! note
     This is a legacy function. For more flexible workflows, consider using `Get-LnvUpdate`, `Save-LnvUpdate`, and `Expand-LnvUpdate` separately.
@@ -30,7 +30,7 @@ This function downloads packages to individual folders named by package ID and s
 | `-Csv` | Switch | No | - | Export package list to CSV file |
 | `-Expand` | Switch | No | - | Extract installers after download (requires admin) |
 
-## Repository Structure
+## Folder Structure
 
 When using `Get-LnvDownload`, packages are organized as follows:
 ```
@@ -100,6 +100,3 @@ When using `-Expand`:
 - Progress messages display every 5 seconds
 - Extracted files are placed directly in each package folder
 - The function waits for all extractions to complete before exiting
-
-
-

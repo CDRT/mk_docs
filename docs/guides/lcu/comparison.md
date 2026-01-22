@@ -4,7 +4,7 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 
 
 
-## Feature Comparison 
+## Feature Comparison
 
 | Feature | Original LSU | LnvUpdate (LCU) | Notes |
 |---------|--------------|-----------------|-------|
@@ -28,6 +28,7 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 ### Quick Reference: Commands
 
 **Original LSU had 6 public functions:**
+
 - Get-LSUpdate
 - Save-LSUpdate
 - Install-LSUpdate
@@ -36,6 +37,7 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 - Set-LSUClientConfiguration
 
 **LnvUpdate has 12 public functions (6 from LSU + 7 NEW):**
+
 - Get-LnvUpdate (renamed from Get-LSUpdate)
 - Save-LnvUpdate (renamed from Save-LSUpdate)
 - Install-LnvUpdate (renamed from Install-LSUpdate)

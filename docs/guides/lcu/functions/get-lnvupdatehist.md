@@ -1,10 +1,10 @@
 # Get-LnvUpdateHist
 
-View Lenovo update history.
+View the history of updates installed by the Install-LnvUpdate cmdlet.
 
 ## Synopsis
 
-Retrieves the update history for Lenovo packages installed on the system.
+Retrieves the update history for Lenovo packages installed on the system. This information is stored in a .json file found in C:\ProgramData\Lenovo\Lenovo.Client.Update\History folder. A new file is created for each session with a timestamp in the filename.
 
 ## Description
 
@@ -41,10 +41,10 @@ Returns an array of installation history objects with the following properties:
 
 Installation history is stored at:
 ```
-$env:ProgramData\Lenovo\LnvUpdate\History\InstallHistory.json
+$env:ProgramData\Lenovo\Lenovo.Client.Update\History\InstallHistory-<timestamp>.json
 ```
 
-This file is created automatically after the first update installation.
+This file is created automatically after each update installation session.
 
 ## Examples
 

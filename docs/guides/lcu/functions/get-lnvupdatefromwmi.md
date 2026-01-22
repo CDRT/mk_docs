@@ -1,6 +1,6 @@
 # Get-UpdatefromWMI
 
-Queries Lenovo update information from WMI (local or remote computers).
+Queries Lenovo update information from WMI using the root\Lenovo\Lenovo_Updates class.
 
 ## Syntax
 
@@ -46,4 +46,3 @@ Console output is color-coded (Cyan: queries, Green: success, Yellow: headers, G
 - Dynamically constructs WMI queries with filters
 - Non-blocking error handling
 - History limited to 10 most recent entries
-
