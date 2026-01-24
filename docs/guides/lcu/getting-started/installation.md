@@ -29,12 +29,12 @@ Install-Module -Name Lenovo.Client.Update -Scope AllUsers
 
 1. Download from [Lenovo](https://download.lenovo.com/cdrt/tools/luc-1.0.0.zip)
 2. Extract to: `C:\Program Files\WindowsPowerShell\Modules\LnvUpdate\`
-3. Import: `Import-Module LnvUpdate`
+3. Import: `Import-Module Lenovo.Client.Update`
 
 ## Verify Installation
 
 ```powershell
-Get-Command -Module LnvUpdate
+Get-Command -Module Lenovo.Client.Update
 Get-Help Get-LnvUpdate
 ```
 

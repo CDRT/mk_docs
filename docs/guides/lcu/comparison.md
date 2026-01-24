@@ -1,12 +1,10 @@
 # LSU vs Lenovo.Client.Update (LCU)
 
-This document outlines the differences between the original **LSUClient** (LSU) by jantari and the new **Lenovo.Client.Update** (LCU) module.
-
-
+This document outlines the differences between the original **LSUClient** (LSU) by jantari and the **Lenovo.Client.Update** (LCU) module in case you need to migrate some existing scripts to use this module.
 
 ## Feature Comparison
 
-| Feature | Original LSU | LnvUpdate (LCU) | Notes |
+| Feature | LSU | LCU | Notes |
 |---------|--------------|-----------------|-------|
 | **Core Update Discovery** | YES | YES | Fetch available updates for Lenovo systems |
 | **Driver Updates** | YES | YES | Install device drivers |
@@ -23,6 +21,8 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 | **Certificate Validation** | Basic | YES (Dedicated DLL) | Lenovo.CertificateValidation.dll |
 | **Update History** | LIMITED | YES (Enhanced) | Better history tracking |
 
+---
+
 ## Command Comparison
 
 ### Quick Reference: Commands
@@ -36,7 +36,7 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 - Get-LSUClientConfiguration
 - Set-LSUClientConfiguration
 
-**LnvUpdate has 12 public functions (6 from LSU + 7 NEW):**
+**LCU has 12 public functions (6 from LSU + 6 NEW):**
 
 - Get-LnvUpdate (renamed from Get-LSUpdate)
 - Save-LnvUpdate (renamed from Save-LSUpdate)
@@ -44,18 +44,16 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 - Expand-LnvUpdate (renamed from Expand-LSUpdate)
 - Get-LnvUpdateConfiguration (renamed from Get-LSUClientConfiguration)
 - Set-LnvUpdateConfiguration (renamed from Set-LSUClientConfiguration)
-- **Test-LnvSignature** (NEW)
 - **Get-LnvDownload** (NEW)
 - **Get-LnvUpdateHist** (NEW - enhanced version)
 - **Add-LnvUpdateHist** (NEW)
 - **Get-LnvUpdateSummary** (NEW)
-- **Get-LnvUpdatesRepo** (NEW)
+- **Get-LnvUpdatesRepo** (NEW - from Lenovo.Client.Scripting Module)
 - **Get-LnvUpdatefromWMI** (NEW)
-
 
 ### Core Commands (Unchanged)
 
-These commands work the same in both LSU and LnvUpdate:
+These commands work the same in both LSU and LCU:
 
 #### Get-LnvUpdate / Get-LSUpdate
 
@@ -65,7 +63,7 @@ $updates = Get-LSUpdate
 $updates = Get-LSUpdate -Model "20LS" -All
 
 
-# LnvUpdate (fully compatible)
+# LCU (fully compatible)
 $updates = Get-LnvUpdate
 $updates = Get-LnvUpdate -Model "20LS" -All
 
@@ -77,7 +75,7 @@ $updates = Get-LnvUpdate -Model "20LS" -All
 # Original LSU
 $updates | Save-LSUpdate -Path "C:\Updates" -ShowProgress
 
-# LnvUpdate (compatible)
+# LCU (compatible)
 $updates | Save-LnvUpdate -Path "C:\Updates" -ShowProgress
 ```
 
@@ -87,26 +85,9 @@ $updates | Save-LnvUpdate -Path "C:\Updates" -ShowProgress
 # Original LSU
 $updates | Install-LSUpdate -Verbose
 
-# LnvUpdate (compatible)
+# LCU (compatible)
 $updates | Install-LnvUpdate -Verbose
 ```
-
-### New Commands in LnvUpdate
-
-#### Test-LnvSignature
-
-**NEW** - Verify digital signatures of update packages:
-
-```powershell
-# Verify a package's signature
-$updates = Get-LnvUpdate
-$updates | Test-LnvSignature
-
-# Check individual package
-$package = Get-LnvUpdate | Select-Object -First 1
-Test-LnvSignature -Package $package
-```
-This command **does not exist** in original LSU.
 
 #### Get-LnvUpdateConfiguration / Get-LSUpdateConfiguration
 
@@ -114,7 +95,7 @@ This command **does not exist** in original LSU.
 # Original LSU
 $config = Get-LSUpdateConfiguration
 
-# LnvUpdate
+# LCU
 $config = Get-LnvUpdateConfiguration
 ```
 
@@ -124,60 +105,8 @@ $config = Get-LnvUpdateConfiguration
 # Original LSU
 Set-LSUpdateConfiguration -Proxy "http://proxy.com:8080"
 
-# LnvUpdate
+# LCU
 Set-LnvUpdateConfiguration -Proxy "http://proxy.com:8080"
-```
-
-#### Get-LnvUpdateHist
-
-```powershell
-# LnvUpdate (New)
-Get-LnvUpdateHist | Where-Object { $_.InstallDate -gt (Get-Date).AddDays(-30) }
-```
-
-#### Get-LnvUpdateSummary
-
-**NEW** - Get update status summary:
-
-```powershell
-# Original LSU - NOT AVAILABLE
-# No equivalent
-
-# LnvUpdate - NEW
-Get-LnvUpdateSummary
-```
-
-#### Get-LnvDownload
-
-**NEW** - List downloaded packages:
-
-```powershell
-# Original LSU - NOT AVAILABLE
-
-# LnvUpdate - NEW
-Get-LnvDownload
-```
-
-#### Add-LnvUpdateHist
-
-**NEW** - Manually record updates:
-
-```powershell
-# Original LSU - NOT AVAILABLE
-
-# LnvUpdate - NEW
-Add-LnvUpdateHist -Title "Custom Update" -InstallDate (Get-Date) -Result "Success"
-```
-
-#### Get-LnvUpdatesRepo
-
-**NEW** - Get repository information:
-
-```powershell
-
-
-# LnvUpdate - NEW
-Get-LnvUpdatesRepo
 ```
 
 #### Expand-LnvUpdate
@@ -189,16 +118,64 @@ $updates = Get-LSUpdate
 $updates | Save-LSUpdate -Path C:\Packages
 $updates | Expand-LSUpdate -Path C:\Packages
 
-# LnvUpdate - NEW
+# LCU
 # Download and extract
 $updates = Get-LnvUpdate
 $updates | Save-LnvUpdate -Path C:\Packages
 $updates | Expand-LnvUpdate -Path C:\Packages
 
 # Or use Get-LnvDownload with -Expand
-Get-LnvDownload -MachineType 21N2 -RepositoryFolder C:\Repo -Expand
-
+Get-LnvDownload -MachineType 21N2 -RepositoryFolder "C:\Repo" -Expand
 ```
+
+### New Commands in LCU
+
+#### Get-LnvDownload
+
+**NEW** - List downloaded packages:
+
+```powershell
+# LCU (NEW)
+Get-LnvDownload -MachineType 21N2 -RepositoryFolder "C:\Repo" -Expand
+```
+
+#### Get-LnvUpdateHist
+
+**NEW** - Get update install history:
+
+```powershell
+# LCU (NEW)
+Get-LnvUpdateHist | Where-Object { $_.InstallDate -gt (Get-Date).AddDays(-30) }
+```
+
+#### Get-LnvUpdateSummary
+
+**NEW** - Get update status summary:
+
+```powershell
+# LCU (NEW)
+Get-LnvUpdateSummary
+```
+
+#### Add-LnvUpdateHist
+
+**NEW** - Manually record updates:
+
+```powershell
+# LCU (NEW)
+Add-LnvUpdateHist -Title "Custom Update" -InstallDate (Get-Date) -Result "Success"
+```
+
+#### Get-LnvUpdatesRepo
+
+**NEW** - Create a repository of updates in the style of Update Retriever using the machine type of the running system. This cmdlet was migrated from the Lenovo.Client.Scripting Module and will be maintained in the LCU module going forward.
+
+```powershell
+# LCU (NEW)
+Get-LnvUpdatesRepo -RepositoryPath 'C:\Lenovo_Repository' -PackageTypes '1,2' -RebootTypes '0,3'
+```
+
+---
 
 ## Main Function Parameter Changes
 
@@ -209,7 +186,8 @@ Get-LnvDownload -MachineType 21N2 -RepositoryFolder C:\Repo -Expand
 Install-LSUpdate -Package $package -Path "C:\Updates" -Verbose
 ```
 
-**LnvUpdate - Enhanced Parameters:**
+**LCU - Enhanced Parameters:**
+
 ```powershell
 # Original parameters still work
 Install-LnvUpdate -Package $package -Path "C:\Updates" -Verbose
@@ -221,7 +199,7 @@ Install-LnvUpdate -Package $package -VerifySignature
 Install-LnvUpdate -Package $package -SkipSignatureCheck
 ```
 
-| Parameter | LSU | LnvUpdate | Purpose |
+| Parameter | LSU | LCU | Purpose |
 |-----------|-----|----------|---------|
 | `Package` | YES | YES | Update package to install |
 | `Path` | YES | YES | Downloaded package location |
@@ -235,7 +213,7 @@ Install-LnvUpdate -Package $package -SkipSignatureCheck
 
 All original parameters preserved plus:
 
-| Parameter | LSU | LnvUpdate | Purpose |
+| Parameter | LSU | LCU | Purpose |
 |-----------|-----|----------|---------|
 | `Model` | YES | YES | Computer model to target |
 | `All` | YES | YES | Return all packages |
@@ -250,20 +228,17 @@ All original parameters preserved plus:
 | `-LogPath` | String | specify the path of the logfile|
 | `-LogFile` | switch| creates a logfile after the packages are retrieved |
 
-
-
-
 ### New Parameters on Existing Commands
 
 **Install-LnvUpdate - NEW parameters:**
 - `-VerifySignature` - Enforce signature verification
 - `-SkipSignatureCheck` - Bypass signature verification
-- `-ExportToWMI` - Export the update information to WMI
-
+- `-ExportToWMI` - Export the update information to WMI in the root\Lenovo\Lenovo_Updates class
 
 ### Core Infrastructure Additions
  **Lenovo.CertificateValidation.dll** - Dedicated certificate validation assembly
 
+---
 
 ## Security Enhancements
 
@@ -275,6 +250,7 @@ All original parameters preserved plus:
 - No options to skip signature checks
 
 **LnvUpdate:**
+
 ```powershell
 # NEW: Dedicated signature verification function
 $updates | Test-LnvSignature

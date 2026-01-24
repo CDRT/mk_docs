@@ -86,7 +86,7 @@ $allUpdates | Group-Object -Property Category
 
 ## Get Updates for Another Computer
 
-To retrieve updates for a different computer model:
+To retrieve all of the currently available updates for a different computer model:
 
 ```powershell
 # Download drivers for model 20LS
