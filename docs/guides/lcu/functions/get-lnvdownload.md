@@ -8,12 +8,12 @@ Downloads driver, BIOS, firmware, and application updates for a specified Lenovo
 
 ## Description
 
-`Get-LnvDownload` is a legacy function that downloads Lenovo update packages directly from Lenovo's servers for a specific machine type. It creates a local folder structure and can optionally extract package installers using the `-Expand` parameter.
+`Get-LnvDownload` is a function that downloads Lenovo update packages directly from Lenovo's servers for a specific machine type. It creates a local folder structure and can optionally extract package installers using the `-Expand` parameter.
 
 This function downloads packages to individual folders named by package ID and stores them in the specified folder. When `-Expand` is used, the installer files are extracted directly into each package folder.
 
 !!! note
-    This is a legacy function. For more flexible workflows, consider using `Get-LnvUpdate`, `Save-LnvUpdate`, and `Expand-LnvUpdate` separately.
+    This function was migrated from the Lenovo.Client.Scripting module and will maintained in this module going forward. For more flexible workflows, consider using `Get-LnvUpdate`, `Save-LnvUpdate`, and `Expand-LnvUpdate` separately.
 
 !!! warning
     The `-Expand` parameter requires running PowerShell as Administrator.
@@ -63,14 +63,10 @@ Downloads only applications (1) and drivers (2), excluding BIOS and firmware.
 
 ### Example 3: Download and extract packages
 ```powershell
-Get-LnvDownload -MachineType 21N2 -WindowsVersion 11 -RepositoryFolder "E:\LCU\21N2" -Expand
+Get-LnvDownload -MachineType 21N2 -WindowsVersion 11 -RepositoryFolder "E:\LCU\21N2" -Csv -Expand
 ```
 
-Downloads packages and extracts installers. Requires running PowerShell as Administrator.
-
-
-
-Downloads packages and creates a CSV file listing all packages with their properties.
+Downloads packages and extracts installers. Requires running PowerShell as Administrator. Creates a CSV file listing all packages with their properties.
 
 ### Example 4: Download drivers with specific reboot types
 ```powershell
@@ -90,6 +86,13 @@ Downloads only drivers that either don't require reboot (0) or require reboot (3
 - `4` - Firmware
 - `9` - All (default)
 
+### Reboot Type Values
+
+- `0` - No reboot required.
+- `1` - The update will force the system to reboot. This cannot be prevented if you install this update.
+- `3` - Reboot recommended.
+- `4` - The update will force the system to power off. This cannot be prevented if you install this update.
+- `5` - Reboot required immediately. Allows for multiple updates to be installed and serviced by one reboot.
 
 
 ### Extraction Behavior

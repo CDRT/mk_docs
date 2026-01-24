@@ -28,7 +28,7 @@ Installs Lenovo update packages on the local computer. The function automaticall
 | `-Proxy` | Uri | Proxy URL |
 | `-ProxyCredential` | PSCredential | Proxy credentials |
 | `-ProxyUseDefaultCredentials` | switch | Use current user for proxy |
-| `-ExportToWMI` | switch | export the update information to WMI (ROOT\Lenovo namespace) |
+| `-ExportToWMI` | switch | export the update information to WMI (ROOT\Lenovo\Lenovo_Updates class) |
 
 ## Examples
 
@@ -82,9 +82,9 @@ Returns a `PackageInstallResult` object with installation outcome details.
 
 ## Important Notes
 
-IMPORTANT - Administrative Rights: Installation of drivers and firmware updates requires administrative privileges.
+**Administrative Rights**: Installation of drivers and firmware updates requires administrative privileges.
 
-IMPORTANT - Unattended Deployment: When deploying via SCCM, MDT, or remote PowerShell, always filter for unattended packages:
+**Unattended Deployment**: When deploying via SCCM, MDT, or remote PowerShell, always filter for unattended packages:
 
 ```powershell
 $updates = Get-LnvUpdate | Where-Object { $_.Installer.Unattended }
@@ -92,7 +92,7 @@ $updates = Get-LnvUpdate | Where-Object { $_.Installer.Unattended }
 
 Interactive installers may hang the deployment waiting for user input.
 
-IMPORTANT - Reboots: Some packages may require reboots or system restarts. Check the result object for `ActionNeeded` property.
+**Reboots**: Some packages may require reboots or system restarts. Check the result object for `ActionNeeded` property.
 
 ## BIOS Update Registry Keys
 

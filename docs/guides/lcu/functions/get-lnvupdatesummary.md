@@ -14,10 +14,9 @@ Provides an overview of the update status including counts of available, needed,
 
 ```powershell
 # Get update summary
-Get-LnvUpdateSummary
+$updates = Get-LnvUpdate
+$updates | Get-LnvUpdateSummary
 
 # View summary by category
-Get-LnvUpdateSummary | Format-Table
+$updates | Get-LnvUpdateSummary | Format-Table
 ```
-
-

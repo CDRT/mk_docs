@@ -7,13 +7,13 @@ Fetches available driver packages and updates for Lenovo computers.
 ## Syntax
 
 ```powershell
-Get-LnvUpdate [[-Model] <string>] [-All] [-IncludePhantomDevices] 
+Get-LnvUpdate [[-Model] <string>] [-All] [-IncludePhantomDevices]
               [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-ProxyUseDefaultCredentials]
 ```
 
 ## Description
 
-Retrieves driver, BIOS/UEFI, firmware, and utility software update packages from Lenovo. By default, only "needed" updates (applicable and not yet installed) are returned. Use the `-All` parameter to get all available packages.
+Retrieves driver, BIOS/UEFI, firmware, and utility software update packages from Lenovo. By default, only "needed" updates (applicable and not yet installed) are returned. Use the `-All` parameter to get all currently available packages.
 
 The function queries the Lenovo update repository and evaluates which packages are applicable to the current system based on hardware configuration, BIOS version, and other factors.
 
@@ -29,10 +29,10 @@ The function queries the Lenovo update repository and evaluates which packages a
 | `-ProxyUseDefaultCredentials` | switch | Use current user for proxy |
 | `-ScratchDirectory` | switch | directory where temp files are downloaded |
 | `-Repository` | string | Path to local repository |
-| `-StatusMode`| String | Change the status of the packages |
-| `-LogPath` | String | specify the path of the logfile|
+| `-StatusMode`| string | Change the status of the packages |
+| `-LogPath` | string | specify the path of the logfile|
 | `-LogFile` | switch| creates a logfile after the packages are retrieved |
-| `-SkipSignature` | Switch skip the signature check of the pakages |
+| `-SkipSignature` | switch | skip the signature check of the pakages |
 
 ## Examples
 
@@ -41,7 +41,7 @@ $updates = Get-LnvUpdate
 $updates | Format-Table -Property Title, ReleaseDate, Category
 ```
 
-Retrieves only updates needed for the current systems. 
+Retrieves only updates needed for the current systems.
 ### Example 2: Get All Available Updates
 
 ```powershell
@@ -60,14 +60,14 @@ $updates | Where-Object { $_.Category -eq 'Driver' } | Save-LnvUpdate
 
 Retrieves all drivers for model 20LS and downloads them.
 
-### Example 4: Using a local repository 
+### Example 4: Using a local repository
 
 ```powershell
 Get-LnvUpdate -Repository "C:\local-repository" -All -Verbose
 
 ```
 
-Retrieves the packages from  the local repository specified. -All, -SkipSignatureCheck and other parameter are applicable 
+Retrieves the packages from  the local repository specified. -All, -SkipSignatureCheck and other parameter are applicable
 
 ## Output
 

@@ -132,7 +132,7 @@ Get-LnvDownload -MachineType 21N2 -RepositoryFolder "C:\Repo" -Expand
 
 #### Get-LnvDownload
 
-**NEW** - List downloaded packages:
+**NEW** - Downloads current updates for a specified Machine Type to a specified local folder with an option expand the packages. This cmdlet was migrated from the Lenovo.Client.Scripting module and will be maintained in this module going forward.
 
 ```powershell
 # LCU (NEW)
