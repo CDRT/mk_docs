@@ -28,39 +28,38 @@ Commercial Vantage is a Windows 10 Modern Application that can also be installed
 
 VantageInstaller must be executed with Administrator rights in order to install the application and dependencies. The installation can be controlled by using the following parameters which are **case sensitive**.
 
-```[Install | Uninstall]```
+`[Install | Uninstall]`
+:   Parameter indicates the intention to either install or uninstall the application. It must be specified first and is used in combination with the parameters below:
 
-Parameter indicates the intention to either install or uninstall the application. It must be specified first and is used in combination with the parameters below
+`-Vantage`
+:   Indicates the Commercial Vantage app and its dependencies such as Lenovo Vantage Service and the Add-ins.
 
-``` -Vantage ```
-Indicates the Commercial Vantage app and its dependencies such as Lenovo Vantage Service and the Add-ins.
+`-App`
+:   Indicates just the Commercial Vantage app and not the Lenovo Vantage Service and Add-ins.
 
-``` -App ```
-Indicates just the Commercial Vantage app and not the Lenovo Vantage Service and Add-ins.
+`-Lite`
+:   Indicates just the System Update feature of Commercial Vantage. Can be used in combination with `-SuHelper`; should not be used with `-Vantage` or `-App`. When Lite mode is installed, a value will be set in the registry at `HKLM\Software\WOW6432Node\Lenovo\VantageService\DeviceTags` named `System.Profile.CommercialLite`. This will ensure during upgrades that the Lite version will continue to be maintained. To switch to the full Commercial Vantage experience, run `VantageInstaller.exe Uninstall -Vantage` to remove Lite and the Vantage Service. This will clear the registry so that `VantageInstaller.exe Install -Vantage` can install the full app.
 
-``` -Lite ```
-Indicates just the System Update feature of Commercial Vantage. Can be used in combination with -SuHelper; should not be used with -Vantage or -App.
+`-SuHelper`
+:   Indicates the SU Helper companion utility.
 
-``` -SuHelper ```
-Indicates the SU Helper companion utility.
+#### Logging
 
-``` LogLevel -Debug ```
+To capture a log of the steps performed during the installation/uninstallation, the following parameters can be used:
 
-Used to get detailed logging in the console as well as saved to a file specified by ```Output```
+`LogLevel -Debug`
+:   Used to get detailed logging in the console as well as saved to a file specified by `Output`
 
-``` Output -Path c:\temp\vantage-install.log```
-
-Used to specify the log file to create when using the ```LogLevel -Debug``` parameter.
+`Output -Path c:\temp\vantage-install.log`
+:   Used to specify the log file to create when using the `LogLevel -Debug` parameter.
 
 #### Examples
 
-``` \VantageInstaller.exe Install -Vantage -SuHelper ```
+` \VantageInstaller.exe Install -Vantage -SuHelper `
+:   Installs both the Commercial Vantage app and dependencies as well as SU Helper utility.
 
-Installs both the Commercial Vantage app and dependencies as well as SU Helper utility.
-
-``` \VantageInstaller.exe Uninstall -Vantage ```
-
-Uninstall the Commercial Vantage app and dependencies.
+` \VantageInstaller.exe Uninstall -Vantage `
+:   Uninstall the Commercial Vantage app and dependencies.
 
 !!!note
     If VantageInstaller.exe is invoked in a PowerShell script, it's recommended to use the call operator (&) as the Start-Process cmdlet can be inconsistent due to argument parsing.
