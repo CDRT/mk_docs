@@ -8,7 +8,7 @@ Installs a Lenovo update package. Downloads it if not previously downloaded.
 
 ```powershell
 Install-LnvUpdate [-Package] <PSObject> [-Path <DirectoryInfo>]
-                  [-SaveBIOSUpdateInfoToRegistry] [-VerifySignature] [-SkipSignatureCheck]
+                  [-SaveBIOSUpdateInfoToRegistry] [-SkipSignatureCheck]
                   [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-ProxyUseDefaultCredentials]
 ```
 
@@ -23,8 +23,7 @@ Installs Lenovo update packages on the local computer. The function automaticall
 | `-Package` | PSObject | Package(s) from Get-LnvUpdate (pipeline) |
 | `-Path` | DirectoryInfo | Directory with cached packages |
 | `-SaveBIOSUpdateInfoToRegistry` | switch |  Write BIOS info to registry |
-| `-VerifySignature` | switch | **NEW**: Verify digital signatures |
-| `-SkipSignatureCheck` | switch | **NEW**: Skip signature check |
+| `-SkipSignatureCheck` | switch | **NEW**: Skips default signature check |
 | `-Proxy` | Uri | Proxy URL |
 | `-ProxyCredential` | PSCredential | Proxy credentials |
 | `-ProxyUseDefaultCredentials` | switch | Use current user for proxy |
