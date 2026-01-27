@@ -62,7 +62,34 @@ Intelligent Cooling Boost
 
     | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
     |:---|:---|:---|:---|
-    | IntelligentCoolingBoost | Disable,Enable | yes | both |
+    | IntelligentCoolingBoost | Disable, Enable | Yes | Both |
+
+Energy Efficient Turbo
+:  If enabled, the CPU’s optimal turbo frequency will be increase or descrease dynamically based on CPU utilization. Adjusting the frequency based on usage extends your battery life. 
+
+    Options:
+
+    1.  **On** - Default.
+    2.  Off.
+
+    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    |:---|:---|:---|:---|
+    | EnergyEfficientTurbo | Disable, Enable | No | Both |
+
+Energy Efficient Turbo
+:  When this feature is Off, your device will run with improved performance, which will consume more battery life.When this feature is On, your device will optimize your performance and balance your battery life based on the memory workload. 
+
+    !!! warning
+    The Setup Configuration might take several minutes to complete and the screen may go blank during this time. This is normal and you should not interrupt the process.
+
+    Options:
+
+    1.  **On** - Default.
+    2.  Off.
+
+    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    |:---|:---|:---|:---|
+    | IntelSystemAgentEnhancedSpeedStep(R)Technology | Disable, Enable | No | Both |
 
 CPU Power Management
 :  Whether to shut down the microprocessor clock automatically when there are no system activities, for power saving.
@@ -109,7 +136,7 @@ Sleep State
 
     | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
     |:---|:---|:---|:---|
-    | SleepState | Linux, Windows, Windows10 | yes | both |
+    | SleepState | Linux, Windows, Windows10 | Yes | Both |
 
     !!! warning
         The possible setting values may vary by model and newer systems may not include this setting. Always verify on a targeted system before deploying.

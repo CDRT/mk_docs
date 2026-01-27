@@ -18,11 +18,11 @@ Secure RollBack Prevention
 :  Whether to prevent flashing to older version of UEFI BIOS.
 
     !!! note ""
-        Defaults to `On`, if `OS Optimized Defaults` has value `On`.
+        Defaults to `On` for shipping, if `OS Optimized Defaults` has value `On`. 
 
     Possible options:
 
-    1. **Off** – Default.
+    1. **Off** – Default at initial boot at factory.
     2. On
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
