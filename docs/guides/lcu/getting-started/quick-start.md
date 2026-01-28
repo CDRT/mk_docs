@@ -93,3 +93,26 @@ To retrieve all of the currently available updates for a different computer mode
 $updates = Get-LnvUpdate -Model '20LS' -All
 $updates | Save-LnvUpdate -Path 'C:\20LS_Drivers'
 ```
+
+## Using LCU in an OSD Task Sequence
+
+When performing a bare-metal OS deployment, it is possible to dynamically retrieve the latest updates for a given machine type and then install the applicable updates to the specific model being deployed. The recommended approach for doing this follows:
+
+```powershell
+# Create a local repository of all updates for the machine type of the device
+# - exclude updates that would automatically restart the computer
+$repoPath = 'C:\Lenovo_Updates'
+Get-LnvUpdatesRepo -RepositoryPath $repoPath -RebootType '0,3,5'
+
+# Determine applicable updates in repository and send to Install-LnvUpdate,
+# write history in WMI and give Verbose output
+Get-LnvUpdate -Repository $repoPath | Install-LnvUpdate -Path $repoPath -ExportToWMI -Verbose
+
+# wait 10 seconds
+Start-Sleep -Seconds 10
+
+# Check for applicable updates again. This catches cases where one driver must be
+# installed before other drivers will become applicable.
+Get-LnvUpdate -Repository $repoPath | Install-LnvUpdate -Path $repoPath -ExportToWMI -Verbose
+
+```

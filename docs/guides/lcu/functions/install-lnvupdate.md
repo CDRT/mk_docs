@@ -108,4 +108,3 @@ HKLM\Software\LenovoUpdate\BIOSUpdate
 
 - [Get-LnvUpdate](get-lnvupdate.md)
 - [Save-LnvUpdate](save-lnvupdate.md)
-- [Test-LnvSignature](test-lnvsignature.md)

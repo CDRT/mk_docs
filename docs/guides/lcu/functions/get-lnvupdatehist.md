@@ -62,5 +62,4 @@ Get-LnvUpdateHist -Category BIOS
 
 ## See Also
 
-- [Add-LnvUpdateHist](add-lnvupdatehist.md)
 - [Get-LnvUpdateSummary](get-lnvupdatesummary.md)
