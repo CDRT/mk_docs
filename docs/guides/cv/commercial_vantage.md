@@ -1,7 +1,7 @@
 # Commercial Vantage Deployment Guide
 
 !!! note
-    Updated: 2025-7-29
+    Updated: 2026-01-27
 
 !!! warning
     Due to requirements from the Lenovo Product Security team, logging is not enabled by default any longer. To enable logging, set the following registry value to "True": [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\SystemUpdateAddin\Logs]"EnableLogs"="True"
@@ -21,7 +21,7 @@ Starting with the enterprise package released in July 2025, the VantageInstaller
 
 Commercial Vantage is a Windows 10 Modern Application that can also be installed directly from the Microsoft Store: [https://www.microsoft.com/store/apps/9NR5B8GVVM13](https://www.microsoft.com/store/apps/9NR5B8GVVM13)
 
-!!! info
+!!! info 
     **Avoid** deploying Commercial Vantage from the Store, as it causes UAC prompts for the user to install required dependencies.
 
 ### Using VantageInstaller.exe
