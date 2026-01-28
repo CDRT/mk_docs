@@ -30,9 +30,17 @@ The function queries the Lenovo update repository and evaluates which packages a
 | `-ScratchDirectory` | switch | directory where temp files are downloaded |
 | `-Repository` | string | Path to local repository |
 | `-StatusMode`| string | Change the status of the packages |
-| `-LogPath` | string | specify the path of the logfile|
-| `-LogFile` | switch| creates a logfile after the packages are retrieved |
+| `-LogFile` | switch| creates a logfile in the default location |
+| `-LogPath` | string | creates a log file in the specified path |
 | `-SkipSignature` | switch | skip the signature check of the pakages |
+
+## Notes
+
+- LogFile should be used if creating the log file in the default path, `C:\ProgramData\Lenovo\Lenovo.Client.Update\log`, is desired. LogPath should be used instead if the log file should be created in a different path. They should not be used together. If they are, LogPath will take precedence.
+
+- ScratchDirectory is optional. The default location is $env:TEMP where a randomly named folder will be created and the package files will be stored here during the processing of applicability. These files and folders will be deleted after the process completes.
+
+- SkipSignature should only be used if you need to modify the package desciptor XML for some reason which will invalidate the digital signature in the file.
 
 ## Examples
 

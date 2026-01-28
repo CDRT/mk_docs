@@ -13,7 +13,7 @@ Downloads driver, BIOS, firmware, and application updates for a specified Lenovo
 This function downloads packages to individual folders named by package ID and stores them in the specified folder. When `-Expand` is used, the installer files are extracted directly into each package folder.
 
 !!! note
-    This function was migrated from the Lenovo.Client.Scripting module and will maintained in this module going forward. For more flexible workflows, consider using `Get-LnvUpdate`, `Save-LnvUpdate`, and `Expand-LnvUpdate` separately.
+    This function was migrated from the Lenovo.Client.Scripting module and will be maintained in this module going forward. For more flexible workflows, consider using `Get-LnvUpdate`, `Save-LnvUpdate`, and `Expand-LnvUpdate` separately.
 
 !!! warning
     The `-Expand` parameter requires running PowerShell as Administrator.
@@ -23,7 +23,7 @@ This function downloads packages to individual folders named by package ID and s
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `-MachineType` | String | Yes | - | 4-character Lenovo machine type (e.g., `21HM`, `20E4`) |
-| `-WindowsVersion` | String | No | `10` | Windows version: `10` or `11` |
+| `-WindowsVersion` | String | No | `11` | Windows version: `10` or `11` |
 | `-RepositoryFolder` | String | No | `C:\testrepo` | Path where packages will be downloaded |
 | `-PackageType` | String | No | `9` (All) | Filter by package type:<br>- `1` = Application<br>- `2` = Driver<br>- `3` = BIOS<br>- `4` = Firmware<br>- `9` = All<br>Multiple types: `"1,2"` |
 | `-RebootType` | String | No | `9` (All) | Filter by reboot requirement:<br>- `0` = No reboot required<br>- `1` = Forced reboot<br>- `3` = Requires reboot<br>- `4` = Forces shutdown<br>- `5` = Delayed forced reboot<br>- `9` = All<br>Multiple types: `"0,3"` |
