@@ -12,17 +12,17 @@ PowerShell module for managing Lenovo driver, BIOS/UEFI, and firmware updates.
 ## Quick Start
 
 ```powershell
-Import-Module LnvUpdate
+Import-Module Lenovo.Client.Update -Force
 $updates = Get-LnvUpdate #Finds applicable updates
 $updates | Save-LnvUpdate -Path "C:\Updates" #Downloads the applicable updates
-$updates | Install-LnvUpdate #Installs the applicable updates
+$updates | Install-LnvUpdate -Path "C:\Updates" #Installs the applicable updates
 ```
 
 ## Documentation
 
 - [Installation](getting-started/installation.md)
 - [Quick Start Guide](getting-started/quick-start.md)
-- [LSU vs LnvUpdate](comparison.md)
+- [LSU vs LCU](comparison.md)
 - Commands
     - [Expand-LnvUpdate](functions/expand-lnvupdate.md)
     - [Get-LnvDownload](functions/get-lnvdownload.md)

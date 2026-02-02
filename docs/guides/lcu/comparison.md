@@ -18,7 +18,7 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 | **Signature Verification** | NO | YES | Test-LnvSignature - verify package authenticity |
 | **Signature Enforcement** | NO | YES | -VerifySignature flag on installation |
 | **Skip Signature Check** | NO | YES | -SkipSignatureCheck for testing environments |
-| **Certificate Validation** | Basic | YES (Dedicated DLL) | Lenovo.CertificateValidation.dll |
+| **Certificate Validation** | NO | YES (Dedicated DLL) | Lenovo.CertificateValidation.dll |
 | **Update History** | LIMITED | YES (Enhanced) | Better history tracking |
 
 ---

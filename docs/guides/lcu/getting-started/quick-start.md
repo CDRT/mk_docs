@@ -19,7 +19,7 @@ $updates = Get-LnvUpdate
 $updates | Format-Table -Property Title, ReleaseDate, Category
 ```
 
-By default, `Get-LnvUpdate` returns only "needed" updates (applicable and not yet installed).
+By default, `Get-LnvUpdate` returns only "needed" updates (applicable and not yet installed). To ensure the updates are fully available, digitally signed, and applicable, all the files for the update will be downloaded to a scratch directory. This will either be in $env:TEMP or a folder you specify using the -ScratchDirectory parameter. The process may take a few minutes depending on how many updates are available for the device and the network connection.
 
 ## 3. Download Updates
 
@@ -80,7 +80,7 @@ To see all available packages (including those not applicable to your system):
 
 ```powershell
 $allUpdates = Get-LnvUpdate -All
-$allUpdates | Measure-Object
+$allUpdates | Measure-Object  # or can user $allupdates.Count to see the total number of updates
 $allUpdates | Group-Object -Property Category
 ```
 
