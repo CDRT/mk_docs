@@ -1,18 +1,18 @@
-# I/O Port Access Settings #
+# I/O Port Access Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_ioportaccess.png)
+![IOPortAccess](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_ioportaccess.png)
 
 Ethernet LAN
 :  Select whether to enable or disable Ethernet LAN device and keeps it disabled in the OS environment.
 
-     Possible options:
+
+    !!! note ""
+        The setting is removed in the recent versions.
+
+     Options:
 
      1. **On** – Default.
      2. Off
-
-     !!! note ""
-          The setting is removed in the recent versions.
 
      | WMI Setting name | Values | Locked by SVP | AMD/Intel |
      |:---|:---|:---|:---|
@@ -21,7 +21,7 @@ Ethernet LAN
 Wireless LAN
 :  Whether to enable or disable Wireless LAN device and keep it disabled in the OS environment.
 
-     Possible options:
+     Options:
 
      1. **On** - Default.
      2. Off
@@ -33,7 +33,7 @@ Wireless LAN
 Wireless WAN
 :  Select whether to enable or disable Wireless WAN device.
 
-     Possible options:
+     Options:
 
      1. **On** – Default.
      2. Off
@@ -43,13 +43,13 @@ Wireless WAN
      | WirelessWANAccess | Disable, Enable | Yes | Both |
 
 Bluetooth
-:  Possible options:
+:  Options:
 
      1. **On** – Default.
      2. Off
 
     !!! note ""
-        Enabling Bluetooth requires setting ‘Wireless LAN’ to ‘Enabled’ state.
+         Enabling Bluetooth requires setting ‘Wireless LAN’ to ‘Enabled’ state.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -61,7 +61,7 @@ USB Port
     !!! note ""
         This setting does not affect USB-C (R) ports with a thunderbolt icon.
 
-    Possible options:
+    Options:
 
     1. **On** – Default.
     2. Off
@@ -73,7 +73,7 @@ USB Port
 Memory Card Slot
 :  Whether to enable memory card slot (SD Card/MultimediaCard/Memory Stick) in the OS environment.
 
-     Possible options:
+     Options:
 
      1. **On** – Default.
      2. Off
@@ -85,10 +85,13 @@ Memory Card Slot
 Smart Card Slot
 :  Whether to enable Smart Card slot in the OS environment.
 
-     Possible options:
+     Options:
 
      1. **On** – Default.
      2. Off
+
+    !!! note ""
+         If there is no Smart Card Slot in the machine, this one will be hidden
 
      | WMI Setting name | Values | Locked by SVP | AMD/Intel |
      |:---|:---|:---|:---|
@@ -97,22 +100,22 @@ Smart Card Slot
 RFID
 :  Whether to enable RFID (radio-frequency identification) in the OS environment.
 
-     Possible options:
+     Options:
 
      1. **On** – Default.
      2. Off
 
-     !!! note ""
-     This feature is supported only for the [healthcare model](https://techtoday.lenovo.com/jp/ja/solutions/media/3970), where RFID is installed instead of Smart Card. Therefore, parameter for WMI command will be the same as for Smart Card.
+    !!! note ""
+         This feature is supported only for the [healthcare model](https://techtoday.lenovo.com/jp/ja/solutions/media/3970), where RFID is installed instead of Smart Card. Therefore, parameter for WMI command will be the same as for Smart Card.
 
      | WMI Setting name | Values | Locked by SVP | AMD/Intel |
      |:---|:---|:---|:---|
-     | SmartCardSlotAccess | Disable, Enable | Yes | Both |
+     | IoAccessRFID | Disable, Enable | Yes | Both |
 
 Integrated Camera
 :  Whether to enable or disable Integrated Camera in the OS environment.
 
-     Possible options:
+     Options:
 
      1. **On** – Default.
      2. Off
@@ -124,10 +127,10 @@ Integrated Camera
 Integrated Audio
 :  Whether to enable all audio functions (Microphone/Speaker) in the OS environment.
 
-     !!! note ""
-     To enable audio functions, select `Enabled` and save the setting. Then fully shut down and power on the system.
+    !!! note ""
+         To enable audio functions, select `Enabled` and save the setting. Then fully shut down and power on the system.
 
-     Possible options:
+     Options:
 
      1. **On** – Default.
      2. Off
@@ -139,10 +142,10 @@ Integrated Audio
 Microphone
 :  Select whether to enable or disable Microphone (Internal/External/Line-In) in the OS environment.
 
-     !!! note ""
-          To enable Microphone, select ‘Enabled’ save the setting. Then fully shut down and power on the system.
+    !!! note ""
+         To enable Microphone, select ‘Enabled’ save the setting. Then fully shut down and power on the system.
 
-     Possible options:
+     Options:
 
      1. **On** – Default.
      2. Off
@@ -154,7 +157,7 @@ Microphone
 Fingerprint Reader
 :  Whether to enable Fingerprint Reader in the OS environment.
 
-     Possible options:
+     Options:
 
      1. **On** – Default.
      2. Off
@@ -163,13 +166,25 @@ Fingerprint Reader
      |:---|:---|:---|:---|
      | FingerprintReaderAccess | Disable, Enable | Yes | Both |
 
-Thunderbolt (TM) 4
+Touch Panel
+:  Select whether to enable or disable Touch Panel.
+
+     Options:
+
+     1. **On** – Default.
+     2. Off
+
+     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+     |:---|:---|:---|:---|
+     | IoAccessTouchPanel | Disable, Enable | Yes | Both |
+
+Thunderbolt (TM) 4 / Thunderbolt 5
 :  Select whether to enable or disable Thunderbolt 4 (PCIe/USB) in the OS environment.
 
-     !!! note ""
-          Affects only USB-C ports with a thunderbolt icon.
+    !!! note ""
+         Affects only USB-C ports with a thunderbolt icon.
 
-     One of 2 Possible options:
+     One of 2 Options:
 
      1. **On** – Default.
      2. Off
@@ -181,7 +196,7 @@ Thunderbolt (TM) 4
 NFC Device
 :  Whether to enable or disable NFC (near-field communication) Device in the OS environment
 
-     Possible options:
+     Options:
 
      1. **On** – Default.
      2. Off

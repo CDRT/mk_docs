@@ -65,7 +65,7 @@ Intelligent Cooling Boost
     | IntelligentCoolingBoost | Disable, Enable | Yes | Both |
 
 Energy Efficient Turbo
-:  If enabled, the CPU’s optimal turbo frequency will be increase or descrease dynamically based on CPU utilization. Adjusting the frequency based on usage extends your battery life. 
+:  If enabled, the CPU’s optimal turbo frequency will be increase or descrease dynamically based on CPU utilization. Adjusting the frequency based on usage extends your battery life. Normally, it is not necessary to change this setting.
 
     Options:
 
@@ -76,11 +76,11 @@ Energy Efficient Turbo
     |:---|:---|:---|:---|
     | EnergyEfficientTurbo | Disable, Enable | No | Both |
 
-Energy Efficient Turbo
-:  When this feature is Off, your device will run with improved performance, which will consume more battery life.When this feature is On, your device will optimize your performance and balance your battery life based on the memory workload. 
+Intel System Agent Enhanced SpeedStep® Technology
+:  When this feature is Off, your device will run with improved performance, which will consume more battery life. When this feature is On, your device will optimize your performance and balance your battery life based on the memory workload. 
 
     !!! warning
-    The Setup Configuration might take several minutes to complete and the screen may go blank during this time. This is normal and you should not interrupt the process.
+        The Setup Configuration might take several minutes to complete and the screen may go blank during this time. This is normal and you should not interrupt the process.
 
     Options:
 
@@ -89,7 +89,7 @@ Energy Efficient Turbo
 
     | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
     |:---|:---|:---|:---|
-    | IntelSystemAgentEnhancedSpeedStep(R)Technology | Disable, Enable | No | Both |
+    | IntelSystemAgentEnhancedSpeedStep(R)Technology | Disable, Enable | No | Intel |
 
 CPU Power Management
 :  Whether to shut down the microprocessor clock automatically when there are no system activities, for power saving.
@@ -141,6 +141,48 @@ Sleep State
     !!! warning
         The possible setting values may vary by model and newer systems may not include this setting. Always verify on a targeted system before deploying.
 
+Cool & Quiet on Lap
+:  When Cool & Quiet on Lap mode is turned on, system performance is lowered to maintain a cooler temperature when the device is used on lap.
+
+    Options:
+
+    1.  **Off** - Default.
+    2.  On
+
+    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    |:---|:---|:---|:---|
+    | CoolQuietOnLap | Disabled, Enabled | Yes | Both |
+
+EcoPilot
+:  When enabled, this feature reduces power consumption in Modern Standby with no impact on system performance. 
+
+    !!! note ""
+        It activates only when the battery is fully charged, and a Lenovo original AC adapter is connected.
+
+    Options:
+
+    1.  **On** - Default.
+    2.  Off
+
+    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    |:---|:---|:---|:---|
+    | EcoPilot | Disabled, Enabled | No | Both |
+
+Ultra Performance Mode
+:  When enabled, this feature improves performance, but may result in higher surface temperatures and increased fan noise. 
+
+    !!! note ""
+        This feature is Windows only.
+
+    Options:
+
+    1.  **Off** - Default.
+    2.  On
+
+    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    |:---|:---|:---|:---|
+    | UltraPerformanceMode | Disabled, Enabled | No | Both |
+
 Disable Built-in Battery
 :  Temporarily disables the battery to service the system.
 
@@ -149,6 +191,14 @@ Disable Built-in Battery
     !!! note ""
         * After selecting this item, the system will be automatically powered off, ready to be serviced.
         * The battery will be automatically enabled when the AC adapter is reconnected.
+
+Flip to Start
+:  Turns the machine on when the computer lid opens, just the same as pressing the power button.
+
+    Options:
+
+    1.  **Off** - Default.
+    2.  On
 
 ## Automatic Power On
 

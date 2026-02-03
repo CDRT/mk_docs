@@ -24,3 +24,13 @@ Intel (R) Hyper-Threading Technology
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | HyperThreadingTechnology | Disable, Enable | No | Intel |
+
+Core Multi-Processing
+:  Whether to enable Core Multi-Processing support which enables additional execution core units within a CPU or only one execution core unit within a CPU.
+
+    1. **On** - Default
+    1. Off
+
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | CoreMultiProcessing | Disable, Enable | No | Intel |

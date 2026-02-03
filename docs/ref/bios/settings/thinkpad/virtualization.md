@@ -46,8 +46,8 @@ Intel (R) Virtualization Technology \ AMD-V
 
     Possible options:
 
-    1. **On** - Default.
-    2. Off
+    1. **Off** - Default.
+    2. On
 
     !!! note ""
         Enabled automatically when `Device Guard` is set to `On`.

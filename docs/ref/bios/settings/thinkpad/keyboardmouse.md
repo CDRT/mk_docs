@@ -15,7 +15,7 @@ TrackPoint
     | TrackPoint | Enable, Disable (on AMD-based machine) <br> Disable, Automatic (on Intel-based machine)| No | Both |
 
 Trackpad
-:  Whether to enable built-in Trackpad
+:  Whether to enable built-in Trackpad.
 
     Possible options:
 
@@ -58,6 +58,18 @@ Fn Sticky Key
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | FnSticky | Disable, Enable | No | Both |
+
+Fool proof Fn Ctrl
+:  This feature allows for the Fn and Ctrl keys to be used interchangeably for certain common shortcuts accommodating user preference for keyboard usage.
+
+    Possible options:
+
+    1. **On** - Default.
+    2. Off
+
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | FoolProofFnCtrl | Disable, Enable | No | Both |
 
 F1-F12 as Primary Function
 :  Whether to disable the hotkey functionality of the function keys (F1, F2, and so on) in Windows 8.1/10, to avoid having to press Fn to use the function.

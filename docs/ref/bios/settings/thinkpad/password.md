@@ -134,6 +134,18 @@ Block SID Authentication
     |:---|:---|:---|:---|
     | BlockSIDAuthentication | Disable, Enable | Yes | Both |
 
+BIOS Unlock Control
+:  When enabled, allows System Management Password to have the same authority as Supervisor Password to unlock System.
+
+    Possible options:
+
+    1. **Off** - Default.
+    2. On
+
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | BIOSUnlockControl | Disable, Enable | Yes | Both |
+
 Lock UEFI BIOS Settings
 :  Whether to prevent users from making any changes in ThinkPad Setup without entering a Supervisor Password.
 
@@ -309,6 +321,21 @@ Hard Disk Password Control
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | HardDiskPasswordControl | Disable, Enable | Yes | Both |
+
+Allow System Management Password Hardware Reset
+:  Whether to allow the hardware jumper to clear the System Management Password.
+
+    Possible options:
+
+    1. **On** - Default
+    2. Off
+
+    !!! note ""
+        If set to [Off] no action could reset the System Management Password if you forget it.
+
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | AllowSMPHardwareReset | Disable, Enable | Yes | Both |
 
 BIOS Setup Configurations
 :  Whether to allow System Management Password to have the same authority as Supervisor Password to control BIOS setup items.

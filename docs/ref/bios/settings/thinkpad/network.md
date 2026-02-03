@@ -148,7 +148,7 @@ MAC Address Pass Through
 
     Possible options:
 
-    1. **Disabled** - Dock Ethernet uses its own MAC address. Default
+    1. **Off** - Dock Ethernet uses its own MAC address. Default
     2. Internal MAC Address - Dock Ethernet uses same MAC address as internal LAN.
     3. Second MAC Address - Dock Ethernet uses the second MAC address that is stored in the system's EEPROM. This allows for a device-specific MAC address that is different from the internal NIC's MAC address so they can be managed separately if necessary.
 
@@ -158,6 +158,29 @@ MAC Address Pass Through
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | MACAddressPassThrough  | Disable, Enable, Second | No | Both |
+
+Proxy Support
+:  Enable/Disable Proxy Support. If Enabled, the system connects to End-Point Server (such as Lenovo Cloud) via Proxy Server.
+
+    Possible options:
+
+    1. **Off** - This feature will not work while Secure Boot is disabled. Default
+    2. On
+
+    !!! note ""
+        To avoid security risks, only use reliable Proxy servers.
+
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | ProxySupport  | Disable, Enable | Yes | Both |
+
+Proxy URI
+:  Please set the URL starting with "http://" for Proxy Server. 
+
+    !!! note ""
+        "https://" is not supported.
+
+    The default port number for Proxy Server access is 80. However, a specific port number can be set after the colon( ":"). For example, "http://192.168.1.100:8080" for Port 8080 is used. Maximum character length is 255.
 
 Reinstall Windows from Cloud
 :  Enable/Disable “Reinstall Windows from Cloud (Microsoft® Connected System Recovery)” in the App Menu invoked by F12.

@@ -107,6 +107,7 @@ nav:
           - ....Device Guard: ref/bios/settings/thinkpad/deviceguard.md
           - ....ThinkShield Secure Wipe: ref/bios/settings/thinkpad/thinkshieldsecurewipe.md
           - ....ThinkShield Passwordless Power-On: ref/bios/settings/thinkpad/thinkshieldpasswordless.md
+          - ....ThinkShield Wipe System Data: ref/bios/settings/thinkpad/thinkshieldwipedata.md
           - ....Intelligent Security: ref/bios/settings/thinkpad/intelligentsecurity.md
           - ....Reset System to Factory Defaults: ref/bios/settings/thinkpad/resetsystemtofactorydefaults.md
           - ....Certificate-based BIOS Authentication: ref/bios/settings/thinkpad/certbasedbiosauth.md

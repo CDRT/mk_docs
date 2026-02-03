@@ -29,6 +29,21 @@ Graphics Device
     |:---|:---|:---|:---|
     | GraphicsDevice | SwitchableGfx, DiscreteGfx | No | Both |
 
+Discrete Graphics Output
+:  The ThinkPad LCD and other external displays will be managed by the integrated graphics controller.
+
+    Possible options:
+
+    1. **Off** - All displays will be managed by the integrated graphics controller, reducing power consumption. Default.
+    2. On - The HDMI® port will be managed by the discrete graphics controller, enabling features unique to discrete graphics.
+
+    !!! note ""
+        When [On] is selected, the boot screen will not appear on the HDMI® display.
+
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | DiscreteGraphicsOutput | Disable, Enable | No | Both |
+
 Total Graphics Memory
 :  **Intel-based machine**
 

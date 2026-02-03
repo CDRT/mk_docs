@@ -10,10 +10,10 @@ Secure Boot
     !!! note ""
         Set to **On** if `OS Optimized Defaults` has value **On**.
 
-    Possible options:
+    Options:
 
-    1. On
-    2. **Off** – Default
+    1. **On** - Default.
+    2. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -24,10 +24,22 @@ Secure Boot
         * Secure Boot can always be set to **Enable** without a password.
 
 Secure Boot Mode
-:  Possible modes:
+: Specify the platform is operating in Setup Mode, User Mode, Audit Mode, or Deployed Mode.
+
+    Possible modes:
 
     1. Setup mode
-    2. **User mode** - default.
+    2. **User mode** - Default.
+
+#### Enter Audit Mode
+: This option is used to change to Audit Mode, which enabled programmatic discovery of signature list combinations that successfully authenticate installed EFI images without the risk of rendering the system unbootable.
+
+#### Enter Deploy Mode
+: The option is used to change to Deployed Mode, which enforces the current Secure Boot Configuration without the distinction of Standard vs User/Custom configuration. Values loaded into Secure Boot policy are enforced as is.
+
+#### Exit Deploy Mode
+: This option is used to return to User Mode with the Secure Boot keys.
+
 
 Secure Boot Key State
 :  Possible modes:
