@@ -27,10 +27,10 @@ Returns an array of installation history objects with the following properties:
 - `Status` - Installation result (Success, Failed, Skipped)
 - `Title` - Update package title
 - `Version` - Package version
-- `Category` - Update category
-- `Type` - Package type
-- `Severity` - Update severity level
-- `ExitCode` - Installation exit code
+- `Category` - Update category ("Camera and Card Reader", "Power Managemetn", etc)
+- `Type` - Package type (0=Other, 1=Application, 2=Driver, 3=BIOS, 4=Firmware)
+- `Severity` - Update severity level (1=Critical, 2=Recommended, 3=Optional)
+- `ExitCode` - Installation exit code 
 - `RebootRequired` - Whether reboot is required
 - `ComputerName` - System where update was installed
 - `UserName` - User who performed installation
