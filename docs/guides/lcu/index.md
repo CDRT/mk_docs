@@ -18,7 +18,8 @@ This PowerShell module is provided to assist in managing Lenovo driver, BIOS/UEF
 ## Quick Start
 
 ```powershell
-Import-Module Lenovo.Client.Update -Force
+Install-Module Lenovo.Client.Update #Installs the module from PS Gallery
+Import-Module Lenovo.Client.Update -Force #Loads the module into the current session
 $updates = Get-LnvUpdate #Finds applicable updates
 $updates | Save-LnvUpdate -Path "C:\Updates" #Downloads the applicable updates
 $updates | Install-LnvUpdate -Path "C:\Updates" #Installs the applicable updates
