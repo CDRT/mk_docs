@@ -1,6 +1,12 @@
 # Lenovo.Client.Update
 
-PowerShell module for managing Lenovo driver, BIOS/UEFI, and firmware updates.
+This PowerShell module is provided to assist in managing Lenovo driver, BIOS/UEFI, and firmware updates. This module is part of the growing library of Lenovo PowerShell modules and scripts that include:
+
+- Lenovo.Client.Scripting
+- Lenovo.Bios.Config
+- ThinkBiosConfigUI.ps1
+- Lenovo.Bios.Certificates
+- LnvBiosCertInterface.ps1
 
 
 ## Requirements
