@@ -29,7 +29,7 @@ $updates | Install-LnvUpdate -Path "C:\Updates" #Installs the applicable updates
     - [Get-LnvUpdate](functions/get-lnvupdate.md)
     - [Get-LnvUpdateConfiguration](functions/get-lnvupdateconfiguration.md)
     - [Get-LnvUpdateFromWmi](functions/get-lnvupdatefromwmi.md)
-    - [Get-LnvUpdateHist](functions/get-lnvupdatehist.md)
+    - [Get-LnvUpdateHistory](functions/get-lnvupdatehistory.md)
     - [Get-LnvUpdatesRepo](functions/get-lnvupdatesrepo.md)
     - [Get-LnvUpdateSummary](functions/get-lnvupdatesummary.md)
     - [Install-LnvUpdate](functions/install-lnvupdate.md)
