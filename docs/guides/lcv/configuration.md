@@ -1,5 +1,11 @@
 # Configuration
 
+!!! warning
+    Due to requirements from the Lenovo Product Security team, logging is not enabled by default any longer. To enable logging, set the following registry value to "True": [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\SystemUpdateAddin\Logs]"EnableLogs"="True"
+
+    Logs can be found in:
+    ```%ProgramData%\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\logs```
+
 Lenovo understands that some features of Commercial Vantage may not be appropriate for end users in a managed corporate environment. Therefore, most features of Commercial Vantage can be hidden or disabled so that your end users cannot access them. There are two ways to configure Commercial Vantage:
 
 ## Group Policy Administrative Template
@@ -59,14 +65,13 @@ The System Update feature of Commercial Vantage writes update history to WMI (in
 
 By default, the System Update feature of Commercial Vantage searches the Lenovo repository of updates. If you prefer, you can create your own repository of updates and configure Vantage to use this repository instead. This is configured in **Computer Configuration -> Administrative Templates -> Commercial Vantage -> Device -> System Update -> System Update Repository**. You can point to a local folder (such as c:\myRepository), a mapped drive (such as m:\myRespository) or a UNC path (such as \\\\myServer\myRepository).
 
-This diagram illustrates the System Update workflow in Commercial Vantage
-
-![img](https://cdrt.github.io/mk_docs/img/cv/vantage_su_flow.png)
-
 !!! note
- With version 10.2208.22.0 the repository path can now also be specified as a URL path to an accessible cloud storage location.
+    With version 10.2208.22.0 the repository path can now also be specified as a URL path to an accessible cloud storage location.
 
-See here for more information about using Update Retriever to create your own custom repository of updates: [https://support.lenovo.com/us/en/solutions/ht037099](https://support.lenovo.com/us/en/solutions/ht037099)
+See here for more information about using Update Retriever to create your own custom repository of updates:
+
+- [Download Lenovo Tools for Admins](https://support.lenovo.com/us/en/solutions/ht037099)
+- [System Update Suite Product Guide](/guides/sus/su_dg/su_dg_ch3/#33-update-retriever)
 
 ### Warranty Information
 

@@ -1,5 +1,10 @@
 # Commercial Vantage
 
+!!! note "New"
+    Updated February, 05, 2026
+
+    The Commercial Vantage product guide has been reorganized and updated for improved usability. Please check the [What's New page](./whatsnew.md) for the latest changes to the application.
+
 **Commercial Vantage** simplifies the PC experience, making it easy for users to personalize settings and automate updates. The following software components are required to take full advantage of the Commercial Vantage features:
 
 - **The Application: Commercial Vantage**
@@ -36,7 +41,7 @@ This product guide will cover how to deploy, configure and leverage Commercial V
 
 [Upgrading](.\upgrading.md)
 
-[Use Case Scenarios](.\use_case_scenarios.md)
+<!-- [Use Case Scenarios](.\use_case_scenarios.md)-->
 
 [Frequently Asked Questions](.\commercial_vantage_faq.md)
 

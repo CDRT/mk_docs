@@ -1,5 +1,48 @@
 # What's New
 
+### v20.2511.24.0 - January 23, 2026
+
+**Main Application**
+
+- WiFi Security improvements
+- Battery Assist Mode updates
+- Dust Monitoring for ThinkCentre
+- Power Management updates
+    - Intelligent Thermal Sollution mode
+    - Mode performance charts
+    - Background task power update
+- Telemetry
+    - Collect anonymous usage metrics to gauge what features are used
+    - Follows the existing policy for Metrics collection
+    - New check box on initial Welcome dialog for User Consent at first launch
+
+**System Update**
+
+- Available updates indicator will now appear on Commercial Vantage icon in Taskbar
+- Available updates indicator will now appear on the "Check for updates" button on the Dashboard
+- Increased the size of the customer logo:  Minimum = 32x32 px  Maximum = 32x128 px
+- Improvements for Lenovo Device Orchestration:
+    - Improved error messaging/logging provided to LDO
+    - Added indication of the stages of the process in the logging for LDO
+    - Added driver rollback functionality to be controlled from LDO
+
+!!! info "About Metrics Collection"
+    Lenovo Commercial Vantage includes an optional Metrics Collection feature to help improve product reliability and user experience.
+
+    **What is collected?**
+
+    - Anonymized telemetry on feature usage and system health
+    - No personally identifiable information (PII)
+
+    **Why enable metrics?**
+
+    - Supports proactive issue detection
+    - Helps Lenovo enhance performance and stability by focusing on the features used most
+
+    **Control options**
+
+    IT admins can disable metrics collection via Group Policy for compliance-sensitive environments.
+
 ## v20.2509 - October 03, 2025
 
 **Main Application**
