@@ -20,54 +20,54 @@ Updating the BIOS in the Operating System can be done a few different ways: manu
 
 ThinkPad uses the WINUPTP tool to apply the updates under the OS or WinPE.  Under the OS, WINUPTP.exe can be used.  Under WinPE and depending on the model the WINPEUPTP.exe or WINUPTP64.exe should be used. These come from the extracted files location of the BIOS update package from the support site. To manually install a ThinkPad BIOS update, navigate to the Lenovo Support page, enter in the model of ThinkPad, and download the BIOS Update for Windows (BIOS Update Utility). After it is downloaded, run the downloaded program to begin the extraction process.
 
-<center>![License Agreement](https://cdrt.github.io/mk_docs/img/guides/bios/bios1.png)</center>
+![License Agreement](https://cdrt.github.io/mk_docs/img/guides/bios/bios1.png)
 
 **Step 1**: Accept the EULA and click **Next**.
 
-<center>![Browse to save](https://cdrt.github.io/mk_docs/img/guides/bios/bios2.png)</center>
+![Browse to save](https://cdrt.github.io/mk_docs/img/guides/bios/bios2.png)
 
 **Step 2**: Leave the default location selected for extraction and click **Next**.
 
-<center>![Ready to Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios3.png)</center>
+![Ready to Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios3.png)
 
 **Step 3**: Click **Install**. The program will extract to the default location on the hard drive.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios4.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios4.png)
 
 **Step 4**: Once completed, the installer should have a check mark on the page. Leave the check box checked and click **Finish**. This should immediately prompt to begin the BIOS Update.
 
-<center>![Finish Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios5.png)</center>
+![Finish Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios5.png)
 
 **Step 5**: Select Update ThinkPad BIOS if not already selected and click **Next**.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios6.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios6.png)
 
 **Step 6**: Follow the instructions on this screen and click **Next**.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios7.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios7.png)
 
 **Step 7**: Follow the instructions and click **Yes** to continue.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios8.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios8.png)
 
 **Step 8**: Wait while it prestages the new ROM image file. **DO NOT POWER OFF THE SYSTEM** at this point.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios9.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios9.png)
 
 **Step 9**: Click **OK** to reboot the system immediately.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios10.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios10.png)
 
 **Step 10**: After it reboots, the laptop will begin to write the prestaged BIOS image to the chip. At this point, **DO NOT POWER OFF** the laptop!!!
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios11.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios11.png)
 
 **Step 11**: When the BIOS update completes, it will reboot the computer.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios12.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios12.png)
 
 
-**Step 12**: If an update for the Embedded Controller firmware is included in the update, the system will show the splash screen with text stating “Flashing Embedded Controller.” Allow this process to complete and the system will reboot to the OS.
+**Step 12**: If an update for the Embedded Controller firmware is included in the update, the system will show the splash screen with text stating "Flashing Embedded Controller." Allow this process to complete and the system will reboot to the OS.
 
 #### ThinkPad Automated Installation
 
@@ -95,7 +95,7 @@ When updating a ThinkPad BIOS, if a Supervisor password is set and the “Flash 
 (*) X13s is not supported for this feature.
 
 ##### WINUPT Return Codes
- 	
+
 | **Return Code** | *Des*cription* |
 |:---|:---|
 | 0	| BIOS update is successful and system reboots.(normal update) |
@@ -112,45 +112,45 @@ When updating a ThinkPad BIOS, if a Supervisor password is set and the “Flash 
 
 #### ThinkCentre Manual Installation
 
-ThinkCentre executes Flash.cmd from the extracted files location. To manually install a ThinkCentre BIOS update, navigate to the Lenovo Support page, enter in the model of ThinkCentre, and download the “Flash UEFI BIOS update (Flash from operating system version)”. After it is downloaded, run the downloaded program to begin the extraction process.
+To manually install a ThinkCentre BIOS update, navigate to the Lenovo Support page, enter in the model of ThinkCentre, and download the "Flash UEFI BIOS update (Flash from operating system version)". After it is downloaded, run the downloaded program to begin the extraction process.
 
-<center>![](https://cdrt.github.io/mk_docs/img/guides/bios/bios13.png)</center>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios13.png)
 
 **Step 1**: Accept the EULA and click **Next**.
 
-<center>![License](https://cdrt.github.io/mk_docs/img/guides/bios/bios14.png)</center>
+![License](https://cdrt.github.io/mk_docs/img/guides/bios/bios14.png)
 
 **Step 2**: Leave the default location selected for extraction and click **Next**. This will extract the files and then automatically kick off the installation.
 
-<center>![Save File](https://cdrt.github.io/mk_docs/img/guides/bios/bios15.png)</center>
+![Save File](https://cdrt.github.io/mk_docs/img/guides/bios/bios15.png)
 
 **Step 3**: Click **Yes** to continue with the BIOS update.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios16.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios16.png)
 
-**Step 4**: Press the “N” key and press.
+**Step 4**: Press the "N" key and press.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios17.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios17.png)
 
-**Step 5**: Press the “N” key and press . Once is pressed, a command window will pop up with yellow writing. Wait while it loads the ROM file into the BIOS update inbox. **DO NOT POWER OFF THE SYSTEM** at this point. The system will reboot on its own.
+**Step 5**: Press the "N" key and press . Once is pressed, a command window will pop up with yellow writing. Wait while it loads the ROM file into the BIOS update inbox. **DO NOT POWER OFF THE SYSTEM** at this point. The system will reboot on its own.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios18.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios18.png)
 
 **Step 6**: Writing the new boot block.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios19.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios19.png)
 
 **Step 7**: Writing the new image.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios20.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios20.png)
 
 **Step 8**: Writing the new nvram block.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios21.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios21.png)
 
 **Step 9**: Writing the new main block. After writing the main block, the computer will reboot on its own. It may restart a second time if it needs to program the embedded controller.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios22.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios22.png)
 
 **Step 10**: Booting up.
 
@@ -166,34 +166,34 @@ If there is a Supervisor password controlling access to the BIOS and the Require
 
 Example:
 ```
-Flash.cmd /quiet /pass:Qwerty 
+Flash.cmd /quiet /pass:Qwerty
 ```
 
 #### ThinkStation Manual Installation
 
 ThinkStation executes Flash.cmd or Flashx64.cmd from the extracted files location, depending on the operating system architecture. To manually install a ThinkStation BIOS update, navigate to the Lenovo Support page, enter in the model of ThinkStation, and download the "Flash UEFI BIOS update (Flash from operating system version)". After the package is downloaded, execute it to begin the extraction process.
 
-<center>![](https://cdrt.github.io/mk_docs/img/guides/bios/bios23.png)</center>
+![](https://cdrt.github.io/mk_docs/img/guides/bios/bios23.png)
 
 **Step 1:** Click Next on the Welcome screen.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios24.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios24.png)
 
 **Step 2**: Accept the EULA and click **Next**.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios25.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios25.png)
 
 **Step 3**: Leave the default location selected for extraction and click **Next**.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios26.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios26.png)
 
 **Step 4**:  Click **Install**. The program will extract to the default location on the hard drive.
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios27.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios27.png)
 
-**Step 5**: Click **Finish** to complete the extraction. Navigate to the folder where the BIOS update was extracted and execute Flash.cmd (If the account does not have administrator rights, right click on the .cmd file and select “Run as Administrator”).
+**Step 5**: Click **Finish** to complete the extraction. Navigate to the folder where the BIOS update was extracted and execute Flash.cmd (If the account does not have administrator rights, right click on the .cmd file and select "Run as Administrator").
 
-<center>![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios28.png)</center>
+![Install](https://cdrt.github.io/mk_docs/img/guides/bios/bios28.png)
 
 While the update executes, the keyboard and mouse will be inaccessible. This is to prevent any actions from interfering with the execution. After the command window closes, manually restart the computer. The computer will then reboot to the Lenovo splash screen a few times and will boot back into the operating system.
 
@@ -234,7 +234,7 @@ All of the Think branded products will require the following optional components
 ```
 
 !!! note
-    [WinPE: Add Packages (Optional Components Reference)](https://msdn.microsoft.com/en-us/windows/hardware/commercialize/manufacture/desktop/winpe-add-packages--optional-components-reference) 
+    [WinPE: Add Packages (Optional Components Reference)](https://msdn.microsoft.com/en-us/windows/hardware/commercialize/manufacture/desktop/winpe-add-packages--optional-components-reference)
 
 ThinkPad will require an additional optional component to be installed in the WinPE boot image. The ThinkPad BIOS Update tool runs some HTML components in the background, requiring the HTA Optional Component be installed.
 

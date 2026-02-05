@@ -24,6 +24,49 @@ The latest version of the Enterprise package for sideloading can always be found
 
 ## What's New
 
+### v20.2511.24.0 - January 23, 2026
+
+**Main Application**
+
+- WiFi Security improvements
+- Battery Assist Mode updates
+- Dust Monitoring for ThinkCentre
+- Power Management updates
+    - Intelligent Thermal Sollution mode
+    - Mode performance charts
+    - Background task power update
+- Telemetry
+    - Collect anonymous usage metrics to gauge what features are used
+    - Follows the existing policy for Metrics collection
+    - New check box on initial Welcome dialog for User Consent at first launch
+
+**System Update**
+
+- Available updates indicator will now appear on Commercial Vantage icon in Taskbar
+- Available updates indicator will now appear on the "Check for updates" button on the Dashboard
+- Increased the size of the customer logo:  Minimum = 32x32 px  Maximum = 32x128 px
+- Improvements for Lenovo Device Orchestration:
+    - Improved error messaging/logging provided to LDO
+    - Added indication of the stages of the process in the logging for LDO
+    - Added driver rollback functionality to be controlled from LDO
+
+!!! info "About Metrics Collection"
+    Lenovo Commercial Vantage includes an optional Metrics Collection feature to help improve product reliability and user experience.
+
+    **What is collected?**
+
+    - Anonymized telemetry on feature usage and system health
+    - No personally identifiable information (PII)
+
+    **Why enable metrics?**
+
+    - Supports proactive issue detection
+    - Helps Lenovo enhance performance and stability by focusing on the features used most
+
+    **Control options**
+
+    IT admins can disable metrics collection via Group Policy for compliance-sensitive environments.
+
 ### v20.2509 - October 03, 2025
 
 **Main Application**
@@ -43,8 +86,11 @@ The latest version of the Enterprise package for sideloading can always be found
 
 - **Device - System update - Auto update - Show Pre-Install Notification**: Control whether users receive a visible notification before updates are installed. When enabled, updates will be downloaded in the background and the user will be prompted regardless of whether or not the updates will force a reboot. The normal behavior when this policy is **Not Configured** or is **Disabled** will be to prompt only when there are updates that will need to force the machine to reboot.
 
-!!! alert "New ADMX template"
-    The Enterprise Package is not updated for 25.09; therefore, to obtain the updated Group Policy Template that includes this new policy, [please download this zip file.](https://download.lenovo.com/cdrt/support/lcv_grouppolicy_2509.zip) Once extracted, copy the contents of the Group Policy folder to the `C:\Windows\PolicyDefinitions` folder. Then you can use **gpedit.msc** to configure the policies under Computer Configuration - Administrative Templates - Commercial Vantage.
+    !!! alert "Not supported in LCV Lite"
+        The `Show Pre-Install Notification` policy is not supported by **LCV Lite** at this time. Support will be added with the next Enterprise Package in the December-January timeframe.
+
+    !!! alert "New ADMX template"
+        The Enterprise Package is not updated for 25.09; therefore, to obtain the updated Group Policy Template that includes this new policy, [please download this zip file.](https://download.lenovo.com/cdrt/support/lcv_grouppolicy_2509.zip) Once extracted, copy the contents of the Group Policy folder to the `C:\Windows\PolicyDefinitions` folder. Then you can use **gpedit.msc** to configure the policies under Computer Configuration - Administrative Templates - Commercial Vantage.
 
 ### v20.2508.42.0 - September 17 2025
 
@@ -65,6 +111,11 @@ The latest version of the Enterprise package for sideloading can always be found
 - System Update dialogs will automatically close after a set period of time (Microsoft usability requirement)
 - Enable Lenovo Device Orchestration to detect user is using an application in full screen mode to avoid prompting with updates
 - Dock update behavior fixes
+
+**Enterprise Package (released October 16)**
+
+- Added a new parameter to **VantageInstaller.exe**, "-Lite", which will install just the System Update feature of Commercial Vantage. To use, simply specify `VantageInstaller.exe Install -Lite -SuHelper` (case sensitive) to get just the System Update feature plus SU Helper for triggering updates by command line. This solution will eventually replace the legacy Lenovo System Update. It uses the same group policies for controlling the System Update feature as Commercial Vantage so the same ADMX template should be used. See also [Using VantageInstaller.exe](https://docs.lenovocdrt.com/guides/cv/commercial_vantage/#using-vantageinstallerexe)
+- Addressed an issue in **VantageInstaller.exe** that was affecting the installation during an OSD task sequence.
 
 ### v20.2506.39.0 - July 23 2025
 

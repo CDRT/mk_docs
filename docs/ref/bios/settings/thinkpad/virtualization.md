@@ -20,8 +20,7 @@ Kernel DMA Protection
     | KernelDMAProtection | Disable, Enable | Yes | Both |
 
 Intel (R) Virtualization Technology \ AMD-V
-:  
-    ### Intel-based machine
+:   ### Intel-based machine
 
     Whether a VMM (Virtual Machine Monitor) can utilize the additional hardware capabilities provided by Intel (R) Virtualization technology.
 
@@ -29,7 +28,7 @@ Intel (R) Virtualization Technology \ AMD-V
 
     Possible options:
 
-    1. On 
+    1. On
     2. **Off** - Default.
 
     !!! note ""
@@ -80,13 +79,34 @@ Intel (R) VT-d Feature
 Enhanced Windows Biometric Security
 :  Whether to allow use of ‘Enhanced sign-in security’ for fingerprint and face authentication with Windows Hello.
 
+    **What is Enhanced Sign-in Security (ESS)?**
+
+    Enhanced Sign-in Security is an advanced security feature built into Windows Hello that strengthens biometric authentication (face or fingerprint) by isolating sensitive processes and data from the main operating system.
+
+    Core Principle: ESS uses Virtualization-Based Security (VBS) to create a secure environment for biometric operations and credential handling.
+    Goal: Prevent malware—even with kernel-level privileges—from intercepting biometric data or authentication secrets.a
+    End-to-End Assurance: ESS can cryptographically prove to cloud services that the user was physically present during authentication, improving trust for enterprise scenarios.
+
+    **How Does It Work?**
+
+    - Isolation: The Windows Hello biometric stack and credential release processes run inside a VBS-protected enclave, separate from the OS kernel.
+    - TPM Integration: Keys may be protected by TPM 2.0, adding hardware-based security.
+    - Secure Devices (SDEV): Device firmware must include an ACPI SDEV table for ESS-capable sensors.
+
+    **Why Is It Important?**
+
+    Without ESS, malware could:
+
+    - Sniff biometric input streams.
+    - Replay stolen samples.
+    - Modify match results or impersonate users.
+
+    ESS mitigates these threats by ensuring biometric data and operations are shielded from tampering.
+
     Possible options:
 
-    1. On
-    2. **Off** – Default.
-
-    !!! note ""
-        This option should only be enabled for Windows 10 version 2004 and later. Prior versions of the OS do not support this feature.
+    1. **On** - Default since 2024
+    2. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|

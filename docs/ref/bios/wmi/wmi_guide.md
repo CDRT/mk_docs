@@ -232,7 +232,7 @@ Get-WmiObject -Class Lenovo_BiosSetting -Namespace root\wmi | ForEach-Object `
 { if ($_.CurrentSetting -ne "") { Write-Host $_.CurrentSetting.replace(",", " = ") } }
 
 #PowerShell 7.x
-Get-CimInstance -Namespace root/WMI -Class Lenovo_BiosSetting | ForEach-Object `
+Get-CimInstance -Namespace root\wmi -ClassName Lenovo_BiosSetting | ForEach-Object `
 { if ($_.CurrentSetting -ne "") { Write-Host $_.CurrentSetting.replace(",", " = ") } }
 ```
 
@@ -246,7 +246,7 @@ Get-WmiObject -Class Lenovo_BiosSetting -Namespace root\wmi | Where-Object `
 { $_.CurrentSetting.split(",", [StringSplitOptions]::RemoveEmptyEntries) -eq "SecureBoot" } | Format-List CurrentSetting
 
 #PowerShell 7.x
-Get-CimInstance -Namespace root/WMI -Class Lenovo_BiosSetting | Where-Object `
+Get-CimInstance -Namespace root\wmi -ClassName Lenovo_BiosSetting | Where-Object `
 { $_.CurrentSetting.split(",", [StringSplitOptions]::RemoveEmptyEntries) -eq "SecureBoot" } | Format-List CurrentSetting
 ```
 
@@ -256,10 +256,10 @@ Use the following command as a template to display all possible values for a par
 
 ``` PowerShell
 #PowerShell 5.1
-(Get-WmiObject –class Lenovo_GetBiosSelections –namespace root\wmi).GetBiosSelections("BootOrder") | Format-List Selections
+(Get-WmiObject -class Lenovo_GetBiosSelections -namespace root\wmi).GetBiosSelections("BootOrder") | Format-List Selections
 
 #PowerShell 7.x
-$cimLenovoGetBiosSelections = Get-CimInstance -Namespace root/WMI -Class Lenovo_GetBiosSelections
+$cimLenovoGetBiosSelections = Get-CimInstance -Namespace root\wmi -ClassName Lenovo_GetBiosSelections
 # Replace $SettingName with the appropriate string, i.e. BootOrder
 (Invoke-CimMethod $cimLenovoGetBiosSelections -MethodName "GetBiosSelections" -Arguments @{ Item = "$SettingName" }).Selections
 ```
@@ -271,10 +271,10 @@ Use the following commands to set the value of a BIOS setting. This is a multi-s
 ``` PowerShell
 #1. Change the setting
 #PowerShell 5.1
-(Get-WmiObject -Class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting("WakeOnLANDock,Disable")
+(Get-WmiObject -Class Lenovo_SetBiosSetting -namespace root\wmi).SetBiosSetting("WakeOnLANDock,Disable")
 
 #PowerShell 7.x
-$cimSetBiosSetting = Get-CimInstance -Namespace root/WMI -Class Lenovo_SetBiosSetting
+$cimSetBiosSetting = Get-CimInstance -Namespace root\wmi -ClassName Lenovo_SetBiosSetting
 Invoke-CimMethod $cimSetBiosSetting -MethodName SetBiosSetting -Arguments @{ parameter = "WakeOnLANDock,Disable" }
 
 #2. If a supervisor password is set, specify the supervisor password, otherwise skip this step.
@@ -282,7 +282,7 @@ Invoke-CimMethod $cimSetBiosSetting -MethodName SetBiosSetting -Arguments @{ par
 (Get-WmiObject -Class Lenovo_WmiOpcodeInterface -Namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordAdmin:MyPassword;")
 
 #PowerShell 7.x
-$cimOpInt = Get-CimInstance -Namespace root/WMI -Class Lenovo_WmiOpcodeInterface
+$cimOpInt = Get-CimInstance -Namespace root\wmi -ClassName Lenovo_WmiOpcodeInterface
 Invoke-CimMethod $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordAdmin:MyPassword;"}
 
 #3. Save the new setting
@@ -290,7 +290,7 @@ Invoke-CimMethod $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Paramete
 (Get-WmiObject -Class Lenovo_SaveBiosSettings -Namespace root\wmi).SaveBiosSettings()
 
 #PowerShell 7.x
-$cimSaveBiosSettings = Get-CimInstance -Namespace root/WMI -Class Lenovo_SaveBiosSettings
+$cimSaveBiosSettings = Get-CimInstance -Namespace root\wmi -ClassName Lenovo_SaveBiosSettings
 Invoke-CimMethod $cimSaveBiosSettings -MethodName SaveBiosSettings
 ```
 
@@ -306,13 +306,13 @@ Use the following command as a template to set the value of a setting when a sup
 
 ``` PowerShell
 #PowerShell 5.1
-(Get-WmiObject -Class Lenovo_SetBiosSetting –namespace root\wmi).SetBiosSetting("WakeOnLAN,Disable,password,ascii,us")
+(Get-WmiObject -Class Lenovo_SetBiosSetting -namespace root\wmi).SetBiosSetting("WakeOnLAN,Disable,password,ascii,us")
 (Get-WmiObject -Class Lenovo_SaveBiosSettings -Namespace root\wmi).SaveBiosSettings("password,ascii,us")
 
 #PowerShell 7.x
-$cimSetBiosSetting = Get-CimInstance -Namespace root/WMI -Class Lenovo_SetBiosSetting
+$cimSetBiosSetting = Get-CimInstance -Namespace root\wmi -ClassName Lenovo_SetBiosSetting
 Invoke-CimMethod $cimSetBiosSetting -MethodName SetBiosSetting -Arguments @{ parameter = "WakeOnLANDock,Disable,password,ascii,us" }
-$cimSaveBiosSettings = Get-CimInstance -Namespace root/WMI -Class Lenovo_SaveBiosSettings
+$cimSaveBiosSettings = Get-CimInstance -Namespace root\wmi -ClassName Lenovo_SaveBiosSettings
 Invoke-CimMethod $cimSaveBiosSettings -MethodName SaveBiosSettings -Arguments @{ parameter = "password,ascii,us" }
 ```
 
@@ -330,7 +330,7 @@ set an initial password; it can only be used to change an existing password. Thi
 (Get-WmiObject -Class Lenovo_WmiOpcodeInterface -Namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordAdmin:MyCurrentPassword;")
 
 #PowerShell 7.x
-$cimOpInt = Get-CimInstance -Namespace root/WMI -Class Lenovo_WmiOpcodeInterface
+$cimOpInt = Get-CimInstance -Namespace root\wmi -ClassName Lenovo_WmiOpcodeInterface
 Invoke-CimMethod $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordAdmin:MyCurrentPassword;" }
 
 #2. Specify the password type
@@ -339,7 +339,7 @@ Invoke-CimMethod $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Paramete
 (Get-WmiObject -Class Lenovo_WmiOpcodeInterface -Namespace root\wmi).WmiOpcodeInterface("WmiOpcodePasswordType:pap;")
 
 #PowerShell 7.x
-$cimOpInt = Get-CimInstance -Namespace root/WMI -Class Lenovo_WmiOpcodeInterface
+$cimOpInt = Get-CimInstance -Namespace root\wmi -ClassName Lenovo_WmiOpcodeInterface
 Invoke-CimMethod $cimOpInt -MethodName WmiOpcodeInterface -Arguments @{ Parameter = "WmiOpcodePasswordType:pap;" }
 
 #3. Specify the current password

@@ -1,7 +1,7 @@
 # Commercial Vantage Deployment Guide
 
 !!! note
-    Updated: 2025-7-29
+    Updated: 2026-01-27
 
 !!! warning
     Due to requirements from the Lenovo Product Security team, logging is not enabled by default any longer. To enable logging, set the following registry value to "True": [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\SystemUpdateAddin\Logs]"EnableLogs"="True"
@@ -21,29 +21,45 @@ Starting with the enterprise package released in July 2025, the VantageInstaller
 
 Commercial Vantage is a Windows 10 Modern Application that can also be installed directly from the Microsoft Store: [https://www.microsoft.com/store/apps/9NR5B8GVVM13](https://www.microsoft.com/store/apps/9NR5B8GVVM13)
 
+!!! info 
+    **Avoid** deploying Commercial Vantage from the Store, as it causes UAC prompts for the user to install required dependencies.
+
 ### Using VantageInstaller.exe
 
 VantageInstaller must be executed with Administrator rights in order to install the application and dependencies. The installation can be controlled by using the following parameters which are **case sensitive**.
 
-```[Install | Uninstall]```
-Parameter indicates the intention to either install or uninstall the application. It must be specified first and is used in combination with the parameters below
+`[Install | Uninstall]`
+:   Parameter indicates the intention to either install or uninstall the application. It must be specified first and is used in combination with the parameters below:
 
-``` -Vantage ```
-Indicates the Commercial Vantage app and its dependencies such as Lenovo Vantage Service and the Add-ins.
+`-Vantage`
+:   Indicates the Commercial Vantage app and its dependencies such as Lenovo Vantage Service and the Add-ins.
 
-``` -App ```
-Indicates just the Commercial Vantage app and not the Lenovo Vantage Service and Add-ins.
+`-App`
+:   Indicates just the Commercial Vantage app and not the Lenovo Vantage Service and Add-ins.
 
-``` -SuHelper ```
-Indicates the SU Helper companion utility.
+`-Lite`
+:   Indicates just the System Update feature of Commercial Vantage. Can be used in combination with `-SuHelper`; should not be used with `-Vantage` or `-App`. When Lite mode is installed, a value will be set in the registry at `HKLM\Software\WOW6432Node\Lenovo\VantageService\DeviceTags` named `System.Profile.CommercialLite`. This will ensure during upgrades that the Lite version will continue to be maintained. To switch to the full Commercial Vantage experience, run `VantageInstaller.exe Uninstall -Vantage` to remove Lite and the Vantage Service. This will clear the registry so that `VantageInstaller.exe Install -Vantage` can install the full app.
+
+`-SuHelper`
+:   Indicates the SU Helper companion utility.
+
+#### Logging
+
+To capture a log of the steps performed during the installation/uninstallation, the following parameters can be used:
+
+`LogLevel -Debug`
+:   Used to get detailed logging in the console as well as saved to a file specified by `Output`
+
+`Output -Path c:\temp\vantage-install.log`
+:   Used to specify the log file to create when using the `LogLevel -Debug` parameter.
 
 #### Examples
 
-``` \VantageInstaller.exe Install -Vantage -SuHelper ```
-Installs both the Commercial Vantage app and dependencies as well as SU Helper utility.
+` \VantageInstaller.exe Install -Vantage -SuHelper `
+:   Installs both the Commercial Vantage app and dependencies as well as SU Helper utility.
 
-``` \VantageInstaller.exe Uninstall -Vantage ```
-Uninstall the Commercial Vantage app and dependencies.
+` \VantageInstaller.exe Uninstall -Vantage `
+:   Uninstall the Commercial Vantage app and dependencies.
 
 !!!note
     If VantageInstaller.exe is invoked in a PowerShell script, it's recommended to use the call operator (&) as the Start-Process cmdlet can be inconsistent due to argument parsing.
@@ -53,7 +69,6 @@ Uninstall the Commercial Vantage app and dependencies.
 $process = Get-Process -Name "Lenovo.Vantage.InstallerHelper" -ErrorAction SilentlyContinue
 if ($process) { Wait-Process -Id $process.Id }
 ```
-
 
 ## Configuration
 

@@ -1,168 +1,41 @@
-# Lenovo BIOS Certs Tool and Module
+# Lenovo BIOS Certificate Tool and Module
 
 ## Overview
 
-The Lenovo BIOS Certs Tool and Module is a PowerShell-based solution for working with certificate-based BIOS authentication. For a detailed view of how to get started using this solution with Lenovo commercial PC products which support it, please visit this [article.](https://blog.lenovocdrt.com/certificate-based-bios-authentication/)
+The Lenovo BIOS Certificate Tool and Module is a PowerShell-based solution for working with certificate-based BIOS authentication on supported Lenovo commercial PC products.
 
-This page will provide a cmdlet reference for the functions provided in the LnvBiosCerts module.
+## Installing
 
-### Download
+The Lenovo BIOS Certificate Tool and Module package can be installed directly from the PowerShell Gallery.
 
-The Lenovo BIOS Certs Tool and Module package can be downloaded from [here: https://download.lenovo.com/cdrt/tools/LnvBiosCertTool_1.0.2.zip](https://download.lenovo.com/cdrt/tools/LnvBiosCertTool_1.0.2.zip)
+```powershell
+Install-Module 'Lenovo.Bios.Certificates'
 
-### Convert_LnvBiosConfigFile
+Install-Script 'LnvBiosCertInterface'
+```
 
-:	Converts the provided ThinkBiosConfig file with or without a password and converts the settings to the signed Lenovo SetBiosSettingEx command. Also adds a SaveBiosSettings command to confirm the settings to the machine. Paths can be relative or absolute.
+This will install the script to the default script path:
 
-	#### Parameters
+- Windows PowerShell v5: `C:\Users\ {your user name} \WindowsPowerShell\Scripts`
+- PowerShell v7: `C:\Users\ {your user name} \Documents\PowerShell\Scripts`
 
-	```text
-	-ConfigFile <String>
-	 Required
-	 The path to the exported ThinkBiosConfig settings file
+If this is the first time installing a script from the PowerShell Gallery, you will be given the option to establish the default script path and add it to the PATH environment variable.
 
-	-KeyFile <String>
-	 Required
-	 The path to the private key to sign the commands with
+The GUI script can then be launched in an elevated terminal by running:
 
-	-OutFileName <String>
-	 Optional
-	 Optional parameter to supply the resultant file. Defaults to {$ConfigFile}Signed.ini
-	```
+```powershell
+LnvBiosCertInterface
+```
 
-	#### Example
+Alternatively, you can download from:
 
-	```Powershell
-	PS C:\>Convert-LnvBiosConfigFile -ConfigFile {ConfigFile} -KeyFile {PrivateKey}
+[https://download.lenovo.com/cdrt/tools/lbct_211_108.zip](https://download.lenovo.com/cdrt/tools/lbct_211_108.zip)
 
-	Convert-LnvBiosConfigFile -ConfigFile {ConfigFile} -KeyFile {PrivateKey}
-	 -OutFileName MySignedCommands.ini
-	```
+Simply unzip to a local folder and run the GUI script in an elevated terminal. The GUI script will locate the module and import it automatically.
 
-### Get-LnvSignedWmiCommand
+## Getting Started
 
-:	This cmdlet makes the appropriate parameter for the specified method. Required parameters are the KeyFile location and the Method name. Other parameters will be determined based on the Method parameter. Tab complete is available to make it easier to specify the parameters.
+For a detailed view of how to get started using this solution with Lenovo commercial PC products which support it, please visit the following documentation:
 
-	#### Parameters
-
-	```
-	-KeyFile <String>
-	 Required
-		The location the the private key you wish to use to sign the command
-
-	-Method <String>
-		Required
-	 The name of the class that you wish to use. Includes:
-	  'SetBiosSetting'
-	  'SaveSettings'
-			'ClearBiosCertificate'
-	  'ChangeBiosCertificateToPassword'
-	  'LoadDefaultSettings'
-	  'UpdateBiosCertificate'
-
-	```
-
-	#### Example
-
-	```Powershell
-	PS C:\>Get-LnvSignedWmiCommand -Method SetBiosSetting -KeyFile {KeyLocation}
-	 -SettingName {Name} -SettingValue {Value}
-
-	Get-LnvSignedWmiCommand -Method SaveBiosSettings -KeyFile {KeyLocation}
-	Get-LnvSignedWmiCommand -Method ClearBiosCertificate -KeyFile {KeyLocation}
-	 -MachineSerial {Serial}
-	Get-LnvSignedWmiCommand -Method ChangeBiosCertificateToPassword -KeyFile {KeyLocation}
-	 -Password {Password}
-	Get-LnvSignedWmiCommand -Method LoadDefaultSettings -KeyFile {KeyLocation}
-
-	Get-LnvSignedWmiCommand -Method UpdateBiosCertificate -KeyFile {KeyLocation}
-	 -NewCertFile {CertLocation}
-	Get-LnvSignedWmiCommand -Method SetFunctionRequest -KeyFile {KeyLocation}
-	 -FunctionName {Name} -FunctionValue {Yes|No}
-	```
-
-### Get-LnvUnlockCode
-
-:	Retrieves the unlock code for a provided unlock file.
-
-	#### Parameters
-
-	```
-	-UnlockFile <String>
-	 Required
-	 The path to the unlock file
-
-	-KeyFile <String>
-	 Required
-	 The path to the private key file
-	```
-
-	#### Example
-
-	```
-	PS C:\>Get-LnvUnlockCode -UnlockFile {UnlockFile} -KeyFile {KeyFile}
-	```
-
-### Set-LnvBiosCertificate
-
-:	Switches the BIOS to certificate based authorization. This requires a Supervisor password to be set (if not in [System Deployment Boot Mode](https://docs.lenovocdrt.com/ref/bios/sdbm)). Installing a certificate will remove the Supervisor and the System Management passwords if set. A reboot is required to take effect.
-
-	#### Parameters
-
-	```
-	-CertFile <String>
-	 Required
-	 The PEM or DER file that contains the certificate that you wish to apply to the machine
-
-	-Password <String>
-	 Optional
-	 The password that is currently on the machine. Not required if applying to a passwordless machine in System Deployment Boot Mode.
-	```
-
-	#### Example
-
-	```
-	PS C:\>Set-LnvBiosCertificate MyCert.pem MyPassword
-
-	Set-LnvBiosCertificate MyCert.der MyPassword
-
-	Set-LnvBiosCertificate MyCert.pem
-	```
-
-### Submit-LnvBiosChange
-
-:	Sends an invoke command to the specified class with the provided parameters.
-
-	#### Parameters
-
-	```
-	-Command <String>
-	 Required
-	 A string generated by Get-LnvSignedWmiCommand or a string in the format ClassName[,Parameters]
-	```
-
-	#### Example
-
-	```
-	PS C:\>Submit-LnvBiosChange {SignedWmiCommand}
-
-	Submit-LnvBiosChange Lnv_SetBiosSetting,WakeOnLAN,Enable
-	```
-
-### Submit-LnvBiosConfigFile
-
-:	Reads the file with signed WMI commands and applies each one to the machine.
-
-	#### Parameters
-
-	```
-	-ConfigFile <String>
-	 Required
-	 The path to the config file
-	```
-
-	#### Example
-
-	```
-	PS C:\>Submit-LnvBiosConfigFile -ConfigFile {ConfigFile Path}
-	```
+- [Getting Started Guide](https://blog.lenovocdrt.com/certificate-based-bios-authentication/)
+- [Module Cmdlet Reference](./lbc_module_reference.md)
