@@ -46,6 +46,7 @@ Load Setup Defaults -or- Load Factory Defaults
         
         - Security
         - Date & Time
+        - Boot Order
 
 OS Optimized Defaults
 :  Whether to enable OS Optimized Defaults for the following:
@@ -73,6 +74,8 @@ Discard Changes
         - Supervisor password
         - Power-on password
         - Hard disk password 
+        - System Management Password
+        - NVMe Password
 
     !!! note ""
         The option requires additional confirmation.

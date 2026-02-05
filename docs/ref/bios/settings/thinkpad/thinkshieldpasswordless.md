@@ -14,7 +14,7 @@ ThinkShield Passwordless Power-On
     |:---|:---|:---|:---|
     | ThinkShieldPasswordlessPowerOnAuthentication | Disable, Enable | Yes | Both |
 
-This feature works as an alternative to password-based authentication to achieve passwordless authentication. This feature only works when a power-on password is set in UEFI BIOS and the FIDO2 USB device is registered in ThinkShield™ Passwordless Power-On Device Manager. With this feature, you can input the power-on password or use the registered FIDO2 USB device to power on your computer.
+    This feature works as an alternative to password-based authentication to achieve passwordless authentication. This feature only works when a power-on password is set in UEFI BIOS and the FIDO2 USB device is registered in ThinkShield™ Passwordless Power-On Device Manager. With this feature, you can input the power-on password or use the registered FIDO2 USB device to power on your computer.
 
 ## Register your FIDO2 USB device in ThinkShield Passwordless Power-On Device Manager
 

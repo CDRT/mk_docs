@@ -13,11 +13,12 @@ Network Boot
     2. USB CD
     3. USB FDD
     4. NVMe0
-    5. USB HDD
-    6. LENOVO CLOUD
-    7. ON-PREMISE
-    8. Other CD
-    9. Other HDD
+    5. NVMe1
+    6. USB HDD
+    7. LENOVO CLOUD
+    8. ON-PREMISE
+    9. Other CD
+    10. Other HDD
 
     !!! note ""
         `LENOVO CLOUD` and `ON-PREMISE` may not be available on all models.
@@ -102,12 +103,13 @@ Boot Priority Order
     2. USB CD
     3. USB FDD
     4. NVMe0
-    5. USB HDD
-    6. PXE Boot – sub-menu appears only when multiple network stacks are available.<br>
+    5. NVMe1
+    6. USB HDD
+    7. PXE Boot – sub-menu appears only when multiple network stacks are available.<br>
         a. Intel (R) Gigabit x.x.xx-Ipv4<br>
         b. Intel (R) Gigabit x.x.xx-Ipv6<br>
-    7. LENOVO CLOUD
-    8. ON-PREMISE
+    8. LENOVO CLOUD
+    9. ON-PREMISE
 
     !!! note ""
         `LENOVO CLOUD` and `ON-PREMISE` may not be available on all models.
