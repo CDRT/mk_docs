@@ -1,0 +1,6985 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.lenovocdrt.com/guides/sus/su_dg/su_dg_ch3/">
+      
+      
+        <link rel="prev" href="../su_dg_ch2/">
+      
+      
+        <link rel="next" href="../su_dg_ch4/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../img/fav/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>3 General Usage - Lenovo CDRT Docs Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-288025816"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-288025816",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-288025816",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#3-general-usage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Lenovo CDRT Docs Site" class="md-header__button md-logo" aria-label="Lenovo CDRT Docs Site" data-md-component="logo">
+      
+  <img src="../../../../img/CDRT-REV-Red_s.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lenovo CDRT Docs Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3 General Usage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue-grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Lenovo CDRT Docs Site" class="md-nav__button md-logo" aria-label="Lenovo CDRT Docs Site" data-md-component="logo">
+      
+  <img src="../../../../img/CDRT-REV-Red_s.png" alt="logo">
+
+    </a>
+    Lenovo CDRT Docs Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Product Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commercial Vantage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Commercial Vantage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lcv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lcv/whatsnew/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What's New
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lcv/deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lcv/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lcv/upgrading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lcv/suhelper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SU Helper Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lcv/commercial_vantage_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commercial Vantage FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update - Update Retriever - Thin Installer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    System Update - Update Retriever - Thin Installer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update Suite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide: Lenovo System Update Suite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../su_dg_ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../su_dg_ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 General Usage
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 General Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-system-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 System Update
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 System Update">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-get-new-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Get New Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-install-deferred-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Install Deferred Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-scheduling-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Scheduling Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-view-installation-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. View Installation History
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-restore-hidden-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Restore Hidden Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-thin-installer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Thin Installer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Thin Installer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-thin-installer-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Thin Installer Manually
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-7-and-later-os-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows 7 and Later OS Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-update-retriever" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Update Retriever
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Update Retriever">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-update-retriever-first-time-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 Update Retriever First Time Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-searching-for-and-downloading-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 Searching for and Downloading Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-manage-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.3 Manage Repository
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.3 Manage Repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modify-an-update-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modify an Update Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assigning-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assigning Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334-manage-driver-packs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.4 Manage Driver Packs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#335-scheduling-the-search-for-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.5 Scheduling the Search for Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#336-restore-hidden-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.6 Restore Hidden Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#337-modify-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.7 Modify Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#338-viewing-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.8 Viewing History
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../su_dg_ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../su_dg_ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Command Line Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../su_dg_ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6 Appendix A: Advanced Configurations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../su_dg_ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7 Appendix B: Mapdrv Utility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../su_dg_ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8 Appendix C: Notices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system_update_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dock Manager
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dm/dm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dm/dm_manage_intune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing with Intune
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dm/dm_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dm/dock_manager_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Think BIOS Config Tool V2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Think BIOS Config Tool V2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tbct_v2/tbct_v2_top/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo BIOS Certificate Tool
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo BIOS Certificate Tool
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lbct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo BIOS Certificate Tool and Module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Client Scripting Module
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo Client Scripting Module
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lcsm/lcsm_top/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Client Scripting Module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Updates Catalog
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo Updates Catalog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../luc/luc_ovrvw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Updates Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../luc/luc_agnt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Updates Catalog Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../luc/luc_ts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo View
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo View
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../lenovo_view/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo View Configuration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    References
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BIOS Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/bios_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo BIOS/UEFI Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/wmi/wmi_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WMI BIOS Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Settings Dictionary
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BIOS Settings Dictionary
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4_1" id="__nav_3_1_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThinkPad
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThinkPad
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/usb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....USB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/keyboardmouse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Keyboard/Mouse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/display/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Display
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/beepalarm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Beep and Alarm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/cpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/thunderbolttm4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Thunderbolt(TM) 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/intelramt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel(R) AMT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/hdmi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....HDMI Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/datetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Date/Time
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/fingerprint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Fingerprint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/securitychip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Security Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/uefibiosupdate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....UEFI BIOS Update Option
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/memoryprotection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Memory Protection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/virtualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Virtualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/ioportaccess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....I/O Port Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/internaldeviceaccess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Internal Device Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/abspersistencemodule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Absolute Persistence(R) Module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/secureboot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Secure Boot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/deviceguard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Device Guard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/thinkshieldsecurewipe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ThinkShield Secure Wipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/thinkshieldpasswordless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ThinkShield Passwordless Power-On
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/intelligentsecurity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intelligent Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/resetsystemtofactorydefaults/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Reset System to Factory Defaults
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/certbasedbiosauth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Certificate-based BIOS Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkpad/restart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Restart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4_2" id="__nav_3_1_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThinkCentre
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThinkCentre
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/system_summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/system_time_and_date/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Time and Date
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/serial_port_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Serial Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/parallel_port_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Parallel Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/usb_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....USB Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/storage_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Storage Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/ata_drive_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ATA Drive Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/video_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Video Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/audio_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Audio Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/network_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Network Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/pci_express_configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCI Express Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/intel_r_thunderbolt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel(R) Thunderbolt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/cpu_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/intel_r_manageability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel(R) Manageability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/dash_configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....DASH Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/intelligent_cooling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intelligent Cooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/automatic_power_on/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Automatic Power On
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/system_management_password_access_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Management Password Access Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/hard_disk_password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Hard Disk Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/password_policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Password Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/tcg_feature_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....TCG Feature Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/system_event_log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/secure_boot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Secure Boot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/certificate_based_bios_authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Certificate Based BIOS Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/computrace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Computrace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/boot_priority_order/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Boot Priority Order
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkcentre/exit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4_3" id="__nav_3_1_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThinkStation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThinkStation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/systemsummary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/systemtimedate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Time & Date
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/bioseventlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....BIOS Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/serialportsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Serial Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/parallelportsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Parallel Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/usbsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....USB Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/storagesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Storage Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/intelvmd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ........Intel(R) VMD Technology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/atadrivesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ATA Drive Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/nvme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....NVME Drive Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/videosetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Video Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/audiosetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Audio Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/networksetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Network Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/pciesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCIe Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/pciexpress/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCI Express Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/intelthunderbolt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel Thunderbolt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/bmcsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....BMC Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/diagnostics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Diagnostics (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/pcieconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCIe Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/pciexpressconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCI Express Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/cpuconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/cpusetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU Setup (Intel)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/memoryconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Memory Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/rasconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....RAS Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/commonrefcodeconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Common RefCode Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/dashconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....DASH Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/intelmanageability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel Manageability Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/serialportconsoleredirection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Serial Port Console Redirection (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/autopoweron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Automatic Power On
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/harddiskpass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Hard Disk Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/passwordpolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Password Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/smpaccesscontrol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....SMP Access Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/tcgfeaturesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....TCG Feature Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/secureboot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Secure Boot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/systemeventlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/certbasedbiosauth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Certificate-based BIOS Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/bootpriorityorder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Boot Priority Order
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/thinkstation/exit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/settings/bios_logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/sdbm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Deployment Boot Mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/bios/startup_menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup Interrupt Menu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docks Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docks Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/docks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Docks Reference Materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/docks/docks_main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/docks/configmgr_dock_queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration Manager Queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/dash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AMD DASH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ref/scripts/samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripting Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frequently Asked Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Frequently Asked Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system_update_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../cv/commercial_vantage_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commercial Vantage FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dm/dock_manager_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#31-system-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 System Update
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.1 System Update">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-get-new-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Get New Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-install-deferred-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Install Deferred Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-scheduling-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Scheduling Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-view-installation-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. View Installation History
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-restore-hidden-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Restore Hidden Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#32-thin-installer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Thin Installer
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.2 Thin Installer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-thin-installer-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running Thin Installer Manually
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-7-and-later-os-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows 7 and Later OS Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#33-update-retriever" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 Update Retriever
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 Update Retriever">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331-update-retriever-first-time-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.1 Update Retriever First Time Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#332-searching-for-and-downloading-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.2 Searching for and Downloading Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333-manage-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.3 Manage Repository
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3.3 Manage Repository">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modify-an-update-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modify an Update Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assigning-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Assigning Systems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#334-manage-driver-packs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.4 Manage Driver Packs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#335-scheduling-the-search-for-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.5 Scheduling the Search for Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#336-restore-hidden-updates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.6 Restore Hidden Updates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#337-modify-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.7 Modify Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#338-viewing-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3.8 Viewing History
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../lcv/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Product Guides
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    System Update - Update Retriever - Thin Installer
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Deployment Guide
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="3-general-usage">3 General Usage<a class="headerlink" href="#3-general-usage" title="Permanent link">#</a></h1>
+<h2 id="31-system-update">3.1 System Update<a class="headerlink" href="#31-system-update" title="Permanent link">#</a></h2>
+<p>This section will provide an overview of how System Update can be used to install updates either manually using the application&#39;s interface or automatically based on a scheduled task. The various methods of configuring and launching System Update will be covered.</p>
+<p>Once System Update has been installed, the tool is ready to run. When launching System Update for the first time, the Welcome tab information will appear, giving the user a brief overview of how the tool can be used. Once the user clicks  <strong>Next</strong> , in the bottom left hand corner on the welcome page, System Update will automatically start searching for updates on the system. Of course, the administrator can make changes in group policy to alter how system update searches for updates, this is just the generic way of how System Update will run. Once the tool has finished searching for updates, it will prompt the user with a License notice. The License agreement notice is for all future package downloads and will not be shown again. The user must agree to proceed with the download and installation. Once the tool searches for updates, the update packages will be displayed in three different severity categories; Critical, Recommended, and optional.</p>
+<p><img alt="System Update" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-1.png" /></p>
+<p><em>Figure 3-1. Systems Update Welcome Interface.</em></p>
+<p>There are multiple functional tabs in System Update, located to the left-hand side of the tool, allowing the user to customize the way they want to update their machine. Designed to help keep systems up-to-date, the System Update tool provides the following functions:</p>
+<ol>
+<li><strong>Get New Updates</strong></li>
+<li><strong>Critical updates</strong></li>
+<li><strong>Recommended updates</strong></li>
+<li><strong>Optional updates</strong></li>
+<li><strong>Install Deferred Updates</strong></li>
+<li><strong>Schedule Updates</strong></li>
+<li><strong>View Installation History</strong></li>
+<li><strong>Restore Hidden Updates</strong></li>
+</ol>
+<p>Following the numerical order above, the upcoming sections will explain each of the System Update functions in further detail.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the user does not want to proceed with the System Update function they are currently on, the user must click  <strong>Cancel</strong>  before the tool will allow you to exit the function tab and move on to another one.</p>
+</div>
+<h3 id="1-get-new-updates">1. Get New Updates<a class="headerlink" href="#1-get-new-updates" title="Permanent link">#</a></h3>
+<p>System Update will automatically search for new updates from the Lenovo support site based on the machine type and operating system. Once the updates are found, the tool separates each update applicable to the machine, into critical updates, recommended updates, and optional updates. The critical updates will automatically be checked to download, unlike the recommended or optional updates. The user can check and uncheck any of the updates. The user must click on each individual update tab (critical, recommended, and optional updates) to select the desired update packages before continuing. There is an option to select all the updates or the user can individually select them one by one.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-2.png" /></p>
+<p><em>Figure 3-2. Searching for new updates.</em></p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-3.png" /></p>
+<p><em>Figure 3-3. Agree to the License notice before proceeding with System Update.</em></p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-4.png" /></p>
+<p><em>Figure 3-4. Get New Updates Function, selecting critical updates.</em></p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-5.png" /></p>
+<p><em>Figure 3-5. Get New Updates, item details expanded.</em></p>
+<p>Notice that there is a drop-down arrow by each checkbox for each individual package.  When clicked, the item details will expand. The user can either click the down arrow for each individual update package or they can press the &quot;Expand all&quot; red plus sign above the packages. The expanded view provides more information on each update package including the manufacturer, version, installed version, download size, disk space needed, and the option to defer the update. If the user would like to defer the update, the checkbox must be checked. Furthermore, there is a &quot;View details&quot; link, which displays the contents of the readme file for the update package which offers additional details such as supported models, supported operating systems, supported devices, what the package does, changes in the release, determining which version is installed, installation and uninstallation instructions and more.</p>
+<p>When using System Update to search for update packages, System Update will display search results in four severity categories, as explained above: Critical, Recommended, and Optional. For a description and example of each category severity level, see the following:</p>
+<p><strong>Critical update packages</strong>  are considered mandatory for the system to function properly. Failure to install these packages could result in data loss, system malfunction, or hardware failure. The administrator can choose to have critical updates downloaded and installed automatically on a scheduled basis. A critical package can be, for example:</p>
+<blockquote>
+<ul>
+<li>A hard disk drive firmware update that if not applied could result in hard disk drive failure.</li>
+<li>A BIOS upgrade that if not applied will result in system lags.</li>
+<li>A software patch to an application that if not applied could result in data loss a system.</li>
+</ul>
+</blockquote>
+<p><strong>Recommended update packages</strong>  are packages recommended by Lenovo to ensure the system working at optimal performance. This severity level should be the default for most drivers. A recommended package can be, for example:</p>
+<blockquote>
+<ul>
+<li>A video driver that corrects an issue that may cause blue screen issues.</li>
+<li>A BIOS update that contains minor fixes that may impact a small group of customers.</li>
+<li>A power management driver that will allow a mobile system to get the most out of its battery life.</li>
+</ul>
+</blockquote>
+<p><strong>Optional update packages</strong>  will improve the computing experience but are not necessary. An optional package can be, for example:</p>
+<blockquote>
+<ul>
+<li>An application or utility that is not needed for the system to operate but provides benefit if it is installed.</li>
+<li>Any BIOS or driver upgrade that has been updated only to support newer systems and contains no fixes.</li>
+</ul>
+</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some of updates may depend on certain Window components. Ensure that your Windows operating system is up to date by running Windows Update.</p>
+</div>
+<p>Once all the updates desired have been selected, press <strong>Next</strong>. A review of the updates selected will be displayed. This will also provide a second chance to select updates to defer installation or deselect a package before they are downloaded and installed on the machine. Once the &quot;Download&quot; button is clicked, if any of the packages require a reboot after installation, a message box will appear letting the user know which package(s) requires it. Wait for the machine to reboot and finish the installation before doing anything else. Do not manually shut off the machine or put it into sleep mode during this time.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-6.png" /></p>
+<p><em>Figure 3-6. Reviewing Updates before downloading packages.</em></p>
+<p><em><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-7.png" /></em></p>
+<p><em>Figure 3-7. Certain update packages require reboot before installation is complete. Do not manually shut off the machine at this time.</em></p>
+<h3 id="2-install-deferred-updates">2. Install Deferred Updates<a class="headerlink" href="#2-install-deferred-updates" title="Permanent link">#</a></h3>
+<p>When selecting update packages to download, instead of installing them immediately, the user can defer the installation for a more convenient time. All the deferred updates will be stored in the &quot;Install deferred updates&quot; tab. To defer an update, the user will check the defer installation checkbox package in the &quot;Get new updates&quot; section. Make sure that each of the update packages have been expanded to check the &quot;defer installation&quot; checkbox.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-8.png" /></p>
+<p><em>Figure 3-8. How to Defer an Update Package from Installing (Download Only).</em></p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-9.png" /></p>
+<p><em>Figure 3-9. Installing Deferred Update Packages.</em></p>
+<h3 id="3-scheduling-updates">3. Scheduling Updates<a class="headerlink" href="#3-scheduling-updates" title="Permanent link">#</a></h3>
+<p>System Update provides an option to schedule an automatic search for new updates on a weekly basis. The user can download and install updates automatically or receive notifications when updates are available.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-10.png" /></p>
+<p><em>Figure 3-10. Scheduling Updates for installation.</em></p>
+<p><strong>Configuring Automatic Search for Updates</strong></p>
+<p>When configuring System Update to search for new updates automatically on a scheduled basis, the following options are available:</p>
+<ul>
+<li><strong>Schedule:</strong>  Users can enable an automatic check for updates to occur weekly. The time is randomized. The package types can be filtered by severity with the possible choices of "Critical" or "Critical updates and recommended drivers". The day of the week can also be selected.</li>
+<li><strong>Notification:</strong>  Users can configure the application to automatically download and install the updates or to notify them when updates are available, but not download or install them. If the option to automatically download and install the updates is chosen, the user can choose whether or not to include updates that would restart the system after being notified.</li>
+</ul>
+<p><strong>Configuring the Notification Option for an Automatic Search</strong></p>
+<p>If performing an automatic search, it is best practice to configure the application with one of the following notification options for critical, recommended, and optional updates:</p>
+<ul>
+<li>Provides notification when new updates are found so that the user can manually initiate the download and installation.</li>
+<li>Downloads and installs the new updates and provides notification when completed.</li>
+<li>Automatically downloads updates and notifies the user when the updates are ready to install.</li>
+</ul>
+<p>The notification is in form of a toast message from the system tray of the Windows Task Bar.</p>
+<p>If the application icon is right-clicked, two options are available:  <strong>Launch</strong>  and <strong>Exit</strong>. Selecting  <strong>Launch</strong>  will start System Update and display the new updates. Selecting  <strong>Exit</strong>  will remove the application icon and will no longer notify the user when new updates are found until the next scheduled search for new updates.</p>
+<p><strong>Scheduling Automatic Searching for Downloading and Installing New Updates</strong></p>
+<p>System Update can be configured to automatically search for, download, and install new updates available to system on a specified schedule. New updates will be found and automatically downloaded and installed to the system. When the installation is completed, the user will be notified with a toast message from the application icon in the notification area. If the balloon tooltip is clicked, System Update will be launched and show the updates that were installed and the results. System Update will also launch by double-clicking the application icon.</p>
+<p>The user can right-click and select  <strong>Launch</strong>  or <strong>Exit</strong>. Selecting  <strong>Launch</strong>  will launch System Update and display the results screen. Selecting <strong>Exit</strong> will remove the application icon and will no longer notify the user when new updates were installed until the next scheduled search for new updates.</p>
+<p><strong>Working with Updates that Force Reboot</strong></p>
+<p>When installing multiple updates and one of the updates forces a reboot, System Update will automatically continue the installation of the next update after the reboot.</p>
+<h3 id="4-view-installation-history">4. View Installation History<a class="headerlink" href="#4-view-installation-history" title="Permanent link">#</a></h3>
+<p>The history of updates, that were downloaded and installed on each system, are available to view. For each update, the results of the download and installation are noted as either successful or failed. This section will display a list of the downloaded and installed update packages in order of the Name, Version, Date, and Status.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-11.png" /></p>
+<p><em>Figure 3-11. Systems Update View Installation History.</em></p>
+<h3 id="5-restore-hidden-updates">5. Restore Hidden Updates<a class="headerlink" href="#5-restore-hidden-updates" title="Permanent link">#</a></h3>
+<p>Updates can be hidden, which means those specific updates will not be displayed as applicable in the future. The user can hide specific versions of an update. One or more updates can be &quot;hidden&quot;, so they don&#39;t show up in subsequent searches.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-12.png" /></p>
+<p><em>Figure 3-12. How to hide update packages.</em></p>
+<p>However, the hidden updates can be restored. Go to the &quot;Restore Hidden Updates&quot; tab for restoring the hidden updates. If the user wants to hide an update, they must do so in the &quot;Get new updates tab.&quot; For each of the update packages displayed for download, there is a dropdown arrow. When the arrow is clicked, and the package information is expanded, click the &quot;Do not show this update.&quot; By doing so, the update will be removed from the list of applicable updates in the &quot;Get new updates&quot; tab and moved to the &quot;Restore hidden updates&quot; tab. The hidden updates will be displayed in the same way they are in the &quot;Get new updates&quot; tab, by critical, recommended and optional updates.</p>
+<p><em><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-13.png" /></em></p>
+<p><em>Figure 3-13. Systems Update, Restore Hidden Updates, function.</em></p>
+<p><strong>Keyboard Shortcuts</strong></p>
+<p>The following table provides the keyboard shortcuts for the main functions of System Update:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Function</strong></th>
+<th><strong>Shortcut</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Get new updates</td>
+<td>CTRL+U</td>
+</tr>
+<tr>
+<td>Install deferred updates</td>
+<td>CTRL+D</td>
+</tr>
+<tr>
+<td>Schedule updates</td>
+<td>CTRL+S</td>
+</tr>
+<tr>
+<td>View installation history</td>
+<td>CTRL+H</td>
+</tr>
+<tr>
+<td>Restore hidden updates</td>
+<td>CTRL+R</td>
+</tr>
+<tr>
+<td>Close</td>
+<td>CTRL+E</td>
+</tr>
+<tr>
+<td>Context Help</td>
+<td>F1</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 3-1. System Update keyboard shortcuts</em></p>
+<h2 id="32-thin-installer">3.2 Thin Installer<a class="headerlink" href="#32-thin-installer" title="Permanent link">#</a></h2>
+<p>This section will cover how to work with Thin Installer. Although the program is most often used in a scripted and unattended scenario, it can also be executed to install updates manually which will be described in this section.</p>
+<p>To use Thin Installer, either run the self-extracting installation package or copy the programs source files to the targeted machine. The default repository that Thin Installer will pull from will be a subfolder within the working directory of Thin Installer. A different repository location can be specified by command line or configured in the Thin Installer configuration file which will described later in this document. Use Update Retriever to create the repository source folder. By default, the program searches for updates in a subdirectory under the Thin Installer folder and expects each update to reside in its own subdirectory.</p>
+<p><em><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-14.png" /></em></p>
+<p><em>Figure 3-14. Default repository.</em></p>
+<h3 id="running-thin-installer-manually">Running Thin Installer Manually<a class="headerlink" href="#running-thin-installer-manually" title="Permanent link">#</a></h3>
+<p>In the following scenario, the repository used is local on the target machine. Launch Thin Installer to search for applicable updates based on the machine type and OS.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-15.png" /></p>
+<p><em>Figure 3-15. Launching Thin Installer to search for applicable updates.</em></p>
+<p>Once the search for updates is completed, the application will either display a window with &quot;No packages found,&quot; meaning your system is up-to-date, or a list of applicable update packages.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-16.png" /></p>
+<p><em>Figure 3-16. Applicable updates listed in Thin Installer.</em></p>
+<p>When updates are found in Thin Installer, they are displayed in one of three categories: Critical, Recommended, and Optional. For more information on each update package, click the Expand all button or the expander next to each update. The user may select one, all, or none of the update packages to download. A review of the updates selected is displayed before proceeding with installation.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-17.png" /></p>
+<p><em>Figure 3-17. Review installation packages.</em></p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-18.png" /></p>
+<p><em>Figure 3-18. Installing updates.</em></p>
+<p>If a reboot is necessary to complete the installation of a package, the following window will be displayed. Select <strong>OK</strong> to proceed with installation.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-19.png" /></p>
+<p><em>Figure 3-19. Thin Installer reboot message.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>BIOS installations require user's attention to ensure the update is not interrupted. They cannot be deployed in an unattended mode. <br> 2. Thin Installer installs the updates that force a reboot or shut down after all other updates to reduce the number of reboots.</p>
+</div>
+<h3 id="windows-7-and-later-os-considerations">Windows 7 and Later OS Considerations<a class="headerlink" href="#windows-7-and-later-os-considerations" title="Permanent link">#</a></h3>
+<p>Some updates that Thin Installer will install may automatically reboot or shut down the sysem. If there are multiple updates like this that are applicable, Thin Installer will attempt to configure the system to run Thin Installer again after the system is rebooted.</p>
+<p>With considerations for Windows 7 and later operating systems, after you log in to the Windows desktop, the UAC might stop the program from continuing to install the remaining update packages. To install the remaining update packages, you need to manually click the <strong>Windows has blocked some startup programs</strong> message on the system tray and select <strong>Run blocked program</strong> to run Thin Installer.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If the <strong>Windows has blocked some startup programs</strong> message does not display on the system tray, you will need to manually run Thin Installer, search for the remaining updates, and install them.</p>
+</div>
+<h2 id="33-update-retriever">3.3 Update Retriever<a class="headerlink" href="#33-update-retriever" title="Permanent link">#</a></h2>
+<h3 id="331-update-retriever-first-time-setup">3.3.1 Update Retriever First Time Setup<a class="headerlink" href="#331-update-retriever-first-time-setup" title="Permanent link">#</a></h3>
+<p>When launching Update Retriever the first time, some initial configuration items will need to be set. If launching Update Retriever for the first time, do the following:</p>
+<ol>
+<li>
+<p>Launch Update Retriever.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Update Retriever requires elevated privileges to run. Therefore, a UAC prompt may be displayed when launching the program.</p>
+</div>
+</li>
+<li>
+<p>Choose between a <strong>Local repository</strong> or a <strong>Lenovo cloud repository</strong> by clicking the appropriate radio button. The <strong>Local repository</strong> option will host packages in a local directory or network share. The <strong>Lenovo cloud repository</strong> will host the actual packages on Lenovo&#39;s global Content Delivery Network and only the repository database and package descriptors will be stored in the local directory or network share. System Update, Commercial Vantage, and Thin Installer support the <strong>Lenovo cloud repository</strong> feature.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The statement regarding Thin Installer not supporting the cloud repository feature will be removed in a future version of Update Retriever</p>
+</div>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-20.png" /></p>
+<p><em>Figure 3-20. Update Retriever first time setup.</em></p>
+</li>
+<li>
+<p>Specify a repository folder and set the login information by doing the following:</p>
+<ul>
+<li>Type or browse to an existing folder path to use as the share repository in the <strong>Repository path</strong> field. This can be a local folder path or a network share path.</li>
+<li>Type a <strong>User name</strong> and <strong>Password</strong> for the share drive used as the network share repository in the user name and password fields.</li>
+</ul>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-21.png" /></p>
+<p><em>Figure 3-21. Setting the repository path in Update Retriever, first time setup.</em></p>
+</li>
+<li>
+<p>Select a default license and status. The License can either be set to <strong>Default</strong> , <strong>Display</strong> , or <strong>Do not display</strong>. The status can either be set to <strong>Test</strong> or <strong>Active</strong>. If it is set to <strong>Test</strong> the packages will only be visible to clients configured to look for Test packages. This allows updates to be tested on a controlled set of devices before changing the status to Active so that all devices in the production environment can see them.</p>
+</li>
+<li>
+<p>An Advanced Option is available that allows the administrator to control how changes to local package descriptor XML files are handled. Normally Update Retriever will show packages in new search results if it detects that the XML descriptor file on Lenovo&#39;s servers is different than the file in the local repository. If this is not the desired behavior, check the box and the modified items will be recognized as the same updates and will not be offered for download in the search results.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-22.png" /></p>
+<p><em>Figure 3-22. Update default status and Advanced Options in Update Retriever first time setup.</em></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After the initial settings are complete, the Welcome screen will not open the next time Update Retriever is launched. To change the repository path and update's default status, click Modify settings.</p>
+</div>
+<h3 id="332-searching-for-and-downloading-updates">3.3.2 Searching for and Downloading Updates<a class="headerlink" href="#332-searching-for-and-downloading-updates" title="Permanent link">#</a></h3>
+<p>After initial setup is complete, Update Retriever can be used to search for and download updates. The following will describe these steps.</p>
+<ol>
+<li>
+<p>In the <strong>Get new updates</strong> panel, click <strong>Add</strong>.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-23.png" /></p>
+<p><em>Figure 3-23. Getting new updates with Update Retriever, first time setup.</em></p>
+</li>
+<li>
+<p>In the <strong>Manage systems list</strong> window, set the triplet information for a system by doing the following:</p>
+<ul>
+<li>a) Type the applicable machine type. You can find the machine type on the bottom of a notebook computer or on the rear of a desktop computer. You can also find it by pressing Windows key + R and typing &quot;msinfo32&quot; then OK. Look at the system name, and the first 4 numbers and letters are the machine type. For example, 20HQ.</li>
+<li>b) Enter a description, which will appear as the name of the machine, like ThinkPad T490. This field is optional.</li>
+<li>c) Select the applicable operating system.</li>
+<li>d) Click <strong>Add</strong> and then click <strong>Save</strong>. You can do this for multiple model + operating system combinations. Once the systems list is saved, check the box next to the systems to search for and click <strong>Next</strong>. Update Retriever will connect to the Lenovo CDN and search for updates applicable to the selected systems.</li>
+<li>e) <strong>Accept</strong> the License agreement to continue. There is a check box available to agree to all future license notices to avoid this dialog for future searches.</li>
+</ul>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-24.png" /></p>
+<p><em>Figure 3-24. Searching for updates.</em></p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-25.png" /></p>
+<p><em>Figure 3-25. Accept the License agreement.</em></p>
+</li>
+<li>
+<p>On the next screen, select the check box next to the applicable updates to be downloaded. The results can be filtered using the filters available above the list of updates.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to select all the update packages found, simply select the <strong>Select all</strong> check box.</p>
+</div>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-26.png" /></p>
+<p><em>Figure 3-26. Selecting update packages from search results.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is also an option to Hide updates in the Search Results. If there are some updates you will never need, you can choose to hide them so they do not appear in the Search Results. Either select to hide just the specific version being shown or this version and all future versions. Hidden updates can be restored using the <strong>Restore hidden updates</strong> selection under <strong>Options</strong>.</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Next</strong>. A confirmation summary of the selected updates per system is shown. Click <strong>Finish</strong> to begin downloading the selected updates. Update Retriever will place the updates in the repository folder and update the database file that associates the updates to the systems they support. A completion summary will be displayed at the end.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-27.png" /></p>
+<p><em>Figure 3-27. Completed download list displayed.</em></p>
+</li>
+</ol>
+<h3 id="333-manage-repository">3.3.3 Manage Repository<a class="headerlink" href="#333-manage-repository" title="Permanent link">#</a></h3>
+<p>To view updates that have been downloaded into the local repository, click on the <strong>Manage repository</strong> tab and then select <strong>Update view</strong>.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-28.png" /></p>
+<p><em>Figure 3-28. Viewing updates and managing the repository in Update Retriever.</em></p>
+<p>The updates displayed can be by filtered by Operating system, System, Severity, Status and Type. In the Update view panel, the administrator can sort the list of updates by Update ID, Title, Type, Version, Reboot type, Severity, License, or Status by clicking the column header. Double-clicking the Update ID of an item will display the details from the package descriptor. It is recommended that the values displayed are not altered unless directed to do so by Lenovo support personnel. Altering any of the values will invalidate the signature on the package descriptor file which will cause System Update to no longer apply the update. Only Thin Installer can work with modified updates.</p>
+<h4 id="modify-an-update-package">Modify an Update Package<a class="headerlink" href="#modify-an-update-package" title="Permanent link">#</a></h4>
+<p>The Administrator can modify the reboot type, severity, license, and status of one or more update packages in the repository. Select one or more packages by clicking the check box next to the item.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-29.png" /></p>
+<p><em>Figure 3-29. Modifying updates.</em></p>
+<p>The following table provides the values that an administrator can set for the selected update package(s).</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Possible Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reboot type</td>
+<td>• (Blank)<br />      • No reboot: reboot type 0<br />      • Forces a reboot: reboot type 1<br />      • Reserved<br />      • Requires a reboot: reboot type 3<br />      • Shut down: reboot type 4<br />     • Forced reboot delayed:    reboot type 5<br /><br />     <strong>NOTE:</strong>  Changing this value   does not change how the update is designed to function.  This only alters the flag used to inform   System Update or Thin Installer how the package will function. For example,   changing an update that automatically reboots the system to reboot type 3   will not prevent it from rebooting the system.</td>
+</tr>
+<tr>
+<td>Severity</td>
+<td>• (Blank)<br />      • Critical<br />      • Recommended<br />      • Optional</td>
+</tr>
+<tr>
+<td>License</td>
+<td>• (Blank)<br />      • Display<br />      • No display</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>• (Blank)<br /> • Active<br /> • Archive<br /> • Test<br /> • Hidden<br /><br />      <strong>Attention:</strong> By default, System Update and Thin Installer will only see packages marked as <strong>Active</strong>. The default value was set in the first-time setup of Update Retriever. You can change the default value by using the <strong>Modify settings</strong> option in the Update Retriever navigation pane. <br><br>Selecting <strong>Hidden</strong> will hide the selected update for the <strong>Updates view</strong> and can be restored by using the <strong>Restore hidden updates</strong> selection under <strong>Options</strong>. <br><br>Selecting <strong>Archive</strong> will leave the update in the view; however, the update will not be offered to any clients.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table 3-2. Configurable values for an update package</em></p>
+<h4 id="create-report">Create Report<a class="headerlink" href="#create-report" title="Permanent link">#</a></h4>
+<p>Update Retriever can generate a report, which is a list of active updates, archived updates, hidden updates, and test updates. This list is saved in a TXT file that you can use in most spreadsheet applications.</p>
+<p>To create a report, do the following:</p>
+<ol>
+<li>Click <strong>Manage repository</strong> in the left pane. The menu expands to show several options for managing the repository.</li>
+<li>Click <strong>Create report</strong> in the left pane. The Create report window opens.</li>
+<li>Type a directory to save the TXT file or click <strong>Browse</strong> to find a location.</li>
+<li>Type a name for the TXT file.</li>
+<li>Select the separator type.</li>
+<li>
+<p>Select the types of updates to include in the report:</p>
+<ul>
+<li><strong>Active updates</strong> : These are updates that have been downloaded to the repository and are available for deployment.</li>
+<li><strong>Archived updates</strong> : These are updates that have been downloaded and archived to a separate location. These updates cannot be deployed until they are restored to the active updates list.</li>
+<li><strong>Hidden updates</strong> : These are updates that have not been downloaded and are hidden from the list of available updates when searching the Lenovo(R) Help Center.</li>
+<li><strong>Test updates</strong> : These are updates that have been downloaded and for test.</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The report does not contain available updates that have not been downloaded.</p>
+</div>
+</li>
+<li>
+<p>Select the columns that you want to include the related information in the report:</p>
+<ul>
+<li><strong>Update ID</strong></li>
+<li><strong>Title</strong></li>
+<li><strong>Version</strong></li>
+<li><strong>Reboot type</strong></li>
+<li><strong>Severity</strong></li>
+<li><strong>License</strong></li>
+<li><strong>Status</strong></li>
+<li><strong>System</strong></li>
+<li><strong>Silent install command</strong></li>
+<li><strong>Extract command</strong></li>
+</ul>
+</li>
+<li>
+<p>Click <strong>Create Report</strong>. The Report created successfully window opens. Click <strong>View</strong> to view the file. You also can navigate to the folder where you saved the TXT file and open the file in the folder.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the file name already exists in the designated folder, a warning window will be displayed. Click <strong>Yes</strong> to overwrite the old report or click <strong>No</strong> to decline overwriting.</p>
+</div>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-30.png" /></p>
+<p><em>Figure 3-30. Create report with Update Retriever.</em></p>
+</li>
+</ol>
+<h4 id="import-updates">Import Updates<a class="headerlink" href="#import-updates" title="Permanent link">#</a></h4>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This feature has been deprecated in version <strong>5.08.02.33</strong></p>
+</div>
+<p>Update Retriever enables you to import updates to your repository from a local location or network share. Once the updates are in the repository, you can assign them to specific systems and deploy them to multiple computers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Update packages cannot be deployed until they are assigned to one or more systems. For more information, see section 3.3.3.3.1 Assigning Systems.</p>
+</div>
+<p>To import updates, do the following:</p>
+<ol>
+<li>Click <strong>Manage repository</strong> in the left pane. The menu expands to show several options for managing the repository.</li>
+<li>Click <strong>Import updates</strong> in the left pane. The Import updates window opens.</li>
+<li>
+<p>Click <strong>Browse</strong> to navigate to the folder that stores your updates, and then click <strong>OK</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each update must be in its own subfolder. If you are importing one update, specify the directory that contains that update. If you are importing multiple updates, put each update subfolder under the same parent directory and specify that parent directory.</p>
+</div>
+</li>
+<li>
+<p>Select <strong>Search subfolders</strong> if you want Update Retriever to search through all subfolders located in the specified directory.</p>
+</li>
+<li>Click <strong>Next</strong>. Update Retriever searches the folder that you specified for updates. When the search completes, the Review updates to import window opens. You can double-click the title of an update to view its additional details.</li>
+<li>Select updates that you want to import or select <strong>Select all</strong> to include all updates displayed. Then click <strong>Import</strong>. The import process begins. When the import process completes, the Import completed window opens and the updates that you have selected are imported into your repository folder.</li>
+</ol>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-31.png" /></p>
+<p><em>Figure 3-31. Import Updates with Update Retriever</em></p>
+<h4 id="assigning-systems">Assigning Systems<a class="headerlink" href="#assigning-systems" title="Permanent link">#</a></h4>
+<p>When updates are imported the will initially have no supported systems associated with them. You can assign and unassign systems to updates in the repository, where system stands for the combination of machine type and operating system. When assigning systems to updates, you can choose one or more systems from the available System/Operating system list.</p>
+<p>To assign or unassign systems to updates, do the following:</p>
+<ol>
+<li>Click <strong>Manage repository &amp; Update view</strong> in the left pane to view the updates.</li>
+<li>Select one or more updates in the list that have been imported. The <strong>Assign systems</strong> button is activated.</li>
+<li>Click <strong>Assign systems</strong>. The Assign system window opens, displaying the updates you selected and the System/Operating system list. By default, all the updates are selected and the checkbox before the System/Operating system list is in one of the following statuses:<ul>
+<li>Selected: Indicates that the system is assigned to all the updates selected</li>
+<li>Deselected: Indicates that the system is not assigned to all the updates selected</li>
+<li>Intermediate: Indicates that the system is assigned to some of the updates selected</li>
+</ul>
+</li>
+<li>Select systems from the System/Operating system list to assign systems to the updates selected, or clear systems to unassign them to the updates selected. You can add new systems to the list by clicking <strong>Add new system</strong>.</li>
+<li>Click <strong>Save</strong>. The updates are assigned to the systems selected.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is an icon next to the <strong>Update ID</strong> for each update that is originated from the Lenovo Help Center Web site. You cannot modify the systems assigned to these updates. You can modify the systems assigned to custom updates that were created or imported by the user.</p>
+</div>
+<h4 id="export-updates">Export Updates<a class="headerlink" href="#export-updates" title="Permanent link">#</a></h4>
+<p>Update Retriever enables you to export driver updates in your repository to a designated target folder. During the export process, Update Retriever will extract each driver update to a subfolder. Then, these extracted driver updates can be easily imported into common operating system deployment tools such as Microsoft System Center Configuration Manager or LANDesk Management Suite for easy integration and deployment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before exporting updates, make sure you have downloaded the relevant driver updates for target systems from the Lenovo Help Center to your repository.</p>
+</div>
+<p>To export the driver updates, do the following:</p>
+<ol>
+<li>Click <strong>Manage repository</strong> in the left pane of the main window. The menu expands to show several options for managing the repository.</li>
+<li>Click <strong>Export updates</strong> to begin the process of exporting driver updates in the right pane of the main window.</li>
+<li>Type the directory of the target folder in the <strong>Folder</strong> field or click <strong>Browse</strong> to locate the target folder. You can create the target folder if it does not exist.</li>
+<li>Click <strong>Next</strong>. Select a system from the Machine type/Operating system/Language list, and then select the driver update(s) assigned to the system you selected or select <strong>Select all</strong> to include all the updates displayed.</li>
+<li>Repeat step 4 for other systems if desired.</li>
+<li>Click <strong>Finish</strong>. The export starts, and you can view the export progress in the right pane.</li>
+<li>When the export completes, the results and the location link of the target folder are displayed. You can click the results link to view the export history and click the location link to open the target folder that contains the extracted driver updates.</li>
+</ol>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-32.png" /></p>
+<p><em>Figure 3-32. Export Updates with Update Retriever.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When exporting updates from a repository located on the network instead of a repository on a local drive, an Open File - Security Warning dialog will be displayed for each update that is to be extracted during the export process. To prevent the dialog from being displayed, you can change the Local intranet settings in the Microsoft Internet Explorer Web browser, either temporarily or permanently as you need.</p>
+</div>
+<p>To change the Local intranet settings in the Microsoft Internet Explorer Web browser, do the following:</p>
+<ol>
+<li>Open the Microsoft Internet Explorer Web browser.</li>
+<li>Click <strong>Tools</strong> and select <strong>Internet Options</strong>.</li>
+<li>Click the <strong>Security</strong> tab.</li>
+<li>Click the <strong>Local intranet</strong> icon and click <strong>Sites</strong>.</li>
+<li>The Local intranet dialog box is displayed. If the <strong>Automatically detect intranet network</strong> check box is selected, clear it and then select <strong>Include all network paths (UNCs)</strong>. It is recommended that you also select <strong>Include all local (intranet) sites not listed in other zones</strong> and <strong>Include all sites that bypass the proxy server</strong> unless otherwise instructed by your system administrator.</li>
+<li>Click <strong>OK</strong> to save the Local intranet settings.</li>
+<li>On the <strong>Security</strong> tab, click <strong>Default level</strong> to view the default security level. If the security level is set to <strong>Medium-low</strong> or <strong>Low</strong> , no other changes are necessary. Otherwise, go to step 8.</li>
+<li>If the security level is set to <strong>High, Medium-high, Medium,</strong> or <strong>Custom</strong> , change the security level to <strong>Medium-low</strong> (the default setting) by moving the security level slider. However, you can keep the security level higher than <strong>Medium-low</strong> yet still be able to prevent the Open File - Security Warning dialog from being displayed by customizing the security setting. To customize the security setting, do the following:<ul>
+<li>a) Click <strong>Custom level</strong>. The Security Settings-Internet Zone dialog is displayed.</li>
+<li>b) Locate the <strong>Launching applications and unsafe files</strong> option.</li>
+<li>c) Select <strong>Enable</strong>.</li>
+<li>d) Click <strong>OK</strong>. A dialog box for confirmation is displayed.</li>
+<li>e) Click <strong>Yes</strong> to confirm your selection.</li>
+<li>f) Click <strong>OK</strong> to exit the Internet Options dialog box.</li>
+</ul>
+</li>
+</ol>
+<h3 id="334-manage-driver-packs">3.3.4 Manage Driver Packs<a class="headerlink" href="#334-manage-driver-packs" title="Permanent link">#</a></h3>
+<p>This feature allows an admin to create a collection of the hardware drivers for a specified model in a format that can be imported into Microsoft System Center Configuration Manager (SCCM) or Microsoft Deployment Toolkit (MDT) to support OS deployment.</p>
+<p>This feature displays a list of only hardware drivers for a specified model based on what is currently available on the Lenovo Support web site instead of basing search results on content ready for use with System Update or Thin Installer.</p>
+<p>Follow these steps to use the Manage Driver Pack option in Update Retriever:</p>
+<ol>
+<li>Click the Manage Driver packs tab, in Update Retriever.</li>
+<li>
+<p>Specify a parent folder to hold &quot;driver packs&quot; generated by Update Retriever. Select a specific model using brand, series, model, and operating system values that are available in the drop-down lists.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-33.png" /></p>
+<p><em>Figure 3-33. Managing Driver Packs in Update Retriever.</em></p>
+</li>
+<li>
+<p>Select specific drivers. Where available, the specific build(s) of Windows 10 / 11 supported drivers are listed in the driver title.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-34.png" /></p>
+<p><em>Figure 3-34. Managing Driver Pack selections in Update Retriever.</em></p>
+</li>
+<li>
+<p>Update Retriever downloads and extracts selected drivers. As Update Retriever executes each package to extract the files, users may notice application focus change. It is recommended to let Update Retriever finish before doing other work.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-35.png" /></p>
+<p><em>Figure 3-35. Downloading and extracting selected Drivers in Update Retriever.</em></p>
+</li>
+</ol>
+<p>A collection of source files for the driver packages are generated, along with a CSV report text file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This new feature is intended to support the OS deployment process of new drivers which only works with INF installable hardware drivers. Application updates and firmware updates cannot be included. The feature only supports ThinkPad, ThinkCentre and ThinkStation PCs.</p>
+</div>
+<h3 id="335-scheduling-the-search-for-updates">3.3.5 Scheduling the Search for Updates<a class="headerlink" href="#335-scheduling-the-search-for-updates" title="Permanent link">#</a></h3>
+<p>The administrator can configure Update Retriever to search for new updates automatically on a scheduled basis. The administrator is notified depending on how Update Retriever was configured, in the form of an e-mail or a balloon tooltip from the application icon in the notification area.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-36.png" /></p>
+<p><em>Figure 3-36. Scheduling updates in Update Retriever.</em></p>
+<p>The administrator can configure Update Retriever to search for new updates automatically on a scheduled basis by checking the box to <strong>Enable automatic search for new updates</strong>. The following options are available:</p>
+<ul>
+<li>
+<p><strong>Schedule:</strong></p>
+<ul>
+<li><strong>Select update type:</strong> Choose between Critical, Recommended or Critical &amp; Recommended.</li>
+<li><strong>Frequency:</strong> Choose to search for new updates weekly or monthly.</li>
+<li><strong>Run on:</strong> For weekly checks, a day of the week must be selected. For monthly checks, a date in the month must be selected.</li>
+<li><strong>Run at:</strong> Specify the time of day the search should occur.</li>
+</ul>
+</li>
+<li>
+<p><strong>When to notify me:</strong> Two options are available; click the radio button to select the appropriate one.</p>
+<ul>
+<li>Notify if there are new updates available but do not download them</li>
+<li>Download the new updates and notify when complete</li>
+</ul>
+</li>
+<li>
+<p><strong>How to notify me:</strong> Update Retriever can notify by sending an email or by popping up a toast message from the application icon in the system tray. If the email option is selected, click the Propertiesbutton to provide additional details. The email option may only work with certain configurations. The e-mail notification includes the date and time of the check, the number of packages found, and a list of updates.</p>
+</li>
+</ul>
+<h3 id="336-restore-hidden-updates">3.3.6 Restore Hidden Updates<a class="headerlink" href="#336-restore-hidden-updates" title="Permanent link">#</a></h3>
+<p>Administrators can hide updates, which means that the hidden updates including the current and future versions will not be displayed as relevant (from the Lenovo Help Center) in the future. There are two options:</p>
+<ul>
+<li>Hide just a specific version of an update</li>
+<li>Hide all future versions of an update</li>
+</ul>
+<p>If in the future, if the administrator wants to have those updates displayed again, they can unhide them. To unhide an update package, do the following:</p>
+<ol>
+<li>Go to the Restore hidden updates menu tab.</li>
+<li>Check the box next to the update package(s) to unhide it or check the select all updates checkbox to unhide all the update packages in the list.</li>
+<li>
+<p>There may be multiple models that use the same package ID. If the administrator only wants to unhide a package for a certain model type, they need to double click on the package ID and select from the system model type displayed. Once the model type is selected, click OK.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-37.png" /></p>
+<p><em>Figure 3-37. Unhide specific packages in Update Retriever.</em></p>
+</li>
+<li>
+<p>Click the <strong>Unhide</strong> button in the bottom right corner of the tool. The update package will then be displayed in the <strong>Update View</strong>.</p>
+</li>
+</ol>
+<h3 id="337-modify-settings">3.3.7 Modify Settings<a class="headerlink" href="#337-modify-settings" title="Permanent link">#</a></h3>
+<p>The <strong>Modify settings</strong> option allows the administrator to make changes to any of the settings that were configured during the first-time setup process. For details on the settings that can be configured, please refer to section 3.3.1 <strong>Update Retriever First Time Setup</strong>.</p>
+<h3 id="338-viewing-history">3.3.8 Viewing History<a class="headerlink" href="#338-viewing-history" title="Permanent link">#</a></h3>
+<p>The <strong>View history</strong> function enables you to view the detailed information about the download history and export history.</p>
+<p><img alt="image" src="https://cdrt.github.io/mk_docs/img/guides/su/img3-38.png" /></p>
+<p><em>Figure 3-38. View download history in Update Retriever.</em></p>
+<p>The download history provides detailed information about all updates that the Update Retriever has downloaded to the update repository, as well as updates that are hidden.</p>
+<p>To view the download history, do the following:</p>
+<ol>
+<li>Click <strong>View history</strong> in the left pane of the main window. The View History window opens.</li>
+<li>
+<p>Click the View download history link to view the following information:</p>
+<ul>
+<li><strong>Title:</strong> The title of the update.</li>
+<li><strong>Version:</strong> The version number of the update.</li>
+<li><strong>Name:</strong> The name of the update.</li>
+<li><strong>Downloaded Time:</strong> The date and time when the update was downloaded (not displayed for current results).</li>
+</ul>
+</li>
+</ol>
+<p>The export history provides detailed information about updates that have been exported to the target folder.</p>
+<p>To view the export history, do the following:</p>
+<ol>
+<li>Click <strong>View history</strong> in the left pane of the main window.</li>
+<li>
+<p>Click the <strong>View export</strong> history link to view the following information:</p>
+<ul>
+<li><strong>Exported Time:</strong> The date and time when the update was exported.</li>
+<li><strong>Status:</strong> Successful or Failed (followed by the cause of failure).</li>
+<li><strong>Source Location:</strong> The directory where the driver update is saved in the repository.</li>
+<li><strong>Target Location:</strong> The directory where the exported driver update is saved.</li>
+<li><strong>Subfolder Name:</strong> The name of subfolder where the exported driver update is saved. For the driver update that fails to be exported, the subfolder name just indicates its title and version number.</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2026 <a href="https://docs.lenovocdrt.com"  target="_blank" rel="noopener">Lenovo Commercial Deployment Readiness Team</a><br><a href="#__consent" style="text-decoration:underline;">Change cookie settings</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+  
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences such as light and dark mode, as well as to measure anonymous usage data to determine effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" checked>
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="analytics" checked>
+      <span class="task-list-indicator"></span>
+      Google Analytics
+    </label>
+  </li>
+
+      
+    
+    
+      
+    
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.code.select"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

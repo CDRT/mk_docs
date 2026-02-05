@@ -1,0 +1,7657 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.lenovocdrt.com/guides/tbct_v2/tbc_module_reference/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../img/fav/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Lenovo BIOS Config Module - Cmdlet Reference - Lenovo CDRT Docs Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-288025816"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-288025816",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-288025816",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lenovo-bios-config-module-cmdlet-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Lenovo CDRT Docs Site" class="md-header__button md-logo" aria-label="Lenovo CDRT Docs Site" data-md-component="logo">
+      
+  <img src="../../../img/CDRT-REV-Red_s.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lenovo CDRT Docs Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Lenovo BIOS Config Module - Cmdlet Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue-grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Lenovo CDRT Docs Site" class="md-nav__button md-logo" aria-label="Lenovo CDRT Docs Site" data-md-component="logo">
+      
+  <img src="../../../img/CDRT-REV-Red_s.png" alt="logo">
+
+    </a>
+    Lenovo CDRT Docs Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Product Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commercial Vantage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Commercial Vantage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcv/whatsnew/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What's New
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcv/deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcv/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcv/upgrading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcv/suhelper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SU Helper Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcv/commercial_vantage_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commercial Vantage FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update - Update Retriever - Thin Installer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    System Update - Update Retriever - Thin Installer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update Suite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide: Lenovo System Update Suite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 General Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Command Line Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6 Appendix A: Advanced Configurations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7 Appendix B: Mapdrv Utility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8 Appendix C: Notices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/system_update_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dock Manager
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dm/dm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dm/dm_manage_intune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing with Intune
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dm/dm_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dm/dock_manager_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Think BIOS Config Tool V2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Think BIOS Config Tool V2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tbct_v2_top/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo BIOS Certificate Tool
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo BIOS Certificate Tool
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lbct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo BIOS Certificate Tool and Module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Client Scripting Module
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo Client Scripting Module
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcsm/lcsm_top/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Client Scripting Module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Updates Catalog
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo Updates Catalog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../luc/luc_ovrvw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Updates Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../luc/luc_agnt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Updates Catalog Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../luc/luc_ts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo View
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo View
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lenovo_view/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo View Configuration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    References
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BIOS Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/bios_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo BIOS/UEFI Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/wmi/wmi_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WMI BIOS Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Settings Dictionary
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BIOS Settings Dictionary
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4_1" id="__nav_3_1_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThinkPad
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThinkPad
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/usb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....USB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/keyboardmouse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Keyboard/Mouse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/display/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Display
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/beepalarm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Beep and Alarm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/cpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/thunderbolttm4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Thunderbolt(TM) 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/intelramt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel(R) AMT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/hdmi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....HDMI Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/datetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Date/Time
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/fingerprint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Fingerprint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/securitychip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Security Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/uefibiosupdate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....UEFI BIOS Update Option
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/memoryprotection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Memory Protection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/virtualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Virtualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/ioportaccess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....I/O Port Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/internaldeviceaccess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Internal Device Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/abspersistencemodule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Absolute Persistence(R) Module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/secureboot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Secure Boot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/deviceguard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Device Guard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/thinkshieldsecurewipe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ThinkShield Secure Wipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/thinkshieldpasswordless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ThinkShield Passwordless Power-On
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/intelligentsecurity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intelligent Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/resetsystemtofactorydefaults/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Reset System to Factory Defaults
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/certbasedbiosauth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Certificate-based BIOS Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/restart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Restart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4_2" id="__nav_3_1_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThinkCentre
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThinkCentre
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/system_summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/system_time_and_date/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Time and Date
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/serial_port_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Serial Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/parallel_port_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Parallel Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/usb_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....USB Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/storage_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Storage Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/ata_drive_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ATA Drive Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/video_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Video Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/audio_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Audio Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/network_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Network Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/pci_express_configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCI Express Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/intel_r_thunderbolt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel(R) Thunderbolt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/cpu_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/intel_r_manageability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel(R) Manageability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/dash_configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....DASH Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/intelligent_cooling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intelligent Cooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/automatic_power_on/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Automatic Power On
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/system_management_password_access_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Management Password Access Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/hard_disk_password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Hard Disk Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/password_policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Password Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/tcg_feature_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....TCG Feature Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/system_event_log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/secure_boot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Secure Boot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/certificate_based_bios_authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Certificate Based BIOS Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/computrace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Computrace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/boot_priority_order/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Boot Priority Order
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/exit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4_3" id="__nav_3_1_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThinkStation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThinkStation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/systemsummary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/systemtimedate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Time & Date
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/bioseventlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....BIOS Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/serialportsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Serial Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/parallelportsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Parallel Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/usbsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....USB Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/storagesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Storage Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/intelvmd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ........Intel(R) VMD Technology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/atadrivesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ATA Drive Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/nvme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....NVME Drive Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/videosetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Video Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/audiosetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Audio Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/networksetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Network Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/pciesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCIe Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/pciexpress/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCI Express Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/intelthunderbolt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel Thunderbolt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/bmcsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....BMC Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/diagnostics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Diagnostics (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/pcieconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCIe Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/pciexpressconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCI Express Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/cpuconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/cpusetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU Setup (Intel)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/memoryconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Memory Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/rasconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....RAS Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/commonrefcodeconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Common RefCode Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/dashconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....DASH Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/intelmanageability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel Manageability Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/serialportconsoleredirection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Serial Port Console Redirection (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/autopoweron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Automatic Power On
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/harddiskpass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Hard Disk Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/passwordpolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Password Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/smpaccesscontrol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....SMP Access Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/tcgfeaturesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....TCG Feature Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/secureboot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Secure Boot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/systemeventlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/certbasedbiosauth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Certificate-based BIOS Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/bootpriorityorder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Boot Priority Order
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/exit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/bios_logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/sdbm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Deployment Boot Mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/startup_menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup Interrupt Menu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docks Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docks Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/docks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Docks Reference Materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/docks/docks_main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/docks/configmgr_dock_queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration Manager Queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/dash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AMD DASH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/scripts/samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripting Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frequently Asked Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Frequently Asked Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/system_update_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cv/commercial_vantage_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commercial Vantage FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../dm/dock_manager_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#module-initialization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Module Initialization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Module Initialization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialize-lnvthinkbiosconfig" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initialize-LnvThinkBiosConfig
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#show-lnvwmisettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Show-LnvWmiSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#read-lnvtbcpreferencefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read-LnvTBCPreferenceFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-lnvtbcpreferencefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update-LnvTBCPreferenceFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-computer-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Computer Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Remote Computer Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-lnvtbctargetcomputer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get-LnvTBCTargetComputer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-lnvtbcremotecomputer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Open-LnvTBCRemoteComputer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#close-lnvtbcremotecomputer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Close-LnvTBCRemoteComputer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#status-checks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status Checks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Status Checks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-lnvtbcpendingchanges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test-LnvTBCPendingChanges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-lnvtbcpendingreboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test-LnvTBCPendingReboot
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#password-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Password Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Password Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#export-lnvpasswordchangefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export-LnvPasswordChangeFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-lnvpasswordchangefile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import-LnvPasswordChangeFile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-lnvpassword" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update-LnvPassword
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wmi-settings-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WMI Settings Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WMI Settings Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#export-lnvwmisettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export-LnvWmiSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#import-lnvwmisettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import-LnvWmiSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-lnvwmisetting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get-LnvWmiSetting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set-lnvwmisetting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Set-LnvWmiSetting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-lnvwmisettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save-LnvWmiSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset-lnvwmisettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reset-LnvWmiSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-settings-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Default Settings Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Default Settings Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#restore-lnvdefaultsettings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restore-LnvDefaultSettings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#save-lnvcustomdefault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Save-LnvCustomDefault
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restore-lnvcustomdefault" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restore-LnvCustomDefault
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Advanced Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#submit-lnvfunctionrequest" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Submit-LnvFunctionRequest
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deployment Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#new-lnvremediationscript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        New-LnvRemediationScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convertto-lnvintunepackage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ConvertTo-LnvIntunePackage
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convert-lnvconfigfiletoscript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert-LnvConfigFileToScript
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initial-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-current-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backup Current Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apply Configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#change-individual-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Change Individual Settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#password-hangling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Password Hangling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-deployment-package" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create Deployment Package
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#important-notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Important Notes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Important Notes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#targeting-remote-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Targeting Remote Device
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deployment
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Version History
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lenovo-bios-config-module-cmdlet-reference">Lenovo BIOS Config Module - Cmdlet Reference<a class="headerlink" href="#lenovo-bios-config-module-cmdlet-reference" title="Permanent link">#</a></h1>
+<ul>
+<li><strong>Module:</strong> Lenovo.BIOS.Config</li>
+<li><strong>Version:</strong> 1.0.2</li>
+<li><strong>Author:</strong> Devin McDermott</li>
+<li><strong>Company:</strong> Lenovo</li>
+<li><strong>Copyright:</strong> (c) 2025 All rights reserved.</li>
+</ul>
+<hr />
+<h2 id="module-initialization">Module Initialization<a class="headerlink" href="#module-initialization" title="Permanent link">#</a></h2>
+<h3 id="initialize-lnvthinkbiosconfig">Initialize-LnvThinkBiosConfig<a class="headerlink" href="#initialize-lnvthinkbiosconfig" title="Permanent link">#</a></h3>
+<p>Gathers the WMI data needed for the module to work.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">Initialize-LnvThinkBiosConfig</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Initializes the Lenovo ThinkBIOS Config module by gathering WMI data from the system. This cmdlet must be run before using other module functions. No output is shown during initialization.</p>
+<p><strong>Parameters:</strong>
+None</p>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">Initialize-LnvThinkBiosConfig</span>
+</span></code></pre></div>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Requires administrator privileges</li>
+<li>Should be called at the beginning of your script or session</li>
+<li>Silently loads all necessary WMI settings</li>
+</ul>
+<hr />
+<h3 id="show-lnvwmisettings">Show-LnvWmiSettings<a class="headerlink" href="#show-lnvwmisettings" title="Permanent link">#</a></h3>
+<p>Displays WMI BIOS settings from the target computer.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">Show-LnvWmiSettings</span> <span class="p">[</span><span class="n">-Force</span><span class="p">]</span> <span class="p">[</span><span class="n">-OnlyChanged</span><span class="p">]</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Gathers and displays WMI data from the system. This cmdlet can show all settings or only those that have been modified. Use the <code>-Force</code> switch to reload settings from WMI.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Force</td>
+<td>Switch</td>
+<td>No</td>
+<td>Forces settings to be reloaded from WMI</td>
+</tr>
+<tr>
+<td>OnlyChanged</td>
+<td>Switch</td>
+<td>No</td>
+<td>Displays only modified settings</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c"># Display all WMI settings</span>
+</span><span id="......span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">Show-LnvWmiSettings</span>
+</span><span id="......span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+</span><span id="......span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c"># Force reload and display all settings</span>
+</span><span id="......span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="nb">Show-LnvWmiSettings</span> <span class="n">-Force</span>
+</span><span id="......span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+</span><span id="......span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c"># Display only modified settings</span>
+</span><span id="......span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nb">Show-LnvWmiSettings</span> <span class="n">-OnlyChanged</span>
+</span></code></pre></div>
+<p><strong>Output:</strong>
+Returns a sorted list of BIOS settings with their current values.</p>
+<hr />
+<h2 id="configuration-management">Configuration Management<a class="headerlink" href="#configuration-management" title="Permanent link">#</a></h2>
+<h3 id="read-lnvtbcpreferencefile">Read-LnvTBCPreferenceFile<a class="headerlink" href="#read-lnvtbcpreferencefile" title="Permanent link">#</a></h3>
+<p>Returns the preferences for the machine.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">Read-LnvTBCPreferenceFile</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Reads the <code>preferences.json</code> file located in <code>%ProgramData%\Lenovo\ThinkBiosConfig</code> and returns an object with configurations for the machine. If the file doesn't exist, it creates one with default values.</p>
+<p><strong>Parameters:</strong>
+None</p>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nv">$preferences</span> <span class="p">=</span> <span class="nb">Read-LnvTBCPreferenceFile</span>
+</span></code></pre></div>
+<p><strong>Output:</strong>
+Returns a hashtable containing:</p>
+<ul>
+<li><code>Output</code> - Default output folder path</li>
+<li><code>LogFolder</code> - Default log folder path</li>
+<li><code>Logging</code> - Boolean indicating if logging is enabled</li>
+<li><code>Logger</code> - Logger instance</li>
+<li><code>PreferenceFile</code> - Path to the preference file</li>
+</ul>
+<p><strong>Default Locations:</strong></p>
+<ul>
+<li>Preference file: <code>%ProgramData%\Lenovo\ThinkBiosConfig\preferences.json</code></li>
+<li>Output folder: <code>%ProgramData%\Lenovo\ThinkBiosConfig\Output</code></li>
+<li>Log folder: <code>%ProgramData%\Lenovo\ThinkBiosConfig\Logs</code></li>
+</ul>
+<hr />
+<h3 id="update-lnvtbcpreferencefile">Update-LnvTBCPreferenceFile<a class="headerlink" href="#update-lnvtbcpreferencefile" title="Permanent link">#</a></h3>
+<p>Updates the content of the preferences file.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">Update-LnvTBCPreferenceFile</span> <span class="n">-Logging</span> <span class="p">&lt;</span><span class="n">Boolean</span><span class="p">&gt;</span> <span class="n">-LogFolder</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="n">-Output</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Allows you to change the location of the output folder, log folder, and enable/disable logging functionality.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Logging</td>
+<td>Boolean</td>
+<td>Yes</td>
+<td>True to enable, false to disable logging</td>
+</tr>
+<tr>
+<td>LogFolder</td>
+<td>String</td>
+<td>Yes</td>
+<td>Folder location for log files</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>String</td>
+<td>Yes</td>
+<td>Folder location for output files</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c"># Enable logging with custom folders</span>
+</span><span id="......span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">Update-LnvTBCPreferenceFile</span> <span class="n">-Logging</span> <span class="nv">$true</span> <span class="n">-LogFolder</span> <span class="s2">&quot;C:\Logs&quot;</span> <span class="n">-Output</span> <span class="s2">&quot;C:\Output&quot;</span>
+</span><span id="......span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
+</span><span id="......span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c"># Disable logging</span>
+</span><span id="......span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nb">Update-LnvTBCPreferenceFile</span> <span class="n">-Logging</span> <span class="nv">$false</span> <span class="n">-LogFolder</span> <span class="s2">&quot;C:\Logs&quot;</span> <span class="n">-Output</span> <span class="s2">&quot;C:\Output&quot;</span>
+</span><span id="......span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="......span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c"># Use relative paths</span>
+</span><span id="......span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nb">Update-LnvTBCPreferenceFile</span> <span class="n">-Logging</span> <span class="nv">$true</span> <span class="n">-LogFolder</span> <span class="s2">&quot;.\Logs&quot;</span> <span class="n">-Output</span> <span class="s2">&quot;.\MyFolder&quot;</span>
+</span></code></pre></div>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Both folder paths must exist before calling this cmdlet</li>
+<li>The cmdlet verifies folder access before updating preferences</li>
+<li>Throws an error if folders don't exist or aren't accessible</li>
+</ul>
+<hr />
+<h2 id="remote-computer-management">Remote Computer Management<a class="headerlink" href="#remote-computer-management" title="Permanent link">#</a></h2>
+<h3 id="get-lnvtbctargetcomputer">Get-LnvTBCTargetComputer<a class="headerlink" href="#get-lnvtbctargetcomputer" title="Permanent link">#</a></h3>
+<p>Returns the computer-specific variables.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">Get-LnvTBCTargetComputer</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Returns an object containing information about the target computer including computer name, BIOS version, current password status, and custom defaults capability.</p>
+<p><strong>Parameters:</strong>
+None</p>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nv">$computerInfo</span> <span class="p">=</span> <span class="nb">Get-LnvTBCTargetComputer</span>
+</span><span id="......span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">Write-Host</span> <span class="s2">&quot;Computer: </span><span class="p">$(</span><span class="nv">$computerInfo</span><span class="p">.</span><span class="n">ComputerName</span><span class="p">)</span><span class="s2">&quot;</span>
+</span><span id="......span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">Write-Host</span> <span class="s2">&quot;BIOS Version: </span><span class="p">$(</span><span class="nv">$computerInfo</span><span class="p">.</span><span class="n">BiosVersion</span><span class="p">)</span><span class="s2">&quot;</span>
+</span><span id="......span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nb">Write-Host</span> <span class="s2">&quot;Password Set: </span><span class="p">$(</span><span class="nv">$computerInfo</span><span class="p">.</span><span class="n">PasswordFound</span><span class="p">)</span><span class="s2">&quot;</span>
+</span></code></pre></div>
+<p><strong>Output:</strong>
+Returns an object with properties:</p>
+<ul>
+<li><code>ComputerName</code> - Name of the target computer</li>
+<li><code>BiosVersion</code> - Current BIOS version</li>
+<li><code>PasswordFound</code> - Boolean indicating if a supervisor password is set</li>
+<li>Custom defaults information</li>
+</ul>
+<hr />
+<h3 id="open-lnvtbcremotecomputer">Open-LnvTBCRemoteComputer<a class="headerlink" href="#open-lnvtbcremotecomputer" title="Permanent link">#</a></h3>
+<p>Connects to a remote machine with the specified credentials.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nb">Open-LnvTBCRemoteComputer</span> <span class="n">-Hostname</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="p">[</span><span class="n">-Credential</span> <span class="p">&lt;</span><span class="n">PSCredential</span><span class="p">&gt;]</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Establishes a connection to a remote Lenovo computer for BIOS management operations. The hostname is required and must be a valid computer name (IP addresses are not supported).</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hostname</td>
+<td>String</td>
+<td>Yes</td>
+<td>Name of the target machine (not IP address)</td>
+</tr>
+<tr>
+<td>Credential</td>
+<td>PSCredential</td>
+<td>No</td>
+<td>Credentials to connect to the machine</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c"># Connect with credential prompt</span>
+</span><span id="......span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">Open-LnvTBCRemoteComputer</span> <span class="n">-Hostname</span> <span class="s2">&quot;DESKTOP-01&quot;</span>
+</span><span id="......span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>
+</span><span id="......span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="c"># Connect with pre-defined credentials</span>
+</span><span id="......span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="nv">$cred</span> <span class="p">=</span> <span class="nb">Get-Credential</span>
+</span><span id="......span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="nb">Open-LnvTBCRemoteComputer</span> <span class="n">-Hostname</span> <span class="s2">&quot;DESKTOP-01&quot;</span> <span class="n">-Credential</span> <span class="nv">$cred</span>
+</span></code></pre></div>
+<p><strong>Output:</strong>
+Returns a LenovoSettings instance for the remote computer.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Requires network connectivity to the remote machine</li>
+<li>Requires appropriate permissions on the remote machine</li>
+<li>Must use hostname, not IP address</li>
+<li>If credentials are not provided, you will be prompted</li>
+</ul>
+<hr />
+<h3 id="close-lnvtbcremotecomputer">Close-LnvTBCRemoteComputer<a class="headerlink" href="#close-lnvtbcremotecomputer" title="Permanent link">#</a></h3>
+<p>Closes the connection to the target computer.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nb">Close-LnvTBCRemoteComputer</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Clears the instance holding information about the remote machine and terminates the connection.</p>
+<p><strong>Parameters:</strong>
+None</p>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nb">Close-LnvTBCRemoteComputer</span>
+</span></code></pre></div>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Always close remote connections when finished to free resources</li>
+<li>After closing, you'll need to reconnect to manage remote computers again</li>
+</ul>
+<hr />
+<h2 id="status-checks">Status Checks<a class="headerlink" href="#status-checks" title="Permanent link">#</a></h2>
+<h3 id="test-lnvtbcpendingchanges">Test-LnvTBCPendingChanges<a class="headerlink" href="#test-lnvtbcpendingchanges" title="Permanent link">#</a></h3>
+<p>Checks if there are pending changes on any of the settings.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nb">Test-LnvTBCPendingChanges</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Returns true if there are any modified settings that haven't been saved to the BIOS.</p>
+<p><strong>Parameters:</strong>
+None</p>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">if</span> <span class="p">(</span><span class="nb">Test-LnvTBCPendingChanges</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="......span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>    <span class="nb">Write-Host</span> <span class="s2">&quot;There are unsaved changes&quot;</span>
+</span><span id="......span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>    <span class="nb">Save-LnvWmiSettings</span>
+</span><span id="......span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Output:</strong>
+Returns <code>$true</code> if there are pending changes, <code>$false</code> otherwise.</p>
+<hr />
+<h3 id="test-lnvtbcpendingreboot">Test-LnvTBCPendingReboot<a class="headerlink" href="#test-lnvtbcpendingreboot" title="Permanent link">#</a></h3>
+<p>Checks if there is a pending reboot.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nb">Test-LnvTBCPendingReboot</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Returns true if a system reboot is required after making WMI changes. Most BIOS changes require a reboot to take effect.</p>
+<p><strong>Parameters:</strong>
+None</p>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">if</span> <span class="p">(</span><span class="nb">Test-LnvTBCPendingReboot</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="......span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>    <span class="nb">Write-Host</span> <span class="s2">&quot;A system reboot is required&quot;</span>
+</span><span id="......span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>    <span class="nb">Restart-Computer</span> <span class="n">-Confirm</span>
+</span><span id="......span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Output:</strong>
+Returns <code>$true</code> if a reboot is pending, <code>$false</code> otherwise.</p>
+<hr />
+<h2 id="password-management">Password Management<a class="headerlink" href="#password-management" title="Permanent link">#</a></h2>
+<h3 id="export-lnvpasswordchangefile">Export-LnvPasswordChangeFile<a class="headerlink" href="#export-lnvpasswordchangefile" title="Permanent link">#</a></h3>
+<p>Creates a password change file.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nb">Export-LnvPasswordChangeFile</span> <span class="p">[</span><span class="n">-FileLocation</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-Type</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Prompts the user for current and new passwords, then creates an encrypted file at the specified location. This file can be used to change BIOS passwords on multiple machines.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FileLocation</td>
+<td>String</td>
+<td>No</td>
+<td><code>%ProgramData%\Lenovo\ThinkBiosConfig\Output\{ComputerName}Password.ini</code></td>
+<td>Location to save the password file</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>String</td>
+<td>No</td>
+<td>"pap"</td>
+<td>Password type: "pap"/"svp" (Supervisor), "smp" (System Management), "pop" (Power-on)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c"># Create password file with default location</span>
+</span><span id="......span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nb">Export-LnvPasswordChangeFile</span>
+</span><span id="......span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+</span><span id="......span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c"># Specify custom location</span>
+</span><span id="......span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="nb">Export-LnvPasswordChangeFile</span> <span class="n">-FileLocation</span> <span class="s2">&quot;C:\Temp\password.ini&quot;</span>
+</span><span id="......span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+</span><span id="......span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="c"># Create power-on password file</span>
+</span><span id="......span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="nb">Export-LnvPasswordChangeFile</span> <span class="n">-Type</span> <span class="n">pop</span>
+</span></code></pre></div>
+<p><strong>Interactive Prompts:</strong></p>
+<ul>
+<li>Encrypting key</li>
+<li>Current password</li>
+<li>New password</li>
+<li>Password confirmation</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Passwords are encrypted using the provided key</li>
+<li>The encrypting key will be required to import the file</li>
+<li>Type "svp" is treated as "pap" (both are supervisor passwords)</li>
+<li>Returns success or error message</li>
+</ul>
+<hr />
+<h3 id="import-lnvpasswordchangefile">Import-LnvPasswordChangeFile<a class="headerlink" href="#import-lnvpasswordchangefile" title="Permanent link">#</a></h3>
+<p>Imports a password change file.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nb">Import-LnvPasswordChangeFile</span> <span class="n">-ConfigFile</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="p">[</span><span class="n">-Key</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Imports a file to apply a new password to a machine that currently has a password set.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ConfigFile</td>
+<td>String</td>
+<td>Yes</td>
+<td>Path to the password change file</td>
+</tr>
+<tr>
+<td>Key</td>
+<td>String</td>
+<td>No</td>
+<td>Decrypting key (will prompt if not provided)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c"># Import with key prompt</span>
+</span><span id="......span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nb">Import-LnvPasswordChangeFile</span> <span class="n">-ConfigFile</span> <span class="s2">&quot;C:\Temp\password.ini&quot;</span>
+</span><span id="......span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
+</span><span id="......span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="c"># Import with specified key</span>
+</span><span id="......span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="nb">Import-LnvPasswordChangeFile</span> <span class="n">-ConfigFile</span> <span class="s2">&quot;C:\Temp\password.ini&quot;</span> <span class="n">-Key</span> <span class="s2">&quot;MyEncryptionKey&quot;</span>
+</span></code></pre></div>
+<p><strong>Output:</strong>
+Returns success or failure message.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>The key must match the one used during export</li>
+<li>Requires the current password to be correct</li>
+<li>Changes take effect immediately but may require a reboot</li>
+</ul>
+<hr />
+<h3 id="update-lnvpassword">Update-LnvPassword<a class="headerlink" href="#update-lnvpassword" title="Permanent link">#</a></h3>
+<p>Updates the password on the current machine.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nb">Update-LnvPassword</span> <span class="n">-Type</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Prompts the user for the current and new password, then updates the specified BIOS password.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Type</td>
+<td>String</td>
+<td>Yes</td>
+<td>Password type: "pap"/"svp" (Supervisor), "smp" (System Management), "pop" (Power-on)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="c"># Update supervisor password</span>
+</span><span id="......span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="nb">Update-LnvPassword</span> <span class="n">-Type</span> <span class="n">pap</span>
+</span><span id="......span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+</span><span id="......span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="c"># Update power-on password</span>
+</span><span id="......span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a><span class="nb">Update-LnvPassword</span> <span class="n">-Type</span> <span class="n">pop</span>
+</span></code></pre></div>
+<p><strong>Interactive Prompts:</strong></p>
+<ul>
+<li>Current password</li>
+<li>New password</li>
+<li>Password confirmation</li>
+</ul>
+<p><strong>Output:</strong>
+Returns success or failure message.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Only works if a password is already set</li>
+<li>Type "svp" is treated as "pap"</li>
+<li>New password must match confirmation</li>
+<li>Changes take effect immediately</li>
+</ul>
+<hr />
+<h2 id="wmi-settings-operations">WMI Settings Operations<a class="headerlink" href="#wmi-settings-operations" title="Permanent link">#</a></h2>
+<h3 id="export-lnvwmisettings">Export-LnvWmiSettings<a class="headerlink" href="#export-lnvwmisettings" title="Permanent link">#</a></h3>
+<p>Creates a file of the WMI settings.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nb">Export-LnvWmiSettings</span> <span class="p">[</span><span class="n">-ConfigFile</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-OnlyChanged</span><span class="p">]</span> <span class="p">[</span><span class="n">-Key</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-NoKey</span><span class="p">]</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Exports WMI BIOS settings to a configuration file, optionally with an encrypted supervisor password for deployment.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ConfigFile</td>
+<td>String</td>
+<td>No</td>
+<td><code>%ProgramData%\Lenovo\ThinkBiosConfig\Output\{ComputerName}.ini</code></td>
+<td>Path to export file</td>
+</tr>
+<tr>
+<td>OnlyChanged</td>
+<td>Switch</td>
+<td>No</td>
+<td>False</td>
+<td>Export only modified settings</td>
+</tr>
+<tr>
+<td>Key</td>
+<td>String</td>
+<td>No</td>
+<td>None</td>
+<td>Encrypting key for password</td>
+</tr>
+<tr>
+<td>NoKey</td>
+<td>Switch</td>
+<td>No</td>
+<td>False</td>
+<td>Suppress prompt for encryption key</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c"># Export all settings without password</span>
+</span><span id="......span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="nb">Export-LnvWmiSettings</span> <span class="n">-NoKey</span>
+</span><span id="......span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+</span><span id="......span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="c"># Export to specific file</span>
+</span><span id="......span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="nb">Export-LnvWmiSettings</span> <span class="n">-ConfigFile</span> <span class="s2">&quot;C:\Configs\biosconfig.ini&quot;</span> <span class="n">-NoKey</span>
+</span><span id="......span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+</span><span id="......span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="c"># Export only changed settings</span>
+</span><span id="......span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="nb">Export-LnvWmiSettings</span> <span class="n">-OnlyChanged</span> <span class="n">-NoKey</span>
+</span><span id="......span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>
+</span><span id="......span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="c"># Export with encrypted password</span>
+</span><span id="......span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="nb">Export-LnvWmiSettings</span> <span class="n">-Key</span> <span class="s2">&quot;MyEncryptionKey&quot;</span>
+</span><span id="......span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>
+</span><span id="......span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a><span class="c"># Interactive key prompt</span>
+</span><span id="......span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="nb">Export-LnvWmiSettings</span>
+</span></code></pre></div>
+<p><strong>Interactive Prompts:</strong></p>
+<ul>
+<li>Encrypting key (if not using <code>-NoKey</code> or <code>-Key</code> parameter)</li>
+<li>Current password (if encrypting)</li>
+</ul>
+<p><strong>Output:</strong>
+Creates a configuration file with settings in format: <code>SettingName,Value</code></p>
+<p><strong>File Format:</strong></p>
+<div class="language-ini highlight"><pre><span></span><code><span id="......span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="na">Wake On LAN,Primary</span>
+</span><span id="......span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="na">WakeOnLAN,Enabled</span>
+</span><span id="......span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="na">AMT Control,Disabled</span>
+</span></code></pre></div>
+<p>With encrypted password:</p>
+<div class="language-ini highlight"><pre><span></span><code><span id="......span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="na">EncryptedPassword,encoding,language</span>
+</span><span id="......span-27-2"><a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="na">SettingName,Value</span>
+</span><span id="......span-27-3"><a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a><span class="na">...</span>
+</span></code></pre></div>
+<hr />
+<h3 id="import-lnvwmisettings">Import-LnvWmiSettings<a class="headerlink" href="#import-lnvwmisettings" title="Permanent link">#</a></h3>
+<p>Imports WMI settings from the specified file.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nb">Import-LnvWmiSettings</span> <span class="n">-ConfigFile</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="p">[</span><span class="n">-Key</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
+</span><span id="......span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="nb">Import-LnvWmiSettings</span> <span class="n">-Settings</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">[]&gt;</span> <span class="p">[</span><span class="n">-Key</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Imports BIOS settings from a configuration file or array and applies them to the system. Supports encrypted passwords when a key is provided.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>ParameterSet</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ConfigFile</td>
+<td>String</td>
+<td>Yes</td>
+<td>CMD</td>
+<td>Path to the configuration file</td>
+</tr>
+<tr>
+<td>Settings</td>
+<td>String[]</td>
+<td>Yes</td>
+<td>Intune</td>
+<td>Array of settings to import</td>
+</tr>
+<tr>
+<td>Key</td>
+<td>String</td>
+<td>No</td>
+<td>Both</td>
+<td>Decrypting key for encrypted password</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c"># Import from file without password</span>
+</span><span id="......span-29-2"><a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="nb">Import-LnvWmiSettings</span> <span class="n">-ConfigFile</span> <span class="s2">&quot;C:\Configs\biosconfig.ini&quot;</span>
+</span><span id="......span-29-3"><a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>
+</span><span id="......span-29-4"><a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a><span class="c"># Import with encrypted password</span>
+</span><span id="......span-29-5"><a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a><span class="nb">Import-LnvWmiSettings</span> <span class="n">-ConfigFile</span> <span class="s2">&quot;C:\Configs\biosconfig.ini&quot;</span> <span class="n">-Key</span> <span class="s2">&quot;MyEncryptionKey&quot;</span>
+</span><span id="......span-29-6"><a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>
+</span><span id="......span-29-7"><a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a><span class="c"># Import from array (for scripting/Intune)</span>
+</span><span id="......span-29-8"><a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a><span class="nv">$settings</span> <span class="p">=</span> <span class="p">@(</span>
+</span><span id="......span-29-9"><a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>    <span class="s2">&quot;WakeOnLAN,Enabled&quot;</span><span class="p">,</span>
+</span><span id="......span-29-10"><a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>    <span class="s2">&quot;AMT Control,Disabled&quot;</span>
+</span><span id="......span-29-11"><a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a><span class="p">)</span>
+</span><span id="......span-29-12"><a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="nb">Import-LnvWmiSettings</span> <span class="n">-Settings</span> <span class="nv">$settings</span>
+</span></code></pre></div>
+<p><strong>Interactive Prompts:</strong></p>
+<ul>
+<li>Current password (if machine has password and no encrypted password in file)</li>
+</ul>
+<p><strong>Output:</strong>
+Returns detailed results of each setting change.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Settings are applied but not automatically saved</li>
+<li>Call <code>Save-LnvWmiSettings</code> to commit changes</li>
+<li>If file contains encrypted password but no key provided, operation will fail</li>
+<li>Changes may require a reboot to take effect</li>
+</ul>
+<hr />
+<h3 id="get-lnvwmisetting">Get-LnvWmiSetting<a class="headerlink" href="#get-lnvwmisetting" title="Permanent link">#</a></h3>
+<p>Gets the value of a specific setting.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="nb">Get-LnvWmiSetting</span> <span class="n">-Name</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Returns the current value of the specified BIOS setting.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>Yes</td>
+<td>Name of the setting to retrieve</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="c"># Get a specific setting</span>
+</span><span id="......span-31-2"><a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="nv">$value</span> <span class="p">=</span> <span class="nb">Get-LnvWmiSetting</span> <span class="n">-Name</span> <span class="s2">&quot;WakeOnLAN&quot;</span>
+</span><span id="......span-31-3"><a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="nb">Write-Host</span> <span class="s2">&quot;WakeOnLAN is set to: $value&quot;</span>
+</span><span id="......span-31-4"><a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>
+</span><span id="......span-31-5"><a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="c"># Check multiple settings</span>
+</span><span id="......span-31-6"><a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="nv">$settings</span> <span class="p">=</span> <span class="p">@(</span><span class="s2">&quot;WakeOnLAN&quot;</span><span class="p">,</span> <span class="s2">&quot;AMT Control&quot;</span><span class="p">,</span> <span class="s2">&quot;SecureBoot&quot;</span><span class="p">)</span>
+</span><span id="......span-31-7"><a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a><span class="k">foreach</span> <span class="p">(</span><span class="nv">$setting</span> <span class="k">in</span> <span class="nv">$settings</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="......span-31-8"><a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>    <span class="nv">$value</span> <span class="p">=</span> <span class="nb">Get-LnvWmiSetting</span> <span class="n">-Name</span> <span class="nv">$setting</span>
+</span><span id="......span-31-9"><a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>    <span class="nb">Write-Host</span> <span class="s2">&quot;$setting : $value&quot;</span>
+</span><span id="......span-31-10"><a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Output:</strong>
+Returns the current value of the setting, or "Not found on this machine" if the setting doesn't exist.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Tab completion is available for setting names</li>
+<li>Setting names are case-sensitive in some contexts</li>
+<li>Returns actual current value from BIOS, not pending changes</li>
+</ul>
+<hr />
+<h3 id="set-lnvwmisetting">Set-LnvWmiSetting<a class="headerlink" href="#set-lnvwmisetting" title="Permanent link">#</a></h3>
+<p>Sets the value of the specified setting.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="nb">Set-LnvWmiSetting</span> <span class="n">-Name</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="n">-Value</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Changes the value of the specified BIOS setting. The change is not committed until <code>Save-LnvWmiSettings</code> is called.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>String</td>
+<td>Yes</td>
+<td>Name of the setting to change</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>String</td>
+<td>Yes</td>
+<td>Value to set (validated against available options)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="c"># Set a single setting</span>
+</span><span id="......span-33-2"><a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="nb">Set-LnvWmiSetting</span> <span class="n">-Name</span> <span class="s2">&quot;WakeOnLAN&quot;</span> <span class="n">-Value</span> <span class="s2">&quot;Enabled&quot;</span>
+</span><span id="......span-33-3"><a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
+</span><span id="......span-33-4"><a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="c"># Set multiple settings</span>
+</span><span id="......span-33-5"><a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="nb">Set-LnvWmiSetting</span> <span class="n">-Name</span> <span class="s2">&quot;AMT Control&quot;</span> <span class="n">-Value</span> <span class="s2">&quot;Disabled&quot;</span>
+</span><span id="......span-33-6"><a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="nb">Set-LnvWmiSetting</span> <span class="n">-Name</span> <span class="s2">&quot;SecureBoot&quot;</span> <span class="n">-Value</span> <span class="s2">&quot;Enabled&quot;</span>
+</span><span id="......span-33-7"><a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>
+</span><span id="......span-33-8"><a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="c"># Check for pending changes</span>
+</span><span id="......span-33-9"><a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="k">if</span> <span class="p">(</span><span class="nb">Test-LnvTBCPendingChanges</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="......span-33-10"><a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>    <span class="nb">Save-LnvWmiSettings</span>
+</span><span id="......span-33-11"><a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Output:</strong>
+Returns "Success" or an error message.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Tab completion available for both setting names and values</li>
+<li>Value is validated against allowed options for the setting</li>
+<li>Changes are staged but not saved until <code>Save-LnvWmiSettings</code> is called</li>
+<li>Some settings may have dependencies on other settings</li>
+<li>For boot order settings, use comma-separated values</li>
+</ul>
+<hr />
+<h3 id="save-lnvwmisettings">Save-LnvWmiSettings<a class="headerlink" href="#save-lnvwmisettings" title="Permanent link">#</a></h3>
+<p>Saves all settings that have been changed to new values.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="nb">Save-LnvWmiSettings</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Commits all pending BIOS setting changes to the system. A supervisor password is required if one is set on the machine.</p>
+<p><strong>Parameters:</strong>
+None (password is prompted if needed)</p>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="c"># Make changes and save</span>
+</span><span id="......span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="nb">Set-LnvWmiSetting</span> <span class="n">-Name</span> <span class="s2">&quot;WakeOnLAN&quot;</span> <span class="n">-Value</span> <span class="s2">&quot;Enabled&quot;</span>
+</span><span id="......span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="nb">Set-LnvWmiSetting</span> <span class="n">-Name</span> <span class="s2">&quot;AMT Control&quot;</span> <span class="n">-Value</span> <span class="s2">&quot;Disabled&quot;</span>
+</span><span id="......span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="nb">Save-LnvWmiSettings</span>
+</span><span id="......span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>
+</span><span id="......span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="c"># Check before saving</span>
+</span><span id="......span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="k">if</span> <span class="p">(</span><span class="nb">Test-LnvTBCPendingChanges</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="......span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>    <span class="nb">Write-Host</span> <span class="s2">&quot;Saving changes...&quot;</span>
+</span><span id="......span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>    <span class="nv">$result</span> <span class="p">=</span> <span class="nb">Save-LnvWmiSettings</span>
+</span><span id="......span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>    <span class="nb">Write-Host</span> <span class="nv">$result</span>
+</span><span id="......span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Interactive Prompts:</strong></p>
+<ul>
+<li>Current password (if supervisor password is set)</li>
+</ul>
+<p><strong>Output:</strong>
+Returns "Success" or an error message.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Most changes require a system reboot to take effect</li>
+<li>Check <code>Test-LnvTBCPendingReboot</code> after saving</li>
+<li>If save fails, changes remain staged and can be retried</li>
+<li>Some critical settings may require multiple reboots</li>
+</ul>
+<hr />
+<h3 id="reset-lnvwmisettings">Reset-LnvWmiSettings<a class="headerlink" href="#reset-lnvwmisettings" title="Permanent link">#</a></h3>
+<p>Resets all settings back to their initial values.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="nb">Reset-LnvWmiSettings</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+All changes made prior to saving are reverted to their initial values. This only affects staged changes, not saved ones.</p>
+<p><strong>Parameters:</strong>
+None</p>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="c"># Make some changes</span>
+</span><span id="......span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="nb">Set-LnvWmiSetting</span> <span class="n">-Name</span> <span class="s2">&quot;WakeOnLAN&quot;</span> <span class="n">-Value</span> <span class="s2">&quot;Enabled&quot;</span>
+</span><span id="......span-37-3"><a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="nb">Set-LnvWmiSetting</span> <span class="n">-Name</span> <span class="s2">&quot;AMT Control&quot;</span> <span class="n">-Value</span> <span class="s2">&quot;Disabled&quot;</span>
+</span><span id="......span-37-4"><a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>
+</span><span id="......span-37-5"><a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="c"># Changed your mind? Reset them</span>
+</span><span id="......span-37-6"><a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a><span class="nb">Reset-LnvWmiSettings</span>
+</span><span id="......span-37-7"><a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>
+</span><span id="......span-37-8"><a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a><span class="c"># Verify no pending changes</span>
+</span><span id="......span-37-9"><a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a><span class="nb">Test-LnvTBCPendingChanges</span>  <span class="c"># Returns $false</span>
+</span></code></pre></div>
+<p><strong>Output:</strong>
+Returns success message.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Only affects unsaved changes</li>
+<li>Does not require password</li>
+<li>After reset, all settings return to their last saved state</li>
+<li>To reset BIOS to factory defaults, use <code>Restore-LnvDefaultSettings</code></li>
+</ul>
+<hr />
+<h2 id="default-settings-management">Default Settings Management<a class="headerlink" href="#default-settings-management" title="Permanent link">#</a></h2>
+<h3 id="restore-lnvdefaultsettings">Restore-LnvDefaultSettings<a class="headerlink" href="#restore-lnvdefaultsettings" title="Permanent link">#</a></h3>
+<p>Resets the WMI settings to the default settings.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nb">Restore-LnvDefaultSettings</span> <span class="p">[</span><span class="n">-SuppressPrompt</span><span class="p">]</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Resets BIOS settings to factory default values. Will prompt for password if one is set.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SuppressPrompt</td>
+<td>Switch</td>
+<td>No</td>
+<td>Suppress password prompt</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="c"># Restore defaults with password prompt</span>
+</span><span id="......span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="nb">Restore-LnvDefaultSettings</span>
+</span><span id="......span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>
+</span><span id="......span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="c"># Restore defaults without prompt (for automation)</span>
+</span><span id="......span-39-5"><a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="nb">Restore-LnvDefaultSettings</span> <span class="n">-SuppressPrompt</span>
+</span></code></pre></div>
+<p><strong>Interactive Prompts:</strong></p>
+<ul>
+<li>Current password (if supervisor password is set and not suppressed)</li>
+</ul>
+<p><strong>Output:</strong>
+Returns success or error message.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>This resets ALL settings to factory defaults</li>
+<li>Changes take effect after reboot</li>
+<li>Custom default settings are not affected</li>
+<li>Cannot be undone without a backup configuration</li>
+</ul>
+<hr />
+<h3 id="save-lnvcustomdefault">Save-LnvCustomDefault<a class="headerlink" href="#save-lnvcustomdefault" title="Permanent link">#</a></h3>
+<p>Saves the current settings as a custom default list.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-40-1"><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="nb">Save-LnvCustomDefault</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Saves the current BIOS configuration as a custom default baseline that can be restored later.</p>
+<p><strong>Parameters:</strong>
+None (password is prompted if needed)</p>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-41-1"><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="c"># Configure desired settings</span>
+</span><span id="......span-41-2"><a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="nb">Set-LnvWmiSetting</span> <span class="n">-Name</span> <span class="s2">&quot;WakeOnLAN&quot;</span> <span class="n">-Value</span> <span class="s2">&quot;Enabled&quot;</span>
+</span><span id="......span-41-3"><a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="nb">Set-LnvWmiSetting</span> <span class="n">-Name</span> <span class="s2">&quot;AMT Control&quot;</span> <span class="n">-Value</span> <span class="s2">&quot;Disabled&quot;</span>
+</span><span id="......span-41-4"><a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a><span class="nb">Save-LnvWmiSettings</span>
+</span><span id="......span-41-5"><a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>
+</span><span id="......span-41-6"><a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a><span class="c"># Save as custom default</span>
+</span><span id="......span-41-7"><a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a><span class="nb">Save-LnvCustomDefault</span>
+</span></code></pre></div>
+<p><strong>Interactive Prompts:</strong></p>
+<ul>
+<li>Current password (if supervisor password is set)</li>
+</ul>
+<p><strong>Output:</strong>
+Returns success or error message.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Only one custom default can be saved at a time</li>
+<li>Overwrites any previously saved custom default</li>
+<li>Useful for maintaining a standard configuration</li>
+<li>Can be restored using <code>Restore-LnvCustomDefault</code></li>
+</ul>
+<hr />
+<h3 id="restore-lnvcustomdefault">Restore-LnvCustomDefault<a class="headerlink" href="#restore-lnvcustomdefault" title="Permanent link">#</a></h3>
+<p>Restores the WMI settings to the previously saved custom default settings.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-42-1"><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="nb">Restore-LnvCustomDefault</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Restores BIOS settings from a previously saved custom default configuration. Will prompt for password if one is set.</p>
+<p><strong>Parameters:</strong>
+None (password is prompted if needed)</p>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-43-1"><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="c"># Restore custom default configuration</span>
+</span><span id="......span-43-2"><a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="nb">Restore-LnvCustomDefault</span>
+</span><span id="......span-43-3"><a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>
+</span><span id="......span-43-4"><a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="c"># Verify settings after restore</span>
+</span><span id="......span-43-5"><a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="nb">Show-LnvWmiSettings</span>
+</span></code></pre></div>
+<p><strong>Interactive Prompts:</strong></p>
+<ul>
+<li>Current password (if supervisor password is set)</li>
+</ul>
+<p><strong>Output:</strong>
+Returns success or error message.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>A custom default must have been previously saved</li>
+<li>Changes take effect after reboot</li>
+<li>This is different from factory defaults</li>
+<li>Useful for returning to a known good configuration</li>
+</ul>
+<hr />
+<h2 id="advanced-operations">Advanced Operations<a class="headerlink" href="#advanced-operations" title="Permanent link">#</a></h2>
+<h3 id="submit-lnvfunctionrequest">Submit-LnvFunctionRequest<a class="headerlink" href="#submit-lnvfunctionrequest" title="Permanent link">#</a></h3>
+<p>Executes a function request.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-44-1"><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="nb">Submit-LnvFunctionRequest</span> <span class="n">-Method</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="n">-Value</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Executes low-level BIOS function requests such as resetting TPM, clearing fingerprint data, or other advanced operations. Requires supervisor password if one is set.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method</td>
+<td>String</td>
+<td>Yes</td>
+<td>The function request name</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>String</td>
+<td>Yes</td>
+<td>Typically "Yes" to execute, "No" to cancel</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-45-1"><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="c"># Reset fingerprint data</span>
+</span><span id="......span-45-2"><a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="nb">Submit-LnvFunctionRequest</span> <span class="n">-Method</span> <span class="s2">&quot;ResetFingerprintData&quot;</span> <span class="n">-Value</span> <span class="s2">&quot;Yes&quot;</span>
+</span><span id="......span-45-3"><a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
+</span><span id="......span-45-4"><a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="c"># Clear TPM</span>
+</span><span id="......span-45-5"><a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="nb">Submit-LnvFunctionRequest</span> <span class="n">-Method</span> <span class="s2">&quot;ClearTpm&quot;</span> <span class="n">-Value</span> <span class="s2">&quot;Yes&quot;</span>
+</span><span id="......span-45-6"><a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>
+</span><span id="......span-45-7"><a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a><span class="c"># List available function requests</span>
+</span><span id="......span-45-8"><a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a><span class="nv">$wmi</span> <span class="p">=</span> <span class="no">[LenovoSettings]</span><span class="p">::</span><span class="n">GetInstance</span><span class="p">()</span>
+</span><span id="......span-45-9"><a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="nv">$wmi</span><span class="p">.</span><span class="n">GetFunctionNames</span><span class="p">()</span>
+</span></code></pre></div>
+<p><strong>Interactive Prompts:</strong></p>
+<ul>
+<li>Current password (if supervisor password is set)</li>
+</ul>
+<p><strong>Output:</strong>
+Returns success or error message.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Tab completion available for Method parameter</li>
+<li>Available methods vary by model</li>
+<li>Some functions may require a reboot</li>
+<li>Use with caution as some operations cannot be undone</li>
+<li>Common methods include:<ul>
+<li>ResetFingerprintData</li>
+<li>ClearTpm</li>
+<li>ResetToFactoryDefaults</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="deployment-tools">Deployment Tools<a class="headerlink" href="#deployment-tools" title="Permanent link">#</a></h2>
+<h3 id="new-lnvremediationscript">New-LnvRemediationScript<a class="headerlink" href="#new-lnvremediationscript" title="Permanent link">#</a></h3>
+<p>Creates detection and remediation scripts for deployment.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-46-1"><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="nb">New-LnvRemediationScript</span> <span class="n">-FilePath</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="p">[</span><span class="n">-PassFile</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-Key</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Generates PowerShell detection and remediation scripts from a configuration file, suitable for deployment through Intune or other management platforms.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FilePath</td>
+<td>String</td>
+<td>Yes</td>
+<td>Path to the configuration file</td>
+</tr>
+<tr>
+<td>PassFile</td>
+<td>String</td>
+<td>No</td>
+<td>Path to password file</td>
+</tr>
+<tr>
+<td>Key</td>
+<td>String</td>
+<td>No</td>
+<td>Decryption key for password file</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-47-1"><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="c"># Create scripts from config file</span>
+</span><span id="......span-47-2"><a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="nb">New-LnvRemediationScript</span> <span class="n">-FilePath</span> <span class="s2">&quot;C:\Configs\biosconfig.ini&quot;</span>
+</span><span id="......span-47-3"><a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>
+</span><span id="......span-47-4"><a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="c"># Create scripts with password file</span>
+</span><span id="......span-47-5"><a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a><span class="nb">New-LnvRemediationScript</span> <span class="n">-FilePath</span> <span class="s2">&quot;C:\Configs\biosconfig.ini&quot;</span> <span class="p">`</span>
+</span><span id="......span-47-6"><a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>                         <span class="n">-PassFile</span> <span class="s2">&quot;C:\Configs\password.ini&quot;</span> <span class="p">`</span>
+</span><span id="......span-47-7"><a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a>                         <span class="n">-Key</span> <span class="s2">&quot;MyEncryptionKey&quot;</span>
+</span></code></pre></div>
+<p><strong>Output:</strong>
+Creates two files in the output folder:</p>
+<ul>
+<li><code>Detect_{filename}.ps1</code> - Detection script</li>
+<li><code>Remediate_{filename}.ps1</code> - Remediation script</li>
+</ul>
+<p><strong>Generated Files Location:</strong>
+<code>%ProgramData%\Lenovo\ThinkBiosConfig\Output\</code></p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Detection script checks if settings match desired configuration</li>
+<li>Remediation script applies settings that don't match</li>
+<li>Scripts are ready to upload to Intune or other management platforms</li>
+<li>Templates are located in the module's Templates folder</li>
+</ul>
+<hr />
+<h3 id="convertto-lnvintunepackage">ConvertTo-LnvIntunePackage<a class="headerlink" href="#convertto-lnvintunepackage" title="Permanent link">#</a></h3>
+<p>Converts configuration to an Intune package.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-48-1"><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="nb">ConvertTo-LnvIntunePackage</span> <span class="n">-ConfigFile</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="p">[</span><span class="n">-OutputPath</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Packages BIOS configuration as a Microsoft Intune deployment package ready for upload.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ConfigFile</td>
+<td>String</td>
+<td>Yes</td>
+<td>Path to configuration file</td>
+</tr>
+<tr>
+<td>OutputPath</td>
+<td>String</td>
+<td>No</td>
+<td>Destination for the package</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-49-1"><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="c"># Create Intune package</span>
+</span><span id="......span-49-2"><a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="nb">ConvertTo-LnvIntunePackage</span> <span class="n">-ConfigFile</span> <span class="s2">&quot;C:\Configs\biosconfig.ini&quot;</span>
+</span><span id="......span-49-3"><a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>
+</span><span id="......span-49-4"><a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="c"># Specify output location</span>
+</span><span id="......span-49-5"><a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="nb">ConvertTo-LnvIntunePackage</span> <span class="n">-ConfigFile</span> <span class="s2">&quot;C:\Configs\biosconfig.ini&quot;</span> <span class="p">`</span>
+</span><span id="......span-49-6"><a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a>                           <span class="n">-OutputPath</span> <span class="s2">&quot;C:\IntunePackages&quot;</span>
+</span></code></pre></div>
+<p><strong>Output:</strong>
+Creates an <code>.intunewin</code> package file ready for Intune deployment.</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Requires IntuneWinAppUtil.exe</li>
+<li>Package includes all necessary scripts and files</li>
+<li>Can be uploaded directly to Microsoft Intune</li>
+<li>Suitable for large-scale deployments</li>
+</ul>
+<hr />
+<h3 id="convert-lnvconfigfiletoscript">Convert-LnvConfigFileToScript<a class="headerlink" href="#convert-lnvconfigfiletoscript" title="Permanent link">#</a></h3>
+<p>Converts configuration file to PowerShell script.</p>
+<p><strong>Syntax:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-50-1"><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="nb">Convert-LnvConfigFileToScript</span> <span class="n">-FilePath</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;</span> <span class="p">[</span><span class="n">-KeyPhrase</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span> <span class="p">[</span><span class="n">-Tagfile</span> <span class="p">&lt;</span><span class="n">String</span><span class="p">&gt;]</span>
+</span></code></pre></div>
+<p><strong>Description:</strong>
+Transforms a BIOS configuration file into a standalone executable PowerShell script that can apply the settings.</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FilePath</td>
+<td>String</td>
+<td>Yes</td>
+<td>Path to configuration file</td>
+</tr>
+<tr>
+<td>KeyPhrase</td>
+<td>String</td>
+<td>No</td>
+<td>Decryption key if file has encrypted password</td>
+</tr>
+<tr>
+<td>Tagfile</td>
+<td>String</td>
+<td>No</td>
+<td>Name for the tag file (without extension)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples:</strong></p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-51-1"><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="c"># Convert standard config file</span>
+</span><span id="......span-51-2"><a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="nb">Convert-LnvConfigFileToScript</span> <span class="n">-FilePath</span> <span class="s2">&quot;C:\Configs\biosconfig.ini&quot;</span>
+</span><span id="......span-51-3"><a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>
+</span><span id="......span-51-4"><a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="c"># Convert with encrypted password</span>
+</span><span id="......span-51-5"><a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a><span class="nb">Convert-LnvConfigFileToScript</span> <span class="n">-FilePath</span> <span class="s2">&quot;C:\Configs\biosconfig.ini&quot;</span> <span class="p">`</span>
+</span><span id="......span-51-6"><a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>                              <span class="n">-KeyPhrase</span> <span class="s2">&quot;MyEncryptionKey&quot;</span>
+</span><span id="......span-51-7"><a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a>
+</span><span id="......span-51-8"><a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a><span class="c"># Convert with custom tag file</span>
+</span><span id="......span-51-9"><a id="__codelineno-51-9" name="__codelineno-51-9" href="#__codelineno-51-9"></a><span class="nb">Convert-LnvConfigFileToScript</span> <span class="n">-FilePath</span> <span class="s2">&quot;C:\Configs\biosconfig.ini&quot;</span> <span class="p">`</span>
+</span><span id="......span-51-10"><a id="__codelineno-51-10" name="__codelineno-51-10" href="#__codelineno-51-10"></a>                              <span class="n">-KeyPhrase</span> <span class="s2">&quot;MyEncryptionKey&quot;</span> <span class="p">`</span>
+</span><span id="......span-51-11"><a id="__codelineno-51-11" name="__codelineno-51-11" href="#__codelineno-51-11"></a>                              <span class="n">-Tagfile</span> <span class="s2">&quot;BiosConfigApplied&quot;</span>
+</span></code></pre></div>
+<p><strong>Output:</strong>
+Creates <code>ConfigScript.ps1</code> in the output folder:
+<code>%ProgramData%\Lenovo\ThinkBiosConfig\Output\ConfigScript.ps1</code></p>
+<p><strong>Generated Script Features:</strong></p>
+<ul>
+<li>Self-contained with module import</li>
+<li>Applies all settings from config file</li>
+<li>Creates tag file on success</li>
+<li>Exits with code 3010 on success (soft reboot)</li>
+<li>Exits with code 1 on failure</li>
+<li>Handles both standard INI and certificate-based configs</li>
+</ul>
+<p><strong>Exit Codes:</strong></p>
+<ul>
+<li><code>3010</code> - Success, soft reboot required</li>
+<li><code>1</code> - Failure or settings not installed</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul>
+<li>Generated script can run independently</li>
+<li>Useful for SCCM, PDQ Deploy, or other deployment tools</li>
+<li>Tag file is created at: <code>%ProgramData%\Lenovo\ThinkBiosConfig\{Tagfile}.tag</code></li>
+<li>Automatically detects config file type (standard vs certificate)</li>
+</ul>
+<hr />
+<h2 id="common-workflows">Common Workflows<a class="headerlink" href="#common-workflows" title="Permanent link">#</a></h2>
+<h3 id="initial-setup">Initial Setup<a class="headerlink" href="#initial-setup" title="Permanent link">#</a></h3>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-52-1"><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="c"># Import the module</span>
+</span><span id="......span-52-2"><a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a><span class="nb">Import-Module</span> <span class="n">Lenovo</span><span class="p">.</span><span class="n">BIOS</span><span class="p">.</span><span class="n">Config</span>
+</span><span id="......span-52-3"><a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>
+</span><span id="......span-52-4"><a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a><span class="c"># Initialize the module</span>
+</span><span id="......span-52-5"><a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a><span class="nb">Initialize-LnvThinkBiosConfig</span>
+</span><span id="......span-52-6"><a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a>
+</span><span id="......span-52-7"><a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a><span class="c"># View all current settings</span>
+</span><span id="......span-52-8"><a id="__codelineno-52-8" name="__codelineno-52-8" href="#__codelineno-52-8"></a><span class="nb">Show-LnvWmiSettings</span>
+</span></code></pre></div>
+<h3 id="backup-current-configuration">Backup Current Configuration<a class="headerlink" href="#backup-current-configuration" title="Permanent link">#</a></h3>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-53-1"><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="c"># Export all settings without password</span>
+</span><span id="......span-53-2"><a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="nb">Export-LnvWmiSettings</span> <span class="n">-ConfigFile</span> <span class="s2">&quot;C:\Backup\</span><span class="p">$(</span><span class="nb">Get-Date</span> <span class="n">-Format</span> <span class="s1">&#39;yyyyMMdd&#39;</span><span class="p">)</span><span class="s2">_backup.ini&quot;</span> <span class="n">-NoKey</span>
+</span><span id="......span-53-3"><a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>
+</span><span id="......span-53-4"><a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="c"># Or with encrypted password for deployment</span>
+</span><span id="......span-53-5"><a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a><span class="nb">Export-LnvWmiSettings</span> <span class="n">-ConfigFile</span> <span class="s2">&quot;C:\Deployment\standard_config.ini&quot;</span> <span class="n">-Key</span> <span class="s2">&quot;DeploymentKey123&quot;</span>
+</span></code></pre></div>
+<h3 id="apply-configuration">Apply Configuration<a class="headerlink" href="#apply-configuration" title="Permanent link">#</a></h3>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-54-1"><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="c"># Import settings from file</span>
+</span><span id="......span-54-2"><a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="nb">Import-LnvWmiSettings</span> <span class="n">-ConfigFile</span> <span class="s2">&quot;C:\Configs\standard_config.ini&quot;</span>
+</span><span id="......span-54-3"><a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>
+</span><span id="......span-54-4"><a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="c"># Check what will be changed</span>
+</span><span id="......span-54-5"><a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="nb">Show-LnvWmiSettings</span> <span class="n">-OnlyChanged</span>
+</span><span id="......span-54-6"><a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a>
+</span><span id="......span-54-7"><a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a><span class="c"># Save the changes</span>
+</span><span id="......span-54-8"><a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a><span class="nb">Save-LnvWmiSettings</span>
+</span><span id="......span-54-9"><a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a>
+</span><span id="......span-54-10"><a id="__codelineno-54-10" name="__codelineno-54-10" href="#__codelineno-54-10"></a><span class="c"># Check if reboot is needed</span>
+</span><span id="......span-54-11"><a id="__codelineno-54-11" name="__codelineno-54-11" href="#__codelineno-54-11"></a><span class="k">if</span> <span class="p">(</span><span class="nb">Test-LnvTBCPendingReboot</span><span class="p">)</span> <span class="p">{</span>
+</span><span id="......span-54-12"><a id="__codelineno-54-12" name="__codelineno-54-12" href="#__codelineno-54-12"></a>    <span class="nb">Write-Host</span> <span class="s2">&quot;Reboot required&quot;</span>
+</span><span id="......span-54-13"><a id="__codelineno-54-13" name="__codelineno-54-13" href="#__codelineno-54-13"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="change-individual-settings">Change Individual Settings<a class="headerlink" href="#change-individual-settings" title="Permanent link">#</a></h3>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-55-1"><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="c"># Modify specific settings</span>
+</span><span id="......span-55-2"><a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="nb">Set-LnvWmiSetting</span> <span class="n">-Name</span> <span class="s2">&quot;WakeOnLAN&quot;</span> <span class="n">-Value</span> <span class="s2">&quot;Enabled&quot;</span>
+</span><span id="......span-55-3"><a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="nb">Set-LnvWmiSetting</span> <span class="n">-Name</span> <span class="s2">&quot;SecureBoot&quot;</span> <span class="n">-Value</span> <span class="s2">&quot;Enabled&quot;</span>
+</span><span id="......span-55-4"><a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a>
+</span><span id="......span-55-5"><a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a><span class="c"># Verify changes before saving</span>
+</span><span id="......span-55-6"><a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a><span class="nb">Show-LnvWmiSettings</span> <span class="n">-OnlyChanged</span>
+</span><span id="......span-55-7"><a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a>
+</span><span id="......span-55-8"><a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a><span class="c"># Save changes</span>
+</span><span id="......span-55-9"><a id="__codelineno-55-9" name="__codelineno-55-9" href="#__codelineno-55-9"></a><span class="nb">Save-LnvWmiSettings</span>
+</span></code></pre></div>
+<h3 id="remote-management">Remote Management<a class="headerlink" href="#remote-management" title="Permanent link">#</a></h3>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-56-1"><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="c"># Connect to remote computer</span>
+</span><span id="......span-56-2"><a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="nb">Open-LnvTBCRemoteComputer</span> <span class="n">-Hostname</span> <span class="s2">&quot;DESKTOP-01&quot;</span>
+</span><span id="......span-56-3"><a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a>
+</span><span id="......span-56-4"><a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a><span class="c"># Get remote computer info</span>
+</span><span id="......span-56-5"><a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a><span class="nv">$remoteInfo</span> <span class="p">=</span> <span class="nb">Get-LnvTBCTargetComputer</span>
+</span><span id="......span-56-6"><a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a>
+</span><span id="......span-56-7"><a id="__codelineno-56-7" name="__codelineno-56-7" href="#__codelineno-56-7"></a><span class="c"># View settings on remote computer</span>
+</span><span id="......span-56-8"><a id="__codelineno-56-8" name="__codelineno-56-8" href="#__codelineno-56-8"></a><span class="nb">Show-LnvWmiSettings</span>
+</span><span id="......span-56-9"><a id="__codelineno-56-9" name="__codelineno-56-9" href="#__codelineno-56-9"></a>
+</span><span id="......span-56-10"><a id="__codelineno-56-10" name="__codelineno-56-10" href="#__codelineno-56-10"></a><span class="c"># Make changes on remote computer</span>
+</span><span id="......span-56-11"><a id="__codelineno-56-11" name="__codelineno-56-11" href="#__codelineno-56-11"></a><span class="nb">Set-LnvWmiSetting</span> <span class="n">-Name</span> <span class="s2">&quot;WakeOnLAN&quot;</span> <span class="n">-Value</span> <span class="s2">&quot;Enabled&quot;</span>
+</span><span id="......span-56-12"><a id="__codelineno-56-12" name="__codelineno-56-12" href="#__codelineno-56-12"></a><span class="nb">Save-LnvWmiSettings</span>
+</span><span id="......span-56-13"><a id="__codelineno-56-13" name="__codelineno-56-13" href="#__codelineno-56-13"></a>
+</span><span id="......span-56-14"><a id="__codelineno-56-14" name="__codelineno-56-14" href="#__codelineno-56-14"></a><span class="c"># Close connection</span>
+</span><span id="......span-56-15"><a id="__codelineno-56-15" name="__codelineno-56-15" href="#__codelineno-56-15"></a><span class="nb">Close-LnvTBCRemoteComputer</span>
+</span></code></pre></div>
+<h3 id="password-hangling">Password Hangling<a class="headerlink" href="#password-hangling" title="Permanent link">#</a></h3>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-57-1"><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="c"># Export password change file</span>
+</span><span id="......span-57-2"><a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="nb">Export-LnvPasswordChangeFile</span> <span class="n">-FileLocation</span> <span class="s2">&quot;C:\Temp\password_change.ini&quot;</span>
+</span><span id="......span-57-3"><a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>
+</span><span id="......span-57-4"><a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="c"># Deploy to multiple machines, then on each machine:</span>
+</span><span id="......span-57-5"><a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="nb">Import-LnvPasswordChangeFile</span> <span class="n">-ConfigFile</span> <span class="s2">&quot;C:\Temp\password_change.ini&quot;</span> <span class="n">-Key</span> <span class="s2">&quot;YourKey&quot;</span>
+</span></code></pre></div>
+<h3 id="create-deployment-package">Create Deployment Package<a class="headerlink" href="#create-deployment-package" title="Permanent link">#</a></h3>
+<div class="language-powershell highlight"><pre><span></span><code><span id="......span-58-1"><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="c"># Export desired configuration</span>
+</span><span id="......span-58-2"><a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="nb">Export-LnvWmiSettings</span> <span class="n">-ConfigFile</span> <span class="s2">&quot;C:\Deploy\standard_bios.ini&quot;</span> <span class="n">-Key</span> <span class="s2">&quot;DeployKey&quot;</span>
+</span><span id="......span-58-3"><a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>
+</span><span id="......span-58-4"><a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a><span class="c"># Convert to deployment script</span>
+</span><span id="......span-58-5"><a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a><span class="nb">Convert-LnvConfigFileToScript</span> <span class="n">-FilePath</span> <span class="s2">&quot;C:\Deploy\standard_bios.ini&quot;</span> <span class="p">`</span>
+</span><span id="......span-58-6"><a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a>                              <span class="n">-KeyPhrase</span> <span class="s2">&quot;DeployKey&quot;</span> <span class="p">`</span>
+</span><span id="......span-58-7"><a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a>                              <span class="n">-Tagfile</span> <span class="s2">&quot;StandardBiosApplied&quot;</span>
+</span><span id="......span-58-8"><a id="__codelineno-58-8" name="__codelineno-58-8" href="#__codelineno-58-8"></a>
+</span><span id="......span-58-9"><a id="__codelineno-58-9" name="__codelineno-58-9" href="#__codelineno-58-9"></a><span class="c"># Or create Intune remediation scripts</span>
+</span><span id="......span-58-10"><a id="__codelineno-58-10" name="__codelineno-58-10" href="#__codelineno-58-10"></a><span class="nb">New-LnvRemediationScript</span> <span class="n">-FilePath</span> <span class="s2">&quot;C:\Deploy\standard_bios.ini&quot;</span>
+</span></code></pre></div>
+<hr />
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
+<ul>
+<li>Windows PowerShell 5.1 or later</li>
+<li>Administrator privileges</li>
+<li>Lenovo ThinkPad, ThinkCentre, or ThinkStation computer</li>
+<li>WMI access (local or remote)</li>
+<li>For remote management: Network connectivity and appropriate permissions</li>
+</ul>
+<hr />
+<h2 id="important-notes">Important Notes<a class="headerlink" href="#important-notes" title="Permanent link">#</a></h2>
+<h3 id="general">General<a class="headerlink" href="#general" title="Permanent link">#</a></h3>
+<ul>
+<li>Most cmdlets require administrator privileges</li>
+<li>Changes typically require a system reboot to take effect</li>
+<li>Always verify changes before saving using <code>Show-LnvWmiSettings -OnlyChanged</code></li>
+<li>Create backups before making significant changes</li>
+</ul>
+<h3 id="security">Security<a class="headerlink" href="#security" title="Permanent link">#</a></h3>
+<ul>
+<li>Passwords are encrypted when stored in configuration files</li>
+<li>Keep encryption keys secure and separate from configuration files</li>
+<li>Use strong passwords for BIOS/supervisor passwords</li>
+<li>Limit access to password change files</li>
+</ul>
+<h3 id="targeting-remote-device">Targeting Remote Device<a class="headerlink" href="#targeting-remote-device" title="Permanent link">#</a></h3>
+<ul>
+<li>Remote operations require appropriate network permissions</li>
+<li>Must use hostname, not IP address</li>
+<li>Ensure WMI access is enabled on remote machines</li>
+<li>Always close remote connections with <code>Close-LnvTBCRemoteComputer</code></li>
+</ul>
+<h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">#</a></h3>
+<ul>
+<li>Test configuration files on a single machine before mass deployment</li>
+<li>Use tag files to track successful deployments</li>
+<li>Monitor exit codes in deployment tools</li>
+<li>Some settings may be model-specific and should be gracefully ignored so applicable settings can be set successfully</li>
+</ul>
+<h3 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h3>
+<ul>
+<li>Check logs in: <code>%ProgramData%\Lenovo\ThinkBiosConfig\Logs</code></li>
+<li>Use <code>Show-LnvWmiSettings</code> to verify available settings</li>
+<li>Not all settings are available on all models</li>
+<li>Some settings may have dependencies on other settings</li>
+</ul>
+<hr />
+<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">#</a></h2>
+<p>For issues or questions:</p>
+<ul>
+<li>Check the logs in the configured log folder</li>
+<li>Verify BIOS/firmware is up to date</li>
+<li>Ensure WMI services are running</li>
+<li>For additional support or questions, please vist Lenovo's <a href="https://forums.lenovo.com/t5/Enterprise-Management-Board/bd-p/sa01_eg">Enterprise Client Management Forum</a></li>
+</ul>
+<hr />
+<h2 id="version-history">Version History<a class="headerlink" href="#version-history" title="Permanent link">#</a></h2>
+<p><strong>Version 1.0.2</strong></p>
+<ul>
+<li>Initial public release</li>
+<li>Full feature set as documented</li>
+</ul>
+<p><strong>Version 1.0.1</strong></p>
+<ul>
+<li>Technical Preview release</li>
+</ul>
+<hr />
+<p>Copyright (c) 2025 Lenovo. All rights reserved.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2026 <a href="https://docs.lenovocdrt.com"  target="_blank" rel="noopener">Lenovo Commercial Deployment Readiness Team</a><br><a href="#__consent" style="text-decoration:underline;">Change cookie settings</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+  
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences such as light and dark mode, as well as to measure anonymous usage data to determine effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" checked>
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="analytics" checked>
+      <span class="task-list-indicator"></span>
+      Google Analytics
+    </label>
+  </li>
+
+      
+    
+    
+      
+    
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.code.select"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>

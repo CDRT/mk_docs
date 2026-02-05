@@ -1,0 +1,7826 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.lenovocdrt.com/ref/dash/">
+      
+      
+        <link rel="prev" href="../docks/configmgr_dock_queries/">
+      
+      
+        <link rel="next" href="../scripts/samples/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/fav/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>AMD DASH - Lenovo CDRT Docs Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-288025816"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-288025816",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-288025816",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#amd-dash-deployment-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Lenovo CDRT Docs Site" class="md-header__button md-logo" aria-label="Lenovo CDRT Docs Site" data-md-component="logo">
+      
+  <img src="../../img/CDRT-REV-Red_s.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lenovo CDRT Docs Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AMD DASH
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue-grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Lenovo CDRT Docs Site" class="md-nav__button md-logo" aria-label="Lenovo CDRT Docs Site" data-md-component="logo">
+      
+  <img src="../../img/CDRT-REV-Red_s.png" alt="logo">
+
+    </a>
+    Lenovo CDRT Docs Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Product Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commercial Vantage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Commercial Vantage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/lcv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/lcv/whatsnew/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What's New
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/lcv/deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/lcv/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/lcv/upgrading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/lcv/suhelper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SU Helper Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/lcv/commercial_vantage_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commercial Vantage FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update - Update Retriever - Thin Installer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    System Update - Update Retriever - Thin Installer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/sus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update Suite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/sus/su_dg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide: Lenovo System Update Suite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/sus/su_dg/su_dg_ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/sus/su_dg/su_dg_ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/sus/su_dg/su_dg_ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 General Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/sus/su_dg/su_dg_ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/sus/su_dg/su_dg_ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Command Line Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/sus/su_dg/su_dg_ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6 Appendix A: Advanced Configurations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/sus/su_dg/su_dg_ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7 Appendix B: Mapdrv Utility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/sus/su_dg/su_dg_ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8 Appendix C: Notices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/sus/system_update_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dock Manager
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/dm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/dm/dm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/dm/dm_manage_intune/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing with Intune
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/dm/dm_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/dm/dock_manager_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Think BIOS Config Tool V2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Think BIOS Config Tool V2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/tbct_v2/tbct_v2_top/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo BIOS Certificate Tool
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo BIOS Certificate Tool
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/lbct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo BIOS Certificate Tool and Module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Client Scripting Module
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo Client Scripting Module
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/lcsm/lcsm_top/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Client Scripting Module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Updates Catalog
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo Updates Catalog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/luc/luc_ovrvw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Updates Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/luc/luc_agnt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Updates Catalog Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/luc/luc_ts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo View
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo View
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/lenovo_view/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo View Configuration Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    References
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BIOS Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/bios_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo BIOS/UEFI Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/wmi/wmi_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WMI BIOS Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Settings Dictionary
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BIOS Settings Dictionary
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4_1" id="__nav_3_1_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThinkPad
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThinkPad
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/usb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....USB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/keyboardmouse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Keyboard/Mouse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/display/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Display
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/beepalarm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Beep and Alarm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/cpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/thunderbolttm4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Thunderbolt(TM) 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/intelramt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel(R) AMT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/hdmi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....HDMI Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/datetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Date/Time
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/fingerprint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Fingerprint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/securitychip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Security Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/uefibiosupdate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....UEFI BIOS Update Option
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/memoryprotection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Memory Protection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/virtualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Virtualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/ioportaccess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....I/O Port Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/internaldeviceaccess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Internal Device Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/abspersistencemodule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Absolute Persistence(R) Module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/secureboot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Secure Boot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/deviceguard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Device Guard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/thinkshieldsecurewipe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ThinkShield Secure Wipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/thinkshieldpasswordless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ThinkShield Passwordless Power-On
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/intelligentsecurity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intelligent Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/resetsystemtofactorydefaults/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Reset System to Factory Defaults
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/certbasedbiosauth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Certificate-based BIOS Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkpad/restart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Restart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4_2" id="__nav_3_1_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThinkCentre
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThinkCentre
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/system_summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/system_time_and_date/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Time and Date
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/serial_port_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Serial Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/parallel_port_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Parallel Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/usb_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....USB Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/storage_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Storage Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/ata_drive_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ATA Drive Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/video_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Video Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/audio_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Audio Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/network_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Network Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/pci_express_configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCI Express Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/intel_r_thunderbolt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel(R) Thunderbolt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/cpu_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/intel_r_manageability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel(R) Manageability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/dash_configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....DASH Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/intelligent_cooling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intelligent Cooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/automatic_power_on/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Automatic Power On
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/system_management_password_access_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Management Password Access Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/hard_disk_password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Hard Disk Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/password_policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Password Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/tcg_feature_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....TCG Feature Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/system_event_log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/secure_boot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Secure Boot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/certificate_based_bios_authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Certificate Based BIOS Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/computrace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Computrace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/boot_priority_order/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Boot Priority Order
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkcentre/exit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4_3" id="__nav_3_1_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThinkStation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThinkStation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/systemsummary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/systemtimedate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Time & Date
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/bioseventlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....BIOS Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/serialportsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Serial Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/parallelportsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Parallel Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/usbsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....USB Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/storagesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Storage Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/intelvmd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ........Intel(R) VMD Technology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/atadrivesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ATA Drive Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/nvme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....NVME Drive Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/videosetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Video Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/audiosetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Audio Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/networksetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Network Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/pciesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCIe Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/pciexpress/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCI Express Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/intelthunderbolt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel Thunderbolt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/bmcsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....BMC Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/diagnostics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Diagnostics (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/pcieconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCIe Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/pciexpressconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCI Express Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/cpuconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/cpusetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU Setup (Intel)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/memoryconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Memory Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/rasconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....RAS Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/commonrefcodeconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Common RefCode Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/dashconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....DASH Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/intelmanageability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel Manageability Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/serialportconsoleredirection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Serial Port Console Redirection (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/autopoweron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Automatic Power On
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/harddiskpass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Hard Disk Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/passwordpolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Password Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/smpaccesscontrol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....SMP Access Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/tcgfeaturesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....TCG Feature Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/secureboot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Secure Boot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/systemeventlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/certbasedbiosauth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Certificate-based BIOS Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/bootpriorityorder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Boot Priority Order
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/thinkstation/exit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/settings/bios_logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/sdbm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Deployment Boot Mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bios/startup_menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup Interrupt Menu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docks Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docks Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Docks Reference Materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docks/docks_main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docks/configmgr_dock_queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration Manager Queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AMD DASH
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AMD DASH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-dash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is DASH?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-amc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing AMC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-dash-on-client-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enabling DASH on client systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dash-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DASH setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DASH setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-dash-in-bios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable DASH in BIOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-dash-client-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows DASH client software
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts/samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripting Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frequently Asked Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Frequently Asked Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/sus/system_update_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/cv/commercial_vantage_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commercial Vantage FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/dm/dock_manager_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-dash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is DASH?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installing-amc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing AMC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installation-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-dash-on-client-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enabling DASH on client systems
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dash-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DASH setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DASH setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-dash-in-bios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable DASH in BIOS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows-dash-client-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Windows DASH client software
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../bios/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    References
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="amd-dash-deployment-guide">AMD DASH Deployment Guide<a class="headerlink" href="#amd-dash-deployment-guide" title="Permanent link">#</a></h1>
+<h2 id="what-is-dash">What is DASH?<a class="headerlink" href="#what-is-dash" title="Permanent link">#</a></h2>
+<p>DASH (Desktop and mobile Architecture for System Hardware) is a secure out-of-band and remote client management standard. Out-of-band management tasks include powering a system on when it is powered off and obtaining asset and health information when the operating system is not available.</p>
+<p>DASH was developed and released by the DMTF (Distributed Management Task Force). DASH profile specification source material can be found at <a href="http://www.dmtf.org/standards/profiles" target="”_blank”">DMTF - Management Profiles</a></p>
+<p>For more information refer to <a href="https://www.dmtf.org/standards/dash" target="”_blank”">DMTF - Desktop and Mobile Architecture for System Hardware</a></p>
+<p>AMD Management Console can be downloaded here: <a href="https://developer.amd.com/tools-for-dmtf-dash/" target="”_blank”">Tools for DMTF DASH</a> . It can be installed on any Windows workstation or Windows Server OS to use for monitoring and managing the client systems.</p>
+<h2 id="system-requirements">System Requirements<a class="headerlink" href="#system-requirements" title="Permanent link">#</a></h2>
+<p>DASH capable client computer systems require DASH be enabled and configured. These settings are not engaged by default. Equipment manufacturers provide the tools and processes to configure DASH. System administrators will need to verify the steps required for their specific hardware.</p>
+<p>Operating Systems</p>
+<ul>
+<li>Windows 7 (32 and 64 bit)</li>
+<li>Windows 8 (32 and 64 bit)</li>
+<li>Windows 8.1 (32 and 64 bit)</li>
+<li>Windows 10 (32 and 64 bit)</li>
+<li>Windows Server 2008 R2 (64 bit)</li>
+<li>Windows Server 2012 (64 bit)</li>
+<li>Windows Server 2012 R2</li>
+<li>Windows Server 2016</li>
+<li>Windows Server 2019</li>
+</ul>
+<p><strong>AMC</strong> (AMD Management Console) requires a minimum of 1 GB Disk space and 4 GB RAM. It supports DASH 1.2.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have AMC already installed, you will first have to uninstall that version before installing the latest version of AMC.</p>
+</div>
+<p>Lenovo AMD ThinkPad and ThinkCentre models support management via DASH and ethernet utilizing AMD Management Console, the DASH CLI, or the AMPS Management Plug-in for SCCM (more than 500 clients). These applications all use the Realtek DASH Controller.</p>
+<p>The appropriate Realtek DASH Controller, along with all the latest drivers and firmware updates, can be found by searching for your system name or serial number at <a href="https://pcsupport.lenvo.com/" target="”_blank”">https://pcsupport.lenovo.com</a>.</p>
+<p><img alt="pcsupport.lenovo.com" src="https://cdrt.github.io/mk_docs/img/dash/1.png" /></p>
+<hr />
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">#</a></h2>
+<h3 id="installing-amc">Installing AMC<a class="headerlink" href="#installing-amc" title="Permanent link">#</a></h3>
+<p>This chapter provides the installation instructions and requirements for AMC.</p>
+<h3 id="installation-requirements">Installation Requirements<a class="headerlink" href="#installation-requirements" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>Use the <em>AMC-setup-[version]-AMD.exe</em> to install AMC. Detailed instructions and release notes can be found in the installation directory, which by default is <em>C:\Program Files (x86)\AMD Management Console\docs</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have an old AMC version installed, you first must uninstall that version before installing the latest version of AMC.</p>
+</div>
+</dd>
+</dl>
+<h3 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>When the AMC Console is launched the first time, you will be prompted to proceed to configuration. Alternatively, you can later access these settings via the <strong>Configuration</strong> tab in the upper right of the AMC Management Console.</p>
+<p>The AMC console configuration supports up to three authentication entries. Each credential entry requires a unique Authentication Identifier and Schema. AMC has support for two types of authentication schemas: Digest and Active Directory.</p>
+<p>At least one authentication entry must be configured before a client system can be discovered. If there is more than one credential, AMC will try each credential in sequential order.</p>
+<p><img alt="configuration tab" src="https://cdrt.github.io/mk_docs/img/dash/2.png" /></p>
+<p><img alt="configuration window" src="https://cdrt.github.io/mk_docs/img/dash/3.png" /></p>
+<p>For the changes to take effect, click <strong>Validate</strong> and then click <strong>Save.</strong></p>
+</dd>
+</dl>
+<h2 id="enabling-dash-on-client-systems">Enabling DASH on client systems<a class="headerlink" href="#enabling-dash-on-client-systems" title="Permanent link">#</a></h2>
+<p>DASH capable systems must first have DASH enabled in the BIOS. Next, the Windows software must be configured.</p>
+<p>Prerequisites:</p>
+<ul>
+<li>DASH firmware enabled</li>
+<li>Windows DASH client software</li>
+<li>The latest DASH console tool, which can be found <a href="https://developer.amd.com/tools-for-dmtf-dash/">here.</a></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DashConfig, an AMD tool, is packaged with AMC and can be used for configuration. Refer the release notes of DASH Config tool or see <a href="https://community.amd.com/t5/amd-manageability-community-tkb/provisioning-tools-for-dash-standalone-systems/ta-p/420927">Provisioning tools for DASH standalone systems</a></p>
+</div>
+<p>Two different DashConfig tools are available: DashConfig for Broadcom and DashConfigRT for Realtek. All Lenovo systems will require the DASHConfigRT tool.</p>
+<h2 id="dash-setup">DASH setup<a class="headerlink" href="#dash-setup" title="Permanent link">#</a></h2>
+<h3 id="enable-dash-in-bios">Enable DASH in BIOS<a class="headerlink" href="#enable-dash-in-bios" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>It is recommended to check that the most recent BIOS has been applied to the system.  The most recent system BIOS can be found at <a href="https://pcsupport.lenovo.com/" target="”_blank”">https://pcsupport.lenovo.com/</a> .</p>
+<ol>
+<li>
+<p>First boot into system BIOS and locate <strong>DASH Configuration</strong> under Security.</p>
+<p><img alt="BIOS - DASH Configuration" src="https://cdrt.github.io/mk_docs/img/dash/4-dash.jpg" /></p>
+</li>
+<li>
+<p><strong>DASH Configuration</strong> - Set DASH to Enabled</p>
+<p><img alt="DASH Support setting" src="https://cdrt.github.io/mk_docs/img/dash/5-dash.jpg" /></p>
+</li>
+<li>
+<p><strong>RealTek LAN Controller</strong> - Reset the DASH Credentials under RealManage Setup. These credentials are used for Digest Authentication of the management service to the client.  You may need to scroll down to see <strong>Realtek Manage Setup</strong>. Some systems are shipped with default credentials already set. If they are set, the possible username/password values are either Administrator/Realtek or Administrator/Password. <em>Both</em> username and password are case sensitive.</p>
+<p><img alt="RealManage Setup" src="https://cdrt.github.io/mk_docs/img/dash/6-dash.png" /></p>
+<p><img alt="Username and Password management" src="https://cdrt.github.io/mk_docs/img/dash/7-dash.png" /></p>
+</li>
+<li>
+<p>Save and exit the BIOS</p>
+</li>
+</ol>
+<h3 id="windows-dash-client-software">Windows DASH client software<a class="headerlink" href="#windows-dash-client-software" title="Permanent link">#</a></h3>
+<p>The Realtek DASH Windows software can be found at <a href="https://pcsupport.lenovo.com/" target="”_blank”">https://pcsupport.lenovo.com/</a> . Locate the support page for a specific model and select the <strong>Drivers &amp; Software</strong> menu item on the left side of the page. Select <strong>Manual Update</strong> and browse to <strong>Networking: LAN (Ethernet)</strong>.</p>
+<p>Documentation for attended and unattended installation will be available with the application download in the installation directory. The default installation location is <em>C:\Program Files (x86)\AMD Management Console.</em></p>
+<p><img alt="Drivers &amp; Software - Manual Updates" src="https://cdrt.github.io/mk_docs/img/dash/8-dash.png" /></p>
+</dd>
+</dl>
+<hr />
+<h1 id="amc-client-management">AMC Client Management<a class="headerlink" href="#amc-client-management" title="Permanent link">#</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">#</a></h2>
+<p>AMC supports the following DASH functionality :</p>
+<ul>
+<li>Discovery</li>
+<li>Power state management</li>
+<li>Boot – several options<ul>
+<li>USB Redirection</li>
+<li>KVM Redirection</li>
+<li>Text Redirection</li>
+</ul>
+</li>
+<li>Inventory / Health information</li>
+<li>Firmware Update</li>
+<li>Alerts</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before performing a discovery operation, make sure that the authentication details are correct. Refer to <a href="#authentication">Authentication</a>.</p>
+</div>
+<h2 id="discovery">Discovery<a class="headerlink" href="#discovery" title="Permanent link">#</a></h2>
+<p>AMC can only discover systems that have hardware which supports the DMTF management specification. Through discovery, AMC determines if a system supports DASH and what features are accessible. On successful discovery, the system is added to the &quot;All Systems&quot; group and inventory is performed on that system.</p>
+<p>AMC supports four methods of discovery, which are described below.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Discovery requests are queued. If a user chooses Active Directory discovery, then tries to do any of the other types of discovery, the other  discovery will be done after Active Directory discovery completes.</p>
+</div>
+<p><img alt="Discovery criteria window" src="https://cdrt.github.io/mk_docs/img/dash/9-dash.png" /></p>
+<h3 id="hostname">Hostname<a class="headerlink" href="#hostname" title="Permanent link">#</a></h3>
+<dl>
+<dd>Hostname discovery requires functioning, accurate DNS.</dd>
+</dl>
+<h3 id="ip-address">IP Address<a class="headerlink" href="#ip-address" title="Permanent link">#</a></h3>
+<dl>
+<dd>AMC will query that address and find out if that system is manageable or not.</dd>
+</dl>
+<h3 id="ip-subnet">IP Subnet<a class="headerlink" href="#ip-subnet" title="Permanent link">#</a></h3>
+<dl>
+<dd>AMC will scan each IP address in that range and find out if the system with that IP address is manageabe by AMC or not.</dd>
+</dl>
+<h3 id="active-directory">Active Directory<a class="headerlink" href="#active-directory" title="Permanent link">#</a></h3>
+<dl>
+<dd>Each system in the domain is checked for AMD manageability when AMPS is first installed. After installation, system discovery can be done manually or on a schedule. (See <a href="#authentication">Authentication</a> section above.)</dd>
+</dl>
+<h2 id="power">Power<a class="headerlink" href="#power" title="Permanent link">#</a></h2>
+<p>AMC can be used to monitor, report, and manage the power state of client systems remotely.</p>
+<h3 id="power-states">Power States<a class="headerlink" href="#power-states" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>The table below lists all supported power states.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All the power state transitions cannot be requested remotely. The subset of the below list will be visible to the user based on the target computer system&#39;s capabilities.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th><strong>Power State</strong></th>
+<th><strong>State Number</strong></th>
+<th><strong>Friendly Name</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Corresponding ACPI State</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Power On</td>
+<td>2</td>
+<td>On/Power On</td>
+<td>Initiate the transition of the system to full on state.</td>
+<td>G0/S0</td>
+</tr>
+<tr>
+<td>Sleep – Light</td>
+<td>3</td>
+<td>Sleeping Lightly/Sleep Light</td>
+<td>Initiate the transition of the system to standby or sleep state.</td>
+<td>G1/S1 or G1/S2</td>
+</tr>
+<tr>
+<td>Sleep- Deep</td>
+<td>4</td>
+<td>Sleeping/Sleep</td>
+<td>Initiate the transition of the system to standby or sleep state.</td>
+<td>G1/S3</td>
+</tr>
+<tr>
+<td>Power Cycle (Off Soft)</td>
+<td>5</td>
+<td>Immediate Power Reset</td>
+<td>Transition the system to off state, followed by a transition to on state.</td>
+<td>G2/S5 then G0/S0</td>
+</tr>
+<tr>
+<td>Power Off – Hard</td>
+<td>6</td>
+<td>N/A</td>
+<td>Initiate the transition of the system to power off state</td>
+<td>G3</td>
+</tr>
+<tr>
+<td>Hibernate</td>
+<td>7</td>
+<td>Hibernating/Hibernate</td>
+<td>Transition the system to hibernation state. – write system context to non-volatile storage, power off the system and devices.</td>
+<td>G1/S4</td>
+</tr>
+<tr>
+<td>Power Off – Soft</td>
+<td>8</td>
+<td>Off/Immediate Power Off</td>
+<td>Initiate the transition of the system to off state, in which the system consumes a minimal amount of power.</td>
+<td>G2/S5</td>
+</tr>
+<tr>
+<td>Power Cycle (Off Hard)</td>
+<td>9</td>
+<td>N/A</td>
+<td>Transition the system to power off state, followed by a transition to on state</td>
+<td>G3 to G0/S0</td>
+</tr>
+<tr>
+<td>Power Off - Soft Graceful</td>
+<td>12</td>
+<td>Off/Shutdown</td>
+<td>Perform an orderly transition to power off state, in which the system consumes a minimal amount of power</td>
+<td>G2/S5</td>
+</tr>
+<tr>
+<td>Power Off - Hard Graceful</td>
+<td>13</td>
+<td>N/A</td>
+<td>Perform an orderly transition to power off state in which the power consumption is zero except for the real-time clock.</td>
+<td>G3</td>
+</tr>
+<tr>
+<td>Power Cycle (Off – Soft Graceful)</td>
+<td>15</td>
+<td>Restart</td>
+<td>Perform an orderly transition of the system to power off state, in which the system consumes a minimal amount of power, followed by a transition to on state</td>
+<td>G2/S5 to G0/S0</td>
+</tr>
+<tr>
+<td>Power Cycle (Off - Hard Graceful)</td>
+<td>16</td>
+<td>N/A</td>
+<td>Transition the system to power off state, , in which the power consumption is zero except for the real-time clock, followed by a transition to on state</td>
+<td>G3 to G0/S0</td>
+</tr>
+<tr>
+<td>Diagnostic Interrupt (NMI)</td>
+<td>11</td>
+<td>Immediate Diagnostic Interrupt</td>
+<td>Assert an NMI on the system.</td>
+<td></td>
+</tr>
+<tr>
+<td>Master Bus Reset</td>
+<td>10</td>
+<td>Immediate Warm Reset</td>
+<td>Perform hardware reset on the system.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<h3 id="power-operation-on-a-single-system">Power Operation on a Single System<a class="headerlink" href="#power-operation-on-a-single-system" title="Permanent link">#</a></h3>
+<ol>
+<li>Right click on the specific system on which the power operation is to be performed.</li>
+<li>Select <strong>Power</strong> from the menu. You will get the Power screen.</li>
+<li>The <strong>Power Screen</strong> will show:<ul>
+<li>The system name against which you are going to perform the power operation,</li>
+<li>The current power state of the system.</li>
+<li>The list of power states which the system can accept from its current state is shown in the <code>select power state to apply</code> drop down list.</li>
+</ul>
+</li>
+<li>To start the transition of the system to the new power state, click <strong>Apply</strong>.</li>
+<li>The result of the operation will be displayed. Click <strong>Finish</strong> to close the Power window.</li>
+</ol>
+<p><img alt=" Power operation on single system" src="https://cdrt.github.io/mk_docs/img/dash/10-dash.png" /></p>
+<h3 id="power-operation-on-a-group">Power Operation on a Group<a class="headerlink" href="#power-operation-on-a-group" title="Permanent link">#</a></h3>
+<dl>
+<dd><img alt="Power management on Group." src="https://cdrt.github.io/mk_docs/img/dash/11-dash.png" /></dd>
+</dl>
+<h2 id="dash-tasks">DASH Tasks<a class="headerlink" href="#dash-tasks" title="Permanent link">#</a></h2>
+<h3 id="boot">Boot<a class="headerlink" href="#boot" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>A boot configuration specifies the order of boot devices. A computer system can have one or more boot configurations.</p>
+<p>AMC&#39;s Boot task shows all the boot configurations available for the system being managed. For each boot configuration, it shows the current boot order and allows the user to modify the boot order. AMC only informs the present value of the setting data (will it be used for next boot, will it be used only for next boot, will it not be used for next boot) but does not allow the user to modify this.</p>
+<p>To manage Boot settings:</p>
+<ol>
+<li>
+<p>Select the target system.</p>
+</li>
+<li>
+<p>Either right click on the system and select the <strong>Boot</strong> menu item or click on the ribbon icon <strong>Boot</strong>.</p>
+</li>
+<li>
+<p>The Boot Screen appears and displays a drop-down list with all the boot configurations available for the system.</p>
+<ul>
+<li>
+<p>Settings information for the selected boot configuration from the drop-down list:</p>
+<blockquote>
+<p>This boot configuration will be used during next boot.</p>
+<p>This boot configuration will not be used during next boot.</p>
+<p>This boot configuration will be used only for next boot</p>
+</blockquote>
+</li>
+<li>
+<p>The current boot order for the selected boot configuration from the drop-down list.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Select the required boot configuration from the <strong>Name</strong> drop down list.</p>
+</li>
+<li>
+<p>Check the box for <strong>Change boot order</strong> check box if the boot order needs to be changed.</p>
+</li>
+<li>
+<p>Move the Boot Devices to the &#39;New boot order&#39; list box in the order required.</p>
+</li>
+<li>
+<p>Click the <strong>Next</strong> button to have the new boot order take effect. The result screen will show the result, e.g. &#39;boot order was successfully changed&#39;.</p>
+</li>
+<li>
+<p>Close the power screen by clicking <strong>Close</strong>.</p>
+</li>
+</ol>
+<p><img alt=" Boot Configuration" src="https://cdrt.github.io/mk_docs/img/dash/12-dash.png" /></p>
+</dd>
+</dl>
+<h3 id="text-redirection">Text Redirection<a class="headerlink" href="#text-redirection" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>Text redirection provides BIOS-assisted console and keyboard redirection to a remote computer terminal. Boot progress, BIOS setup screen, command line OS or command line diagnostic console text are redirected to the AMC terminal. Text redirection can be set to use either Telnet or SSH</p>
+<p>To use text redirection:</p>
+<ol>
+<li>Select the desired system.</li>
+<li>Either right click on the system and select <strong>Text</strong>  <strong>Redirection</strong> menu item or click on the text portion of ribbon icon <strong>Redirection</strong>.</li>
+</ol>
+<p><img alt="Redirection on AMC toolbar" src="https://cdrt.github.io/mk_docs/img/dash/13-dash.png" /></p>
+<ol>
+<li>
+<p>The <strong>Text Redirection</strong> Screen appears and shows:</p>
+</li>
+<li>
+<p>Drop down list with available protocols for text redirection, SSH and Telnet respectively. (SSH is the default.)</p>
+</li>
+<li>The Name of the Service that runs on the system to redirect the text.</li>
+<li>The port through which the text will be redirected.</li>
+<li>
+<p>The information/status is stated – e.g., Support for OTP (one time password)</p>
+</li>
+<li>
+<p>Select the required protocol from the drop-down list.</p>
+</li>
+<li>Click <strong>Connect</strong>. If the connection is successful, the text redirection screen will close, and the terminal console screen will appear.</li>
+</ol>
+<p><img alt="Text Redirection dialog" src="https://cdrt.github.io/mk_docs/img/dash/14-dash.png" /></p>
+<p><img alt="Successful redirected telnet login" src="https://cdrt.github.io/mk_docs/img/dash/15-dash.png" /></p>
+<p>To manage the BIOS remotely using text redirection:</p>
+<ol>
+<li>Select a system for which you want to view and manage the BIOS.</li>
+<li>Perform steps 2 to 5 above to open a terminal console to receive the redirected text from the system.</li>
+<li>Click on <strong>Power</strong> icon and select <strong>graceful power</strong>  <strong>cycle</strong> option in the available power states.</li>
+<li>Click <strong>Apply</strong> to change the power state. The AMC terminal screen will receive the boot screen remotely and return keystrokes from the AMC System.</li>
+</ol>
+</dd>
+</dl>
+<h3 id="usb-redirection">USB Redirection<a class="headerlink" href="#usb-redirection" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>USB Redirection provides a virtual USB device which reads data from a remote image file.</p>
+<p>This allows the BIOS to boot from a remote ISO image. The ISO Image file must be available at C:/AMC-ISO on the management server.</p>
+<p>AMC has its own ISO webserver. Use AMC to initiate an action to attach the managed systems&#39; USB to a remote URL. This operation can be performed against a single system or on a group of systems. Place ISOs in C:/AMC-ISO and http://xxx.xx.xxxx:3274/ can be used as USB URL (e.g. http://10.10.10.2:3274/dos.iso.)</p>
+<p><img alt="USB Redirection" src="https://cdrt.github.io/mk_docs/img/dash/38-dash.png" /></p>
+</dd>
+</dl>
+<h3 id="boot-to-text-image-feature">Boot to Text Image Feature<a class="headerlink" href="#boot-to-text-image-feature" title="Permanent link">#</a></h3>
+<dl>
+<dd>The AMC Boot to Text Image feature provides an environment where user can boot the managed system to a user defined text based remote image (e.g. .iso image).</dd>
+</dl>
+<h3 id="boot-to-bios-with-kvm-profile">Boot to BIOS with KVM Profile<a class="headerlink" href="#boot-to-bios-with-kvm-profile" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p><strong>Boot to BIOS</strong> implements the DMTF DASH KVM profile so the user to boot the managed system to the BIOS setup screen, and remotely connect to the BIOS screen via the VNC viewer. Through the VNC viewer, the user can access the BIOS screen and interact with mouse and keyboard.</p>
+<p>To boot to BIOS:</p>
+<ol>
+<li>Select the target system you wish to boot into BIOS KVM profile</li>
+<li>Either right click on the system and select <strong>Boot to BIOS</strong> menu item or click on the ribbon icon <strong>Boot to BIOS</strong> image.</li>
+<li>When the user starts the <strong>Boot to BIOS</strong> workflow by clicking the Start button, the following tasks are initiated:<ul>
+<li>KVM enable command is sent to the managed system.</li>
+<li>The managed system is rebooted.</li>
+</ul>
+</li>
+</ol>
+<p><img alt="boot to BIOS" src="https://cdrt.github.io/mk_docs/img/dash/39-dash.png" /></p>
+<p>After the managed system boots to BIOS setup screen and the VNC server is ready, VNC viewer is launched.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When the VNC Viewer is closed, the managed system is rebooted.</p>
+</div>
+</dd>
+</dl>
+<h3 id="remote-access">Remote Access<a class="headerlink" href="#remote-access" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>The AMC <strong>Remote Access</strong> feature provides support for launching of In-band KVM and Remote Desktop tools.</p>
+<p>To use In-band KVM feature, ensure the relevant Windows driver package released by the network interface provider is installed on the DASH system.</p>
+<p><img alt="remote access on toolbar" src="https://cdrt.github.io/mk_docs/img/dash/40-dash.png" /></p>
+</dd>
+</dl>
+<h2 id="client-configuration-dashconfigrt">Client Configuration - DASHConfigRT<a class="headerlink" href="#client-configuration-dashconfigrt" title="Permanent link">#</a></h2>
+<p><strong>DASHConfigRT</strong> is an AMD tool packaged with <strong>AMC</strong>, used to script DASH configuration. The instructions and tool will be in the installation folder, which by default is <em>C:\Program Files (x86)\AMD Management Console\DASHConfigRT.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>DASHConfigRT.exe</em> is the Realtek-specific version of this tool. The name &quot;DASHConfig&quot; is commonly used to reference the tool regardless of version.</p>
+</div>
+<h3 id="how-dashconfigrt-works">How DASHConfigRT works<a class="headerlink" href="#how-dashconfigrt-works" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p><strong>DASHConfigRT</strong> interacts with Windows Management Instrumentation, or WMI. The management agent talks to the DASH firmware and configures the changes provided by the IT administrator in an XML file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>User must provide the configuration inputs in the XML file</p>
+</div>
+</dd>
+</dl>
+<h3 id="tasks-supported-in-dashconfigrt-tool">Tasks Supported in DASHConfigRT Tool<a class="headerlink" href="#tasks-supported-in-dashconfigrt-tool" title="Permanent link">#</a></h3>
+<p>:
+    - Enable/Disable DASH management controller
+    - Set HTTP/HTTPS ports
+    - Set digital certificates
+    - Limit discovery (disable HTTP except for discovery)
+    - Create digest user accounts
+    - Assign roles
+    - Active Directory Provisioning
+    - Security Identifier (SID) configuration
+    - AD password</p>
+<h3 id="dashconfigrt-tool">DASHConfigRT Tool<a class="headerlink" href="#dashconfigrt-tool" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>DASHConfig provides six case-sensitive parameters ( –v, -xf, -dxf, -mif and –help ) that are defined in the following table.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-v</td>
+<td>Displays the DASHConfig version information to the console</td>
+</tr>
+<tr>
+<td>-xf</td>
+<td>Represents the XML file parameter that informs the tool of the location of the XML file used to provision a DASH-capable system.</td>
+</tr>
+<tr>
+<td>-dxf</td>
+<td>Instructs the DASHConfig utility to delete the provisioning XML file after processing has been completed.</td>
+</tr>
+<tr>
+<td>-mif</td>
+<td>Instructs the DASHConfig utility to create a Microsoft installation status MIF file on exit. This is for integration into Microsoft Configuration Manager.</td>
+</tr>
+<tr>
+<td>-help</td>
+<td>This parameter will print out short help documentation about the command line parameters to the console.</td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<h3 id="example-configxml">Example Config.xml<a class="headerlink" href="#example-configxml" title="Permanent link">#</a></h3>
+<div class="language-text highlight"><pre><span></span><code>    &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;!!! note &quot;&quot;
+
+    &lt;DASHPROVISIONSETTINGS&gt;
+      &lt;MANAGEMENTTARGET&gt;
+      &lt;GLOBAL&gt;
+              &lt;HTTPS&gt;
+                &lt;ENABLESUPPORT&gt;true&lt;/ENABLESUPPORT&gt;
+                 &lt;TCPIPPORT&gt;664&lt;/TCPIPPORT&gt;
+              &lt;/HTTPS&gt;
+              &lt;HTTP&gt;
+                &lt;ENABLESUPPORT&gt;true&lt;/ENABLESUPPORT&gt;
+                &lt;TCPIPPORT&gt;623/TCPIPPORT&gt;
+              &lt;/HTTP&gt;
+      &lt;/GLOBAL&gt;
+      &lt;USERS&gt;
+              &lt;USER&gt;
+                &lt;USERID&gt;Administrator&lt;/USERID&gt;
+                &lt;PASSWORD&gt;password&lt;/PASSWORD&gt;
+                &lt;ENABLE&gt;true&lt;/ENABLE&gt;
+                &lt;ROLES&gt;
+                &lt;ROLE&gt;Administrator Role&lt;/ROLE&gt;
+                &lt;/ROLES&gt;
+              &lt;/USER&gt;
+            &lt;/USERS&gt;
+      &lt;/MANAGEMENTTARGET&gt;
+    &lt;/DASHPROVSIONSETTINGS&gt;
+</code></pre></div>
+<h3 id="xml-nodes-list">XML Nodes List<a class="headerlink" href="#xml-nodes-list" title="Permanent link">#</a></h3>
+<p>:
+      | \&lt;DASHPROVISIONSETTINGS&gt; | Root node |
+    | --- | --- |
+    | \&lt;USERID&gt; | Provides the name of the account to be created |
+    | \&lt;PASSWORD&gt; | Password for specified account |
+    | \&lt;ENABLE&gt; | Newly created user account enabled: false = offline, true = enabled |
+    | \&lt;ROLES&gt; | Defines the roles (privileges) given to the newly created user account. Up to 3 roles can be defined for a particular user account. |
+    | \&lt;ROLE&gt; | 3 acceptable values: Administrator (full control), Operator (can invoke operations), and Read Only |
+    | \&lt;ACTIVEDIRECTORY&gt; | Required if provisioning Active Directory support |
+    | \&lt;ENABLESUPPORT&gt; | Required if Active Directory support is provisioned false = disabled, true = enabled. |
+    | \&lt;ACTIVEDIRECTORY_SPNACCOUNT&gt; | Name string of the Active Directory user account whose SPN property has been updated to include the target&#39;s service principal name (SPN) |
+    | \&lt;SPNACCOUNT_PASSWORD&gt; | Active Directory stored password for the user account defined by the \&lt;ACTIVEDIRECTORY_SPNACCOUNT&gt; node. |
+    | \&lt;ACTIVEDIRECTORY_GROUPS&gt; | There is a limit of 3provisioned groups on any single management target because a DASH Role can only be associated to a single Active Directory group and are only 3 defined roles. |
+    | \&lt;ACTIVEDIRECTORY_GROUP&gt; | Required, if the \&lt;ACTIVEDIRECTORY_GROUPS&gt; node is included in the XML provisioning file. |
+    | \&lt;GROUPNAME&gt; | Necessary if any Active Directory group(s) are to be provisioned on the management target. |
+    | \&lt;OBJECTSID&gt; | Security descriptor string in the standard string representation (S-R-I-S-S) for the Active Directory User Group defined by the \&lt;GROUPNAME&gt; node. |
+    | \&lt;ROLES&gt; | Defines the role(s) (privileges) given to the associated Active Directory group. Up to 3 roles can be defined for a particular Active Directory group. !!! note
+        The individual DASH roles can only be associated to a single Active Directory group. |
+    | \&lt;ROLE&gt; |  Required. Currently there are only 3 acceptable values: Administrator Role, Operator Role and Read Only Role. Administrators have full control over the management target and its settings. Operators can invoke operational methods. |</p>
+<h2 id="health">Health<a class="headerlink" href="#health" title="Permanent link">#</a></h2>
+<p>AMC collects and displays sensors of managed computer systems. Administrators can configure alerts and subscribe to notifications.</p>
+<h3 id="monitor-the-health-of-system">Monitor the health of system:<a class="headerlink" href="#monitor-the-health-of-system" title="Permanent link">#</a></h3>
+<p>:
+    1. Select the target system
+    2. Either right click on the system and select <strong>System Health</strong> menu item or click on the<strong>System Health</strong> ribbon icon.</p>
+<div class="language-text highlight"><pre><span></span><code>![Ribbon Health Icon](https://cdrt.github.io/mk_docs/img/dash/16-dash.png)
+
+![System Health Menu option](https://cdrt.github.io/mk_docs/img/dash/17-dash.png)
+
+ The **Health** screen will show a tree view of all the sensors and fans in the system in each node.
+
+  ![Health Inventory](https://cdrt.github.io/mk_docs/img/dash/18-dash.png)
+</code></pre></div>
+<h3 id="subscribe-unsubscribe-to-alerts">Subscribe/ Unsubscribe to Alerts<a class="headerlink" href="#subscribe-unsubscribe-to-alerts" title="Permanent link">#</a></h3>
+<p>:
+    !!! note
+        The port used for alerts should be configured during AMPS installation.**</p>
+<div class="language-text highlight"><pre><span></span><code>The types of alerts are platform, boot progress and lifecycle events such as temperature alerts, fan failure, chassis intrusion, and BIOS boot failure. AMC shows available alerts that the managed system can send and available alerts that the managed system is already subscribed to.
+
+To subscribe to Alerts / modify the subscribed Alerts:
+
+1. Select the target system.
+2. Either right click on the system and select **Alerts** menu item or click on the ribbon icon **Alerts**.
+
+- The Alert Screen will be displayed
+- Available filters as a list box in the left. This is a list of events that this system can send.
+
+- Subscribed filters as a list box in the right. This is a list of events for which the Subscription is already in place.
+
+![Available and subscribed alerts](https://cdrt.github.io/mk_docs/img/dash/19-dash.png)
+</code></pre></div>
+<h2 id="system-properties">System Properties<a class="headerlink" href="#system-properties" title="Permanent link">#</a></h2>
+<p>For AMC, System Properties are:</p>
+<ul>
+<li>Discovery Port</li>
+<li>MAC Address</li>
+<li>Authentication type</li>
+<li>Username</li>
+<li>Transport protocol</li>
+<li>Transport Port</li>
+</ul>
+<p>To view a specific system's properties, right click the system and select <strong>Properties</strong> from the menu.</p>
+<p><img alt="System Properties " src="https://cdrt.github.io/mk_docs/img/dash/20-dash.png" /></p>
+<h2 id="amc-inventory">AMC Inventory<a class="headerlink" href="#amc-inventory" title="Permanent link">#</a></h2>
+<p>Select desired system to see inventory details in the <strong>Inventory</strong> area below the computer system inventory. (See Figure 20.) The asset and inventory information displayed are identity of the system, physical assets, processor, system Configuration Manager, Ethernet port, BIOS, OS and DASH.</p>
+<p><img alt="AMC Inventory" src="https://cdrt.github.io/mk_docs/img/dash/21-dash.png" /></p>
+<h2 id="group-management">Group Management<a class="headerlink" href="#group-management" title="Permanent link">#</a></h2>
+<h3 id="create-and-delete-groups">Create and Delete Groups<a class="headerlink" href="#create-and-delete-groups" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>After discovery, all the DASH capable systems are added to the default group <strong>All Systems</strong>. New groups can be added to the computer groups list by right clicking on the <strong>Computer Groups</strong> menu item and selecting <strong>Add Group</strong> or by clicking on the <strong>Add</strong> menu item under <strong>Group</strong> ribbon icon</p>
+<p><img alt="add group" src="https://cdrt.github.io/mk_docs/img/dash/45-dash.png" /></p>
+<p>Groups can be deleted by right clicking the relevant group and selecting <strong>Delete Group</strong> or by selecting the <strong>Delete</strong> menu item under <strong>Group</strong> ribbon icon.</p>
+</dd>
+</dl>
+<h3 id="add-remove-systems-to-groups">Add / Remove systems to Groups<a class="headerlink" href="#add-remove-systems-to-groups" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>To add systems to any group, right click on the group to which systems are to be added and select <strong>Add systems</strong> in the menu and select the systems from the new screen. Click on Ok.</p>
+<p><img alt="add to group" src="https://cdrt.github.io/mk_docs/img/dash/44-dash.png" /></p>
+</dd>
+</dl>
+<hr />
+<h1 id="amd-management-plugin-for-sccm-amps">AMD Management Plugin for SCCM (AMPS)<a class="headerlink" href="#amd-management-plugin-for-sccm-amps" title="Permanent link">#</a></h1>
+<h2 id="overview_1">Overview<a class="headerlink" href="#overview_1" title="Permanent link">#</a></h2>
+<h2 id="prerequisites-and-system-requirements">Prerequisites and System Requirements<a class="headerlink" href="#prerequisites-and-system-requirements" title="Permanent link">#</a></h2>
+<ul>
+<li>SPN must be configured in AD</li>
+<li>Authentication must be configured</li>
+<li>Systems BIOS must be DASH enabled</li>
+<li>Third party software (Windows) for network adapters should be installed and working.</li>
+</ul>
+<h2 id="installing-and-uninstalling-amps">Installing and Uninstalling AMPS<a class="headerlink" href="#installing-and-uninstalling-amps" title="Permanent link">#</a></h2>
+<p>You can deploy AMPS in three possible scenarios:</p>
+<ol>
+<li>AMPS with Configuration Manager Console and Standalone Site Server: In this scenario, the Configuration Manager Site server and the console are on the same system. Install AMPS on this system that has both the Site server and console.</li>
+<li>
+<p>AMPS with Configuration Manager Console: In this scenario, the MEM site server and MEM console are on two different systems. Therefore, you need to install AMPS twice, once on the site server system and once on the MEM console system. First, complete installation of plugin on the site server and then install the plugin on the console system. Plugin software automatically guides and lets you install only the required components on each system (site server and console).</p>
+</li>
+<li>
+<p>AMPS with CAS (Central Administration Site): Here, the IT infrastructure will have CAS and one or more primary sites, along with optional secondary sites.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The DASH Plug-in help file provides detailed information on support for role-based authorization in DASH Plug-in. The default location for the help file and other supporting material is located at <em>C:\Program Files (x86)\AMD Management Plugin for SCCM\doc</em></p>
+</div>
+<h2 id="installingupgrading-amps">Installing/Upgrading AMPS<a class="headerlink" href="#installingupgrading-amps" title="Permanent link">#</a></h2>
+<h3 id="amps-deployment-in-cas">AMPS deployment in CAS<a class="headerlink" href="#amps-deployment-in-cas" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>In CAS infrastructure at least one primary site server must be configured.</p>
+<p>It will take few minutes for the configuration settings to propagate in CAS infrastructure. If the settings are not updated, check if replication status is good in <strong>Monitoring / Overview / Site Hierarchy</strong> in Console.</p>
+</dd>
+</dl>
+<h3 id="installingupgrading-amps_1">Installing/Upgrading AMPS<a class="headerlink" href="#installingupgrading-amps_1" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>To install/upgrade the DASH plug-in either infrastructure type:</p>
+<ol>
+<li>Use the <em>AMPS-[version]-AMD.exe</em> installer.</li>
+<li>Follow the steps in the Install wizard to complete installation.</li>
+</ol>
+</dd>
+</dl>
+<h3 id="uninstalling-amps">Uninstalling AMPS<a class="headerlink" href="#uninstalling-amps" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>You can uninstall AMPS using <strong>Programs and Features</strong> in <strong>Control Panel</strong>.</p>
+<p>Alternatively,</p>
+<ol>
+<li>Run the <em>AMPS-[version]-AMD.exe</em> installer</li>
+<li>Click the <strong>Remove</strong> button to uninstall the plugin</li>
+</ol>
+</dd>
+</dl>
+<h2 id="configure-amps-to-work-with-active-directory">Configure AMPS to work with Active Directory<a class="headerlink" href="#configure-amps-to-work-with-active-directory" title="Permanent link">#</a></h2>
+<p>This section offers a brief description of how to create the necessary SPN account.</p>
+<p>Authentication must be configured in both Active Directory and in the DASH targets. Active Directory authentication with the DASHConfigRT utility provides greater security to administrators performing DASH operations, as only authorized users can communicate with assigned DASH targets.</p>
+<h3 id="create-dash-spn-user-account">Create DASH SPN User account<a class="headerlink" href="#create-dash-spn-user-account" title="Permanent link">#</a></h3>
+<dl>
+<dd>As domain administrator, use ADUC to create a new user account in the Users node, named &quot;DASHSPN&quot; or something similar in accordance with your organization&#39;s naming conventions.</dd>
+</dl>
+<h3 id="add-spns-for-dash-systems">Add SPNs for DASH systems<a class="headerlink" href="#add-spns-for-dash-systems" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>Under the <strong>Properties</strong> for the new &quot;DASHSPN&quot; user, select <strong>Attribute Editor</strong></p>
+<p>Select the <strong>servicePrincipalName</strong> attribute item, click <strong>Edit</strong> and add two values for each DASH system which will use AD authentication:</p>
+<ul>
+<li><em>HTTP/[MachineName]</em></li>
+<li><em>HTTP</em>/[<em>FQDN]</em></li>
+</ul>
+<p><img alt="SPN user account attribute" src="https://cdrt.github.io/mk_docs/img/dash/22-dash.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For a large group of DASH systems, it is faster to use the SETSPN utility in a script or batch file:</p>
+</div>
+<p>When using the <a href="https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)#:~:text=To%20reset%20the%20default%20SPN%20values%2C%20use%20the,You%20receive%20confirmation%20if%20the%20reset%20is%20successful." target="”_blank”">Setspn</a>  utility use the following two command lines for each client:</p>
+<div class="language-text highlight"><pre><span></span><code>    Setspn –S -U HTTP/MACHINENAME spnacctname
+    Setspn –S -U HTTP/FQDN spnacctname
+</code></pre></div>
+</dd>
+</dl>
+<h3 id="create-dash-admins-group-in-active-directory-and-obtain-sid">Create DASH Admins group in Active Directory and obtain SID<a class="headerlink" href="#create-dash-admins-group-in-active-directory-and-obtain-sid" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>To manually create the Security group and obtain the SID:</p>
+<ol>
+<li>Create a security group for DASH Administrators, named &quot;DASH Admins&quot; or another name suitable to your policies.</li>
+<li>Under <strong>Properties</strong> for the new group, select the <strong>Attribute Editor</strong> tab.</li>
+<li>Scroll down the <strong>Attributes</strong> list box until you find the <strong>objectSID</strong> attribute item.</li>
+<li>Record the security ID string in the value field for the <strong>objectSID</strong> attribute.</li>
+</ol>
+<p><img alt="object SID in DASH Admins group Properties" src="https://cdrt.github.io/mk_docs/img/dash/23-dash.png" /></p>
+<p>Alternatively, you can obtain the SID using PowerShell:</p>
+<div class="language-text highlight"><pre><span></span><code>  Get-ADGroup -Identity [DASHADMINS]| select SID
+</code></pre></div>
+</dd>
+</dl>
+<h3 id="add-users-to-the-created-group">Add user(s) to the created group<a class="headerlink" href="#add-users-to-the-created-group" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>Under the <strong>Properties</strong> of the SPN user account created, open <strong>Member Of</strong> tab and add the newly created DASH Administrators group.</p>
+<p>Also add the domain user accounts that require access to the DASH Systems to the new &quot;DASHAdmins&quot; security group.</p>
+</dd>
+</dl>
+<h3 id="use-dashconfigrtexe-to-add-the-configured-parameters-to-dash-systems">Use DASHConfigRT.exe to add the configured parameters to DASH systems<a class="headerlink" href="#use-dashconfigrtexe-to-add-the-configured-parameters-to-dash-systems" title="Permanent link">#</a></h3>
+<p>:
+    #### Update the DASHConfig provisioning XML file for distribution:</p>
+<div class="language-text highlight"><pre><span></span><code> 1. Make a backup copy of the _DASHConfig.xml_ file located at _C:\Program Files (x86)\AMD Management Console\DASHConfigRT._
+ 2. Edit _DASHConfig.xml._ to add the information from the previous steps and save the file:
+
+- ACTIVEDIRECTORY\_SPNACCOUNT
+- SPNACCOUNT\_PASSWORD
+- ACTIVEDIRECTORY\_GROUP
+- OBJECTSID
+
+#### Example Config.xml
+        &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;!!! note &quot;&quot;
+
+        &lt;DASHPROVISIONSETTINGS&gt;
+          &lt;MANAGEMENTTARGET&gt;
+          &lt;GLOBAL&gt;
+            &lt;HTTPS&gt;
+                 &lt;ENABLESUPPORT&gt;true&lt;/ENABLESUPPORT&gt;
+                 &lt;TCPIPPORT&gt;664&lt;/TCPIPPORT&gt;
+           &lt;/HTTPS&gt;
+            &lt;HTTP&gt;
+                &lt;ENABLESUPPORT&gt;true&lt;/ENABLESUPPORT&gt;
+                &lt;TCPIPPORT&gt;623&lt;/TCPIPPORT&gt;
+            &lt;/HTTP&gt;
+            &lt;/GLOBAL&gt;
+          &lt;USERS&gt;
+             &lt;USER&gt;
+                &lt;USERID&gt;Administrator&lt;/USERID&gt;
+                &lt;PASSWORD&gt; [Administrator Password]&lt;/PASSWORD&gt;
+                &lt;ENABLE&gt;true&lt;/ENABLE&gt;
+                &lt;ROLES&gt;
+                    &lt;ROLE&gt;Administrator Role&lt;/ROLE&gt;
+                &lt;/ROLES&gt;
+              &lt;/USER&gt;
+          &lt;/USERS&gt;
+            &lt;ACTIVEDIRECTORY&gt;
+                &lt;ENABLESUPPORT&gt;true&lt;/ENABLESUPPORT&gt;
+                  &lt;ACTIVEDIRECTORY_SPNACCOUNT&gt; [DASH SPN Account] &lt;/ACTIVEDIRECTORY_SPNACCOUNT&gt;
+               &lt;SPNACCOUNT_PASSWORD&gt; [Password] &lt;/SPNACCOUNT_PASSWORD&gt;
+            &lt;ACTIVEDIRECTORY_GROUPS&gt;
+                   &lt;ACTIVEDIRECTORY_GROUP&gt;
+                    &lt;GROUPNAME&gt; [DASH Admins Group] &lt;/GROUPNAME&gt;
+                &lt;OBJECTSID&gt;S-1-5-21-0123456789-0123456789-0123456789-1118&lt;OBJECTSID&gt;
+                      &lt;ROLES&gt;
+                          &lt;ROLE&gt;Administrator Role&lt;ROLE&gt;
+                       &lt;/ROLES&gt;
+              &lt;/ACTIVEDIRECTORY_GROUP&gt;
+              &lt;/ACTIVEDIRECTORY_GROUPS&gt;
+          &lt;/ACTIVEDIRECTORY&gt;
+          &lt;/MANAGEMENTTARGET&gt;
+         &lt;/DASHPROVISIONSETTINGS&gt;
+</code></pre></div>
+<h3 id="run-dashconfig-utility-on-dash-managed-system">Run DASHConfig utility on DASH managed system<a class="headerlink" href="#run-dashconfig-utility-on-dash-managed-system" title="Permanent link">#</a></h3>
+<dl>
+<dd>The <strong>DASHConfig/DASHConfigRT</strong> utility can run on DASH systems manually or you can use Configuration Manager to run the script.</dd>
+</dl>
+<h3 id="configuration-manager-dash-plugin-settings">Configuration Manager DASH Plugin settings<a class="headerlink" href="#configuration-manager-dash-plugin-settings" title="Permanent link">#</a></h3>
+<dl>
+<dd>The <strong>DASH Configuration</strong> node allows you to configure for Authentication, Management Port, Management Transport, and DASH Wake-Up. Before performing any DASH operation on the client device, configure DASH with correct Authentication, Management Port and Management Transport.</dd>
+</dl>
+<h2 id="authentication_1">Authentication<a class="headerlink" href="#authentication_1" title="Permanent link">#</a></h2>
+<p>AMPS supports two types of authentication schemes: Digest and Active Directory.</p>
+<p>AMPS supports up to 3 authentication entries. Each authentication entry has the components:
+- an authentication identifier, which must be unique
+- an authentication scheme (digest or Active Directory)
+- corresponding credentials</p>
+<h3 id="configure-authentication-for-amps">Configure Authentication for AMPS<a class="headerlink" href="#configure-authentication-for-amps" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>To configure Active Directory authentication using Configuration Manager console, navigate to <strong>Administration/DASH Management/DASH Configuration</strong> :</p>
+<ol>
+<li>Right click the server listed and select <strong>Properties</strong></li>
+<li>Under <strong>Authentication Schemas</strong>, add a unitque <em>Auth Identifier</em> set to schema <em>Active Directory</em></li>
+<li>Enter the DASH systems domain user and password created earlier.</li>
+<li>Click <strong>OK</strong>.</li>
+</ol>
+<p><img alt="AMPS Authentication" src="https://cdrt.github.io/mk_docs/img/dash/41-dash.png" /></p>
+</dd>
+</dl>
+<h2 id="management-and-transport-ports">Management and Transport Ports<a class="headerlink" href="#management-and-transport-ports" title="Permanent link">#</a></h2>
+<p>AMPS can communicate with the managed DASH computer systems on either HTTP or HTTPS.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default port for HTTP is 623 and HTTPS is 664.</p>
+</div>
+<h3 id="alerts-event-port">Alerts Event Port<a class="headerlink" href="#alerts-event-port" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>The Alerts event reporting port should be configured during the installation process of AMPS. The port number entered during installation is visible in the Configuration screen ( <strong>Administration/DASH Management/DASH Configuration</strong> ).</p>
+<p><img alt="Alerts Event Port" src="https://cdrt.github.io/mk_docs/img/dash/24-dash.png" /></p>
+</dd>
+</dl>
+<h3 id="wakeup-during-package-deployment">Wakeup during Package Deployment<a class="headerlink" href="#wakeup-during-package-deployment" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>The <strong>DASH Wakeup</strong> functionality enables Configuration Manager to use secure DASH commands and Wake-on-LAN to power up systems.</p>
+<p>The Wake-on-LAN packet is not guaranteed to wake all the devices in the collection. This is the purpose of the DASH power on operation provided by the AMPS.</p>
+<p>To configure the DASH Wakeup feature, perform the following steps:</p>
+<ul>
+<li>
+<p>Ensure that a working <strong>authentication scheme</strong> is in place (See <a href="#configure-authentication-for-amps">Authentication</a> section above)</p>
+</li>
+<li>
+<p>In the <strong>DASH Configuration</strong> screen select the <strong>DASH Wakeup</strong> check box, if already not selected.</p>
+</li>
+<li>In the <strong>Software Deployment Package,</strong> be sure to enable the Wake-on-LAN option and set a valid future schedule when creating the software deployment package for a device collection.</li>
+</ul>
+</dd>
+</dl>
+<h3 id="auto-discovery">Auto Discovery<a class="headerlink" href="#auto-discovery" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>If the <strong>DASH Auto Discover</strong> check box is selected, a new device added to Configuration Manager is checked for DASH support automatically.</p>
+<p><img alt="DASH Auto Discover" src="https://cdrt.github.io/mk_docs/img/dash/26-dash.png" /></p>
+</dd>
+</dl>
+<h3 id="create-the-dashconfig-software-package">Create the DASHConfig Software Package<a class="headerlink" href="#create-the-dashconfig-software-package" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>The steps to create the software package are as follows:</p>
+<p>In the Configuration Manager console navigate to <strong>Software Library \&gt; Application Management \&gt;</strong> right click <strong>Package</strong> node \&gt; <strong>Create Package</strong></p>
+<p>In Create <strong>Package and Program Wizard</strong> enter the following information:</p>
+<ul>
+<li>Name: DASHConfigRT</li>
+<li>Version: x.x.x.x</li>
+<li>Manufacturer: AMD</li>
+<li>Language: English</li>
+</ul>
+<p>Next, on the <strong>Data Source</strong> page</p>
+<ul>
+<li>Select &quot;This package contains source files&quot;</li>
+<li>Source Folder: Enter the directory on the site server where the DASHConfigRT files are stored.</li>
+<li>Next, select Standard Program – Create a Program for a client computer</li>
+</ul>
+<p>Next, complete the <strong>Standard Program</strong> information:</p>
+<ul>
+<li>Name: DASHConfigRT</li>
+<li>Command: DASHConfigRT.exe -xf:Config.xml -dxf -mif</li>
+<li>Run: Normal</li>
+<li>Run with Administrative Rights</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For details of all the command options refer to the <strong>DASHConfigRTguide.pdf</strong> located at <em>C:\Program Files (x86)\AMD Management Plugin for SCCM\DASHConfigRT</em></p>
+</div>
+<ol>
+<li>Next, accept the defaults on the <strong>Requirements</strong> page</li>
+<li>Next, verify the information in the <strong>Summary</strong> and click Next, thenClose</li>
+<li>Right click on the newly created DASHConfig Package and select <strong>Properties</strong>.</li>
+<li>On the <strong>Data Access</strong> tab, check &quot;Copy the content in this package to a package share on distribution points.&quot;</li>
+<li>On the <strong>Distribution Settings</strong> tab<ul>
+<li>Set the Distribution Priority to High</li>
+<li>Check &quot;Distribute the content for this package to preferred distribution points,&quot; and select &quot;Automatically download content when packages are assigned to distribution points.&quot;</li>
+</ul>
+</li>
+</ol>
+</dd>
+</dl>
+<h2 id="distribute-the-dashconfig-software-package">Distribute the DASHConfig Software Package<a class="headerlink" href="#distribute-the-dashconfig-software-package" title="Permanent link">#</a></h2>
+<p>To distribute the software package:</p>
+<p>In the Configuration Manager console navigate to <strong>Software Library \&gt; Application Management</strong></p>
+<ol>
+<li>Click on the <strong>Package</strong> node and select the DASHConfig Package</li>
+<li>Right click the DASHConfig package and select <strong>Deploy</strong> to launch the deploy software wizard.</li>
+<li>On the <strong>Content</strong> page, Verify the distribution point is added, if not click on the <strong>Add</strong> button and add manually</li>
+<li>Next, <strong>Schedule</strong> the deployment as needed and click Next</li>
+<li>Specify the <strong>User Experience</strong> and other installation behavior according to your organization&#39;s needs</li>
+<li>
+<p>Select the <strong>Deployment Option</strong> s to &quot;Download content from distribution point and run locally.&quot;</p>
+</li>
+<li>
+<p>Next, verify the information in the <strong>Summary</strong></p>
+</li>
+<li>Next, you should receive a <strong>Confirmation</strong> page indicating &quot;The Deploy Software Wizard completed successfully&quot; and you can close the Wizard.</li>
+<li>To get status, check the Configuration Manger System Status logs and the execmgr.log file in the DASH machine&#39;s <em>C:\Windows\System32\CCM\Logs</em> folder. Alternatively, you can check the package&#39;s folder for the DASHConfig.log file.</li>
+</ol>
+<h3 id="manually-run-dashconfigrt">Manually run DASHConfigRT<a class="headerlink" href="#manually-run-dashconfigrt" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>The DASHConfigRT utility must be run locally with administrative privileges.</p>
+<p>Steps to run DASHConfigRT on one system:</p>
+<ol>
+<li>
+<p>From an administrative command prompt, navigate to the directory with the DASHConfigRT executable and provisioning XML.</p>
+</li>
+<li>
+<p>Invoke DASHConfigRT using following command line:</p>
+<div class="language-text highlight"><pre><span></span><code>DASHConfigRT -xf:DASHConfig.xml -dxf -mif
+</code></pre></div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The optional <em>-dxf</em> switch deletes the Config.xml file, whih is recommended as the file includes the password. The <em>-mif</em> parameter</p>
+</div>
+<p>The -mif parameter creates a Microsoft installation status MIF file on exit.</p>
+</dd>
+</dl>
+<h2 id="performing-dash-operations">Performing DASH Operations<a class="headerlink" href="#performing-dash-operations" title="Permanent link">#</a></h2>
+<p>The AMPS installation creates a collection node called <strong>All DASH Capable Systems</strong>. This collection contains all the devices which are DASH capable, once discovered.</p>
+<p>Devices in <strong>All DASH Capable Systems</strong> support the following DASH operations:</p>
+<ul>
+<li>Discovery</li>
+<li>Power Control</li>
+<li>Boot Control</li>
+<li>Text Redirection</li>
+<li>USB Redirection</li>
+<li>Alerts</li>
+<li>Inventory</li>
+<li>Log Entry</li>
+<li>Boot to Text Image</li>
+<li>Firmware Update</li>
+<li>Boot to BIOS( KVM Profile)</li>
+<li>KVM Redirection</li>
+</ul>
+<h3 id="discovering-a-collection">Discovering a collection<a class="headerlink" href="#discovering-a-collection" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>The AMPS Discover feature allows you to automatically discover the DASH capable systems within a collection.</p>
+<p>To discover DASH capable client systems in a collection, perform the following steps:</p>
+<ol>
+<li>Expand the <strong>Assets and Compliance/Device Collections</strong> node.
+ In the right pane, list of all the collections appears.</li>
+<li>Right-click the collection in which you want to discover all the DASH capable systems.
+ The shortcut menu appears.</li>
+<li>
+<p>In the shortcut menu, Point to <strong>DASH</strong> and then click <strong>Discover</strong>.</p>
+</li>
+<li>
+<p>The <strong>Discover Collection</strong> dialog box appears
+     <img alt="Discovery Dialog" src="https://cdrt.github.io/mk_docs/img/dash/27-2-dash.png" /></p>
+</li>
+<li>
+<p>To discover DASH capable systems in the collections, click the <strong>Yes</strong> button.</p>
+</li>
+</ol>
+</dd>
+</dl>
+<h3 id="discovering-a-device">Discovering a Device<a class="headerlink" href="#discovering-a-device" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>This feature enables you to discover a single DASH capable system.</p>
+<p>To discover an individual DASH capable system, perform the following steps:</p>
+<ol>
+<li>Expand the <strong>Assets and Compliance/Devices/All Systems</strong> node.</li>
+<li>Expand the <strong>Devices</strong> node and click <strong>All Systems</strong>.</li>
+<li>In the right pane, right-click the device for which you want to discover DASH.</li>
+<li>In the shortcut menu, point to <strong>DASH</strong> and then click <strong>Discover</strong>.</li>
+</ol>
+</dd>
+</dl>
+<h3 id="power-control">Power Control<a class="headerlink" href="#power-control" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>AMPS allows you to control the power state of a group of systems in a given collection.</p>
+<p>To control the power state of a collection node, perform the following steps:</p>
+<ol>
+<li>Expand the <strong>Assets and Compliance</strong> node.</li>
+<li>Expand the <strong>Overview</strong> node and click <strong>Device Collections</strong> or an <strong>individual device</strong>.
+ In the right pane, the list of all the available collections appears.</li>
+<li>Right-click the collection for which you want to initiate power control.</li>
+<li>In the shortcut menu, select <strong>DASH</strong> and then click <strong>Power Control</strong>.</li>
+<li>The <strong>Power Control</strong> on Collection dialog box appears</li>
+</ol>
+<p><img alt="DASH Device actions" src="https://cdrt.github.io/mk_docs/img/dash/27-dash.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See <a href="#power-states">Power States</a> for PC supported power states table.</p>
+</div>
+</dd>
+</dl>
+<h3 id="scheduled-power-control">Scheduled Power Control<a class="headerlink" href="#scheduled-power-control" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>To power on all the systems in a Collection at a specific time on a one-time or recurring schedule, perform the following steps:</p>
+<ol>
+<li>Open the <strong>Power Control</strong> feature screen</li>
+<li>Click the <strong>Schedule</strong> button.</li>
+<li>Configure the schedule as desired and click <strong>OK,</strong> then <strong>Apply,</strong> then <strong>Close.</strong></li>
+</ol>
+<p><img alt="DASH Power schedule" src="https://cdrt.github.io/mk_docs/img/dash/28-dash.png" /></p>
+</dd>
+</dl>
+<h3 id="boot-control">Boot Control<a class="headerlink" href="#boot-control" title="Permanent link">#</a></h3>
+<p>:
+    #### Text Redirection</p>
+<div class="language-text highlight"><pre><span></span><code>Text Redirection provides BIOS-assisted console and keyboard redirection to a remote computer terminal. This includes Boot progress, BIOS setup screen, command line OS or command line diagnostic program screens.
+
+A client system can redirect its console text to the AMPS provided console using either Telnet or SSH.
+
+Follow these steps to use Text Redirection using AMPS:
+
+1. In Configuration Manager navigate to **Assets and Compliance** \&amp;gt; **Overview** \&amp;gt; **Devices** \&amp;gt; **All Systems** node.
+2. Expand the **Devices** node and click **All Systems**.
+3. In the right pane, right-click the device on which you want to perform Text Redirection.
+4. In the shortcut menu that appears, select **DASH** , then **Text Redirection**.
+Alternatively, on the Configuration Manager ribbon, select the **DASH** tab, then **Text Redirection**.
+
+![DASH tab with DASH Ribbon](https://cdrt.github.io/mk_docs/img/dash/29-dash.png)
+
+ The **Text Redirection** Screen appears and shows:
+
+   1. Drop down list with available protocols for text redirection, SSH and Telnet respectively. (SSH is the default.)
+   2. The Name of the Service that runs on the system to redirect the text.
+   3. The port through which the text will be redirected.
+   4. The information/status is stated – e.g., Support for OTP (one time password)
+
+  ![Text Redirection](https://cdrt.github.io/mk_docs/img/dash/42-dash.png)
+
+#### USB-Redirection
+
+USB Redirection provides a Virtual USB device which reads data from a remote image file, allowing the BIOS to boot from a remote image file such as _.iso_. See also [USB Redirection](#usb-redirection) above.
+
+The ISO image file must be available as a _http_ web URL.
+
+To initiate a USB redirection for a system, perform the following steps:
+
+ 1. In Configuration Manager navigate to **Assets and Compliance\Overview \Devices\All Systems** node. Expand the **Devices** node and click **All Systems**.
+ 2. In the right pane, right-click the device on which you want to perform USB redirection.
+ 3. In the shortcut menu that opens, point to **DASH** and then click **USB Redirection**.
+
+The **USB Redirection** screen appears and displays the following:
+
+    - The name of the system for whose USB, AMPS is going to attach the remote URL
+    - The URL that has to be attached to the systems USB.
+     If the USB is already attached to the remote URL,then the attached URL is displayed , and the option to edit the URL field is grayed out. You can disconnect the attached USB by clicking the **Disconnect** button on the screen.
+    - If the USB is not attached, you can replace/update any existing URL or enter a new valid URL and click the **Connect** button
+
+![USB Redirection](https://cdrt.github.io/mk_docs/img/dash/43-dash.png)
+
+ 4. To close the USB Redirection screen, click the **Close** button.
+</code></pre></div>
+<h3 id="boot-to-text-image">Boot to Text Image<a class="headerlink" href="#boot-to-text-image" title="Permanent link">#</a></h3>
+<dl>
+<dd>See <a href="#boot-to-text-image-feature">Boot to Text Image</a>section above. The steps are identical in AMD Management Console and AMPS.</dd>
+</dl>
+<h3 id="boot-to-bios-kvm-profile">Boot to BIOS (KVM Profile)<a class="headerlink" href="#boot-to-bios-kvm-profile" title="Permanent link">#</a></h3>
+<dl>
+<dd>See <a href="#boot-to-bios-with-kvm-profile">Boot to BIOS [KVM Profile]</a> section above. The steps are identical in AMD Management Console and AMPS.</dd>
+</dl>
+<h3 id="kvm-redirection">KVM Redirection<a class="headerlink" href="#kvm-redirection" title="Permanent link">#</a></h3>
+<dl>
+<dd>The steps are identical in AMD Management Console and AMPS.</dd>
+</dl>
+<h3 id="inventory">Inventory<a class="headerlink" href="#inventory" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>Configuration Manager shows the Information that it collects about the managed device in the <strong>Resource Explorer</strong> window. Information collected by the AMPS plugin also ends up in the Resource explorer. DASH inventory is displayed in the path <strong>SystemName\Hardware</strong>.</p>
+<p>Inventory is successful after successful client push, and can also be initiated manually. DASH inventory is populated using out-of-band DASH protocol.</p>
+<p>To collect inventory, perform the following steps:</p>
+<ol>
+<li>In the Configuration Manager console, navigate to <strong>Assets and Compliance\Overview\Devices\All Systems</strong></li>
+<li>
+<p>In the right pane, right-click the device on which you want to collect the inventory.</p>
+</li>
+<li>
+<p>In the shortcut menu select <strong>DASH,</strong> then click <strong>Inventory.</strong> Alternatively, click the DASH toolbar button to initiate the inventory</p>
+</li>
+</ol>
+<p><img alt="Device Inventory dialog" src="https://cdrt.github.io/mk_docs/img/dash/30-dash.png" /></p>
+<ol>
+<li>A confirmation should appear. Click <strong>OK</strong>.</li>
+</ol>
+</dd>
+</dl>
+<h3 id="log-entry">Log Entry<a class="headerlink" href="#log-entry" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>The managed DASH systems maintain log file for all events that are generated.</p>
+<p>To view the log entry of a managed device:</p>
+<ol>
+<li>In the Configuration Manager console, navigate to <strong>Assets and Compliance\Overview\Devices\All Systems</strong>.
+ In the right pane, right-click the device where you want to view the log.</li>
+<li>The shortcut menu is displayed. In the shortcut menu, point to <strong>DASH</strong> and then click <strong>Log Entry</strong>. The log entry screen appears.
+The Log Entry screen displays the latest 20 log entries.</li>
+<li>Use the <strong>Next</strong> and <strong>Previous</strong> navigation buttons to view additional log entries. Double click an entry to launch the <strong>Status Message Detail</strong> window for that entry.</li>
+</ol>
+<p><img alt="DASH Log" src="https://cdrt.github.io/mk_docs/img/dash/31-dash.png" /></p>
+</dd>
+</dl>
+<h3 id="firmware-update">Firmware Update<a class="headerlink" href="#firmware-update" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>AMPS allow you update the firmware for an individual system or a Collection.</p>
+<p>To update the firmware on a system/collection, perform the following steps:</p>
+<ol>
+<li>Expand <strong>Assets and Compliance\Overview\Devices</strong> or <strong>Device Collections</strong> node.</li>
+<li>In the right pane, the list of systems or all the available collections appears.</li>
+<li>Right-click the target. The shortcut menu appears.</li>
+<li>In the shortcut menu, select <strong>DASH</strong> and then click <strong>Firmware Upgrade</strong>.</li>
+<li>The <strong>Firmware Update</strong> dialog box appears.  In the Firmware Upgrade dialog box, select the <strong>Software Module</strong> from the drop-down list. The default (and only available) Software module is <strong>Management Controller Firmware</strong>.
+'Schedule Time' can be immediate, or you can set a scheduled time.</li>
+<li>The grid in the <strong>Firmware Upgrade</strong> windows lists the firmware URLs of the devices. Use the (+) and (-) buttons below the list to add and remove firmware URLs.</li>
+<li>Select the checkboxes next to the devices or collections you wish to update and click on the <strong>Apply</strong> button. The firmware update executes at once.</li>
+</ol>
+<p><img alt="Firmware Update" src="https://cdrt.github.io/mk_docs/img/dash/37-dash.png" /></p>
+</dd>
+</dl>
+<h3 id="alerts">Alerts<a class="headerlink" href="#alerts" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>AMPS can subscribe or unsubscribe to alerts generated by the managed systems.</p>
+<p>The types of alerts are Platform, Boot Progress, and Lifecycle Events (temperature alerts, fan failure, chassis intrusion, and BIOS boot failure).</p>
+</dd>
+</dl>
+<h4 id="to-configure-alerts">To configure alerts:<a class="headerlink" href="#to-configure-alerts" title="Permanent link">#</a></h4>
+<p>:
+     1. Navigate to <strong>Assets and Compliance/Overview/All Systems</strong>
+     2. In the right pane, right-click the device on which you want to perform Alert configuration. The shortcut menu appears.
+     3. In the shortcut menu, point to <strong>DASH</strong> and then click <strong>Alerts</strong>.</p>
+<div class="language-text highlight"><pre><span></span><code>Alternatively, click the ribbon icon **Alerts**.
+
+![DASH Alerts on toolbar](https://cdrt.github.io/mk_docs/img/dash/32-dash.png)
+
+ 4. AMPS shows the list of available alerts and currently subscribed alerts. Adjust the subscribed alerts using the left-right arrow buttons and click **Apply.**
+
+ ![Manage subscribed alerts](https://cdrt.github.io/mk_docs/img/dash/33-dash.png)
+</code></pre></div>
+<h2 id="role-based-administration">Role Based Administration<a class="headerlink" href="#role-based-administration" title="Permanent link">#</a></h2>
+<p>AMPS extends the Configurations Manager&#39;s security model to define which groups of users can perform DASH tasks and which groups of users can modify the DASH configuration.</p>
+<h3 id="security-role">Security Role<a class="headerlink" href="#security-role" title="Permanent link">#</a></h3>
+<p>:
+    <strong>Security Role</strong> defines the Configuration Manager administrative users&#39; job functions. Configuration Manager provides several built-in roles which perform functions such as Software Update Manager for managing software updates, and Full Administrator and Remote Tools Operator for performing restrictive DASH operations.</p>
+<div class="language-text highlight"><pre><span></span><code>- **Full Administrators** possess all permissions in Configuration Manager. The administrative user who first creates a new Configuration Manager installation is associated with this security role, all scopes, and all collections. All DASH operations can be performed by users having Full Administrator role.
+
+- **Operations Administrator** - AMPS allows Operation Administrators users to run all out of band DASH tasks, except the DASH Configuration operation, which can only be performed by the Full Administrator Role user.
+
+- **Remote Tools Operator** - Administrative users associated with this role can run Remote Control, Remote Assistance and Remote Desktop from the Configuration Manager console. AMPS allows Remote Tools Operator users to run all out of band management operations such as DASH tasks, except the DASH Configuration operation which can only be performed by the Full Administrator Role user.
+</code></pre></div>
+<h3 id="security-rights-for-dash-operations">Security Rights for DASH Operations<a class="headerlink" href="#security-rights-for-dash-operations" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>The User collection that can access a device collection can be viewed by navigating to <strong>Assets and Compliance</strong> \&gt; <strong>Overview</strong> \&gt; <strong>Device Collections</strong>. Right click on an instance like &quot;Windows 10 DASH systems&quot; and select <strong>Properties</strong> , then <strong>Security.</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>DASH Task</strong></th>
+<th><strong>Right</strong></th>
+<th><strong>Granted actions</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Discover</td>
+<td>Create, Modify, and Read Resource</td>
+<td>Identify whether a system is DASH-capable or not. Get version information and the profiles supported.</td>
+</tr>
+<tr>
+<td>Power</td>
+<td>Read Resource</td>
+<td>Obtain current system power state</td>
+</tr>
+<tr>
+<td>Use Remote Tools</td>
+<td>Change system power state</td>
+<td></td>
+</tr>
+<tr>
+<td>Boot</td>
+<td>Read resource</td>
+<td>Obtain boot order information.</td>
+</tr>
+<tr>
+<td>Use Remote Tools</td>
+<td>Change system boot order</td>
+<td></td>
+</tr>
+<tr>
+<td>Inventory</td>
+<td>Read Resource</td>
+<td>Obtain hardware inventory</td>
+</tr>
+<tr>
+<td>KVM, USB, and Text Redirection</td>
+<td>Read Resource and Use Remote Tools</td>
+<td>Redirect BIOS screen, boot to remote ISO image.</td>
+</tr>
+<tr>
+<td>Alerts/Events</td>
+<td>Read Resource and Use Remote Tools</td>
+<td>Subscribe and unsubscribe to all or selected event alerting.</td>
+</tr>
+<tr>
+<td>Account Management</td>
+<td>Read Resource</td>
+<td>View list of digest accounts on DASH-capable system.</td>
+</tr>
+<tr>
+<td>Use Remote Tools</td>
+<td>Modify the digest account on DASH-capable system.</td>
+<td></td>
+</tr>
+<tr>
+<td>Firmware Upgrade</td>
+<td>Read Resource</td>
+<td>View list of firmware Images</td>
+</tr>
+<tr>
+<td>Use Remote Tools</td>
+<td>Add\Modify the list of firmware images</td>
+<td></td>
+</tr>
+<tr>
+<td>Log Entry</td>
+<td>Read Resource</td>
+<td>Obtain hardware inventory of the system.</td>
+</tr>
+<tr>
+<td>Boot to Text Image</td>
+<td>Read Resource</td>
+<td>View list of remote ISO images</td>
+</tr>
+<tr>
+<td>Use Remote Tools</td>
+<td>Flash Image then Redirect to Text BIOS</td>
+<td></td>
+</tr>
+<tr>
+<td>Boot to BIOS</td>
+<td>Read Resource</td>
+<td>View list of KVM Redirection Instances to boot to BIOS</td>
+</tr>
+<tr>
+<td>Use Remote Tools</td>
+<td>Reboot the System and Redirect BIOS screen</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</dd>
+</dl>
+<h3 id="security-rights-defined-for-dash-settings">Security rights defined for DASH settings<a class="headerlink" href="#security-rights-defined-for-dash-settings" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>The security rights model applies for modifying DASH settings in the <strong>DASH Configuration</strong> window in the Configuration Manager Console.</p>
+<p>The DASH settings that can be changed in the <strong>DASH Configuration</strong> window are:</p>
+<ul>
+<li>Modify digest and active directory authentication</li>
+<li>Modify HTTP/HTTPS settings</li>
+<li>Change DASH port numbers</li>
+<li>Enable/Disable DASH Auto Discovery and DASH wakeup</li>
+</ul>
+<p><img alt="DASH Configuration" src="https://cdrt.github.io/mk_docs/img/dash/46-dashConfig.png" /></p>
+<p>The <strong>Full Control</strong> security right allows Read or Modify on Site class or Site class instance control. Full Control can modify and save all settings and user security rights assignments.</p>
+<p>The <strong>Read</strong> security right allows the user to open the DASH Configuration window and view the settings. The user cannot save the settings.</p>
+<p>The <strong>Modify</strong> Security right allows the user to open the DASH Configuration windows, modify, and save the settings.</p>
+<p>Navigate to <strong>Administration\Overview\Site Configuration\Sites</strong> to check this setting.</p>
+<p>In AMPS, the administrator has the option to either enable or disable the user permission checking feature. This is a global setting and affects all users.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only users with Full Administrator rights can modify and save the DASH Configuration window.</p>
+</div>
+</dd>
+</dl>
+<h3 id="security-scope">Security Scope<a class="headerlink" href="#security-scope" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>Security scopes limit administrative users&#39; access to specific secured objects. While security roles grant the class level permission to the user such as &quot;Read Applications&quot;, security scopes grant instance level permission for <em>which</em> applications they can read.  Refer to Configuration Manager documentation for more information. Security scopes are not considered for either DASH tasks or DASH configuration changes.</p>
+<p>A <strong>Collection</strong> is the group of devices or users the administrative user can manage. For performing DASH tasks, the <strong>Remote Tool Operator</strong> role users must have access to the collection. Users with <strong>Full Administrator</strong> role have access to all collections.</p>
+</dd>
+</dl>
+<h2 id="dash-scheduled-tasks">DASH Scheduled Tasks<a class="headerlink" href="#dash-scheduled-tasks" title="Permanent link">#</a></h2>
+<h3 id="schedule-dash-tasks">Schedule DASH Tasks<a class="headerlink" href="#schedule-dash-tasks" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>The following DASH tasks can be scheduled using AMPS:</p>
+<ul>
+<li>Discovery on collection task</li>
+<li>Power on collection task</li>
+<li>Firmware upgrade on collection task</li>
+</ul>
+<p>The <strong>Schedule</strong> button is provided on supported screens. When a user clicks <strong>Schedule</strong> , the <strong>DASH Task Scheduler</strong> screen launches.</p>
+<p><img alt="DASH Task Scheduler" src="https://cdrt.github.io/mk_docs/img/dash/34-dash.png" /></p>
+</dd>
+</dl>
+<h3 id="view-dash-scheduled-tasks">View DASH Scheduled Tasks<a class="headerlink" href="#view-dash-scheduled-tasks" title="Permanent link">#</a></h3>
+<dl>
+<dd>
+<p>The <strong>DASH Scheduled Tasks</strong> console enables you to view, as well as disable/enable or delete all the scheduled DASH tasks.</p>
+<p>To view the scheduled DASH tasks:</p>
+<ol>
+<li>
+<p>Navigate to the <strong>Administration</strong> tab in Configuration Manager.</p>
+</li>
+<li>
+<p>Click <strong>Overview/DASH Management/DASH Scheduled Tasks</strong></p>
+</li>
+<li>
+<p>Select the target server and click <strong>Properties</strong></p>
+</li>
+</ol>
+<p><img alt="Accessing DASH Scheduled Tasks" src="https://cdrt.github.io/mk_docs/img/dash/35-dash.png" /></p>
+</dd>
+</dl>
+<h2 id="dash-reports">DASH Reports<a class="headerlink" href="#dash-reports" title="Permanent link">#</a></h2>
+<p><strong>DASH Reports</strong> gets deployed toConfiguration Manager reports during installation of AMPS provided the site server has the Reporting services point role. It is deployed in following path:</p>
+<p><em>Reportserver/Reports/browse/ConfigMgr/SiteCode/DASH Reports</em></p>
+<p>If there is a custom deployment or the reports are not present after install, the reports are available in <em>.rpl</em> to import from <em>C:\Program Files (x86)\AMD Management Plugin for SCCM\SCCMReports.</em></p>
+<h2 id="status-monitoring">Status Monitoring<a class="headerlink" href="#status-monitoring" title="Permanent link">#</a></h2>
+<p>AMPS Status message in <strong>Monitoring</strong> category of Configuration Manager allows user to view all logged messages.</p>
+<p><img alt="AMPS Status" src="https://cdrt.github.io/mk_docs/img/dash/36-dash.png" /></p>
+<hr />
+<h1 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h1>
+<h2 id="troubleshooting-dash-operations">Troubleshooting DASH Operations<a class="headerlink" href="#troubleshooting-dash-operations" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th><strong>Screen</strong></th>
+<th><strong>Error</strong></th>
+<th><strong>Remediation</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Configuration</td>
+<td>The authentication account was not found.</td>
+<td>Check authentication accounts</td>
+</tr>
+<tr>
+<td></td>
+<td>The configuration was not updated since one or more of the tranpsort parameters is invalid.</td>
+<td>Check HTTP input port value</td>
+</tr>
+<tr>
+<td></td>
+<td>The configuration was not updated since one or more of the authentication parameters is invalid.</td>
+<td>Check input credentials properly</td>
+</tr>
+<tr>
+<td></td>
+<td>The configuration was not updated since one or more of the setting(s) is invalid.</td>
+<td>Check input credentials properly</td>
+</tr>
+<tr>
+<td></td>
+<td>The domain user name or password is incorrect.</td>
+<td>Check Domain username and password correctly.</td>
+</tr>
+<tr>
+<td>Power</td>
+<td>Power task on the system failed.</td>
+<td>While doing power operation based on selected power state failed please retry again or please check your credentials once again</td>
+</tr>
+<tr>
+<td></td>
+<td>Power task on the group failed.</td>
+<td>Supported power status not available in selected group of  target machines or please check your credentials once again(ex: power OFF, power ON, Sleep, Hibernate etc.)</td>
+</tr>
+<tr>
+<td></td>
+<td>No power state available.</td>
+<td>Supported power status not available in selected target machine(ex: power OFF, power ON, Sleep, Hibernate etc.)</td>
+</tr>
+<tr>
+<td></td>
+<td>Unauthorized. Verify authentication credentials or port configuration.</td>
+<td>Please check the credentials</td>
+</tr>
+<tr>
+<td>Boot Config</td>
+<td>No boot configuration instances found.</td>
+<td>Boot configuration instances are not found in selected target, please verify the target once</td>
+</tr>
+<tr>
+<td></td>
+<td>Changed Boot order had failed.</td>
+<td>Changing boot order on selected target is failed please retry again</td>
+</tr>
+<tr>
+<td></td>
+<td>Default configuration failed.</td>
+<td>Changing default configuration on selected target is failed please retry again</td>
+</tr>
+<tr>
+<td></td>
+<td>Object reference not set to an instance of object</td>
+<td>When Boot Config profile has not devices listed. The NIC vendor has not added Devices in Boot config.</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot config failed.</td>
+<td>Please check the credentials</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot config enumeration failed.</td>
+<td>Please check the credentials</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot config change boot order failed.</td>
+<td>Error ocurred while changing Boot order please retry again.</td>
+</tr>
+<tr>
+<td></td>
+<td>Next configuration failed.</td>
+<td>Changing next configuration on selected target is failed please retry again</td>
+</tr>
+<tr>
+<td>Text Redirection</td>
+<td>End the existing session and try again.</td>
+<td>Please close the current Putty window.</td>
+</tr>
+<tr>
+<td></td>
+<td>Verify if the system supports Text Redirection and try again.</td>
+<td>Text Redirection not supported by selected target or please verify your credentials once</td>
+</tr>
+<tr>
+<td></td>
+<td>Text redirection failed. Verify if the system supports text redirection and try again.</td>
+<td>When there are no instances in text redirection. This message is seen. If the platform claims support for Text redirection, at least one instance needs to be supported. Please contact the NIC vendor for a fix to this issue</td>
+</tr>
+<tr>
+<td></td>
+<td>No text redirection instance found.</td>
+<td>Text Redirection not enabled on the selected target machine</td>
+</tr>
+<tr>
+<td>USB Redirection</td>
+<td>Verify if the system supports USB Redirection and try again.</td>
+<td>Selected target not supports USB Redirection or please verify your credentials once</td>
+</tr>
+<tr>
+<td></td>
+<td>No USB Redirection instance found.</td>
+<td>USB Redirection not enabled on the selected target</td>
+</tr>
+<tr>
+<td></td>
+<td>Already USB Redirected, either Modify or Disconnect.</td>
+<td>USB Redirection already enabled in the selected target you may disconnect it or you can modify it.</td>
+</tr>
+<tr>
+<td></td>
+<td>No USB Redirection instance found.</td>
+<td>USB Redirection not enabled on the selected target</td>
+</tr>
+<tr>
+<td></td>
+<td>USB Redirection failed.</td>
+<td>Check input credentials properly and check whether target suppots USB Rdirection</td>
+</tr>
+<tr>
+<td></td>
+<td>USB Redirection disconnect failed.</td>
+<td>Error ocurred while disconecting USB attached on target device please retry again.</td>
+</tr>
+<tr>
+<td></td>
+<td>Length of URI specified is beyond allowed limit</td>
+<td>Check Image URL properly and try again</td>
+</tr>
+<tr>
+<td></td>
+<td>USB Redirection connect failed.</td>
+<td>Error while attaching USB file on target . Please retry again</td>
+</tr>
+<tr>
+<td></td>
+<td>Verify if URL exists.</td>
+<td>May be Entered URL doesn&#39;t exist check again</td>
+</tr>
+<tr>
+<td></td>
+<td>Text redirection failed. Verify if the system supports text redirection and try again.</td>
+<td>When there are no instances in USB redirection. This message is seen. If the platform claims support for USB redirection, at least one instance needs to be supported. Please contact the NIC vendor for a fix to this issue</td>
+</tr>
+<tr>
+<td>KVM Redirection</td>
+<td>System does not support KVM redirection.</td>
+<td>KVM redirection not supported by selected target or please verify your credentials once</td>
+</tr>
+<tr>
+<td></td>
+<td>Supported KVM Redirection Instance not found.</td>
+<td>KVM instance not found on the selected target please verify it once</td>
+</tr>
+<tr>
+<td></td>
+<td>KVM Redirection connect failed.</td>
+<td>There is an error while connecting to the target</td>
+</tr>
+<tr>
+<td></td>
+<td>KVM Redirection timed out.</td>
+<td>Time expired while connecting to target</td>
+</tr>
+<tr>
+<td></td>
+<td>KVM Redirection request aborted.</td>
+<td>Connection aborted by the target</td>
+</tr>
+<tr>
+<td></td>
+<td>Unable to perform operation, Verify if KVM Redirection is supported by the managed system.</td>
+<td>Please check the credentials and whether target supports KVM Redirection</td>
+</tr>
+<tr>
+<td></td>
+<td>Enumeration failed for IP Interface</td>
+<td>Check targets suppotrs KVM Extended mode</td>
+</tr>
+<tr>
+<td></td>
+<td>Unable to connect to AMC Service.</td>
+<td>Check your AMC service once, Go to services.msc and check these <strong>AMCAlertservice, AMCDASHService, AMCWebservice</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>System Health</td>
+<td>System Health information not found.</td>
+</tr>
+<tr>
+<td>Firmware Upgrade</td>
+<td>Firmware Upgrade is not supported for this device.</td>
+<td>Firmware upgrade not supported on selected target or please verify your credentials once</td>
+</tr>
+<tr>
+<td></td>
+<td>Firmware Upgrade task failed..</td>
+<td>Firmware upgrade failed on selected target please retry again</td>
+</tr>
+<tr>
+<td>Log Entry</td>
+<td>Log Entry operation failed.</td>
+<td>Log Entry not supported on selected target or please verify your credentials once</td>
+</tr>
+<tr>
+<td>Alerts</td>
+<td>No Indication filters were found.</td>
+<td>Alerts are not supported on selected target or please verify your credentials once</td>
+</tr>
+<tr>
+<td></td>
+<td>Indications failed.</td>
+<td>Please check the credentials</td>
+</tr>
+<tr>
+<td></td>
+<td>Subscription of indication failed.</td>
+<td>Operation failed on subscribing alerts please retry once again</td>
+</tr>
+<tr>
+<td></td>
+<td>Unsubscription of indication failed.</td>
+<td>Operation failed on Unsubscribing alerts please retry once again</td>
+</tr>
+<tr>
+<td></td>
+<td>Subscription quota limit is reached.</td>
+<td>Alerts subscription limit is reached.</td>
+</tr>
+<tr>
+<td></td>
+<td>Enumeration of filter collections failed.</td>
+<td>Error while getting the alerts list please try again .</td>
+</tr>
+<tr>
+<td></td>
+<td>Enumeration of subscribed indications failed.</td>
+<td>Error while getting the alerts list please try again .</td>
+</tr>
+<tr>
+<td></td>
+<td>Subscribed filter list had failed.</td>
+<td>Operation failed on subscribing alerts please retry once again</td>
+</tr>
+<tr>
+<td></td>
+<td>Enumeration of subscribed indication failed</td>
+<td>When the platform does not support any events for subscription this error can be seen.</td>
+</tr>
+<tr>
+<td>Boot to Text</td>
+<td>Boot To Text Power state change failed.</td>
+<td>Please check the credentials</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot To Text Power task not allowed on localsystem.</td>
+<td>Please try Boot To Text on remote system.</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot To Text Power Management enumeration failed.</td>
+<td>Please check the credentials and try again.</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot To Text USB Instances are not found.</td>
+<td>Check whether target supports Boot To Text and retry again</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot To Text URL diconnect failed.</td>
+<td>Error while disconnecting Boot To Text on target, please try again.</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot To Text URL connect failed.</td>
+<td>Error while connecting Boot To Text on target, please try again.</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot To Text Get instance failed.</td>
+<td>Check credentials and try again.</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot To Text Boot Order change failed.</td>
+<td>Error while changing Boot order change.</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot To Text Boot instances are not found.</td>
+<td>Check credentials and try again.</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot To Text Boot config change boot order failed.</td>
+<td>Error while changing Boot order change.</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot To Text Boot device decription string retrieval failed.</td>
+<td>Error while changing Boot order change.</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot To Text Boot config change order failed.</td>
+<td>Error while changing Boot order change.</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot To Text failed to perform Text Redirection</td>
+<td>Check credentials and try again.</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot To Text Text Redirection Disable failed</td>
+<td>Error while disabling Boot To Text on target please try again</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot To Text failed to perform Text Redirection connect operation</td>
+<td>Error while connecting Boot To Text on target please try again</td>
+</tr>
+<tr>
+<td></td>
+<td>No BootToTextImage data found in the response</td>
+<td>Boot text image not supported on selected target or please verify your credentials once</td>
+</tr>
+<tr>
+<td></td>
+<td>Boot to BIOS</td>
+<td>KVM redirection failed.</td>
+</tr>
+<tr>
+<td></td>
+<td>System does not support KVM redirection.</td>
+<td>Selected target doesn&#39;t supports KVM Redirection please verify your target</td>
+</tr>
+<tr>
+<td></td>
+<td>Supported KVM Redirection Instance not found.</td>
+<td>KVM Instance not found in the selected target</td>
+</tr>
+<tr>
+<td></td>
+<td>KVM Redirection enumeration failed</td>
+<td>Upon enumeration 0 instances are found. Check with NIC vendor if KVM support is added</td>
+</tr>
+<tr>
+<td>Remote Access</td>
+<td>Supported KVM Redirection Instance not found.</td>
+<td>Please check target whether it supports In band KVM</td>
+</tr>
+<tr>
+<td>KVM Redirection enumeration failed</td>
+<td>Upon enumeration 0 instances are found. Check with NIC vendor if KVM support is added</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="troubleshooting-kvm-issues">Troubleshooting KVM issues<a class="headerlink" href="#troubleshooting-kvm-issues" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Serial Number</th>
+<th>Error code</th>
+<th>Friendly Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Error 20</td>
+<td>Key Parse Failed</td>
+<td>This error can be seen if some file related to installation has been modified. Issue can be resolved by reinstalling AMC</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Error 21</td>
+<td>Connection Failed</td>
+<td>This error can be seen if the platform did not successfully connect to the remote system via SSH. Re attempting to connect may resolve issue. If issue persists, please contact platform vendors</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Error 22</td>
+<td>Host name not found</td>
+<td>This error can be seen if the platform did not allow a socket connection with the client. This issue can occur if IP address changes in KVM session or if the KVM session is not enabled due to SSH failure. Please contact vendor if issue recurs.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Error 23</td>
+<td>Connection Key failed</td>
+<td>This error can be seen if the platform did not successfully connect to the SSH connection with the provided key for KVM 1.9 and above. When this error occurs, SSH connection with KVM 1.8 is then attempted for KVM Redirection</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Error 24</td>
+<td>Not Supported</td>
+<td>This error can be seen when KVM Redirection is not supported on the platform where it was launched</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Error 25</td>
+<td>Connection Forcibly Closed</td>
+<td>This error can be seen if some activity in the platform forced it to close the connection</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h1 id="resources-and-support">Resources and Support<a class="headerlink" href="#resources-and-support" title="Permanent link">#</a></h1>
+<p>More details about AMPS features and AMPS updates can be found at:</p>
+<p>Link: <a href="http://www.amd.com/DASH"><em>http://www.amd.com/DASH</em></a></p>
+<p>DASH Support email: dashsupport@amd.com</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>AMPS is based on the DMTF DASH specification. Some commands might not be supported by a given platform. Check the platform documentation on the DASH support.</p>
+</div>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2026 <a href="https://docs.lenovocdrt.com"  target="_blank" rel="noopener">Lenovo Commercial Deployment Readiness Team</a><br><a href="#__consent" style="text-decoration:underline;">Change cookie settings</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+  
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences such as light and dark mode, as well as to measure anonymous usage data to determine effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" checked>
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="analytics" checked>
+      <span class="task-list-indicator"></span>
+      Google Analytics
+    </label>
+  </li>
+
+      
+    
+    
+      
+    
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.code.select"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
