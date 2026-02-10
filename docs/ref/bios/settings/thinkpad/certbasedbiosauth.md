@@ -12,3 +12,9 @@ Learn more here:
 
 Reset Certificate
 :  Remove the enrolled certificate.
+
+Reset Supervisor Certificate
+:  Remove the enrolled Supervisor certificate.
+
+Reset System Management Certificate
+:  Remove the enrolled System Management certificate.

@@ -172,7 +172,7 @@ Ultra Performance Mode
 :  When enabled, this feature improves performance, but may result in higher surface temperatures and increased fan noise. 
 
     !!! note ""
-        This feature is Windows only.
+        This feature is Windows only and only available on select models.
 
     Options:
 
@@ -183,6 +183,18 @@ Ultra Performance Mode
     |:---|:---|:---|:---|
     | UltraPerformanceMode | Disabled, Enabled | No | Both |
 
+Flip to Start
+:  Turns the machine on when the computer lid opens, just the same as pressing the power button.
+
+    Options:
+
+    1.  **Off** - Default.
+    2.  On
+
+    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    |:---|:---|:---|:---|
+    | FlipToStart | Disabled, Enabled | No | Both |
+
 Disable Built-in Battery
 :  Temporarily disables the battery to service the system.
 
@@ -192,13 +204,7 @@ Disable Built-in Battery
         * After selecting this item, the system will be automatically powered off, ready to be serviced.
         * The battery will be automatically enabled when the AC adapter is reconnected.
 
-Flip to Start
-:  Turns the machine on when the computer lid opens, just the same as pressing the power button.
 
-    Options:
-
-    1.  **Off** - Default.
-    2.  On
 
 ## Automatic Power On
 

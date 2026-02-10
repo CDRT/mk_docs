@@ -1,4 +1,4 @@
-# Intel(R) AMT Settings
+# Intel(R) AMT Settings / Standard Manageability
 
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_intelramt.png)
 
@@ -20,6 +20,22 @@ Intel (R) AMT Control
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | AMTControl | Disable, Enable | No | Intel |
+
+Intel (R) Standard Manageability 
+:  This option enables or disables Intel® Standard Manageability (ISM) function. 
+
+    Possible options:
+
+    1. **Enabled** - Default.
+    2. Disabled
+    3. Permanently Disabled
+
+    !!! note ""
+        If Intel Standard Manageability is permanently disabled, you can never enable this setting again. 
+
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | ISMControl | Disable, Enable | No | Intel |
 
 USB Key Provisioning
 :  Whether to enable USB Key Provisioning.
