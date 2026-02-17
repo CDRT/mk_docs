@@ -164,7 +164,7 @@ Proxy Support
 
     Possible options:
 
-    1. **Off** - This feature will not work while Secure Boot is disabled. Default
+    1. **Off** - Default. This feature will not work while Secure Boot is disabled.
     2. On
 
     !!! note ""
@@ -192,6 +192,42 @@ Reinstall Windows from Cloud
 
     1. **Disabled** - Default.
     2. Enable.
+
+## Custom URL Support Settings
+
+Custom URL Support
+:   Enable/Disable Custom URL Support. 
+
+    Possible options:
+
+    1. **Off** - Default. This feature will not work while Secure Boot is disabled.
+    2. On
+
+
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | CustomUri  | Disable, Enable | Yes | Both |
+
+Add Custom HTTPS Boot Option
+:   Description for Custom HTTPS Boot Option. 
+
+    !!! note ""
+        The description must be a unique string. 
+    
+    Maximum character length is 255. 
+
+    The URL must start with "https://" for Custom HTTPS Boot Option. 
+    
+    !!! note ""
+        "http://" is not supported. 
+    
+    A new HTTPS Boot Option will be created according to this Boot URL.
+
+Add Custom HTTPS Boot Option
+:   Description of custom HTTPS boot option list that can be deleted. 
+
+Enroll OnPremise Server CA Cert
+:   Delete OnPremise Server CA Cert and reset the Server CA Cert back to the default.
 
 ## WiFi Configuration
 
@@ -351,6 +387,7 @@ Each SSID can be selected to display more details.
 
         1. Connect to this network - visible if device is not connected to this Wi-Fi network
         2. Disconnect - visible if device is connected to this Wi-Fi network
+
 
 ## Add Wi-Fi Network
 
@@ -576,3 +613,4 @@ Change Priority
 
     !!! note  "Commit Changes and Exit"
         Save changes and exits back to the Manage Wi-Fi network page.
+
