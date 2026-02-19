@@ -1,6 +1,6 @@
 # Lenovo BIOS Certificates PowerShell Module Reference
 
-- **Module:** Lenovo.BIOS.Certificates
+- **Module:** Lenovo.Bios.Certificates
 - **Version:** 1.0.8
 - **Author:** Devin McDermott
 - **Company:** Lenovo
@@ -301,7 +301,7 @@ Submit-LnvBiosConfigFile -ConfigFile "C:\Config\SignedBiosSettings.ini"
 
 ```powershell
 # Ensure Azure modules are available
-if (-not (Test-LnvCheckForAzureModule "Az.Accounts") -or -not (Test-LnvCheckForAzureModule "Az.KeyVault")) {
+if (-not (Test-LnvCheckForAzureModule -ModuleName "Az.Accounts") -or -not (Test-LnvCheckForAzureModule -ModuleName "Az.KeyVault")) {
     Write-Error "Required Azure modules not found. Please install Az.Accounts and Az.KeyVault"
     return
 }
@@ -362,6 +362,7 @@ The module creates and uses the following directory structure:
 │   ├── Logs\          # Module operation logs
 │   └── Output\        # Generated signed command files
 ```
+---
 
 ## Version History
 
@@ -379,4 +380,6 @@ The module creates and uses the following directory structure:
 
 ---
 
-*For additional support or questions, please vist Lenovo's [Enterprise Client Management Forum](https://forums.lenovo.com/t5/Enterprise-Management-Board/bd-p/sa01_eg).*
+## Support
+
+For additional support or questions, please visit Lenovo's [Enterprise Client Management Forum](https://forums.lenovo.com/t5/Enterprise-Management-Board/bd-p/sa01_eg).

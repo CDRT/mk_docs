@@ -219,17 +219,11 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
         Update-LnvPassword -Old $cur -New $null -Ty 'pap'
         ```
 
-1. Create an Intune package and optionally upload to Intune (GUI):
+1. Create an Intune package and optionally upload to Intune (only available in GUI):
     - GUI: Actions → Create Intune Package: choose INI, output path, select Win32/Proactive Remediation, click Create Package.
         - You will be asked if you want to upload the generated content directly to Intune. Only do this if you have the necessary access rights to do so.
         - GUI checks/installs Microsoft Graph modules and prompts to sign in.
         - Packaging the Win32 package uses Intune Win32 Content Prep Tool which is available here: [https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe).
-
-    CLI: packaging example (create `.intunewin`):
-
-        ```powershell
-        ConvertTo-LnvIntunePackage -in 'C:\SourceFolder' -setup 'ApplyBIOSConfig.ps1' -out 'C:\Output'
-        ```
 
 ## Logs, preferences and storage
 
