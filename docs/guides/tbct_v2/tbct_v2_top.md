@@ -30,7 +30,7 @@ This solution can be used in combination with the [Lenovo BIOS Certificates Tool
 
 The Think BIOS Config Tool UI is provided as a PowerShell script that is hosted on the PowerShell Gallery. It can be easily installed with the following command:
 
-```PowerShell
+```powershell
 Install-Script 'ThinkBiosConfigUI'
 ```
 
@@ -43,14 +43,14 @@ If this is the first time installing a script from the PowerShell Gallery, you w
 
 The GUI script can install and import the required `Lenovo.BIOS.Config` module automatically, or if you only need to work directly with the module, it can be installed from the PowerShell Gallery as well:
 
-```PowerShell
+```powershell
 Install-Module 'Lenovo.BIOS.Config'
 ```
 
-!!!note "(Optional)"
+!!! note "(Optional)"
     To use Graph/Intune features interactively, install Microsoft Graph modules (the GUI can prompt and install automatically):
 
-    ```PowerShell
+    ```powershell
     Install-Module Microsoft.Graph -Scope CurrentUser -Force
     ```
 
@@ -67,12 +67,12 @@ Simply unzip to a local folder and run the GUI script in an elevated terminal. T
 1. Open an elevated PowerShell terminal (Run as Administrator).
 2. Launch the GUI
 
-```PowerShell
+```powershell
 # Assuming installed to default script path and PATH environment variable set accordingly
 ThinkBIOSConfigUI
 ```
 
-Notes:
+### Notes
 
 - The script includes `#Requires -RunAsAdministrator`.
 - The GUI script auto-imports `Lenovo.BIOS.Config` if already installed from the PowerShell Gallery. If it is not already installed, it will attempt to install the module from the PowerShell Gallery. If that fails it will try to find the module in the GUI script's location.
@@ -103,7 +103,7 @@ The Settings panel is always shown first when the UI is launched. It will displa
     - **Reset to Factory Defaults**: this will configure all settings to their Factory Defaults.
     - **Save Custom Defaults**: this will allow saving the current settings as a Custom Default. This allows you to have a profile of settings that you can revert back to which may be different than the Factory Defaults.
     - **Reset to Custom Defaults**: this will configure all settings to match the Custom Defaults.
-    - **Generate INI**: this will prompt for a location to save an .ini file containing the current profile of settings. If a Supervisor Password may be needed when applying this INI to other devices, that password can be specified and a passphrase must be entered which will allow the Supervisor Password to be encrypted so it is not stored as plain text in the .ini file. If a path is not specified, the .ini file will be saved in the output folder defined in Preferences. The default location is ```%ProgramData%\Lenovo\ThinkBiosConfig\Output```
+    - **Generate INI**: this will prompt for a location to save an .ini file containing the current profile of settings. If a Supervisor Password may be needed when applying this INI to other devices, that password can be specified and a passphrase must be entered which will allow the Supervisor Password to be encrypted so it is not stored as plain text in the .ini file. If a path is not specified, the .ini file will be saved in the output folder defined in Preferences. The default location is `%ProgramData%\Lenovo\ThinkBiosConfig\Output`
 
 ### Actions
 
@@ -152,8 +152,8 @@ This panel displays inputs for the following information:
 ![Preferences](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/preferences.png)
 
 - Output Location: specify the folder path for saving generated INI files
-- Logging: Checkbox to enable logging, and input for folder to store log files. The default is ```%ProgramData%\Lenovo\ThinkBiosConfig\Logs```
-- Save Preferences:  the preferences are saved to a .json file in ```%ProgramData%\Lenovo\ThinkBiosConfig``` folder
+- Logging: Checkbox to enable logging, and input for folder to store log files. The default is `%ProgramData%\Lenovo\ThinkBiosConfig\Logs`
+- Save Preferences:  the preferences are saved to a .json file in `%ProgramData%\Lenovo\ThinkBiosConfig` folder
 - Generate Debug File: TODO
 
 ### Dialog boxes
@@ -168,13 +168,13 @@ This panel displays inputs for the following information:
 
 ### Status and logging
 
-The UI writes runtime messages to the `StatusBar` and uses the module logger to write log files to ```%ProgramData%\Lenovo\ThinkBiosConfig\Logs``` by default.
+The UI writes runtime messages to the `StatusBar` and uses the module logger to write log files to `%ProgramData%\Lenovo\ThinkBiosConfig\Logs` by default.
 
-## Module Cmdlet Reference
+## Module cmdlet reference
 
 The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are documented in this [reference guide.](tbc_module_reference.md)
 
-!!!info "Tip"
+!!! info "Tip"
     Run an explicit example such as `Get-Help Read-LnvTBCPreferenceFile -Full` after importing the module to get parameter details for a cmdlet.
 
 ## Typical workflows (step-by-step)
@@ -184,7 +184,7 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
 
     - CLI:
 
-        ```PowerShell
+        ```powershell
         Export-LnvWmiSettings -ConfigFile "C:\Temp\mysettings.ini" -NoKey
         ```
 
@@ -193,7 +193,7 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
 
     - CLI:
 
-        ```PowerShell
+        ```powershell
         $pw = Read-Host -AsSecureString 'Supervisor password (if required)'
         Import-LnvWmiSettings -ConfigFile 'C:\Temp\mysettings.ini' -K 'MyEncryptKey' -Current $pw
         ```
@@ -203,7 +203,7 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
 
     - CLI (interactive):
 
-        ```PowerShell
+        ```powershell
         Export-LnvPasswordChangeFile -FileLocation 'C:\Temp\Password.ini' -Type pap
         ```
 
@@ -212,7 +212,7 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
 
     - CLI:
 
-        ```PowerShell
+        ```powershell
         $cur = Read-Host -AsSecureString 'Current Supervisor password'
         Submit-LnvFunctionRequest -Method ResetFingerprintData -Value Yes -C $cur
         # or
@@ -225,9 +225,9 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
         - GUI checks/installs Microsoft Graph modules and prompts to sign in.
         - Packaging the Win32 package uses Intune Win32 Content Prep Tool which is available here: [https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe).
 
-    CLI: packaging example (create `.intunewin`):  <!-- Is this real? -->
+    CLI: packaging example (create `.intunewin`):
 
-        ```PowerShell
+        ```powershell
         ConvertTo-LnvIntunePackage -in 'C:\SourceFolder' -setup 'ApplyBIOSConfig.ps1' -out 'C:\Output'
         ```
 

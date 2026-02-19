@@ -1205,7 +1205,7 @@ Save-LnvWmiSettings
 Close-LnvTBCRemoteComputer
 ```
 
-### Password Hangling
+### Password Handling
 
 ```powershell
 # Export password change file
@@ -1288,7 +1288,7 @@ For issues or questions:
 - Check the logs in the configured log folder
 - Verify BIOS/firmware is up to date
 - Ensure WMI services are running
-- For additional support or questions, please vist Lenovo's [Enterprise Client Management Forum](https://forums.lenovo.com/t5/Enterprise-Management-Board/bd-p/sa01_eg)
+- For additional support or questions, please visit Lenovo's [Enterprise Client Management Forum](https://forums.lenovo.com/t5/Enterprise-Management-Board/bd-p/sa01_eg)
 
 ---
 
