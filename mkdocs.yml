@@ -5,6 +5,9 @@ theme:
   name: material
   logo: img/CDRT-REV-Red_s.png
   favicon: img/fav/favicon.ico
+  font:
+    text: Work Sans
+    code: Roboto Mono
   features:
     - navigation.tracking
     - navigation.path

@@ -1,5 +1,8 @@
 # Lenovo View Configuration Guide
 
+!!! warning "Lenovo View is being withdrawn"
+    Beginning in January 2026, Lenovo View will begin to be withdrawn. There may be an additional update released to assist in the automatic removal of this solution. For more details, see the [End of Support statement.](https://support.lenovo.com/us/en/solutions/HT518161)
+
 ## Overview
 
 Lenovo View is a hardware support app for the Lenovo View device driver that enhances camera quality and provides collaboration features for some mainstream video call apps.
