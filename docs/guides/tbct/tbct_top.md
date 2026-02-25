@@ -25,12 +25,15 @@ Think BIOS Config Tool from Lenovo is a free, lightweight HTML Application (HTA)
 
 [https://download.lenovo.com/cdrt/tools/tbct144.zip](https://download.lenovo.com/cdrt/tools/tbct144.zip)
 
+**User Guide link**
+[User Guide](https://docs.lenovocdrt.com/guides/tbct/tbct)
+
 ---
 
 !!! note "Changes:"
     ```text
     1.44: Changed how passwords are handled on desktop devices.
-    
+
     1.42: Removed password from log file.
 
     1.40: Support complex passwords on ThinkPad.
@@ -69,7 +72,7 @@ Think BIOS Config Tool from Lenovo is a free, lightweight HTML Application (HTA)
 
     1.14:  Improved handling of boot order on certain ThinkStation/ThinkCentre models; added version to title
 
-    1.11:  Added command line option to change back to default settings - Eg. ThinkBiosConfig.hta “default=true” 
+    1.11:  Added command line option to change back to default settings - Eg. ThinkBiosConfig.hta “default=true”
     ```
 
 </details>
