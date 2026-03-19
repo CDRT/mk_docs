@@ -21,7 +21,7 @@ Secure Boot
 
     !!! note ""
         * On systems produced after 2020, Secure Boot setting can only be set to **Disable** using WMI when an SVP is passed.
-        * Secure Boot can always be set to **Enable** without a password.
+        * Secure Boot can be set to **Enable** without a password if there is no password set. However, if a password is set then it must be passed.
 
 Secure Boot Mode
 :  Possible modes:
