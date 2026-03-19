@@ -8,7 +8,7 @@ Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSCon
 - Exporting/importing BIOS settings (.ini) with optional encrypted Supervisor password.
 - Creating and importing password-change files.
 - Clearing or changing Supervisor password and fingerprint data.
-- Creating Intune-friendly artifacts (Win32 / Proactive Remediation) and optionally uploading via Microsoft Graph. (currently only available through the UI)
+- Creating Intune-friendly artifacts (Win32 / [Remediations](https://learn.microsoft.com/intune/intune-service/fundamentals/remediations)) and optionally uploading via Microsoft Graph. (currently only available through the UI)
 - Saving and restoring custom defaults.
 
 This solution can be used in combination with the [Lenovo BIOS Certificates Tool and Module](../lbct/index.md) for complete password-less management of BIOS settings on Lenovo commercial PCs.
@@ -25,6 +25,7 @@ This solution can be used in combination with the [Lenovo BIOS Certificates Tool
 
 - Windows with PowerShell (Windows PowerShell or PowerShell Core) and administrative privileges.
 - For Intune packaging/upload: `IntuneWinAppUtil.exe` (tool will be downloaded if missing) and Microsoft Graph modules with appropriate tenant permissions.
+- [Licensed](https://learn.microsoft.com/intune/intune-service/fundamentals/remediations#licensing) for Remediations.
 
 ## Installation / setup recommendations
 
@@ -144,7 +145,7 @@ This panel displays inputs for the following information:
 
 - Select an INI file and optionally a passphrase if the INI includes an encrypted password.
 - Specify a Package Name and Version which will be shown in the Intune portal for Win32 Packages.
-- Choose Win32 and/or Proactive Remediation package types. For Win32 packages, specify a tag file name which will be used in the detection rule.
+- Choose Win32 and/or Remediation package types. For Win32 packages, specify a tag file name which will be used in the detection rule.
 - Click 'Create Intune Package`. The selected packages will be created in separate subfolders in the output folder specified in Preferences. You will be prompted with the option to upload the packages directly to Intune using MS Graph (optional).
 
 ### Preferences
@@ -220,7 +221,7 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
         ```
 
 1. Create an Intune package and optionally upload to Intune (only available in GUI):
-    - GUI: Actions → Create Intune Package: choose INI, output path, select Win32/Proactive Remediation, click Create Package.
+    - GUI: Actions → Create Intune Package: choose INI, output path, select Win32/Remediation, click Create Package.
         - You will be asked if you want to upload the generated content directly to Intune. Only do this if you have the necessary access rights to do so.
         - GUI checks/installs Microsoft Graph modules and prompts to sign in.
         - Packaging the Win32 package uses Intune Win32 Content Prep Tool which is available here: [https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe).
