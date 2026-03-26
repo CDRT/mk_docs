@@ -16,9 +16,9 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 | **Package Extraction** | YES | YES | Extract package contents |
 | **Proxy Configuration Management** | YES | YES | Get/Set proxy and credentials |
 | **Signature Verification** | NO | YES | Test-LnvSignature - verify package authenticity |
-| **Signature Enforcement** | NO | YES | -VerifySignature flag on installation |
-| **Skip Signature Check** | NO | YES | -SkipSignatureCheck for testing environments |
-| **Certificate Validation** | NO | YES (Dedicated DLL) | Lenovo.CertificateValidation.dll |
+| **Signature Enforcement** | N/A | YES | -VerifySignature flag on installation |
+| **Skip Signature Check** | N/A | YES | -SkipSignatureCheck for testing environments |
+| **Certificate Validation** | N/A | YES (Dedicated DLL) | Lenovo.CertificateValidation.dll |
 | **Update History** | LIMITED | YES (Enhanced) | Better history tracking |
 
 ---

@@ -47,7 +47,7 @@ nav:
       - SU Helper Reference: guides/lcv/suhelper.md
       - Commercial Vantage FAQ: guides/lcv/commercial_vantage_faq.md
     - System Update - Update Retriever - Thin Installer:
-      - guides/sus/index.md
+      - Overview: guides/sus/index.md
       - Deployment Guide:
         - guides/sus/su_dg/index.md
         - guides/sus/su_dg/su_dg_ch1.md
@@ -60,19 +60,37 @@ nav:
         - guides/sus/su_dg/su_dg_ch8.md
       - System Update FAQ: guides/sus/system_update_faq.md
     - Dock Manager:
-      - guides/dm/index.md
+      - Overview: guides/dm/index.md
       - Deployment Guide: guides/dm/dm.md
       - Managing with Intune: guides/dm/dm_manage_intune.md
       - Troubleshooting: guides/dm/dm_troubleshooting.md
       - Dock Manager FAQ: guides/dm/dock_manager_faq.md
-    - Think BIOS Config Tool V2:
-      - Overview: guides/tbct_v2/tbct_v2_top.md
-    - Lenovo BIOS Certificate Tool:
-      - guides/lbct/index.md
-    - Lenovo Client Scripting Module:
-      - guides/lcsm/lcsm_top.md
+    - ThinkVantage PowerShell Library:
+      - Think BIOS Config Tool V2:
+        - Overview: guides/tbct_v2/tbct_v2_top.md
+      - Lenovo BIOS Certificate Tool:
+        - Overview: guides/lbct/index.md
+      - Lenovo Client Scripting Module:
+        - Overview: guides/lcsm/lcsm_top.md
+      - Lenovo Client Update Module:
+        - Overview: guides/lcu/index.md
+        - Getting Started:
+          - Installation: guides/lcu/getting-started/installation.md
+          - Quick Start: guides/lcu/getting-started/quick-start.md
+        - Migration Guide:
+          - LSU Client vs Lenovo Client Update: guides/lcu/comparison.md
+        - Functions:
+          - Get-LnvUpdate: guides/lcu/functions/get-lnvupdate.md
+          - Save-LnvUpdate: guides/lcu/functions/save-lnvupdate.md
+          - Install-LnvUpdate: guides/lcu/functions/install-lnvupdate.md
+          - Get-LnvUpdateConfiguration: guides/lcu/functions/get-lnvupdateconfiguration.md
+          - Set-LnvUpdateConfiguration: guides/lcu/functions/set-lnvupdateconfiguration.md
+          - Get-LnvDownload: guides/lcu/functions/get-lnvdownload.md
+          - Get-LnvUpdateSummary: guides/lcu/functions/get-lnvupdatesummary.md
+          - Get-LnvUpdatesRepo: guides/lcu/functions/get-lnvupdatesrepo.md
+          - Expand-LnvUpdate: guides/lcu/functions/expand-lnvupdate.md
     - Lenovo Updates Catalog:
-      - guides/luc/luc_ovrvw.md
+      - Overview: guides/luc/luc_ovrvw.md
       - guides/luc/luc_agnt.md
       - guides/luc/luc_ts.md
     - Lenovo View:
