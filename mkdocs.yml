@@ -231,7 +231,10 @@ nav:
 plugins:
   - search
   - open-in-new-tab
-
+  - redirects:
+      redirect_maps:
+        'guides/tbct/tbct_top.md': 'guides/tbct_v2/tbct_v2_top.md'
+        
 markdown_extensions:
   - admonition
   - tables
