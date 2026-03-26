@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThinkVantage PowerShell Library</title>
+
+    <!-- === FONTS === -->
+    <!-- Clash Display: bold display headlines — technical yet distinctive -->
+    <!-- Satoshi: clean, modern body text -->
+    <!-- JetBrains Mono: code blocks -->
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* ================================================================
+           THEME VARIABLES — Lenovo Dark Command Aesthetic
+           Change colors here to retheme the entire deck
+           ================================================================ */
+        :root {
+            /* Lenovo brand colors */
+            --red:          #E2231A;
+            --red-mid:      rgba(226, 35, 26, 0.35);
+            --red-dim:      rgba(226, 35, 26, 0.10);
+            --red-glow:     0 0 30px rgba(226, 35, 26, 0.45);
+
+            /* Surfaces */
+            --bg:           #090909;
+            --bg-2:         #0f0f0f;
+            --bg-card:      #141414;
+            --bg-card-2:    #191919;
+            --bg-code:      #0d1117;
+
+            /* Text */
+            --white:        #f0f0f0;
+            --text-2:       #8a8a8a;
+            --muted:        #4a4a4a;
+
+            /* Borders */
+            --border:       rgba(255, 255, 255, 0.06);
+            --border-red:   rgba(226, 35, 26, 0.28);
+
+            /* Code syntax (GitHub dark) */
+            --code-comment: #6e7681;
+            --code-kw:      #ff7b72;
+            --code-fn:      #d2a8ff;
+            --code-var:     #ffa657;
+            --code-str:     #a5d6ff;
+            --code-param:   #79c0ff;
+
+            /* Typography */
+            --font-display: 'Clash Display', sans-serif;
+            --font-body:    'Satoshi', sans-serif;
+            --font-mono:    'JetBrains Mono', monospace;
+
+            /* Easing */
+            --ease:         cubic-bezier(0.16, 1, 0.3, 1);
+            --dur:          0.65s;
+        }
+
+        /* ================================================================
+           BASE RESET
+           ================================================================ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.5;
+        }
+
+        /* ================================================================
+           VIEWPORT BASE (MANDATORY) — full contents of viewport-base.css
+           ================================================================ */
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        /* Each slide = exact viewport height */
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Content container with flex for centering */
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-height: 100%;
+            overflow: hidden;
+            padding: var(--slide-padding);
+        }
+
+        /* ALL typography uses clamp() for responsive scaling */
+        :root {
+            --title-size:   clamp(1.5rem, 5vw, 4rem);
+            --h2-size:      clamp(1.25rem, 3.5vw, 2.5rem);
+            --h3-size:      clamp(1rem, 2.5vw, 1.75rem);
+            --body-size:    clamp(0.75rem, 1.5vw, 1.125rem);
+            --small-size:   clamp(0.65rem, 1vw, 0.875rem);
+            --slide-padding:clamp(1rem, 4vw, 4rem);
+            --content-gap:  clamp(0.5rem, 2vw, 2rem);
+            --element-gap:  clamp(0.25rem, 1vw, 1rem);
+        }
+
+        .card, .container, .content-box {
+            max-width: min(90vw, 1000px);
+            max-height: min(80vh, 700px);
+        }
+
+        .feature-list, .bullet-list { gap: clamp(0.4rem, 1vh, 1rem); }
+        .feature-list li, .bullet-list li { font-size: var(--body-size); line-height: 1.4; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(0.5rem, 1.5vw, 1rem);
+        }
+
+        img, .image-container {
+            max-width: 100%;
+            max-height: min(50vh, 400px);
+            object-fit: contain;
+        }
+
+        /* Responsive breakpoints — aggressive scaling for smaller viewports */
+        @media (max-height: 700px) {
+            :root {
+                --slide-padding: clamp(0.75rem, 3vw, 2rem);
+                --content-gap:   clamp(0.4rem, 1.5vw, 1rem);
+                --title-size:    clamp(1.25rem, 4.5vw, 2.5rem);
+                --h2-size:       clamp(1rem, 3vw, 1.75rem);
+            }
+        }
+
+        @media (max-height: 600px) {
+            :root {
+                --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem);
+                --content-gap:   clamp(0.3rem, 1vw, 0.75rem);
+                --title-size:    clamp(1.1rem, 4vw, 2rem);
+                --body-size:     clamp(0.7rem, 1.2vw, 0.95rem);
+            }
+            .nav-dots, .keyboard-hint, .decorative { display: none; }
+        }
+
+        @media (max-height: 500px) {
+            :root {
+                --slide-padding: clamp(0.4rem, 2vw, 1rem);
+                --title-size:    clamp(1rem, 3.5vw, 1.5rem);
+                --h2-size:       clamp(0.9rem, 2.5vw, 1.25rem);
+                --body-size:     clamp(0.65rem, 1vw, 0.85rem);
+            }
+        }
+
+        @media (max-width: 600px) {
+            :root { --title-size: clamp(1.25rem, 7vw, 2.5rem); }
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.2s !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+
+        /* ================================================================
+           SLIDE BACKGROUNDS
+           ================================================================ */
+        .slide-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: var(--bg);
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        /* Subtle red-tinted grid on every slide */
+        .slide-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(226, 35, 26, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(226, 35, 26, 0.025) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* Radial glow orbs — position varies per slide */
+        .glow-orb {
+            position: absolute;
+            width: 45vw;
+            height: 45vw;
+            border-radius: 50%;
+            filter: blur(90px);
+            animation: orb-pulse 9s ease-in-out infinite;
+        }
+
+        @keyframes orb-pulse {
+            0%, 100% { opacity: 0.12; transform: scale(1); }
+            50%       { opacity: 0.22; transform: scale(1.08); }
+        }
+
+        /* All content sits above the background */
+        .slide-content { z-index: 1; }
+        .slide-num      { z-index: 1; }
+
+        /* ================================================================
+           PROGRESS BAR
+           ================================================================ */
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 2px;
+            background: var(--red);
+            box-shadow: 0 0 12px rgba(226, 35, 26, 0.8);
+            z-index: 200;
+            width: 0;
+            transition: width 0.4s ease;
+        }
+
+        /* ================================================================
+           NAVIGATION DOTS
+           ================================================================ */
+        .nav-dots {
+            position: fixed;
+            right: clamp(10px, 1.8vw, 20px);
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            z-index: 200;
+        }
+
+        .nav-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--muted);
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s var(--ease);
+        }
+
+        .nav-dot.active {
+            background: var(--red);
+            box-shadow: 0 0 8px rgba(226, 35, 26, 0.7);
+            transform: scale(1.6);
+        }
+
+        .nav-dot:hover:not(.active) {
+            background: var(--text-2);
+            transform: scale(1.3);
+        }
+
+        /* ================================================================
+           SLIDE NUMBER FOOTER
+           ================================================================ */
+        .slide-num {
+            position: absolute;
+            bottom: clamp(12px, 2vh, 24px);
+            left: var(--slide-padding);
+            font-family: var(--font-mono);
+            font-size: clamp(0.5rem, 0.75vw, 0.65rem);
+            color: var(--muted);
+            letter-spacing: 0.1em;
+        }
+
+        /* ================================================================
+           REVEAL ANIMATIONS
+           ================================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity var(--dur) var(--ease),
+                        transform var(--dur) var(--ease);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-28px);
+            transition: opacity var(--dur) var(--ease),
+                        transform var(--dur) var(--ease);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.93);
+            transition: opacity var(--dur) var(--ease),
+                        transform var(--dur) var(--ease);
+        }
+
+        .slide.visible .reveal,
+        .slide.visible .reveal-left,
+        .slide.visible .reveal-scale {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Explicit delay utilities (use on individual elements for stagger) */
+        .d1 { transition-delay: 0.05s; }
+        .d2 { transition-delay: 0.18s; }
+        .d3 { transition-delay: 0.30s; }
+        .d4 { transition-delay: 0.42s; }
+        .d5 { transition-delay: 0.54s; }
+        .d6 { transition-delay: 0.66s; }
+
+        /* ================================================================
+           SHARED UI COMPONENTS
+           ================================================================ */
+        .accent { color: var(--red); }
+
+        /* Module / section label badge above headings */
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: clamp(0.55rem, 0.85vw, 0.7rem);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--red);
+            border: 1px solid var(--border-red);
+            padding: 3px 10px;
+            border-radius: 2px;
+            margin-bottom: clamp(0.4rem, 1.2vh, 1rem);
+        }
+
+        /* Red accent line */
+        .divider {
+            width: clamp(28px, 3.5vw, 48px);
+            height: 2px;
+            background: var(--red);
+            margin: clamp(0.5rem, 1.2vh, 1rem) 0;
+            box-shadow: var(--red-glow);
+        }
+
+        /* Pill tags */
+        .pill {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: clamp(0.5rem, 0.75vw, 0.62rem);
+            color: var(--red);
+            border: 1px solid var(--border-red);
+            background: var(--red-dim);
+            padding: 3px 9px;
+            border-radius: 100px;
+            letter-spacing: 0.05em;
+        }
+
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(5px, 0.8vw, 8px);
+        }
+
+        /* Logo on white chip (needed because logo has black text) */
+        .logo-chip {
+            display: inline-block;
+            background: #fff;
+            padding: clamp(5px, 0.9vh, 10px) clamp(10px, 1.8vw, 20px);
+            border-radius: 3px;
+        }
+
+        .logo-chip img {
+            display: block;
+            height: clamp(18px, 2.8vh, 34px);
+            width: auto;
+            max-height: 34px;
+        }
+
+        /* ================================================================
+           SLIDE 1: TITLE SLIDE
+           ================================================================ */
+        .title-slide .slide-content {
+            justify-content: center;
+            align-items: flex-start;
+            padding: var(--slide-padding) clamp(2.5rem, 9vw, 9rem);
+            gap: 0;
+        }
+
+        .title-slide .logo-wrap {
+            margin-bottom: clamp(1rem, 2.5vh, 2rem);
+        }
+
+        .title-slide h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 7.5vw, 6.5rem);
+            font-weight: 700;
+            line-height: 0.92;
+            letter-spacing: -0.03em;
+            color: var(--white);
+            margin-bottom: clamp(0.75rem, 1.8vh, 1.5rem);
+        }
+
+        .title-slide .tagline {
+            font-family: var(--font-mono);
+            font-size: clamp(0.7rem, 1.1vw, 0.9rem);
+            color: var(--red);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: clamp(0.5rem, 1.5vh, 1.25rem);
+        }
+
+        .title-slide .subtitle {
+            font-size: clamp(0.8rem, 1.4vw, 1.05rem);
+            color: var(--text-2);
+            line-height: 1.65;
+            max-width: 52ch;
+            margin-bottom: clamp(1rem, 2.5vh, 2rem);
+        }
+
+        .title-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(5px, 0.8vw, 8px);
+        }
+
+        .title-tag {
+            font-family: var(--font-mono);
+            font-size: clamp(0.55rem, 0.8vw, 0.68rem);
+            color: var(--text-2);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 2px;
+            letter-spacing: 0.04em;
+        }
+
+        /* Large decorative letters in the corner */
+        .bg-letters {
+            position: absolute;
+            right: clamp(1.5rem, 5vw, 5rem);
+            bottom: clamp(1.5rem, 4vh, 3.5rem);
+            font-family: var(--font-display);
+            font-size: clamp(5rem, 18vw, 15rem);
+            font-weight: 700;
+            color: rgba(226, 35, 26, 0.055);
+            line-height: 1;
+            letter-spacing: -0.04em;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+        }
+
+        /* ================================================================
+           SECTION BREAK SLIDES
+           ================================================================ */
+        .section-break .slide-content {
+            justify-content: center;
+            padding: var(--slide-padding) clamp(2.5rem, 9vw, 9rem);
+        }
+
+        /* Large ghost section number layered behind heading */
+        .section-num {
+            font-family: var(--font-display);
+            font-size: clamp(5rem, 16vw, 13rem);
+            font-weight: 700;
+            color: rgba(226, 35, 26, 0.08);
+            line-height: 1;
+            letter-spacing: -0.05em;
+            margin-bottom: calc(-1 * clamp(2rem, 5vw, 4.5rem));
+            pointer-events: none;
+        }
+
+        .section-break h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5.5vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-break .sect-desc {
+            font-size: clamp(0.78rem, 1.35vw, 1rem);
+            color: var(--text-2);
+            max-width: 52ch;
+            margin-top: clamp(0.5rem, 1.2vh, 1rem);
+            line-height: 1.65;
+        }
+
+        .section-break .pills {
+            margin-top: clamp(0.75rem, 1.8vh, 1.5rem);
+        }
+
+        /* ================================================================
+           CONTENT SLIDES (bullet list)
+           ================================================================ */
+        .content-slide .slide-content {
+            padding: var(--slide-padding) clamp(2.5rem, 9vw, 9rem);
+        }
+
+        .content-slide h2 {
+            font-family: var(--font-display);
+            font-size: var(--h2-size);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.12;
+            margin-bottom: clamp(0.75rem, 1.8vh, 1.5rem);
+        }
+
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.55rem, 1.3vh, 1.1rem);
+        }
+
+        .bullet-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: clamp(8px, 1.2vw, 14px);
+            font-size: clamp(0.72rem, 1.3vw, 1rem);
+            line-height: 1.55;
+            color: var(--text-2);
+        }
+
+        .bullet-list li .bull-icon {
+            color: var(--red);
+            font-size: clamp(0.5rem, 0.8vw, 0.65rem);
+            flex-shrink: 0;
+            margin-top: 0.35em;
+            letter-spacing: -0.1em;
+        }
+
+        .bullet-list li strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .bullet-list li code {
+            font-family: var(--font-mono);
+            font-size: 0.88em;
+            color: var(--red);
+            background: var(--red-dim);
+            padding: 1px 5px;
+            border-radius: 2px;
+        }
+
+        /* ================================================================
+           MODULE OVERVIEW CARDS (Slide 2)
+           ================================================================ */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(0.7rem, 1.4vw, 1.2rem);
+        }
+
+        @media (max-width: 768px) {
+            .module-grid { grid-template-columns: 1fr; }
+        }
+
+        .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: clamp(0.9rem, 1.8vw, 1.5rem);
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .module-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--red) 0%, transparent 70%);
+        }
+
+        .module-card:hover {
+            background: var(--bg-card-2);
+            border-color: var(--border-red);
+        }
+
+        .module-icon {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            margin-bottom: clamp(0.4rem, 0.9vh, 0.7rem);
+            display: block;
+        }
+
+        .module-card h3 {
+            font-family: var(--font-mono);
+            font-size: clamp(0.58rem, 0.9vw, 0.72rem);
+            color: var(--red);
+            font-weight: 700;
+            margin-bottom: clamp(3px, 0.5vh, 6px);
+            letter-spacing: 0.02em;
+        }
+
+        .module-card p {
+            font-size: clamp(0.62rem, 0.95vw, 0.78rem);
+            color: var(--text-2);
+            line-height: 1.55;
+        }
+
+        .module-badge {
+            display: inline-block;
+            margin-top: clamp(5px, 0.9vh, 8px);
+            font-family: var(--font-mono);
+            font-size: clamp(0.48rem, 0.65vw, 0.55rem);
+            color: var(--muted);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 2px 7px;
+            border-radius: 2px;
+        }
+
+        .footer-note {
+            font-size: clamp(0.55rem, 0.82vw, 0.68rem);
+            color: var(--muted);
+            margin-top: clamp(0.5rem, 1.2vh, 0.9rem);
+            font-family: var(--font-mono);
+        }
+
+        /* ================================================================
+           FEATURE GRID SLIDES (6 cards)
+           ================================================================ */
+        .grid-slide .slide-content {
+            padding: var(--slide-padding) clamp(2.5rem, 9vw, 9rem);
+        }
+
+        .grid-slide h2 {
+            font-family: var(--font-display);
+            font-size: var(--h2-size);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: clamp(0.7rem, 1.6vh, 1.4rem);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(0.5rem, 1.1vw, 0.9rem);
+        }
+
+        @media (max-width: 900px) {
+            .feature-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-top: 2px solid var(--red);
+            padding: clamp(0.7rem, 1.3vw, 1.1rem);
+            border-radius: 3px;
+            transition: background 0.25s, border-color 0.25s;
+        }
+
+        .feature-card:hover {
+            background: var(--bg-card-2);
+        }
+
+        .feature-card .fc-cmd {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: clamp(0.55rem, 0.82vw, 0.68rem);
+            color: var(--red);
+            font-weight: 700;
+            margin-bottom: clamp(2px, 0.4vh, 4px);
+            letter-spacing: 0.01em;
+        }
+
+        .feature-card .fc-name {
+            font-size: clamp(0.65rem, 0.95vw, 0.78rem);
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: clamp(2px, 0.4vh, 5px);
+        }
+
+        .feature-card .fc-desc {
+            font-size: clamp(0.58rem, 0.82vw, 0.68rem);
+            color: var(--muted);
+            line-height: 1.45;
+        }
+
+        /* ================================================================
+           CODE SLIDES
+           ================================================================ */
+        .code-slide .slide-content {
+            padding: var(--slide-padding) clamp(2.5rem, 9vw, 9rem);
+        }
+
+        .code-slide h2 {
+            font-family: var(--font-display);
+            font-size: var(--h2-size);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: clamp(0.6rem, 1.5vh, 1.2rem);
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: clamp(0.4rem, 0.9vh, 0.75rem);
+        }
+
+        .ps-badge {
+            font-family: var(--font-mono);
+            font-size: clamp(0.48rem, 0.7vw, 0.58rem);
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--red);
+            background: var(--red-dim);
+            border: 1px solid var(--border-red);
+            padding: 2px 7px;
+            border-radius: 2px;
+        }
+
+        .code-filename {
+            font-family: var(--font-mono);
+            font-size: clamp(0.5rem, 0.75vw, 0.62rem);
+            color: var(--muted);
+        }
+
+        /* Terminal window chrome */
+        .code-block {
+            background: var(--bg-code);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .code-titlebar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: clamp(7px, 1.1vh, 11px) clamp(10px, 1.5vw, 16px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .code-titlebar .dot {
+            width: 9px; height: 9px;
+            border-radius: 50%;
+        }
+
+        .code-titlebar .dot-r { background: #ff5f57; }
+        .code-titlebar .dot-y { background: #febc2e; }
+        .code-titlebar .dot-g { background: #28c840; }
+
+        .code-body {
+            display: block;
+            padding: clamp(0.7rem, 1.4vw, 1.2rem);
+            font-family: var(--font-mono);
+            font-size: clamp(0.6rem, 1.02vw, 0.82rem);
+            line-height: 1.72;
+            white-space: pre;
+            overflow-x: hidden;
+        }
+
+        /* Syntax token colors */
+        .c  { color: var(--code-comment); }         /* comment */
+        .kw { color: var(--code-kw); }              /* keyword */
+        .fn { color: var(--code-fn); }              /* cmdlet/function */
+        .v  { color: var(--code-var); }             /* $variable */
+        .s  { color: var(--code-str); }             /* "string" */
+        .p  { color: var(--code-param); }           /* -Parameter */
+        .op { color: var(--code-kw); }              /* | = > */
+        .n  { color: var(--white); }                /* normal text */
+
+        .code-note {
+            font-size: clamp(0.55rem, 0.8vw, 0.65rem);
+            color: var(--muted);
+            margin-top: clamp(0.4rem, 0.9vh, 0.7rem);
+            font-family: var(--font-mono);
+            line-height: 1.5;
+        }
+
+        .code-note code {
+            color: var(--red);
+            background: var(--red-dim);
+            padding: 1px 4px;
+            border-radius: 2px;
+        }
+
+        /* ================================================================
+           CLOSING SLIDE
+           ================================================================ */
+        .closing-slide .slide-content {
+            justify-content: center;
+            align-items: flex-start;
+            padding: var(--slide-padding) clamp(2.5rem, 9vw, 9rem);
+        }
+
+        .closing-slide h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4.2vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: clamp(0.5rem, 1.2vh, 1rem);
+        }
+
+        .closing-slide .closing-desc {
+            font-size: clamp(0.75rem, 1.3vw, 1rem);
+            color: var(--text-2);
+            max-width: 55ch;
+            line-height: 1.65;
+            margin-bottom: clamp(0.8rem, 1.8vh, 1.5rem);
+        }
+
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.45rem, 1vh, 0.85rem);
+        }
+
+        .resource-row {
+            display: flex;
+            align-items: baseline;
+            gap: clamp(8px, 1.5vw, 14px);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: clamp(0.3rem, 0.7vh, 0.6rem);
+        }
+
+        .resource-row:last-child { border-bottom: none; }
+
+        .res-label {
+            font-family: var(--font-mono);
+            font-size: clamp(0.52rem, 0.78vw, 0.62rem);
+            color: var(--red);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            min-width: clamp(50px, 7vw, 70px);
+            flex-shrink: 0;
+        }
+
+        .res-value {
+            font-family: var(--font-mono);
+            font-size: clamp(0.58rem, 0.88vw, 0.7rem);
+            color: var(--text-2);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- === PROGRESS BAR === -->
+    <div class="progress-bar" id="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+
+    <!-- === NAVIGATION DOTS === -->
+    <nav class="nav-dots" id="navDots" aria-label="Slide navigation"></nav>
+
+
+    <!-- ================================================================
+         SLIDE 01 — TITLE
+         ================================================================ -->
+    <section class="slide title-slide" aria-label="Title: ThinkVantage PowerShell Library">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.6) 0%, transparent 70%); top: -12%; left: -8%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="logo-wrap logo-chip reveal d1">
+                <img src="logos/TVanLgPos_TM3.png" alt="ThinkVantage">
+            </div>
+
+            <div class="tagline reveal d2">PowerShell Library</div>
+
+            <h1 class="reveal d3">Automate.<br><span class="accent">Everything.</span></h1>
+
+            <p class="subtitle reveal d4">
+                A collection of PowerShell modules and tools for managing<br>
+                Lenovo ThinkPad and ThinkStation fleets at enterprise scale.
+            </p>
+
+            <div class="title-tags reveal d5">
+                <span class="title-tag">Lenovo.Client.Update</span>
+                <span class="title-tag">Lenovo.BIOS.Config</span>
+                <span class="title-tag">Lenovo.Bios.Certificates</span>
+                <span class="title-tag">PowerShell Gallery</span>
+                <span class="title-tag">Intune Ready</span>
+            </div>
+        </div>
+
+        <div class="bg-letters" aria-hidden="true">TV</div>
+        <div class="slide-num">01 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 02 — LIBRARY OVERVIEW
+         ================================================================ -->
+    <section class="slide" aria-label="Library overview: three modules">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.35) 0%, transparent 70%); bottom: -15%; right: -8%;"></div>
+        </div>
+
+        <div class="slide-content" style="padding: var(--slide-padding) clamp(2.5rem, 9vw, 9rem);">
+            <div class="section-label reveal d1">The Library</div>
+            <h2 class="reveal d2" style="font-family:var(--font-display); font-size:var(--h2-size); font-weight:700; letter-spacing:-0.02em; margin-bottom:clamp(0.75rem,1.8vh,1.5rem);">
+                Three Powerful <span class="accent">Modules</span>
+            </h2>
+
+            <div class="module-grid reveal d3">
+                <div class="module-card">
+                    <span class="module-icon">⚡</span>
+                    <h3>Lenovo.Client.Update</h3>
+                    <p>Discover, download, and install driver, BIOS/UEFI, and firmware updates on Lenovo PCs. 12 cmdlets with OSD, repository, and signature verification support.</p>
+                    <span class="module-badge">Install-Module Lenovo.Client.Update</span>
+                </div>
+                <div class="module-card">
+                    <span class="module-icon">🔧</span>
+                    <h3>Lenovo.BIOS.Config</h3>
+                    <p>Read and modify BIOS settings via WMI. Export/import INI profiles with encrypted passwords. Package configurations for Microsoft Intune deployment.</p>
+                    <span class="module-badge">Install-Module Lenovo.BIOS.Config</span>
+                </div>
+                <div class="module-card">
+                    <span class="module-icon">🔐</span>
+                    <h3>Lenovo.Bios.Certificates</h3>
+                    <p>Replace Supervisor passwords with X.509 certificates. Sign BIOS commands cryptographically via local key files or Azure Key Vault — no password transmitted.</p>
+                    <span class="module-badge">Install-Module Lenovo.Bios.Certificates</span>
+                </div>
+            </div>
+
+            <div class="divider reveal d4"></div>
+            <p class="footer-note reveal d5">
+                All modules on PowerShell Gallery &nbsp;·&nbsp; Requires Windows 10/11 &nbsp;·&nbsp; PowerShell 5.0+ &nbsp;·&nbsp; Administrator privileges
+            </p>
+        </div>
+
+        <div class="slide-num">02 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 03 — WHY AUTOMATE
+         ================================================================ -->
+    <section class="slide content-slide" aria-label="Why automate with ThinkVantage">
+        <div class="slide-bg"></div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Benefits</div>
+            <h2 class="reveal d2">Why <span class="accent">Automate</span> with ThinkVantage?</h2>
+
+            <ul class="bullet-list">
+                <li class="reveal d2">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Consistent, repeatable deployments</strong> — Script-driven updates eliminate manual steps and configuration drift across your entire device fleet.</span>
+                </li>
+                <li class="reveal d3">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Full PowerShell pipeline support</strong> — Cmdlets are designed for chaining. Discover, download, and install in a single one-liner.</span>
+                </li>
+                <li class="reveal d3">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Intune and SCCM ready</strong> — Package BIOS configurations as Win32 apps or Remediations and deploy via Microsoft Intune with MS Graph upload.</span>
+                </li>
+                <li class="reveal d4">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Enterprise security built in</strong> — Digital signature verification, certificate-based BIOS auth, and Azure Key Vault integration for zero-trust deployments.</span>
+                </li>
+                <li class="reveal d5">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>OSD and task sequence optimized</strong> — Dynamically install applicable updates during bare-metal deployments without maintaining static driver packages.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="slide-num">03 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 04 — SECTION BREAK: LCU
+         ================================================================ -->
+    <section class="slide section-break" aria-label="Section: Lenovo.Client.Update">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.45) 0%, transparent 65%); top: 5%; right: 5%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="section-num reveal d1" aria-hidden="true">01</div>
+            <h2 class="reveal d2">Lenovo<span class="accent">.</span>Client<span class="accent">.</span>Update</h2>
+            <p class="sect-desc reveal d3">
+                The official successor to LSUClient — Lenovo's PowerShell module for managing driver, BIOS/UEFI, and firmware updates on commercial ThinkPad and ThinkStation products.
+            </p>
+            <div class="pills reveal d4">
+                <span class="pill">12 Cmdlets</span>
+                <span class="pill">OSD Task Sequence</span>
+                <span class="pill">Signature Verification</span>
+                <span class="pill">Custom Repository</span>
+                <span class="pill">LSUClient Compatible</span>
+            </div>
+        </div>
+
+        <div class="slide-num">04 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 05 — LCU CORE COMMANDS
+         ================================================================ -->
+    <section class="slide grid-slide" aria-label="LCU core cmdlets">
+        <div class="slide-bg"></div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Lenovo.Client.Update</div>
+            <h2 class="reveal d2">Core <span class="accent">Cmdlets</span></h2>
+
+            <div class="feature-grid reveal d3">
+                <div class="feature-card">
+                    <span class="fc-cmd">Get-LnvUpdate</span>
+                    <div class="fc-name">Discover Updates</div>
+                    <div class="fc-desc">Query applicable updates for this device or a target model. Returns only needed updates by default.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Save-LnvUpdate</span>
+                    <div class="fc-name">Download Updates</div>
+                    <div class="fc-desc">Download packages to a local directory with optional progress display. Supports custom repositories.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Install-LnvUpdate</span>
+                    <div class="fc-name">Install Updates</div>
+                    <div class="fc-desc">Install packages silently. Enforce -VerifySignature or export install history to WMI with -ExportToWMI.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Get-LnvUpdatesRepo</span>
+                    <div class="fc-name">Build Repository</div>
+                    <div class="fc-desc">Create a local update repository filtered by package type and reboot behavior — ideal for OSD staging.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Get-LnvUpdateSummary</span>
+                    <div class="fc-name">Compliance Check</div>
+                    <div class="fc-desc">Get an instant snapshot of update compliance status for the current device. Useful in Intune Remediations.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Get-LnvUpdateHistory</span>
+                    <div class="fc-name">Audit Trail</div>
+                    <div class="fc-desc">Retrieve full installation history. Filter by date range for compliance reporting and change tracking.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-num">05 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 06 — LCU COMPLETE WORKFLOW
+         ================================================================ -->
+    <section class="slide code-slide" aria-label="LCU complete workflow example">
+        <div class="slide-bg"></div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Lenovo.Client.Update</div>
+            <h2 class="reveal d2">Complete Workflow in <span class="accent">3 Lines</span></h2>
+
+            <div class="code-header reveal d3">
+                <span class="ps-badge">PS</span>
+                <span class="code-filename">update-workflow.ps1</span>
+            </div>
+
+            <div class="code-block reveal d4">
+                <div class="code-titlebar">
+                    <span class="dot dot-r"></span>
+                    <span class="dot dot-y"></span>
+                    <span class="dot dot-g"></span>
+                </div>
+                <code class="code-body"><span class="c"># 1. Discover applicable updates for this machine</span>
+<span class="v">$updates</span> <span class="op">=</span> <span class="fn">Get-LnvUpdate</span>
+<span class="v">$updates</span> <span class="op">|</span> <span class="fn">Format-Table</span> <span class="p">-Property</span> <span class="n">Title, Category, ReleaseDate</span>
+
+<span class="c"># 2. Download to a local staging directory</span>
+<span class="v">$updates</span> <span class="op">|</span> <span class="fn">Save-LnvUpdate</span> <span class="p">-Path</span> <span class="s">"C:\Lenovo\Updates"</span> <span class="p">-ShowProgress</span>
+
+<span class="c"># 3. Install with verbose output</span>
+<span class="v">$updates</span> <span class="op">|</span> <span class="fn">Install-LnvUpdate</span> <span class="p">-Verbose</span></code>
+            </div>
+
+            <p class="code-note reveal d5">
+                Tip: Filter for silent-only packages first — <code>Where-Object { $_.Installer.Unattended }</code> — before Save and Install.
+            </p>
+        </div>
+
+        <div class="slide-num">06 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 07 — LCU OSD TASK SEQUENCE
+         ================================================================ -->
+    <section class="slide code-slide" aria-label="LCU OSD task sequence example">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.3) 0%, transparent 70%); bottom: -5%; right: 5%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Lenovo.Client.Update</div>
+            <h2 class="reveal d2">Built for <span class="accent">OS Deployment</span></h2>
+
+            <div class="code-header reveal d3">
+                <span class="ps-badge">PS</span>
+                <span class="code-filename">osd-task-sequence.ps1</span>
+            </div>
+
+            <div class="code-block reveal d4">
+                <div class="code-titlebar">
+                    <span class="dot dot-r"></span>
+                    <span class="dot dot-y"></span>
+                    <span class="dot dot-g"></span>
+                </div>
+                <code class="code-body"><span class="c"># Stage a local repo — exclude auto-restart packages (type 1)</span>
+<span class="v">$repo</span> <span class="op">=</span> <span class="s">'C:\Lenovo_Updates'</span>
+<span class="fn">Get-LnvUpdatesRepo</span> <span class="p">-RepositoryPath</span> <span class="v">$repo</span> <span class="p">-RebootType</span> <span class="s">'0,3,5'</span>
+
+<span class="c"># First pass: install applicable updates, log history to WMI</span>
+<span class="fn">Get-LnvUpdate</span> <span class="p">-Repository</span> <span class="v">$repo</span> <span class="op">|</span>
+    <span class="fn">Install-LnvUpdate</span> <span class="p">-Path</span> <span class="v">$repo</span> <span class="p">-ExportToWMI</span> <span class="p">-Verbose</span>
+
+<span class="c"># Second pass: catches chained driver dependencies</span>
+<span class="fn">Get-LnvUpdate</span> <span class="p">-Repository</span> <span class="v">$repo</span> <span class="op">|</span>
+    <span class="fn">Install-LnvUpdate</span> <span class="p">-Path</span> <span class="v">$repo</span> <span class="p">-ExportToWMI</span></code>
+            </div>
+
+            <p class="code-note reveal d5">
+                Run Get-LnvUpdate twice — some drivers only become applicable after a prerequisite is installed.
+            </p>
+        </div>
+
+        <div class="slide-num">07 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 08 — LCU SECURITY
+         ================================================================ -->
+    <section class="slide content-slide" aria-label="LCU security features">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.28) 0%, transparent 70%); top: 20%; left: 50%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Lenovo.Client.Update</div>
+            <h2 class="reveal d2">Enterprise-Grade <span class="accent">Security</span></h2>
+
+            <ul class="bullet-list">
+                <li class="reveal d2">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Digital signature verification</strong> — Every package can be tested with <code>Test-LnvSignature</code> before installation to confirm Lenovo authenticity.</span>
+                </li>
+                <li class="reveal d3">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Enforced installation signing</strong> — Pass <code>-VerifySignature</code> to <code>Install-LnvUpdate</code> to block any unsigned or tampered package from running.</span>
+                </li>
+                <li class="reveal d3">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Dedicated certificate DLL</strong> — <code>Lenovo.CertificateValidation.dll</code> provides enhanced cryptographic verification beyond what LSUClient offered.</span>
+                </li>
+                <li class="reveal d4">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Drop-in LSUClient migration</strong> — LCU is API-compatible. Rename cmdlets (<code>Get-LSUpdate</code> → <code>Get-LnvUpdate</code>) and immediately gain all new security features.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="slide-num">08 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 09 — SECTION BREAK: TBCT V2
+         ================================================================ -->
+    <section class="slide section-break" aria-label="Section: Think BIOS Config Tool V2">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.42) 0%, transparent 65%); bottom: 5%; left: 5%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="section-num reveal d1" aria-hidden="true">02</div>
+            <h2 class="reveal d2">Think BIOS Config<br><span class="accent">Tool V2</span></h2>
+            <p class="sect-desc reveal d3">
+                A PowerShell WPF GUI and companion module for reading, modifying, and deploying BIOS settings on Lenovo commercial PCs via WMI. Replaces the older HTA-based tool.
+            </p>
+            <div class="pills reveal d4">
+                <span class="pill">GUI + CLI</span>
+                <span class="pill">INI Export / Import</span>
+                <span class="pill">Intune Packaging</span>
+                <span class="pill">MS Graph Upload</span>
+                <span class="pill">Custom Defaults</span>
+            </div>
+        </div>
+
+        <div class="slide-num">09 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 10 — TBCT V2 FEATURES
+         ================================================================ -->
+    <section class="slide grid-slide" aria-label="Think BIOS Config Tool V2 features">
+        <div class="slide-bg"></div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Think BIOS Config Tool V2</div>
+            <h2 class="reveal d2">Everything in One <span class="accent">Tool</span></h2>
+
+            <div class="feature-grid reveal d3">
+                <div class="feature-card">
+                    <span class="fc-cmd">Settings Panel</span>
+                    <div class="fc-name">Interactive BIOS Editor</div>
+                    <div class="fc-desc">View and modify all BIOS settings interactively. Changed values highlighted until saved. Revert or reset to defaults.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Generate INI</span>
+                    <div class="fc-name">Export Configuration</div>
+                    <div class="fc-desc">Snapshot current BIOS settings to an INI file. Optionally encrypt the Supervisor password using a passphrase.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Apply Settings</span>
+                    <div class="fc-name">Import Configuration</div>
+                    <div class="fc-desc">Apply a saved INI profile to a target device. Handles SVP-protected and password-change files automatically.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Create Intune Package</span>
+                    <div class="fc-name">Intune Deployment</div>
+                    <div class="fc-desc">Generate Win32 apps or Remediation packages from an INI. Optionally upload directly to Intune via Microsoft Graph.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Password Management</span>
+                    <div class="fc-name">SVP Operations</div>
+                    <div class="fc-desc">Change, clear, or create password-change files for remote Supervisor Password management across the fleet.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Custom Defaults</span>
+                    <div class="fc-name">Baseline Profiles</div>
+                    <div class="fc-desc">Save a set of settings as Custom Defaults — revert any device to your corporate BIOS baseline with one click.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-num">10 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 11 — TBCT V2 CLI WORKFLOWS
+         ================================================================ -->
+    <section class="slide code-slide" aria-label="Think BIOS Config Tool V2 CLI workflows">
+        <div class="slide-bg"></div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Think BIOS Config Tool V2</div>
+            <h2 class="reveal d2">Script-Driven <span class="accent">BIOS Deployment</span></h2>
+
+            <div class="code-header reveal d3">
+                <span class="ps-badge">PS</span>
+                <span class="code-filename">bios-deploy-workflow.ps1</span>
+            </div>
+
+            <div class="code-block reveal d4">
+                <div class="code-titlebar">
+                    <span class="dot dot-r"></span>
+                    <span class="dot dot-y"></span>
+                    <span class="dot dot-g"></span>
+                </div>
+                <code class="code-body"><span class="c"># Export current BIOS settings to an INI file</span>
+<span class="fn">Export-LnvWmiSettings</span> <span class="p">-ConfigFile</span> <span class="s">"C:\Temp\corp-bios.ini"</span> <span class="p">-NoKey</span>
+
+<span class="c"># Apply INI to a target device (prompts for Supervisor Password)</span>
+<span class="v">$svp</span> <span class="op">=</span> <span class="fn">Read-Host</span> <span class="p">-AsSecureString</span> <span class="s">'Supervisor Password'</span>
+<span class="fn">Import-LnvWmiSettings</span> <span class="p">-ConfigFile</span> <span class="s">'C:\Temp\corp-bios.ini'</span> <span class="p">-Current</span> <span class="v">$svp</span>
+
+<span class="c"># Launch the GUI (elevated terminal required)</span>
+<span class="fn">ThinkBIOSConfigUI</span>   <span class="c"># Actions → Create Intune Package → Upload</span></code>
+            </div>
+        </div>
+
+        <div class="slide-num">11 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 12 — SECTION BREAK: LBCT
+         ================================================================ -->
+    <section class="slide section-break" aria-label="Section: Lenovo.Bios.Certificates">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.42) 0%, transparent 65%); top: 15%; right: 5%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="section-num reveal d1" aria-hidden="true">03</div>
+            <h2 class="reveal d2">Lenovo.Bios<span class="accent">.</span><br>Certificates</h2>
+            <p class="sect-desc reveal d3">
+                Replace Supervisor passwords with X.509 certificates. BIOS commands are cryptographically signed — the private key never leaves its secure store.
+            </p>
+            <div class="pills reveal d4">
+                <span class="pill">Password-Free BIOS</span>
+                <span class="pill">Azure Key Vault</span>
+                <span class="pill">Signed WMI Commands</span>
+                <span class="pill">Batch Config Files</span>
+                <span class="pill">PKI / PEM / DER</span>
+            </div>
+        </div>
+
+        <div class="slide-num">12 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 13 — LBCT AZURE KEY VAULT
+         ================================================================ -->
+    <section class="slide code-slide" aria-label="LBCT Azure Key Vault integration">
+        <div class="slide-bg"></div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Lenovo.Bios.Certificates</div>
+            <h2 class="reveal d2">Azure <span class="accent">Key Vault</span> Integration</h2>
+
+            <div class="code-header reveal d3">
+                <span class="ps-badge">PS</span>
+                <span class="code-filename">bios-cert-keyvault.ps1</span>
+            </div>
+
+            <div class="code-block reveal d4">
+                <div class="code-titlebar">
+                    <span class="dot dot-r"></span>
+                    <span class="dot dot-y"></span>
+                    <span class="dot dot-g"></span>
+                </div>
+                <code class="code-body"><span class="c"># Authenticate to Azure</span>
+<span class="fn">Connect-AzAccount</span>
+
+<span class="c"># Sign a single BIOS setting change via Key Vault</span>
+<span class="v">$cmd</span> <span class="op">=</span> <span class="fn">Get-LnvSignedWmiCommand</span> <span class="p">-Method</span> <span class="n">SetBiosSetting</span> <span class="op">`</span>
+    <span class="p">-VaultName</span> <span class="s">"CorpKeyVault"</span> <span class="p">-KeyName</span> <span class="s">"BiosSigningKey"</span> <span class="op">`</span>
+    <span class="p">-SettingName</span> <span class="s">"WakeOnLAN"</span> <span class="p">-SettingValue</span> <span class="s">"Enable"</span>
+<span class="fn">Submit-LnvBiosChange</span> <span class="p">-Command</span> <span class="v">$cmd</span>
+
+<span class="c"># Or process an entire INI config batch</span>
+<span class="fn">Convert-LnvBiosConfigFile</span> <span class="p">-ConfigFile</span> <span class="s">"settings.ini"</span> <span class="op">`</span>
+    <span class="p">-VaultName</span> <span class="s">"CorpKeyVault"</span> <span class="p">-KeyName</span> <span class="s">"BiosSigningKey"</span>
+<span class="fn">Submit-LnvBiosConfigFile</span> <span class="p">-ConfigFile</span> <span class="s">"SignedSettings.ini"</span></code>
+            </div>
+        </div>
+
+        <div class="slide-num">13 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 14 — GETTING STARTED
+         ================================================================ -->
+    <section class="slide code-slide" aria-label="Getting started: installation">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.3) 0%, transparent 70%); top: 30%; right: -5%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Installation</div>
+            <h2 class="reveal d2">Up and Running in <span class="accent">Minutes</span></h2>
+
+            <div class="code-header reveal d3">
+                <span class="ps-badge">PS</span>
+                <span class="code-filename">Run in an elevated PowerShell session</span>
+            </div>
+
+            <div class="code-block reveal d4">
+                <div class="code-titlebar">
+                    <span class="dot dot-r"></span>
+                    <span class="dot dot-y"></span>
+                    <span class="dot dot-g"></span>
+                </div>
+                <code class="code-body"><span class="c"># Install all three modules from PowerShell Gallery</span>
+<span class="fn">Install-Module</span> <span class="s">'Lenovo.Client.Update'</span>
+<span class="fn">Install-Module</span> <span class="s">'Lenovo.BIOS.Config'</span>
+<span class="fn">Install-Module</span> <span class="s">'Lenovo.Bios.Certificates'</span>
+
+<span class="c"># Install the optional GUI tools</span>
+<span class="fn">Install-Script</span> <span class="s">'ThinkBiosConfigUI'</span>
+<span class="fn">Install-Script</span> <span class="s">'LnvBiosCertInterface'</span>
+
+<span class="c"># Verify: run your first update check</span>
+<span class="fn">Get-LnvUpdate</span> <span class="op">|</span> <span class="fn">Format-Table</span> <span class="p">-Property</span> <span class="n">Title, Category, ReleaseDate</span></code>
+            </div>
+
+            <p class="code-note reveal d5">
+                Requirements: Windows 10 / 11 &nbsp;·&nbsp; PowerShell 5.0+ &nbsp;·&nbsp; Run as Administrator
+            </p>
+        </div>
+
+        <div class="slide-num">14 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 15 — CLOSING
+         ================================================================ -->
+    <section class="slide closing-slide" aria-label="Resources and closing slide">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.5) 0%, transparent 60%); bottom: -15%; right: -8%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="logo-chip reveal d1" style="margin-bottom: clamp(0.6rem, 1.5vh, 1.2rem);">
+                <img src="logos/TVanLgPos_TM3.png" alt="ThinkVantage" style="height: clamp(16px, 2.5vh, 28px); width: auto; max-height: 28px;">
+            </div>
+
+            <h2 class="reveal d2">One Command at a Time.<br><span class="accent">Total Control.</span></h2>
+
+            <p class="closing-desc reveal d3">
+                The ThinkVantage PowerShell Library gives IT administrators a scriptable, secure, and scalable toolkit for managing every aspect of Lenovo device configuration — from initial imaging to ongoing compliance.
+            </p>
+
+            <div class="resource-list reveal d4">
+                <div class="resource-row">
+                    <span class="res-label">Gallery</span>
+                    <span class="res-value">powershellgallery.com → search "Lenovo"</span>
+                </div>
+                <div class="resource-row">
+                    <span class="res-label">Docs</span>
+                    <span class="res-value">docs.lenovocdrt.com</span>
+                </div>
+                <div class="resource-row">
+                    <span class="res-label">Blog</span>
+                    <span class="res-value">blog.lenovocdrt.com</span>
+                </div>
+                <div class="resource-row">
+                    <span class="res-label">Forum</span>
+                    <span class="res-value">forums.lenovo.com → Enterprise Management Board</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-num">15 / 15</div>
+    </section>
+
+
+    <!-- ================================================================
+         JAVASCRIPT — SLIDE PRESENTATION CONTROLLER
+         ================================================================ -->
+    <script>
+        /**
+         * SlidePresentation
+         * Manages navigation, animations, progress bar, and nav dots.
+         * Navigation: Arrow keys, Space, Page Up/Down, mouse wheel, touch swipe, nav dots.
+         */
+        class SlidePresentation {
+            constructor() {
+                this.slides       = Array.from(document.querySelectorAll('.slide'));
+                this.total        = this.slides.length;
+                this.currentIdx   = 0;
+                this.lastWheel    = 0;
+
+                this.$progress    = document.getElementById('progressBar');
+                this.$navDots     = document.getElementById('navDots');
+
+                this._init();
+            }
+
+            _init() {
+                this._buildNavDots();
+                this._observeSlides();
+                this._bindKeyboard();
+                this._bindTouch();
+                this._bindWheel();
+
+                // Activate first slide on load
+                requestAnimationFrame(() => {
+                    this.slides[0].classList.add('visible');
+                    this._updateProgress(0);
+                    this._updateDots(0);
+                });
+            }
+
+            /* Build one dot per slide */
+            _buildNavDots() {
+                this.slides.forEach((_, i) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'nav-dot';
+                    btn.setAttribute('aria-label', `Go to slide ${i + 1} of ${this.total}`);
+                    btn.addEventListener('click', () => this._goto(i));
+                    this.$navDots.appendChild(btn);
+                });
+            }
+
+            /* IntersectionObserver: add .visible to trigger CSS animations */
+            _observeSlides() {
+                const obs = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            const idx = this.slides.indexOf(entry.target);
+                            if (idx >= 0) {
+                                this.currentIdx = idx;
+                                this._updateProgress(idx);
+                                this._updateDots(idx);
+                            }
+                        }
+                    });
+                }, { threshold: 0.55 });
+
+                this.slides.forEach(s => obs.observe(s));
+            }
+
+            /* Keyboard: arrows, space, page keys, home/end */
+            _bindKeyboard() {
+                document.addEventListener('keydown', e => {
+                    const actions = {
+                        ArrowDown:  +1, ArrowRight: +1,
+                        ' ':        +1, PageDown:   +1,
+                        ArrowUp:    -1, ArrowLeft:  -1,
+                        PageUp:     -1,
+                    };
+                    if (e.key in actions) {
+                        e.preventDefault();
+                        this._goto(this.currentIdx + actions[e.key]);
+                    } else if (e.key === 'Home') {
+                        e.preventDefault(); this._goto(0);
+                    } else if (e.key === 'End') {
+                        e.preventDefault(); this._goto(this.total - 1);
+                    }
+                });
+            }
+
+            /* Touch: vertical swipe */
+            _bindTouch() {
+                let startY = 0, startX = 0;
+                document.addEventListener('touchstart', e => {
+                    startY = e.touches[0].clientY;
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+                document.addEventListener('touchend', e => {
+                    const dy = startY - e.changedTouches[0].clientY;
+                    const dx = startX - e.changedTouches[0].clientX;
+                    if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 45) {
+                        this._goto(this.currentIdx + (dy > 0 ? 1 : -1));
+                    }
+                }, { passive: true });
+            }
+
+            /* Mouse wheel with 800ms debounce to prevent overshooting */
+            _bindWheel() {
+                document.addEventListener('wheel', e => {
+                    const now = Date.now();
+                    if (now - this.lastWheel < 800) return;
+                    if (Math.abs(e.deltaY) < 25) return;
+                    this.lastWheel = now;
+                    this._goto(this.currentIdx + (e.deltaY > 0 ? 1 : -1));
+                }, { passive: true });
+            }
+
+            /* Navigate to slide index (clamped) */
+            _goto(idx) {
+                const target = Math.max(0, Math.min(idx, this.total - 1));
+                if (target === this.currentIdx) return;
+                this.slides[target].scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            /* Sync nav dot active state */
+            _updateDots(activeIdx) {
+                this.$navDots.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === activeIdx);
+                });
+            }
+
+            /* Advance the top progress bar */
+            _updateProgress(idx) {
+                if (!this.$progress) return;
+                this.$progress.style.width = `${((idx + 1) / this.total) * 100}%`;
+                this.$progress.setAttribute('aria-valuenow', Math.round(((idx + 1) / this.total) * 100));
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => new SlidePresentation());
+    </script>
+
+</body>
+</html>
