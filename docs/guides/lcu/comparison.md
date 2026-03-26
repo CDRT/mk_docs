@@ -204,7 +204,7 @@ Install-LnvUpdate -Package $package -SkipSignatureCheck
 | `Path` | YES | YES | Downloaded package location |
 | `Proxy` | YES | YES | Proxy server URL |
 | `ProxyCredential` | YES | YES | Proxy authentication |
-| `SaveBIOSUpdateInfoToRegistry` | Yes | YES
+| `SaveBIOSUpdateInfoToRegistry` | Yes | YES | Record update in registry |
 | `VerifySignature` | NO | YES | NEW: Verify package signatures |
 | `SkipSignatureCheck` | NO | YES | NEW: Bypass signature verification |
 

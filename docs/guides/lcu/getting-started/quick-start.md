@@ -28,7 +28,7 @@ Download the updates to a local directory:
 $updates = Get-LnvUpdate
 $updates | Save-LnvUpdate
 
-#if the package is in a local repository :
+#download to a specific folder:
 $updates | Save-LnvUpdate -Path "C:\Updates" -ShowProgress
 ```
 
@@ -113,5 +113,4 @@ Start-Sleep -Seconds 10
 # Check for applicable updates again. This catches cases where one driver must be
 # installed before other drivers will become applicable.
 Get-LnvUpdate -Repository $repoPath | Install-LnvUpdate -Path $repoPath -ExportToWMI -Verbose
-
 ```

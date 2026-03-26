@@ -7,7 +7,7 @@ Downloads Lenovo update packages to disk.
 ## Syntax
 
 ```powershell
-Save-LnvUpdate [-Package] <PSObject> [-Path <DirectoryInfo>] 
+Save-LnvUpdate [-Package] <PSObject> [-Path <DirectoryInfo>]
                [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-ProxyUseDefaultCredentials]
 ```
 

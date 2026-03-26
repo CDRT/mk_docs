@@ -11,10 +11,10 @@ Sets global configuration options for LenovoUpdate that may affect multiple cmdl
 ```powershell
 Set-LnvUpdateConfiguration -InputObject <LnvUpdateConfiguration>
 
-Set-LnvUpdateConfiguration [-Proxy <Uri>] [-ProxyCredential <PSCredential>] 
-                           [-ProxyUseDefaultCredential <bool>] 
-                           [-MaxExternalDetectionRuntime <TimeSpan>] 
-                           [-MaxExtractRuntime <TimeSpan>] 
+Set-LnvUpdateConfiguration [-Proxy <Uri>] [-ProxyCredential <PSCredential>]
+                           [-ProxyUseDefaultCredential <bool>]
+                           [-MaxExternalDetectionRuntime <TimeSpan>]
+                           [-MaxExtractRuntime <TimeSpan>]
                            [-MaxInstallerRuntime <TimeSpan>]
 ```
 

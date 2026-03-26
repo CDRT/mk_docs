@@ -31,19 +31,15 @@ Installs Lenovo update packages on the local computer. The function automaticall
 
 ## Examples
 
+### Example 1: Install applicable updates
+
 ```powershell
 # Install updates
 $updates = Get-LnvUpdate
 $updates | Install-LnvUpdate
-
-# Install with signature verification
-$updates | Install-LnvUpdate -VerifySignature
-
 ```
 
-## Examples
-
-### Example 1: Install Unattended Updates
+### Example 2: Install Unattended Updates
 
 ```powershell
 $updates = Get-LnvUpdate | Where-Object { $_.Installer.Unattended }
@@ -52,7 +48,7 @@ $updates | Install-LnvUpdate -Verbose
 
 Finds and installs only packages that support silent/unattended installation.
 
-### Example 2: Install with BIOS Registry Tracking
+### Example 3: Install with BIOS Registry Tracking
 
 ```powershell
 $updates = Get-LnvUpdate
@@ -60,10 +56,6 @@ $updates | Install-LnvUpdate -SaveBIOSUpdateInfoToRegistry -Verbose
 ```
 
 Installs updates and saves BIOS information to registry for tracking.
-
-
-
-Verifies installer signatures before installation.
 
 ### Example 4: Complete Installation Pipeline
 
