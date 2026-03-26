@@ -880,7 +880,7 @@
 
             <p class="subtitle reveal d4">
                 A collection of PowerShell modules and tools for managing<br>
-                Lenovo ThinkPad and ThinkStation fleets at enterprise scale.
+                Lenovo ThinkPad, ThinkCentre, and ThinkStation fleets at enterprise scale.
             </p>
 
             <div class="title-tags reveal d5">
@@ -1071,11 +1071,6 @@
             </div>
 
             <div class="code-block reveal d4">
-                <div class="code-titlebar">
-                    <span class="dot dot-r"></span>
-                    <span class="dot dot-y"></span>
-                    <span class="dot dot-g"></span>
-                </div>
                 <code class="code-body"><span class="c"># 1. Discover applicable updates for this machine</span>
 <span class="v">$updates</span> <span class="op">=</span> <span class="fn">Get-LnvUpdate</span>
 <span class="v">$updates</span> <span class="op">|</span> <span class="fn">Format-Table</span> <span class="p">-Property</span> <span class="n">Title, Category, ReleaseDate</span>
@@ -1114,11 +1109,6 @@
             </div>
 
             <div class="code-block reveal d4">
-                <div class="code-titlebar">
-                    <span class="dot dot-r"></span>
-                    <span class="dot dot-y"></span>
-                    <span class="dot dot-g"></span>
-                </div>
                 <code class="code-body"><span class="c"># Stage a local repo — exclude auto-restart packages (type 1)</span>
 <span class="v">$repo</span> <span class="op">=</span> <span class="s">'C:\Lenovo_Updates'</span>
 <span class="fn">Get-LnvUpdatesRepo</span> <span class="p">-RepositoryPath</span> <span class="v">$repo</span> <span class="p">-RebootType</span> <span class="s">'0,3,5'</span>
@@ -1268,11 +1258,6 @@
             </div>
 
             <div class="code-block reveal d4">
-                <div class="code-titlebar">
-                    <span class="dot dot-r"></span>
-                    <span class="dot dot-y"></span>
-                    <span class="dot dot-g"></span>
-                </div>
                 <code class="code-body"><span class="c"># Export current BIOS settings to an INI file</span>
 <span class="fn">Export-LnvWmiSettings</span> <span class="p">-ConfigFile</span> <span class="s">"C:\Temp\corp-bios.ini"</span> <span class="p">-NoKey</span>
 
@@ -1299,7 +1284,7 @@
 
         <div class="slide-content">
             <div class="section-num reveal d1" aria-hidden="true">03</div>
-            <h2 class="reveal d2">Lenovo.Bios<span class="accent">.</span><br>Certificates</h2>
+            <h2 class="reveal d2">Lenovo.Bios.<br><span class="accent">Certificates</span></h2>
             <p class="sect-desc reveal d3">
                 Replace Supervisor passwords with X.509 certificates. BIOS commands are cryptographically signed — the private key never leaves its secure store.
             </p>
@@ -1332,11 +1317,6 @@
             </div>
 
             <div class="code-block reveal d4">
-                <div class="code-titlebar">
-                    <span class="dot dot-r"></span>
-                    <span class="dot dot-y"></span>
-                    <span class="dot dot-g"></span>
-                </div>
                 <code class="code-body"><span class="c"># Authenticate to Azure</span>
 <span class="fn">Connect-AzAccount</span>
 
@@ -1375,11 +1355,6 @@
             </div>
 
             <div class="code-block reveal d4">
-                <div class="code-titlebar">
-                    <span class="dot dot-r"></span>
-                    <span class="dot dot-y"></span>
-                    <span class="dot dot-g"></span>
-                </div>
                 <code class="code-body"><span class="c"># Install all three modules from PowerShell Gallery</span>
 <span class="fn">Install-Module</span> <span class="s">'Lenovo.Client.Update'</span>
 <span class="fn">Install-Module</span> <span class="s">'Lenovo.BIOS.Config'</span>
