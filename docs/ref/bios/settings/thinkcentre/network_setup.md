@@ -4,83 +4,85 @@
 
 Onboard Ethernet Controller
 :  
-    Options:
+    Possible options:
 
-    1. **Enabled** - Default.
-    2. Disabled.
+    1. **Enabled** – Default.
+    2. Disabled
 
     !!! note ""
         Setting to `Disabled` also disables all [Intel (R) AMT](https://software.intel.com/sites/manageability/AMT_Implementation_and_Reference_Guide/default.htm) related functions.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | OnboardEthernetController | Disabled, Enabled | yes |
+    | OnboardEthernetController | Disabled, Enabled | Yes |
 
 Wireless LAN Access
 :  Controls access to WiFi.
 
-    Options:
+    Possible options:
 
-    1. **Enabled** - Default.
-    2. Disabled.
+    1. **Enabled** – Default.
+    2. Disabled
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | WirelessLANAccess | Disabled, Enabled | yes |
+    | WirelessLANAccess | Disabled, Enabled | Yes |
 
 Wireless LAN PXE boot
 :  Whether to load Wireless LAN UNDI Driver to support wireless LAN PXE boot or HTTPS boot.
 
-    Options:
+    Possible options:
 
-    1. **Disabled** - Default.
-    2. Enabled.
+    1. **Disabled** – Default.
+    2. Enabled
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | WirelessLANPXE | Disabled, Enabled | yes |
+    | WirelessLANPXE | Disabled, Enabled | Yes |
 
 Wireless Auto Disconnection
 :  Disable wireless LAN when onboard Ethernet is connected.
 
-    1. **Disabled** - Default.
-    2. Enable.
+    Possible options:
+
+    1. **Disabled** – Default.
+    2. Enabled
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | WirelessAutoDisconnection | Disabled, Enabled | yes |
+    | WirelessAutoDisconnection | Disabled, Enabled | Yes |
 
 Wireless Certified Information
 :  Display only
 
 PXE IPV4 Network Stack
 :  
-    Options:
+    Possible options:
 
-    1. **Disabled** - Default.
-    2. Enabled.
+    1. **Disabled** – Default.
+    2. Enabled
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | PXEIPV4NetworkStack | Disabled, Enabled | yes |
+    | PXEIPV4NetworkStack | Disabled, Enabled | Yes |
 
 PXE IPV6 Network Stack
 :  
-    Options:
+    Possible options:
 
-    1. **Disabled** - Default.
-    2. Enabled.
+    1. **Disabled** – Default.
+    2. Enabled
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | PXEIPV6NetworkStack | Disabled, Enabled | yes |
+    | PXEIPV6NetworkStack | Disabled, Enabled | Yes |
 
 HTTPS Support
 :  IPV4 and IPV6 boot support.
 
     Options:
 
-    1. **Disabled** - Default.
+    1. **Disabled** – Default.
     1. Enabled.
 
 HTTPS Boot
@@ -88,7 +90,7 @@ HTTPS Boot
 
     Options:
 
-    1. **Disabled** - Default.
+    1. **Disabled** – Default.
     2. Enabled.
 
     !!! note ""
@@ -99,7 +101,7 @@ Lenovo Cloud Services
 
     Options:
 
-    1. **Disabled** - Default.
+    1. **Disabled** – Default.
     2. Enabled.
 
 Win VDI Boot
@@ -107,7 +109,7 @@ Win VDI Boot
 
     Options:
 
-    1. **Disabled** - Default.
+    1. **Disabled** – Default.
     2. Enabled.
 
 HTTPs Boot Configuration
@@ -158,7 +160,7 @@ Automatic Connection Support
 
     Options:
 
-    1. **Disabled** - Default.
+    1. **Disabled** – Default.
     2. Enabled.
 
 Current Connection (display only)
@@ -169,3 +171,4 @@ Wi-Fi Scan
 
 Scanned List (display only)
 :  Scanned WiFi nodes.
+

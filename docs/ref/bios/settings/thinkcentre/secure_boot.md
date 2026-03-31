@@ -5,9 +5,9 @@
 System Mode
 :  Display only
 
-    Options:
+    Possible options:
 
-    1. **Deployed Mode** - Default.
+    1. **Deployed Mode** – Default.
     1. Audit Mode
     1. User Mode
     1. Setup Mode
@@ -15,12 +15,14 @@ System Mode
 Secure Boot
 :  
 
-    1.  **Enabled** - BIOS will prevent unauthorized OS from loading.
-    1.  Disabled - disables Secure Boot.
+    Possible options:
+
+    1.  **Enabled** – BIOS will prevent unauthorized OS from loading.
+    2.  Disabled – disables Secure Boot.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | SecureBoot | Disabled, Enabled | yes |
+    | SecureBoot | Disabled, Enabled | Yes |
 
 Restore Factory Keys
 :  Restore Factory Keys resets secure boot to factory defaults.
@@ -42,7 +44,7 @@ Enter Deployed Mode
 
 Allow Microsoft 3rd Party UEFI CA
 :  
-    Options:
+    Possible options:
 
     1.  **Enabled** - Install Microsoft 3rd Party UEFI CA, and trust it in secure boot. Default.
     2.  Disabled. Remove Microsoft 3rd Party UEFI CA in secure boot BD.
@@ -50,7 +52,8 @@ Allow Microsoft 3rd Party UEFI CA
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | AllowMicrosoft3rdPartyUEFICA | Enabled, Disabled | yes |
+    | AllowMicrosoft3rdPartyUEFICA | Enabled, Disabled | Yes |
 
     !!! note ""
         If add-on cards are supported, Microsoft 3rd Party UEFI CA will not be removed until the boot loader is loaded.
+

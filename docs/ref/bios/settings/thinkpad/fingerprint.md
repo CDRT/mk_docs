@@ -7,7 +7,7 @@ Predesktop Authentication
 
     Possible options:
 
-    1. **On** - Default.
+    1. **On** – Default.
     2. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -19,7 +19,7 @@ Security Mode
 
     One of 2 possible options:
 
-    1. **Normal** - Default.
+    1. **Normal** – Default.
     2. High
 
     !!! note ""
@@ -37,7 +37,7 @@ Password Authentication
 
     Possible options:
 
-    1. **On** - Default.
+    1. **On** – Default.
     2. Off
 
     !!! note ""
@@ -55,7 +55,7 @@ Single-touch authentication
 
     Options:
 
-    1. **On** - Default.
+    1. **On** – Default.
     2. Off.
 
     | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -70,3 +70,5 @@ Reset Fingerprints Data
 
     !!! note ""
         Requires additional confirmation.
+
+

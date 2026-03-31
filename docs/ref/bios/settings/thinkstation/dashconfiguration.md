@@ -6,7 +6,7 @@ DASH Support
 :	
 	Options:
 
-	1. **Disabled** - Default.
+	1. **Disabled** – Default.
 	2. Enabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -21,7 +21,7 @@ Console Redirection
 	Options:
 
 	1. Enabled
-	1. **Disabled** - Default.
+	1. **Disabled** – Default.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -38,7 +38,7 @@ Console Redirection Terminal Type
 	1. VT100
 	1. VT100+
 	1. VT-UTF8
-	1. **ANSI** - Default.
+	1. **ANSI** – Default.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -54,7 +54,7 @@ Bits Per Second
 	1. 19200
 	1. 38400
 	1. 57600
-	1. **115200** - Default.
+	1. **115200** – Default.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -67,7 +67,7 @@ Data Bits
 	Options:
 
 	1. 7
-	1. **8** - Default.
+	1. **8** – Default.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -87,7 +87,7 @@ Parity Mode
 
 	Options:
 
-	1. **None** - Default.
+	1. **None** – Default.
 	1. Even
 	1. Odd
 	1. Mark
@@ -103,7 +103,7 @@ Stop Bits
 :	
 	Options:
 
-	1. **1** - Default.
+	1. **1** – Default.
 	1. 2
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -117,7 +117,7 @@ Flow Control
 	Options:
 
 	1. Hardware RTS/CTS
-	1. **None** - Default.
+	1. **None** – Default.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -130,7 +130,7 @@ VT UTF8 Combo Key Support
 	Options:
 
 	1. Disabled
-	1. **Enabled** - Default.
+	1. **Enabled** – Default.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -143,7 +143,7 @@ Recorder Mode
 	Options:
 
 	1. Disabled
-	1. **Enabled** - Default.
+	1. **Enabled** – Default.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -155,7 +155,7 @@ Resolution 100x31
 :	
 	Options:
 
-	1. **Disabled** - Default.
+	1. **Disabled** – Default.
 	1. Enabled
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -169,7 +169,7 @@ Legacy OS Redirection Resolution
 
 	Options:
 
-	1. **80x24** - Default.
+	1. **80x24** – Default.
 	1. 80x20
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -183,7 +183,7 @@ Putty KeyPad
 
 	Options:
 
-	1. **VT100** - Default.
+	1. **VT100** – Default.
 	1. Linux
 	1. XTERMR6
 	1. SCO
@@ -203,11 +203,13 @@ Redirection After BIOS POST
 
 	Options:
 
-	1. **Always Enable** - Default.
+	1. **Always Enable** – Default.
 	1. BootLoader
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| RedirectionAfterBIOSPOST | Always Enable, BootLoader | yes | AMD |
+
+
 
 

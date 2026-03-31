@@ -13,7 +13,7 @@ Device Guard
 
     Possible options:
 
-    1. **Off** - Default.
+    1. **Off** – Default.
     2. On
 
     !!! note ""
@@ -28,3 +28,5 @@ Device Guard
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | DeviceGuard | Disable, Enable | Yes | Intel |
+
+

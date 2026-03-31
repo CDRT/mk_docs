@@ -76,7 +76,7 @@ Whether to display a warning (and log if possible) if a Power Supply Unit (PSU) 
 
 Options:
 
-1.  **Disabled** - Default.
+1.  **Disabled** – Default.
 2.  Enabled.
 
 
@@ -88,7 +88,7 @@ Quad M.2 PCIe Card Fan Control Stepping
 
 	Options:
 
-	1. **Low Speed** - Default.
+	1. **Low Speed** – Default.
 	1. Medium Speed
 	1. High Speed
 
@@ -103,7 +103,7 @@ Fan Control Stepping
 
 	Options:
 
-	- **1 - Lower Fan Speed** - Default.
+	- **1 - Lower Fan Speed** – Default.
 	- 2
 	- 3
 	- 4
@@ -114,5 +114,7 @@ Fan Control Stepping
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| FanControlStepping | 1 - Lower Fan Speed, 2, 3, 4, 5, 6, 7 - Higher Fan Speed | yes | AMD |
+
+
 
 

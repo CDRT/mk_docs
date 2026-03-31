@@ -8,7 +8,7 @@ Console Redirection
 :	
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Enabled.
 	
 
@@ -27,7 +27,7 @@ Terminal Type
 	1. VT100
 	1. VT100+
 	1. VT-UTF8
-	1. **ANSI** - Default.
+	1. **ANSI** – Default.
 
 	!!! note ""
 		The following emulation types are available. <br> ANSI: Extended ASCII char set. <br> VT100: ASCII char set. <br> VT100+: Extends VT100 to support color, function keys, etc. <br> VT-UTF8: Uses UTF8 encoding to map Unicode chars onto 1 or more bytes.<br> 
@@ -59,7 +59,7 @@ Data Bits
 :	
 	Options:
 
-	1. **8** - Default.
+	1. **8** – Default.
 	1. 7
 
 	<!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -73,7 +73,7 @@ Parity
 
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Enabled.
 
 	!!! note ""
@@ -93,7 +93,7 @@ Stop Bits
 
 	Options:
 
-	1.  **1** - Default.
+	1.  **1** – Default.
 	2.  2.
 
 	<!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -107,7 +107,7 @@ Flow Control
 
 	Options:
 
-	1.  **None** - Default.
+	1.  **None** – Default.
 	2.  Hardware RTS/CTS
 	
 
@@ -116,7 +116,7 @@ VT-UTF8 Combo Key Support
 
 	Options:
 
-	1.  **Enabled** - Default.
+	1.  **Enabled** – Default.
 	2.  Disabled
 	
 
@@ -125,7 +125,7 @@ Recorder Mode
 
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Enabled
 	
 
@@ -134,7 +134,7 @@ Resolution 100x31
 
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Enabled
 
 
@@ -143,7 +143,7 @@ Legacy OS Redirection Resolution
 
 	Options:
 
-	1.  **80x24** - Default.
+	1.  **80x24** – Default.
 	2.  80x26
 
 
@@ -152,7 +152,7 @@ Putty KeyPad
 
 	Options:
 
-	1.  **VT100** - Default.
+	1.  **VT100** – Default.
 	2.  Linux
 	3.  XTERMR5
 	4.  SCO
@@ -165,6 +165,8 @@ Redirection After BIOS POST
 
 	Options:
 
-	1.  **Always Enable** - Default.
+	1.  **Always Enable** – Default.
 	2.  BootLoader
+
+
 

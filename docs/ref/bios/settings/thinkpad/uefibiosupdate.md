@@ -40,3 +40,5 @@ Windows UEFI Firmware Update
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | WindowsUEFIFirmwareUpdate | Disable, Enable | Yes | Both |
+
+

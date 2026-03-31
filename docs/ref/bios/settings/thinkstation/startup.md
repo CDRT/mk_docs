@@ -85,7 +85,7 @@ Option Keys Display
 	Options:
 
 	1. Enabled. 
-	2. **Disabled** - Default.
+	2. **Disabled** – Default.
 
 	!!! note ""
 		Disabling the prompts will not affect the function of a specific key.
@@ -174,5 +174,7 @@ Manufacturing Boot Sequence
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| setting_name | setting_values | yes_no | both | -->
+
+
 
 

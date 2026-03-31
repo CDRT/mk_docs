@@ -18,14 +18,13 @@ ThinkShield Secure Wipe in AppMenu
 
 ### What is ThinkShield Secure Wipe?
 
-ThinkShield Secure Wipe is a utility program integrated into the BIOS. It off ers the functionality to erase all contents stored on drives attached to the system internally. Users can select an erase algorithm from the list, depending on their needs. **ThinkShield
-Secure Wipe complies with NIST SP 800-88 Revision 1 - Guidelines for Media Sanitization.**
+ThinkShield Secure Wipe is a utility program integrated into the BIOS. It offers the functionality to erase all contents stored on drives attached to the system internally. Users can select an erase algorithm from the list, depending on their needs. **ThinkShield Secure Wipe complies with NIST SP 800-88 Revision 1 - Guidelines for Media Sanitization.**
 
 Any hard drive (HD) password will be deleted by this process.
 
 ### How to use ThinkShield Secure Wipe?
 
-Secure Wipe sub menu is located at the bottom of the Security page (BIOS Setup Option).  By default, it is enabled and is protected by SVP.  It is supported by WMI and SRSETUP; WMI item name is “ThinkShieldsecurewipe.”
+Secure Wipe sub menu is located at the bottom of the Security page (BIOS Setup Option). By default, it is enabled and is protected by SVP. It is supported by WMI and SRSETUP; WMI item name is "ThinkShieldsecurewipe."
 
 Please use “ThinkShield Secure Wipe” feature for ThinkPad 2019 or later models by following below steps:
 
@@ -33,15 +32,14 @@ Please use “ThinkShield Secure Wipe” feature for ThinkPad 2019 or later mode
 2. Press the [F12] key at the Startup Interrupt Menu to make the Boot Menu / App Menu appear.
 3. Click [App Menu] from left column and choose [ThinkShield Secure Wipe] from the right column.
 
-	!!! note
-		If the ‘ThinkShield Secure Wipe’ selection does not appear in the App menu, confirm whether ThinkShield Secure Wipe is enabled in the Security options within the BIOS Setup Utility. The default setting is ‘On’ (enabled).
-	 
-4. Select the storage device to be erased. Please note that the selection is based on the  entire storage unit, not on a partition basis. After confirming the storage device to be erased, click [NEXT >] at the bottom.
-5.  Select an erase method and click [NEXT >]. You can choose from erasure methods(*),  including those commonly used for data deletion - ATA Secure Erase (Secure Erase) and  Enhanced Secure Erase. The erase methods available for selection may vary depending on the type and condition of the installed storage.
+	!!! note ""
+		If the 'ThinkShield Secure Wipe' selection does not appear in the App menu, confirm whether ThinkShield Secure Wipe is enabled in the Security options within the BIOS Setup Utility. The default setting is 'On' (enabled).
+4. Select the storage device to be erased. Please note that the selection is based on the entire storage unit, not on a partition basis. After confirming the storage device to be erased, click [NEXT >] at the bottom.
+5. Select an erase method and click [NEXT >]. You can choose from erasure methods, including those commonly used for data deletion - ATA Secure Erase (Secure Erase) and Enhanced Secure Erase. The erase methods available for selection may vary depending on the type and condition of the installed storage.
 6. If the hard disk password has been set, you will be prompted to enter the password. If you enter the wrong password three times, ThinkShield Secure Wipe will be terminated.
 7. Once you choose the wipe-out method, the following warning message is displayed before proceeding to wipe out. Please carefully read it and ensure that power loss will not occur during the wipe-out process.
-8. If everything is OK, the ThinkShield Secure Wipe starts with the progress indication as below. Do not power off the system during the wipe. The time required to complete the secure wipe varies depending on the storage type, size, and wipe method.
-9. When the wipeout completes successfully, the following message appears with some information such as drive information, start time, and end time.
+8. If everything is OK, the ThinkShield Secure Wipe starts with the progress indication. Do not power off the system during the wipe. The time required to complete the secure wipe varies depending on the storage type, size, and wipe method.
+9. When the wipeout completes successfully, a message appears with information such as drive information, start time, and end time.
 
 !!! note
     To proceed with the ThinkShield Secure Wipe, the remaining battery capacity must be greater than 25%. Otherwise, an error will be displayed.
@@ -77,3 +75,5 @@ For specific questions on skus, please contact your Lenovo rep.
 [ThinkShield Secure Wipe Technical Whitepaper](../../../../static/Secure%20Wipe%20280324.pdf){:download}
 
 [ThinkShield Secure Wipe blog article](https://blog.lenovocdrt.com/thinkshield-secure-wipe/)
+
+

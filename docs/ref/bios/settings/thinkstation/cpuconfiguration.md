@@ -40,7 +40,7 @@ AMD Secure Virtual Machine
 
 	Options:
 
-	1.  **Enabled** - Default.
+	1.  **Enabled** – Default.
 	2.  Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -56,7 +56,7 @@ IOMMU
 
 	1. Enabled
 	1. Disabled
-	1. **Auto** - Default.
+	1. **Auto** – Default.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -71,7 +71,7 @@ AMD Memory Guard
 
 	Options:
 
-	1. **Disabled** - Default.
+	1. **Disabled** – Default.
 	2. Enabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -87,7 +87,7 @@ CPB Mode
 
 	Options:
 
-	1. **Disabled** - Default.
+	1. **Disabled** – Default.
 	2. Enabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -101,7 +101,7 @@ C State Support
 
 	Options:
 
-	1. **Enabled** - Default.
+	1. **Enabled** – Default.
 	2. Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -118,9 +118,11 @@ CPU C6 report
 
 	Options:
 
-	1.  **Enabled** - Default.
+	1.  **Enabled** – Default.
 	2.  Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| CPUC6Report | Disable, Enable | yes | AMD |
+
+

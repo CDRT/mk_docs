@@ -11,7 +11,7 @@ Bottom Cover Tamper Detection
     Possible options:
 
     1. On
-    2. **Off** - Default.
+    2. **Off** – Default.
 
     !!! note ""
         Bottom Cover Tamper Detection will not take effect unless Supervisor Password is enabled.
@@ -37,3 +37,5 @@ Internal Storage Tamper Detection
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | InternalStorageTamper | Disable, Enable | Yes | Both |
+
+

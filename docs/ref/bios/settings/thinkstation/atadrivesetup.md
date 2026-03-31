@@ -49,7 +49,7 @@ SATA Drive * Hot-Plug Support
 	Options:
 
 	1. Enabled
-	2. **Disabled** - Default.
+	2. **Disabled** – Default.
 
 	!!! note ""
 		Unavailable if `SATA Controller` is set to `Disabled`.
@@ -123,3 +123,5 @@ Hard Disk Pre-delay
 	|:---|:---|:---|:---|
 	| HardDiskPre-delay | Disable, 3 Seconds, 6 Seconds, 9 Seconds, 12 Seconds, 15 Seconds, 21 Seconds, 30 Seconds | yes | Both |
 	
+
+

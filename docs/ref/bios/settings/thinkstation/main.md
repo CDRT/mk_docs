@@ -9,7 +9,7 @@ Language
 
 	Options:
 
-	1. **English** - Default.
+	1. **English** – Default.
 	1. Français
 	1. Pусский
 	1. 中文
@@ -19,7 +19,7 @@ Setup Mode Select
 
 	Options:
 
-	1. **Graphic** - Default.
+	1. **Graphic** – Default.
 	1. Text
 
 Setup Content
@@ -27,6 +27,8 @@ Setup Content
 
 	Options:
 
-	1. **Advanced** - Default.
+	1. **Advanced** – Default.
 	2. Basic
+
+
 

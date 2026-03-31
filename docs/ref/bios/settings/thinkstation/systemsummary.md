@@ -9,3 +9,5 @@ Displays information on system components such as:
 - Video/audio/network cards
 - Cooling fans
 - Hard disk drives
+
+

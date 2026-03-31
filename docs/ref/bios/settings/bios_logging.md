@@ -47,3 +47,4 @@ The following events are logged:
 The details provided for each event may vary.  An example is shown below:
 
 ![Example log entry](thinkpad/img/eventlogentry.png)
+

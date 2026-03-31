@@ -9,7 +9,7 @@ Wake on LAN
 
 	Options:
 
-	1. **Enabled** - Default.
+	1. **Enabled** – Default.
 	2. Disabled.
 
 	!!! note ""
@@ -40,7 +40,7 @@ Wake Up on Alarm
 
 	Options:
 
-	1. **Disabled** - Default. 
+	1. **Disabled** – Default. 
 	2. Single Event - one time, on the specified day and time. 
 	3. Daily Event - every day, at the specified time.
 	4. Weekly Event - every week, on the specified day and time.
@@ -128,7 +128,7 @@ Settings per {Weekday}.
 {Weekday}
 :	Whether the system will turn on automatically on this day of the week.
 
-	1. **Off** - Default.
+	1. **Off** – Default.
 	2. On.
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -147,3 +147,5 @@ Specify the time when the system is to wake up in the format of hh:mm:ss.
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 |:---|:---|:---|:---|
 | UserDefinedAlarmTime |  | yes |
+
+

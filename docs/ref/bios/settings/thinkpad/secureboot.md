@@ -10,9 +10,9 @@ Secure Boot
     !!! note ""
         Set to **On** if `OS Optimized Defaults` has value **On**.
 
-    Options:
+    Possible options:
 
-    1. **On** - Default.
+    1. **On** – Default.
     2. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -29,23 +29,23 @@ Secure Boot Mode
     Possible modes:
 
     1. Setup mode
-    2. **User mode** - Default.
+    2. **User mode** – Default.
 
 #### Enter Audit Mode
-: This option is used to change to Audit Mode, which enabled programmatic discovery of signature list combinations that successfully authenticate installed EFI images without the risk of rendering the system unbootable.
+:  Change to Audit Mode to enable programmatic discovery of signature list combinations that successfully authenticate installed EFI images without risking an unbootable system.
 
 #### Enter Deploy Mode
-: The option is used to change to Deployed Mode, which enforces the current Secure Boot Configuration without the distinction of Standard vs User/Custom configuration. Values loaded into Secure Boot policy are enforced as is.
+:  Change to Deployed Mode to enforce the current Secure Boot Configuration without distinction of Standard vs User/Custom configuration.
 
 #### Exit Deploy Mode
-: This option is used to return to User Mode with the Secure Boot keys.
+:  Return to User Mode with the current Secure Boot keys.
 
 
 Secure Boot Key State
 :  Possible modes:
 
     1. Custom mode
-    2. **Standard mode** - default.
+    2. **Standard mode** – Default.
 
 Reset to Setup Mode
 :  This option is used to clear the current Platform Key and put the system into setup mode.
@@ -76,14 +76,14 @@ Allow Microsoft 3rd Party UEFI CA
     !!! note ""
         If add-on cards are supported, Microsoft 3rd Party UEFI CA will not be removed until load boot loader.
 
-    Options:
+    Possible options:
 
-    1. **Off** - Default.
-    2. On.
+    1. **Off** – Default.
+    2. On
 
-    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
-    | Allow3rdPartyUEFICA |  Disable, Enable | yes | both |
+    | Allow3rdPartyUEFICA | Disable, Enable | Yes | Both |
 
 ## Key Management
 
@@ -128,3 +128,5 @@ Forbidden Signature Database (DBX)
     Standard Windows commands are supported:
 
     - [Windows Secure Boot Key Creation and Management Guidance](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-secure-boot-key-creation-and-management-guidance)
+
+

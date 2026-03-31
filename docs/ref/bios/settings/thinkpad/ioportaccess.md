@@ -23,7 +23,7 @@ Wireless LAN
 
      Options:
 
-     1. **On** - Default.
+     1. **On** – Default.
      2. Off
 
      | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -210,9 +210,11 @@ Tile
 
      Options:
 
-     1. **On** - Default.
+     1. **On** – Default.
      2. Off.
 
      | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
      |:---|:---|:---|:---|
      | TileMode | Disable,Enable | Yes | both |
+
+

@@ -7,10 +7,10 @@ Peripheral Component Interconnect (PCI) Express configuration.
 ASPM support
 :  Active-State Power Management (ASPM).
 
-    Options:
+    Possible options:
 
-    1. **Auto** - Configure ASPM automatically according to what the attached device supports in each PCI Express port. Default.
-    2. Disable - Disable ASPM support of all PCI Express ports.
+    1. **Auto** \u2013 Configure ASPM automatically according to what the attached device supports in each PCI Express port \u2013 Default.
+    2. Disable – Disable ASPM support of all PCI Express ports.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
@@ -20,13 +20,13 @@ ASPM support
 
 PCIe 16x Slot speed
 :  
-    Options:
+    Possible options:
 
-    1.  **Auto** - Default.
-    2.  Gen 1.
-    3.  Gen 2.
-    4.  Gen 3.
-    5.  Gen 4.
+    1.  **Auto** \u2013 Default.
+    2.  Gen 1
+    3.  Gen 2
+    4.  Gen 3
+    5.  Gen 4
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
@@ -34,23 +34,23 @@ PCIe 16x Slot speed
 
 PCIe 8x Slot speed
 :  
-    Options:
+    Possible options:
 
-    1.  **Auto** - Default.
-    2.  Gen 1.
-    3.  Gen 2.
-    4.  Gen 3.
-    5.  Gen 4.
+    1.  **Auto** – Default.
+    2.  Gen 1
+    3.  Gen 2
+    4.  Gen 3
+    5.  Gen 4
 
 PCIe 4x Slot speed
 :  
-    Options:
+    Possible options:
 
-    1.  **Auto** - Default.
-    2.  Gen 1.
-    3.  Gen 2.
-    4.  Gen 3.
-    5.  Gen 4.
+    1.  **Auto** – Default.
+    2.  Gen 1
+    3.  Gen 2
+    4.  Gen 3
+    5.  Gen 4
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
@@ -58,13 +58,14 @@ PCIe 4x Slot speed
 
 PCIe 1x Slot speed
 :  
-    Options:
+    Possible options:
 
-    1.  **Auto** - Default.
-    2.  Gen 1.
-    3.  Gen 2.
-    4.  Gen 3.
+    1.  **Auto** – Default.
+    2.  Gen 1
+    3.  Gen 2
+    4.  Gen 3
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
     | PCIe1xSlotSpeed  | Auto, Gen1, Gen2, Gen3 | Yes |
+

@@ -13,3 +13,5 @@ This option will clear all data stored in the UEFI system.  It does not affect t
     - If a set of custom default settings were defined, they will be cleared as well.
     - The **Absolute Persistence Module Permanent Disabled** and **Intel AMT Control Permanent Disabled** settings will NOT be reset.
     - The process can take several minutes to complete. The screen may be blank for some time and lights on the keyboard may flash. **Please do not interrupt the process.**
+
+

@@ -10,3 +10,4 @@ Displays system information, including:
 - Ethernet
 - Fan
 - Drives
+

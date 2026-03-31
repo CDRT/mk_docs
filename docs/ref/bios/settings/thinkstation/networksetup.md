@@ -1,16 +1,16 @@
 # Network Setup Settings #
 
-![Netwrok Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_networksetup.PNG)
+![Network Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_networksetup.PNG)
 
 ## General 
 
 Onboard Ethernet Controller
 :	Whether to enable the Onboard Ethernet Controller.
 
-	Options:
+	Possible options:
 
 	1. **Enabled** – Default.
-	2. Disabled.
+	2. Disabled
 
 	!!! note ""
 		When `Disabled`:<br>    •`PXE IPV4 Network Stack` setting becomes unavailable<br>    •`PXE IPV6 Network Stack` setting becomes unavailable
@@ -21,22 +21,22 @@ Onboard Ethernet Controller
 	!!! note ""
 		AMD only: if `Disabled`, DASH functions will be disabled.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| OnboardEthernetController | Disabled, Enabled | yes | Both |
+	| OnboardEthernetController | Disabled, Enabled | Yes | Both |
 
 
 Wireless LAN Access
 :	Whether Wireless LAN will be available in OS.
 
-	Options:
+	Possible options:
 
-	1. **Enabled** - Default.
-	2. Disabled.
+	1. **Enabled** – Default.
+	2. Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| WirelessLANAccess | Disabled, Enabled | yes | Both |
+	| WirelessLANAccess | Disabled, Enabled | Yes | Both |
 
 
 Wireless LAN PXE boot
@@ -45,12 +45,14 @@ Wireless LAN PXE boot
 	!!! note ""
 		This works by loading the Wireless LAN (Local Area Network) UNDI (Universal Network Driver Interface) Driver.
 
-	1. Enabled.
+	Possible options:
+
+	1. Enabled
 	2. **Disabled** – Default.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| WirelessLANPXE | Disabled, Enabled  | yes | Both |
+	| WirelessLANPXE | Disabled, Enabled  | Yes | Both |
 	
 
 ## Wireless Certified Information 
@@ -64,7 +66,7 @@ Wireless device information. View only.
 
 PXE IPV4 Network Stack
 :	
-	Options:
+	Possible options:
 
 	1. **Enabled** – Default.
 	2. Disabled
@@ -72,14 +74,14 @@ PXE IPV4 Network Stack
 	!!! note ""
 		Unavailable if `Onboard Ethernet Controller` is set to `Disabled`.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| PXEIPV4NetworkStack | Disabled, Enabled | yes | Both |
+	| PXEIPV4NetworkStack | Disabled, Enabled | Yes | Both |
 
 
 PXE IPV6 Network Stack
 :	
-	Options:
+	Possible options:
 
 	1. **Enabled** – Default.
 	2. Disabled
@@ -87,15 +89,15 @@ PXE IPV6 Network Stack
 	!!! note ""
 		Unavailable if `Onboard Ethernet Controller` is set to `Disabled`.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| PXEIPV6NetworkStack | Disabled, Enabled | yes | Both |
+	| PXEIPV6NetworkStack | Disabled, Enabled | Yes | Both |
 
 
 HTTPs Boot
 :	This setting controls whether or not the system can boot over HTTPS. When enabled, additional configuration may be required. The HTTPS Boot and related settings are not configurable through WMI.
 
-	Options:
+	Possible options:
 
 	1. Enabled – the `HTTPs Boot Configuration` and `Tls Auth Configuration` will be shown for custom configuration.
 	2. **Disabled** – Default.
@@ -115,9 +117,9 @@ Lenovo Cloud Services
 
 	Whether to boot system with `Lenovo Cloud` selected through boot menu, so that BIOS boots to Lenovo Cloud server directly, which provides various cloud services.
 
-	Options:
+	Possible options:
 
-	1. Enabled.
+	1. Enabled
 	2. **Disabled** – Default.
 
 	!!! note ""
@@ -144,9 +146,9 @@ Win VDI Boot
 
 	Whether to boot the system with `Win VDI Boot` selected through boot menu, so that BIOS boots to Lenovo Cloud server, to load VDI service.
 
-	Options:
+	Possible options:
 
-	1. Enabled.
+	1. Enabled
 	2. **Disabled** – Default.
 
 	<!--
@@ -233,7 +235,7 @@ Automatic Connection Support
 :	Whether to enable or disable automatic Wifi connection on every boot.
 
 	1. Enabled
-	2. **Disabled** - Default.
+	2. **Disabled** – Default.
 
 	<!--
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -254,3 +256,5 @@ Automatic Connection Support
 
 ## Scanned List ##
 :	Scanned Wi-Fi nodes for selection to connect.
+
+

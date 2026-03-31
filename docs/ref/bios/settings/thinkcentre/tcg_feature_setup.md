@@ -10,7 +10,7 @@ TCG Security Device State
     - [More information on TPM at Lenovo Support](https://support.lenovo.com/lt/en/solutions/ht512598)
     - [More information on managing TPM in Windows at Microsoft 365](https://docs.microsoft.com/en-us/windows/security/information-protection/tpm/trusted-platform-module-top-node)
 
-    Options:
+    Possible options:
 
     - Discrete TPM 1.2
     - Discrete TPM 2.0
@@ -19,15 +19,17 @@ TCG Security Device State
 Security Chip 2.0
 :  Whether the TCG security feature is enabled or disabled.
 
-    1.  **Enabled** - Default.
-    1.  Disabled.
+    Possible options:
+
+    1.  **Enabled** – Default.
+    2.  Disabled
 
     !!! note ""
         If set to `Disabled`, the TxT will be set to `Disabled` automatically.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | SecurityChip | Enabled, Disabled | yes |
+    | SecurityChip | Enabled, Disabled | Yes |
 
 Clear TCG Security Feature
 :  Whether to clear TCG Security Feature.
@@ -35,17 +37,20 @@ Clear TCG Security Feature
     !!! note ""
         Any data in TPM will be cleared.
 
-    Options:
+    Possible options:
 
-    1.  **No** - Default.
-    1.  Yes.
+    1.  **No** – Default.
+    2.  Yes
 
 Physical Presence for Clear
 :  Whether to require confirmation of a user's physical presence when clearing the security chip.
 
-    1.  **Enabled** - Default.
-    1.  Disabled.
+    Possible options:
+
+    1.  **Enabled** – Default.
+    1.  Disabled
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
     | PhysicalPresenceforClear | Disabled, Enabled | yes |
+

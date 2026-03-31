@@ -17,3 +17,4 @@ Reset Certificate
 Press `Enter` to remove the enrolled certificate.
 
 Requires confirmation.
+

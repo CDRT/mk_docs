@@ -5,45 +5,45 @@
 Intel(R) Total Memory Encryption
 :  Intel(R) Total Memory Encryption(TME) is a technology that encrypts data written to system memory to protect DRAM data from physical attacks.
 
-    Options:
+    Possible options:
 
-    1. **Disabled** - Default.
-    2. Enabled.
+    1. **Disabled** – Default.
+    2. Enabled
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | IntelTotalMemoryEncryption | Disabled, Enabled | yes |
+    | IntelTotalMemoryEncryption | Disabled, Enabled | Yes |
 
 Intel (R) SIPP Support
 :  Intel (R) Stable Image Platform Program aligns and stabilizes key Intel platform components, enabling a predictable transition from one technology generation to the next.
 
-    Options:
+    Possible options:
 
-    1. **Enabled** - Default.
-    2. Disabled - disables SIPP.
+    1. **Enabled** – Default.
+    2. Disabled – disables SIPP.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | IntelSIPPSupport | Disabled, Enabled | yes |
+    | IntelSIPPSupport | Disabled, Enabled | Yes |
 
 Intel (R) Thunderbolt
 :  
-    Options:
+    Possible options:
 
-    1.  **Disabled** - Default.
-    2.  Enabled.
+    1.  **Disabled** – Default.
+    2.  Enabled
 
 Dust Shield Alert
 :  The user is reminded to clean the Dust Shield.
 
-    Options:
+    Possible options:
 
-    1.  **Enabled** - Default.
-    1.  Disabled - disables the Dust Shield alert.
+    1.  **Enabled** – Default.
+    2.  Disabled – disables the Dust Shield alert.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | DustShieldAlert | Disabled, Enabled | yes |
+    | DustShieldAlert | Disabled, Enabled | Yes |
 
     !!! note ""
         If the Dust Shield is not cleaned, it will lose its effectiveness and the machine may overheat.
@@ -53,31 +53,32 @@ Intel (R) DPTF Support
 
     IDPTF is a power and thermal management solution, used to resolve fan noise, overheating, and performance-related issues of the system.
 
-    Options:
+    Possible options:
 
-    1.  **Enabled** - Default.
-    2.  Disabled - disables DPTF.
+    1.  **Enabled** – Default.
+    2.  Disabled – disables DPTF.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | IntelDPTFSupport | Disabled, Enabled | yes |
+    | IntelDPTFSupport | Disabled, Enabled | Yes |
 
 Windows Modern Standby
 :  [Windows Modern Standby](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/modern-standby) is the replacement for the legacy Sleep state.
 
-    Options:
+    Possible options:
 
-    1. **Enabled** - Default.
-    2. Disabled - disables Windows Modern Standby.
+    1. **Enabled** – Default.
+    2. Disabled – disables Windows Modern Standby.
 
 BIOS Self-healing
 :  Allows the BIOS to automatically attempt to recover a corrupted BIOS without needing a recovery file on external media.
 
-    Options:
+    Possible options:
 
-    1.  **Enabled** - Default.
-    2.  Disabled.
+    1.  **Enabled** – Default.
+    2.  Disabled
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | BIOSSelfHealing  | Enabled, Disabled | no |
+    | BIOSSelfHealing  | Enabled, Disabled | No |
+

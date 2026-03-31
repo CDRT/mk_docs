@@ -4,33 +4,34 @@
 
 Onboard Audio Controller
 :  
-    Options:
+    Possible options:
 
-    1.  **Enabled** - Default.
-    2.  Disabled - disables onboard audio controller.
+    1.  **Enabled** – Default.
+    2.  Disabled – disables onboard audio controller.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | OnboardAudioController | Disabled, Enabled | yes |
+    | OnboardAudioController | Disabled, Enabled | Yes |
 
 Internal Speaker
 :  
-    Options:
+    Possible options:
 
-    1.  **Enabled** - Default.
-    2.  Disabled - disables the internal speaker.
+    1.  **Enabled** – Default.
+    2.  Disabled – disables the internal speaker.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | InternalSpeaker | Disabled, Enabled | yes |
+    | InternalSpeaker | Disabled, Enabled | Yes |
 
 Microphone
 :  
-    Options:
+    Possible options:
 
-    1.  **Enabled** - Default.
-    2.  Disabled - Disable the use of Microphone.
+    1.  **Enabled** – Default.
+    2.  Disabled – Disable the use of Microphone.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
     | Microphone | Disabled, Enabled | yes |
+

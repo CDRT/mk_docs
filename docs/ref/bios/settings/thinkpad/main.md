@@ -8,3 +8,5 @@ It also gives access to the [BIOS Event Log feature](https://docs.lenovocdrt.com
 
 BIOS Event Log
 :  The BIOS Event Log tracks BIOS configuration and boot events. These provide insight into the health of a device.
+
+

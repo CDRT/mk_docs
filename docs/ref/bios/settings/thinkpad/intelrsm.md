@@ -7,7 +7,7 @@ Intel(R) Standard Manageability
 
    Possible options:
 
-   1. **Enabled** - Default.
+   1. **Enabled** – Default.
    2. Disabled
    3. Permanently Disabled
 
@@ -20,7 +20,7 @@ USB Key Provisioning
 
    Possible options:
 
-   1. **Enabled** - Default.
+   1. **Enabled** – Default.
    2. Disabled
 
    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -32,7 +32,7 @@ Console Type
 
    Possible options:
 
-   1. **VT100+** - Default.
+   1. **VT100+** – Default.
    2. VT100
    3. VT-UTF8
    4. PC ANSI
@@ -40,3 +40,5 @@ Console Type
    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
    |  | VT100, VT100+, VT-UTF8, PC ANSI | No | Intel |
+
+

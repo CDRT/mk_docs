@@ -9,7 +9,7 @@ Network Boot
 
     Possible options:
 
-    1. **PXE BOOT** – Default
+    1. **PXE BOOT** – Default.
     2. USB CD
     3. USB FDD
     4. NVMe0
@@ -39,7 +39,7 @@ Boot Mode
     |:---|:---|:---|:---|
     | BootMode | Quick, Diagnostics | No | Both |
 
-Option key Display
+Option Key Display
 :  Whether system will show the option key message when the system is booted.
 
     Possible options:
@@ -51,7 +51,7 @@ Option key Display
     |:---|:---|:---|:---|
     | StartupOptionKeys | Disable, Enable | Yes | Both |
 
-Boot device List F12 Option
+Boot Device List F12 Option
 :  Whether F12 key is used to invoke a pop-up Boot device list.
 
     Possible options:
@@ -123,3 +123,5 @@ Excluded from boot priority order
 
     1. Other CD
     2. Other HDD
+
+

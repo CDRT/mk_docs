@@ -61,7 +61,7 @@ OS Optimized Defaults
 
     Possible options:
 
-    1. **Off** - Default.
+    1. **Off** – Default.
     2. On
 
 Discard Changes
@@ -82,3 +82,5 @@ Discard Changes
 
 Save Changes
 :  Save Setup data.
+
+

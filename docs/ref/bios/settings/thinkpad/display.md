@@ -7,7 +7,7 @@ Boot Display Device
 
     Possible options:
 
-    1. **ThinkPad LCD** - Default.
+    1. **ThinkPad LCD** – Default.
     2. External Display
 
     !!! note ""
@@ -22,7 +22,7 @@ Graphics Device
 
     Possible options:
 
-    1. **Hybrid Graphics** - Default.
+    1. **Hybrid Graphics** – Default.
     2. Discrete Graphics
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -51,7 +51,7 @@ Total Graphics Memory
 
     Possible options:
 
-    1. **256 MB** - Default. 
+    1. **256 MB** – Default. 
     2. 512 MB
 
     !!! note ""
@@ -67,7 +67,7 @@ Total Graphics Memory
 
     Possible options:
 
-    1. **Auto** - Default.
+    1. **Auto** – Default.
     2. 1GB
     3. 2GB
     4. 4GB
@@ -82,7 +82,7 @@ Boot Time Extension
 
     Possible options:
 
-    1. **Disabled** - Default
+    1. **Disabled** – Default
     2. 1 second
     3. 2 seconds
     4. 3 seconds
@@ -107,9 +107,11 @@ ePrivacy Lock
 
     Options:
 
-    1.  **Off** - Default.
+    1.  **Off** – Default.
     2.  On.
 
     | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
     |:---|:---|:---|:---|
     | ePrivacyLock | Disable,Enable | Yes | both |
+
+

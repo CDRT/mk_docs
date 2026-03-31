@@ -28,7 +28,7 @@ Internal Speaker
 
 	Options:
 
-	1. **Enabled** - Default. 
+	1. **Enabled** – Default. 
 	2. Disabled 
 
 	!!! note ""
@@ -52,7 +52,7 @@ Front Audio Controller
 
 	Options:
 
-	1.  **Enabled** - Default.
+	1.  **Enabled** – Default.
 	2.  Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -66,9 +66,11 @@ Rear Audio Controller
 
 	Options:
 
-	1.  **Enabled** - Default.
+	1.  **Enabled** – Default.
 	2.  Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| RearAudioController | Disable, Enable | yes | AMD |
+
+

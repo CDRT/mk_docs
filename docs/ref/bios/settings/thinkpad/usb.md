@@ -27,8 +27,10 @@ Charge in Battery Mode
     Possible options:
 
     1. On
-    2. **Off** - Default.
+    2. **Off** – Default.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | ChargeInBatteryMode | Disable, Enable | No | Both |
+
+

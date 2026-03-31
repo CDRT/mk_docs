@@ -7,7 +7,7 @@ PCIe Tunneling
 
     Possible states:
 
-    1. **On** - Default.
+    1. **On** – Default.
     2. Off
 
     !!! note ""
@@ -32,3 +32,5 @@ PCIe Maximum Payload Size
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | PCIeMaximumPayloadSize | 128bytes, 256bytes | Yes | Both |
+
+

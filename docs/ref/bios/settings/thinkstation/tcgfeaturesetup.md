@@ -32,7 +32,7 @@ Security Chip 2.0
 
 	Options:
 
-	1. **Enabled** - Default. 
+	1. **Enabled** – Default. 
 	2. Disabled.
 
 	!!! note ""
@@ -69,3 +69,5 @@ Physical Presence for Clear
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| PhysicalPresenceforClear | Disabled, Enabled | yes | Both |
+
+

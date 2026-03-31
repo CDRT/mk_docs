@@ -5,23 +5,24 @@
 Access Security Settings
 :  Allow SMP (System Management Password) to have the same authority as SVP (Supervisor Password) to control security settings.
 
-    Options:
+    Possible options:
 
-    1.  **Disabled** - Default.
-    2.  Enabled.
+    1.  **Disabled** – Default.
+    2.  Enabled
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | AccessSecuritySettings | Disabled, Enabled | yes |
+    | AccessSecuritySettings | Disabled, Enabled | Yes |
 
 Remote Set SMP
 :  Allow remote setting of the SMP via WMI without SVP (Supervisor Password) verification.
 
-    Options:
+    Possible options:
 
-    1.  **Disabled** - Default.
-    2.  Enabled.
+    1.  **Disabled** – Default.
+    2.  Enabled
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | RemoteSetSMP | Disabled, Enabled | yes |
+    | RemoteSetSMP | Disabled, Enabled | Yes |
+

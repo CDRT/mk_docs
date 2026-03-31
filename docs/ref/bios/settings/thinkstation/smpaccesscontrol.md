@@ -27,3 +27,5 @@ Remote Set SMP
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| RemoteSetSMP | Disabled, Enabled | yes | Both |
+
+

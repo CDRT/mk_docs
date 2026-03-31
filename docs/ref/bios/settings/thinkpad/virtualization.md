@@ -29,7 +29,7 @@ Intel (R) Virtualization Technology \ AMD-V
     Possible options:
 
     1. On
-    2. **Off** - Default.
+    2. **Off** – Default.
 
     !!! note ""
         It is automatically enabled and cannot be disabled if ‘Kernel DMA Protection’ is enabled.
@@ -46,7 +46,7 @@ Intel (R) Virtualization Technology \ AMD-V
 
     Possible options:
 
-    1. **Off** - Default.
+    1. **Off** – Default.
     2. On
 
     !!! note ""
@@ -65,7 +65,7 @@ Intel (R) VT-d Feature
     Possible options:
 
     1. On
-    2. **Off** - Default
+    2. **Off** – Default
 
     !!! note ""
         Automatically enabled and cannot be disabled if `Kernel DMA Protection` is enabled.
@@ -105,9 +105,11 @@ Enhanced Windows Biometric Security
 
     Possible options:
 
-    1. **On** - Default since 2024
+    1. **On** – Default since 2024
     2. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | EnhancedWindowsBiometricSecurity | Disable, Enable | Yes | Both |
+
+

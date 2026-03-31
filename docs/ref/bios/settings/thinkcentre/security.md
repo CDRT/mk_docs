@@ -9,26 +9,26 @@
 Supervisor Password
 :  Display only
 
-    Options:
+    Possible options:
 
-    1.  **Not Installed** - password disabled. Default.
-    2.  Installed -  password enabled.
+    1.  **Not Installed** – password disabled. Default.
+    2.  Installed – password enabled.
 
 Power-On Password
 :  Display only
 
-    Options:
+    Possible options:
 
-    1. **Not Installed** - password disabled. Default.
-    2. Installed -  password enabled.
+    1. **Not Installed** – password disabled. Default.
+    2. Installed – password enabled.
 
 System Management Password
 :  Display only
 
-    Options:
+    Possible options:
 
-    1. **Not Installed** - password disabled. Default.
-    2. Installed -  password enabled.
+    1. **Not Installed** – password disabled. Default.
+    2. Installed – password enabled.
 
 Set Supervisor Password
 :  Set, change, or delete the Supervisor Password.
@@ -57,10 +57,10 @@ Set System Management Password
 Secure Roll Back Prevention
 :  Whether flashing BIOS to a previous or current version is prevented (NOT allowed).
 
-    Options:
+    Possible options:
 
-    1.  **Yes** - Flashing NOT allowed. Default.
-    1.  No - Flashing BIOS allowed.
+    1.  **Yes** – Flashing NOT allowed. Default.
+    2.  No – Flashing BIOS allowed.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
@@ -68,10 +68,10 @@ Secure Roll Back Prevention
 
 Windows UEFI Firmware Update
 :  
-    Options:
+    Possible options:
 
-    1. **Enabled** - Default.
-    1. Disabled - BIOS will skip Windows UEFI firmware update.
+    1. **Enabled** – Default.
+    2. Disabled – BIOS will skip Windows UEFI firmware update.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
@@ -80,11 +80,11 @@ Windows UEFI Firmware Update
 Smart USB Protection
 :  Block USB write access (copying data from computer to USB storage device) in Windows.
 
-    Options:
+    Possible options:
 
-    1.  **Disabled** - Default.
-    1.  Read Only - The user can copy data from USB to computer, but not from computer to USB.
-    1.  NO Access - The user cannot use USB storage device in Windows.
+    1.  **Disabled** – Default.
+    2.  Read Only – The user can copy data from USB to computer, but not from computer to USB.
+    3.  NO Access – The user cannot use USB storage device in Windows.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
@@ -93,32 +93,34 @@ Smart USB Protection
 Secure Wipe
 :  Hide or display the `secure wipe` option on the F12 BIOS Startup Menu.
 
-    Options:
+    Possible options:
 
-    1.  **Disabled** - hides `secure wipe` option. Default.
-    2.  Enabled - shows `secure wipe` option.
+    1.  **Disabled** – hides `secure wipe` option. Default.
+    2.  Enabled – shows `secure wipe` option.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | securewipe | Disabled, Enabled | yes |
+    | securewipe | Disabled, Enabled | Yes |
 
 Device Guard
 :  Device Guard protects against malware by restricting the device across several technologies.
 
-    Options:
+    Possible options:
 
-    1.  **Disabled** - Ethernet, USB, CD, and other boot methods are enabled. Default.
-    1.  Enabled - CPU Virtualization Technology，IOMMU (Intel VT-d, AMD-Vi),  Secure boot, and TPM are enabled. Ethernet, USB, CD, and other boot methods are disabled. Only SATA devices are allowed.
+    1.  **Disabled** – Ethernet, USB, CD, and other boot methods are enabled. Default.
+    2.  Enabled – CPU Virtualization Technology, IOMMU (Intel VT-d, AMD-Vi), Secure boot, and TPM are enabled. Ethernet, USB, CD, and other boot methods are disabled. Only SATA devices are allowed.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | DeviceGuard | Disabled, Enabled | yes |
+    | DeviceGuard | Disabled, Enabled | Yes |
 
 Secure Core PC Level3
 :  Whether to support Windows 10/11 Secured-core PCs' Level3:
 
-    1.  **Disabled** - Default.
-    2.  Enabled.
+    Possible options:
+
+    1.  **Disabled** – Default.
+    2.  Enabled
 
 [More information at Microsoft Docs](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure)
 
@@ -128,32 +130,32 @@ Electronic Lock
     !!! note ""
         Effective on the next startup after BIOS setting is saved.
 
-    Options:
+    Possible options:
 
-    1.  **Disabled** - Default.
-    2.  Enabled.
+    1.  **Disabled** – Default.
+    2.  Enabled
 
 Cover Tamper Detected
 :  Chassis Intrusion Detection is a utility that can tell whether someone has opened the case (intruded into the chassis).
 
-    Options:
+    Possible options:
 
-    1.  **Disabled** - Default.
-    1.  Enabled.
+    1.  **Disabled** – Default.
+    2.  Enabled
 
     !!! note ""
         If chassis tamper occurs, you can only clear this error by entering setup.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | CoverTamperDetected | Disabled, Enabled | yes |
+    | CoverTamperDetected | Disabled, Enabled | Yes |
 
 Configuration Change Detection
 :  
-    Options:
+    Possible options:
 
-    1.  **Disabled** - Default.
-    2.  Enabled. When a device is installed or removed, the system will notify the user during POST.
+    1.  **Disabled** – Default.
+    2.  Enabled – When a device is installed or removed, the system will notify the user during POST.
 
     !!! note ""
         This notice can only be cleared by entering BIOS setup, saving and then exiting.
@@ -161,3 +163,4 @@ Configuration Change Detection
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
     | ConfigurationChangeDetection | Disabled, Enabled | yes |
+

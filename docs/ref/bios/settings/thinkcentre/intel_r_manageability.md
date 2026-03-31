@@ -6,17 +6,17 @@
 
 Intel(R) Manageability Control
 :  
-    Options:
+    Possible options:
 
-    1. **Enabled** - Default.
-    2. Disabled.
+    1. **Enabled** – Default.
+    2. Disabled
 
     Setting Intel(R) Manageability Control to "Disabled":
 
     1. If system is provisioned, MEBx will be unprovisioned first.
 
     !!! note ""
-    When MEBX prompt unprovisioning, you should press YES.
+        When MEBX prompt unprovisioning, you should press YES.
 
     2. Manageability functions will be disabled
     You can enter BIOS to re-enable Intel(R) Manageability.
@@ -27,10 +27,10 @@ Intel(R) Manageability Control
 Intel(R) Manageability Reset
 :  Return Intel(R) Manageability settings to default configuration.
 
-    Options:
+    Possible options:
 
-    1. **Enabled** - Default.
-    2. Disabled.
+    1. **Enabled** – Default.
+    2. Disabled
 
     !!! note ""
         the MEBx password will also be reset.
@@ -47,14 +47,14 @@ Manageability Type (display only)
 
 USB Provisioning
 :  
-    Options:
+    Possible options:
 
-    1.  **Enabled** - Default.
-    2.  Disabled - disables USB provisioning.
+    1.  **Enabled** – Default.
+    2.  Disabled – disables USB provisioning.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | USBProvisioning | Disabled, Enabled | yes |
+    | USBProvisioning | Disabled, Enabled | Yes |
 
 SQL Configuration
 :  
@@ -62,11 +62,13 @@ SQL Configuration
 
 Console Type
 :  
-    Options:
-    1. VT100.
-    1. VT100-8bit.
-    1. PC-ANSI-7bit.
-    1. PC-ANSI.
-    1. **VT100+** - Default.
-    1. VT-UTF8.
-    1. ASCII.
+    Possible options:
+    
+    1. VT100
+    2. VT100-8bit
+    3. PC-ANSI-7bit
+    4. PC-ANSI
+    5. **VT100+** – Default.
+    6. VT-UTF8
+    7. ASCII
+

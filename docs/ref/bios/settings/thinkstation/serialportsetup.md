@@ -34,3 +34,5 @@ Serial Port2 Address
 	| SerialPort2Address | Disabled, 3F8/IRQ4, 2F8/IRQ3, 3E8/IRQ4, 2E8/IRQ3 | yes | Both |
 
 
+
+

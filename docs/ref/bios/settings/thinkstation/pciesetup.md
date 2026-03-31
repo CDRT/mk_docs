@@ -167,3 +167,5 @@ Link Speed
 	!!! note ""
 		In the WMI class name, X & Y represents the slot numbers.
 
+
+

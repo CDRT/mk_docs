@@ -9,8 +9,10 @@ Setup UI
         This setting is no longer offered starting with 2023 products.
 
     1. Simple Text
-    2. **Graphical** - Default.
+    2. **Graphical** – Default.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | SetupUI | SimpleText, Graphical | No | Both |
+
+

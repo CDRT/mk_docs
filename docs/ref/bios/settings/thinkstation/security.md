@@ -274,7 +274,7 @@ Set Password Encryption Algorithm
 
 	Options:
 
-	1. **SHA-256 Hash** - Default.
+	1. **SHA-256 Hash** – Default.
 	1. SM3 Hash
 
 	
@@ -284,7 +284,7 @@ Custom Password Mode
 	<!-- TODO: custom password mode description -->
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Enabled.
 
 	<!-- NO WMI -->
@@ -300,7 +300,7 @@ Max Password Attempts
 	Options:
 
 	1. 1
-	1. **3** - Default.
+	1. **3** – Default.
 	1. 100
 	1. Unlimited
 
@@ -316,7 +316,7 @@ Password Change Time
 
 	Options:
 
-	1. **After Reboot** - Default.
+	1. **After Reboot** – Default.
 	1. Immediately
 
 	<!-- NO WMI -->
@@ -331,7 +331,7 @@ Set Minimum Length
 
 	Options:
 
-	1. **Disabled** - Default.
+	1. **Disabled** – Default.
 	1. 4 Characters
 	1. 5 Characters
 	1. 6 Characters
@@ -361,7 +361,7 @@ Set Strong Password
 
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Enabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -375,7 +375,7 @@ Keyboard Layout
 
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Enabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -391,7 +391,7 @@ is English keyboard.
 
 Options:
 
-1.  **English** - Default.
+1.  **English** – Default.
 2.  French.
 3.	German
 
@@ -405,7 +405,7 @@ Allow Jumper Clear SVP
 
 	Options:
 
-	1. **Yes** - Default.
+	1. **Yes** – Default.
 	1. No
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -419,7 +419,7 @@ Secure Roll Back Prevention
 
 	Options:
 
-	1. **Yes** - Default.
+	1. **Yes** – Default.
 	1. No
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -433,7 +433,7 @@ Require SVP when Flashing
 
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Enabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -447,7 +447,7 @@ Require POP on System Boot
 
 	Options:
 
-	1.  **Yes** - Default.  The system prompts for passwords when the system starts form the full off or hibernate state.
+	1.  **Yes** – Default.  The system prompts for passwords when the system starts form the full off or hibernate state.
 	2.  No - Passwords are not prompted and continue to boot the
 	OS. To prevent unauthorized access to the system, recommended
 	to set user authentication on the OS.
@@ -467,7 +467,7 @@ BIOS Password At System Boot
 
 	Options:
 
-	1. **Yes** - Default.
+	1. **Yes** – Default.
 	1. No
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -481,7 +481,7 @@ BIOS Password At Reboot
 
 	Options:
 
-	1.  **No** - Default.
+	1.  **No** – Default.
 	2.  Yes.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -495,7 +495,7 @@ POP Changeable by User
 
 	Options:
 
-	1.  **Yes** - Default.
+	1.  **Yes** – Default.
 	2.  No.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -512,7 +512,7 @@ BIOS Password At Boot Device List
 
 	Options:
 
-	1.  **No** - Default.
+	1.  **No** – Default.
 	2.  Yes.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -526,7 +526,7 @@ Smart USB Protection
 
 	Options:
 
-	1. **Disabled** - Default. 
+	1. **Disabled** – Default. 
 	1. Read Only - user can copy data from USB storage device to the computer, but cannot copy data from the computer to USB storage device.
 	1. No Access - user cannot use USB storage device in Windows.
 
@@ -549,7 +549,7 @@ Whether to enable the fingerprint reader function for entering BIOS passwords.
 
 Options:
 
-1.  **Disabled** - Default.
+1.  **Disabled** – Default.
 2.  Enabled.
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -565,7 +565,7 @@ Whether to clear fingerprint data stored in a fingerprint reader.
 
 Options:
 
-1.  **No** - Default.
+1.  **No** – Default.
 2.  Yes.
 
 TODO: confirm WMI
@@ -581,7 +581,7 @@ Password Count Exceeded Error
 
 	Options:
 
-	1.  **Enabled** - Default.
+	1.  **Enabled** – Default.
 	2.  Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -589,5 +589,7 @@ Password Count Exceeded Error
 	| PasswordCountExceededError | Disabled, Enabled| Yes | Both |
 
 	<!-- TODO: confirm WMI -->
+
+
 
 

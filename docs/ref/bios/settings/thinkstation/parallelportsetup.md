@@ -48,3 +48,5 @@ Parallel Port IRQ
 	|:---|:---|:---|:---|
 	| ParallelPortIRQ | IRQ5, IRQ7 | yes | Both |
 
+
+

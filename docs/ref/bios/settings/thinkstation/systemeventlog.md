@@ -22,3 +22,5 @@ Clear System Event Log
 	!!! note ""
 		All system event logs will be cleared immediately. Requires additional confirmation.
 
+
+

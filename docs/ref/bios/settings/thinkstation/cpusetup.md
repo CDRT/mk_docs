@@ -118,7 +118,7 @@ TxT
 	Options:
 
 	1. Enabled
-	2. **Disabled** - Default.
+	2. **Disabled** – Default.
 
 	!!! note ""
 		If TxT is set to `Enabled`, then the `Security Chip` setting will be set to `Enabled` automatically.
@@ -206,3 +206,5 @@ Turbo Mode
 :	Displays the CPU Microcode Revision date.
 
 	View only.
+
+

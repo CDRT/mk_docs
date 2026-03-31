@@ -7,7 +7,7 @@ Card Reader
 
 	Options:
 
-	1.	**Enabled** - Default.
+	1.	**Enabled** – Default.
 	2.	Disabled
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -19,11 +19,13 @@ Bluetooth
 
 	Options:
 
-	1.	**Enabled** - Default.
+	1.	**Enabled** – Default.
 	2.	Disabled  
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| Bluetooth | Disabled, Enabled | yes | Both |
+
+
 
 

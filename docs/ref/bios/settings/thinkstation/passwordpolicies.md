@@ -79,7 +79,7 @@ BIOS Password At Reboot
 	Options:
 
 	1. Yes.
-	2. **No** - Default.
+	2. **No** – Default.
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -160,3 +160,5 @@ Password Count Exceeded Error
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| PasswordCountExceededError | Disabled, Enabled | yes | Both |
+
+

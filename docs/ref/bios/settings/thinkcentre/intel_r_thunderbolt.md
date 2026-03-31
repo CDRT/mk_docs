@@ -4,46 +4,47 @@
 
 Intel Thunderbolt Technology
 :  
-    Options:
+    Possible options:
 
-    1. **Disabled** - Default.
-    1. Enabled.
+    1. **Disabled** – Default.
+    2. Enabled
 
 Security Level
 :  
-    Options:
+    Possible options:
 
-    1. **Use Authorization** - Default.
-    1. No Security.
-    1. Secure Connection.
-    1. Display Port Only.
+    1. **Use Authorization** – Default.
+    2. No Security
+    3. Secure Connection
+    4. Display Port Only
 
 Wake From Thunderbolt Devices
 :  
-    Options:
+    Possible options:
 
-    1. **Enabled** - Default.
-    1. Disabled.
+    1. **Enabled** – Default.
+    2. Disabled
 
 SwSMI Support
 :  Enable or disable SwSMI support in ASL code.
 
-    Options:
+    Possible options:
 
-    1. **Enabled** - Default.
-    1. Disabled.
+    1. **Enabled** – Default.
+    2. Disabled
 
 Notify Support
 :  Enable or disable Notify support in ASL code.
 
-    Options:
+    Possible options:
 
-    1. **Enabled** - Default.
-    1. Disabled.
+    1. **Enabled** – Default.
+    2. Disabled
 
 Ignore Thunderbolt Device Option ROM
 :  
-    Options:
+    Possible options:
 
-    1. **Enabled** - Default.
-    1. Disabled.
+    1. **Enabled** – Default.
+    2. Disabled
+

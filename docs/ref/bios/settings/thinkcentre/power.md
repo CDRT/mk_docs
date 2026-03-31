@@ -8,15 +8,15 @@ After Power Loss
     !!! note ""
         Select `Power on` if you use a power strip to turn the system on.
 
-    Options:
+    Possible options:
 
-    1. **Last State** - return to the previous state. Default.
-    2.  Power Off - remain off.
-    3.  Power On - turn on.
+    1. **Last State** – return to the previous state. Default.
+    2.  Power Off – remain off.
+    3.  Power On – turn on.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | AfterPowerLoss | Power Off, Power On, Last State | yes |
+    | AfterPowerLoss | Power Off, Power On, Last State | Yes |
 
 Enhanced Power Saving Mode
 :  When enabled,  total power consumption is lower during power off.
@@ -24,23 +24,24 @@ Enhanced Power Saving Mode
     !!! note ""
         In Enhanced Power Saving Mode, only the `Wake up on Alarm` function is supported. Other wake-up functions are not. System will not enter `Enhanced Power Saving Mode` if Intel ME is required to be active in Sx states, and host is in AC mode.
 
-    Options:
+    Possible options:
 
-    1. **Disabled** - Default.
-    2.  Enabled.
+    1. **Disabled** – Default.
+    2.  Enabled
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | EnhancedPowerSavingMode | Disabled, Enabled | yes |
+    | EnhancedPowerSavingMode | Disabled, Enabled | Yes |
 
 Smart Power On
 :  When enabled, the user can use `Alt+P` to power on if a USB keyboard is plugged in the correct USB port.
 
-    Options:
+    Possible options:
 
-    1.  **Enabled** - Default.
-    2.  Disabled - disables Smart Power On.
+    1.  **Enabled** – Default.
+    2.  Disabled – disables Smart Power On.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | SmartPowerOn | Disabled, Enabled | yes |
+    | SmartPowerOn | Disabled, Enabled | Yes |
+

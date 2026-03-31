@@ -5,7 +5,7 @@
 ![Power](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_power.png)
 
 Intel (R) SpeedStep Technology
-:  Whether to switch on Intel (R) SteedStep Technology at runtime
+:  Whether to switch on Intel (R) SpeedStep Technology at runtime
 
     Possible options:
 
@@ -21,8 +21,8 @@ Scheme for AC
 
     Possible options:
 
-    1. **Maximize Performance** - reduces CPU throttling. Default.
-    2. Balanced - balanced sound, temperature, and performance.
+    1. **Maximize Performance** – reduces CPU throttling. Default.
+    2. Balanced – balanced sound, temperature, and performance.
 
     !!! note ""
         Each scheme affects fan sound, temperature, and performance.
@@ -36,8 +36,8 @@ Scheme for Battery
 
     Possible options:
 
-    1. Maximize Performance - reduces CPU throttling.
-    2. **Balanced** - balanced sound, temperature, and performance. Default.
+    1. Maximize Performance – reduces CPU throttling.
+    2. **Balanced** – balanced sound, temperature, and performance. Default.
 
     !!! note ""
         Each scheme affects fan sound, temperature, and performance.
@@ -47,7 +47,7 @@ Scheme for Battery
     | AdaptiveThermalManagementBattery | MaximizePerformance,  Balanced | No | Both |
 
 Intelligent Cooling Boost
-:  Whether to  improve power efficiency by limiting system power based on the selected OS application, when Intelligent Cooling is on.
+:  Whether to improve power efficiency by limiting system power based on the selected OS application, when Intelligent Cooling is on.
 
     !!! note ""
         This feature is Windows only.
@@ -55,39 +55,39 @@ Intelligent Cooling Boost
     !!! note ""
         For more details about Intelligent Cooling mode, please refer to Vantage or the user guide.
 
-    Options:
+    Possible options:
 
-    1.  **On** - Default.
-    2.  Off.
+    1. **On** – Default.
+    2. Off.
 
-    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | IntelligentCoolingBoost | Disable, Enable | Yes | Both |
 
 Energy Efficient Turbo
-:  If enabled, the CPU’s optimal turbo frequency will be increase or descrease dynamically based on CPU utilization. Adjusting the frequency based on usage extends your battery life. Normally, it is not necessary to change this setting.
+:  If enabled, the CPU's optimal turbo frequency will be increase or decrease dynamically based on CPU utilization. Adjusting the frequency based on usage extends your battery life. Normally, it is not necessary to change this setting.
 
-    Options:
+    Possible options:
 
-    1.  **On** - Default.
-    2.  Off.
+    1. **On** – Default.
+    2. Off.
 
-    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | EnergyEfficientTurbo | Disable, Enable | No | Both |
 
 Intel System Agent Enhanced SpeedStep® Technology
-:  When this feature is Off, your device will run with improved performance, which will consume more battery life. When this feature is On, your device will optimize your performance and balance your battery life based on the memory workload. 
+:  When this feature is Off, your device will run with improved performance, which will consume more battery life. When this feature is On, your device will optimize your performance and balance your battery life based on the memory workload.
 
     !!! warning
         The Setup Configuration might take several minutes to complete and the screen may go blank during this time. This is normal and you should not interrupt the process.
 
-    Options:
+    Possible options:
 
-    1.  **On** - Default.
-    2.  Off.
+    1. **On** – Default.
+    2. Off.
 
-    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | IntelSystemAgentEnhancedSpeedStep(R)Technology | Disable, Enable | No | Intel |
 
@@ -96,8 +96,8 @@ CPU Power Management
 
     Possible options:
 
-    1. **Automatic** - Default.
-    2. Disabled
+    1. **Automatic** – Default.
+    2. Disabled.
 
     !!! note ""
         Normally, it is not necessary to change this setting.
@@ -114,8 +114,8 @@ Power On with AC Attach
 
     Possible options:
 
-    1. Enabled
-    2. **Disabled** - Default.
+    1. Enabled.
+    2. **Disabled** – Default.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -129,12 +129,12 @@ Sleep State
         * Optimized Sleep State for S3 are not compatible with Suspend-to-Idle.
         * Windows® OS should be used with **Windows** setting only.
 
-    Options:
+    Possible options:
 
-    1.  **Windows and Linux** - Default.
-    2.  Linux S3
+    1. **Windows and Linux** – Default.
+    2. Linux S3.
 
-    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | SleepState | Linux, Windows, Windows10 | Yes | Both |
 
@@ -144,54 +144,54 @@ Sleep State
 Cool & Quiet on Lap
 :  When Cool & Quiet on Lap mode is turned on, system performance is lowered to maintain a cooler temperature when the device is used on lap.
 
-    Options:
+    Possible options:
 
-    1.  **Off** - Default.
-    2.  On
+    1. **Off** – Default.
+    2. On.
 
-    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | CoolQuietOnLap | Disabled, Enabled | Yes | Both |
 
 EcoPilot
-:  When enabled, this feature reduces power consumption in Modern Standby with no impact on system performance. 
+:  When enabled, this feature reduces power consumption in Modern Standby with no impact on system performance.
 
     !!! note ""
         It activates only when the battery is fully charged, and a Lenovo original AC adapter is connected.
 
-    Options:
+    Possible options:
 
-    1.  **On** - Default.
-    2.  Off
+    1. **On** – Default.
+    2. Off.
 
-    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | EcoPilot | Disabled, Enabled | No | Both |
 
 Ultra Performance Mode
-:  When enabled, this feature improves performance, but may result in higher surface temperatures and increased fan noise. 
+:  When enabled, this feature improves performance, but may result in higher surface temperatures and increased fan noise.
 
     !!! note ""
         This feature is Windows only and only available on select models.
 
-    Options:
+    Possible options:
 
-    1.  **Off** - Default.
-    2.  On
+    1. **Off** – Default.
+    2. On.
 
-    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | UltraPerformanceMode | Disabled, Enabled | No | Both |
 
 Flip to Start
 :  Turns the machine on when the computer lid opens, just the same as pressing the power button.
 
-    Options:
+    Possible options:
 
-    1.  **Off** - Default.
-    2.  On
+    1. **Off** – Default.
+    2. On.
 
-    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | FlipToStart | Disabled, Enabled | No | Both |
 
@@ -215,11 +215,11 @@ Wake Up on Alarm
 
     Possible options:
 
-    1. **Disabled** - the system will not turn on automatically. Default.
-    2. Single Event - the system will turn on one-time on the specified day and time.
-    3. Daily Event - the system will turn on every day at the specified time.
-    4. Weekly Event - the system will turn on every week on the specified day and time.
-    5. User Defined - this option enables ‘User Defined Alarm’ group of settings.
+    1. **Disabled** – the system will not turn on automatically. Default.
+    2. Single Event – the system will turn on one-time on the specified day and time.
+    3. Daily Event – the system will turn on every day at the specified time.
+    4. Weekly Event – the system will turn on every week on the specified day and time.
+    5. User Defined – this option enables 'User Defined Alarm' group of settings.
 
     !!! note ""
         Wake up will only occur on AC power.  Values for the `Wake Up on Alarm` group of settings can be overwritten by the operating system.
@@ -238,9 +238,9 @@ Alarm Date (MM/DD/YYYY)
 
     1. **N/A** – Default.
     2. MM/DD/YYYY:<br>
-        a. MM – Months: January to December <br>
-        b. DD – Date: 1 ~ 31 <br>
-        c. YYYY – Year: 1980 ~ 2099 <br>
+        a. MM – Months: January to December<br>
+        b. DD – Date: 1 ~ 31<br>
+        c. YYYY – Year: 1980 ~ 2099
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -257,11 +257,11 @@ Alarm Time (HH : MM : SS)
 
     Possible options:
 
-    1. **N/A** – Default
+    1. **N/A** – Default.
     2. HH : MM : SS<br>
-        a. HH - Hour:  00 ~ 23<br>
-        b. MM - Minute:  00 ~ 59<br>
-        c. SS - Second:  00 ~ 59<br>
+        a. HH – Hour: 00 ~ 23<br>
+        b. MM – Minute: 00 ~ 59<br>
+        c. SS – Second: 00 ~ 59
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -274,7 +274,7 @@ Alarm Day of Week
 
     Possible options:
 
-    1. **N/A** – Default
+    1. **N/A** – Default.
     2. Sunday
     3. Monday
     4. Tuesday
@@ -294,8 +294,10 @@ Alarm Day of Week
 Sunday - Saturday
 :  Whether the system will turn on automatically on this day.
 
-    1. **Off** - Default.
-    2. On
+    Possible options:
+
+    1. **Off** – Default.
+    2. On.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -314,3 +316,5 @@ User Defined Alarm Time (HH : MM : SS)
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | UserDefinedAlarmTime | HH/MM/SS | Yes | Both |
+
+

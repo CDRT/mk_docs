@@ -14,7 +14,7 @@ Supervisor Password
 
       Possible options:
 
-      1. **Disabled** - Default.
+      1. **Disabled** – Default.
       2. Enabled
 
       While enabling the following parameters are available:
@@ -38,7 +38,7 @@ System Management Password
 
     Possible options:
 
-    1. **Off** - Default.
+    1. **Off** – Default.
     2. On
 
     While enabling the following parameters are available:
@@ -52,7 +52,7 @@ System Management Password
         * Cancel
 
     !!! note ""
-        When enabled System Management Password presents unauthorized users from accessing these items in ThinkPad Setup: <br> - Boot priority lists <br> - Network related items <br> - Date & Time
+        When enabled System Management Password prevents unauthorized users from accessing these items in ThinkPad Setup: <br> - Boot priority lists <br> - Network related items <br> - Date & Time
 
     !!! note ""
         To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm.md).
@@ -65,7 +65,7 @@ Power-On Password
 
     Possible options:
 
-    1. **Off** - Default.
+    1. **Off** – Default.
     2. On
 
     While enabling the following parameters are available:
@@ -88,13 +88,13 @@ NVMe1 Password
 
     Possible options:
 
-    1. **Off** - no password defined. Default.
-    2. On - for enabling system will request 'Setup Confirmation' and 'Password and confirmation'.
+    1. **Off** – no password defined. Default.
+    2. On – for enabling system will request 'Setup Confirmation' and 'Password and confirmation'.
 
     Setup Confirmation:
 
-    1. **Single Password** - when a Single NVMe password is set, the user must enter the user NVMe password to access files and applications on the storage drive. Default.
-    2. Dual Password (User+Admin) - The admin NVMe password is set and used by a system administrator. It enables the administrator to access any storage drive in a system or any computer connected in the same network. The administrator can also assign a user NVMe password for each computer in the network. The user of the computer can change the user NVMe password as desired, but only the administrator can remove the user NVMe password.
+    1. **Single Password** – when a Single NVMe password is set, the user must enter the user NVMe password to access files and applications on the storage drive. Default.
+    2. Dual Password (User+Admin) – The admin NVMe password is set and used by a system administrator. It enables the administrator to access any storage drive in a system or any computer connected in the same network. The administrator can also assign a user NVMe password for each computer in the network. The user of the computer can change the user NVMe password as desired, but only the administrator can remove the user NVMe password.
     3. Cancel
 
     Password and confirmation:
@@ -127,8 +127,8 @@ Block SID Authentication
 
     Possible options:
 
-    1. **On** - Default.
-    2. Off
+    1. **On** – Default.
+    2. Off.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -139,8 +139,8 @@ BIOS Unlock Control
 
     Possible options:
 
-    1. **Off** - Default.
-    2. On
+    1. **Off** – Default.
+    2. On.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -151,8 +151,8 @@ Lock UEFI BIOS Settings
 
     Possible options:
 
-    1. On
-    2. **Off** - Default.
+    1. On.
+    2. **Off** – Default.
 
     !!! note ""
         UEFI BIOS Lock will not take effect unless Supervisor password is enabled.
@@ -166,8 +166,8 @@ Password at Unattended Boot
 
     Possible options:
 
-    1. **On** - Default.
-    2. Off
+    1. **On** – Default.
+    2. Off.
 
     !!! note ""
         To protect unauthorized access to the system we recommended setting user authentication on the OS.
@@ -181,8 +181,8 @@ Password at Restart
 
     Possible options:
 
-    1. On
-    2. **Off** - Default.
+    1. On.
+    2. **Off** – Default.
 
     !!! note ""
         To protect unauthorized access to the system we recommended setting user authentication on the OS.
@@ -200,7 +200,7 @@ Password at Boot Device List
     Possible options:
 
     1. On
-    2. **Off** - system will proceed without any user action required. Default.
+    2. **Off** – system will proceed without any user action required. Default.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -211,8 +211,8 @@ Password Count Exceeded Error
 
     Possible options:
 
-    1. **On** - Default.
-    2. Off
+    1. **On** – Default.
+    2. Off.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -230,15 +230,15 @@ Set Minimum Length
 
     Possible options:
 
-    - **Disabled** - passwords can be from 1 to 128 symbols. Default.
-    - 4 characters
-    - 5 characters
-    - 6 characters
-    - 8 characters
-    - 9 characters
-    - 10 characters
-    - 11 characters
-    - 12 characters
+    1. **Disabled** – passwords can be from 1 to 128 symbols. Default.
+    2. 4 characters.
+    3. 5 characters.
+    4. 6 characters.
+    5. 8 characters.
+    6. 9 characters.
+    7. 10 characters.
+    8. 11 characters.
+    9. 12 characters.
 
     !!! note ""
         If a supervisor password is set, you cannot change the minimum length until you log in as a supervisor.
@@ -263,7 +263,7 @@ Set Strong Password
 
     Possible options:
 
-    1. **Disabled** - Default.
+    1. **Disabled** – Default.
     2. Enabled
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -291,7 +291,7 @@ Power-On Password Control
 
     Possible options:
 
-    1. **Off** - Default.
+    1. **Off** – Default.
     2. On
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -303,8 +303,8 @@ Storage Password Control
 
     Possible options:
 
-    1. **Off** - Default.
-    2. On
+    1. **Off** – Default.
+    2. On.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -315,8 +315,8 @@ Hard Disk Password Control
 
     Possible options:
 
-    1. **Off** - Default.
-    2. On
+    1. **Off** – Default.
+    2. On.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -327,7 +327,7 @@ Allow System Management Password Hardware Reset
 
     Possible options:
 
-    1. **On** - Default
+    1. **On** – Default
     2. Off
 
     !!! note ""
@@ -342,8 +342,8 @@ BIOS Setup Configurations
 
     Possible options:
 
-    1. **Off** - Default.
-    2. On
+    1. **Off** – Default.
+    2. On.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -361,7 +361,7 @@ Supervisor Password (SVP)
     When entering the UEFI BIOS menu, enter the correct supervisor password in the window prompted.
 
     !!! note ""
-        If the user presses `Enter`, the password prompt will be skipped, but then most of the system configuration options in UEFI BIOS will be unavailble.
+        If the user presses `Enter`, the password prompt will be skipped, but then most of the system configuration options in UEFI BIOS will be unavailable.
 
     **_Setting the SVP_**
 
@@ -401,3 +401,5 @@ ATA / NVMe Password
     Lenovo BIOS supports both ATA and NVMe storage and the displayed BIOS setting changes depending on the attached storage device.
 
     The NVMe (nonvolatile memory express) password prevents unauthorized access to the data on the storage drive. When an NVMe password is set, you are prompted to type a correct password each time you try to access the storage drive. The system also supports creating **dual passwords** for an Admin and another User.
+
+

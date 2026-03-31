@@ -14,7 +14,7 @@ Wipe Data in Bulk
 
     Options:
 
-    1. **No** - Default.
+    1. **No** – Default.
     2. Yes
 
 ## Wipe Specified Data
@@ -34,7 +34,7 @@ System Firmware Settings
 
     Options:
 
-    1. **Keep** - Default.
+    1. **Keep** – Default.
     2. Permanently Delete
 
 TPM
@@ -42,7 +42,7 @@ TPM
 
     Options:
 
-    1. **Keep** - Default.
+    1. **Keep** – Default.
     2. Permanently Delete
 
 Fingerprint
@@ -53,7 +53,7 @@ Fingerprint
 
     Options:
 
-    1. **Keep** - Default.
+    1. **Keep** – Default.
     2. Permanently Delete
 
 WWAN
@@ -67,7 +67,7 @@ WWAN
 
     Options:
 
-    1. **Keep** - Default.
+    1. **Keep** – Default.
     2. Permanently Delete
 
 Haptics Touchpad
@@ -75,7 +75,7 @@ Haptics Touchpad
 
     Options:
 
-    1. **Keep** - Default.
+    1. **Keep** – Default.
     2. Permanently Delete
 
 Internal Storage (HDD/SSD)
@@ -86,7 +86,7 @@ Internal Storage (HDD/SSD)
 
     Options:
 
-    1. **Keep** - Default.
+    1. **Keep** – Default.
     2. Wipe Disk
 
 Wipe Selected Data
@@ -94,7 +94,7 @@ Wipe Selected Data
 
     Options:
 
-    1. **No** - Default.
+    1. **No** – Default.
     2. Yes
 
 Reset System Factory Defaults
@@ -102,3 +102,5 @@ Reset System Factory Defaults
 
     !!! note ""
         System will be reboot, permanently clear all stored data, and reset to factory default settings. Absolute Persistence Module Permanent Disabled and Intel AMT Control Permanent Disabled settings will not reset.
+
+

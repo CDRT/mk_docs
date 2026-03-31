@@ -4,18 +4,19 @@
 
 Bluetooth
 :  
-    Options:
+    Possible options:
 
-    1. **Enabled** - Default.
-    1. Disabled - disables Bluetooth connections. Bluetooth will not be available in the OS.
+    1. **Enabled** – Default.
+    2. Disabled – disables Bluetooth connections. Bluetooth will not be available in the OS.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | Bluetooth  | Disabled, Enabled | yes |
+    | Bluetooth  | Disabled, Enabled | Yes |
 
 Card Reader
 :  
-    Options:
+    Possible options:
 
-    1.  **Enabled** - Default.
-    1.  Disabled - disables card reader.
+    1.  **Enabled** – Default.
+    2.  Disabled – disables card reader.
+

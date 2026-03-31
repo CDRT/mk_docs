@@ -4,23 +4,23 @@
 
 SATA Controller
 :  
-    Options:
+    Possible options:
 
     1. **Enabled** – Default.
-    2. Disabled.
+    2. Disabled
 
-    | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | SATAController | Disabled, Enabled | Yes | Both |
 
 SATA Drive {X}
 :  
-    Options:
+    Possible options:
 
     1. **Enabled** – Default.
-    2. Disabled.
+    2. Disabled
 
-    | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | SATADriveX | Disabled, Enabled | Yes | Both |
 
@@ -29,12 +29,12 @@ SATA Drive {X}
 
 M.2 Drive {X}
 :  
-    Options:
+    Possible options:
 
     1. **Enabled** – Default.
-    2. Disabled.
+    2. Disabled
 
-    | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | M.2DriveX | Disabled, Enabled | Yes | Intel |
 
@@ -44,30 +44,31 @@ M.2 Drive {X}
 Configure Storage as
 :  Adds a delay before the first access of a hard disk by the system software. Some hard disks hang if accessed before they have initialized themselves. This delay ensures the hard disk has initialized after power up, prior to being accessed.
 
-    Options:
+    Possible options:
 
     1. **AHCI** – Default.
     2. RAID
 
     !!! note ""
-    Device driver support is required for AHCI or RAID.
-    Depending on how the hard disk image was installed, changing
-    this setting may prevent the system from booting.
+        Device driver support is required for AHCI or RAID.
+        Depending on how the hard disk image was installed, changing
+        this setting may prevent the system from booting
 
 Hard Disk Pre-delay
 :  Adds a delay before the first access of a hard disk by the system software. Some hard disks hang if accessed before they have initialized themselves. This delay ensures the hard disk has initialized after power up, prior to being accessed.
 
-    Options:
+    Possible options:
 
     1. **Disabled** – Default.
     2. 3 Seconds
     3. 6 Seconds
     4. 9 Seconds
     5. 12 Seconds
-    5. 15 Seconds
-    6. 21 Seconds
-    7. 30 Seconds
+    6. 15 Seconds
+    7. 21 Seconds
+    8. 30 Seconds
 
-    | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | HardDiskPre-delay | Disabled, 3 Seconds, 6 Seconds, 9 Seconds, 12 Seconds, 15 Seconds, 21 Seconds, 30 Seconds | Yes | Both |
+

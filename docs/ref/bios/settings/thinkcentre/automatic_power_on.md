@@ -5,27 +5,27 @@
 Wake on LAN
 :  Controls the wake up event from onboard LAN and PCI LAN.
 
-    Options:
+    Possible options:
 
-    1.  **Enabled** - Default.
-    2.  Disabled - disables Wake on LAN.
+    1.  **Enabled** – Default.
+    2.  Disabled – disables Wake on LAN.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | WakeonLAN | Primary, Automatic, Disabled | yes |
+    | WakeonLAN | Primary, Automatic, Disabled | Yes |
 
 Wake from Serial Port Ring
 :  
     Select whether to enable Wake from Serial Port Ring.
 
-    Options:
+    Possible options:
 
-    1. **Enabled** - Default.
-    2. Disabled.
+    1. **Enabled** – Default.
+    2. Disabled
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | WakefromSerialPortRing | Primary, Automatic, Disabled | yes |
+    | WakefromSerialPortRing | Primary, Automatic, Disabled | Yes |
 
 Wake Up on Alarm
 :  Options to turn on your system on a specific day of the month, specific day of the week, or daily at a given time.
@@ -36,10 +36,10 @@ Wake Up on Alarm
         - Selecting `User Defined` enables the `User Defined Alarm` settings.
         - Values in these fields may be overwritten by the operating system.
 
-    Options:
+    Possible options:
 
-    1.  **Disabled** - Default.
-    2.  User Defined - a series of alarm events.
+    1.  **Disabled** – Default.
+    2.  User Defined – a series of alarm events.
     3.  Single Event
     4.  Daily Event
     5.  Weekly Event
@@ -47,35 +47,35 @@ Wake Up on Alarm
 Startup Sequence
 :  Select the startup sequence after a Wake Up on Alarm event.
 
-    Options:
+    Possible options:
 
-    1.  **Primary** - enables primary startup sequence. Default.
-    1.  Automatic - disables automatic selection of startup sequence.
-    1.  Boot Order.
-    1.  Network Group.
-    1.  Storage Group.
-    1.  SATA 1.
-    1.  SATA 2.
-    1.  SATA 3.
-    1.  SATA 4.
-    1.  M.2 Drive 1.
-    1.  M.2 Drive 2.
-    1.  PCIe Drive 1.
-    1.  PCIe Drive 2.
-    1.  VMD.
-    1.  USB HDD.
-    1.  USB CDROM.
-    1.  Network 1. 
-    1.  Network 2.
-    1.  Network 3. 
-    1.  Network 4.
-    1.  Network 5. 
-    1.  Network 6.
-    1.  Network 7.
+    1.  **Primary** – enables primary startup sequence. Default.
+    2.  Automatic – disables automatic selection of startup sequence.
+    3.  Boot Order
+    4.  Network Group
+    5.  Storage Group
+    6.  SATA 1
+    7.  SATA 2
+    8.  SATA 3
+    9.  SATA 4
+    10.  M.2 Drive 1
+    11.  M.2 Drive 2
+    12.  PCIe Drive 1
+    13.  PCIe Drive 2
+    14.  VMD
+    15.  USB HDD
+    16.  USB CDROM
+    17.  Network 1
+    18.  Network 2
+    19.  Network 3
+    20.  Network 4
+    21.  Network 5
+    22.  Network 6
+    23.  Network 7
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | StartupSequence | Primary, Automatic, etc | yes_no |
+    | StartupSequence | Primary, Automatic, etc | Yes/No |
 
 Alarm Time (HH : MM : SS)
 :  Specify the time when the system is to wake up.
@@ -87,15 +87,15 @@ Alarm Date (MM / DD / YYYY)
 
 Alarm day of week
 :  
-    Options:
+    Possible options:
 
-    1. **Sunday** - Default.
-    2. Monday.
-    3. Tuesday.
-    4. Wednesday.
-    5. Thursday.
-    6. Friday.
-    7. Saturday.
+    1. **Sunday** – Default.
+    2. Monday
+    3. Tuesday
+    4. Wednesday
+    5. Thursday
+    6. Friday
+    7. Saturday
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
@@ -122,3 +122,4 @@ User Defined Alarm
 
     User Defined Alarm Time (HH : MM : SS)
     :  Specify the time when the system is to wake up.
+

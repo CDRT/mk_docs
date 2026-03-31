@@ -12,3 +12,5 @@ Displays information on system components such as:
  - BIOS Password Change Event
 
 There is also an option to Clear BIOS Event Log.
+
+

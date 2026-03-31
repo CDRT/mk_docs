@@ -1,6 +1,6 @@
 # Intelligent Security
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_intelligentsecurity.png)
+![Intelligent Security](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_intelligentsecurity.png)
 
 The Intelligent Security functions provide a convenient way to securely lock and unlock your computer by detecting your presence near the computer.
 
@@ -17,9 +17,9 @@ User Presence Sensing
 
     - [More information at Lenovo Support](https://support.lenovo.com/uu/en/solutions/ht511536-smart-features)
 
-    Options:
+    Possible options:
 
-    1. **On** - Default.
+    1. **On** – Default.
     2. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -32,9 +32,9 @@ Allow Lenovo Vantage to Override Setting Below
     - [More information at Lenovo Support](https://support.lenovo.com/us/en/solutions/ht505081-lenovo-vantage-using-your-pc-just-got-easier)
     - [More information at Lenovo.com](https://www.lenovo.com/us/en/software/vantage)
 
-    Options:
+    Possible options:
 
-    1. **On** - Default.
+    1. **On** – Default.
     2. Off
 
     !!! note ""
@@ -47,10 +47,10 @@ Allow Lenovo Vantage to Override Setting Below
 Zero Touch Login
 :  Whether to unlock or wake up the computer automatically when you are in front of it or approaching it.
 
-    Options:
+    Possible options:
 
-    1. **On** - Default.
-    2. Off.
+    1. **On** – Default.
+    2. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -61,11 +61,11 @@ DISTANCE SENSITIVITY ADJUSTING
 
     - [More information at Microsoft.com](https://www.support.microsoft.com/en-us/windows/learn-about-windows-hello-and-set-it-up-dae28983-8242-bb2a-d3d1-87c9d265a5f0)
 
-    Options:
+    Possible options:
 
     1. Near
-    1. **Middle** - Default.
-    1. Far
+    2. **Middle** – Default.
+    3. Far
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -77,9 +77,9 @@ Zero Touch Lock
     !!! note ""
         Can reduce the chances of unauthorized access to the computer if you leave the computer unattended and unlocked.
 
-    Options:
+    Possible options:
 
-    1. **On** - Default.
+    1. **On** – Default.
     2. Off.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -89,25 +89,27 @@ Zero Touch Lock
 SENSITIVITY ADJUSTING
 :  Accuracy varies by body size, posture, and frequency of movement.
 
-    Options:
+    Possible options:
 
     1. Near
-    1. **Middle** - Default.
-    1. Far
+    2. **Middle** – Default.
+    3. Far
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | ZeroTouchLockDistanceAdjusting | Near, Middle, Far | Yes | Intel |
 
-AUTO SCREEN LOCK TIMER
+Auto Screen Lock Timer
 :  Uses sensors and camera to detect your presence. However, it does NOT collect any personal data.
 
-    Options:
+    Possible options:
 
-    1. **Fast** - Default.
-    1. Medium
-    1. Slow
+    1. **Fast** – Default.
+    2. Medium
+    3. Slow
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | ZeroTouchLockTimer | Fast, Medium, Slow | Yes | Intel |
+
+

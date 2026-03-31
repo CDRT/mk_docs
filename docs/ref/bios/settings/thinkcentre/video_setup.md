@@ -5,11 +5,11 @@
 Select Active Video
 :  The primary video device for graphics output.
 
-    Options:
+    Possible options:
 
-    1.  **Auto** - automatic selection of graphics output by the system. Default.
-    1.  IGD - Select Integrated Graphics Device.
-    1.  PEG - Select PCIe Graphic.
+    1.  **Auto** – automatic selection of graphics output by the system. Default.
+    2.  IGD – Select Integrated Graphics Device.
+    3.  PEG – Select PCIe Graphic.
 
 
     !!! note ""
@@ -18,48 +18,49 @@ Select Active Video
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | SelectActiveVideo  | IGD, [PEG], Auto | yes |
+    | SelectActiveVideo  | IGD, [PEG], Auto | Yes |
 
 Pre-Allocated Memory Size
 :  Allocate memory to the IGD (Internal Graphics Device).
 
-    Options:
+    Possible options:
 
-    1.  **32MB** - Default.
-    1.  64MB
-    1.  96MB
-    1.  128MB
-    1.  160MB
+    1.  **32MB** – Default.
+    2.  64MB
+    3.  96MB
+    4.  128MB
+    5.  160MB
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | Pre-AllocatedMemorySize | 32MB, 64MB, 96MB, 128MB, 160MB | yes |
+    | Pre-AllocatedMemorySize | 32MB, 64MB, 96MB, 128MB, 160MB | Yes |
 
 Total Graphics Memory
 :  Total memory shared by all graphics devices.
 
-    Options:
+    Possible options:
 
-    1.  **Maximum** - enables maximum memory allocation. Default.
-    2.  128MB.
-    3.  256MB.
+    1.  **Maximum** – enables maximum memory allocation. Default.
+    2.  128MB
+    3.  256MB
 
 UMA Frame Buffer Size
 :  Configure the memory size for internal graphic
 
-    Options:
+    Possible options:
 
-    1.  **Auto** - Default.
-    2.  512MB.
-    3.  1024MB.
-    4.  2048MB.
+    1.  **Auto** – Default.
+    2.  512MB
+    3.  1024MB
+    4.  2048MB
 
 Dual DisplayPorts
 :  Dual display ports 1 and 2.
 
     Enable support for MST (multi-stream transport), allowing daisy-chaining of graphics output devices.
 
-    Options:
+    Possible options:
 
-    1.  **MST** - Default.
-    2.  SST (single-stream transport).
+    1.  **MST** – Default.
+    2.  SST (single-stream transport)
+

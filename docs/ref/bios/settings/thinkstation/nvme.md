@@ -11,7 +11,7 @@ NVMe RAID Mode
 
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Enabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -19,3 +19,5 @@ NVMe RAID Mode
 	| NVMeRAIDMode | Disable, Enable | ACL | AMD |
 
 <!-- TODO: clarify ACL -->
+
+

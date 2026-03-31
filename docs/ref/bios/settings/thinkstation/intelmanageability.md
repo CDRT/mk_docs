@@ -97,10 +97,12 @@ USB Provisioning
 	Options:
 
 	1. Enabled.
-	2. **Disabled** - Default.
+	2. **Disabled** – Default.
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| USBProvisioning | Disabled, Enabled | yes | Intel |
+
+
 
 

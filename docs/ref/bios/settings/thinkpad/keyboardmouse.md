@@ -8,7 +8,7 @@ TrackPoint
     Possible options:
 
     1. Off
-    2. **On** - Default.
+    2. **On** – Default.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -20,7 +20,7 @@ Trackpad
     Possible options:
 
     1. Off
-    2. **On** - Default.
+    2. **On** – Default.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -37,7 +37,7 @@ Fn and Ctrl Key swap
 
     Possible options:
 
-    1. **Off** - Default.
+    1. **Off** – Default.
     2. On
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -52,7 +52,7 @@ Fn Sticky Key
 
     Possible options:
 
-    1. **Off** - Default.
+    1. **Off** – Default.
     2. On
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -64,7 +64,7 @@ Fool proof Fn Ctrl
 
     Possible options:
 
-    1. **On** - Default.
+    1. **On** – Default.
     2. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -83,7 +83,7 @@ F1-F12 as Primary Function
     Possible options:
 
     1. On -
-    2. **Off** - Default.
+    2. **Off** – Default.
 
     !!! note ""
         Alternatively, to switch to above two options, press Fn+Esc to use FnLk (Fn Lock). LED is on when FnLk is enabled.
@@ -100,7 +100,7 @@ Keyboard Layout
 
     Possible options:
 
-    1. **US English** - Default
+    1. **US English** – Default
     2. Canadian French Multilingual
     3. Canadian French
     4. Spanish (Latin America)
@@ -134,3 +134,5 @@ Keyboard Layout
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | KeyboardLayout | English_US, CanadianFrenchMultilingual, CanadianFrench, <br>Spanish_LA, Portuguese_BR, Belgian, Danish, <br>Spanish, French, German, Hungarian, Icelandic, <br>Italian, Norwegian, Portuguese, Slovenian, <br>Swedish, Swiss, Turkish, English_UK, Japanese,<br>Korean, TraditionalChinese, Turkish-F, Estonian, Finnish, Czech | Yes | Both |
+
+

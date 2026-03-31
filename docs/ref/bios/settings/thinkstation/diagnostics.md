@@ -7,7 +7,7 @@ Real-time Diagnostics Monitoring
 
 	Options:
 
-	1.  **Enabled** - Default.
+	1.  **Enabled** – Default.
 	2.  Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -21,7 +21,7 @@ DIAG 7-Segment Mode
 
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Enabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -35,7 +35,7 @@ Clear Diagnostics Log Data
 
 	Options:
 
-	1.  **No** - Default.
+	1.  **No** – Default.
 	2.  Yes.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -43,3 +43,5 @@ Clear Diagnostics Log Data
 	| ClearDIAGLog | Yes, No | yes | AMD |
 
 	
+
+

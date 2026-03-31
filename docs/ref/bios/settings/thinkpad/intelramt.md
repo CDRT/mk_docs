@@ -7,7 +7,7 @@ Intel (R) AMT Control
 
     Possible options:
 
-    1. **Enabled** - Default.
+    1. **Enabled** – Default.
     2. Disabled
     3. Permanently Disabled
 
@@ -26,7 +26,7 @@ Intel (R) Standard Manageability
 
     Possible options:
 
-    1. **Enabled** - Default.
+    1. **Enabled** – Default.
     2. Disabled
     3. Permanently Disabled
 
@@ -45,7 +45,7 @@ USB Key Provisioning
 
     Possible options:
 
-    1. **Off** - Default.
+    1. **Off** – Default.
     2. On
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -73,3 +73,5 @@ Console Type
 
     !!! note ""
         This console type must match the Intel AMT remote console.
+
+

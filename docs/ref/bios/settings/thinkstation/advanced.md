@@ -108,3 +108,5 @@ Advanced - AMD version
 <!-- !!! note ""
     Please see sidebar for Advnaced AMD Settings
 TODO: confirm layout because each setting is a seperate page in the sidebar Maybe put a statement there -->
+
+

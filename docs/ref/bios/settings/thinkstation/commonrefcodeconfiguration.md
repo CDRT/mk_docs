@@ -7,7 +7,7 @@ MMIO Above 4G Limit
 
 	Options:
 
-	1. **Auto**. Keeps the platform default settings. - Default.
+	1. **Auto**. Keeps the platform default settings. – Default.
 	1. 40
 	1. 42
 	1. 44
@@ -24,11 +24,13 @@ NUMA Nodes
 
 	Options:
 
-	1.  **Enabled** - Default.
+	1.  **Enabled** – Default.
 	2.  Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| NUMA | NPS1, NPS2, NPS4, Auto | yes | AMD |
+
+
 
 

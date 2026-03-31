@@ -10,7 +10,7 @@ Post Package Repair (PPR)
 
 	Options:
 
-	1.  **Enabled** - Default.
+	1.  **Enabled** – Default.
 	2.  Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -24,7 +24,7 @@ Patrol Scrub
 
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Enabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -43,7 +43,7 @@ Patrol Scrub Interval
 	1. 4
 	1. 8
 	1. 16
-	1. **24** - Default.
+	1. **24** – Default.
 	1. 48
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -57,11 +57,13 @@ Data Scrambling
 
 	Options:
 
-	1.  **Enabled** - Default.
+	1.  **Enabled** – Default.
 	2.  Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| DataScrambling | Disable, Enable | yes | AMD |
+
+
 
 

@@ -44,7 +44,7 @@ Select Active Video - AMD
 	1. Slot4(PEG)
 	1. Slot5(PEG)
 	1. Slot6(PEG)
-	1. **Auto** - Default.
+	1. **Auto** – Default.
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -80,4 +80,6 @@ Total Graphics Memory
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| TotalGraphicsMemory | 128 MB, 256 MB, Maximum | yes | Both |
+
+
 

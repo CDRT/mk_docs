@@ -12,7 +12,7 @@ Wake On Lan
 
     Possible options:
 
-    1. **AC Only** - Default.
+    1. **AC Only** – Default.
     2. Disabled
     3. AC and Battery
 
@@ -34,7 +34,7 @@ Wake On LAN from Dock
 
     Possible options:
 
-    1. **On** - Default.
+    1. **On** – Default.
     2. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -49,7 +49,7 @@ Lenovo Cloud Services
 
     Possible options:
 
-    1. **On** - Default.
+    1. **On** – Default.
     2. Off
 
     **Lenovo Cloud Services Features**
@@ -67,12 +67,12 @@ Lenovo Cloud Services
     | LenovoCloudServices  | Disable, Enable | No | Intel |
 
 UEFI WI-FI Network Boot
-:  Wether to load UEFI Wi-Fi driver at next boot, able to connect to Access point.
+:  Whether to load UEFI Wi-Fi driver at next boot, able to connect to Access point.
 
     Possible options:
 
     1. On
-    2. **Off** - Default.
+    2. **Off** – Default.
 
     !!! note ""
         Secure Boot must be enabled to use UEFI Network Boot.
@@ -86,7 +86,7 @@ UEFI IPv4 Network Stack
 
     Possible options:
 
-    1. **On** - Default.
+    1. **On** – Default.
     2. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -98,7 +98,7 @@ UEFI IPv6 Network Stack
 
     Possible options:
 
-    1. **On** - Default.
+    1. **On** – Default.
     2. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -134,10 +134,10 @@ UEFI PXE TFTP Window Size
 Wireless Auto Disconnection
 :  Whether to Auto Disconnect Wireless feature when Ethernet cable is connected to Ethernet LAN.
 
-    Possible states:
+    Possible options:
 
     1. On
-    2. **Off** - Default.
+    2. **Off** – Default.
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
@@ -148,7 +148,7 @@ MAC Address Pass Through
 
     Possible options:
 
-    1. **Off** - Dock Ethernet uses its own MAC address. Default
+    1. **Off** – Dock Ethernet uses its own MAC address. Default.
     2. Internal MAC Address - Dock Ethernet uses same MAC address as internal LAN.
     3. Second MAC Address - Dock Ethernet uses the second MAC address that is stored in the system's EEPROM. This allows for a device-specific MAC address that is different from the internal NIC's MAC address so they can be managed separately if necessary.
 
@@ -164,7 +164,7 @@ Proxy Support
 
     Possible options:
 
-    1. **Off** - Default. This feature will not work while Secure Boot is disabled.
+    1. **Off** – Default. This feature will not work while Secure Boot is disabled.
     2. On
 
     !!! note ""
@@ -190,7 +190,7 @@ Reinstall Windows from Cloud
 
     Possible options:
 
-    1. **Disabled** - Default.
+    1. **Disabled** – Default.
     2. Enable.
 
 ## Custom URL Support Settings
@@ -200,7 +200,7 @@ Custom URL Support
 
     Possible options:
 
-    1. **Off** - Default. This feature will not work while Secure Boot is disabled.
+    1. **Off** – Default. This feature will not work while Secure Boot is disabled.
     2. On
 
 
@@ -246,7 +246,7 @@ MAC Address
 
     Possible options:
 
-    1. **Disconnected** - Default.
+    1. **Disconnected** – Default.
     2. Connected to [SSID]
 
     !!! note ""
@@ -286,7 +286,7 @@ Each SSID can be selected to display more details.
 
         Possible statuses:
 
-        1. **Disconnected** - Default.
+        1. **Disconnected** – Default.
         2. Connected
 
     ??? note "SSID"
@@ -307,7 +307,7 @@ Each SSID can be selected to display more details.
 
         1. Open
         2. WPA2-Personal
-        3. **WPA2-Enterprise** - Default.
+        3. **WPA2-Enterprise** – Default.
         4. PEAP
         5. EAP-TLS
 
@@ -404,7 +404,7 @@ Security
 
     Possible options:
 
-    1. **Open** – Default
+    1. **Open** – Default.
     2. WPA2 – Personal
     3. WPA2 – Enterprise
 
@@ -422,7 +422,7 @@ EAP Authentication Method
 
     Possible options:
 
-    1. **PEAP** – Default
+    1. **PEAP** – Default.
     2. EAP-TLS
 
 EAP Second Authentication Method
@@ -476,8 +476,8 @@ EAP Password
 Scan Anyway
 :  Possible options:
 
-    1. **On** - the network will be scanned when it does not broadcast its name. Default.
-    2. Off - the network will not be scanned when it does not broadcast its name.
+    1. **On** – The network will be scanned when it does not broadcast its name. Default.
+    2. Off – The network will not be scanned when it does not broadcast its name.
 
     Visible only for a network with security WPA2-Enterprise.
 
@@ -587,7 +587,7 @@ Commit Changes and Exit
         Possible options:
 
         1. On
-        2. **Off** - Default.
+        2. **Off** – Default.
 
         !!! note ""
             Visible only for a network with security WPA2-Enterprise.
@@ -613,4 +613,6 @@ Change Priority
 
     !!! note  "Commit Changes and Exit"
         Save changes and exits back to the Manage Wi-Fi network page.
+
+
 

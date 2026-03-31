@@ -31,3 +31,5 @@ Intel(R) Total Memory Encryption
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | TotalMemoryEncryption | Disable, Enable | Yes | Intel |
+
+

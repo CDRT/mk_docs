@@ -80,3 +80,5 @@ PCIe 1x Slot 1 Speed
 	|:---|:---|:---|:---|
 	| PCIe1xSlot1Speed | Auto, Gen1, Gen2, Gen3| Yes | Intel |
 	
+
+

@@ -27,7 +27,7 @@
 	2. **Disabled** – HDP is not installed. Default.
 
 	Additional choice of the password type:
-	1. **Single Password** - Default.
+	1. **Single Password** – Default.
 	2. Dual Password (User+Admin).
 
 	!!! note ""
@@ -104,5 +104,7 @@ Erase {DriveType} {X} Data
 
 	!!! note ""
 		All hard drive data will be erased, and the hard disk password will be deleted. Requires additional confirmation.
+
+
 
 

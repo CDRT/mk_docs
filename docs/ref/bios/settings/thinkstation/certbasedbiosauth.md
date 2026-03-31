@@ -6,3 +6,5 @@ Beginning with 2022 ThinkPad models, it is now possible to configure systems to 
 
 Reset Certificate
 :	Remove the enrolled certificate.
+
+

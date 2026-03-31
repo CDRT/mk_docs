@@ -8,7 +8,7 @@ Above 4G Decoding
 
 	Options:
 
-	1.  **Enabled** - Default.
+	1.  **Enabled** – Default.
 	2.  Disabled.
 
 	<!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -25,7 +25,7 @@ SR-IOV Support
 
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Enabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -41,7 +41,7 @@ ASPM Support
 
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Auto.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -57,7 +57,7 @@ Extended Synch
 
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Enabled.
 
 	<!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -107,7 +107,7 @@ PCIe Port
 
 	Options:
 
-	1. **Enabled** - Default.
+	1. **Enabled** – Default.
 	2. Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -134,7 +134,7 @@ PCIe Port Bifurcation
 	1. x8
 	1. x8x8
 	1. x16
-	1. **Auto** - Default.
+	1. **Auto** – Default.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -149,7 +149,7 @@ Link Speed
 :	
 	Options:
 
-	1. **Auto** - Default.
+	1. **Auto** – Default.
 	1. Auto, Gen 1 (2.5 GT/s)
 	1. Gen 2 (5 GT/s)
 	1. Gen 3 (8 GT/s)
@@ -173,7 +173,7 @@ M.2 Port
 
 	Options:
 
-	1. **Enabled** - Default.
+	1. **Enabled** – Default.
 	2. Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -189,7 +189,7 @@ M.2 Link Speed
 :	
 	Options:
 
-	1. **Auto** - Default.
+	1. **Auto** – Default.
 	1. Auto, Gen 1 (2.5 GT/s)
 	1. Gen 2 (5 GT/s)
 	1. Gen 3 (8 GT/s)
@@ -208,5 +208,7 @@ M.2 DLF Support
 :	
 	Options:
 
-	1. **Enabled** - Default.
+	1. **Enabled** – Default.
 	1. Disabled.
+
+

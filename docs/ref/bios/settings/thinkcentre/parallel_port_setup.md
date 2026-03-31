@@ -4,26 +4,28 @@
 
 Parallel Port Address
 :  
-    Options:
+    Possible options:
 
-    1.  **378** - enables logical parallel port 378. Default.
-    2.  278 - enables logical parallel port 278.
-    3.  Disabled - disables the parallel port. The parallel port will not be seen by the OS.
+    1.  **378** – enables logical parallel port 378. Default.
+    2.  278 – enables logical parallel port 278.
+    3.  Disabled – disables the parallel port. The parallel port will not be seen by the OS.
 
 Parallel Port Mode
 :  The parallel port mode to use.
 
-    1. **EPP** - Default.
-    1. ECP+EPP.
-    1. EPP.
+    Possible options:
+
+    1. **EPP** – Default.
+    2. ECP+EPP
+    3. EPP
 
 EPP Version
 :  Version of the EPP (Enhanced Parallel Port) standard used.
 
-    Options:
+    Possible options:
 
-    1.  **1.9** - enables version 1.9. Default.
-    2.  1.7 - enables version 1.7.
+    1.  **1.9** – enables version 1.9. Default.
+    2.  1.7 – enables version 1.7.
 
     !!! note ""
         Version 1.7 is supported as an optional setting for backward compatibility with older devices. There are differences between versions 1.9 and 1.7 which may affect the operation of devices.
@@ -31,15 +33,16 @@ EPP Version
 ECP Mode DMA Channel
 :  DMA (Direct Memory Access), a technique for transferring data from main memory to the parallel port devices without passing it through the CPU. Computers that have DMA channels can transfer data to and from devices while the CPU works on other tasks. Select DMA3 or DMA1 channel.
 
-    Options:
+    Possible options:
 
-    1.  **DMA3** - Default.
-    2.  DMA1.
+    1.  **DMA3** – Default.
+    2.  DMA1
 
 Parallel Port IRQ
-:Settings for the IRQ (Interrupt Request) line.
+:  Settings for the IRQ (Interrupt Request) line.
 
-    Options:
+    Possible options:
 
-    1.  **IRQ7** - enables interrupt line 7. Default.
-    2.  IRQ 5 - enables interrupt line 5.
+    1.  **IRQ7** – enables interrupt line 7. Default.
+    2.  IRQ 5 – enables interrupt line 5.
+

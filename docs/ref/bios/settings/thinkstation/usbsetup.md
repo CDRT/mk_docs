@@ -33,7 +33,7 @@ USB BIOS Support
 
 	Options:
 
-	1.  **Enabled** - Default.
+	1.  **Enabled** – Default.
 	2.  Disabled
 
 	<!-- | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -48,7 +48,7 @@ USB Charging Port in S4/S5
 
 	Options:
 
-	1.  **Disabled** - Default.
+	1.  **Disabled** – Default.
 	2.  Enabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -62,7 +62,7 @@ XHCI Hand-off
 
 	Options:
 
-	1. **Enabled** - Default.
+	1. **Enabled** – Default.
 	2. Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -80,7 +80,7 @@ USB Enumeration Delay
 		May improve the compatibility of USB device detection but increase POST Time.
 
 	1. Enabled.
-	2. **Disabled** - Default.
+	2. **Disabled** – Default.
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -96,7 +96,7 @@ USB Transfer Time-out
 	1. 1 sec
 	1. 5 sec
 	1. 10 sec
-	1. **20 sec** - Default.
+	1. **20 sec** – Default.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -108,7 +108,7 @@ Device Reset Time-out
 
 	Options:
 
-	1. **Disabled** - Default.
+	1. **Disabled** – Default.
 	2. Enabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -122,7 +122,7 @@ Device Power-up Delay
 
 	Options:
 
-	1. **Auto** - Default.
+	1. **Auto** – Default.
 	2. Manual.
 
 	!!! note ""
@@ -154,7 +154,7 @@ Media Card Reader
 
 	Options:
 
-	1. **Enabled** - Default.
+	1. **Enabled** – Default.
 	2. Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -168,7 +168,7 @@ MCR USB Header
 
 	Options:
 
-	1. **Internal** - Default. Select when connected to Media Card Reader (MCR).
+	1. **Internal** – Default. Select when connected to Media Card Reader (MCR).
 	2  External. Select when connected to USB Type C port.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -182,7 +182,7 @@ Internal USB3.2 Port
 
 	Options:
 
-	1. **Enabled** - Default.
+	1. **Enabled** – Default.
 	2. Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -196,7 +196,7 @@ Internal USB2.0 Port
 
 	Options:
 
-	1. **Enabled** - Default.
+	1. **Enabled** – Default.
 	2. Disabled.
 
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
@@ -232,5 +232,7 @@ USB Port {X}
 
 	!!! note ""
 		The WMI setting name in the example above represents the port number. Change the number to that of the desired rear USB port.
+
+
 
 

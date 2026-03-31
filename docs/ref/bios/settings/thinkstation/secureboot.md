@@ -11,7 +11,7 @@ System Mode
 
 	Possible values:
 
-	1. **Deployed Mode** - Default
+	1. **Deployed Mode** – Default
 	2. Audit  Mode
 	3. User Mode
 	4. Setup Mode
@@ -153,3 +153,5 @@ OsRecovery Signatures (DBr)</summary>
 	|:---|:---|:---|:---|
 	|  |  |  | Both |-->
 	
+
+

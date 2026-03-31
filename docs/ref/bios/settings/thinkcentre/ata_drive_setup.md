@@ -5,29 +5,29 @@
 SATA Controller
 :  Serial AT Attachment (SATA) drive access.
 
-    Options:
+    Possible options:
 
-    1.  **Enable** - Default.
-    2.  Disable.
+    1.  **Enable** – Default.
+    2.  Disable
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | SATAController | Disabled, Enabled | yes |
+    | SATAController | Disabled, Enabled | Yes |
 
     !!! note ""
         If the `SATA Controller` is set to `Disabled`, then `Configure SATA as` and `SATA Drive {Number}` will be hidden.
 
-SATA DRIVE {Number}
+SATA Drive {Number}
 :  One of the (Serial AT Attachment) Drives. Total number of drives depends on model.
 
-    Options:
+    Possible options:
 
-    1.  **Enabled** - Default.
-    2.  Disabled.
+    1.  **Enabled** – Default.
+    2.  Disabled
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | SATADrive1 | Disabled, Enabled | yes |
+    | SATADrive1 | Disabled, Enabled | Yes |
 
     !!! note ""
         The WMI setting name for Drive 1 is shown. Other drives follow the pattern `SATADrive#` where `#` is the number of the drive.
@@ -39,24 +39,25 @@ Configure SATA As
         - Device driver support is required  for AHCI or Intel(R) RST with Intel(R) Optane.
         - Depending on how the hard disk image was installed, changing this setting may prevent the system from booting.
 
-    Options:
+    Possible options:
 
-    1.  **AHCI** - enables AHCI (Advanced Host Controller Interface). Default.
-    2.  Intel (R) RST with Intel (R) Optane mode - enables RST (Rapid Storage Technology).
-    3.  RAID - enables RAID. <!-- MODEL: M70S Gen3 only-->
+    1.  **AHCI** – enables AHCI (Advanced Host Controller Interface). Default.
+    2.  Intel (R) RST with Intel (R) Optane mode – enables RST (Rapid Storage Technology).
+    3.  RAID – enables RAID. <!-- MODEL: M70S Gen3 only-->
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | ConfigureSATAas  | AHCI, Intel(R) RST with Intel(R) Optane, [RAID] | yes |
+    | ConfigureSATAas  | AHCI, Intel(R) RST with Intel(R) Optane, [RAID] | Yes |
 
 Hard Disk Pre-Delay
 :  Ensures the hard disk has initialized after power up, prior to being accessed. This avoids the disk hanging because of access by the OS before initialization.
 
-    Options:
+    Possible options:
 
-    1.  **Disabled** - Default.
-    2.  3 - 30 seconds - enables delay, in increments of 3 seconds up 15, then 21 or 30.
+    1.  **Disabled** – Default.
+    2.  3 – 30 seconds – enables delay, in increments of 3 seconds up 15, then 21 or 30
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | HardDiskPre-delay | Disabled, 3 Seconds, 6 Seconds, 9 Seconds, 12 Seconds, 15 Seconds, 21 Seconds, 30 Seconds | yes |
+    | HardDiskPre-delay | Disabled, 3 Seconds, 6 Seconds, 9 Seconds, 12 Seconds, 15 Seconds, 21 Seconds, 30 Seconds | Yes |
+
