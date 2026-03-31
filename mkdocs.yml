@@ -43,7 +43,6 @@ nav:
       - Deployment : guides/lcv/deployment.md
       - Configuration : guides/lcv/configuration.md
       - Upgrading : guides/lcv/upgrading.md
-      #- Use Case Scenarios : guides/lcv/use_case_scenarios.md
       - SU Helper Reference: guides/lcv/suhelper.md
       - Commercial Vantage FAQ: guides/lcv/commercial_vantage_faq.md
     - System Update - Update Retriever - Thin Installer:
@@ -234,7 +233,7 @@ plugins:
   - redirects:
       redirect_maps:
         'guides/tbct/tbct_top.md': 'guides/tbct_v2/tbct_v2_top.md'
-        
+
 markdown_extensions:
   - admonition
   - tables

@@ -1,7 +1,3 @@
----
-icon: material/new-box
----
-
 # Lenovo.Client.Update
 
 This PowerShell module is provided to assist in managing Lenovo driver, BIOS/UEFI, and firmware updates. This module is part of the growing ThinkVantage PowerShell Library which is a collection of PowerShell modules and scripts that include:
