@@ -10,7 +10,7 @@ Access Security Settings
 	1. **Disabled** – Default. 
 	2. Enabled.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| AccessSecuritySettings | Disabled, Enabled | yes | Both |
 
@@ -24,8 +24,12 @@ Remote Set SMP
 	1. **Disabled** – Default.
 	2. Enabled.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| RemoteSetSMP | Disabled, Enabled | yes | Both |
+
+
+
+
 
 

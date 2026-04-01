@@ -1,6 +1,6 @@
 # Intel(R) Standard Manageability
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_intelrsm.png)
+![Intel Standard Manageability](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_intelrsm.png)
 
 Intel(R) Standard Manageability
 :  This option enables or disables Intel® Standard Manageability (ISM) function.
@@ -40,5 +40,9 @@ Console Type
    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
    |:---|:---|:---|:---|
    |  | VT100, VT100+, VT-UTF8, PC ANSI | No | Intel |
+
+
+
+
 
 

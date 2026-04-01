@@ -13,3 +13,7 @@ The exact BIOS interface is determined by the model.
 
 ![Manufacturing Boot sequence](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/thinkcentre_manufacturing_boot_sequence.png)
 
+
+
+
+

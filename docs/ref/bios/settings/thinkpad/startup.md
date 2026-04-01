@@ -25,7 +25,7 @@ Network Boot
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
-    | NetworkBoot | HDD0, HDD1, HDD2, HDD3, HDD4, <br>PXEBOOT, ATAPICD0, ATAPICD1, ATAPICD2, USBFDD, <br>USBCD, USBHDD, OtherHDD, OtherCD, NVMe0, <br>NVMe1, HTTPSBOOT, LENOVOCLOUD, ON-PREMISE, NODEV | Yes | Both |
+    | NetworkBoot | HDD0, HDD1, HDD2, HDD3, HDD4, PXEBOOT, ATAPICD0, ATAPICD1, ATAPICD2, USBFDD, USBCD, USBHDD, OtherHDD, OtherCD, NVMe0, NVMe1, HTTPSBOOT, LENOVOCLOUD, ON-PREMISE, NODEV | Yes | Both |
 
 Boot Mode
 :  When to display the diagnostic splash screen.
@@ -123,5 +123,9 @@ Excluded from boot priority order
 
     1. Other CD
     2. Other HDD
+
+
+
+
 
 

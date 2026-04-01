@@ -33,3 +33,7 @@ Console Redirection Terminal Type
     |:---|:---|:---|
     | ConsoleRedirectionTerminalType | VT100, VT100+, VT-UTF8, PC-ANSI | Yes |
 
+
+
+
+

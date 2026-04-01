@@ -5,31 +5,35 @@
 MMIO Above 4G Limit
 :	Set PCIe device aperture range to Auto/40/42/44/46/48 bits limit.
 
-	Options:
+	Possible options:
 
-	1. **Auto**. Keeps the platform default settings. – Default.
-	1. 40
-	1. 42
-	1. 44
-	1. 46
-	1. 48
+	1. **Auto** – keeps the platform default settings. Default.
+	2. 40
+	3. 42
+	4. 44
+	5. 46
+	6. 48
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| MmioAbove4GLimit | Auto, 40, 42, 44, 46, 48 | yes | AMD |
+	| MmioAbove4GLimit | Auto, 40, 42, 44, 46, 48 | Yes | AMD |
 
 
 NUMA Nodes
 :	Whether to enable Non-Uniform Memory Access (NUMA).
 
-	Options:
+	Possible options:
 
-	1.  **Enabled** – Default.
-	2.  Disabled.
+	1. **Enabled** – Default.
+	2. Disabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| NUMA | NPS1, NPS2, NPS4, Auto | yes | AMD |
+	| NUMA | NPS1, NPS2, NPS4, Auto | Yes | AMD |
+
+
+
+
 
 
 

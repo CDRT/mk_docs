@@ -1,6 +1,6 @@
 # Config
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_config.png)
+![Config Settings](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_config.png)
 
 Setup UI
 :  Whether to enable `simple text` interface with navigation and actions available only via keyboard, or  `graphical` interface with mouse for navigation and actions.
@@ -14,5 +14,9 @@ Setup UI
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | SetupUI | SimpleText, Graphical | No | Both |
+
+
+
+
 
 

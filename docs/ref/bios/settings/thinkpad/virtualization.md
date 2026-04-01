@@ -24,7 +24,7 @@ Intel (R) Virtualization Technology \ AMD-V
 
     Whether a VMM (Virtual Machine Monitor) can utilize the additional hardware capabilities provided by Intel (R) Virtualization technology.
 
-    Defaults to `On`, if `OS Optimized Defaults` has value `On`.<br>
+    Defaults to `On`, if `OS Optimized Defaults` has value `On`.
 
     Possible options:
 
@@ -65,7 +65,7 @@ Intel (R) VT-d Feature
     Possible options:
 
     1. On
-    2. **Off** – Default
+    2. **Off** – Default.
 
     !!! note ""
         Automatically enabled and cannot be disabled if `Kernel DMA Protection` is enabled.
@@ -111,5 +111,9 @@ Enhanced Windows Biometric Security
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | EnhancedWindowsBiometricSecurity | Disable, Enable | Yes | Both |
+
+
+
+
 
 

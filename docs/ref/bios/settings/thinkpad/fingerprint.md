@@ -1,6 +1,6 @@
 # Fingerprint Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_fingerprint.png)
+![Fingerprint Settings](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_fingerprint.png)
 
 Predesktop Authentication
 :  Whether to enable authentication by a fingerprint at predesktop. 
@@ -53,12 +53,12 @@ Single-touch authentication
     !!! note ""
         Switching off means requiring individual fingerprint authentication for each security level.
 
-    Options:
+    Possible options:
 
     1. **On** – Default.
     2. Off.
 
-    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | FingerprintSingleTouchAuthentication | On, Off | yes | both |
 
@@ -70,5 +70,9 @@ Reset Fingerprints Data
 
     !!! note ""
         Requires additional confirmation.
+
+
+
+
 
 

@@ -22,7 +22,7 @@ USB Port Access
 	1. **Enabled** – Default.
 	2. Disabled.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| USBPortAccess | Disabled, Enabled | yes | Both |
 
@@ -36,7 +36,7 @@ USB BIOS Support
 	1.  **Enabled** – Default.
 	2.  Disabled
 
-	<!-- | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	<!-- | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| USBBIOSSupport |  |  | AMD |
 	 -->
@@ -51,7 +51,7 @@ USB Charging Port in S4/S5
 	1.  **Disabled** – Default.
 	2.  Enabled.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| USBChargingPortInS4S5 | Disable, Enable | yes | AMD |
 
@@ -65,7 +65,7 @@ XHCI Hand-off
 	1. **Enabled** – Default.
 	2. Disabled.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| XHCIHandoff | Disable, Enable | yes | AMD |
 
@@ -82,7 +82,7 @@ USB Enumeration Delay
 	1. Enabled.
 	2. **Disabled** – Default.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| USBEnumerationDelay | Disabled, Enabled | yes | Intel |
 
@@ -98,7 +98,7 @@ USB Transfer Time-out
 	1. 10 sec
 	1. **20 sec** – Default.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| USBTransferTimeout | 1 sec, 5 sec, 10 sec, 20 sec | yes | AMD |
 
@@ -111,7 +111,7 @@ Device Reset Time-out
 	1. **Disabled** – Default.
 	2. Enabled.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| DeviceResetTimeout | 10 sec, 20 sec, 30 sec, 40 sec | yes | AMD |
 
@@ -130,7 +130,7 @@ Device Power-up Delay
 
 	<!-- TODO: clarify hub port -->
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| DevicePowerupDelay | Auto, Manual | yes | AMD |
 
@@ -144,7 +144,7 @@ Front USB Ports
 	1. **Enabled** – Default.
 	2. Disabled.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| FrontUSBPorts | Disabled, Enabled | yes | Both |
 
@@ -157,7 +157,7 @@ Media Card Reader
 	1. **Enabled** – Default.
 	2. Disabled.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| MediaCardReader | Disable, Enable | yes | AMD |
 
@@ -171,7 +171,7 @@ MCR USB Header
 	1. **Internal** – Default. Select when connected to Media Card Reader (MCR).
 	2  External. Select when connected to USB Type C port.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| MCRUSBHeader | External, Internal | yes | AMD |
 
@@ -185,7 +185,7 @@ Internal USB3.2 Port
 	1. **Enabled** – Default.
 	2. Disabled.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| InternalUSB3Port | Disable, Enable | yes | AMD |
 
@@ -199,7 +199,7 @@ Internal USB2.0 Port
 	1. **Enabled** – Default.
 	2. Disabled.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| InternalUSB2Port | Disable, Enable | yes | AMD |
 
@@ -213,7 +213,7 @@ Rear USB Ports
 	1. **Enabled** –  Default.
 	2. Disabled.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| RearUSBPorts | Disabled, Enabled | yes | Both |
 
@@ -226,12 +226,16 @@ USB Port {X}
 	1. **Enabled**. Default, if `Enabled` is selected in `Rear USB Ports`. 
 	2. Disabled.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| USBPortX | Disabled, Enabled | yes | Both |
 
 	!!! note ""
 		The WMI setting name in the example above represents the port number. Change the number to that of the desired rear USB port.
+
+
+
+
 
 
 

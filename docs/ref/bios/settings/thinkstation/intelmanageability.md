@@ -4,31 +4,33 @@
 
 Intel(R) Manageability
 :	
-	Options:
+	Possible options:
 
 	1. **Enabled** – Default.
-	2. Disabled.
+	2. Disabled
 
 	!!! note ""
-		When `Disabled`:<br>    a. If system is provisioned, MEBx (Management Engine BIOS Extension) will be unprovisioned first.<br>    b. Manageability functions will be disabled. You can enter BIOS to re-enable Intel(R) Manageability.<br>
+		When `Disabled`:
+		a. If system is provisioned, MEBx (Management Engine BIOS Extension) will be unprovisioned first.
+		b. Manageability functions will be disabled. You can enter BIOS to re-enable Intel(R) Manageability.
 
 	!!! note ""
 		When changing from `Enabled` to `Disabled`, after saving and exiting SETUP, you need to unplug the AC power cord and plug it in again.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| ManageabilityControl | Disabled, Enabled | yes | Intel |
+	| ManageabilityControl | Disabled, Enabled | Yes | Intel |
 
 
 Intel(R) Manageability Reset
 :	
-	Options:
+	Possible options:
 
-	1. Enabled.
+	1. Enabled
 	2. **Disabled** – Default.
 
 	!!! note ""
-		When `Enabled`, Intel(R) Manageability settings will reset to default configuration.<br> The MEBx password will also be reset.<br>
+		When `Enabled`, Intel(R) Manageability settings will reset to default configuration. The MEBx password will also be reset.
 
 
 
@@ -37,14 +39,14 @@ Press < Ctrl-P > to Enter MEBx
 	!!! note ""
 		Management Engine BIOS Extension (MEBx) provides platform-level configuration options for you to configure the behavior of Management Engine (ME) platform.
 
-	Options:
+	Possible options:
 
 	1. **Enabled** – Default.
-	2. Disabled.
+	2. Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| CtrlPEnterMEBx | Disabled, Enabled | yes | Intel |
+	| CtrlPEnterMEBx | Disabled, Enabled | Yes | Intel |
 
 
 ## ME Firmware Version
@@ -58,7 +60,7 @@ Management Engine (ME) Firmware version. View only.
 
 Manageability Type. View only.
 
-Options:
+Possible options:
 
 1. None
 2. Intel(R) AMT
@@ -75,7 +77,7 @@ SOL (Serial over LAN) configuration group of settings.
 
 Console Type
 :	
-	Options:
+	Possible options:
 
 	1. VT100
 	2. VT100-8bit
@@ -85,23 +87,27 @@ Console Type
 	6. VT-UTF8
 	7. ASCII
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| SOLConfiguration | VT100, VT100-8bit, PC-ANSI-7bit, PC-ANSI, VT100+, VT-UTF8, ASCII | yes | Intel |
+	| SOLConfiguration | VT100, VT100-8bit, PC-ANSI-7bit, PC-ANSI, VT100+, VT-UTF8, ASCII | Yes | Intel |
 
 
 
 
 USB Provisioning
 :	
-	Options:
+	Possible options:
 
-	1. Enabled.
+	1. Enabled
 	2. **Disabled** – Default.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| USBProvisioning | Disabled, Enabled | yes | Intel |
+	| USBProvisioning | Disabled, Enabled | Yes | Intel |
+
+
+
+
 
 
 

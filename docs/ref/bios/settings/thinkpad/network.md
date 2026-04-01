@@ -2,7 +2,7 @@
 
 ## General
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_network.png)
+![Network Settings](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_network.png)
 
 Wake On Lan
 :  Whether Wake On LAN function works only when AC is attached, or also when with battery power.
@@ -528,7 +528,7 @@ Commit Changes and Exit
 
         Possible options:
 
-        1. **PEAP** – Default
+        1. **PEAP** – Default.
         2. EAP-TLS
 
         Visible only for a network with security WPA2-Enterprise.
@@ -613,6 +613,10 @@ Change Priority
 
     !!! note  "Commit Changes and Exit"
         Save changes and exits back to the Manage Wi-Fi network page.
+
+
+
+
 
 
 

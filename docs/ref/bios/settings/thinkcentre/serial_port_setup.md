@@ -28,3 +28,7 @@ Serial Port 2 Address
     4.  2E8/IRQ3
     5.  Disabled – the serial port will not be available to the OS.
 
+
+
+
+

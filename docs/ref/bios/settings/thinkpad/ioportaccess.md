@@ -9,7 +9,7 @@ Ethernet LAN
     !!! note ""
         The setting is removed in the recent versions.
 
-     Options:
+     Possible options:
 
      1. **On** – Default.
      2. Off
@@ -213,8 +213,12 @@ Tile
      1. **On** – Default.
      2. Off.
 
-     | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
      |:---|:---|:---|:---|
      | TileMode | Disable,Enable | Yes | both |
+
+
+
+
 
 

@@ -7,28 +7,32 @@ These settings affect the appearance of the BIOS Setup interface on the system.
 Language
 :	Specifies the language to be displayed.
 
-	Options:
+	Possible options:
 
 	1. **English** – Default.
-	1. Français
-	1. Pусский
-	1. 中文
+	2. Français
+	3. Pусский
+	4. 中文
 
 Setup Mode Select
 :	Species whether to use the graphical UI mode or the text based mode.
 
-	Options:
+	Possible options:
 
 	1. **Graphic** – Default.
-	1. Text
+	2. Text
 
 Setup Content
 :	Controls the level of settings displayed between just the basic settings versus the more advanced settings.
 
-	Options:
+	Possible options:
 
 	1. **Advanced** – Default.
 	2. Basic
+
+
+
+
 
 
 

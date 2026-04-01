@@ -7,51 +7,51 @@
 Wake on LAN
 :	Wake on LAN (Local Area Network).
 
-	Options:
+	Possible options:
 
 	1. **Enabled** – Default.
-	2. Disabled.
+	2. Disabled
 
 	!!! note ""
 		Controls the wake up event from onboard LAN (Local Area Network) and PCI (Peripheral Component Interconnect) LAN.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| WakeonLAN | Enabled, Disabled | yes | Both |
+	| WakeonLAN | Enabled, Disabled | Yes | Both |
 
 
 Wake from Serial Port Ring
 :	
-	Options:
+	Possible options:
 
-	1. **Enabled** – Default. 
+	1. **Enabled** – Default.
 	2. Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| WakefromSerialPortRing | Enabled, Disabled | yes | Both |
+	| WakefromSerialPortRing | Enabled, Disabled | Yes | Both |
 
 
 Wake Up on Alarm
-:	Whether to turn on your system
-	 - one time,
-	 - repeating on a specific day of the month, or week, or
-	 - daily
+:	Whether to turn on your system:
+	- one time,
+	- repeating on a specific day of the month, or week, or
+	- daily
 
-	Options:
+	Possible options:
 
-	1. **Disabled** – Default. 
-	2. Single Event - one time, on the specified day and time. 
-	3. Daily Event - every day, at the specified time.
-	4. Weekly Event - every week, on the specified day and time.
-	5. User Defined - enables `User Defined Alarm` group of settings. 
+	1. **Disabled** – Default.
+	2. Single Event – one time, on the specified day and time.
+	3. Daily Event – every day, at the specified time.
+	4. Weekly Event – every week, on the specified day and time.
+	5. User Defined – enables `User Defined Alarm` group of settings. 
 
 	!!! note ""
 		Values in these fields may be overwritten by the operating system. 
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| WakeUponAlarm | Single Event, Daily Event, Weekly Event, Disabled, User Defined | yes | Both |
+	| WakeUponAlarm | Single Event, Daily Event, Weekly Event, Disabled, User Defined | Yes | Both |
 
 
 
@@ -64,34 +64,34 @@ Alarm Time ( HH : MM : SS)
 	* Daily Event
 	* Weekly Event
 
-	Options:
+	Possible options:
 
-	1.	**00 : 00 : 00** – Default
-	2.	HH : MM : SS<br>
-		a. HH - Hour:  00 ~ 23<br>
-		b. MM - Minute:  00 ~ 59<br>
-		c. SS - Second:  00 ~ 59<br>
+	1. **00 : 00 : 00** – Default.
+	2. HH : MM : SS
+		- HH - Hour: 00 ~ 23
+		- MM - Minute: 00 ~ 59
+		- SS - Second: 00 ~ 59
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| AlarmTime |  | yes | Both |
+	| AlarmTime |  | Yes | Both |
 
 
 
-Alarm Date (MM/DD/YYYY) 
+Alarm Date (MM/DD/YYYY)
 :	Select the exact calendar date for the system to turn on.
 
-	Active only when `Wake Up on Alarm` has value `Single Event`. <br>
+	Active only when `Wake Up on Alarm` has value `Single Event`.
 
-	Options:
+	Possible options:
 
-	1.	**01/01/YYYY** – Default.
-	2.	MM/DD/YYYY:<br>
-		a. MM – Months: January to December <br>
-		b. DD – Date: 1 ~ 31 <br>
-		c. YYYY – Year: 1980 ~ 2099 <br>
+	1. **01/01/YYYY** – Default.
+	2. MM/DD/YYYY:
+		- MM – Months: January to December
+		- DD – Date: 1 ~ 31
+		- YYYY – Year: 1980 ~ 2099
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| AlarmDate |  |  | Both |
 
@@ -99,14 +99,14 @@ Alarm Date (MM/DD/YYYY)
 
 
 Alarm Day of Week
-:	Select the exact week day for the system to turn on. <br>
+:	Select the exact week day for the system to turn on.
 
 	!!! note ""
 		Active only when `Wake Up on Alarm` has value `Weekly Event`.
 
-	Options:
+	Possible options:
 
-	1. **Sunday** – Default
+	1. **Sunday** – Default.
 	2. Monday
 	3. Tuesday
 	4. Wednesday
@@ -114,9 +114,9 @@ Alarm Day of Week
 	6. Friday
 	7. Saturday
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| AlarmDayofWeek | Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday | yes | Both |
+	| AlarmDayofWeek | Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday | Yes | Both |
 
 
 ## User Defined Alarm
@@ -128,12 +128,14 @@ Settings per {Weekday}.
 {Weekday}
 :	Whether the system will turn on automatically on this day of the week.
 
-	1. **Off** – Default.
-	2. On.
+	Possible options:
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	1. **Off** – Default.
+	2. On
+
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| UserDefinedAlarmSunday  | Disabled, Enabled | yes | Both |
+	| UserDefinedAlarmSunday  | Disabled, Enabled | Yes | Both |
 
 	!!! note ""
 		The WMI setting name shown here is for Sunday. For other week days, change `Sunday` to the desired day of the week.
@@ -144,8 +146,12 @@ Settings per {Weekday}.
 
 Specify the time when the system is to wake up in the format of hh:mm:ss.
 
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
-| UserDefinedAlarmTime |  | yes |
+| UserDefinedAlarmTime |  | Yes |
+
+
+
+
 
 

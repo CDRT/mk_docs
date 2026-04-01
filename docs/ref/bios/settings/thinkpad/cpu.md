@@ -1,11 +1,11 @@
 # CPU Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_cpu.png)
+![CPU Settings](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_cpu.png)
 
 Efficient-cores Support
 :  Whether to enable Efficient-cores support which is available on Intel 12th Generation and later processors.
 
-    1. **On** – Default
+    1. **On** – Default.
     1. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -28,11 +28,15 @@ Intel (R) Hyper-Threading Technology
 Core Multi-Processing
 :  Whether to enable Core Multi-Processing support which enables additional execution core units within a CPU or only one execution core unit within a CPU.
 
-    1. **On** – Default
+    1. **On** – Default.
     1. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | CoreMultiProcessing | Disable, Enable | No | Intel |
+
+
+
+
 
 

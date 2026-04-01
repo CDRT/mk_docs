@@ -103,7 +103,7 @@ HTTPs Boot
 	2. **Disabled** – Default.
 
 	<!-- 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	|  |  | yes | Both |
 
@@ -134,7 +134,7 @@ Lenovo Cloud Services
 	Additional information is available here: [Client Virtualization & Infrastructure Solutions - Lenovo](https://www.lenovo.com/lt/lt/data-center/solutions/client-virtualization) and [Windows Virtual Desktop](https://www.microsoft.com/en-us/microsoft-365/blog/2019/09/30/windows-virtual-desktop-generally-available-worldwide/).
 
 	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	|  |  | yes | Both |
 	-->
@@ -152,7 +152,7 @@ Win VDI Boot
 	2. **Disabled** – Default.
 
 	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	|  |  |  | Both |
 	-->
@@ -165,12 +165,6 @@ Win VDI Boot
 Input the description
 :	Input a label for new created URL, press `Enter`, and it will be displayed in the boot sequence menu.
 
-<!--
-| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-|  |  |  | Both |
--->
-
 
 Internet Protocol
 :	Select Internet Protocol to use for this HTTPs Boot option.
@@ -181,7 +175,7 @@ Internet Protocol
 	2. Ipv6
 
 	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	|  |  |  | Both |
 	-->
@@ -196,7 +190,7 @@ Boot URL
 		Use `Tls Auth Configuration` to import the CA (Certificate Authority) to support the HTTPs boot.
 
 	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	|  |  |  | Both |
 	-->
@@ -208,7 +202,7 @@ Delete HTTPs Boot Option from List
 	Select and press `Enter` to remove an EFI HTTPs boot option.
 
 	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	|  |  |  | Both |
 	-->
@@ -221,7 +215,7 @@ Delete HTTPs Boot Option from List
 	Press `Enter` to configure Server CA (Certificate Authority) for HTTPs Boot. 
 
 	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	|  |  |  | Both |
 	-->
@@ -238,7 +232,7 @@ Automatic Connection Support
 	2. **Disabled** – Default.
 
 	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	|  |  |  | Both |
 	-->
@@ -256,5 +250,9 @@ Automatic Connection Support
 
 ## Scanned List ##
 :	Scanned Wi-Fi nodes for selection to connect.
+
+
+
+
 
 

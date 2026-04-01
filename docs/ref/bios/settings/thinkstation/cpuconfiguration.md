@@ -38,29 +38,29 @@ AMD Secure Virtual Machine
 	!!! note ""
 		AMD Virtualization Technology on-chip features enable AMD PRO-based clients to run multiple operating systems and applications on a single machine.
 
-	Options:
+	Possible options:
 
 	1.  **Enabled** – Default.
-	2.  Disabled.
+	2.  Disabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| AMDSecureVirtualMachine | Disable, Enable | yes | AMD |
+	| AMDSecureVirtualMachine | Disable, Enable | Yes | AMD |
 
 
 
 IOMMU
 :	AMD input/output memory management unit.
 
-	Options:
+	Possible options:
 
 	1. Enabled
-	1. Disabled
-	1. **Auto** – Default.
+	2. Disabled
+	3. **Auto** – Default.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| IOMMU | Auto, Disable, Enable | yes | AMD |
+	| IOMMU | Auto, Disable, Enable | Yes | AMD |
 
 
 
@@ -69,14 +69,14 @@ AMD Memory Guard
 	!!! note ""
 		AMD Memory Guard provides real time encryption to system memory to help protect against physical attacks.
 
-	Options:
+	Possible options:
 
 	1. **Disabled** – Default.
-	2. Enabled.
+	2. Enabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| AMDMemoryGuard | Disable, Enable | yes | AMD |
+	| AMDMemoryGuard | Disable, Enable | Yes | AMD |
 
 
 
@@ -85,28 +85,28 @@ CPB Mode
 	!!! note ""
 		Core Performance Boost (CPB) allows the processor to dynamically control and adjust its operating frequency to increase performance when needed and maintain lower power and thermal characteristics during normal operation.
 
-	Options:
+	Possible options:
 
 	1. **Disabled** – Default.
-	2. Enabled.
+	2. Enabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| CPBMode | Disable, Enable | yes | AMD |
+	| CPBMode | Disable, Enable | Yes | AMD |
 
 
 
 C State Support
 :	Whether to enable CPU power management state to minimize idle power consumption of the processor.
 
-	Options:
+	Possible options:
 
 	1. **Enabled** – Default.
-	2. Disabled.
+	2. Disabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| CStateSupport | Disable, Enable | yes | AMD |
+	| CStateSupport | Disable, Enable | Yes | AMD |
 
 
 
@@ -116,13 +116,17 @@ CPU C6 report
 	!!! note ""
 		Recommended to be Enabled.
 
-	Options:
+	Possible options:
 
 	1.  **Enabled** – Default.
-	2.  Disabled.
+	2.  Disabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| CPUC6Report | Disable, Enable | yes | AMD |
+	| CPUC6Report | Disable, Enable | Yes | AMD |
+
+
+
+
 
 

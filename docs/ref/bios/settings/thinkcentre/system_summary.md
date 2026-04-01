@@ -11,3 +11,7 @@ Displays system information, including:
 - Fan
 - Drives
 
+
+
+
+

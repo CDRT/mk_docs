@@ -5,43 +5,47 @@
 Real-time Diagnostics Monitoring
 :	Whether to enable Real-time Diagnostics Monitoring.
 
-	Options:
+	Possible options:
 
-	1.  **Enabled** – Default.
-	2.  Disabled.
+	1. **Enabled** – Default.
+	2. Disabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| RealtimeDIAG | Disable, Enable | yes | AMD |
+	| RealtimeDIAG | Disable, Enable | Yes | AMD |
 
 
 
 DIAG 7-Segment Mode
 :	Options for 7-segment output display (BIOS POST Code & Diagnostic Error Code).
 
-	Options:
+	Possible options:
 
-	1.  **Disabled** – Default.
-	2.  Enabled.
+	1. **Disabled** – Default.
+	2. Enabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| DIAG7SegMode | Disable, Enable | yes | AMD |
+	| DIAG7SegMode | Disable, Enable | Yes | AMD |
 
 
 
 Clear Diagnostics Log Data
 :	Whether to clear Diagnostics Log Data.
 
-	Options:
+	Possible options:
 
-	1.  **No** – Default.
-	2.  Yes.
+	1. **No** – Default.
+	2. Yes
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| ClearDIAGLog | Yes, No | yes | AMD |
+	| ClearDIAGLog | Yes, No | Yes | AMD |
 
 	
+
+
+
+
 
 

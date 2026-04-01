@@ -1,6 +1,6 @@
 # Keyboard/Mouse Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_keyboardmouse.png)
+![Keyboard and Mouse Settings](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_keyboardmouse.png)
 
 TrackPoint
 :  Whether to enable built-in TrackPoint.
@@ -12,7 +12,7 @@ TrackPoint
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
-    | TrackPoint | Enable, Disable (on AMD-based machine) <br> Disable, Automatic (on Intel-based machine)| No | Both |
+    | TrackPoint | Enable, Disable (AMD); Disable, Automatic (Intel) | No | Both |
 
 Trackpad
 :  Whether to enable built-in Trackpad.
@@ -24,7 +24,7 @@ Trackpad
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
-    | TouchPad | Disable, Enable (on AMD-based machine <br> Disable, Automatic (on Intel-based machine)| No | Both |
+    | TouchPad | Disable, Enable (AMD); Disable, Automatic (Intel) | No | Both |
 
 Fn and Ctrl Key swap
 :  Whether to swap behaviors of Fn key and Ctrl key.
@@ -100,7 +100,7 @@ Keyboard Layout
 
     Possible options:
 
-    1. **US English** – Default
+    1. **US English** – Default.
     2. Canadian French Multilingual
     3. Canadian French
     4. Spanish (Latin America)
@@ -134,5 +134,9 @@ Keyboard Layout
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | KeyboardLayout | English_US, CanadianFrenchMultilingual, CanadianFrench, <br>Spanish_LA, Portuguese_BR, Belgian, Danish, <br>Spanish, French, German, Hungarian, Icelandic, <br>Italian, Norwegian, Portuguese, Slovenian, <br>Swedish, Swiss, Turkish, English_UK, Japanese,<br>Korean, TraditionalChinese, Turkish-F, Estonian, Finnish, Czech | Yes | Both |
+
+
+
+
 
 

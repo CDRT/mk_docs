@@ -5,7 +5,7 @@
 PCIe Tunneling
 :  Whether to enable PCIe (peripheral component interconnect express) Tunneling.
 
-    Possible states:
+    Possible options:
 
     1. **On** – Default.
     2. Off
@@ -21,9 +21,9 @@ PCIe Tunneling
 PCIe Maximum Payload Size
 :  Select PCIe Maximum Payload Size (MPS) for Thunderbolt™  5 port. Connecting non Thunderbolt™ 5 devices with this set to 258 bytes may result in reduced or inadequate performance.
 
-    Possible states:
+    Possible options:
 
-    1. **128 bytes** - set MPS to 128 bytes. Default.
+    1. **128 bytes** – set MPS to 128 bytes. Default.
     2. 256 bytes - set MPS to 258 bytes.
 
     !!! note ""
@@ -32,5 +32,9 @@ PCIe Maximum Payload Size
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | PCIeMaximumPayloadSize | 128bytes, 256bytes | Yes | Both |
+
+
+
+
 
 

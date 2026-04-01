@@ -46,3 +46,7 @@ Parallel Port IRQ
     1.  **IRQ7** – enables interrupt line 7. Default.
     2.  IRQ 5 – enables interrupt line 5.
 
+
+
+
+

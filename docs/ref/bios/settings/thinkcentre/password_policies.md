@@ -110,20 +110,20 @@ POP Changeable by User
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | POPChangeablebyUser | No, Yes | yes |
+    | POPChangeablebyUser | No, Yes | Yes |
 
 Allow the Jumper to Clear SVP
 :  Whether to allow the hardware jumper to clear the Supervisor
 password.
 
-    Options:
+    Possible options:
 
     1.  **Yes** – Default.
     2.  No.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | AllowJumperClearSVP | No, Yes | yes |
+    | AllowJumperClearSVP | No, Yes | Yes |
 
     !!! warning
         When disabled, no action can reset the SVP if you forget it.
@@ -139,4 +139,8 @@ Password Count Exceeded Error
     | PasswordCountExceededError | Disabled, Enabled | yes |
 
     [More information at Lenovo Support](https://support.lenovo.com/lt/en/solutions/ht052093-error-0199-system-security-security-password-retry-count-exceeded-thinkcentre-m90-m90p-thinkserver-ts200v-thinkstation-e20)
+
+
+
+
 

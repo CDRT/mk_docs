@@ -20,3 +20,7 @@ Card Reader
     1.  **Enabled** – Default.
     2.  Disabled – disables card reader.
 
+
+
+
+

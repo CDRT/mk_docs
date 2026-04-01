@@ -19,24 +19,24 @@
 
 SATA Controller
 :	
-	Options:
+	Possible options:
 
 	1. **Enabled** – Default.
-	2. Disabled.
+	2. Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| SATAController | Disabled, Enabled | Yes | Both |
 
 
 
 SATA Drive {X}
-:	Options:
+:	Possible options:
 
 	1. **Enabled** – Default.
-	2. Disabled.
+	2. Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| SATADriveX | Disabled, Enabled | Yes | Both |
 
@@ -47,12 +47,12 @@ SATA Drive {X}
 
 M.2 Drive {X}
 :	
-	Options:
+	Possible options:
 
 	1. **Enabled** – Default.
-	2. Disabled.
+	2. Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| M.2DriveX | Disabled, Enabled | Yes | Intel |
 
@@ -61,12 +61,12 @@ M.2 Drive {X}
 
 
 MCIO Drive {X}-{Y}
-:	Options:
+:	Possible options:
 
 	1. **Enabled** – Default.
-	2. Disabled.
+	2. Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| MCIODriveXY | Disabled, Enabled | Yes | Intel |
 
@@ -76,12 +76,12 @@ MCIO Drive {X}-{Y}
 
 SATA Drive * Hot-Plug Support
 :	
-	Options:
+	Possible options:
 
-	1. Enabled.
+	1. Enabled
 	2. **Disabled** – Default.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| SATADriveXHotPlugSupport | Disabled, Enabled | Yes | Both |
 
@@ -91,17 +91,17 @@ SATA Drive * Hot-Plug Support
 
 Configure Storage as
 :	
-	Mode Options:
+	Possible options:
 
 	1. **AHCI** – Default.
 	2. RAID
 
 	!!! note ""
 	   Device driver support is required for AHCI or RAID.
-	Depending on how the hard disk image was installed, changing
-	this setting may prevent the system from booting.
+	   Depending on how the hard disk image was installed, changing
+	   this setting may prevent the system from booting.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| ConfigureStorageas | AHCI, RAID | Yes | Intel |
 
@@ -114,12 +114,12 @@ Configure SATA as
 	!!! note ""
 	    Device driver support is required for AHCI or RAID. Depending on how the hard disk image was installed, changing this setting may prevent the system from booting.
 
-	Options:
+	Possible options:
 
 	1. **AHCI** – Default.
 	2. RAID
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| ConfigureSATAas | AHCI, RAID | Yes | Both |
 
@@ -127,18 +127,18 @@ Configure SATA as
 Hard Disk Pre-delay
 :	Adds a delay before the first access of a hard disk by the system software. Some hard disks hang if accessed before they have initialized themselves. This delay ensures the hard disk has initialized after power up, prior to being accessed.
 
-	Options:
+	Possible options:
 
-	- **Disabled** – Default.
-	- 3 Seconds
-	- 6 Seconds
-	- 9 Seconds
-	- 12 Seconds
-	- 15 Seconds
-	- 21 Seconds
-	- 30 Seconds
+	1. **Disabled** – Default.
+	2. 3 Seconds
+	3. 6 Seconds
+	4. 9 Seconds
+	5. 12 Seconds
+	6. 15 Seconds
+	7. 21 Seconds
+	8. 30 Seconds
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| HardDiskPre-delay | Disabled, 3 Seconds, 6 Seconds, 9 Seconds, 12 Seconds, 15 Seconds, 21 Seconds, 30 Seconds | Yes | Both |
 
@@ -164,6 +164,10 @@ would these be more dropdown subheaders? or do we make it another page
 look at atadriversetup for ex on how they did it
 EX: M.2 Slot 1, M.2 Slot 2, M.2 Slot3
 	PCIe Slot1, etc -->
+
+
+
+
 
 
 

@@ -34,3 +34,7 @@ Charge in Battery Mode
     | ChargeInBatteryMode | Disable, Enable | No | Both |
 
 
+
+
+
+

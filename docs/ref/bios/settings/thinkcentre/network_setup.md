@@ -80,7 +80,7 @@ PXE IPV6 Network Stack
 HTTPS Support
 :  IPV4 and IPV6 boot support.
 
-    Options:
+    Possible options:
 
     1. **Disabled** – Default.
     1. Enabled.
@@ -88,7 +88,7 @@ HTTPS Support
 HTTPS Boot
 :  Custom HTTPS boot.
 
-    Options:
+    Possible options:
 
     1. **Disabled** – Default.
     2. Enabled.
@@ -99,7 +99,7 @@ HTTPS Boot
 Lenovo Cloud Services
 :  Whether `Lenovo Cloud` will be selected in boot menu, to boot from Lenovo Cloud server directly.
 
-    Options:
+    Possible options:
 
     1. **Disabled** – Default.
     2. Enabled.
@@ -107,7 +107,7 @@ Lenovo Cloud Services
 Win VDI Boot
 :  When enabled, `Win VDI Boot` will be selected in boot menu, to boot from Lenovo Cloud server and load VDI service.
 
-    Options:
+    Possible options:
 
     1. **Disabled** – Default.
     2. Enabled.
@@ -171,4 +171,8 @@ Wi-Fi Scan
 
 Scanned List (display only)
 :  Scanned WiFi nodes.
+
+
+
+
 

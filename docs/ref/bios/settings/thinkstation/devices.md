@@ -5,26 +5,30 @@
 Card Reader
 :	Whether card reader will be available in OS.
 
-	Options:
+	Possible options:
 
 	1.	**Enabled** – Default.
 	2.	Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| CardReader |Disabled, Enabled  | yes | Intel |
+	| CardReader |Disabled, Enabled  | Yes | Intel |
 
 Bluetooth
 :	Whether Bluetooth will be available in OS.
 
-	Options:
+	Possible options:
 
 	1.	**Enabled** – Default.
-	2.	Disabled  
+	2.	Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| Bluetooth | Disabled, Enabled | yes | Both |
+	| Bluetooth | Disabled, Enabled | Yes | Both |
+
+
+
+
 
 
 

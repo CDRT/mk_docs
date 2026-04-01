@@ -14,3 +14,7 @@ Displays information on system components such as:
 There is also an option to Clear BIOS Event Log.
 
 
+
+
+
+

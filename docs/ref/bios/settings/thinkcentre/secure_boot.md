@@ -8,9 +8,9 @@ System Mode
     Possible options:
 
     1. **Deployed Mode** – Default.
-    1. Audit Mode
-    1. User Mode
-    1. Setup Mode
+    2. Audit Mode
+    3. User Mode
+    4. Setup Mode
 
 Secure Boot
 :  
@@ -46,7 +46,7 @@ Allow Microsoft 3rd Party UEFI CA
 :  
     Possible options:
 
-    1.  **Enabled** - Install Microsoft 3rd Party UEFI CA, and trust it in secure boot. Default.
+    1.  **Enabled** – Install Microsoft 3rd Party UEFI CA, and trust it in secure boot. Default.
     2.  Disabled. Remove Microsoft 3rd Party UEFI CA in secure boot BD.
 
 
@@ -56,4 +56,8 @@ Allow Microsoft 3rd Party UEFI CA
 
     !!! note ""
         If add-on cards are supported, Microsoft 3rd Party UEFI CA will not be removed until the boot loader is loaded.
+
+
+
+
 

@@ -15,3 +15,7 @@ This option will clear all data stored in the UEFI system.  It does not affect t
     - The process can take several minutes to complete. The screen may be blank for some time and lights on the keyboard may flash. **Please do not interrupt the process.**
 
 
+
+
+
+

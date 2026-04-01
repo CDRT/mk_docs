@@ -33,5 +33,9 @@ Microphone
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | Microphone | Disabled, Enabled | yes |
+    | Microphone | Disabled, Enabled | Yes |
+
+
+
+
 

@@ -22,7 +22,7 @@ Security Chip
     Possible options:
 
     1. **On** – Default.
-    2. Off - security chip is hidden and is not functional.
+    2. Off – security chip is hidden and is not functional.
 
     !!! note ""
         If shows `MFG Mode` (manufacturing mode), then TPM (Trusted Platform Module) must be provisioned correctly. If this occurs on a ship-level system, please contact Lenovo Support for assistance.
@@ -107,7 +107,7 @@ Microsoft(R) Pluton Processor Control
 
     1. Disabled
     2. Enabled
-    3. **Disabled(SW Controlled)** – Default
+    3. **Disabled(SW Controlled)** – Default.
 
     When set to ***Disabled*** or ***Enabled***, the setting cannot be changed without specifying a Supervisor password when using WMI.  When set to ***Disabled (SW Controlled)***, the setting can be changed using WMI without requiring Supervisor password. This allows the Pluton Security Processor to be enabled for use with a Discrete TPM 2.0 without requiring Supervisor password. If this setting is being changed in order to switch to the Pluton TPM 2.0, a Supervisor password will be required to make the TpmSelection change. If the setting is already ***Enabled***, then a Supervisor password will be required to change it using WMI. When using WMI, be sure to use the proper values from the table below.
 
@@ -133,5 +133,9 @@ SMBIOS Reporting
 
     1. **On** – Default.
     2. Off
+
+
+
+
 
 

@@ -12,7 +12,7 @@ Re-Size BAR Support
 	1. **Disabled** – Default.
 	2. Enabled.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| ReSizeBARSupport  | Enabled, Disabled | Yes | Both |
 
@@ -26,7 +26,7 @@ SR-IOV Support
 	1. **Disabled** – Default.
 	2. Enabled.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| SRIOVSupport   | Enabled, Disabled | Yes | Both |
 	
@@ -42,7 +42,7 @@ ASPM Support
 	1. **Disabled** – Default.
 	2. Auto.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| ASPMSupport   | Disabled, Auto | Yes | Both | 
 
@@ -73,7 +73,7 @@ PCIe Port
 	1. **Enabled** – Default.
 	2. Disabled.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| PCIeSlotXPort | Enabled, Disabled | Yes | Both | 
 
@@ -93,7 +93,7 @@ PCIe Port Bifurcationt
 	3. x8x8.
 	4. x16
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| PCIeSlotXBifurcation   | x4x4x4x4, x8x8, x16, Auto | Yes | Both | 
 
@@ -112,7 +112,7 @@ Link Speed
 	4. Gen 3 (8 GT/s).
 	5. Gen 4 (16 GT/s)
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| PCIeSlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s) | Yes | Both | 
 
@@ -136,7 +136,7 @@ Link Speed
 	5. Gen 4 (16 GT/s)
 	6. Gen 5 (32 GT/s)
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| M2SlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s), Gen 5 (32 GT/s) | Yes | Both | 
 
@@ -160,12 +160,16 @@ Link Speed
 	5. Gen 4 (16 GT/s)
 	6. Gen 5 (32 GT/s)
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| MCIOSlotXYLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s), Gen 5 (32 GT/s) | Yes | Intel | 
 
 	!!! note ""
 		In the WMI class name, X & Y represents the slot numbers.
+
+
+
+
 
 
 

@@ -38,7 +38,7 @@ Security Chip 2.0
 	!!! note ""
 		When set to `Disabled`, then TxT will be set to `Disabled` automatically and `Clear TCG Security Feature` becomes unavailable. 
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| SecurityChip | Disabled, Enabled | yes | Both |
 
@@ -66,8 +66,12 @@ Physical Presence for Clear
 	1. **Enabled** – Default.
 	2. Disabled.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| PhysicalPresenceforClear | Disabled, Enabled | yes | Both |
+
+
+
+
 
 

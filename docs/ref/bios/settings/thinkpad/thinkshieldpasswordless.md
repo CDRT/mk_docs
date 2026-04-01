@@ -63,3 +63,7 @@ Here is a video walk-through of the process:
 [ThinkShield Passwordless Power On](https://download.lenovo.com/cdrt/video/ThinkShieldPasswordlessPowerOn.mp4 ":include :type=video controls width=100%")
 
 
+
+
+
+

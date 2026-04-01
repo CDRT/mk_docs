@@ -5,28 +5,28 @@
 MRC Promote Warnings
 :	Determines if MRC warnings are promoted to system Level.
 
-	Options:
+	Possible options:
 
 	1. **Disabled** – Default.
-	2. Enabled.
+	2. Enabled
 
 
 
 
 Attempt Fast Boot
 :	
-	Options:
+	Possible options:
 
-	1. **Enabled** – Default. Portions of memory reference code will be skipped when possible to increase boot speed on warm boots.
-	2. Disable - Disables this feature.
+	1. **Enabled** – portions of memory reference code will be skipped when possible to increase boot speed on warm boots. Default.
+	2. Disable – disables this feature.
 
 
 
 Attempt Fast Cold Boot
-:	Options:
+:	Possible options:
 
-	1. **Enabled** – Default. P Portions of memory reference code will be skipped when possible to increase boot speed on cold boots.
-	2. Disable - Disables this feature.
+	1. **Enabled** – portions of memory reference code will be skipped when possible to increase boot speed on cold boots. Default.
+	2. Disable – disables this feature.
 
 
 
@@ -36,5 +36,9 @@ Attempt Fast Cold Boot
 
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /ts_memtopology.png)-->
+
+
+
+
 
 

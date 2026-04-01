@@ -48,9 +48,13 @@ Physical Presence for Clear
     Possible options:
 
     1.  **Enabled** – Default.
-    1.  Disabled
+    2.  Disabled
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | PhysicalPresenceforClear | Disabled, Enabled | yes |
+    | PhysicalPresenceforClear | Disabled, Enabled | Yes |
+
+
+
+
 

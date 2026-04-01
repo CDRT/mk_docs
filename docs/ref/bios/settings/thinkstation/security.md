@@ -80,7 +80,7 @@ Set Supervisor Password
 	1. [ Enter New Password ]
 	2. [ Confirm New Password ]
 	3. < Actions >:<br>
-		a. **Save** – default<br>
+		a. **Save** – Default<br>
 		b. Cancel
 
 
@@ -95,7 +95,7 @@ Set Power-On Password
 	1. [ Enter New Password ]
 	2. [ Confirm New Password ]
 	3. < Actions >:<br>
-		a. **Save** – default<br>
+		a. **Save** – Default<br>
 		b. Cancel
 
 
@@ -110,48 +110,48 @@ Set System Management Password
 	1. [ Enter New Password ]
 	2. [ Confirm New Password ]
 	3. < Actions >:<br>
-		a. **Save** – default<br>
+		a. **Save** – Default<br>
 		b. Cancel
 
 
 
 Windows UEFI Firmware Update
 :	
-	Options:
+	Possible options:
 
 	1. **Enabled** – allow Windows UEFI firmware update. Default.
 	2. Disabled – BIOS will skip Windows UEFI firmware update.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| WindowsUEFIFirmwareUpdate | Disabled, Enabled | yes | Both |
+	| WindowsUEFIFirmwareUpdate | Disabled, Enabled | Yes | Both |
 
 
 Smart USB Protection
 :	Smart USB Protection blocks copying data from the computer to the USB storage device in Windows.
 
-	Options:
+	Possible options:
 
-	1. **Disabled** – the user can copy data from and to USB storage device. Default. 
+	1. **Disabled** – the user can copy data from and to USB storage device. Default.
 	2. Read Only – the user can copy data from USB storage device to the Computer but not from the computer to USB storage device.
 	3. No Access – the user cannot use USB storage device in OS.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| SmartUSBProtection | Disabled, Read Only, No Access | yes | Both |
+	| SmartUSBProtection | Disabled, Read Only, No Access | Yes | Both |
 
 
 secure wipe
 :	Whether to display the `secure wipe` option on the F12 BIOS Startup Menu. Users can select this option to securely erase HDD data.
 
-	Options:
+	Possible options:
 
-	1. Enabled.
+	1. Enabled
 	2. **Disabled** – Default.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| securewipe | Disabled, Enabled | yes | Intel |
+	| securewipe | Disabled, Enabled | Yes | Intel |
 
 
 Computrace
@@ -168,20 +168,20 @@ Absolute Persistence Version
 
 
 Absolute Persistence Module
-:	Whether to enable the firmware Persistence Module of the optional service from Absolute.<br>
+:	Whether to enable the firmware Persistence Module of the optional service from Absolute.
 
-	Options:
+	Possible options:
 
-	1.	**Enabled** – Default.
-	2.	Disabled.
-	3.	Permanently Disabled.
+	1. **Enabled** – Default.
+	2. Disabled
+	3. Permanently Disabled
 
 	!!! note ""
-		Selecting `Permanently Disabled` requires additional confirmation and cannot be done by WMI, because if Computrace activation is permanently disabled, then you can never enable it again. <br> More information on the official site of [Absolute Software Corporation](https://www.absolute.com/partners/device-manufacturers/lenovo/){:target=”_blank”} .
+		Selecting `Permanently Disabled` requires additional confirmation and cannot be done by WMI, because if Computrace activation is permanently disabled, then you can never enable it again. More information on the official site of [Absolute Software Corporation](https://www.absolute.com/partners/device-manufacturers/lenovo/){:target="_blank"}.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| AbsolutePersistenceModule | Disabled, Enabled | yes | Both |
+	| AbsolutePersistenceModule | Disabled, Enabled | Yes | Both |
 	
 
 
@@ -189,56 +189,52 @@ Absolute Persistence Module
 Device Guard
 :	Device Guard enables PCs to be protected against malware by introducing a collective set of restrictions on a device across several technologies.
 
-	Options:
+	Possible options:
 
-	1. Enabled – CPU Virtualization Technology to be enabled, IOMMU (Intel Input\Output Memory Management Unit), such as Intel VT-d, AMD-Vi to be enabled, TPM to be enabled. 
-	Ethernet, USB, CD, and other boot methods to be disabled, only SATA device to be allowed.
+	1. Enabled – CPU Virtualization Technology to be enabled, IOMMU (Intel Input/Output Memory Management Unit), such as Intel VT-d, AMD-Vi to be enabled, TPM to be enabled. Ethernet, USB, CD, and other boot methods to be disabled, only SATA device to be allowed.
 	2. **Disabled** – Ethernet, USB, CD, and other boot methods to be enabled. Default.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| DeviceGuard | Disabled, Enabled | yes | Both |
-
-
-Electronic Lock
+	| DeviceGuard | Disabled, Enabled | Yes | Both |
 :	Whether to lock the chassis to prevent unauthorized physical access to the system components.
 
-	Options:
+	Possible options:
 
-	1. Lock. 
+	1. Lock
 	2. **Unlock** – Default. 
 
 	!!! note ""
-		The setting is effective on the next startup after BIOS setting is saved. <br /> For more information, please refer to [user manual](https://thinkstation-specs.com/thinkstation/p350-tower/). 
+		The setting is effective on the next startup after BIOS setting is saved. For more information, please refer to [user manual](https://thinkstation-specs.com/thinkstation/p350-tower/).
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| ElectronicLock | Lock, Unlock | yes | Intel |
+	| ElectronicLock | Lock, Unlock | Yes | Intel |
 	
 
 ThinkShield Passwordless Power-On Authentication
 :	Enable or Disable the ThinkShield Passwordless Power-On Authentication and Device Manager.
 
-	Options:
+	Possible options:
 
 	1. **Enabled** – Default.
-	2. Disabled.
+	2. Disabled
 	
 
 Cover Tamper Detected
 :	Whether to enable Chassis Intrusion Detection, a utility that can tell whether someone has opened the case (intruded into the chassis).
 
-	Options:
+	Possible options:
 
 	1. **Disabled** – Default.
-	2. Enabled.
+	2. Enabled
 
 	!!! note ""
 		If chassis tamper occurs, you must enter setup to clear this error.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| CoverTamperDetected | Disabled, Enabled | yes | Both |
+	| CoverTamperDetected | Disabled, Enabled | Yes | Both |
 
 
 Configuration Change Detection
@@ -247,22 +243,19 @@ Configuration Change Detection
 	!!! note ""
 		This notice can only be cleared by entering BIOS setup, saving, and then exiting.
 
-	Options:
+	Possible options:
 
-	1. Enabled.
+	1. Enabled
 	2. **Disabled** – Default.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| ConfigurationChangeDetection | Disabled, Enabled | yes | Both |
+	| ConfigurationChangeDetection | Disabled, Enabled | Yes | Both |
 
 
 Reset system to Factory Default
 :	This option is used clear all data stored in UEFI system. Not affected to storage data. After selecting this item, the system will be automatically reboot, then reset system to factory default
 settings.
-
-
-
 
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /ts_amd_security.png)
@@ -272,40 +265,40 @@ settings.
 Set Password Encryption Algorithm
 :	Select the encryption algorithm for BIOS Password.
 
-	Options:
+	Possible options:
 
 	1. **SHA-256 Hash** – Default.
-	1. SM3 Hash
+	2. SM3 Hash
 
 	
 
 Custom Password Mode
 :	
 	<!-- TODO: custom password mode description -->
-	Options:
+	Possible options:
 
-	1.  **Disabled** – Default.
-	2.  Enabled.
+	1. **Disabled** – Default.
+	2. Enabled
 
 	<!-- NO WMI -->
 
 
 
 Max Password Attempts
-:	Set maximum number of  supervisor password attempts from any software on the operating system.
+:	Set maximum number of supervisor password attempts from any software on the operating system.
 
 	!!! note ""
 		If password attempts exceeds this, BIOS does not accept further password attempts.
 
-	Options:
+	Possible options:
 
 	1. 1
-	1. **3** – Default.
-	1. 100
-	1. Unlimited
+	2. **3** – Default.
+	3. 100
+	4. Unlimited
 
 	<!-- NO WMI -->
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| MaxPasswordAttempts | 1, 3, 100, Unlimited | Yes | Both |
 
@@ -314,13 +307,13 @@ Max Password Attempts
 Password Change Time
 :	When to change the supervisor password if it is requested by software on the operating system. This option is used to control the timing to change the supervisor password if it is requested by software on the operating system.
 
-	Options:
+	Possible options:
 
 	1. **After Reboot** – Default.
-	1. Immediately
+	2. Immediately
 
 	<!-- NO WMI -->
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| PasswordChangeTime | After Reboot, Immediately | Yes | Both |
 
@@ -329,20 +322,20 @@ Password Change Time
 Set Minimum Length
 :	If a minimum is set, Supervisor Password, System Management Password, Power-On and Hard Disk password lengths must be equal to or longer than that number. Otherwise, they can be 1 to 128 characters.
 
-	Options:
+	Possible options:
 
 	1. **Disabled** – Default.
-	1. 4 Characters
-	1. 5 Characters
-	1. 6 Characters
-	1. 7 Characters
-	1. 8 Characters
-	1. 9 Characters
-	1. 10 Characters
-	1. 11 Characters
-	1. 12 Characters
+	2. 4 Characters
+	3. 5 Characters
+	4. 6 Characters
+	5. 7 Characters
+	6. 8 Characters
+	7. 9 Characters
+	8. 10 Characters
+	9. 11 Characters
+	10. 12 Characters
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| SetMinimumLength | Disable, 4 Characters, 5 Characters, 6 Characters, 7 Characters, 8 Characters, 9 Characters, 10 Characters, 11 Characters, 12 Characters | Yes | Both |
 
@@ -351,20 +344,26 @@ Set Minimum Length
 Set Strong Password
 :	
 	!!! note ""
-		Affects: <br> - Supervisor Password <br> - System Management Password <br> - Power-On password <br> - Hard Disk password
+		Affects:
+		- Supervisor Password
+		- System Management Password
+		- Power-On password
+		- Hard Disk password
 
 	!!! note ""
-		For a strong password, length must <br> - be equal to or more than 8 characters <br> - include at least one uppercase character, one lowercase character and one number.
+		For a strong password:
+		- Length must be equal to or more than 8 characters
+		- Include at least one uppercase character, one lowercase character and one number.
 
 	!!! note ""
 		Otherwise, minimum length depends on the minimum password length setting.
 
-	Options:
+	Possible options:
 
-	1.  **Disabled** – Default.
-	2.  Enabled.
+	1. **Disabled** – Default.
+	2. Enabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| SetStrongPassword | Disable, Enable | Yes | Both |
 
@@ -373,12 +372,14 @@ Set Strong Password
 Keyboard Layout
 :	Select keyboard layout in pre-OS environment. Does not affect OS.
 
-	Options:
+	Possible options:
 
-	1.  **Disabled** – Default.
-	2.  Enabled.
+	1. **English** – Default.
+	2. French
+	3. German
+	4. Chinese
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| KeyboardLayout | English, French, German, Chinese | Yes | Both |
 
@@ -403,12 +404,12 @@ Allow Jumper Clear SVP
 	!!! note ""
 		No action can reset the SVP if you forget it.
 
-	Options:
+	Possible options:
 
 	1. **Yes** – Default.
-	1. No
+	2. No
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| AllowJumperClearSVP | No, Yes | Yes | Both |
 
@@ -417,12 +418,12 @@ Allow Jumper Clear SVP
 Secure Roll Back Prevention
 :	Whether flashing BIOS to a previous or current version is prevented.
 
-	Options:
+	Possible options:
 
 	1. **Yes** – Default.
-	1. No
+	2. No
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| SecureRollBackPrevention | No, Yes | Yes | Both |
 
@@ -431,12 +432,12 @@ Secure Roll Back Prevention
 Require SVP when Flashing
 :	Whether the supervisor password is required when updating the system firmware.
 
-	Options:
+	Possible options:
 
-	1.  **Disabled** – Default.
-	2.  Enabled.
+	1. **Disabled** – Default.
+	2. Enabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| RequireSVPwhenFlashing | No, Yes | Yes | Both |
 
@@ -452,7 +453,7 @@ Require POP on System Boot
 	OS. To prevent unauthorized access to the system, recommended
 	to set user authentication on the OS.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| RequireSVPwhenFlashing | No, Yes | Yes | Both |
 
@@ -465,12 +466,12 @@ BIOS Password At System Boot
 	!!! note ""
 		To prevent unauthorized access to the system, we recommend setting user authentication on the OS.
 
-	Options:
+	Possible options:
 
 	1. **Yes** – Default.
-	1. No
+	2. No
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| BIOSPasswordAtSystemBoot | No, Yes | Yes | Both |
 
@@ -479,26 +480,26 @@ BIOS Password At System Boot
 BIOS Password At Reboot
 :	Whether the Power-On Password is required when system restarts.
 
-	Options:
+	Possible options:
 
-	1.  **No** – Default.
-	2.  Yes.
+	1. **No** – Default.
+	2. Yes
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| BIOSPasswordAtReboot | No, Yes | Yes | Both |
 
 
 
 POP Changeable by User
-:	If "No" is selected, the Power-On Password can only be changed by the supervisor password..
+:	If "No" is selected, the Power-On Password can only be changed by the supervisor password.
 
-	Options:
+	Possible options:
 
-	1.  **Yes** – Default.
-	2.  No.
+	1. **Yes** – Default.
+	2. No
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| POPChangeablebyUser | No, Yes | Yes | AMD |
 
@@ -515,7 +516,7 @@ BIOS Password At Boot Device List
 	1.  **No** – Default.
 	2.  Yes.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| BIOSPasswordAtBootDeviceList | No, Yes | Yes | Both |
 
@@ -530,7 +531,7 @@ Smart USB Protection
 	1. Read Only - user can copy data from USB storage device to the computer, but cannot copy data from the computer to USB storage device.
 	1. No Access - user cannot use USB storage device in Windows.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| SmartUSBProtection | Disable, Read Only, No Access | Yes | Both |
 
@@ -547,12 +548,12 @@ Preboot Authentication
 
 Whether to enable the fingerprint reader function for entering BIOS passwords.
 
-Options:
+	Possible options:
 
 1.  **Disabled** – Default.
 2.  Enabled.
 
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
 | setting_name | setting_values | yes_no | both |
 
@@ -563,13 +564,13 @@ Erase Fingerprint Data
 
 Whether to clear fingerprint data stored in a fingerprint reader.
 
-Options:
+	Possible options:
 
 1.  **No** – Default.
 2.  Yes.
 
 TODO: confirm WMI
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 |:---|:---|:---|:---|
 | setting_name | setting_values | yes_no | both |
 
@@ -584,11 +585,15 @@ Password Count Exceeded Error
 	1.  **Enabled** – Default.
 	2.  Disabled.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| PasswordCountExceededError | Disabled, Enabled| Yes | Both |
 
 	<!-- TODO: confirm WMI -->
+
+
+
+
 
 
 

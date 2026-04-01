@@ -8,9 +8,9 @@ System Time
 
 	Use arrow keys to switch between time fields.
 
-	Options:
+	Possible options:
 
-	1.	**Currently set date** 
+	1.	**Currently set date** – Default.
 	2.	HH : MM : SS<br>
 		a. HH - Hour:  00 ~ 23<br>
 		b. MM - Minute:  00 ~ 59<br>
@@ -22,13 +22,17 @@ System Date
 
 	Use arrow keys to switch between date fields.
 
-	Options:
+	Possible options:
 
-	1.	**Currently set date**
+	1.	**Currently set date** – Default.
 	2.	MM/DD/YYYY:
 		a. MM – Months: January to December <br>
 		b. DD – Date: 1 ~ 31 <br>
 		c. YYYY – Year: 1980 ~ 2099 <br>
+
+
+
+
 
 
 

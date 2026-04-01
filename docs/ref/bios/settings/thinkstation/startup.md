@@ -7,9 +7,9 @@
 First Boot Device
 :	BIOS will try to boot from the group first before trying the boot order.
 
-	Options:
+	Possible options:
 
-	1. **Boot Order** – Default. 
+	1. **Boot Order** – Default.
 	2. Network
 	3. SATA Drive
 	4. M.2 Drive
@@ -17,9 +17,9 @@ First Boot Device
 	6. USB HDD
 	7. USB CDROM
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| FirstBootDevice | Boot Order, NetWork, SATA Drive, M.2 Drive, PCIe Drive, USB HDD, USB CDROM | yes | Intel |
+	| FirstBootDevice | Boot Order, NetWork, SATA Drive, M.2 Drive, PCIe Drive, USB HDD, USB CDROM | Yes | Intel |
 
 
 First {Drive Type} Device
@@ -38,27 +38,27 @@ First {Drive Type} Device
 
 USB Boot Support
 :	
-	Options:
+	Possible options:
 
-	1. **Enabled** – Default. The system could support boot from USB devices.
-	2. Disabled - The system could not support boot from USB devices.
+	1. **Enabled** – the system could support boot from USB devices. Default.
+	2. Disabled – the system could not support boot from USB devices.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| USBBootSupport | Enabled, Disabled | yes | Both |
+	| USBBootSupport | Enabled, Disabled | Yes | Both |
 
 
 Boot Up Num-Lock Status
 :	Whether keys on the keypad will act as numeric keys.
 
-	Options:
+	Possible options:
 
-	1. **On** – numeric keys. Default. 
+	1. **On** – numeric keys. Default.
 	2. Off – cursor keys.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| BootUpNumLockStatus | Off, On | yes | Both |
+	| BootUpNumLockStatus | Off, On | Yes | Both |
 
 
 
@@ -68,31 +68,31 @@ Fast Boot
 	!!! note ""
 		We recommend turning off “Fast Boot” if you often use CD/DVD or network to load your operating system.
 
-	Options:
+	Possible options:
 
-	1. **Enabled** – Default. 
-	2. Disabled.
+	1. **Enabled** – Default.
+	2. Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| FastBoot | Disabled, Enabled | yes | Intel |
+	| FastBoot | Disabled, Enabled | Yes | Intel |
 
 
 
 Option Keys Display
-:	Whether to display option key prompts (such as F1 key) when the system is turned on.<br>
+:	Whether to display option key prompts (such as F1 key) when the system is turned on.
 
-	Options:
+	Possible options:
 
-	1. Enabled. 
+	1. Enabled
 	2. **Disabled** – Default.
 
 	!!! note ""
 		Disabling the prompts will not affect the function of a specific key.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| OptionKeysDisplay | Disabled, Enabled | yes | Both |
+	| OptionKeysDisplay | Disabled, Enabled | Yes | Both |
 
 
 
@@ -103,12 +103,12 @@ Option Keys Display Style
 
 	Which prompts to display on the POST logo screen when the system is turned on.
 
-	Options:
+	Possible options:
 
 	1. **Normal** – prompt for the Enter key and display a menu. Default.
 	2. Legacy – prompt for F1 and F12.
 
-	<!-- | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	<!-- | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| OptionKeysDisplayStyle | Normal, Legacy | yes | Both | -->
 
@@ -124,7 +124,7 @@ Primary Boot Sequence
 
 	`x` excludes / includes the device from the boot sequence.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| PrimaryBootSequence | M.2 Drive | Yes | Both | 
 
@@ -141,7 +141,7 @@ Automatic Boot Sequence
 
 	`x` excludes / includes the device from the boot sequence.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| AutomaticBootSequence | M.2 Drive | Yes | Both |
 
@@ -158,7 +158,7 @@ Error Boot Sequence
 
 	`x` excludes / includes the device from the boot sequence.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| ErrorBootSequence | M.2 Drive | Yes | Both | 
 
@@ -171,9 +171,13 @@ Manufacturing Boot Sequence
 
 	`x` excludes / includes the device from the boot sequence.
 	<!-- 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| setting_name | setting_values | yes_no | both | -->
+
+
+
+
 
 
 

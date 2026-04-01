@@ -21,7 +21,7 @@
 
 	For each drive it is possible to define a separate password, or leave a drive without a password.
 
-	Options:
+	Possible options:
 
 	1. Enabled – HDP (single or dual) is installed.
 	2. **Disabled** – HDP is not installed. Default.
@@ -44,9 +44,9 @@
 	While enabling the following parameters are available:
 	1. `Enter New Password`
 	2. `Confirm New Password`
-	3. Show Password – `On` \ `Off` statuses
-	4. < Actions >: <br>
-		a. **Save** – default<br>
+	3. Show Password – `On` or `Off` statuses
+	4. Actions:
+		a. **Save** – Default.
 		b. Cancel
 
 	!!! note ""
@@ -63,30 +63,30 @@ Require HDP on System Boot
 	!!! note ""
 		When `no` is selected, HDP is still required when the hard disk is attached to a different system.
 
-	Options:
+	Possible options:
 
 	1. **Auto** – HDP required. Default.
 	2. No – HDP will not be required.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| RequireHDPonSystemBoot | No, Auto | yes | Both |
+	| RequireHDPonSystemBoot | No, Auto | Yes | Both |
 
 
 Block SID Authentication
 :	Whether TCG (Trusted Computing Group) storage device blocks attempts to authenticate the SID (Security Identifier) authority until a subsequent device power cycle occurs.
 
-	Options:
+	Possible options:
 
-	1. **Enabled** – Default. 
-	2. Disabled.
+	1. **Enabled** – Default.
+	2. Disabled
 
 	!!! note ""
 		When `Disabled`, system allows SID authentication in TCG storage device at the next boot only, but not subsequent boots.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| BlockSIDAuthentication | Enabled, Disabled | yes | Intel |
+	| BlockSIDAuthentication | Enabled, Disabled | Yes | Intel |
 
 
 
@@ -99,11 +99,15 @@ Block SID Authentication
 Erase {DriveType} {X} Data
 :	Erase data per individual drive.
 
-	- {DriveType} stands for the drive type.<br>
-	 - {X} stands for the order number of a drive.<br>
+	- {DriveType} stands for the drive type.
+	- {X} stands for the order number of a drive.
 
 	!!! note ""
 		All hard drive data will be erased, and the hard disk password will be deleted. Requires additional confirmation.
+
+
+
+
 
 
 

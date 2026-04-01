@@ -6,12 +6,12 @@
 Above 4G Decoding
 :	Whether to enable 64bit capable devices to be decoded in Above 4G Address Space (only if system supports 64bit PCI decoding).
 
-	Options:
+	Possible options:
 
-	1.  **Enabled** – Default.
-	2.  Disabled.
+	1. **Enabled** – Default.
+	2. Disabled
 
-	<!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	<!-- | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| setting_name | setting_values | yes_no | both | -->
 
@@ -23,14 +23,14 @@ SR-IOV Support
 	!!! note ""
 		Assumes system has SR-IOV capable PCIe Devices.
 
-	Options:
+	Possible options:
 
-	1.  **Disabled** – Default.
-	2.  Enabled.
+	1. **Disabled** – Default.
+	2. Enabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| SRIOVSupport | Disable, Enable | yes | AMD |
+	| SRIOVSupport | Disable, Enable | Yes | AMD |
 
 
 
@@ -39,14 +39,14 @@ ASPM Support
 	!!! note ""
 		When set to `Auto`, configures ASPM automatically according to what each device supports.
 
-	Options:
+	Possible options:
 
-	1.  **Disabled** – Default.
-	2.  Auto.
+	1. **Disabled** – Default.
+	2. Auto
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| ASPMSupport | Disabled,Auto | yes | AMD |
+	| ASPMSupport | Disabled,Auto | Yes | AMD |
 
 	!!! note ""
 		Enabling ASPM may cause some PCIe devices to fail.
@@ -55,12 +55,12 @@ ASPM Support
 Extended Synch
 :	Whether to allow generation of Extended Synchronization patterns.
 
-	Options:
+	Possible options:
 
-	1.  **Disabled** – Default.
-	2.  Enabled.
+	1. **Disabled** – Default.
+	2. Enabled
 
-	<!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	<!-- | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| setting_name | setting_values | yes_no | both | -->
 
@@ -71,15 +71,12 @@ Link Training Timeout (uS)
 
 	Value range: 10 to 10000 μs.
 
-	Options:
+	Possible options:
 
 	1. 1000
 
 	<!-- TODO: verify this -->
 
-	<!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| setting_name | setting_values | yes_no | both | -->
 
 
 Unpopulated Links
@@ -87,14 +84,11 @@ Unpopulated Links
 	!!! note ""
 		When `Disabled`, unpopulated PCI Express links are disabled to save power.
 
-	Options:
+	Possible options:
 
 	1. Keep Link ON
-	1. **Disabled**
+	2. **Disabled** – Default.
 
-	<!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| setting_name | setting_values | yes_no | both | -->
 
 
 
@@ -105,14 +99,14 @@ Unpopulated Links
 PCIe Port
 :	Whether to enable this PCIe port.
 
-	Options:
+	Possible options:
 
 	1. **Enabled** – Default.
-	2. Disabled.
+	2. Disabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| PCIeSlotXPort | Disable, Enable | yes | AMD |
+	| PCIeSlotXPort | Disable, Enable | Yes | AMD |
 
 	!!! note ""
 		In the WMI class name, X represents the slot number, from 1 to 6.
@@ -125,20 +119,20 @@ PCIe Port Bifurcation
 	!!! note ""
 		If `Auto`, system will auto-configure PCIe port bifurcation and auto-detect Quad M.2 PCIe Card.
 
-	Options:
+	Possible options:
 
 	1. x4x4
-	1. x4x4x4x4
-	1. x4x4x8
-	1. x8x4x4
-	1. x8
-	1. x8x8
-	1. x16
-	1. **Auto** – Default.
+	2. x4x4x4x4
+	3. x4x4x8
+	4. x8x4x4
+	5. x8
+	6. x8x8
+	7. x16
+	8. **Auto** – Default.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| PCIeSlotXBifurcation | Auto, x4x4x4x4, x8x8, x16 | yes | AMD |
+	| PCIeSlotXBifurcation | Auto, x4x4x4x4, x8x8, x16 | Yes | AMD |
 
 	!!! note ""
 		In the WMI class name, X represents the slot number, from 1 to 6.
@@ -147,17 +141,17 @@ PCIe Port Bifurcation
 
 Link Speed
 :	
-	Options:
+	Possible options:
 
 	1. **Auto** – Default.
-	1. Auto, Gen 1 (2.5 GT/s)
-	1. Gen 2 (5 GT/s)
-	1. Gen 3 (8 GT/s)
-	1. Gen 4 (16 GT/s)
+	2. Auto, Gen 1 (2.5 GT/s)
+	3. Gen 2 (5 GT/s)
+	4. Gen 3 (8 GT/s)
+	5. Gen 4 (16 GT/s)
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| PCIeSlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s) | yes | AMD |
+	| PCIeSlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s) | Yes | AMD |
 
 	!!! note ""
 		In the WMI class name, X represents the slot number, from 1 to 6.
@@ -171,14 +165,14 @@ Link Speed
 M.2 Port
 :	Whether to enable this M.2 port.
 
-	Options:
+	Possible options:
 
 	1. **Enabled** – Default.
-	2. Disabled.
+	2. Disabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| M2SlotXPort | Disable, Enable | yes | AMD |
+	| M2SlotXPort | Disable, Enable | Yes | AMD |
 
 	!!! note ""
 		In the WMI class name, X represents the slot number, 1 or 2.
@@ -187,17 +181,17 @@ M.2 Port
 
 M.2 Link Speed
 :	
-	Options:
+	Possible options:
 
 	1. **Auto** – Default.
-	1. Auto, Gen 1 (2.5 GT/s)
-	1. Gen 2 (5 GT/s)
-	1. Gen 3 (8 GT/s)
-	1. Gen 4 (16 GT/s)
+	2. Auto, Gen 1 (2.5 GT/s)
+	3. Gen 2 (5 GT/s)
+	4. Gen 3 (8 GT/s)
+	5. Gen 4 (16 GT/s)
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| M2SlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s) | yes | AMD |
+	| M2SlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s) | Yes | AMD |
 
 	!!! note ""
 		In the WMI class name, X represents the slot number, 1 or 2.
@@ -206,9 +200,13 @@ M.2 Link Speed
 
 M.2 DLF Support
 :	
-	Options:
+	Possible options:
 
 	1. **Enabled** – Default.
-	1. Disabled.
+	2. Disabled
+
+
+
+
 
 

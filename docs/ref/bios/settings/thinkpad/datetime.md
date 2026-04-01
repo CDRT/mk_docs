@@ -1,6 +1,6 @@
 # Date\Time
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_datetime.png)
+![Date and Time Settings](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_datetime.png)
 
 System Date
 :  Shows the current system date.
@@ -12,10 +12,11 @@ System Date
     Possible options:
 
     1. Current date
-    2. MM/DD/YYYY:<br>
-        a. MM – Months: January to December <br>
-        b. DD – Date: 1 ~ 31 <br>
-        c. YYYY – Year: 1980 ~ 2099 <br>
+    2. MM/DD/YYYY:
+
+        a. MM – Months: January to December
+        b. DD – Date: 1 ~ 31
+        c. YYYY – Year: 1980 ~ 2099
 
 System Time
 :  Shows the current system time.
@@ -27,9 +28,14 @@ System Time
     Possible options:
 
     1. Current date
-    2. HH : MM : SS<br>
-        a. HH - Hour:  00 ~ 23<br>
-        b. MM - Minute:  00 ~ 59<br>
-        c. SS - Second:  00 ~ 59<br>
+    2. HH : MM : SS
+
+        a. HH - Hour:  00 ~ 23
+        b. MM - Minute:  00 ~ 59
+        c. SS - Second:  00 ~ 59
+
+
+
+
 
 

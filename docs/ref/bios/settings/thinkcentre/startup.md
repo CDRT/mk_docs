@@ -87,3 +87,7 @@ Option Keys Display
 
 ![Startup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_startup_2.PNG)
 
+
+
+
+

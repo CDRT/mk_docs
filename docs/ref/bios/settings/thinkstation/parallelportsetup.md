@@ -7,17 +7,17 @@ Parallel Port Address
 :	Whether the Parallel Port will be seen by the OS.
 
 	!!! note ""
-		If `Disabled`, the `Parallel Port Mode`,  `EPP Version` and `Parallel Port IRQ` settings will become unavailable.
+		If `Disabled`, the `Parallel Port Mode`, `EPP Version` and `Parallel Port IRQ` settings will become unavailable.
 
-	Options:
+	Possible options:
 
-	1. Disabled.
+	1. Disabled
 	2. **378** – Default.
 	3. 278
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| ParallelPortAddress | 278, 378 | yes | Both |
+	| ParallelPortAddress | 278, 378 | Yes | Both |
 
 
 EPP Version
@@ -26,27 +26,31 @@ EPP Version
 	!!! note ""
 		Differences between the two versions may affect the operation of devices.
 
-	Options:
+	Possible options:
 
 	1. **1.9** – Default.
 	2. 1.7
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| EPPVersion | 1.7, 1.9  | yes | Both |
+	| EPPVersion | 1.7, 1.9  | Yes | Both |
 
 
 Parallel Port IRQ
 :	Select the IRQ (interrupt request) for the parallel port.
 
-	Options:
+	Possible options:
 
 	1. **IRQ7** – Default.
 	2. IRQ5
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
-	| ParallelPortIRQ | IRQ5, IRQ7 | yes | Both |
+	| ParallelPortIRQ | IRQ5, IRQ7 | Yes | Both |
+
+
+
+
 
 
 

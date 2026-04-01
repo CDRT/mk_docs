@@ -1,6 +1,6 @@
 # Display Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_display.png)
+![Display Settings](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_display.png)
 
 Boot Display Device
 :  Whether native ThinkPad LCD, or an external display attached to USB Type-C connector or HDMI connector, will be used for boot.
@@ -82,7 +82,7 @@ Boot Time Extension
 
     Possible options:
 
-    1. **Disabled** – Default
+    1. **Disabled** – Default.
     2. 1 second
     3. 2 seconds
     4. 3 seconds
@@ -105,13 +105,17 @@ ePrivacy Lock
     !!! note ""
         If switched off, can be toggled any time with hotkey `Fn` + `D`.
 
-    Options:
+    Possible options:
 
     1.  **Off** – Default.
     2.  On.
 
-    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | ePrivacyLock | Disable,Enable | Yes | both |
+
+
+
+
 
 

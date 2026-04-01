@@ -14,7 +14,7 @@ Serial Port1 Address
 	4.	3E8/IRQ4
 	5.	2E8/IRQ3
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| SerialPort1Address | Disabled, 3F8/IRQ4, 2F8/IRQ3, 3E8/IRQ4, 2E8/IRQ3 | yes | Both |
 
@@ -29,9 +29,13 @@ Serial Port2 Address
 	4.	3E8/IRQ4
 	5.	2E8/IRQ3
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	| WMI Setting name | Values | Locked by SVP | AMD/Intel |
 	|:---|:---|:---|:---|
 	| SerialPort2Address | Disabled, 3F8/IRQ4, 2F8/IRQ3, 3E8/IRQ4, 2E8/IRQ3 | yes | Both |
+
+
+
+
 
 
 

@@ -99,7 +99,7 @@ Alarm day of week
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | AlarmDayofWeek  | Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday | yes |
+    | AlarmDayofWeek  | Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday | Yes |
 
 User Defined Alarm
 :  ![User-defined Alarm](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_user_defined_alarm.PNG)
@@ -108,18 +108,22 @@ User Defined Alarm
 
     {Weekday}
       
-      Options:
+      Possible options:
 
-    1.  **Disabled** - disables wake-up. Default.
+    1.  **Disabled** – disables wake-up. Default.
     2.  Enabled - enables wake-up.
 
     | WMI Setting name | Values | Locked by SVP |
     |:---|:---|:---|
-    | UserDefinedAlarmFriday | Disabled, Enabled | yes |
+    | UserDefinedAlarmFriday | Disabled, Enabled | Yes |
 
     !!! note ""
         The WMI setting name for the wake-up timer week shown here is for Friday. For the other weekdays replace `Friday` with the weekday's name.
 
     User Defined Alarm Time (HH : MM : SS)
     :  Specify the time when the system is to wake up.
+
+
+
+
 

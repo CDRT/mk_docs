@@ -1,6 +1,6 @@
 # Device Guard Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_deviceguard.png)
+![Device Guard Settings](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_deviceguard.png)
 
 Device Guard
 :  Whether to enable Microsoft (R) Device Guard.
@@ -28,5 +28,9 @@ Device Guard
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | DeviceGuard | Disable, Enable | Yes | Intel |
+
+
+
+
 
 

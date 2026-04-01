@@ -24,11 +24,15 @@ Supervisor Password
       - Show Password – [On\Off] statuses
          - Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
       - < Actions >:
-          - **Save** – default
-          - Cancel<br>
+          - **Save** – Default.
+          - Cancel
 
         !!! note ""
-            When enabled, Supervisor Password prevents unauthorized users from accessing these items in ThinkPad Setup: <br> - Boot priority lists <br> - Network related items <br> - Date & Time <br>
+            When enabled, Supervisor Password prevents unauthorized users from accessing these items in ThinkPad Setup:
+
+            - Boot priority lists
+            - Network related items
+            - Date & Time
 
         !!! note ""
             To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm).
@@ -48,7 +52,7 @@ System Management Password
     * Show Password – [On\Off] statuses
     * Keyboard layout: XXXX – Possible values are the same as in [Keyboard\Mouse -> Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
     * < Actions >:
-        * **Save** – default
+        * **Save** – Default.
         * Cancel
 
     !!! note ""
@@ -75,7 +79,7 @@ Power-On Password
     * Show Password – [On\Off] statuses
     * Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
     * < Actions >:
-        * **Save** – default
+        * **Save** – Default.
         * Cancel
 
     When enabled Power-On Password prevents unauthorized users from booting your computer.
@@ -104,7 +108,7 @@ NVMe1 Password
     * Show Password – [On\Off] statuses
     * Keyboard layout: XXXX – Possible values are the same as in [Keyboard\Mouse -> Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
     * < Actions >:
-        * **Save** – default
+        * **Save** – Default.
         * Cancel
 
     !!! note ""
@@ -327,7 +331,7 @@ Allow System Management Password Hardware Reset
 
     Possible options:
 
-    1. **On** – Default
+    1. **On** – Default.
     2. Off
 
     !!! note ""
@@ -401,5 +405,9 @@ ATA / NVMe Password
     Lenovo BIOS supports both ATA and NVMe storage and the displayed BIOS setting changes depending on the attached storage device.
 
     The NVMe (nonvolatile memory express) password prevents unauthorized access to the data on the storage drive. When an NVMe password is set, you are prompted to type a correct password each time you try to access the storage drive. The system also supports creating **dual passwords** for an Admin and another User.
+
+
+
+
 
 

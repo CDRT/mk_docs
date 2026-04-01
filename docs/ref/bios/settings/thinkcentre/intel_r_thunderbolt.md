@@ -48,3 +48,7 @@ Ignore Thunderbolt Device Option ROM
     1. **Enabled** – Default.
     2. Disabled
 
+
+
+
+

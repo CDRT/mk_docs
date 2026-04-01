@@ -59,19 +59,26 @@ CIRA Timeout
         The value is in seconds and can be varied from 1 to 254.
 
     !!! note ""
-        0 and 255 have the following special meanings: <br> **0** - use the default timeout of 60 seconds. Default.<br> 255 - wait until the connection succeeds.
+        0 and 255 have the following special meanings:
+        
+        - **0** – use the default timeout of 60 seconds. Default.
+        - 255 – wait until the connection succeeds.
 
 Console Type
 :  Select console type.
 
     Possible options:
 
-    1. **VT100+** - Adds function keys F5 to F14. Default.
+    1. **VT100+** – Adds function keys F5 to F14. Default.
     2. VT100 
     3. VT-UTF8 - Adds function key F8
     4. PC ANSI
 
     !!! note ""
         This console type must match the Intel AMT remote console.
+
+
+
+
 
 
