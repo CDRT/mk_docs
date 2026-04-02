@@ -8,49 +8,93 @@ The Lenovo Client Scripting Module requires 64-bit PowerShell v5.1 or higher and
 
 ??? note "What's New"
 
-    ### June 11, 2025:  Version 2.3.0
+    ??? note "April 6, 2026:  Version 2.4.0"
 
-    - Added Get-LnvUpdateNotification, Get-LnvMTOSList, Add-LnvMTOS, Remove-LnvMTOS cmdlets. These allow you to create a list of Machine Type + OS combinations you care about and keep track of what updates have been added to their System Update catalogs since the last time you checked.
-    - Added Get-LnvWUFriendlyName cmdlet that provides a list of the drivers and firmware installed by Windows Update with their associated Device Names to make it easier to tell what Windows Update is providing.
-    - Added -DeltaUpdate option to Get-LnvUpdatesRepo which will allow you to just download new updates to an existing repository.
-    - Fixed error handling when system does not have a battery in Get-LnvBatteryInfo.
+        As part of the ThinkVantage PowerShell Library launch and the new Lenovo.Client.Update module release, some cmdlets in the Lenovo.Client.Scripting module are being deprecated or moved to the Lenovo.Client.Update module. These will be denoted below with  :material-alert-decagram: **Deprecated**.
 
-    ### February 26, 2025:  Version 2.2.0
+        ### New Cmdlets
 
-    - Added Find-LnvHSAPack cmdlet.  This cmdlet lets you see what HSA packs have been released for a specified Machine Type.
-	- Added Release Date to the return from Find-LnvUpdate.
-	- Added DownloadPath parameter to Get-LnvDriverPack so you can control where the package is downloaded to.
-	- Fixed issue that occurs if a driver pack for the OS Build Version specified is not found in Get-LnvDriverPack.
-	- Changed to display size in MB in Get-LnvUpdatesRepo.
-	- Added CloudRepo as a switch parameter for Get-LnvUpdatesRepo to generate the repository as a Lenovo Cloud repository (the update packages are left on Lenovo's site).
-	- Fixed an issue with Get-LnvUpdatesRepo if ran without specifying -WindowsVersion.
+        - **Get-LnvSystemFirmwareVersion** -- Retrieve the System Firmware version from the PnP device tree, returned in a human-readable decimal format.
 
-    ### December 11, 2024:  Version 2.1.0
+        - **Invoke-LnvCVLogViewer** -- Parse and analyze Lenovo Commercial Vantage System Update Addin log files, producing a color-coded, section-by-section summary including session info, scan results, per-package install metrics, errors, and warnings. Supports both the current and legacy log formats, optional output to file, section filtering, and benign-warning suppression.
 
-    - Now available in the PowerShell Gallery. Use ```Install-Module -Name Lenovo.Client.Scripting``` to install from the gallery.
-    - Added Find-LnvTool to get URL and version information for the installer packages of our tools:
-        - Dock Manager
-        - System Update
-        - Thin Installer
-        - Update Retriever
-    - Added option to specify "Latest" as OSBuildVersion on Get-LnvDriverPack to get the latest version pack for the -WindowsVersion specified.
-    - Added -DownloadPath option to Get-LnvDriverPack; will download to $env:TEMP if not specified.
-    - Added -ListAll option to Find-LnvUpdate to get an object containing all the available updates based on any filtering parameters used. Can then use foreach to loop through each item and access the attributes returned for each update.
-    - now leveraging BITS Transfers for downloads of package files in Get-LnvDriverPack, Get-LnvUpdate and Get-LnvUpdatesRepo
-    - Get-LnvAvailableBiosVersion received several improvements:
-        - Improved handling when the BIOS update is not found in the Win11 catalog but is in the Win10 catalog.
-        - Added -DownloadPath to specify where to download the update package if -Download is used. If not specified, the update will be downloaded to the $env:TEMP folder.
-        - Added the release date when showing a newer version is available.
+        - **Invoke-LnvTILogViewer** -- Parse Lenovo ThinInstaller log files and produce a concise summary of session configuration, applicable updates, installation results, and errors. Supports single-file or directory-level analysis with multi-locale timestamp handling.
 
-    ### November 7, 2024:  Version 2.0.0
+        - **Show-LnvUpdatesHistory** -- Display the history of updates processed by Commercial Vantage, Lenovo System Update, or ThinInstaller from the WMI `Lenovo_Updates` class, including package ID, title, version, install date, status, and severity.
 
-    - Changed name to Lenovo.Client.Scripting to avoid confusion with Lenovo Device Manager product and to provide consistency with other PowerShell modules. The version is reset 1.0.0. This version supersedes all prior versions of the Lenovo Device Management Module (LDMM). Prior versions of LDMM should be removed from devices.
+        ### Enhancements
 
-    - Added new cmdlet Get-LnvBiosInfo and Find-LnvBiosInfo which return an object containing details about the BIOS for the running device or device specified by Machine Type or BIOS code, respectively.
+        - **Find-LnvDriverPack** -- Now returns structured `PSCustomObject` output with named properties (Model, OS, OSVersion, SHA256, MD5, DateReleased, URL) for easier pipeline use and scripting.
 
-    - Added new cmdlet Get-LnvWarranty which returns the details collected by Commercial Vantage in WMI. Commercial Vantage is required and must be configured in group policy to enable writing the warranty information to WMI.
+        - **Add-LnvSULogging** -- Updated for the new Lenovo Vantage logging architecture. Now configures logging under the `VantageService\FileLogger` registry path with `LenovoVantageShell` and `AllLogs` trace-level settings.
 
-    - Made several fixes to Get-LnvUpdatesRepo. The ScanOnly option is no longer available as it will not work with Thin Installer. Added -PackageList as a parameter to specify a string of specific updates, by Package ID, which should be included in the repository.
+        - **Find-LnvTool** -- Added support for the `WinAIA` tool (Windows Utility To Read and Write Asset ID Information).
+
+        - **Get-LnvBiosInfo / Get-LnvBiosVersion** -- Significantly improved performance by caching WMI calls. Previously made 10+ separate WMI queries per invocation; now uses just 2 cached calls.
+
+        - **Find-LnvUpdate** -- Catalog downloads now use HTTPS. (This cmdlet is deprectated.)
+
+        - **Get-LnvAvailableBiosVersion / Get-LnvCVE** -- Added `-UseBasicParsing` to web requests for compatibility on systems without Internet Explorer.
+
+        - **Get-LnvCVE** -- Added early validation that returns a clear message when no BIOS update is available, instead of continuing to process empty results.
+
+        ### Bug Fixes
+
+        - **Get-LnvBatteryInfo** -- Fixed `Write-Object` (invalid cmdlet) to `Write-Output` in error paths.
+        - **Get-LnvBiosCode** -- Added try/catch error handling around WMI calls to prevent unhandled exceptions.
+        - **Find-LnvBiosInfo / Get-LnvBiosInfo** -- Fixed missing wildcard in ThinkStation WMI query (`"ThinkStation"` to `"ThinkStation%"`). Fixed array count handling for single-result scenarios.
+        - **Get-LnvBiosInfo** -- Fixed `.ToString` missing parentheses to `.ToString()`.
+        - **Export-LnvUpdateRetrieverConfig** -- Fixed filename extraction for names with multiple dots by using `GetFileNameWithoutExtension()`.
+        - **Get-LnvFilePvt** (private) -- Added proper failure handling that returns `$false` when all download retries are exhausted.
+        - :material-alert-decagram: **Deprecated** **Get-LnvUpdate** -- Fixed `WindowsVersion` parameter position and corrected string concatenation in progress messages.
+        - :material-alert-decagram: **Deprecated** **Remove-LnvMTOS** -- Fixed typo in help text ("searh" to "search").
+        - :material-alert-decagram: **Deprecated** **Get-LnvMTOSList** -- Fixed undefined variable reference (`$directoryPath` to `$directory`).
+        - :material-alert-decagram: **Deprecated** **Add-LnvMTOS** -- Changed `exit` to `return` in error paths to prevent terminating the entire PowerShell session. Replaced hardcoded `C:\ProgramData` with `$env:ProgramData`.
+
+        ### Removed
+
+        - **Get-LnvTaxonomy** (private helper) -- Removed; no longer used internally.
+
+    ??? note "June 11, 2025:  Version 2.3.0"
+
+        - Added Get-LnvUpdateNotification, Get-LnvMTOSList, Add-LnvMTOS, Remove-LnvMTOS cmdlets. These allow you to create a list of Machine Type + OS combinations you care about and keep track of what updates have been added to their System Update catalogs since the last time you checked.
+        - Added Get-LnvWUFriendlyName cmdlet that provides a list of the drivers and firmware installed by Windows Update with their associated Device Names to make it easier to tell what Windows Update is providing.
+        - Added -DeltaUpdate option to Get-LnvUpdatesRepo which will allow you to just download new updates to an existing repository.
+        - Fixed error handling when system does not have a battery in Get-LnvBatteryInfo.
+
+    ??? note "February 26, 2025:  Version 2.2.0"
+
+        - Added Find-LnvHSAPack cmdlet.  This cmdlet lets you see what HSA packs have been released for a specified Machine Type.
+        - Added Release Date to the return from Find-LnvUpdate.
+        - Added DownloadPath parameter to Get-LnvDriverPack so you can control where the package is downloaded to.
+        - Fixed issue that occurs if a driver pack for the OS Build Version specified is not found in Get-LnvDriverPack.
+        - Changed to display size in MB in Get-LnvUpdatesRepo.
+        - Added CloudRepo as a switch parameter for Get-LnvUpdatesRepo to generate the repository as a Lenovo Cloud repository (the update packages are left on Lenovo's site).
+        - Fixed an issue with Get-LnvUpdatesRepo if ran without specifying -WindowsVersion.
+
+    ??? note "December 11, 2024:  Version 2.1.0"
+
+        - Now available in the PowerShell Gallery. Use ```Install-Module -Name Lenovo.Client.Scripting``` to install from the gallery.
+        - Added Find-LnvTool to get URL and version information for the installer packages of our tools:
+            - Dock Manager
+            - System Update
+            - Thin Installer
+            - Update Retriever
+        - Added option to specify "Latest" as OSBuildVersion on Get-LnvDriverPack to get the latest version pack for the -WindowsVersion specified.
+        - Added -DownloadPath option to Get-LnvDriverPack; will download to $env:TEMP if not specified.
+        - Added -ListAll option to Find-LnvUpdate to get an object containing all the available updates based on any filtering parameters used. Can then use foreach to loop through each item and access the attributes returned for each update.
+        - now leveraging BITS Transfers for downloads of package files in Get-LnvDriverPack, Get-LnvUpdate and Get-LnvUpdatesRepo
+        - Get-LnvAvailableBiosVersion received several improvements:
+            - Improved handling when the BIOS update is not found in the Win11 catalog but is in the Win10 catalog.
+            - Added -DownloadPath to specify where to download the update package if -Download is used. If not specified, the update will be downloaded to the $env:TEMP folder.
+            - Added the release date when showing a newer version is available.
+
+    ??? note "November 7, 2024:  Version 2.0.0"
+
+        - Changed name to Lenovo.Client.Scripting to avoid confusion with Lenovo Device Manager product and to provide consistency with other PowerShell modules. The version is reset 1.0.0. This version supersedes all prior versions of the Lenovo Device Management Module (LDMM). Prior versions of LDMM should be removed from devices.
+        - Added new cmdlet Get-LnvBiosInfo and Find-LnvBiosInfo which return an object containing details about the BIOS for the running device or device specified by Machine Type or BIOS code, respectively.
+        - Added new cmdlet Get-LnvWarranty which returns the details collected by Commercial Vantage in WMI. Commercial Vantage is required and must be configured in group policy to enable writing the warranty information to WMI.
+        - Made several fixes to Get-LnvUpdatesRepo. The ScanOnly option is no longer available as it will not work with Thin Installer. Added -PackageList as a parameter to specify a string of specific updates, by Package ID, which should be included in the repository.
 
 ## Installing Lenovo Client Scripting Module
 

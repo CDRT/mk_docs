@@ -21,6 +21,19 @@ This solution can be used in combination with the [Lenovo BIOS Certificates Tool
 !!! note
     This solution currently does not support ThinkCentre desktop products due to incompatible WMI BIOS Interface implementation. Hopefully, this will be addressed in future models or through future BIOS updates.
 
+??? note "What's New"
+
+    ??? note "April 6, 2026: Version (GUI)2.0.3 / (Module)1.0.3"
+
+        - Fixed GUI for password change and password export functions.
+        - Fixed Export-LnvPasswordFile parameters
+        - :material-new-box:{ style="color: #4caf50" } Export-LnvCertificateFile and Import-LnvCertificateFile
+
+    ??? note "November 6, 2025: Version (GUI)2.0.2 / (Module)1.0.2"
+
+        - Initial release
+
+
 ## Prerequisites
 
 - Windows with PowerShell (Windows PowerShell or PowerShell Core) and administrative privileges.
