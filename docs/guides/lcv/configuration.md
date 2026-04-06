@@ -1,10 +1,17 @@
 # Configuration
 
 !!! warning
-    Due to requirements from the Lenovo Product Security team, logging is not enabled by default any longer. To enable logging, set the following registry value to "True": [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\SystemUpdateAddin\Logs]"EnableLogs"="True"
+    Due to requirements from the Lenovo Product Security team, logging is not enabled by default any longer. To enable logging, set the following registry values to "Trace":
+    ```registry
+    [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\VantageService\FileLogger]
+    "LenovoVantageShell"="Trace"
+    "AllLogs"="Trace"
+    ```
 
-    Logs can be found in:
-    ```%ProgramData%\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\logs```
+    Logs can be found in subfolders for each component under:
+    `%ProgramData%\Lenovo\Vantage\Logs\`
+
+    For the System Update Addin, the logs will be in `LenovoSystemUpdateAddin` subfolder.
 
 Lenovo understands that some features of Commercial Vantage may not be appropriate for end users in a managed corporate environment. Therefore, most features of Commercial Vantage can be hidden or disabled so that your end users cannot access them. There are two ways to configure Commercial Vantage:
 
