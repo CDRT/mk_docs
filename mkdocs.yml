@@ -65,6 +65,7 @@ nav:
       - Troubleshooting: guides/dm/dm_troubleshooting.md
       - Dock Manager FAQ: guides/dm/dock_manager_faq.md
     - ThinkVantage PowerShell Library:
+      - Overview: guides/thinkvantage/tv-pslib-overview.md
       - Think BIOS Config Tool V2:
         - Overview: guides/tbct_v2/tbct_v2_top.md
       - Lenovo BIOS Certificate Tool:
