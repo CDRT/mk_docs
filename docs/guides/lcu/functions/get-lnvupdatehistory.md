@@ -12,42 +12,6 @@ Displays a history of Lenovo updates that have been installed, including install
 
 ## Examples
 
-```powershell
-# View all update history
-Get-LnvUpdateHist | Format-Table -Property InstallDate, Title, Result
-
-# View recent updates
-Get-LnvUpdateHist | Where-Object { $_.InstallDate -gt (Get-Date).AddDays(-30) }
-```
-## Output
-
-Returns an array of installation history objects with the following properties:
-
-- `Timestamp` - Installation date and time
-- `Status` - Installation result (Success, Failed, Skipped)
-- `Title` - Update package title
-- `Version` - Package version
-- `Category` - Update category ("Camera and Card Reader", "Power Managemetn", etc)
-- `Type` - Package type (0=Other, 1=Application, 2=Driver, 3=BIOS, 4=Firmware)
-- `Severity` - Update severity level (1=Critical, 2=Recommended, 3=Optional)
-- `ExitCode` - Installation exit code 
-- `RebootRequired` - Whether reboot is required
-- `ComputerName` - System where update was installed
-- `UserName` - User who performed installation
-- `Message` - Additional information or error message
-- `UpdateID` - Package identifier
-
-## History Storage
-
-Installation history is stored at:
-```
-$env:ProgramData\Lenovo\Lenovo.Client.Update\History\InstallHistory-<timestamp>.json
-```
-
-This file is created automatically after each update installation session.
-
-## Examples
-
 ### Example 1: View failed installations
 ```powershell
 Get-LnvUpdateHist -Status Failed
@@ -59,6 +23,45 @@ Displays only installations that failed.
 ```powershell
 Get-LnvUpdateHist -Category BIOS
 ```
+
+### Example 3: Display all history in a table
+
+```powershell
+# View all update history
+Get-LnvUpdateHist | Format-Table -Property InstallDate, Title, Result
+```
+
+### Example 4: View recent updates in past 30 days
+
+```powershell
+Get-LnvUpdateHist | Where-Object { $_.InstallDate -gt (Get-Date).AddDays(-30) }
+```
+
+## Output
+
+Returns an array of installation history objects with the following properties:
+
+- `Timestamp` - Installation date and time
+- `Status` - Installation result (Success, Failed, Skipped)
+- `Title` - Update package title
+- `Version` - Package version
+- `Category` - Update category ("Camera and Card Reader", "Power Managemetn", etc)
+- `Type` - Package type (0=Other, 1=Application, 2=Driver, 3=BIOS, 4=Firmware)
+- `Severity` - Update severity level (1=Critical, 2=Recommended, 3=Optional)
+- `ExitCode` - Installation exit code
+- `RebootRequired` - Whether reboot is required
+- `ComputerName` - System where update was installed
+- `UserName` - User who performed installation
+- `Message` - Additional information or error message
+- `UpdateID` - Package identifier
+
+## History Storage
+
+Installation history is stored at:
+
+`$env:ProgramData\Lenovo\Lenovo.Client.Update\History\InstallHistory-<timestamp>.json`
+
+This file is created automatically after each update installation session.
 
 ## See Also
 

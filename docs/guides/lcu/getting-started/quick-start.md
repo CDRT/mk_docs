@@ -2,13 +2,12 @@
 
 Get up and running with the Lenovo.Client.Update module in just a few minutes.
 
-## 1. Import the Module
+## 1. Install and Import the Module
 
 ```powershell
-Import-Module -Name 'Lenovo.Client.Update'
+Install-Module Lenovo.Client.Update #Installs the module from PS Gallery
+Import-Module Lenovo.Client.Update -Force #Loads the module into the current session
 ```
-
-If the module is not in the gallery yet use : Import-Module .\Lenovo.Client.Update.psd1 -Force
 
 ## 2. Check Available Updates
 
@@ -29,7 +28,7 @@ Download the updates to a local directory:
 $updates = Get-LnvUpdate
 $updates | Save-LnvUpdate
 
-#if the package is in a local repository :
+#download to a specific folder:
 $updates | Save-LnvUpdate -Path "C:\Updates" -ShowProgress
 ```
 
@@ -100,7 +99,7 @@ When performing a bare-metal OS deployment, it is possible to dynamically retrie
 
 ```powershell
 # Create a local repository of all updates for the machine type of the device
-# - exclude updates that would automatically restart the computer
+# - exclude updates that would automatically restart the computer (reboot type 1)
 $repoPath = 'C:\Lenovo_Updates'
 Get-LnvUpdatesRepo -RepositoryPath $repoPath -RebootType '0,3,5'
 
@@ -114,5 +113,4 @@ Start-Sleep -Seconds 10
 # Check for applicable updates again. This catches cases where one driver must be
 # installed before other drivers will become applicable.
 Get-LnvUpdate -Repository $repoPath | Install-LnvUpdate -Path $repoPath -ExportToWMI -Verbose
-
 ```

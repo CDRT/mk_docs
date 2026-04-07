@@ -1,3 +1,7 @@
+---
+icon: material/alert
+---
+
 # Lenovo View Configuration Guide
 
 !!! warning "Lenovo View is being withdrawn"

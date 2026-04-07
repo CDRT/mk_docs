@@ -1,11 +1,11 @@
-# Get-UpdatefromWMI
+# Get-LnvUpdatefromWMI
 
 Queries Lenovo update information from WMI using the root\Lenovo\Lenovo_Updates class.
 
 ## Syntax
 
 ```powershell
-Get-UpdatefromWMI [-ComputerName <string>] [-Status <string>] [-Severity <string>] [-IncludeHistory]
+Get-LnvUpdatefromWMI [-ComputerName <string>] [-Status <string>] [-Severity <string>] [-IncludeHistory]
 ```
 
 ## Parameters
@@ -21,23 +21,23 @@ Get-UpdatefromWMI [-ComputerName <string>] [-Status <string>] [-Severity <string
 
 ```powershell
 # Query local computer
-Get-UpdatefromWMI
+Get-LnvUpdatefromWMI
 
 # Filter by status
-Get-UpdatefromWMI -Status Applicable
+Get-LnvUpdatefromWMI -Status Applicable
 
 # Remote with severity filter
-Get-UpdatefromWMI -ComputerName SERVER01 -Severity Critical
+Get-LnvUpdatefromWMI -ComputerName COMPUTER01 -Severity Critical
 
 # Include history
-Get-UpdatefromWMI -IncludeHistory
+Get-LnvUpdatefromWMI -IncludeHistory
 ```
 
 ## Output
 
-Returns WMI objects with properties: Title, Version, Status, Size
-Get-UpdatefromWMI gathers information from the className `Lenovo_Updates` different from the class Export-WMI writes to `LenovoUpdate_Updates`
-Console output is color-coded (Cyan: queries, Green: success, Yellow: headers, Gray: details)
+- Returns WMI objects with properties: Title, Version, Status, Size
+- Get-LnvUpdatefromWMI gathers information from the className `Lenovo_Updates`
+- Console output is color-coded (Cyan: queries, Green: success, Yellow: headers, Gray: details)
 
 ## Key Features
 

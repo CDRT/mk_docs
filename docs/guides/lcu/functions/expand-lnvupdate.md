@@ -8,11 +8,18 @@ Extracts the contents of a Lenovo update package to a directory.
 
 ## Description
 
-Unpacks a downloaded update package, allowing inspection and manual deployment of the package contents.
+Unpacks one or more packages returned by Get-LnvUpdate, allowing inspection and manual deployment of the package contents.
+
+## Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| `-Package` | PSCustomObject | package or packages returned by Get-LnvUpdate |
+| `-Path` | string | Path to extract package(s) to |
 
 ## Examples
 
 ```powershell
 # Extract a package
-Expand-LnvUpdate -Path "C:\Updates\DriverPackage" -DestinationPath "C:\Extracted"
+Expand-LnvUpdate -Package $package -Path "C:\Extracted"
 ```

@@ -28,12 +28,10 @@ Path where the local repository is created.
 ```
 
 ### `-MachineTypes`
-Comma-separated list of 4-character Lenovo machine types (e.g. `"21DD,21DE"`).  
-If omitted, the local Lenovo system machine type is used.
+Comma-separated list of 4-character Lenovo machine types (e.g. `"21DD,21DE"`). If omitted, the local Lenovo system machine type is used.
 
 ### `-WindowsVersion`
-Target OS version: `"10"` or `"11"`.  
-Defaults to the current system OS.
+Target OS version: `"10"` or `"11"`. Defaults to the current system OS.
 
 ### `-PackageTypes`
 Filter by package type:
@@ -68,7 +66,7 @@ Filter by update severity:
 Limit repository creation to specific package IDs.
 
 ### `-RT5toRT3`
-Converts Reboot Type 5 updates to Reboot Type 3.  
+Converts Reboot Type 5 updates to Reboot Type 3.
 Intended for task sequence scenarios.
 
 > Cannot be used with `-CloudRepo`.
@@ -92,7 +90,7 @@ It creates:
 
 ## Examples
 
-### Create a full repository
+### Example 1: Create a full repository
 
 ```powershell
 Get-LnvUpdatesRepo `
@@ -102,7 +100,7 @@ Get-LnvUpdatesRepo `
   -RebootTypes "3,5"
 ```
 
-### Update an existing repository (delta)
+### Example 2: Update an existing repository (delta)
 
 ```powershell
 Get-LnvUpdatesRepo `
@@ -110,7 +108,7 @@ Get-LnvUpdatesRepo `
   -DeltaUpdate
 ```
 
-### Create a Cloud-based repository
+### Example 3: Create a Cloud-based repository
 
 ```powershell
 Get-LnvUpdatesRepo `
@@ -122,7 +120,3 @@ Get-LnvUpdatesRepo `
 ## Notes
 
 - Initial runs should be performed **without** `-DeltaUpdate`
-
-
-
-

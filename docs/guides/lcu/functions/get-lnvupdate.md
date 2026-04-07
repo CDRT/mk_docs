@@ -44,13 +44,16 @@ The function queries the Lenovo update repository and evaluates which packages a
 
 ## Examples
 
+### Example 1: Get applicable updates as objects and display the properties in a table
+
 ```powershell
 $updates = Get-LnvUpdate
 $updates | Format-Table -Property Title, ReleaseDate, Category
 ```
 
 Retrieves only updates needed for the current systems.
-### Example 2: Get All Available Updates
+
+### Example 2: Get All Available Updates and show total count
 
 ```powershell
 $allUpdates = Get-LnvUpdate -All
@@ -66,7 +69,7 @@ $updates = Get-LnvUpdate -Model '20LS' -All
 $updates | Where-Object { $_.Category -eq 'Driver' } | Save-LnvUpdate
 ```
 
-Retrieves all drivers for model 20LS and downloads them.
+Retrieves all **drivers** for model 20LS and downloads them.
 
 ### Example 4: Using a local repository
 
@@ -75,7 +78,7 @@ Get-LnvUpdate -Repository "C:\local-repository" -All -Verbose
 
 ```
 
-Retrieves the packages from  the local repository specified. -All, -SkipSignatureCheck and other parameter are applicable
+Retrieves the packages from  the local repository specified.
 
 ## Output
 

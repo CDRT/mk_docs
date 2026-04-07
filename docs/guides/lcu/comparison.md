@@ -16,9 +16,9 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 | **Package Extraction** | YES | YES | Extract package contents |
 | **Proxy Configuration Management** | YES | YES | Get/Set proxy and credentials |
 | **Signature Verification** | NO | YES | Test-LnvSignature - verify package authenticity |
-| **Signature Enforcement** | NO | YES | -VerifySignature flag on installation |
-| **Skip Signature Check** | NO | YES | -SkipSignatureCheck for testing environments |
-| **Certificate Validation** | NO | YES (Dedicated DLL) | Lenovo.CertificateValidation.dll |
+| **Signature Enforcement** | N/A | YES | -VerifySignature flag on installation |
+| **Skip Signature Check** | N/A | YES | -SkipSignatureCheck for testing environments |
+| **Certificate Validation** | N/A | YES (Dedicated DLL) | Lenovo.CertificateValidation.dll |
 | **Update History** | LIMITED | YES (Enhanced) | Better history tracking |
 
 ---
@@ -204,7 +204,7 @@ Install-LnvUpdate -Package $package -SkipSignatureCheck
 | `Path` | YES | YES | Downloaded package location |
 | `Proxy` | YES | YES | Proxy server URL |
 | `ProxyCredential` | YES | YES | Proxy authentication |
-| `SaveBIOSUpdateInfoToRegistry` | Yes | YES
+| `SaveBIOSUpdateInfoToRegistry` | Yes | YES | Record update in registry |
 | `VerifySignature` | NO | YES | NEW: Verify package signatures |
 | `SkipSignatureCheck` | NO | YES | NEW: Bypass signature verification |
 
