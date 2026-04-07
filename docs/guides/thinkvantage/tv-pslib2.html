@@ -1077,7 +1077,7 @@
                 <div class="feature-card">
                     <span class="fc-cmd">Install-LnvUpdate</span>
                     <div class="fc-name">Install Updates</div>
-                    <div class="fc-desc">Install packages silently. Enforce -VerifySignature or export install history to WMI with -ExportToWMI.</div>
+                    <div class="fc-desc">Install packages silently. Enforce package signatures. Export install history to WMI with -ExportToWMI.</div>
                 </div>
                 <div class="feature-card">
                     <span class="fc-cmd">Get-LnvUpdatesRepo</span>
@@ -1196,7 +1196,7 @@
                 </li>
                 <li class="reveal d3">
                     <span class="bull-icon">▸▸</span>
-                    <span><strong>Enforced installation signing</strong> — Pass <code>-VerifySignature</code> to <code>Install-LnvUpdate</code> to block any unsigned or tampered package from running.</span>
+                    <span><strong>Enforced installation signing</strong> — Default behavior of <code>Install-LnvUpdate</code> is to block any unsigned or tampered package from running.</span>
                 </li>
                 <li class="reveal d3">
                     <span class="bull-icon">▸▸</span>
