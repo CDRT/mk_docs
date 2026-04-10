@@ -35,7 +35,6 @@ Install-Module 'Lenovo.Bios.Certificates'
 ## Installation & Quick Start
 
 ```powershell
-
 # Install from PowerShell Gallery
 Install-Module -Name Lenovo.Client.Scripting -Force
 
