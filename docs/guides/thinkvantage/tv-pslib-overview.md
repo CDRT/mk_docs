@@ -43,6 +43,7 @@ Get-LnvMachineType
 Find-LnvUpdate -MachineType 21DD
 Get-LnvAvailableBiosVersion
 ```
+
 ---
 
 ## Lenovo.Client.Update
