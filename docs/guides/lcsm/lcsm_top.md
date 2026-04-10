@@ -8,6 +8,10 @@ The Lenovo Client Scripting Module requires 64-bit PowerShell v5.1 or higher and
 
 ??? note "What's New"
 
+    ??? note "April 9, 2026:  Version 2.4.1"
+
+        Removed two cmdlets that have been moved to the Lenovo.Client.Update module: Get-LnvUpdate, Get-LnvUpdatesRepo
+        
     ??? note "April 6, 2026:  Version 2.4.0"
 
         As part of the ThinkVantage PowerShell Library launch and the new Lenovo.Client.Update module release, some cmdlets in the Lenovo.Client.Scripting module are being deprecated or moved to the Lenovo.Client.Update module. These will be denoted below with  :material-alert-decagram: **Deprecated**.
