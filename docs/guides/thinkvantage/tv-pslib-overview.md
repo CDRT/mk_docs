@@ -5,11 +5,45 @@ The ThinkVantage PowerShell Library is a collection of modules and scripts publi
 **Requirements:** Windows 10/11 · PowerShell 5.0+ · Administrator privileges
 
 ```powershell
+Install-Module 'Lenovo.Client.Scriptin'
 Install-Module 'Lenovo.Client.Update'
 Install-Module 'Lenovo.BIOS.Config'
 Install-Module 'Lenovo.Bios.Certificates'
 ```
 
+---
+
+## Lenovo.Client.Scripting
+
+`Lenovo.Client.Scripting` is a PowerShell Module containing numerous cmdlets which provide useful information or simplified actions that can be leveraged in day to day management of Lenovo commercial PCs (ThinkPad, ThinkCentre, ThinkStation).
+
+## Key Capabilities
+
+- Query device information (model, BIOS version, serial number, warranty)
+- Search for available driver packs and HSA packs
+- Identify CVE's addressed by BIOS updates
+- Generate Windows Update friendly names for drivers
+
+
+## Popular Use Cases
+
+- **Update Management**: Find and download driver packs for deployment
+- **Inventory**: Collect hardware/software details from devices
+- **BIOS Updates**: Check available BIOS versions and automate downloads
+- **Compliance Tracking**: Monitor CVEs and security updates
+
+## Installation & Quick Start
+
+```powershell
+
+# Install from PowerShell Gallery
+Install-Module -Name Lenovo.Client.Scripting -Force
+
+# Examples
+Get-LnvMachineType
+Find-LnvUpdate -MachineType 21DD
+Get-LnvAvailableBiosVersion
+```
 ---
 
 ## Lenovo.Client.Update
