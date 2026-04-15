@@ -1,1017 +1,1506 @@
+﻿---
+title: Lenovo Client Scripting Module (LCSM) Reference
+description: PowerShell module cmdlets for Lenovo system managementâ€”BIOS, updates, drivers, hardware information, and reporting
+---
+
 # Lenovo Client Scripting Module
 
 ## Overview
 
-The Lenovo Client Scripting Module is a PowerShell Module containing numerous cmdlets which provide useful information or simplified actions that can be leveraged in day to day management of Lenovo commercial PCs (ThinkPad, ThinkCentre, ThinkStation).
+The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module containing 34 cmdlets that provide useful information and simplified actions for managing Lenovo commercial PCs (ThinkPad, ThinkCentre, ThinkStation).
 
-The Lenovo Client Scripting Module requires 64-bit PowerShell v5.1 or higher and runs on Windows 10 and Windows 11.
+**System Requirements:**
+- PowerShell v5.1 or higher (64-bit)
+- Windows 10 or Windows 11
 
 ??? note "What's New"
 
+    ??? note "April 9, 2026:  Version 2.4.1"
+        
+    
+        - Removed two cmdlets that have been moved to the Lenovo.Client.Update module: `Get-LnvUpdate`, `Get-LnvUpdatesRepo`
+    
     ??? note "April 6, 2026:  Version 2.4.0"
-
-        As part of the ThinkVantage PowerShell Library launch and the new Lenovo.Client.Update module release, some cmdlets in the Lenovo.Client.Scripting module are being deprecated or moved to the Lenovo.Client.Update module. These will be denoted below with  :material-alert-decagram: **Deprecated**.
-
-        ### New Cmdlets
-
-        - **Get-LnvSystemFirmwareVersion** -- Retrieve the System Firmware version from the PnP device tree, returned in a human-readable decimal format.
-
-        - **Invoke-LnvCVLogViewer** -- Parse and analyze Lenovo Commercial Vantage System Update Addin log files, producing a color-coded, section-by-section summary including session info, scan results, per-package install metrics, errors, and warnings. Supports both the current and legacy log formats, optional output to file, section filtering, and benign-warning suppression.
-
-        - **Invoke-LnvTILogViewer** -- Parse Lenovo ThinInstaller log files and produce a concise summary of session configuration, applicable updates, installation results, and errors. Supports single-file or directory-level analysis with multi-locale timestamp handling.
-
-        - **Show-LnvUpdatesHistory** -- Display the history of updates processed by Commercial Vantage, Lenovo System Update, or ThinInstaller from the WMI `Lenovo_Updates` class, including package ID, title, version, install date, status, and severity.
-
-        ### Enhancements
-
-        - **Find-LnvDriverPack** -- Now returns structured `PSCustomObject` output with named properties (Model, OS, OSVersion, SHA256, MD5, DateReleased, URL) for easier pipeline use and scripting.
-
-        - **Add-LnvSULogging** -- Updated for the new Lenovo Vantage logging architecture. Now configures logging under the `VantageService\FileLogger` registry path with `LenovoVantageShell` and `AllLogs` trace-level settings.
-
-        - **Find-LnvTool** -- Added support for the `WinAIA` tool (Windows Utility To Read and Write Asset ID Information).
-
-        - **Get-LnvBiosInfo / Get-LnvBiosVersion** -- Significantly improved performance by caching WMI calls. Previously made 10+ separate WMI queries per invocation; now uses just 2 cached calls.
-
-        - **Find-LnvUpdate** -- Catalog downloads now use HTTPS. (This cmdlet is deprectated.)
-
-        - **Get-LnvAvailableBiosVersion / Get-LnvCVE** -- Added `-UseBasicParsing` to web requests for compatibility on systems without Internet Explorer.
-
-        - **Get-LnvCVE** -- Added early validation that returns a clear message when no BIOS update is available, instead of continuing to process empty results.
-
-        ### Bug Fixes
-
-        - **Get-LnvBatteryInfo** -- Fixed `Write-Object` (invalid cmdlet) to `Write-Output` in error paths.
-        - **Get-LnvBiosCode** -- Added try/catch error handling around WMI calls to prevent unhandled exceptions.
-        - **Find-LnvBiosInfo / Get-LnvBiosInfo** -- Fixed missing wildcard in ThinkStation WMI query (`"ThinkStation"` to `"ThinkStation%"`). Fixed array count handling for single-result scenarios.
-        - **Get-LnvBiosInfo** -- Fixed `.ToString` missing parentheses to `.ToString()`.
-        - **Export-LnvUpdateRetrieverConfig** -- Fixed filename extraction for names with multiple dots by using `GetFileNameWithoutExtension()`.
-        - **Get-LnvFilePvt** (private) -- Added proper failure handling that returns `$false` when all download retries are exhausted.
-        - :material-alert-decagram: **Deprecated** **Get-LnvUpdate** -- Fixed `WindowsVersion` parameter position and corrected string concatenation in progress messages.
-        - :material-alert-decagram: **Deprecated** **Remove-LnvMTOS** -- Fixed typo in help text ("searh" to "search").
-        - :material-alert-decagram: **Deprecated** **Get-LnvMTOSList** -- Fixed undefined variable reference (`$directoryPath` to `$directory`).
-        - :material-alert-decagram: **Deprecated** **Add-LnvMTOS** -- Changed `exit` to `return` in error paths to prevent terminating the entire PowerShell session. Replaced hardcoded `C:\ProgramData` with `$env:ProgramData`.
-
-        ### Removed
-
-        - **Get-LnvTaxonomy** (private helper) -- Removed; no longer used internally.
-
+        
+    
+        - As part of the ThinkVantage PowerShell Library launch and the new Lenovo.Client.Update module release, some cmdlets are being deprecated or moved. Deprecated cmdlets are denoted with a warning note.
+    
+        - **New Cmdlets:**
+            - `Get-LnvSystemFirmwareVersion` - Retrieve System Firmware version from the PnP device tree in human-readable decimal format
+            - `Invoke-LnvCVLogViewer` - Parse and analyze Lenovo Commercial Vantage System Update Addin log files with color-coded summaries
+            - `Invoke-LnvTILogViewer` - Parse Lenovo ThinInstaller log files and produce concise summaries
+            - `Show-LnvUpdatesHistory` - Display update history from WMI Lenovo_Updates class
+    
+        - **Enhancements:**
+            - `Find-LnvDriverPack` - Now returns structured PSCustomObject with named properties (Model, OS, OSVersion, SHA256, MD5, DateReleased, URL)
+            - `Add-LnvSULogging` - Updated for new Lenovo Vantage logging architecture (VantageService\FileLogger registry path)
+            - `Find-LnvTool` - Added support for WinAIA tool (Windows Asset ID Information)
+            - `Get-LnvBiosInfo` / `Get-LnvBiosVersion` - Significantly improved performance via WMI call caching
+            - `Find-LnvUpdate` - Catalog downloads now use HTTPS (cmdlet deprecated)
+            - `Get-LnvAvailableBiosVersion` / `Get-LnvCVE` - Added `-UseBasicParsing` for IE-less systems
+            - `Get-LnvCVE` - Added early validation for missing BIOS updates
+    
+        - **Bug Fixes:**
+            - `Get-LnvBatteryInfo` - Fixed Write-Object to Write-Output in error paths
+            - `Get-LnvBiosCode` - Added try/catch error handling around WMI calls
+            - `Find-LnvBiosInfo` / `Get-LnvBiosInfo` - Fixed missing wildcards in ThinkStation query, fixed single-result array handling
+            - `Get-LnvBiosInfo` - Fixed missing parentheses in .ToString()
+            - `Export-LnvUpdateRetrieverConfig` - Fixed filename extraction for multi-dot names
+            - Deprecated cmdlets (`Get-LnvUpdate`, `Remove-LnvMTOS`, `Get-LnvMTOSList`, `Add-LnvMTOS`) - Various fixes including parameter position, help text, undefined variables, and session termination issues
+    
+        - **Removed:**
+            - `Get-LnvTaxonomy` (private helper) - No longer used internally
+    
     ??? note "June 11, 2025:  Version 2.3.0"
-
-        - Added Get-LnvUpdateNotification, Get-LnvMTOSList, Add-LnvMTOS, Remove-LnvMTOS cmdlets. These allow you to create a list of Machine Type + OS combinations you care about and keep track of what updates have been added to their System Update catalogs since the last time you checked.
-        - Added Get-LnvWUFriendlyName cmdlet that provides a list of the drivers and firmware installed by Windows Update with their associated Device Names to make it easier to tell what Windows Update is providing.
-        - Added -DeltaUpdate option to Get-LnvUpdatesRepo which will allow you to just download new updates to an existing repository.
-        - Fixed error handling when system does not have a battery in Get-LnvBatteryInfo.
-
+        
+    
+        - Added `Get-LnvUpdateNotification`, `Get-LnvMTOSList`, `Add-LnvMTOS`, `Remove-LnvMTOS` cmdlets. These allow you to create a list of Machine Type + OS combinations you care about and keep track of what updates have been added to their System Update catalogs since the last time you checked.
+        - Added `Get-LnvWUFriendlyName` cmdlet that provides a list of the drivers and firmware installed by Windows Update with their associated Device Names to make it easier to tell what Windows Update is providing.
+        - Added `-DeltaUpdate` option to `Get-LnvUpdatesRepo` which will allow you to just download new updates to an existing repository.
+        - Fixed error handling when system does not have a battery in `Get-LnvBatteryInfo`.
+    
     ??? note "February 26, 2025:  Version 2.2.0"
-
-        - Added Find-LnvHSAPack cmdlet.  This cmdlet lets you see what HSA packs have been released for a specified Machine Type.
-        - Added Release Date to the return from Find-LnvUpdate.
-        - Added DownloadPath parameter to Get-LnvDriverPack so you can control where the package is downloaded to.
-        - Fixed issue that occurs if a driver pack for the OS Build Version specified is not found in Get-LnvDriverPack.
-        - Changed to display size in MB in Get-LnvUpdatesRepo.
-        - Added CloudRepo as a switch parameter for Get-LnvUpdatesRepo to generate the repository as a Lenovo Cloud repository (the update packages are left on Lenovo's site).
-        - Fixed an issue with Get-LnvUpdatesRepo if ran without specifying -WindowsVersion.
-
+        
+    
+        - Added `Find-LnvHSAPack` cmdlet.  This cmdlet lets you see what HSA packs have been released for a specified Machine Type.
+        - Added Release Date to the return from `Find-LnvUpdate`.
+        - Added DownloadPath parameter to `Get-LnvDriverPack` so you can control where the package is downloaded to.
+        - Fixed issue that occurs if a driver pack for the OS Build Version specified is not found in `Get-LnvDriverPack`.
+        - Changed to display size in MB in `Get-LnvUpdatesRepo`.
+        - Added CloudRepo as a switch parameter for `Get-LnvUpdatesRepo` to generate the repository as a Lenovo Cloud repository (the update packages are left on Lenovo's site).
+        - Fixed an issue with `Get-LnvUpdatesRepo` if ran without specifying `-WindowsVersion`.
+    
     ??? note "December 11, 2024:  Version 2.1.0"
-
+        
+    
         - Now available in the PowerShell Gallery. Use ```Install-Module -Name Lenovo.Client.Scripting``` to install from the gallery.
-        - Added Find-LnvTool to get URL and version information for the installer packages of our tools:
-            - Dock Manager
-            - System Update
-            - Thin Installer
-            - Update Retriever
-        - Added option to specify "Latest" as OSBuildVersion on Get-LnvDriverPack to get the latest version pack for the -WindowsVersion specified.
-        - Added -DownloadPath option to Get-LnvDriverPack; will download to $env:TEMP if not specified.
-        - Added -ListAll option to Find-LnvUpdate to get an object containing all the available updates based on any filtering parameters used. Can then use foreach to loop through each item and access the attributes returned for each update.
-        - now leveraging BITS Transfers for downloads of package files in Get-LnvDriverPack, Get-LnvUpdate and Get-LnvUpdatesRepo
-        - Get-LnvAvailableBiosVersion received several improvements:
-            - Improved handling when the BIOS update is not found in the Win11 catalog but is in the Win10 catalog.
-            - Added -DownloadPath to specify where to download the update package if -Download is used. If not specified, the update will be downloaded to the $env:TEMP folder.
-            - Added the release date when showing a newer version is available.
-
+        - Added `Find-LnvTool` to get URL and version information for the installer packages of our tools: Dock Manager, System Update, Thin Installer, Update Retriever
+        - Added option to specify "Latest" as OSBuildVersion on `Get-LnvDriverPack` to get the latest version pack for the `-WindowsVersion` specified.
+        - Added `-DownloadPath` option to `Get-LnvDriverPack`; will download to `$env:TEMP` if not specified.
+        - Added `-ListAll` option to `Find-LnvUpdate` to get an object containing all the available updates based on any filtering parameters used.
+        - Now leveraging BITS Transfers for downloads of package files in `Get-LnvDriverPack`, `Get-LnvUpdate` and `Get-LnvUpdatesRepo`
+        - `Get-LnvAvailableBiosVersion` received several improvements (improved Win11/Win10 catalog handling, added `-DownloadPath`, added release date).
+    
     ??? note "November 7, 2024:  Version 2.0.0"
+        
+    
+        - Changed name to Lenovo.Client.Scripting to avoid confusion with Lenovo Device Manager product. This version supersedes all prior versions of the Lenovo Device Management Module (LDMM).
+        - Added new cmdlets - `Get-LnvBiosInfo`, `Find-LnvBiosInfo`, `Get-LnvWarranty`
+        - Made several fixes to `Get-LnvUpdatesRepo`. The ScanOnly option is no longer available. Added `-PackageList` as a parameter to specify specific updates by Package ID.
+    
 
-        - Changed name to Lenovo.Client.Scripting to avoid confusion with Lenovo Device Manager product and to provide consistency with other PowerShell modules. The version is reset 1.0.0. This version supersedes all prior versions of the Lenovo Device Management Module (LDMM). Prior versions of LDMM should be removed from devices.
-        - Added new cmdlet Get-LnvBiosInfo and Find-LnvBiosInfo which return an object containing details about the BIOS for the running device or device specified by Machine Type or BIOS code, respectively.
-        - Added new cmdlet Get-LnvWarranty which returns the details collected by Commercial Vantage in WMI. Commercial Vantage is required and must be configured in group policy to enable writing the warranty information to WMI.
-        - Made several fixes to Get-LnvUpdatesRepo. The ScanOnly option is no longer available as it will not work with Thin Installer. Added -PackageList as a parameter to specify a string of specific updates, by Package ID, which should be included in the repository.
+## Common Usage Scenarios
 
-## Installing Lenovo Client Scripting Module
+??? note "Scenario 1: Check What Updates Are Available for Your System"
+    
 
-As of December 16, 2024, version 2.1.0 of the module is published in the PowerShell Gallery so it can easily be installed with the Install-Module command. To install from the PowerShell Gallery, simply run
+    ```powershell
+    $ModelType = Get-LnvMachineType
+    $Updates = Find-LnvUpdate -MachineType $ModelType -WindowsVersion 11
+    $Updates | Select-Object Title, Severity, ReleaseDate | Out-GridView
+    ```
 
-``` PowerShell
-Install-Module -Name Lenovo.Client.Scripting -Force
-```
+??? note "Scenario 2: Download All Available Driver Packs for a Specific Model"
+    
 
-The module itself is currently available for manual download here: [Lenovo.Client.Scripting_2.3.0.zip](https://download.lenovo.com/cdrt/tools/Lenovo.Client.Scripting_2.3.0.zip)
+    ```powershell
+    Get-LnvDriverPack -MachineType 21DD -WindowsVersion 11 -OSBuildVersion Latest
+    ```
 
-The zip file contains the module folder, Lenovo.Client.Scripting, which contains the Lenovo.Client.Scripting.psm1 and Lenovo.Client.Scripting.psd1 files plus the Public and Private sub-folders containing individual PowerShell scripts for the various functions. To manually install the module, there are two locations that the module folder can be copied to:
+??? note "Scenario 3: Build a Local Update Repository from a List of Machine Types"
+    
 
-1. Per User:  %UserProfile%\Documents\WindowsPowerShell\Modules
-1. All Users:  %ProgramFiles%\WindowsPowerShell\Modules
+    ```powershell
+    Add-LnvMTOS -MachineType "21DD" -OS "Win11"
+    Add-LnvMTOS -MachineType "21AH" -OS "Win10"
+    Get-LnvUpdatesRepo -RepositoryPath "C:\Updates" -PackageTypes "1,2,3"
+    ```
 
-To ensure the module is loaded it is recommended that you first remove the LnvDeviceManagementModule first:
+??? note "Scenario 4: Find All Available BIOS Updates"
+    
 
-``` PowerShell
-PS C:\> Remove-Module LnvDeviceManagement
-```
+    ```powershell
+    Find-LnvBiosInfo -MachineType "21DD" | Select-Object Version, AvailableVersion, UpdateUrl, CVEs
+    ```
 
-Then import the Lenovo.Client.Scripting module:
+## Cmdlet Categories
 
-``` PowerShell
-PS C:\> Import-Module Lenovo.Client.Scripting -Force
-```
+**System Information & Device Identification**  
+[Get-LnvMachineType](#get-lnvmachinetype) | [Get-LnvModelName](#get-lnvmodelname) | [Get-LnvSerial](#get-lnvserial) | [Get-LnvProductNumber](#get-lnvproductnumber) | [Get-LnvBiosCode](#get-lnvbioscode) | [Find-LnvMachineType](#find-lnvmachinetype) | [Find-LnvModel](#find-lnvmodel)
+
+**BIOS Management**  
+[Find-LnvBiosCode](#find-lnvbioscode) | [Find-LnvBiosInfo](#find-lnvbiosinfo) | [Get-LnvBiosCode](#get-lnvbioscode) | [Get-LnvBiosInfo](#get-lnvbiosinfo) | [Get-LnvBiosVersion](#get-lnvbiosversion) | [Get-LnvBiosPasswordsSet](#get-lnvbiospasswordsset) | [Get-LnvBiosUpdateUrl](#get-lnvbiosupdateurl) | [Get-LnvAvailableBiosVersion](#get-lnvavailablebiosversion) | [Get-LnvCVE](#get-lnvcve)
+
+**Updates & Drivers**  
+[Find-LnvUpdate](#find-lnvupdate-v100) | [Get-LnvUpdate](#get-lnvupdate) | [Find-LnvDriverPack](#find-lnvdriverpack) | [Get-LnvDriverPack](#get-lnvdriverpack) | [Get-LnvUpdatesRepo](#get-lnvupdatesrepo) | [Get-LnvUpdatesNotification](#get-lnvupdatesnotification) | [Get-LnvMTOSList](#get-lnvmtoslist) | [Add-LnvMTOS](#add-lnvmtos-v230) | [Remove-LnvMTOS](#remove-lnvmtos-v230)
+
+**Hardware & Peripherals**  
+[Get-LnvBatteryInfo](#get-lnvbatteryinfo) | [Find-LnvDockModel](#find-lnvdockmodel) | [Find-LnvHSAPack](#find-lnvhsapack-v220) | [Get-LnvWUFriendlyName](#get-lnvwufriendlyname-v230)
+
+**Utilities & System Updates**  
+[Find-LnvTool](#find-lnvtool) | [Add-LnvSUCommandLine](#add-lnvsucmdline-v100) | [Add-LnvSULogging](#add-lnvsulogging) | [Export-LnvUpdateRetrieverConfig](#export-lnvupdateretrieverconfig) | [Show-LnvApplicableUpdate](#show-lnvapplicableupdate)
+
+**Warranty**  
+[Get-LnvWarranty](#get-lnvwarranty)
+
+## Quick Reference Table
+
+| Cmdlet | Category | Purpose | Version |
+|--------|----------|---------|---------|
+| Add-LnvMTOS | Updates | Add Machine Type + OS to tracking database | 2.3.0 |
+| Add-LnvSUCommandLine | Utilities | Configure System Update admin command line | 1.0.0 |
+| Add-LnvSULogging | Utilities | Enable/disable System Update logging | 1.0.0 |
+| Export-LnvUpdateRetrieverConfig | Utilities | Export Update Retriever settings as .reg file | 1.0.0 |
+| Find-LnvBiosCode | BIOS | Find BIOS code by model name or machine type | 1.0.0 |
+| Find-LnvBiosInfo | BIOS | Search BIOS information by model or code | 1.0.0 |
+| Find-LnvDockModel | Hardware | Get dock model name by machine type | 1.0.0 |
+| Find-LnvDriverPack | Updates | List available driver packs for a model | 1.0.0 |
+| Find-LnvHSAPack | Hardware | List available HSA packs for a model | 2.2.0 |
+| Find-LnvMachineType | Device | Search machine types by model name | 1.0.0 |
+| Find-LnvModel | Device | Get model name from machine type | 1.0.0 |
+| Find-LnvTool | Utilities | Get Lenovo tool versions and URLs | 2.1.0 |
+| Find-LnvUpdate | Updates | Search System Update catalog for updates | 1.0.0 |
+| Get-LnvAvailableBiosVersion | BIOS | Get available BIOS update for a model | 1.0.0 |
+| Get-LnvBatteryInfo | Hardware | Get battery information for system | 1.0.0 |
+| Get-LnvBiosCode | BIOS | Get BIOS code from running device | 1.0.0 |
+| Get-LnvBiosInfo | BIOS | Get BIOS info from running device | 2.0.0 |
+| Get-LnvBiosPasswordsSet | BIOS | Get BIOS password state | 1.0.0 |
+| Get-LnvBiosUpdateUrl | BIOS | Get BIOS update URL for a model | 1.0.0 |
+| Get-LnvBiosVersion | BIOS | Get BIOS version in various formats | 1.0.0 |
+| Get-LnvCVE | BIOS | Get CVE identifiers addressed in BIOS update | 1.0.0 |
+| Get-LnvDriverPack | Updates | Download driver pack for specified model | 1.0.0 |
+| Get-LnvMachineType | Device | Get machine type of running system | 1.0.0 |
+| Get-LnvModelName | Device | Get model name of running system | 1.0.0 |
+| Get-LnvMTOSList | Updates | Get list of tracked Machine Type + OS pairs | 2.3.0 |
+| Get-LnvProductNumber | Device | Get 10-character product number | 1.0.0 |
+| Get-LnvSerial | Device | Get serial number of running system | 1.0.0 |
+| Get-LnvUpdate | Updates | Download updates to local folder | 1.0.0 |
+| Get-LnvUpdatesNotification | Updates | Show new updates in tracked catalogs | 2.3.0 |
+| Get-LnvUpdatesRepo | Updates | Build local or cloud update repository | 1.0.0 |
+| Get-LnvWarranty | Warranty | Get warranty information from WMI | 2.0.0 |
+| Get-LnvWUFriendlyName | Hardware | Get Windows Update driver names and versions | 2.3.0 |
+| Remove-LnvMTOS | Updates | Remove Machine Type + OS from tracking database | 2.3.0 |
+| Show-LnvApplicableUpdate | Utilities | Get applicable updates from trace log | 1.0.0 |
+
+## Installation & Setup
+
+??? note "PowerShell Gallery (Recommended)"
+    
+
+    As of December 11, 2024, LCSM is published in the PowerShell Gallery for easy installation.
+
+    **Installation:**
+
+    ```powershell
+    Install-Module -Name Lenovo.Client.Scripting -Force
+    Import-Module Lenovo.Client.Scripting
+    ```
+
+    **Verify installation:**
+
+    ```powershell
+    Get-Module Lenovo.Client.Scripting
+    ```
+
+??? note "Manual Installation"
+    
+
+    The module itself is currently available for manual download here: [Lenovo.Client.Scripting_2.3.0.zip](https://download.lenovo.com/cdrt/tools/Lenovo.Client.Scripting_2.3.0.zip)
+
+    The zip file contains the `Lenovo.Client.Scripting` module folder with:
+    - `Lenovo.Client.Scripting.psm1` : module script
+    - `Lenovo.Client.Scripting.psd1` : module manifest
+    - `Public` folder : individual PowerShell scripts for public functions
+    - `Private` folder : individual PowerShell scripts for private functions
+
+    Extract the `Lenovo.Client.Scripting` folder to one of these module locations:
+
+    - **Per User:** `%UserProfile%\Documents\WindowsPowerShell\Modules`
+    - **All Users:** `%ProgramFiles%\WindowsPowerShell\Modules`
+
+??? note "Removing Legacy Modules & Importing LCSM"
+    
+
+    If you previously used the Lenovo Device Management Module (LDMM), remove it first:
+
+    ```powershell
+    Remove-Module LnvDeviceManagement
+    ```
+
+    Import the LCSM module:
+
+    ```powershell
+    Import-Module Lenovo.Client.Scripting -Force
+    ```
+
+    Verify the module is loaded:
+
+    ```powershell
+    Get-Module Lenovo.Client.Scripting
+    ```
+
+## Troubleshooting & Common Issues
+
+??? note "Module Won't Import"
+    
+
+    **Error:** The term 'Lenovo.Client.Scripting' is not recognized
+
+    **Solutions:**
+
+    - Verify PowerShell is version 5.1 or higher: `$PSVersionTable.PSVersion`
+    - Check module is in correct path: `$env:PSModulePath`
+    - Use `-Force` flag on import: `Import-Module Lenovo.Client.Scripting -Force`
+    - Try refreshing the module cache: `Update-Module Lenovo.Client.Scripting`
+
+??? note "Cmdlet Returns Empty Results"
+    
+
+    **Possible causes:**
+
+    - Invalid machine type - verify with `Get-LnvMachineType` on the target device
+    - No internet connection - many cmdlets require access to Lenovo catalogs
+    - Regional restrictions - some updates may not be available in your region
+    - Incorrect Windows version parameter - ensure you specify "10" or "11", not "Windows 10"
+
+??? note "Get-LnvUpdatesRepo Takes Too Long"
+    
+
+    **Optimization tips:**
+
+    - Specify `-PackageTypes` to limit which types to download (e.g., `"2,3"` for drivers and BIOS only)
+    - Use `-DeltaUpdate` parameter (v2.2.0+) to download only new updates to existing repository
+    - Use `-CloudRepo` parameter to skip downloading package files (metadata only)
+
+??? note "BIOS Password / Get-LnvBiosPasswordsSet Requires Admin"
+    
+
+    **Error:** `THIS CMDLET REQUIRES ADMIN RIGHTS`
+
+    **Solution:** Run PowerShell as Administrator before executing the cmdlet.
+
+??? note "Show-LnvApplicableUpdate File Not Found"
+    
+
+    **Locations to check:**
+
+    - Thin Installer: `C:\Program Files (x86)\Lenovo\Thin Installer\logs\Update_ApplicabilityRulesTrace.txt`
+    - System Update: `%ProgramData%\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\logs\ApplicabilityRulesTrace.txt`
+    - Custom location: Use full path if logs are stored elsewhere
 
 ## Cmdlet Reference
 
-### Add-LnvMTOS
 
-: #### Description
-    Stores list of available updates, based on machine type and OS input, into an updates database file (lnvUpdatesDatabase.json). The database consists of Machine Type, OS, CRC, and Available Updates. The updates come from the System Update catalog for the machine type & OS combination.
+Below are all available cmdlets organized alphabetically. Each cmdlet shows its purpose, syntax, parameters, and usage examples.
 
-    This cmdlet will populate the database file with the specified MT, OS and a list of the current updates available in that model's catalog. The database file will be saved by default to ProgramData\Lenovo\ClientScriptingModule unless the Path parameter is otherwise specified. If the updates database file does not exist, one will be created.
+??? note "Add-LnvMTOS (v2.3.0+)" 
 
-    #### Parameters
+    <a id="add-lnvmtos-v230"></a>
 
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| MachineType | String | True |
-	| OS | String ("Win10","Win11")| True |
-	| ListPath | String | False |
+    **Purpose:** Add a Machine Type + OS combination to the updates tracking database (lnvUpdatesDatabase.json) to monitor for new updates.
 
-    ##### MachineType
-
-    Must be the four-character machine type of the model.
-
-    ##### OS
-
-    Must be one of "Win10" or "Win11". Can use tab-complete to select.
-
-    ##### ListPath
-
-    A valid path to the folder where the lnvUpdatesDatabase.json file will be stored. The default path if not specified will be C:\ProgramData\Lenovo\ClientScriptingModule\. This will allow for monitoring separate collections of machine types if needed.
-
-### Add-LnvSUCommandLine
-
-: #### Description
-
-	Cmdlet to set Admin command line Windows Registry settings for Lenovo System Update.
-
-	#### Parameters
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| Search | String | True |
-	| Action | String | True |
-	| Scheduler | Int | False |
-	| IncludeRebootPackages | String | False |
-	| PackageTypes | String | False |
-	| NoReboot | False | Switch |
-	| NoIcon | Switch | False |
-	| RebootPrompt | Switch | False |
-	| Repository | String | False |
-	| ExportToWmi | Switch | False |
-
-	##### Search
-
-	Must be one of the following values [C, R, A].
-
-	##### Action
-
-	Must be one of the following values [DOWNLOAD, INSTALL, LIST].
-
-	##### IncludeRebootPackages
-
-	Must be one of the following values [1, 3, 4, 5], or multiple values separated with a comma.
-
-	##### PackageTypes
-
-	Must be one of the following values [0, 1, 2, 3, 4], or multiple values separated with a comma.
-
-	##### Repository
-
-	Must be a local folder path, a UNC file share path, or a URL to a web-hosted repository.
-
-	##### ExportToWmi
-
-    Adds the -exporttowmi parameter to the command line to ensure the history of updates processed is collected in the custom WMI class under root\Lenovo\Lenovo_Updates
-
-	!!! note
-	    Read messages to determine the result of the script working.
-
-### Add-LnvSULogging
-
-: #### Description
-
-	This cmdlet sets the appropriate registry key to cause the System Update Add-in to perform logging during update sessions. If neither the -Enable or -Disable switches are specified, then logging will be ENABLED.
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| Enable | Switch | False |
-	| Disable | Switch | False |
-
-	#### Example
-
-	```Add-LnvSULogging -Enable```
-
-	!!! note
-	    When logging is enabled a restart may be required and the log file will be located at ```%ProgramData%\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\logs```
-
-### Export-LnvUpdateRetrieverConfig
-
-: #### Description
-
-	Generates a .reg file containing an export of the Update Retriever settings found at:
-
-	```HKLM\Software\Wow6432Node\Lenovo\Update Retriever\Preferences\UserSetting\General```
-
-	These settings include the local repository path that was last used and the list of models in the Systems list that can be searched for in Update Retriever. Specify the output file name without an extension.  If an extension other than .reg is specified it will be ignored and the output file will have a .reg extension.
-
-	#### Parameter
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| Outfile | String | True |
-
-	#### Example
-
-	```Export-LnvUpdateRetrieverConfig -Outfile C:\users\admin\Downloads\urconfig```
-
-### Find-LnvBiosCode
-
-: #### Description
-
-	Shows results for search string representing model friendly name or machine type. The BIOS code is the first four characters of the BIOS image name. It is a useful data point for uniquely targeting a model.
-
-    !!! note
-        When specifying the friendly model name, it may be necessary to remove any reference to the generation in order to find the desired model because the representation of the generation may vary. By not specifying the generation as in the second example below, the results will contain a list of all the generations.
-
-	#### Parameter
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| ModelName | String | True |
-
-	#### Example
-
-	```Find-LnvBiosCode -ModelName 'ThinkPad X13 Yoga Gen 4'```
-
-	```Find-LnvBiosCode 'ThinkPad X13 Yoga'```
-
-	```Find-LnvBiosCode 21F3```
-
-### Find-LnvBiosInfo
-
-: #### Description
-
-	Returns table results for search string representing model friendly name or bios code. Only one is required. The parameter name and value must be specified in order to distinguish which is being searched. The returned BIOS information includes the BIOS code, available version, url to updated executable, link to readme file, and list of CVEs.
-
-	#### Parameter
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| ModelName | String | True |
-	| BiosCode | String | True |
-
-	#### Example
-
-	```Find-LnvBiosInfo -MachineType '21DD'```
-
-	```Find-LnvBiosInfo -BiosCode 'n3je'```
-
-### Find-LnvDockModel
-
-: #### Description
-
-	- The first four characters of the dock product number is the machine type.
-	- This command returns the dock model name by searching for the machine type.
-	- The -Details switch controls whether the full dock details are displayed.
-	- If -Details is not specified then only the dock name will be returned.
-	- If -Details is provided then the PnP IDs for the USB Billboard device and the audio device will be shown. These can be used when targeting laptops that have this dock attached.
-
-	#### Parameter
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| MachineType | String | True |
-	| Details | Switch | False |
-
-	#### Example
-
-	```Find-LnvDockModel -MachineType 40AN -Details```
-
-### Find-LnvDriverPack
-
-: #### Description
-
-	Returns a list of the available driver packs for the machine type specified which includes the OS and the OS build version, the CRC of the pack, and the URL to the package executable. The OS will be "win10" or "win11" and the OS build version will be the four character designator like "21H2" or "22H2".
-
-	#### Parameter
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| MachineType | String | True |
-
-	#### Example
-
-	```Find-LnvDriverPack -MachineType 21DD```
-
-	```Find-LnvDriverPack 21DD```
-
-	```$url = (Find-LnvDriverPack -MachineType 21DD | Where-Object { (($_.OS -eq 'win10') -and ($_.version -eq '21H2')) }).'#text'```
-
-		OUTPUTS:
-		An object consisting of "os", "version", "crc", or "#text" elements where
-		"#text" represents the URL to the package executable file.
-
-	!!! note
-		The Where-Object cmdlet can be used to filter on OS and version to return just one URL.  The URL is in the '#text' field of the returned object.
-
-### Find-LnvHSAPack
-
-: #### Description
-
-	Returns a list of the available HSA packs for the machine type specified which includes the OS and the OS build version, the CRC of the pack, and the URL to the package executable. This cmdlet does not implement an OS filter; however, you may specify -Latest to get the most current HSA pack for the specified Machine Type.
-
-	#### Parameter
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| MachineType | String | True |
-	| Latest | Switch | False |
-
-	#### Example
-
-	```Find-LnvDriverPack -MachineType 21DD```
-
-	```Find-LnvDriverPack -MachineType 21DD -Latest```
-
-	```$url = (Find-LnvHSAPack -MachineType 21DD | Where-Object { (($_.OS -eq 'win10') -and ($_.version -eq '21H2')) }).'#text'```
-
-	!!! note
-		The output will be an object consisting of "os", "version", "crc", and "#text" elements where
-		"#text" represents the URL to the package executable file.
-
-### Find-LnvMachineType
-
-: #### Description
-
-	By specifying a search string representing model friendly name, this cmdlet will return the possible machine types that match. Most models have more than one possible machine type. Providing a more detailed model name to search for will help reduce the number of results returned.
-
-	#### Parameter
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| ModelName | String | True |
-
-	#### Example
-
-	```Find-LnvMachineType -ModelName 'ThinkPad P1 Gen 5'```
-
-	```Find-LnvMachineType -ModelName 'ThinkPad P1 '```
-
-	!!! note
-		A space after the model name such as 'ThinkPad P1 ' will limit the search to ThinkPad P1 models and not include ThinkPad P15 or ThinkPad P16 models. Likewise, use 'ThinkPad X1 ' to search for ThinkPad X1 Carbon and Yoga models and exclude ThinkPad X13 models.
-
-### Find-LnvModel
-
-: #### Description
-
-	This cmdlet returns the friendly model name that will be found in WMI on a device with the specified machine type. This is useful in cases where a management portal may display the 10 character machine type model number and the user needs to know the model name of that device.
-
-	#### Parameter
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| MachineType | String | True |
-
-	#### Example
-
-	```Find-LnvModel 21DD```
-
-	```Find-LnvModel -MachineType 21DD```
-
-
-	!!! note
-	    The output will also show the other machine types associated with this model.
-
-### Find-LnvTool
-
-: #### Description
-
-    This script provides details about the current software tools provided by Lenovo, including version and URL to the latest installer package.
-
-    #### Parameters
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| Tool | String | True |
-	| Url | Switch | False |
-
-    The -Tool parameter supports tab completion and must be one of the following strings:
-    "DockManager",
-    "SystemUpdate",
-    "ThinInstaller",
-    "UpdateRetriever"
-
-    #### Example
-
-    ```Find-LnvTool -Tool UpdateRetriever -Url```
-
-    !!! note
-        If the -Url parameter is not specified then an object containing the full set of details will be returned which include: name, sha256, version, '#text' (which is the URL to the installer package)
-
-### Find-LnvUpdate
-
-: #### Description
-
-	This script allows users to search for updates for a specified machine type.
-
-	- Defaults to Windows 10 updates. WindowsVersion parameter is currently limited to 10 or 11 and can be populated with tab completion.
-	- Requires users to enter at least a machine type
-	- Can be called without identifiers so long as you use the right order
-	- PackageType can be:
-
-	    - 1: Application
-	    - 2: Driver
-	    - 3: Bios
-	    - 4: Firmware
-
-	- RebootType can be:
-
-	    - 1: Forced reboot (update itself initiates the reboot)
-	    - 3: Requires reboot (Thin Installer/System Update/CV initiates the reboot)
-	    - 4: Forces shutdown (update itself initiates shutdown)
-	    - 5: Delayed forced reboot (used for firmware, Thin Installer/System Update/CV will enforce reboot with dialog displaying count-down timer)
-
-	- Severity can be:
-
-	    - 1: Critical
-	    - 2: Recommended
-	    - 3: Optional
-
-	!!! note
-	    9 can be used for these three parameters to represent 'All'. Multiples can be combined by separating with comma, for example:  "2,3,4" or "1,5" or "1,2"
-
-	Find-LnvUpdate displays a grid-view of the results by default. A single selected update can be returned when the grid-view is closed. Therefore, execute the following to display the search results and then capture the selected update object:
-
-	```PS C:\> $update = Find-LnvUpdate -MachineType 21DD -WindowsVersion 11```
-
-	Then it is possible to view the attributes of the update like this:
-
-	``` PowerShell
-	PS C:\> $update
-
-			ID          : n3jw603w
-			Name        : Qualcomm Bluetooth Driver - 11 (21H2 or later)
-			Category    : Bluetooth and Modem
-			Version     : 2.0.0.488
-			PackageType : 2
-			Reboot      : 3
-			Severity    : 1
-			Descriptor  : https://download.lenovo.com/pccbbs/mobiles/n3jw603w_2_.xml
-			PackageExe  : https://download.lenovo.com/pccbbs/mobiles/n3jw603w.exe
-	```
-
-	It is then possible to get the package executable or the package descriptor like this:
-
-	```PS C:\> start $update.Descriptor```
-
-    Find-LnvUpdate can also be called with the -ListAll parameter which will return an object list of the found updates. This can be set to a variable to allow the list to be iterated through using a foreach loop.
-
-	#### Parameters
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| MachineType | String | True |
-	| PackageType | String | False |
-	| RebootType | String | False |
-	| Severity | String | False |
-	| WindowsVersion | String | False |
-	| PackageID | String | False |
-    | ListAll | Switch | False |
-
-	#### Example
-
-	```Find-LnvUpdate -MachineType 21DD -PackageType 2 -RebootType 1 -WindowsVersion 11```
-
-	```Find-LnvUpdates 21DD 2```
-
-	```Find-LnvUpdate 21DD -PackageType 2 -ListAll```
-
-### Get-LnvAvailableBiosVersion
-
-: #### Description
-
-	If you specify a machine type, the cmdlet will return the version of the  currently available BIOS update. If no machine type is specified, the cmdlet will use the running system's machine type and will compare the version of the currently available update to the version of the system and return an alert if the update is newer.
-
-	The -Download switch can be used to trigger the download of the current update in either case. -DownloadPath can be used to specify where to store the update package. If not specified, it will be stored in the $env:TEMP folder.
-
-	The -Readme switch will download and display the readme for the BIOS update.
-
-	#### Parameters
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| MachineType | String | False |
-	| WindowsVersion | String | False |
-    | ReadMe | Switch | False |
-	| Download | Switch | False |
-    | DownloadPath | String | False |
-
-
-	!!! note
-		WindowsVersion is strictly optional as generally one BIOS update package is released for both Windows 10 and Windows 11. If not specified and a BIOS update is not found in the Win11 catalog, the Win10 catalog will also be checked.
-
-	#### Example
-
-	```Get-LnvAvailableBiosVersion -MachineType 21DD -WindowsVersion 10 -Download -ReadMe```
-
-### Get-LnvBatteryInfo
-
-: #### Description
-
-      This cmdlet will return a list of custom objects which represent each battery in the system. For systems with more than one battery, you can iterate through the list to get the details for each battery. This cmdlet uses the deprecated Get-WmiObject due to a compatibility issue with Get-CimInstance and the Win32_Battery class.
-
-    #### Example
-
-    ```
-        $ Get-LnvBatteryInfo
-
-        InstanceName        : ACPI\PNP0C0A\0_0
-        DeviceName          : 5B11H56411
-        DesignedCapacity    : 86000
-        Manufacturer        : Celxpert
-        FullChargedCapacity : 85690
-        Location            : Front
-        DesignVoltage       : 15440
-        RemainingCapacity   : 85580
-        PowerOnline         : True
-        Charging            : False
-        Discharging         : False
-        Voltage             : 17215
-        ChargeRate          : 0
-        DischargeRate       : 0
+    **Syntax:**
+    ```powershell
+    Add-LnvMTOS -MachineType <String> -OS <String> [-ListPath <String>]
     ```
 
-### Get-LnvBiosCode
+    **Parameters:**
 
-: #### Description
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | MachineType | String | True | 4-character machine type code |
+    | OS | String | True | Operating system ("Win10" or "Win11") |
+    | ListPath | String | False | Path where database will be stored (default: C:\ProgramData\Lenovo\ClientScriptingModule\) |
 
-	  This cmdlet will read the BIOS image name from the device and return the first four characters which can be used as the BIOS code in targeting actions to the model uniquely.
+    **Examples:**
 
+    ```powershell
+    # Add ThinkPad 21DD Win11 to tracking database
+    Add-LnvMTOS -MachineType 21DD -OS Win11
 
-	#### Example
-
-	```Get-LnvBiosCode```
-
-### Get-LnvBiosInfo
-
-: #### Description
-
-	This cmdlet will read the BIOS image name from the device and return an object of bios information such as as the BIOS version, bios code, link to executable, link to readme, and list of CVEs unique to the targeting machine.
-
-	#### Example
-
-    ```
-        $ Get-LnvBiosInfo
-
-        Version          : 1.10
-        VersionString    : N47ET21W (1.10 )
-        ImageCode        : N47E
-        AvailableVersion : 1.10.1.08
-        UpdateUrl        : https://download.lenovo.com/pccbbs/mobiles/n47uj05w.exe
-        ReadmeUrl        : https://download.lenovo.com/pccbbs/mobiles/n47uj05w.html
-        CVEs             :
-        PasswordsSet     : 0: No BIOS Password Set
+    # Add to custom location
+    Add-LnvMTOS -MachineType 21DD -OS Win11 -ListPath "C:\CustomLocation"
     ```
 
-### Get-LnvBiosPasswordsSet
+    !!! note "Note"
+        The database file (lnvUpdatesDatabase.json) is created automatically if it doesn't exist. It stores Machine Type, OS, CRC, and a list of available updates from the System Update catalog.
 
-: #### Description
+        **Related Cmdlets:**
+        [Get-LnvMTOSList](#get-lnvmtoslist) | [Remove-LnvMTOS](#remove-lnvmtos-v230) | [Get-LnvUpdatesNotification](#get-lnvupdatesnotification)
+    
+??? note "Add-LnvSUCommandLine (v1.0.0+)"
 
-	This cmdlet gets the BIOS password state of the system and interprets it to return the set of passwords set on the device. If the -Number switch is used, then the PasswordState number will be returned instead.
+    <a id="add-lnvsucmdline-v100"></a>
 
-	#### Parameters
+    **Purpose:** Configure administrative command-line settings for Lenovo System Update via Windows Registry.
+
+    **Syntax:**
+    ```powershell
+    Add-LnvSUCommandLine -Search <String> -Action <String> [-IncludeRebootPackages <String>] [-PackageTypes <String>] [-NoReboot] [-NoIcon] [-RebootPrompt] [-Repository <String>] [-ExportToWmi]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | Search | String | True | Search scope: C (custom), R (recommended), A (all) |
+    | Action | String | True | Action to perform: DOWNLOAD, INSTALL, or LIST |
+    | IncludeRebootPackages | String | False | Reboot package types: 1, 3, 4, or 5 (comma-separated) |
+    | PackageTypes | String | False | Update types: 0-4 (comma-separated) |
+    | NoReboot | Switch | False | Suppress system reboot |
+    | NoIcon | Switch | False | Hide System Update icon during execution |
+    | RebootPrompt | Switch | False | Show reboot prompt before rebooting |
+    | Repository | String | False | Local folder, UNC share, or URL to repository |
+    | ExportToWmi | Switch | False | Export update history to WMI class |
+
+    **Examples:**
+
+    ```powershell
+    # Configure to download all updates
+    Add-LnvSUCommandLine -Search A -Action DOWNLOAD
+
+    # Configure to install driver and BIOS only from repository
+    Add-LnvSUCommandLine -Search R -Action INSTALL -PackageTypes "2,3" -Repository "C:\Updates"
+    ```
+
+    !!! note "Note"
+        Check message output to determine script success. Settings are saved to Windows Registry for System Update to read on next execution.
+
+        **Related Cmdlets:**
+        [Add-LnvSULogging](#add-lnvsulogging) | [Export-LnvUpdateRetrieverConfig](#export-lnvupdateretrieverconfig)
+    
+
+??? note "Add-LnvSULogging"
+
+    <a id="add-lnvsulogging"></a>
+
+    **Purpose:** Enable or disable logging for Lenovo System Update during update sessions.
+
+    **Syntax:**
+    ```powershell
+    Add-LnvSULogging [-Enable] [-Disable]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | Enable | Switch | False | Enable System Update logging |
+    | Disable | Switch | False | Disable System Update logging |
+
+    **Examples:**
+
+    ```powershell
+    # Enable logging for System Update
+    Add-LnvSULogging -Enable
+
+    # Disable logging
+    Add-LnvSULogging -Disable
+    ```
+
+    !!! note "Note"
+        If neither `-Enable` nor `-Disable` is specified, logging will be ENABLED by default. When logging is enabled a restart may be required. Log file location: `%ProgramData%\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\logs`
+
+??? note "Export-LnvUpdateRetrieverConfig"
+
+    <a id="export-lnvupdateretrieverconfig"></a>
+
+    **Purpose:** Export Update Retriever settings (repository path and model list) to a .reg file.
+
+    **Syntax:**
+    ```powershell
+    Export-LnvUpdateRetrieverConfig -Outfile <String>
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | Outfile | String | True | Output file path (.reg extension added automatically) |
+
+    **Examples:**
+
+    ```powershell
+    # Export Update Retriever configuration
+    Export-LnvUpdateRetrieverConfig -Outfile "C:\users\admin\Downloads\urconfig"
+    ```
+
+    !!! note "Note"
+        Exports settings from: `HKLM\Software\Wow6432Node\Lenovo\Update Retriever\Preferences\UserSetting\General`. Specify filename without extension; .reg will be added automatically.
+
+??? note "Find-LnvBiosCode"
+
+    <a id="find-lnvbioscode"></a>
+
+    **Purpose:** Find BIOS code by model friendly name or machine type. BIOS code is the first four characters of the BIOS image name.
+
+    **Syntax:**
+    ```powershell
+    Find-LnvBiosCode -ModelName <String>
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | ModelName | String | True | Model friendly name or 4-character machine type |
+
+    **Examples:**
+
+    ```powershell
+    # Search by full model name with generation
+    Find-LnvBiosCode -ModelName 'ThinkPad X13 Yoga Gen 4'
+
+    # Search by partial model name (returns all generations)
+    Find-LnvBiosCode -ModelName 'ThinkPad X13 Yoga'
+
+    # Search by machine type
+    Find-LnvBiosCode 21F3
+    ```
+
+    !!! note "Note"
+        When searching by friendly name, omit generation reference to get all generations of that model. For example, use 'ThinkPad X13 Yoga' (not 'Gen 4') to see results for all X13 Yoga generations.
+
+??? note "Find-LnvBiosInfo"
+
+    <a id="find-lnvbiosinfo"></a>
+
+    **Purpose:** Search for BIOS information by model friendly name or BIOS code. Returns BIOS version, URLs, and CVE information.
+
+    **Syntax:**
+    ```powershell
+    Find-LnvBiosInfo [-ModelName <String>] [-BiosCode <String>]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | ModelName | String | False | Search by model friendly name |
+    | BiosCode | String | False | Search by 4-character BIOS code |
+
+    **Examples:**
+
+    ```powershell
+    # Search by machine type
+    Find-LnvBiosInfo -MachineType '21DD'
+
+    # Search by BIOS code
+    Find-LnvBiosInfo -BiosCode 'n3je'
+    ```
+
+    !!! note "Note"
+        Specify either ModelName or BiosCode (one is required). Returns BIOS code, available version, executable URL, readme link, and associated CVEs.
+
+??? note "Find-LnvDockModel"
+
+    <a id="find-lnvdockmodel"></a>
+
+    **Purpose:** Find dock model name by machine type and optionally display PnP IDs for USB Billboard and audio devices.
+
+    **Syntax:**
+    ```powershell
+    Find-LnvDockModel -MachineType <String> [-Details]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | MachineType | String | True | 4-character machine type (first 4 chars of dock product number) |
+    | Details | Switch | False | Display full dock details including USB Billboard and audio device PnP IDs |
+
+    **Examples:**
+
+    ```powershell
+    # Get dock model name only
+    Find-LnvDockModel -MachineType 40AN
+
+    # Get dock name with full details (USB Billboard and audio PnP IDs)
+    Find-LnvDockModel -MachineType 40AN -Details
+    ```
+
+    !!! note "Note"
+        Without -Details, returns only dock name. With -Details, shows USB Billboard and audio device PnP IDs useful for device targeting.
+
+??? note "Find-LnvDriverPack"
+
+    <a id="find-lnvdriverpack"></a>
+
+    **Purpose:** List available driver packs for a specified machine type with OS, build version, CRC, and download URL.
+
+    **Syntax:**
+    ```powershell
+    Find-LnvDriverPack [-MachineType] <String>
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | MachineType | String | True | 4-character machine type code |
+
+    **Examples:**
+
+    ```powershell
+    # List all driver packs for machine type
+    Find-LnvDriverPack -MachineType 21DD
+
+    # Shorthand syntax
+    Find-LnvDriverPack 21DD
+
+    # Filter by OS and build version to get specific URL
+    $url = (Find-LnvDriverPack -MachineType 21DD | Where-Object { (($_.OS -eq 'win10') -and ($_.version -eq '21H2')) }).'#text'
+    ```
+
+    !!! note "Note"
+        Output fields: "os" (win10/win11), "version" (21H2/22H2), "crc", and "#text" (URL to executable). Use Where-Object to filter by OS and version. URL is in the '#text' field.
+
+??? note "Find-LnvHSAPack (v2.2.0+)"
+
+    <a id="find-lnvhsapack-v220"></a>
+
+    **Purpose:** Returns a list of available HSA packs for a specified machine type, including OS, build version, CRC, and URL to the package executable.
+
+    **Syntax:**
+    ```powershell
+    Find-LnvHSAPack [-MachineType] <String> [-Latest]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | MachineType | String | True | 4-character machine type |
+    | Latest | Switch | False | Return only the most current HSA pack |
+
+    **Examples:**
+
+    ```powershell
+    # List all HSA packs available for machine type
+    Find-LnvHSAPack -MachineType 21DD
+
+    # Get only the latest HSA pack
+    Find-LnvHSAPack -MachineType 21DD -Latest
+
+    # Filter by specific Windows version and build
+    $url = (Find-LnvHSAPack -MachineType 21DD | Where-Object { (($_.OS -eq 'win10') -and ($_.version -eq '21H2')) }).'#text'
+    ```
+
+    **Related Cmdlets:**
+    [Find-LnvDriverPack](#find-lnvdriverpack) | [Get-LnvDriverPack](#get-lnvdriverpack)
+
+??? note "Find-LnvMachineType"
+
+    <a id="find-lnvmachinetype"></a>
+
+    **Purpose:** Search for machine types by model friendly name. Returns all matching machine types as models often have multiple variants.
+
+    **Syntax:**
+    ```powershell
+    Find-LnvMachineType -ModelName <String>
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | ModelName | String | True | Model friendly name (partial names supported) |
+
+    **Examples:**
+
+    ```powershell
+    # Search by full model name with generation
+    Find-LnvMachineType -ModelName 'ThinkPad P1 Gen 5'
+
+    # Search by partial name to limit results
+    Find-LnvMachineType -ModelName 'ThinkPad P1 '
+
+    # Tip: Use 'ThinkPad X1 ' to include X1 Carbon/Yoga, exclude X13/X15/X16
+    ```
+
+    !!! note "Note"
+        Include a trailing space in partial names to narrow results. For example: 'ThinkPad P1 ' limits to P1 models (excludes P15, P16).
+
+??? note "Find-LnvModel"
+
+    <a id="find-lnvmodel"></a>
+
+    **Purpose:** Get the friendly model name from a machine type code. Useful when display systems show machine type and you need the model name.
+
+    **Syntax:**
+    ```powershell
+    Find-LnvModel [-MachineType] <String>
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | MachineType | String | True | 4-character machine type code |
+
+    **Examples:**
+
+    ```powershell
+    # Get model name from machine type
+    Find-LnvModel 21DD
+
+    # Using parameter name syntax
+    Find-LnvModel -MachineType 21DD
+    ```
+
+    !!! note "Note"
+        Output also shows other machine types associated with the same model.
+
+??? note "Find-LnvTool"
+
+    <a id="find-lnvtool"></a>
+
+    **Purpose:** Get Lenovo tool version and download URLs for: Dock Manager, System Update, Thin Installer, Update Retriever.
+
+    **Syntax:**
+    ```powershell
+    Find-LnvTool [-Tool <String>]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | Tool | String | False | Tool name (DockManager, SystemUpdate, ThinInstaller, UpdateRetriever) |
+
+    **Examples:**
+
+    ```powershell
+    # Get versions for all Lenovo tools
+    Find-LnvTool
+
+    # Get information for specific tool
+    Find-LnvTool -Tool DockManager
+    ```
+
+    !!! note "Note"
+        Returns current version and download URL for each tool. Supported tools: Dock Manager, System Update, Thin Installer, Update Retriever.
+
+
+??? note "Find-LnvUpdate (v1.0.0+)"
+    
+    <a id="find-lnvupdate-v100"></a>
+
+    **Purpose:** Search the Lenovo System Update catalog for updates matching specified criteria.
+
+    **Syntax:**
+    ```powershell
+    Find-LnvUpdate [-MachineType] <String> [-WindowsVersion <String>] [-PackageType <String>] [-RebootType <String>] [-Severity <String>] [-PackageID <String>] [-ListAll]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | MachineType | String | True | 4-character machine type |
+    | WindowsVersion | String | False | "10" or "11" (default: 10) |
+    | PackageType | String | False | 1=App, 2=Driver, 3=BIOS, 4=Firmware (comma-separated) |
+    | RebootType | String | False | 1=Forced reboot, 3=Requires reboot, 4=Shutdown, 5=Delayed reboot (comma-separated) |
+    | Severity | String | False | 1=Critical, 2=Recommended, 3=Optional (comma-separated) |
+    | PackageID | String | False | Search for specific package ID |
+    | ListAll | Switch | False | Return list instead of grid view |
+
+    **Examples:**
+
+    ```powershell
+    # Display grid view of all Win11 updates for ThinkPad 21DD
+    Find-LnvUpdate -MachineType 21DD -WindowsVersion 11
+
+    # Find only driver updates requiring reboot
+    Find-LnvUpdate -MachineType 21DD -PackageType 2 -RebootType 1,3 -Severity 1
+
+    # Get all updates as object list for scripting
+    $updates = Find-LnvUpdate -MachineType 21DD -ListAll
+    $updates | Where-Object { $_.Severity -eq 1 } | Select-Object Name, Version, PackageExe
+    ```
+
+    !!! note "Note"
+        By default displays results in grid view. Select an update and click OK to return it as an object. Use value "9" for any parameter to mean "All". Multiple values separated by commas (e.g., "1,3,5").
+
+        **Related Cmdlets:**
+        [Get-LnvUpdate](#get-lnvupdate) | [Find-LnvDriverPack](#find-lnvdriverpack) | [Get-LnvUpdatesRepo](#get-lnvupdatesrepo)
+
+??? note "Get-LnvAvailableBiosVersion"
+
+    <a id="get-lnvavailablebiosversion"></a>
+
+    **Purpose:** Get the currently available BIOS update version for a machine type with optional download.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvAvailableBiosVersion [-MachineType <String>] [-WindowsVersion <String>] [-Download] [-ReadMe] [-DownloadPath <String>]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | MachineType | String | False | 4-character machine type (uses system's machine type if omitted) |
+    | WindowsVersion | String | False | "10" or "11" (optional; checks both if omitted) |
+    | Download | Switch | False | Download the update package |
+    | ReadMe | Switch | False | Download and display the readme |
+    | DownloadPath | String | False | Where to save download (default: $env:TEMP) |
+
+    **Examples:**
+
+    ```powershell
+    # Get available BIOS version for current system
+    Get-LnvAvailableBiosVersion
+
+    # Check available version for specific machine type
+    Get-LnvAvailableBiosVersion -MachineType 21DD -WindowsVersion 10
+
+    # Download and display readme
+    Get-LnvAvailableBiosVersion -MachineType 21DD -Download -ReadMe
+    ```
+
+    !!! note "Note"
+    WindowsVersion is optional; if not specified and BIOS update not found in Win11 catalog, checks Win10 catalog. When omitted, uses system's detected OS and compares availability.
+
+??? note "Get-LnvBatteryInfo"
+
+    <a id="get-lnvbatteryinfo"></a>
+
+    **Purpose:** Get detailed information about all batteries in the system.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvBatteryInfo
+    ```
+
+    **Parameters:**
+
+    No parameters
+
+    **Examples:**
+
+    ```powershell
+    # Get battery information for current system
+    Get-LnvBatteryInfo
+
+    # Output shows multiple battery objects for systems with multiple batteries
+    # Example output:
+    # InstanceName        : ACPI\PNP0C0A\0_0
+    # DeviceName          : 5B11H56411
+    # DesignedCapacity    : 86000
+    # FullChargedCapacity : 85690
+    # Charging            : False
+    # DischargeRate       : 0
+    ```
+
+    !!! note "Note"
+            Uses deprecated Get-WmiObject due to compatibility issues with Get-CimInstance and Win32_Battery class. Systems with multiple batteries return multiple objects.
+
+??? note "Get-LnvBiosCode"
+
+    <a id="get-lnvbioscode"></a>
+
+    **Purpose:** Read BIOS image name and return the first 4 characters (BIOS code) from the device.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvBiosCode
+    ```
+
+    **Parameters:**
+
+    No parameters
+
+    **Examples:**
+
+    ```powershell
+    # Get BIOS code for current device
+    Get-LnvBiosCode
+    ```
+
+    !!! note "Note"
+        BIOS code is the first 4 characters of the BIOS image name and is useful for uniquely targeting a device model.
+
+??? note "Get-LnvBiosInfo"
+
+    <a id="get-lnvbiosinfo"></a>
+
+    **Purpose:** Get BIOS information and metadata from current device including version, CVEs, and update URLs.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvBiosInfo
+    ```
+
+    **Parameters:**
+
+    No parameters
+
+    **Examples:**
+
+    ```powershell
+    # Get BIOS information for current device
+    Get-LnvBiosInfo
+
+    # Example output:
+    # Version          : 1.10
+    # VersionString    : N47ET21W (1.10)
+    # ImageCode        : N47E
+    # AvailableVersion : 1.10.1.08
+    # UpdateUrl        : https://download.lenovo.com/pccbbs/mobiles/n47uj05w.exe
+    # ReadmeUrl        : https://download.lenovo.com/pccbbs/mobiles/n47uj05w.html
+    # CVEs             :
+    # PasswordsSet     : 0: No BIOS Password Set
+    ```
+
+    !!! note "Note"
+        Returns BIOS version, image code, available update version, download URLs, and list of CVEs unique to the device.
+
+??? note "Get-LnvBiosPasswordsSet"
+
+    <a id="get-lnvbiospasswordsset"></a>
+
+    **Purpose:** Get BIOS password state and interpret which passwords are set on the device.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvBiosPasswordsSet [-Number]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | Number | Switch | False | Return password state as number instead of description |
+
+    **Examples:**
+
+    ```powershell
+    # Get BIOS password description
+    Get-LnvBiosPasswordsSet
+
+    # Get password state as number
+    Get-LnvBiosPasswordsSet -Number
+    ```
+
+    !!! warning "Admin Required"
+        THIS CMDLET REQUIRES ADMIN RIGHTS TO EXECUTE. Make sure the PowerShell session is running with elevated privileges.
+
+??? note "Get-LnvBiosUpdateUrl"
+
+    <a id="get-lnvbiosupdateurl"></a>
+
+    **Purpose:** Get URL to the current BIOS update package for specified or current machine type.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvBiosUpdateUrl [-MachineType <String>]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | MachineType | String | False | 4-character machine type (uses system's machine type if omitted) |
+
+    **Examples:**
+
+    ```powershell
+    # Get BIOS update URL for current device
+    Get-LnvBiosUpdateUrl
+
+    # Get BIOS update URL for specific machine type
+    Get-LnvBiosUpdateUrl -MachineType '21AH'
+    ```
+
+    !!! note "Note"
+        Device must be a Lenovo ThinkPad, ThinkCentre, or ThinkStation.
+
+??? note "Get-LnvBiosVersion"
+
+    <a id="get-lnvbiosversion"></a>
+
+    **Purpose:** Get BIOS version from device in specified format (string or decimal).
+
+    **Syntax:**
+    ```powershell
+    Get-LnvBiosVersion [-Format <String>]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | Format | String | False | "String" returns SMBIOSBIOSVersion; "Decimal" returns n.nn format |
+
+    **Examples:**
+
+    ```powershell
+    # Get BIOS version in default string format
+    Get-LnvBiosVersion
+
+    # Get BIOS version in decimal format (n.nn)
+    Get-LnvBiosVersion -Format Decimal
+    ```
+
+    !!! note "Note"
+        Handles differences in BIOS version format between ThinkPad (decimal) and ThinkCentre/ThinkStation (hex build number). Desktop BIOS hex values are converted to standard version format.
+
+??? note "Get-LnvCVE"
+    
+    <a id="get-lnvcve"></a>
+    
+    **Purpose:** List CVE (Common Vulnerabilities and Exposures) identifiers addressed in the current BIOS update.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvCVE [-MachineType <String>]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | MachineType | String | False | 4-character machine type (uses system's machine type if omitted) |
+
+    **Examples:**
+
+    ```powershell
+    # Get CVEs addressed in BIOS update for current device
+    Get-LnvCVE
+
+    # Get CVEs for specific machine type
+    Get-LnvCVE -MachineType 21DD
+    ```
+
+    !!! note "Note"
+        CVE data may not be available for all machine types.
+
+??? note "Get-LnvDriverPack"
+
+    <a id="get-lnvdriverpack"></a>
+    
+    **Purpose:** Download SCCM driver pack for specified machine type and Windows OS version.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvDriverPack -MachineType <String> -WindowsVersion <String> -OSBuildVersion <String> [-DownloadPath <String>]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | MachineType | String | True | 4-character machine type |
+    | WindowsVersion | String | True | "10" or "11" |
+    | OSBuildVersion | String | True | Build version (e.g., "22H2") or "Latest" for most current |
+    | DownloadPath | String | False | Where to save driver pack (default: $env:TEMP) |
+
+    **Examples:**
+
+    ```powershell
+    # Download latest driver pack for Win10
+    Get-LnvDriverPack -MachineType 21DD -WindowsVersion 10 -OSBuildVersion Latest
+
+    # Download specific build version
+    Get-LnvDriverPack -MachineType 21DD -WindowsVersion 10 -OSBuildVersion 22H2
+
+    # Download to custom path
+    Get-LnvDriverPack -MachineType 21DD -WindowsVersion 11 -OSBuildVersion Latest -DownloadPath "C:\\Drivers"
+    ```
+
+    !!! note "Note"
+        Uses BITS Transfer for downloads. Tab completion supported for -OSBuildVersion. Use "Latest" to get the most current pack for the specified Windows version.
+
+??? note "Get-LnvMachineType"
+
+    <a id="get-lnvmachinetype"></a>
+
+    **Purpose:** Get the 4-character machine type of the current device.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvMachineType
+    ```
+
+    **Parameters:**
+
+    No parameters
+
+    **Examples:**
+
+    ```powershell
+    # Get machine type of current device
+    Get-LnvMachineType
+    ```
+
+    !!! note "Note"
+        Returns the 4-character machine type code of the running device.
+
+??? note "Get-LnvModelName"
+
+    <a id="get-lnvmodelname"></a>
+
+    **Purpose:** Get the friendly model name of the current device.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvModelName
+    ```
+
+    **Parameters:**
+
+    No parameters
+
+    **Examples:**
+
+    ```powershell
+    # Get model name of current device
+    Get-LnvModelName
+    ```
+
+    !!! note "Note"
+        Returns the friendly model name (e.g., "ThinkPad P1") from WMI.
+
+??? note "Get-LnvMTOSList"
+
+    <a id="get-lnvmtoslist"></a>
+
+    **Purpose:** Get list of Machine Type + OS pairs from the updates tracking database (lnvUpdatesDatabase.json).
+
+    **Syntax:**
+    ```powershell
+    Get-LnvMTOSList [-ListPath <String>]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | ListPath | String | False | Path to folder containing lnvUpdatesDatabase.json (default: C:\ProgramData\Lenovo\ClientScriptingModule) |
+
+    **Examples:**
+
+    ```powershell
+    # Get list from default location
+    Get-LnvMTOSList
+
+    # Get list from custom database location
+    Get-LnvMTOSList -ListPath "C:\ProgramData\Lenovo\ClientScriptingModule"
+    ```
+
+    !!! note "Note"
+        Returns all Machine Type + OS pairs that are being tracked for updates in lnvUpdatesDatabase.json.
+
+??? note "Get-LnvProductNumber"
+
+    <a id="get-lnvproductnumber"></a>
+
+    **Purpose:** Get the 10-character product number of the current device.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvProductNumber
+    ```
+
+    **Parameters:**
+
+    No parameters
+
+    **Examples:**
+
+    ```powershell
+    # Get product number of current device
+    Get-LnvProductNumber
+    ```
+
+    !!! note "Note"
+        Returns the full 10-character product number from WMI.
+
+??? note "Get-LnvSerial"
+
+    <a id="get-lnvserial"></a>
+
+    **Purpose:** Get the serial number of the current device.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvSerial
+    ```
+
+    **Parameters:**
+
+    No parameters
+
+    **Examples:**
+
+    ```powershell
+    # Get serial number of current device
+    Get-LnvSerial
+    ```
+
+    !!! note "Note"
+        Returns the device serial number from WMI.
+
+??? note "Get-LnvUpdate"
+
+    <a id="get-lnvupdate"></a>
+
+    **Purpose:** Search for and download updates to a specified repository folder based on machine type and criteria.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvUpdate -MachineType <String> [-WindowsVersion <String>] [-RepositoryFolder <String>] [-PackageType <String>] [-RebootType <String>] [-Csv] [-Expand]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | MachineType | String | True | 4-character machine type (required) |
+    | WindowsVersion | String | False | "10" or "11" (default: 10) |
+    | RepositoryFolder | String | False | Where to save updates (created if doesn't exist; default: $env:USERPROFILE\Downloads) |
+    | PackageType | String | False | 1=App, 2=Driver, 3=BIOS, 4=Firmware (comma-separated; default: all) |
+    | RebootType | String | False | 1=Forced, 3=Requires reboot, 4=Shutdown, 5=Delayed (comma-separated; default: all) |
+    | Csv | Switch | False | Create CSV file listing downloaded updates in repository folder |
+    | Expand | Switch | False | Extract each update into subfolder named by Package ID |
+
+    **Notes on Parameters:**
+    - Use value "9" to mean "All" for PackageType, RebootType, or Severity
+    - PackageType values: 1=Application, 2=Driver, 3=BIOS, 4=Firmware
+    - RebootType values: 1=Forced reboot, 3=Requires reboot, 4=Forces shutdown, 5=Delayed forced reboot
+    - Severity values: 1=Critical, 2=Recommended, 3=Optional
+
+    **Examples:**
+
+    ```powershell
+    # Download driver updates (PackageType 2) for Win10
+    Get-LnvUpdate -MachineType 20E4 -WindowsVersion 10 -RepositoryFolder "C:\repository" -PackageType 2
+
+    # Shorthand syntax
+    Get-LnvUpdate 20E4 10 "C:\repository"
+
+    # Download to default location
+    Get-LnvUpdate -MachineType 20E6 -RepositoryFolder "C:\repository"
+
+    # Create CSV report and extract each package
+    Get-LnvUpdate -MachineType 20E4 -Csv -Expand
+    ```
+
+    !!! note "Note"
+        The -Csv parameter creates a listing of downloaded updates. The -Expand parameter extracts each update into a subfolder named by Package ID.
+
+??? note "Get-LnvUpdatesNotification"
+
+    <a id="get-lnvupdatesnotification"></a>
+
+    **Purpose:** Display new updates added to tracked System Update catalogs since last check.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvUpdatesNotification [-ListPath <String>] [-ListAll]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | ListPath | String | False | Path to folder containing lnvUpdatesDatabase.json (default: standard location) |
+    | ListAll | Switch | False | Show full list at command prompt instead of grid-view |
+
+    **Examples:**
+
+    ```powershell
+    # Display grid-view of new updates
+    Get-LnvUpdatesNotification
+
+    # Show full list at command prompt
+    Get-LnvUpdatesNotification -ListAll
+
+    # Use custom database location
+    Get-LnvUpdatesNotification -ListPath "C:\CustomPath"
+    ```
+
+    !!! note "Note"
+        Tracks catalogs by CRC (Cyclic Redundancy Check) and identifies new updates since last execution. Grid-view allows clicking an update to view its readme. Requires Add-LnvMTOS to be used first to track models.
+
+??? note "Get-LnvUpdatesRepo"
+
+    <a id="get-lnvupdatesrepo"></a>
+
+    **Purpose:** Create or update a local repository of updates for deployment without Update Retriever.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvUpdatesRepo -RepositoryPath <String> [-MachineType <String>] [-WindowsVersion <String>] [-PackageTypes <String>] [-RebootTypes <String>] [-RT5toRT3] [-PackageList <String>] [-CloudRepo]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | RepositoryPath | String | True | Fully qualified path to repository folder (surround with single quotes) |
+    | MachineType | String | False | 4-character machine type for filtering |
+    | WindowsVersion | String | False | "10" or "11" (default: OS of running machine) |
+    | PackageTypes | String | False | Comma-separated: 1=App, 2=Driver, 3=BIOS, 4=Firmware (default: all) |
+    | RebootTypes | String | False | Comma-separated: 1=Forced, 3=Requires, 4=Shutdown, 5=Delayed (default: all) |
+    | RT5toRT3 | Switch | False | Convert Reboot Type 5 to Type 3 (for task sequences only) |
+    | PackageList | String | False | Comma-separated package IDs to download specific updates |
+    | CloudRepo | Switch | False | Create Lenovo Cloud repo (updates stay on Lenovo servers) |
+
+    **Examples:**
+
+    ```powershell
+    # Create repository with applications and drivers
+    Get-LnvUpdatesRepo -RepositoryPath 'C:\Program Files (x86)\Lenovo\ThinInstaller\Repository' -PackageTypes '1,2' -RebootTypes '0,3'
+
+    # Create cloud repository with reboot type conversion
+    Get-LnvUpdatesRepo -RepositoryPath 'Z:\21DD' -PackageTypes '1,2,3' -RebootTypes '0,3,5' -RT5toRT3 -CloudRepo
+    ```
+
+    !!! warning "RT5toRT3 Conversion"
+        Parameter only works with Thin Installer (breaks XML digital signature). Use Thin Installer v1.04.02.00024+ with -ignorexmlsignature flag when processing converted updates.
+
+??? note "Get-LnvWarranty"
+
+    <a id="get-lnvwarranty"></a>
+
+    **Purpose:** Get the device's available warranty status from WMI.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvWarranty
+    ```
+
+    **Parameters:**
+
+    No parameters
+
+    **Examples:**
+
+    ```powershell
+    # Get warranty status for current device
+    Get-LnvWarranty
+    ```
+
+    !!! note "Note"
+        Requires Commercial Vantage to be installed and configured via group policy to write warranty information to WMI.
+
+??? note "Get-LnvWUFriendlyName (v2.3.0+)"
+
+    <a id="get-lnvwufriendlyname-v230"></a>
+
+    **Purpose:** Return a list of drivers and firmware installed by Windows Update with their friendly names, versions, and installation dates.
+
+    **Syntax:**
+    ```powershell
+    Get-LnvWUFriendlyName [-GridView] [-SortbyInstallDate]
+    ```
+
+    **Parameters:**
+
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | GridView | Switch | False | Display output in Out-GridView window |
+    | SortbyInstallDate | Switch | False | Sort by InstallDate instead of WUName |
+
+    **Examples:**
+
+    ```powershell
+    # Get all Windows Update drivers with friendly names
+    Get-LnvWUFriendlyName
+
+    # Display in grid view sorted by installation date
+    Get-LnvWUFriendlyName -GridView -SortbyInstallDate
+    ```
+
+    !!! info "Attribution"
+            This cmdlet is based on the work of Trevor Jones. Original implementation: [smsagent.blog](https://smsagent.blog/2023/07/07/translating-windows-update-driver-names-to-friendly-driver-names/)
+
+??? note "Invoke-LnvCVLogViewer"
+
+    <a id="invoke-lnvcvlogviewer"></a>
+
+    **Purpose:** Parse and analyze Lenovo Commercial Vantage System Update Addin log files, producing a color-coded, section-by-section summary including session info, scan results, per-package install metrics, errors, and warnings. Supports both the current and legacy log formats, optional output to file, section filtering, and benign-warning suppression.
+
+    **Syntax:**
+    ```powershell
+    Invoke-LnvCVLogViewer -LogFile <String> [-OutputFile <String>] [-Sections <String>] [-Force] [-IncludeBenign]
+    ```
+
+    **Parameters**
 
 	| Parameter | Type | Mandatory |
 	| --- | --- | --- |
-	| Number | Switch | False |
+    | LogFile | string | True |
+    | OutputFile | string | False |
+    | Sections | string | False |
+    | Force | switch | False |
+    | IncludeBenign | switch | False |
 
-	!!! warning
-	    THIS CMDLET REQUIRES ADMIN RIGHTS TO EXECUTE. Make sure the PowerShell session is running with elevated privileges.
+    **LogFile**
 
-### Get-LnvBiosUpdateUrl
+    Path to the Lenovo System Update Addin log file to analyze. The file is expected to follow the naming pattern LenovoSystemUpdateAddin_YYYYMMDD-HHmmss-NNN.log.
 
-: #### Description
+    **OutputFile**
 
-	This command will return the URL to the current BIOS update package for either the specified machine type or for the machine type of the device running the command.
+    Optional path to write a plain-text summary report. If the file already exists the script prompts for confirmation before overwriting unless -Force is also specified.
 
-	#### Parameters
+    **Sections**
 
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| MachineType | String | False |
+    Limit output to one or more specific report sections. Valid values: All, SessionInfo, SystemInfo, UpdateSchedule, ScanResults, InstallResults, Errors, Warnings. Use 'All' to explicitly request every section. If omitted, all sections are displayed.
 
-	#### Example
+    **Force**
 
-	```Get-LnvBiosUpdateUrl -MachineType '21AH'```
+    Overwrite the OutputFile without prompting if it already exists.
 
-	```Get-LnvBiosUpdateUrl```
+    **IncludeBenign**
 
-	!!! note
-		The device must be a Lenovo ThinkPad, ThinkCentre, or ThinkStation.
+    Include known-benign warnings and errors (e.g. assembly load warnings, duplicate database insert attempts) in the Errors & Warnings output. By default these are suppressed and only a total count is shown.
 
-### Get-LnvBiosVersion
+    #### Examples
 
-: #### Description
+    ``` PowerShell
+    Invoke-LnvCVLogViewer -LogFile "C:\logs\LenovoSystemUpdateAddin_20260220-121706-015.log"
+    ```
 
-	Returns the BIOS version in the specified format.
+    Displays all sections in the console.
 
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| Format | String/Decimal | False |
+    ``` PowerShell
+    Invoke-LnvCVLogViewer -LogFile ".\session.log" -OutputFile ".\summary.txt"
+    ```
 
-	!!! note
-		String  : Returns the full string value of SMBIOSBIOSVersion
-	    Decimal : Returns a standard version string in the format of n.nn
+    Displays all sections in the console and writes the summary to summary.txt.
 
-	#### Example
+    ``` PowerShell
+    Invoke-LnvCVLogViewer -LogFile ".\session.log" -Sections SystemInfo,InstallResults
+    ```
 
-	```Get-LnvBiosVersion -Format 'decimal'```
+    Displays only the System Info and Install Results sections.
 
-	```Get-LnvBiosVersion```
+    ``` PowerShell
+    Invoke-LnvCVLogViewer -LogFile ".\session.log" -OutputFile ".\summary.txt" -Force -IncludeBenign
+    ```
 
-	!!! note
-	    This function handles the different methods used to express the BIOS version between ThinkPad and ThinkCentre/ThinkStation. Desktop BIOS will show build number in hex and the 'decimal' format will convert to a standard version string format.
+    Overwrites any existing summary.txt and includes all benign log entries in the output.
 
-	!!! note
-	    If no Format is specified, the function will return the full string of the SMBIOSBIOSVersion value.
+    **Related Cmdlets:**
+    [Invoke-LnvTILogViewer](#invoke-lnvtilogviewer)
 
-### Get-LnvCVE
+??? note "Invoke-LnvTILogViewer"
 
-: #### Description
+    <a id="invoke-lnvtilogviewer"></a>
 
-	Returns a list of the CVE identifiers that are listed as addressed
-	vulnerabilities in the current BIOS update for the specified system. A machine
-	type can be passed as a parameter.  If no parameter is specified, the machine
-	type of the running system will be used. CVE Data may not be available for all
-	machine types.
+    **Purpose:** Analyze log files generated by Lenovo ThinInstaller and provide a human-readable summary of key session details. Supports both the current and legacy log formats, optional output to file, and color-coded console output.
 
-	#### Parameters
+    **Syntax:**
+    ```powershell
+    Invoke-LnvTILogViewer [-LogFile <String>] [-LogDirectory <String>] [-OutputFile <String>] [-Force] [-NoColor]
+    ```
 
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| MachineType | String | False |
-
-	#### Example
-
-	```Get-LnvCVE -MachineType 21DD```
-
-	```Get-LnvCVE```
-
-### Get-LnvDriverPack
-
-: #### Description
-
-	This cmdlet will download the SCCM Driver Pack based on the specified machine type, OS and OS build version. Tab completion can be used to select the OS build version in the correct format. The cmdlet will download the file to the env:TEMP folder by default. The path can be set with the -DownloadPath parameter.
-
-	#### Parameters
+    **Parameters**
 
 	| Parameter | Type | Mandatory |
 	| --- | --- | --- |
-	| MachineType | String | True |
-	| WindowsVersion | String | True |
-	| OSBuildVersion | String | True |
-    | DownloadPath | String | False |
+    | LogFile | string | True |
+    | LogDirectory | string | False |
+    | OutputFile | string | False |
+    | Force | switch | False |
+    | NoColor | switch | False |
 
-	#### Example
+    **LogFile**
 
-	```Get-LnvDriverPack -MachineType 21DD -WindowsVersion 10 -OSBuildVersion 22H2```
+    Path to the Lenovo System Update Addin log file to analyze.
 
-    !!! note
-        The -OSBuildVersion parameter can accept 'Latest' to specify that the latest pack for the specified -WindowsVersion should be downloaded. This cmdlet now uses BITS Transfer to download the pack.
+    **LogDirectory**
 
-### Get-LnvMachineType
+    Path to a directory containing ThinInstaller log files (.txt and .log).
 
-: #### Description
+    **OutputFile**
+    Optional path to write the summary to a plain text file.
 
-	Returns the 4 character machinetype of the running device.
+    **Force**
+    Overwrite the output file without prompting.
 
-	#### Parameters
+    **NoColor**
+    Suppress color output (useful for redirected output).
 
-	None
+    #### Examples
 
-	#### Example
+    ``` PowerShell
+    Invoke-LnvTILogViewer -LogFile "C:\Logs\Update_log_250221164004.txt"
+    ```
 
-	```Get-LnvMachineType```
+    Analyzes the specified log file.
 
-### Get-LnvModelName
+    ``` PowerShell
+    Invoke-LnvTILogViewer -LogDirectory "C:\Logs" -OutputFile "C:\Logs\summary.txt"
+    ```
 
-: #### Description
+    Analyzes all of the log files in the specified log folder and writes the summary to the specified text file.
 
-	Returns the model name of the running device.
+    **Related Cmdlets:**
+    [Invoke-LnvCVLogViewer](#invoke-lnvcvlogviewer)
 
-	#### Parameters
+??? note "Remove-LnvMTOS (v2.3.0+)"
 
-	None
+    <a id="remove-lnvmtos-v230"></a>
 
-	#### Example
+    **Purpose:** Remove a Machine Type + OS combination from the updates database (lnvUpdatesDatabase.json).
 
-	```Get-LnvModelName```
+    **Syntax:**
+    ```powershell
+    Remove-LnvMTOS -MachineType <String> -OS <String> [-ListPath <String>]
+    ```
 
-### Get-LnvMTOSList
+    **Parameters:**
 
-: #### Description
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | MachineType | String | True | 4-character machine type (e.g., "21DD") |
+    | OS | String | True | Operating system to remove ("Win10" or "Win11") |
+    | ListPath | String | False | Path to folder containing lnvUpdatesDatabase.json (default: C:\ProgramData\Lenovo\ClientScriptingModule\) |
 
-    Returns the list of Machine Types + OS pairs in the lnvUpdatesDatabase.json file
+    **Examples:**
 
-    #### Parameters
+    ```powershell
+    # Remove Win11 entries for machine type 21DD
+    Remove-LnvMTOS -MachineType 21DD -OS Win11
 
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| ListPath | String | False |
+    # Remove from custom database location
+    Remove-LnvMTOS -MachineType 11W2 -OS Win11 -ListPath "C:\ProgramData\Lenovo\ClientScriptingModule\"
+    ```
 
-    ##### ListPath
+    **Related Cmdlets:**
+    [Add-LnvMTOS](#add-lnvmtos-v230) | [Get-LnvMTOSList](#get-lnvmtoslist)
 
-    Path to the lnvUpdatesDatabase.json file. Default if not specified will be C:\ProgramData\Lenovo\ClientScriptingModule.
+??? note "Show-LnvApplicableUpdate"
 
-    #### Example
+    <a id="show-lnvapplicableupdate"></a>
 
-    ```Get-LnvMTOSList```
+    **Purpose:** Read update applicability log from Thin Installer or System Update and return applicable package IDs.
 
-### Get-LnvProductNumber
+    **Syntax:**
+    ```powershell
+    Show-LnvApplicableUpdate -Path <String>
+    ```
 
-: #### Description
+    **Parameters:**
 
-	Returns the full 10-character product number of the running device.
+    | Parameter | Type | Mandatory | Description |
+    |-----------|------|-----------|-------------|
+    | Path | String | True | Full path to Update_ApplicabilityRulesTrace.txt or ApplicabilityRulesTrace.txt file |
 
-	#### Parameters
+    **Examples:**
 
-	None
+    ```powershell
+    # Show applicable updates from Thin Installer log
+    Show-LnvApplicableUpdate -Path 'C:\Program Files (x86)\Lenovo\Thin Installer\logs\Update_ApplicabilityRulesTrace.txt'
 
-	#### Example
+    # Show applicable updates from Lenovo System Update log
+    Show-LnvApplicableUpdate -Path 'C:\ProgramData\Lenovo\SystemUpdate\logs\ApplicabilityRulesTrace.txt'
+    ```
 
-	```Get-LnvProductNumber```
-
-### Get-LnvSerial
-
-: #### Description
-
-	Returns the serial number of the running device.
-
-	#### Parameters
-
-	None
-
-	#### Example
-
-	```Get-LnvSerial```
-
-### Get-LnvUpdate
-
-: #### Description
-
-	This script allows users to search for updates that will be downloaded to a folder of their choice.
-
-	- Defaults to Windows 10 updates and a repo folder in downloads if you do not specify
-	- Requires users to enter at least a machine type
-	- Can be called without identifiers so long as you use the right order
-	- If a repository folder is specified that doesn't exist the script will create it
-	- PackageType can be:
-
-	    - 1: Application
-	    - 2: Driver
-	    - 3: Bios
-	    - 4: Firmware
-
-	- RebootType can be:
-
-	    - 1: Forced reboot (update itself initiates the reboot)
-	    - 3: Requires reboot (Thin Installer/System Update/CV initiates the reboot)
-	    - 4: Forces shutdown (update itself initiates shutdown)
-	    - 5: Delayed forced reboot (used for firmware, Thin Installer/System Update/CV will enforce reboot with dialog displaying count-down timer)
-
-	- Severity can be:
-
-	    - 1: Critical
-	    - 2: Recommended
-	    - 3: Optional
-
-	!!! note
-	    9 can be used for these three parameters to represent 'All'
-
-	#### Parameters
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| MachineType | String | True |
-	| WindowsVersion | String | False |
-	| RepositoryFolder | String | False |
-	| PackageType | String | False |
-	| RebootType | String | False |
-    | Csv | Switch | False |
-    | Expand | Switch | False |
-
-	#### Example
-
-	```Get-LnvUpdate -MachineType 20E4 -WindowsVersion 10 -RepositoryFolder "C:\repository" -PackageType 1```
-
-	```Get-LnvUpdate 20E4 10 "C:\repository"```
-
-	```Get-LnvUpdate -MachineType "20E6" -RepositoryFolder "C:\repository"```
-
-    !!! note
-        The -Csv parameter will cause a CSV file to be created in the repository folder listing the updates downloaded. The -Expand parameter will cause each update downloaded to be extracted into a subfolder named using the Package ID of the update.
-
-### Get-LnvUpdatesNotification
-
-: #### Description
-
-    This cmdlet will present a list of any new updates that have been added to the tracked System Update catalogs.  The list is created using the Add-LnvMTOS cmdlet which is also used to add additional models. When this cmdlet runs, it will identify any catalogs which have a different CRC than what was previously seen the last time this cmdlet was executed. Those catalogs with a different CRC will be processed to get a list of new updates. Once all catalogs are processed, the list of new updates, displayed per model, will be returned in a grid-view by default. If you select an update in the grid-view and click OK, the readme for that update will be opened. You can get the full list of new updates directly without the grid-view by specifying the -ListAll parameter. If you are maintaining more than one list you can specify the -ListPath to select the appropriate folder containing the desired lnvUpdatesDatabase.json file.
-
-    #### Parameters
-
-    | Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| ListPath | String | False |
-    | ListAll | Switch | False |
-
-    **ListPath**
-
-    Path to the folder containing the lnvUpdatesDatabase.json file to use.
-
-    **ListAll**
-
-    Show the full list at the command prompt instead of displaying a grid-view.
-
-    #### Example
-
-    ```Get-LnvUpdatesNotification -ListAll```
-
-### Get-LnvUpdatesRepo
-
-: #### Description
-
-	For instances where Update Retriever cannot be used to create the local repository or where full automation of the repository creation is desired. This PowerShell script can be customized and executed on a regular basis to get the latest update packages.
-
-	#### Parameters
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| RepositoryPath | String | True |
-	| MachineType | String | False |
-	| WindowsVersion | String | False |
-	| PackageTypes | String | False |
-	| RebootTypes | String | False |
-	| RT5toRT3 | Switch | False |
-	| PackageList | String | False |
-	| CloudRepo | Switch | False |
-
-	**RepositoryPath**
-
-	Must be a fully qualified path to the folder where the local repository will be saved. Must be surrounded by single quotes.
-
-	**WindowsVersion**
-
-	Must be a string of '10' or '11'. The default if no value is specified will
-	be determined by the OS of the device the script is running on.
-
-	**PackageTypes**
-
-	Must be a string of Package Type integers separated by commas and surrounded by single quotes. The possible values are:
-
-	- 1: Application
-	- 2: Driver
-	- 3: Bios
-	- 4: Firmware
-
-	The default if no value is specified will be all package types.
-
-	**RebootTypes**
-
-	Must be a string of integers, separated by commas, representing the different boot types and surrounded by single quotes:
-
-	- 1: Forced reboot (update itself initiates the reboot)
-	- 3: Requires reboot (Thin Installer/System Update/CV initiates the reboot)
-	- 4: Forces shutdown (update itself initiates shutdown)
-	- 5: Delayed forced reboot (used for firmware, Thin Installer/System Update/CV will enforce reboot with dialog displaying count-down timer)
-
-	The default if no value is specified will be all RebootTypes.
-
-	**RT5toRT3**
-
-	Specify this parameter if you want to convert Reboot Type 5 (Delayed Forced Reboot) packages to be Reboot Type 3 (Requires Reboot). Only do this in task sequence scenarios where a Restart can be performed after the Thin Installer task. Use the -noreboot parameter on the Thin Installer command line to suppress reboot to allow the task sequence to control the restart.
-
-	!!! warning
-        This parameter can only be used when **Thin Installer** will be processing the updates in the repository because changing the reboot type will break the XML digital signature. When using version **1.04.02.00024** or later of Thin Installer, you must also specify the **-ignorexmlsignature** to ensure Thin Installer does not skip the updates that have been altered.
-
-	**PackageList**
-
-	Specify a list of updates by their package IDs which can be obtained using Update Retriever. One or more updates can be specified, separated by a comma.
-
-    **CloudRepo**
-
-	Specify this parameter to cause the local repository to be created as a "Lenovo Cloud repo" which means the update package itself will be left on Lenovo's servers and only the package descriptor XML and any external detection routines will be downloaded.
-
-	#### Example
-
-	``` PowerShell
-	Get-LnvUpdatesRepo -RepositoryPath 'C:\Program Files (x86)\Lenovo\ThinInstaller\Repository' -PackageTypes '1,2' -RebootTypes '0,3'
-	```
-
-	``` PowerShell
-	Get-LnvUpdatesRepo -RepositoryPath 'Z:\21DD' -PackageTypes '1,2,3' -RebootTypes '0,3,5' -RT5toRT3 -CloudRepo
-	```
-
-### Get-LnvWarranty
-
-: #### Description
-
-	Returns the devices available warranty status. This requires that Commercial Vantage be installed and configured through group policy to write warranty information to WMI.
-
-	#### Parameters
-
-	None
-
-	#### Example
-
-	```Get-LnvWarranty```
-
-### Get-LnvWUFriendlyName
-
-: #### Description
-
-    This cmdlet will return a list of drivers and firmware that were applied by Windows Update and will show the title used by Windows Update and the more useful friendly name used by Lenovo. This cmdlet will also return the version and install date of the driver or firmware that was applied by Windows Update. The output will only include information about drivers that
-    are currently active. Windows Update History may show multiple entries for the same driver or firmware, but this cmdlet will only return the most recent version of each driver or firmware. It will also only return information about drivers for components currently attached and not for components that have been removed or are not currently attached.
-
-    *** ATTRIBUTION ***
-    This cmdlet is based on the work of Trevor Jones and the original can be found on his blog at [smsagent.blog](https://smsagent.blog/2023/07/07/translating-windows-update-driver-names-to-friendly-driver-names/)
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| GridView | Switch | False |
-    | SortbyInstallDate | Switch | False |
-
-    **GridView**
-
-    If specified, the output will be displayed in an Out-GridView window.
-
-    **SortbyInstallDate**
-
-    If specified, the output will be sorted by InstallDate instead of WUName.
-
-    #### Example
-
-    ```Get-LnvWUFriendlyNames -GridView -SortbyInstallDate```
-
-### Remove-LnvMTOS
-
-: #### Description
-
-    This cmdlet removes models and their updates from the machine updates database (lnvUpdatesDatabase.json) based on specified Machine Type and OS parameters. This cmdlet requires the appropriate parameters such as machine type, os, and path. If the ListPath is not specified the default path will be searched. If specified MT+OS pair is found in the database file, it will be removed. If the MT+OS pair is not found, it will return a message indicating that no machine was found with the specified criteria.
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| Path | String | True |
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-	| MachineType | String | True |
-    | OS | String | True |
-    | ListPath | String | True |
-
-    **MachineType**
-
-    The four-character Machine Type to search for (e.g., "21DD").
-
-    **OS**
-
-    The operating system to search for. Use tab complete to select from OS options ("Win10", "Win11").
-
-    **ListPath**
-
-    Set the file path where the json file is stored. Or it will searh by default at "C:\ProgramData\Lenovo\ClientScriptingModule\lnvUpdatesDatabase.json."
-
-    #### Example
-
-    ```Remove-LnvMTOS -MachineType 11W2 -OS Win11 -Path "C:\ProgramData\Lenovo\ClientScriptingModule\lnvUpdatesDatabase.json"```
-
-### Show-LnvApplicableUpdate
-
-: #### Description
-
-	Read an Update_ApplicabilityRulesTrace.txt from Thin Installer or ApplicabilityRulesTrace.txt from Lenovo System Update and show list of package IDs that are applicable.  This output string can be passed to the Get-LnvUpdatesRepo cmdlet in the -PackageList parameter to create a local repository of just the specified updates.
-
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
-    | Path | String | True |
-
-    **Path**
-
-    The full path to the Update_ApplicabilityRulesTrace.txt or ApplicabilityRulesTrace.txt file to be read.
-
-	#### Example
-
-	```Show-LnvApplicableUpdate -Path 'c:\Program Files (x86)\Lenovo\Thin Installer\logs\Update_ApplicabilityRulesTrace.txt'```
+    !!! note "Note"
+    Output can be piped to Get-LnvUpdatesRepo -PackageList parameter to create repository with only applicable updates.
