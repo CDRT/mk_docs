@@ -179,6 +179,8 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 | Get-LnvUpdatesRepo | Updates | Build local or cloud update repository | 1.0.0 |
 | Get-LnvWarranty | Warranty | Get warranty information from WMI | 2.0.0 |
 | Get-LnvWUFriendlyName | Hardware | Get Windows Update driver names and versions | 2.3.0 |
+| Invoke-LnvCVLogViewer | Utilities | Parse and analyze Commercial Vantage System Update Addin log files with color-coded summaries | 2.4.0 |
+| Invoke-LnvTILogViewer | Utilities | Parse Lenovo ThinInstaller log files and produce concise summaries | 2.4.0 |
 | Remove-LnvMTOS | Updates | Remove Machine Type + OS from tracking database | 2.3.0 |
 | Show-LnvApplicableUpdate | Utilities | Get applicable updates from trace log | 1.0.0 |
 
@@ -244,7 +246,7 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 ??? note "Module Won't Import"
     
 
-    **Error:** The term 'Lenovo.Client.Scripting' is not recognized
+    **Error:** `The term 'Lenovo.Client.Scripting' is not recognized`
 
     **Solutions:**
 
@@ -761,7 +763,7 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     ```
 
     !!! note "Note"
-    WindowsVersion is optional; if not specified and BIOS update not found in Win11 catalog, checks Win10 catalog. When omitted, uses system's detected OS and compares availability.
+        WindowsVersion is optional; if not specified and BIOS update not found in Win11 catalog, checks Win10 catalog. When omitted, uses system's detected OS and compares availability.
 
 ??? note "Get-LnvBatteryInfo"
 
@@ -795,7 +797,7 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     ```
 
     !!! note "Note"
-            Uses deprecated Get-WmiObject due to compatibility issues with Get-CimInstance and Win32_Battery class. Systems with multiple batteries return multiple objects.
+        Uses deprecated Get-WmiObject due to compatibility issues with Get-CimInstance and Win32_Battery class. Systems with multiple batteries return multiple objects.
 
 ??? note "Get-LnvBiosCode"
 
@@ -1316,7 +1318,7 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     ```
 
     !!! info "Attribution"
-            This cmdlet is based on the work of Trevor Jones. Original implementation: [smsagent.blog](https://smsagent.blog/2023/07/07/translating-windows-update-driver-names-to-friendly-driver-names/)
+        This cmdlet is based on the work of Trevor Jones. Original implementation: [smsagent.blog](https://smsagent.blog/2023/07/07/translating-windows-update-driver-names-to-friendly-driver-names/)
 
 ??? note "Invoke-LnvCVLogViewer"
 
@@ -1503,4 +1505,4 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     ```
 
     !!! note "Note"
-    Output can be piped to Get-LnvUpdatesRepo -PackageList parameter to create repository with only applicable updates.
+        Output can be piped to Get-LnvUpdatesRepo -PackageList parameter to create repository with only applicable updates.
