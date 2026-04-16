@@ -1,10 +1,15 @@
+---
+title: Set-LnvUpdateConfiguration
+description: Configure global Lenovo update module settings
+---
+
 # Set-LnvUpdateConfiguration
 
-Configure global Lenovo update module settings.
+Modifies global configuration settings for the Lenovo.Client.Update module.
 
 ## Synopsis
 
-Sets global configuration options for LenovoUpdate that may affect multiple cmdlets.
+Sets global options that affect multiple cmdlets, including proxy behavior, credential handling, and operation timeouts.
 
 ## Syntax
 
@@ -20,52 +25,113 @@ Set-LnvUpdateConfiguration [-Proxy <Uri>] [-ProxyCredential <PSCredential>]
 
 ## Description
 
-Modifies the global configuration settings for the Lenovo.Client.Update module. These settings apply to multiple cmdlets and control behavior such as proxy usage, credential handling, and timeout limits for various operations.
+`Set-LnvUpdateConfiguration` modifies the global module configuration that applies across all Lenovo.Client.Update cmdlets. Configuration options control:
 
-You can set configuration options individually using parameter names, or import an entire configuration object using the `-InputObject` parameter. This allows you to easily save and restore configuration states.
+- Proxy server and authentication settings
+- Timeout limits for various operations (detection, extraction, installation)
+- Default repository locations
+- Credential handling
+
+You can set individual options using parameter names, or import an entire configuration object using `-InputObject`. This allows saving and restoring complete configuration states.
 
 ## Parameters
 
 | Parameter | Type | Description |
 |-----------|------|-------------|
-| `-InputObject` | LnvUpdateConfiguration | A complete configuration object to import and apply. Use with [Get-LnvUpdateConfiguration](get-lnvupdateconfiguration.md) to save/restore configurations. |
-| `-Proxy` | Uri | Set the default proxy URL for all cmdlets. Pass `$null` to disable proxy settings. |
-| `-ProxyCredential` | PSCredential | Specifies the default proxy user account credentials for all cmdlets. |
-| `-ProxyUseDefaultCredential` | bool | When `$true`, uses the credentials of the current user to access the proxy server by default. |
-| `-MaxExternalDetectionRuntime` | TimeSpan | Sets a time limit for how long external detection processes can run before they're forcefully stopped. Use `[TimeSpan]::Zero` to disable the limit. |
-| `-MaxExtractRuntime` | TimeSpan | Sets a time limit for how long package extractions can run before they're forcefully stopped. |
-| `-MaxInstallerRuntime` | TimeSpan | Sets a time limit for how long package installers can run before they're forcefully stopped. **Note:** This limit is not applied to firmware or BIOS/UEFI updates as a safety measure. |
+| `-InputObject` | LnvUpdateConfiguration | Complete configuration object (use with `Get-LnvUpdateConfiguration` to save/restore configs) |
+| `-Proxy` | Uri | Default proxy URL for all cmdlets. Pass `$null` to disable. |
+| `-ProxyCredential` | PSCredential | Default proxy user account credentials. |
+| `-ProxyUseDefaultCredential` | bool | When `$true`, uses current user credentials for proxy by default. |
+| `-MaxExternalDetectionRuntime` | TimeSpan | Time limit for external detection processes. Use `[TimeSpan]::Zero` to disable. |
+| `-MaxExtractRuntime` | TimeSpan | Time limit for package extraction operations. |
+| `-MaxInstallerRuntime` | TimeSpan | Time limit for package installers. **Note:** Not applied to firmware or BIOS updates for safety. |
 
 ## Examples
 
-### Example 1: Disable External Detection Runtime Limit
+### Example 1: Disable external detection timeout
 
 ```powershell
 Set-LnvUpdateConfiguration -MaxExternalDetectionRuntime ([TimeSpan]::Zero)
 ```
 
-Removes the time limit for external detection processes.
+Removes time limits on external detection processes.
 
-### Example 2: Set Maximum Installer Runtime
+### Example 2: Set maximum installer runtime
 
 ```powershell
 Set-LnvUpdateConfiguration -MaxInstallerRuntime (New-TimeSpan -Minutes 20)
 ```
 
-Limits package installers to a maximum runtime of 20 minutes.
+Limits installers to maximum 20-minute runtime.
 
+### Example 3: Configure proxy settings
 
-### Example 3: Apply a Saved Configuration
+```powershell
+$cred = Get-Credential
+Set-LnvUpdateConfiguration -Proxy "http://proxy.example.com:8080" -ProxyCredential $cred
+```
+
+Sets proxy server and authentication credentials for all cmdlets.
+
+### Example 4: Use default credentials for proxy
+
+```powershell
+Set-LnvUpdateConfiguration -Proxy "http://proxy.example.com:8080" `
+                           -ProxyUseDefaultCredential $true
+```
+
+Configures proxy to use current user's Windows credentials automatically.
+
+### Example 5: Save and restore configuration
+
+```powershell
+# Save current configuration
+$config = Get-LnvUpdateConfiguration
+$config | Export-Clixml -Path "C:\Backups\LnvConfig.xml"
+
+# Later, restore the configuration
+$savedConfig = Import-Clixml -Path "C:\Backups\LnvConfig.xml"
+Set-LnvUpdateConfiguration -InputObject $savedConfig
+```
+
+Demonstrates saving and restoring configuration state.
+
+### Example 6: Modify and apply configuration
 
 ```powershell
 $config = Get-LnvUpdateConfiguration
-# ... make modifications to $config ...
+$config.MaxExtractRuntime = (New-TimeSpan -Minutes 15)
+$config.MaxInstallerRuntime = (New-TimeSpan -Minutes 30)
 $config | Set-LnvUpdateConfiguration
 ```
 
-Retrieves the current configuration, modifies it, and applies the changes back using pipeline input.
+Retrieves current config, modifies it, and applies changes via pipeline.
 
+## Output
 
+This cmdlet does not return objects. Changes are applied immediately to global module state.
+
+## Notes
+
+### Timeout Settings
+
+- Use `[TimeSpan]::Zero` to disable a timeout
+- Timeouts are per-operation, not per-package
+- BIOS and firmware installer timeouts are not applied for safety reasons
+- Very short timeouts may cause legitimate operations to fail
+
+### Proxy Authentication
+
+- If `-ProxyCredential` is set, it's used for all proxy connections
+- `-ProxyUseDefaultCredential` uses the logged-in user's Windows credentials
+- If both are set, `-ProxyCredential` takes precedence
+- Credentials are stored in the module configuration (consider security implications)
+
+### Configuration Scope
+
+- Settings are stored per-user in the user's PowerShell profile directory
+- Settings persist across PowerShell sessions
+- Use `-InputObject` to apply the same configuration to multiple machines
 
 ## See Also
 

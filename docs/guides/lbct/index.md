@@ -1,8 +1,11 @@
-# Lenovo BIOS Certificate Tool and Module
+---
+title: Lenovo BIOS Certificate Tool
+description: PowerShell-based solution for certificate-based BIOS authentication on Lenovo commercial PCs.
+---
 
-## Overview
+# Lenovo BIOS Certificate Tool
 
-The Lenovo BIOS Certificate Tool and Module is a PowerShell-based solution for working with certificate-based BIOS authentication on supported Lenovo commercial PC products.
+The Lenovo BIOS Certificate Tool and Module is a PowerShell-based solution for working with certificate-based BIOS authentication on supported Lenovo commercial PC products. Certificate-based BIOS authentication eliminates the need for a plain-text supervisor password, providing enhanced security for BIOS settings and system configuration management.
 
 ## Installation
 
@@ -16,8 +19,8 @@ Install-Script 'LnvBiosCertInterface'
 
 This will install the script to the default script path:
 
-- Windows PowerShell v5: `C:\Users\ {your user name} \WindowsPowerShell\Scripts`
-- PowerShell v7: `C:\Users\ {your user name} \Documents\PowerShell\Scripts`
+- Windows PowerShell v5: `C:\Users\{your user name}\WindowsPowerShell\Scripts`
+- PowerShell v7: `C:\Users\{your user name}\Documents\PowerShell\Scripts`
 
 If this is the first time installing a script from the PowerShell Gallery, you will be given the option to establish the default script path and add it to the PATH environment variable.
 
@@ -39,3 +42,7 @@ For a detailed view of how to get started using this solution with Lenovo commer
 
 - [Getting Started Guide](https://blog.lenovocdrt.com/certificate-based-bios-authentication/)
 - [Module Cmdlet Reference](./lbc_module_reference.md)
+
+## Integration with Think BIOS Config Tool V2
+
+The Lenovo BIOS Certificate Tool works alongside the [Think BIOS Config Tool V2](/guides/tbct_v2/tbct_v2_top.md) to provide a complete password-less BIOS management solution. While LBCT handles certificate-based authentication and WMI command execution, TBCT v2 provides configuration templates and deployment guidance.

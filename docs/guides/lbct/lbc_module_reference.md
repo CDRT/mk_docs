@@ -1,10 +1,32 @@
+---
+title: Lenovo BIOS Certificates Module Reference
+description: Complete reference for the Lenovo.Bios.Certificates PowerShell module cmdlets, parameters, and usage patterns.
+---
+
 # Lenovo BIOS Certificates PowerShell Module Reference
 
-- **Module:** Lenovo.Bios.Certificates
-- **Version:** 1.0.8
-- **Author:** Devin McDermott
-- **Company:** Lenovo
-- **Description:** This PowerShell module provides easy access to the Lenovo Certificate WMI classes.
+<table>
+<tr>
+<td><strong>Module</strong></td>
+<td>Lenovo.Bios.Certificates</td>
+</tr>
+<tr>
+<td><strong>Version</strong></td>
+<td>1.0.8</td>
+</tr>
+<tr>
+<td><strong>Author</strong></td>
+<td>Devin McDermott</td>
+</tr>
+<tr>
+<td><strong>Company</strong></td>
+<td>Lenovo</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>PowerShell module providing secure access to Lenovo Certificate WMI classes for BIOS certificate management</td>
+</tr>
+</table>
 
 ---
 
@@ -22,308 +44,338 @@ The Lenovo BIOS Certificates module enables secure management of BIOS settings a
 
 ## Exported Cmdlets
 
-### 1. Get-LnvSignedWmiCommand
+### Quick Reference
 
-**Synopsis:** Creates the WMI parameter for the specified class with the signature from your private key.
+| Cmdlet | Purpose |
+|--------|---------|
+| `Get-LnvSignedWmiCommand` | Generate signed WMI commands for BIOS operations |
+| `Submit-LnvBiosChange` | Execute a signed WMI command on the device |
+| `Submit-LnvBiosConfigFile` | Apply multiple signed commands from a file |
+| `Convert-LnvBiosConfigFile` | Convert BIOS settings file to signed commands |
+| `Set-LnvBiosCertificate` | Install or update a BIOS certificate |
+| `Get-LnvUnlockCode` | Decrypt unlock code from an unlock file |
+| `Test-LnvCheckForAzureModule` | Verify Azure module installation |
 
-**Description:** This cmdlet makes the appropriate parameter for the specified method. Required parameters are the KeyFile location (or Azure Key Vault details) and the Method name. Other parameters will be determined based on the Method parameter.
 
-**Parameters:**
+### Cmdlet Reference
 
-| Parameter | Type | Required | Parameter Set | Description |
-|-----------|------|----------|---------------|-------------|
-| KeyFile | String | Yes | LocalFile | The location of the private key you wish to use to sign the command |
-| VaultName | String | Yes | Azure | The name of the Azure Key Vault containing the key |
-| KeyName | String | Yes | Azure | The name of the key in Azure Key Vault |
-| Method | String | Yes | Both | The name of the class that you wish to use |
-| SettingName | String | Conditional | Both | Method: SetBiosSetting - The name of the setting you wish to change |
-| SettingValue | String | Conditional | Both | Method: SetBiosSetting - The value of the setting you wish to change |
-| MachineSerial | String | Conditional | Both | Method: ClearBiosCertificate - The serial of the machine which you want to clear the certificate from |
-| Password | String | Conditional | Both | Method: ChangeBiosCertificateToPassword - The password that you want to set instead of the current certificate |
-| NewCertFile | String | Conditional | Both | Method: UpdateBiosCertificate - The new certificate file to replace the one currently set |
-| FunctionName | String | Conditional | Both | Method: SetFunctionRequest - The name of the function you wish to call |
-| FunctionValue | String | Conditional | Both | Method: SetFunctionRequest - The value of the function call |
+??? note "Get-LnvSignedWmiCommand"
 
-**Valid Methods:**
+    **Synopsis:** Creates the WMI parameter for the specified class with the signature from your private key.
 
-- `SetBiosSetting` - Set a BIOS setting
-- `SaveBiosSettings` - Save BIOS settings
-- `ClearBiosCertificate` - Clear BIOS certificate
-- `ChangeBiosCertificateToPassword` - Change certificate authentication to password
-- `LoadDefaultSettings` - Load default BIOS settings
-- `LoadFactoryDefaultSettings` - Load factory default settings
-- `UpdateBiosCertificate` - Update BIOS certificate
-- `SetFunctionRequest` - Execute a specific function request
-- `LoadCustomDefaultSettings` - Load custom default settings
-- `SaveCustomDefaultSettings` - Save custom default settings
+    **Description:** This cmdlet makes the appropriate parameter for the specified method. Required parameters are the KeyFile location (or Azure Key Vault details) and the Method name. Other parameters will be determined based on the Method parameter.
 
-**Valid Function Names for SetFunctionRequest:**
+    **Parameters:**
 
-- `ClearSecurityChip`
-- `ResetFingerprintData`
-- `ResettoSetupMode`
-- `RestoreFactoryKeys`
-- `ClearAllSecureBootKeys`
-- `ResetSystemToFactoryDefaults`
+    | Parameter | Type | Required | Parameter Set | Description |
+    |-----------|------|----------|---------------|-------------|
+    | KeyFile | String | Yes | LocalFile | The location of the private key you wish to use to sign the command |
+    | VaultName | String | Yes | Azure | The name of the Azure Key Vault containing the key |
+    | KeyName | String | Yes | Azure | The name of the key in Azure Key Vault |
+    | Method | String | Yes | Both | The name of the class that you wish to use |
+    | SettingName | String | Conditional | Both | Method: SetBiosSetting - The name of the setting you wish to change |
+    | SettingValue | String | Conditional | Both | Method: SetBiosSetting - The value of the setting you wish to change |
+    | MachineSerial | String | Conditional | Both | Method: ClearBiosCertificate - The serial of the machine which you want to clear the certificate from |
+    | Password | String | Conditional | Both | Method: ChangeBiosCertificateToPassword - The password that you want to set instead of the current certificate |
+    | NewCertFile | String | Conditional | Both | Method: UpdateBiosCertificate - The new certificate file to replace the one currently set |
+    | FunctionName | String | Conditional | Both | Method: SetFunctionRequest - The name of the function you wish to call |
+    | FunctionValue | String | Conditional | Both | Method: SetFunctionRequest - The value of the function call |
 
-**Examples:**
+    **Valid Methods:**
 
-```powershell
-# Set a BIOS setting using local key file
-Get-LnvSignedWmiCommand -Method SetBiosSetting -KeyFile "C:\Keys\private.pem" -SettingName "WakeOnLAN" -SettingValue "Enable"
+    | Method | Description |
+    |--------|-------------| 
+    | `SetBiosSetting` | Set a BIOS setting |
+    | `SaveBiosSettings` | Save BIOS settings to persist changes |
+    | `ClearBiosCertificate` | Clear BIOS certificate from the device |
+    | `ChangeBiosCertificateToPassword` | Replace certificate authentication with password |
+    | `LoadDefaultSettings` | Load default BIOS settings |
+    | `LoadFactoryDefaultSettings` | Load factory default BIOS settings |
+    | `UpdateBiosCertificate` | Update BIOS certificate with a new certificate |
+    | `SetFunctionRequest` | Execute a specific function request |
+    | `LoadCustomDefaultSettings` | Load custom default BIOS settings |
+    | `SaveCustomDefaultSettings` | Save current settings as custom defaults |
 
-# Save BIOS settings using Azure Key Vault
-Get-LnvSignedWmiCommand -Method SaveBiosSettings -VaultName "MyVault" -KeyName "MySigningKey"
+    **Valid Function Names for SetFunctionRequest:**
 
-# Clear BIOS certificate
-Get-LnvSignedWmiCommand -Method ClearBiosCertificate -KeyFile "C:\Keys\private.pem" -MachineSerial "PC123456"
+    | Function | Description |
+    |----------|-------------| 
+    | `ClearSecurityChip` | Clear the security chip on the device |
+    | `ResetFingerprintData` | Reset fingerprint sensor data |
+    | `ResettoSetupMode` | Reset system to BIOS setup mode |
+    | `RestoreFactoryKeys` | Restore factory default Secure Boot keys |
+    | `ClearAllSecureBootKeys` | Clear all Secure Boot keys |
+    | `ResetSystemToFactoryDefaults` | Reset entire system to factory defaults |
 
-# Change certificate to password authentication
-Get-LnvSignedWmiCommand -Method ChangeBiosCertificateToPassword -KeyFile "C:\Keys\private.pem" -Password "MySecurePassword"
+    **Examples:**
 
-# Update BIOS certificate
-Get-LnvSignedWmiCommand -Method UpdateBiosCertificate -KeyFile "C:\Keys\private.pem" -NewCertFile "C:\Certs\newcert.pem"
+    ```powershell
+    # Set a BIOS setting using local key file
+    Get-LnvSignedWmiCommand -Method SetBiosSetting -KeyFile "C:\Keys\private.pem" -SettingName "WakeOnLAN" -SettingValue "Enable"
 
-# Execute function request
-Get-LnvSignedWmiCommand -Method SetFunctionRequest -KeyFile "C:\Keys\private.pem" -FunctionName "ClearSecurityChip" -FunctionValue "Yes"
-```
+    # Save BIOS settings using Azure Key Vault
+    Get-LnvSignedWmiCommand -Method SaveBiosSettings -VaultName "MyVault" -KeyName "MySigningKey"
 
-**Output:** Returns a signed WMI command string that can be used with `Submit-LnvBiosChange`.
+    # Clear BIOS certificate
+    Get-LnvSignedWmiCommand -Method ClearBiosCertificate -KeyFile "C:\Keys\private.pem" -MachineSerial "PC123456"
 
----
+    # Change certificate to password authentication
+    Get-LnvSignedWmiCommand -Method ChangeBiosCertificateToPassword -KeyFile "C:\Keys\private.pem" -Password "MySecurePassword"
 
-### 2. Submit-LnvBiosChange
+    # Update BIOS certificate
+    Get-LnvSignedWmiCommand -Method UpdateBiosCertificate -KeyFile "C:\Keys\private.pem" -NewCertFile "C:\Certs\newcert.pem"
 
-**Synopsis:** Calls a WMI method with the provided parameters.
+    # Execute function request
+    Get-LnvSignedWmiCommand -Method SetFunctionRequest -KeyFile "C:\Keys\private.pem" -FunctionName "ClearSecurityChip" -FunctionValue "Yes"
+    ```
 
-**Description:** Sends an invoke command to the specified class with the provided parameters.
+    **Output:** Returns a signed WMI command string formatted as `ClassName[,Parameters]` (e.g., `Lenovo_SetBiosSetting,WakeOnLAN,Enable`). This string can be passed directly to `Submit-LnvBiosChange`. The signature ensures that the command can only be executed if it was properly signed with the corresponding certificate installed on the device.
 
-**Parameters:**
+??? note "Submit-LnvBiosChange"
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| Command | String | Yes | A string generated by Get-LnvSignedWmiCommand or a string in the format ClassName[,Parameters] |
+    **Synopsis:** Calls a WMI method with the provided parameters.
 
-**Examples:**
+    **Description:** Sends an invoke command to the specified class with the provided parameters.
 
-```powershell
-# Using a signed command from Get-LnvSignedWmiCommand
-$signedCommand = Get-LnvSignedWmiCommand -Method SetBiosSetting -KeyFile "C:\Keys\private.pem" -SettingName "WakeOnLAN" -SettingValue "Enable"
-Submit-LnvBiosChange -Command $signedCommand
+    **Parameters:**
 
-# Using direct command format
-Submit-LnvBiosChange -Command "Lenovo_SetBiosSetting,WakeOnLAN,Enable"
-```
+    | Parameter | Type | Required | Description |
+    |-----------|------|----------|-------------|
+    | Command | String | Yes | A string generated by Get-LnvSignedWmiCommand or a string in the format ClassName[,Parameters] |
 
----
+    **Examples:**
 
-### 3. Submit-LnvBiosConfigFile
+    ```powershell
+    # Using a signed command from Get-LnvSignedWmiCommand
+    $signedCommand = Get-LnvSignedWmiCommand -Method SetBiosSetting -KeyFile "C:\Keys\private.pem" -SettingName "WakeOnLAN" -SettingValue "Enable"
+    Submit-LnvBiosChange -Command $signedCommand
 
-**Synopsis:** Applies all signed commands in a file to the machine.
+    # Using direct command format (ClassName[,Parameters])
+    Submit-LnvBiosChange -Command "Lenovo_SetBiosSetting,WakeOnLAN,Enable"
+    ```
 
-**Description:** Reads the file with signed WMI commands and applies each one to the machine.
+    **Direct Command Format:** Commands can be submitted in the format `ClassName[,Parameters]`, where the class name is typically `Lenovo_SetBiosSetting` or another Lenovo BIOS WMI class name. Parameters are comma-separated and must match the expected signature. This format is useful when building commands programmatically or from configuration files.
 
-**Parameters:**
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| ConfigFile | String | Yes | The path to the config file containing signed commands |
+??? note "Submit-LnvBiosConfigFile"
 
-**Examples:**
+    **Synopsis:** Applies all signed commands in a file to the machine.
 
-```powershell
-Submit-LnvBiosConfigFile -ConfigFile "C:\Config\SignedCommands.ini"
-```
+    **Description:** Reads the file with signed WMI commands and applies each one to the machine.
 
-**File Format:** The config file should contain one signed WMI command per line, typically generated by `Convert-LnvBiosConfigFile`.
+    **Parameters:**
 
----
+    | Parameter | Type | Required | Description |
+    |-----------|------|----------|-------------|
+    | ConfigFile | String | Yes | The path to the config file containing signed commands |
 
-### 4. Convert-LnvBiosConfigFile
+    **Examples:**
 
-**Synopsis:** Converts a BIOS configuration file into signed WMI commands.
+    ```powershell
+    Submit-LnvBiosConfigFile -ConfigFile "C:\Config\SignedCommands.ini"
+    ```
 
-**Description:** Takes a configuration file with BIOS settings and converts each setting into a signed WMI command using the specified private key or Azure Key Vault key.
+    **File Format:** The config file should contain one signed WMI command per line, typically generated by `Convert-LnvBiosConfigFile`.
 
-**Parameters:**
+??? note "Convert-LnvBiosConfigFile"
 
-| Parameter | Type | Required | Parameter Set | Description |
-|-----------|------|----------|---------------|-------------|
-| ConfigFile | String | Yes | Both | The path to the configuration file |
-| KeyFile | String | Yes | LocalFile | The path to the private key file |
-| VaultName | String | Yes | Azure | The name of the Azure Key Vault |
-| KeyName | String | Yes | Azure | The name of the key in Azure Key Vault |
-| OutFileName | String | No | Both | Optional output file name (defaults to "Signed" + original filename) |
+    **Synopsis:** Converts a BIOS configuration file into signed WMI commands.
 
-**Examples:**
+    **Description:** Takes a configuration file with BIOS settings and converts each setting into a signed WMI command using the specified private key or Azure Key Vault key.
 
-```powershell
-# Convert config file using local key
-Convert-LnvBiosConfigFile -ConfigFile "C:\Config\BiosSettings.ini" -KeyFile "C:\Keys\private.pem" -OutFileName "SignedSettings.ini"
+    **Parameters:**
 
-# Convert config file using Azure Key Vault
-Convert-LnvBiosConfigFile -ConfigFile "C:\Config\BiosSettings.ini" -VaultName "MyVault" -KeyName "MySigningKey"
-```
+    | Parameter | Type | Required | Parameter Set | Description |
+    |-----------|------|----------|---------------|-------------|
+    | ConfigFile | String | Yes | Both | The path to the configuration file |
+    | KeyFile | String | Yes | LocalFile | The path to the private key file |
+    | VaultName | String | Yes | Azure | The name of the Azure Key Vault |
+    | KeyName | String | Yes | Azure | The name of the key in Azure Key Vault |
+    | OutFileName | String | No | Both | Optional output file name (defaults to "Signed" + original filename) |
 
-**Input File Format:** The configuration file should contain settings in the format:
+    **Examples:**
 
-```text
-SettingName,SettingValue
-WakeOnLAN,Enable
-SecureBoot,Disable
-```
+    ```powershell
+    # Convert config file using local key
+    Convert-LnvBiosConfigFile -ConfigFile "C:\Config\BiosSettings.ini" -KeyFile "C:\Keys\private.pem" -OutFileName "SignedSettings.ini"
 
----
+    # Convert config file using Azure Key Vault
+    Convert-LnvBiosConfigFile -ConfigFile "C:\Config\BiosSettings.ini" -VaultName "MyVault" -KeyName "MySigningKey"
+    ```
 
-### 5. Get-LnvUnlockCode
+    **Input File Format:** The configuration file should contain settings in the format:
 
-**Synopsis:** Retrieves the unlock code from an unlock file.
+    ```text
+    SettingName,SettingValue
+    WakeOnLAN,Enable
+    SecureBoot,Disable
+    ```
+    **Output:** Generates a new file with the same name prefixed with "Signed" (or the specified OutFileName) containing the signed WMI commands corresponding to each setting.
 
-**Description:** Retrieves the unlock code from an unlock file using the specified private key.
+??? note "Set-LnvBiosCertificate"
 
-**Parameters:**
+    **Synopsis:** Sets a BIOS certificate on the system.
 
-| Parameter | Type | Required | Parameter Set | Description |
-|-----------|------|----------|---------------|-------------|
-| UnlockFile | String | Yes | Both | The path to the unlock file |
-| KeyFile | String | Yes | LocalFile | The path to the private key file |
-| VaultName | String | No | Azure | The name of the Azure Key Vault |
-| KeyName | String | No | Azure | The name of the key in Azure Key Vault |
+    **Description:** Installs or updates a BIOS certificate from either a local file or Azure Key Vault.
 
-**Examples:**
+    **Parameters:**
 
-```powershell
-# Get unlock code using local key file
-Get-LnvUnlockCode -UnlockFile "C:\Unlock\unlock.dat" -KeyFile "C:\Keys\private.pem"
+    | Parameter | Type | Required | Parameter Set | Description |
+    |-----------|------|----------|---------------|-------------|
+    | CertFile | String | Yes | LocalFile | The path to the certificate file |
+    | VaultName | String | Yes | Azure | The name of the Azure Key Vault |
+    | VaultCertificateName | String | Yes | Azure | The name of the certificate in Azure Key Vault |
+    | Pass | String | No | Both | Optional password for the certificate |
+    | CertType | String | No | Both | Certificate type: "Unspecified", "SVC", or "SMC" |
 
-# Get unlock code using Azure Key Vault
-Get-LnvUnlockCode -UnlockFile "C:\Unlock\unlock.dat" -VaultName "MyVault" -KeyName "MySigningKey"
-```
+    **Examples:**
 
-**Output:** Returns the decrypted unlock code as a string.
+    ```powershell
+    # Set certificate from local file
+    Set-LnvBiosCertificate -CertFile "C:\Certs\bios.pem"
 
----
+    # Set certificate with password
+    Set-LnvBiosCertificate -CertFile "C:\Certs\bios.pem" -Pass "CertPassword" -CertType "SVC"
 
-### 6. Set-LnvBiosCertificate
+    # Set certificate from Azure Key Vault
+    Set-LnvBiosCertificate -VaultName "MyVault" -VaultCertificateName "BiosCert"
+    ```
 
-**Synopsis:** Sets a BIOS certificate on the system.
+    **Note:** This cmdlet supports `-WhatIf` and `-Confirm` parameters for safety.
 
-**Description:** Installs or updates a BIOS certificate from either a local file or Azure Key Vault.
+??? note "Get-LnvUnlockCode"
 
-**Parameters:**
+    **Synopsis:** Retrieves the unlock code from an unlock file.
 
-| Parameter | Type | Required | Parameter Set | Description |
-|-----------|------|----------|---------------|-------------|
-| CertFile | String | Yes | LocalFile | The path to the certificate file |
-| VaultName | String | Yes | Azure | The name of the Azure Key Vault |
-| VaultCertificateName | String | Yes | Azure | The name of the certificate in Azure Key Vault |
-| Pass | String | No | Both | Optional password for the certificate |
-| CertType | String | No | Both | Certificate type: "Unspecified", "SVC", or "SMC" |
+    **Description:** Retrieves the unlock code from an unlock file using the specified private key.
 
-**Examples:**
+    **Parameters:**
 
-```powershell
-# Set certificate from local file
-Set-LnvBiosCertificate -CertFile "C:\Certs\bios.pem"
+    | Parameter | Type | Required | Parameter Set | Description |
+    |-----------|------|----------|---------------|-------------|
+    | UnlockFile | String | Yes | Both | The path to the unlock file |
+    | KeyFile | String | Yes | LocalFile | The path to the private key file |
+    | VaultName | String | No | Azure | The name of the Azure Key Vault |
+    | KeyName | String | No | Azure | The name of the key in Azure Key Vault |
 
-# Set certificate with password
-Set-LnvBiosCertificate -CertFile "C:\Certs\bios.pem" -Pass "CertPassword" -CertType "SVC"
+    **Examples:**
 
-# Set certificate from Azure Key Vault
-Set-LnvBiosCertificate -VaultName "MyVault" -VaultCertificateName "BiosCert"
-```
+    ```powershell
+    # Get unlock code using local key file
+    Get-LnvUnlockCode -UnlockFile "C:\Unlock\unlock.dat" -KeyFile "C:\Keys\private.pem"
 
-**Note:** This cmdlet supports `-WhatIf` and `-Confirm` parameters for safety.
+    # Get unlock code using Azure Key Vault
+    Get-LnvUnlockCode -UnlockFile "C:\Unlock\unlock.dat" -VaultName "MyVault" -KeyName "MySigningKey"
+    ```
 
----
+    **Output:** Returns the decrypted unlock code as a string.
 
-### 7. Test-LnvCheckForAzureModule
 
-**Synopsis:** Checks if the specified Azure module is installed.
+??? note "Test-LnvCheckForAzureModule"
 
-**Description:** Verifies whether a specific Azure PowerShell module is available on the system.
+    **Synopsis:** Checks if the specified Azure module is installed.
 
-**Parameters:**
+    **Description:** Verifies whether a specific Azure PowerShell module is available on the system.
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| ModuleName | String | Yes | The name of the Azure module to check for |
+    **Parameters:**
 
-**Examples:**
+    | Parameter | Type | Required | Description |
+    |-----------|------|----------|-------------|
+    | ModuleName | String | Yes | The name of the Azure module to check for |
 
-```powershell
-# Check if Az.Accounts module is installed
-Test-LnvCheckForAzureModule -ModuleName "Az.Accounts"
+    **Examples:**
 
-# Check if Az.KeyVault module is installed
-Test-LnvCheckForAzureModule -ModuleName "Az.KeyVault"
-```
+    ```powershell
+    # Check if Az.Accounts module is installed
+    Test-LnvCheckForAzureModule -ModuleName "Az.Accounts"
 
-**Output:** Returns `$true` if the module is installed, `$false` otherwise.
+    # Check if Az.KeyVault module is installed
+    Test-LnvCheckForAzureModule -ModuleName "Az.KeyVault"
+    ```
+
+    **Output:** Returns `$true` if the module is installed, `$false` otherwise.
 
 ---
 
 ## Common Usage Patterns
 
-### 1. Basic BIOS Setting Management
+### Quick Reference
 
-```powershell
-# Generate signed command
-$command = Get-LnvSignedWmiCommand -Method SetBiosSetting -KeyFile "C:\Keys\private.pem" -SettingName "WakeOnLAN" -SettingValue "Enable"
+| Pattern | Use Case | Complexity | Key Cmdlets |
+|---------|----------|------------|-------------|
+| Basic BIOS Setting | Change single setting on one device | Beginner | `Get-LnvSignedWmiCommand`, `Submit-LnvBiosChange` |
+| Batch Configuration | Apply multiple settings to multiple devices | Intermediate | `Convert-LnvBiosConfigFile`, `Submit-LnvBiosConfigFile` |
+| Azure Key Vault | Enterprise deployment with cloud-based key management | Advanced | `Test-LnvCheckForAzureModule`, `Get-LnvSignedWmiCommand` (Azure) |
+| Certificate Management | Install or update BIOS certificates | Intermediate | `Set-LnvBiosCertificate`, `Get-LnvUnlockCode` |
 
-# Apply the setting
-Submit-LnvBiosChange -Command $command
 
-# Save settings to make them persistent
-$saveCommand = Get-LnvSignedWmiCommand -Method SaveBiosSettings -KeyFile "C:\Keys\private.pem"
-Submit-LnvBiosChange -Command $saveCommand
-```
+??? note "Basic BIOS Setting Management"
 
-### 2. Batch Configuration Management
+    **Scenario:** Change a single BIOS setting on one device (e.g., enable WakeOnLAN).
 
-```powershell
-# Create a configuration file with multiple settings
-$configFile = "C:\Config\BiosSettings.ini"
-@"
-WakeOnLAN,Enable
-SecureBoot,Disable
-VirtualizationTechnology,Enable
-"@ | Out-File $configFile
+    ```powershell
+    # Generate signed command
+    $command = Get-LnvSignedWmiCommand -Method SetBiosSetting -KeyFile "C:\Keys\private.pem" -SettingName "WakeOnLAN" -SettingValue "Enable"
 
-# Convert to signed commands
-Convert-LnvBiosConfigFile -ConfigFile $configFile -KeyFile "C:\Keys\private.pem"
+    # Apply the setting
+    Submit-LnvBiosChange -Command $command
 
-# Apply all signed commands
-Submit-LnvBiosConfigFile -ConfigFile "C:\Config\SignedBiosSettings.ini"
-```
+    # Save settings to make them persistent
+    $saveCommand = Get-LnvSignedWmiCommand -Method SaveBiosSettings -KeyFile "C:\Keys\private.pem"
+    Submit-LnvBiosChange -Command $saveCommand
+    ```
 
-### 3. Azure Key Vault Integration
+??? note "Batch Configuration Management"
 
-```powershell
-# Ensure Azure modules are available
-if (-not (Test-LnvCheckForAzureModule -ModuleName "Az.Accounts") -or -not (Test-LnvCheckForAzureModule -ModuleName "Az.KeyVault")) {
-    Write-Error "Required Azure modules not found. Please install Az.Accounts and Az.KeyVault"
-    return
-}
+    **Scenario:** Apply multiple BIOS settings to multiple devices from a configuration file.
 
-# Connect to Azure (if not already connected)
-Connect-AzAccount
+    ```powershell
+    # Create a configuration file with multiple settings
+    $configFile = "C:\Config\BiosSettings.ini"
+    @"
+    WakeOnLAN,Enable
+    SecureBoot,Disable
+    VirtualizationTechnology,Enable
+    "@ | Out-File $configFile
 
-# Use Azure Key Vault for signing
-$command = Get-LnvSignedWmiCommand -Method SetBiosSetting -VaultName "MyKeyVault" -KeyName "BiosSigningKey" -SettingName "WakeOnLAN" -SettingValue "Enable"
-Submit-LnvBiosChange -Command $command
-```
+    # Convert to signed commands
+    Convert-LnvBiosConfigFile -ConfigFile $configFile -KeyFile "C:\Keys\private.pem"
 
-### 4. Certificate Management
+    # Apply all signed commands
+    Submit-LnvBiosConfigFile -ConfigFile "C:\Config\SignedBiosSettings.ini"
+    ```
 
-```powershell
-# Set a new BIOS certificate
-Set-LnvBiosCertificate -CertFile "C:\Certs\newcert.pem" -CertType "SVC"
+??? note "Azure Key Vault Integration"
 
-# Update existing certificate using signed command
-$updateCommand = Get-LnvSignedWmiCommand -Method UpdateBiosCertificate -KeyFile "C:\Keys\private.pem" -NewCertFile "C:\Certs\updated.pem"
-Submit-LnvBiosChange -Command $updateCommand
-```
+    **Scenario:** Enterprise deployment using Azure Key Vault for secure, centralized key management.
+
+    ```powershell
+    # Ensure Azure modules are available
+    if (-not (Test-LnvCheckForAzureModule -ModuleName "Az.Accounts") -or -not (Test-LnvCheckForAzureModule -ModuleName "Az.KeyVault")) {
+        Write-Error "Required Azure modules not found. Please install Az.Accounts and Az.KeyVault"
+        return
+    }
+
+    # Connect to Azure (if not already connected)
+    Connect-AzAccount
+
+    # Use Azure Key Vault for signing
+    $command = Get-LnvSignedWmiCommand -Method SetBiosSetting -VaultName "MyKeyVault" -KeyName "BiosSigningKey" -SettingName "WakeOnLAN" -SettingValue "Enable"
+    Submit-LnvBiosChange -Command $command
+    ```
+
+??? note "Certificate Management"
+
+    **Scenario:** Install a new BIOS certificate or update an existing certificate on devices.
+
+    ```powershell
+    # Set a new BIOS certificate
+    Set-LnvBiosCertificate -CertFile "C:\Certs\newcert.pem" -CertType "SVC"
+
+    # Update existing certificate using signed command
+    $updateCommand = Get-LnvSignedWmiCommand -Method UpdateBiosCertificate -KeyFile "C:\Keys\private.pem" -NewCertFile "C:\Certs\updated.pem"
+    Submit-LnvBiosChange -Command $updateCommand
+    ```
 
 ---
 
@@ -366,17 +418,14 @@ The module creates and uses the following directory structure:
 
 ## Version History
 
-**Version 1.0.8**
+??? note "Version 1.0.8"
+    Initial public release with Azure Key Vault support and enhanced functionality
 
-- Initial public release with Azure Key Vault support and enhanced functionality
+??? note "Version 1.0.7"
+    Technical Preview release adding Azure Key Vault support
 
-**Version 1.0.7**
-
-- Technical Preview release adding Azure Key Vault support
-
-**Version 1.0.6**
-
-- Technical Preview release
+??? note "Version 1.0.6"
+    Technical Preview release
 
 ---
 

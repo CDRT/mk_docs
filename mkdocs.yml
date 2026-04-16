@@ -80,15 +80,17 @@ nav:
         - Migration Guide:
           - LSU Client vs Lenovo Client Update: guides/lcu/comparison.md
         - Functions:
-          - Get-LnvUpdate: guides/lcu/functions/get-lnvupdate.md
-          - Save-LnvUpdate: guides/lcu/functions/save-lnvupdate.md
-          - Install-LnvUpdate: guides/lcu/functions/install-lnvupdate.md
-          - Get-LnvUpdateConfiguration: guides/lcu/functions/get-lnvupdateconfiguration.md
-          - Set-LnvUpdateConfiguration: guides/lcu/functions/set-lnvupdateconfiguration.md
+          - Expand-LnvUpdate: guides/lcu/functions/expand-lnvupdate.md
           - Get-LnvDownload: guides/lcu/functions/get-lnvdownload.md
+          - Get-LnvUpdate: guides/lcu/functions/get-lnvupdate.md
+          - Get-LnvUpdateConfiguration: guides/lcu/functions/get-lnvupdateconfiguration.md
+          - Get-LnvUpdateFromWMI: guides/lcu/functions/get-lnvupdatefromwmi.md
+          - Get-LnvUpdateHistory: guides/lcu/functions/get-lnvupdatehistory.md
           - Get-LnvUpdateSummary: guides/lcu/functions/get-lnvupdatesummary.md
           - Get-LnvUpdatesRepo: guides/lcu/functions/get-lnvupdatesrepo.md
-          - Expand-LnvUpdate: guides/lcu/functions/expand-lnvupdate.md
+          - Install-LnvUpdate: guides/lcu/functions/install-lnvupdate.md
+          - Save-LnvUpdate: guides/lcu/functions/save-lnvupdate.md
+          - Set-LnvUpdateConfiguration: guides/lcu/functions/set-lnvupdateconfiguration.md
     - Lenovo Updates Catalog:
       - Overview: guides/luc/luc_ovrvw.md
       - guides/luc/luc_agnt.md

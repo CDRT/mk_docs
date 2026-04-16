@@ -1,48 +1,93 @@
-# Get-LnvUpdatefromWMI
+---
+title: Get-LnvUpdateFromWmi
+description: Retrieve update information from Windows Management Instrumentation (WMI)
+---
 
-Queries Lenovo update information from WMI using the root\Lenovo\Lenovo_Updates class.
+# Get-LnvUpdateFromWmi
+
+Queries Lenovo update information from the WMI repository on the local or remote computer.
+
+## Synopsis
+
+Retrieves update information stored in WMI by the Install-LnvUpdate cmdlet using the `root\Lenovo\Lenovo_Updates` class.
 
 ## Syntax
 
 ```powershell
-Get-LnvUpdatefromWMI [-ComputerName <string>] [-Status <string>] [-Severity <string>] [-IncludeHistory]
+Get-LnvUpdateFromWmi [-ComputerName <string>] [-Status <string>] 
+                     [-Severity <string>] [-IncludeHistory]
 ```
+
+## Description
+
+`Get-LnvUpdateFromWmi` queries the Lenovo_Updates WMI class to retrieve update installation records. This is useful for auditing, compliance reporting, and verifying installation history across systems.
+
+Results can be filtered by status (Applicable, Installed, NotApplicable) and severity level. The `-IncludeHistory` parameter retrieves the last 10 installation records for historical tracking.
 
 ## Parameters
 
-| Parameter | Type | Default | Values |
-|-----------|------|---------|--------|
-| **ComputerName** | string | $env:COMPUTERNAME | Computer name |
-| **Status** | string | - | Applicable, Installed, NotApplicable |
-| **Severity** | string | - | Critical, Recommended, Optional |
-| **IncludeHistory** | switch | - | Last 10 installation records |
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `-ComputerName` | string | $env:COMPUTERNAME | Local or remote computer name |
+| `-Status` | string | - | Filter by status: `Applicable`, `Installed`, `NotApplicable` |
+| `-Severity` | string | - | Filter by severity: `Critical`, `Recommended`, `Optional` |
+| `-IncludeHistory` | switch | - | Include last 10 installation records |
 
 ## Examples
 
+### Example 1: Query local computer updates
+
 ```powershell
-# Query local computer
-Get-LnvUpdatefromWMI
-
-# Filter by status
-Get-LnvUpdatefromWMI -Status Applicable
-
-# Remote with severity filter
-Get-LnvUpdatefromWMI -ComputerName COMPUTER01 -Severity Critical
-
-# Include history
-Get-LnvUpdatefromWMI -IncludeHistory
+Get-LnvUpdateFromWmi
 ```
+
+Retrieves all update entries from the local computer.
+
+### Example 2: Query only applicable updates
+
+```powershell
+Get-LnvUpdateFromWmi -Status Applicable
+```
+
+Filters for updates that are applicable but not yet installed.
+
+### Example 3: Query critical updates on remote computer
+
+```powershell
+Get-LnvUpdateFromWmi -ComputerName COMPUTER01 -Severity Critical
+```
+
+Retrieves critical-severity updates from a remote system.
+
+### Example 4: Include installation history
+
+```powershell
+Get-LnvUpdateFromWmi -IncludeHistory | Select-Object Title, InstallDate, Status
+```
+
+Retrieves current status plus last 10 installation records.
 
 ## Output
 
-- Returns WMI objects with properties: Title, Version, Status, Size
-- Get-LnvUpdatefromWMI gathers information from the className `Lenovo_Updates`
-- Console output is color-coded (Cyan: queries, Green: success, Yellow: headers, Gray: details)
+Returns WMI objects with properties such as:
 
-## Key Features
+- `Title` - Update package name
+- `Version` - Package version
+- `Status` - Current status (Applicable, Installed, NotApplicable)
+- `Severity` - Update severity level
+- `Size` - Package size in bytes
+- `InstallDate` - Installation date and time
+- `Message` - Additional status or error information
 
-- Queries `ROOT\Lenovo` namespace
-- className = `Lenovo_Updates`
-- Dynamically constructs WMI queries with filters
-- Non-blocking error handling
-- History limited to 10 most recent entries
+## Notes
+
+- WMI queries use the `root\Lenovo\Lenovo_Updates` namespace
+- Remote queries require appropriate WMI permissions on the target computer
+- History limited to 10 most recent entries when `-IncludeHistory` is used
+- Color-coded console output: Cyan (queries), Green (success), Yellow (headers), Gray (details)
+
+## See Also
+
+- [Get-LnvUpdateHistory](get-lnvupdatehistory.md)
+- [Install-LnvUpdate](install-lnvupdate.md)
+- [Get-LnvUpdateSummary](get-lnvupdatesummary.md)

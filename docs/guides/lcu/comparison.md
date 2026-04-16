@@ -1,3 +1,8 @@
+---
+title: LSU vs Lenovo.Client.Update
+description: Comparison of LSUClient and Lenovo.Client.Update module features and commands
+---
+
 # LSU vs Lenovo.Client.Update (LCU)
 
 This document outlines the differences between the original **LSUClient** (LSU) by jantari and the **Lenovo.Client.Update** (LCU) module in case you need to migrate some existing scripts to use this module.
@@ -27,248 +32,223 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 
 ### Quick Reference: Commands
 
-**Original LSU had 6 public functions:**
+#### Migrated from LSU (6 commands)
+All work identically, just renamed:
 
-- Get-LSUpdate
-- Save-LSUpdate
-- Install-LSUpdate
-- Expand-LSUpdate
-- Get-LSUClientConfiguration
-- Set-LSUClientConfiguration
+- [`Get-LnvUpdate`](functions/get-lnvupdate.md) (renamed from Get-LSUpdate)
+- [`Save-LnvUpdate`](functions/save-lnvupdate.md) (renamed from Save-LSUpdate)
+- [`Install-LnvUpdate`](functions/install-lnvupdate.md) (renamed from Install-LSUpdate)
+- [`Expand-LnvUpdate`](functions/expand-lnvupdate.md) (renamed from Expand-LSUpdate)
+- [`Get-LnvUpdateConfiguration`](functions/get-lnvupdateconfiguration.md) (renamed from Get-LSUClientConfiguration)
+- [`Set-LnvUpdateConfiguration`](functions/set-lnvupdateconfiguration.md) (renamed from Set-LSUClientConfiguration)
 
-**LCU has 12 public functions (6 from LSU + 6 NEW):**
+#### New to LCU (6 commands)
 
-- Get-LnvUpdate (renamed from Get-LSUpdate)
-- Save-LnvUpdate (renamed from Save-LSUpdate)
-- Install-LnvUpdate (renamed from Install-LSUpdate)
-- Expand-LnvUpdate (renamed from Expand-LSUpdate)
-- Get-LnvUpdateConfiguration (renamed from Get-LSUClientConfiguration)
-- Set-LnvUpdateConfiguration (renamed from Set-LSUClientConfiguration)
-- **Get-LnvDownload** (NEW)
-- **Get-LnvUpdateHistory** (NEW - enhanced version)
-- **Get-LnvUpdateSummary** (NEW)
-- **Get-LnvUpdatesRepo** (NEW - from Lenovo.Client.Scripting Module)
-- **Get-LnvUpdatefromWMI** (NEW)
+- [`Get-LnvDownload`](functions/get-lnvdownload.md) – Download and optionally expand packages by machine type
+- [`Get-LnvUpdateHistory`](functions/get-lnvupdatehistory.md) – View update installation history
+- [`Get-LnvUpdateSummary`](functions/get-lnvupdatesummary.md) – Get system update status summary
+- [`Get-LnvUpdatesRepo`](functions/get-lnvupdatesrepo.md) – Build a local update repository
+- [`Get-LnvUpdateFromWmi`](functions/get-lnvupdatefromwmi.md) – Query WMI for update information
+- `Add-LnvUpdateHist` – Manually record updates in history
+
+---
 
 ### Core Commands (Unchanged)
 
 These commands work the same in both LSU and LCU:
 
-#### Get-LnvUpdate / Get-LSUpdate
+??? note "Get-LnvUpdate / Get-LSUpdate"
+    ```powershell
+    # Original LSU
+    $updates = Get-LSUpdate
+    $updates = Get-LSUpdate -Model "20LS" -All
 
-```powershell
-# Original LSU
-$updates = Get-LSUpdate
-$updates = Get-LSUpdate -Model "20LS" -All
+    # LCU (fully compatible)
+    $updates = Get-LnvUpdate
+    $updates = Get-LnvUpdate -Model "20LS" -All
+    ```
 
+??? note "Save-LnvUpdate / Save-LSUpdate"
+    ```powershell
+    # Original LSU
+    $updates | Save-LSUpdate -Path "C:\Updates" -ShowProgress
 
-# LCU (fully compatible)
-$updates = Get-LnvUpdate
-$updates = Get-LnvUpdate -Model "20LS" -All
+    # LCU (compatible)
+    $updates | Save-LnvUpdate -Path "C:\Updates" -ShowProgress
+    ```
 
-```
+??? note "Install-LnvUpdate / Install-LSUpdate"
+    ```powershell
+    # Original LSU
+    $updates | Install-LSUpdate -Verbose
 
-#### Save-LnvUpdate / Save-LSUpdate
+    # LCU (compatible)
+    $updates | Install-LnvUpdate -Verbose
+    ```
 
-```powershell
-# Original LSU
-$updates | Save-LSUpdate -Path "C:\Updates" -ShowProgress
+??? note "Get-LnvUpdateConfiguration / Get-LSUpdateConfiguration"
+    ```powershell
+    # Original LSU
+    $config = Get-LSUpdateConfiguration
 
-# LCU (compatible)
-$updates | Save-LnvUpdate -Path "C:\Updates" -ShowProgress
-```
+    # LCU
+    $config = Get-LnvUpdateConfiguration
+    ```
 
-#### Install-LnvUpdate / Install-LSUpdate
+??? note "Set-LnvUpdateConfiguration / Set-LSUpdateConfiguration"
+    ```powershell
+    # Original LSU
+    Set-LSUpdateConfiguration -Proxy "http://proxy.com:8080"
 
-```powershell
-# Original LSU
-$updates | Install-LSUpdate -Verbose
+    # LCU
+    Set-LnvUpdateConfiguration -Proxy "http://proxy.com:8080"
+    ```
 
-# LCU (compatible)
-$updates | Install-LnvUpdate -Verbose
-```
+??? note "Expand-LnvUpdate"
+    ```powershell
+    # Original LSU
+    $updates = Get-LSUpdate
+    $updates | Save-LSUpdate -Path C:\Packages
+    $updates | Expand-LSUpdate -Path C:\Packages
 
-#### Get-LnvUpdateConfiguration / Get-LSUpdateConfiguration
+    # LCU
+    $updates = Get-LnvUpdate
+    $updates | Save-LnvUpdate -Path C:\Packages
+    $updates | Expand-LnvUpdate -Path C:\Packages
 
-```powershell
-# Original LSU
-$config = Get-LSUpdateConfiguration
+    # Or use Get-LnvDownload with -Expand
+    Get-LnvDownload -MachineType 21N2 -RepositoryFolder "C:\Repo" -Expand
+    ```
 
-# LCU
-$config = Get-LnvUpdateConfiguration
-```
+### New Commands in LCU — Detailed Examples
 
-#### Set-LnvUpdateConfiguration / Set-LSUpdateConfiguration
+??? note "Get-LnvDownload – Download and expand packages by machine type"
+    **NEW** - Downloads current updates for a specified Machine Type to a specified local folder with an option to expand the packages. This cmdlet was migrated from the Lenovo.Client.Scripting module and will be maintained in this module going forward.
 
-```powershell
-# Original LSU
-Set-LSUpdateConfiguration -Proxy "http://proxy.com:8080"
+    ```powershell
+    # LCU (NEW)
+    Get-LnvDownload -MachineType 21N2 -RepositoryFolder "C:\Repo" -Expand
+    ```
 
-# LCU
-Set-LnvUpdateConfiguration -Proxy "http://proxy.com:8080"
-```
+??? note "Get-LnvUpdateHistory – View update installation history"
+    **NEW** - Get update install history:
 
-#### Expand-LnvUpdate
+    ```powershell
+    # LCU (NEW)
+    Get-LnvUpdateHistory | Where-Object { $_.InstallDate -gt (Get-Date).AddDays(-30) }
+    ```
 
-```powershell
-# Original LSU
-# Download and extract
-$updates = Get-LSUpdate
-$updates | Save-LSUpdate -Path C:\Packages
-$updates | Expand-LSUpdate -Path C:\Packages
+??? note "Get-LnvUpdateSummary – Get system update status"
+    **NEW** - Get update status summary:
 
-# LCU
-# Download and extract
-$updates = Get-LnvUpdate
-$updates | Save-LnvUpdate -Path C:\Packages
-$updates | Expand-LnvUpdate -Path C:\Packages
+    ```powershell
+    # LCU (NEW)
+    Get-LnvUpdateSummary
+    ```
 
-# Or use Get-LnvDownload with -Expand
-Get-LnvDownload -MachineType 21N2 -RepositoryFolder "C:\Repo" -Expand
-```
+??? note "Add-LnvUpdateHist – Manually record updates"
+    **NEW** - Manually record updates:
 
-### New Commands in LCU
+    ```powershell
+    # LCU (NEW)
+    Add-LnvUpdateHist -Title "Custom Update" -InstallDate (Get-Date) -Result "Success"
+    ```
 
-#### Get-LnvDownload
+??? note "Get-LnvUpdatesRepo – Create a local update repository"
+    **NEW** - Create a repository of updates in the style of Update Retriever using the machine type of the running system. This cmdlet was migrated from the Lenovo.Client.Scripting Module and will be maintained in the LCU module going forward.
 
-**NEW** - Downloads current updates for a specified Machine Type to a specified local folder with an option expand the packages. This cmdlet was migrated from the Lenovo.Client.Scripting module and will be maintained in this module going forward.
-
-```powershell
-# LCU (NEW)
-Get-LnvDownload -MachineType 21N2 -RepositoryFolder "C:\Repo" -Expand
-```
-
-#### Get-LnvUpdateHist
-
-**NEW** - Get update install history:
-
-```powershell
-# LCU (NEW)
-Get-LnvUpdateHist | Where-Object { $_.InstallDate -gt (Get-Date).AddDays(-30) }
-```
-
-#### Get-LnvUpdateSummary
-
-**NEW** - Get update status summary:
-
-```powershell
-# LCU (NEW)
-Get-LnvUpdateSummary
-```
-
-#### Add-LnvUpdateHist
-
-**NEW** - Manually record updates:
-
-```powershell
-# LCU (NEW)
-Add-LnvUpdateHist -Title "Custom Update" -InstallDate (Get-Date) -Result "Success"
-```
-
-#### Get-LnvUpdatesRepo
-
-**NEW** - Create a repository of updates in the style of Update Retriever using the machine type of the running system. This cmdlet was migrated from the Lenovo.Client.Scripting Module and will be maintained in the LCU module going forward.
-
-```powershell
-# LCU (NEW)
-Get-LnvUpdatesRepo -RepositoryPath 'C:\Lenovo_Repository' -PackageTypes '1,2' -RebootTypes '0,3'
-```
+    ```powershell
+    # LCU (NEW)
+    Get-LnvUpdatesRepo -RepositoryPath 'C:\Lenovo_Repository' -PackageTypes '1,2' -RebootTypes '0,3'
+    ```
 
 ---
 
-## Main Function Parameter Changes
+## Parameter & Feature Enhancements
 
-### Install-LnvUpdate - New Parameters
+### Security Features (NEW to LCU)
 
-**Original LSU:**
-```powershell
-Install-LSUpdate -Package $package -Path "C:\Updates" -Verbose
-```
-
-**LCU - Enhanced Parameters:**
+**Install-LnvUpdate** now includes signature verification and security controls:
 
 ```powershell
-# Original parameters still work
-Install-LnvUpdate -Package $package -Path "C:\Updates" -Verbose
-
-# NEW: Verify signatures before installation
-Install-LnvUpdate -Package $package -VerifySignature
-
-# NEW: Skip signature verification (testing only)
-Install-LnvUpdate -Package $package -SkipSignatureCheck
-```
-
-| Parameter | LSU | LCU | Purpose |
-|-----------|-----|----------|---------|
-| `Package` | YES | YES | Update package to install |
-| `Path` | YES | YES | Downloaded package location |
-| `Proxy` | YES | YES | Proxy server URL |
-| `ProxyCredential` | YES | YES | Proxy authentication |
-| `SaveBIOSUpdateInfoToRegistry` | Yes | YES | Record update in registry |
-| `VerifySignature` | NO | YES | NEW: Verify package signatures |
-| `SkipSignatureCheck` | NO | YES | NEW: Bypass signature verification |
-
-### Get-LnvUpdate - New Parameters
-
-All original parameters preserved plus:
-
-| Parameter | LSU | LCU | Purpose |
-|-----------|-----|----------|---------|
-| `Model` | YES | YES | Computer model to target |
-| `All` | YES | YES | Return all packages |
-| `Proxy` | YES | YES | Proxy server |
-| `Repository` | YES | YES | Custom repository URL |
-| `IncludePhantomDevices` | YES | YES | Include offline devices |
-| `MachineCharacteristicsOverride` | YES | YES | Override system info |
-| `NoTestApplicable` | YES | YES | Skip applicability checks |
-| `NoTestInstalled` | YES | YES | Skip installation checks |
-| `ScratchDirectory` | YES | YES | Temp folder for downloads |
-| `-StatusMode`| String | Change the status of the packages |
-| `-LogPath` | String | specify the path of the logfile|
-| `-LogFile` | switch| creates a logfile after the packages are retrieved |
-
-### New Parameters on Existing Commands
-
-**Install-LnvUpdate - NEW parameters:**
-- `-VerifySignature` - Enforce signature verification
-- `-SkipSignatureCheck` - Bypass signature verification
-- `-ExportToWMI` - Export the update information to WMI in the root\Lenovo\Lenovo_Updates class
-
-### Core Infrastructure Additions
- **Lenovo.CertificateValidation.dll** - Dedicated certificate validation assembly
-
----
-
-## Security Enhancements
-
-### Digital Signature Verification
-
-**Original LSU:**
-- Basic signature checking but no enforcement
-- No dedicated verification function
-- No options to skip signature checks
-
-**LnvUpdate:**
-
-```powershell
-# NEW: Dedicated signature verification function
-$updates | Test-LnvSignature
-
-# NEW: Enforce signatures during installation
+# Verify signatures before installation
 $updates | Install-LnvUpdate -VerifySignature
 
-# NEW: Dedicated certificate validation DLL
-# File: Lenovo.CertificateValidation.dll
-# Purpose: Enhanced cryptographic verification
-```
+# Skip signature verification (testing only)
+$updates | Install-LnvUpdate -SkipSignatureCheck
 
-### Certificate Validation
-
-```powershell
-# Examples showing enhanced validation
-$updates = Get-LnvUpdate
-$updates | Install-LnvUpdate -VerifySignature  # Uses enhanced validation
-
-# Or manually test
+# Dedicated signature verification function
 $updates | Test-LnvSignature
 ```
+
+??? note "Security Parameters"
+    | Parameter | LSU | LCU | Purpose |
+    |-----------|-----|----------|---------|
+    | `VerifySignature` | NO | YES | Enforce digital signature verification before installation |
+    | `SkipSignatureCheck` | NO | YES | Bypass verification for testing (not recommended for production) |
+    | **Component** | **LSU** | **LCU** | **Purpose** |
+    | Lenovo.CertificateValidation.dll | N/A | YES | Enhanced cryptographic certificate validation |
+
+---
+
+### Tracking & Logging Features (NEW to LCU)
+
+**Install-LnvUpdate** can export installation data to WMI for compliance tracking:
+
+```powershell
+$updates | Install-LnvUpdate -ExportToWMI -Verbose
+```
+
+**Get-LnvUpdate** provides enhanced logging capabilities:
+
+```powershell
+# Create a logfile in the default location
+$updates = Get-LnvUpdate -LogFile
+
+# Create a logfile in a custom location
+$updates = Get-LnvUpdate -LogPath "C:\Logs\updates.log"
+
+# Modify package status
+$updates = Get-LnvUpdate -StatusMode "Approved"
+```
+
+??? note "Logging & Tracking Parameters"
+    | Parameter | Command | LSU | LCU | Purpose |
+    |-----------|---------|-----|----------|---------|
+    | `ExportToWMI` | Install-LnvUpdate | NO | YES | Export installation info to WMI for audit/tracking |
+    | `SaveBIOSUpdateInfoToRegistry` | Install-LnvUpdate | YES | YES | Record BIOS updates in registry |
+    | `-LogFile` | Get-LnvUpdate | NO | YES | Create logfile in default path (`C:\ProgramData\Lenovo\...`) |
+    | `-LogPath` | Get-LnvUpdate | NO | YES | Create logfile in specified custom path |
+    | `-StatusMode` | Get-LnvUpdate | NO | YES | Change the status of retrieved packages |
+
+---
+
+### Complete Parameter Reference
+
+??? note "Install-LnvUpdate – All Parameters"
+    | Parameter | LSU | LCU | Purpose |
+    |-----------|-----|----------|---------|
+    | `Package` | YES | YES | Update package to install |
+    | `Path` | YES | YES | Downloaded package location |
+    | `Proxy` | YES | YES | Proxy server URL |
+    | `ProxyCredential` | YES | YES | Proxy authentication |
+    | `SaveBIOSUpdateInfoToRegistry` | YES | YES | Record BIOS update in registry |
+    | `VerifySignature` | NO | YES | **NEW:** Verify package signatures |
+    | `SkipSignatureCheck` | NO | YES | **NEW:** Bypass signature verification |
+    | `ExportToWMI` | NO | YES | **NEW:** Export to WMI for tracking |
+
+??? note "Get-LnvUpdate – All Parameters"
+    | Parameter | LSU | LCU | Purpose |
+    |-----------|-----|----------|---------|
+    | `Model` | YES | YES | Computer model to target |
+    | `All` | YES | YES | Return all packages |
+    | `Proxy` | YES | YES | Proxy server |
+    | `Repository` | YES | YES | Custom repository URL |
+    | `IncludePhantomDevices` | YES | YES | Include offline devices |
+    | `MachineCharacteristicsOverride` | YES | YES | Override system info |
+    | `NoTestApplicable` | YES | YES | Skip applicability checks |
+    | `NoTestInstalled` | YES | YES | Skip installation checks |
+    | `ScratchDirectory` | YES | YES | Temp folder for downloads |
+    | `-StatusMode` | NO | YES | **NEW:** Change package status |
+    | `-LogPath` | NO | YES | **NEW:** Custom logfile path |
+    | `-LogFile` | NO | YES | **NEW:** Create logfile automatically |
