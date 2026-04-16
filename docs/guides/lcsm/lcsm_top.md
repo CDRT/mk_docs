@@ -8,6 +8,10 @@ The Lenovo Client Scripting Module requires 64-bit PowerShell v5.1 or higher and
 
 ??? note "What's New"
 
+    ??? note "April 16, 2026:  Version 2.4.2"
+
+        Removed "curly quotes" from Add-LnvMTOS. ***(how did those get in there??)*** Thanks for reporting jces3.
+
     ??? note "April 9, 2026:  Version 2.4.1"
 
         Removed two cmdlets that have been moved to the Lenovo.Client.Update module: Get-LnvUpdate, Get-LnvUpdatesRepo
