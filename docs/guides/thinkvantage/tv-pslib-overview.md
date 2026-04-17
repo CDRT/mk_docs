@@ -5,7 +5,7 @@ The ThinkVantage PowerShell Library is a collection of modules and scripts publi
 **Requirements:** Windows 10/11 · PowerShell 5.0+ · Administrator privileges
 
 ```powershell
-Install-Module 'Lenovo.Client.Scriptin'
+Install-Module 'Lenovo.Client.Scripting'
 Install-Module 'Lenovo.Client.Update'
 Install-Module 'Lenovo.BIOS.Config'
 Install-Module 'Lenovo.Bios.Certificates'
