@@ -1,5 +1,10 @@
-# **Troubleshooting**
-## **Lenovo Updates Catalog Sync Status of Trust Failed**
+---
+title: Troubleshooting Lenovo Updates Catalog
+description: Solutions for common issues with the Lenovo Updates Catalog in Configuration Manager.
+---
+
+# Troubleshooting
+## Lenovo Updates Catalog Sync Status of Trust Failed
 ### Purpose
 To address results in the Third-Party Software Update Catalogs node where the Last Sync Status for the Lenovo Updates entry is Trust Failed.
 ### Symptom
@@ -17,7 +22,7 @@ In the log file, there is an entry stating "SyncUpdateCatalog: Certificate 'XXXX
 4. Repeat for any other blocked certificates.
 5. Once all unapproved certificates referenced in the SMS_ISVUPDATES_SYNCAGENT.log file have been unblocked, manually synchronize the catalog and verify it completed correctly.
 
-## **Logs: Updates Failed to Publish When Synchronizing Metadata Only**
+## Logs: Updates Failed to Publish When Synchronizing Metadata Only
 ### Purpose
 To address the results in the SMS_ISVUPDATES_SYNCAGENT.log when the Lenovo Updates third party catalog synchronizes with a message of "X number of updates were synchronized to WSUS successfully, and Y failed to publish" and using the "Do not stage content, synchronize for scanning automatically (recommended)" selection on the Stage Content tab.
 ### Symptom
@@ -25,7 +30,7 @@ To address the results in the SMS_ISVUPDATES_SYNCAGENT.log when the Lenovo Updat
 ### Cause
 The failed to publish portion of the message is not actually a failure.  The message shows the number of updates where the metadata is already published.
 
-## **The Number of Lenovo Updates in All Software Updates Does Not Match the Number in the Logs**
+## The Number of Lenovo Updates in All Software Updates Does Not Match the Number in the Logs
 
 ### Purpose
 To address the results in the SMS_ISVUPDATES_SYNCAGENT.log when the Lenovo Updates third party catalog synchronizes with a message of "X number of updates were synchronized to WSUS successfully, and Y failed to publish" where the total number of updates (X+Y) listed is far greater than the number of Lenovo Updates displayed in the All Software Updates node.
@@ -39,7 +44,7 @@ Example: The message in the log file at the end of the synchronization could sho
 ### Cause
 All update metadata matching the category selections will be published to WSUS to establish the total list of updates available.  Once Configuration Manager performs its initial synchronization with WSUS, only non-superseded updates will be displayed.  In subsequent synchronizations and depending on the Supersedence Rules defined in the Site Software Update Point Components properties, some superseded or expired updates may show until the threshold defined has been met.
 
-## **Lenovo Updates Not Reporting Scan Data**
+## Lenovo Updates Not Reporting Scan Data
 ### Purpose
 To address the situation where Lenovo Updates in the All Software updates view do not contain status data in the Required, Not Required, and Installed columns.
 ### Symptom
@@ -49,7 +54,7 @@ The Lenovo Update Catalog Agent is not installed on endpoints to facilitate scan
 ### Resolution
 Publish and deploy the latest Lenovo Update Catalog Agent.  See more information in the [Lenovo Update Catalog Agent - Functionality section](https://cdrt.github.io/mk_docs/docs/guides/luc/luc_agnt).
 
-## **Recurring Installation with Error Code: 0x87D00324**
+## Recurring Installation with Error Code: 0x87D00324
 ### Purpose
 To address the 0x87D00324 error being displayed in Software Center or from the deployment status on the errors tab.
 ### Symptom

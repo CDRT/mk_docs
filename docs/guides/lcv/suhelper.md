@@ -1,122 +1,267 @@
+---
+title: SU Helper Reference
+description: Command-line interface reference for Commercial Vantage System Update Helper
+---
+
 # SU Helper Reference
 
 ## Overview
 
-The SU Helper utility is a companion to Lenovo Commercial Vantage that provides command-line control over the System Update process. This utility can be leveraged directly in a terminal window on a device or by sending a script containing the command line from a systems management solutions such as Configuration Manager or Intune. This reference guide will document the command line parameters and usage of this utility.
+The SU Helper utility is a companion to Lenovo Commercial Vantage that provides command-line control over the System Update process. This utility can be leveraged directly in a terminal window on a device or by sending a script containing the command line from a systems management solutions such as Configuration Manager or Intune.
+
+---
 
 ## Installation
 
-SUHelper is provided by its own installer and is not included directly with Lenovo Commercial Vantage. Therefore, only customers that choose to deploy SUHelper to their devices will have it. The installer can be found in the [Lenovo Commercial Vantage Application and Deployment Guide for Large Enterprise](https://support.lenovo.com/us/en/solutions/hf003321) package zip file. When extracted, the installer file for SU Helper will be located in the ```\SystemUpdate``` subfolder.
+SUHelper is provided as a separate installer (not included with Commercial Vantage). The installer is located in the Enterprise package:
 
-The utility can be installed as part of the installation process of the enterprise package of Commercial Vantage. It is not installed by default, so if you choose to install it, please uncomment the installation line near the end of the setup-commercial-vantage.bat file by removing ```@REM``` from the beginning of the line.
+**Location:** [Lenovo Commercial Vantage Application and Deployment Guide for Large Enterprise](https://support.lenovo.com/us/en/solutions/hf003321) → `\SystemUpdate` subfolder when extracted
 
-The utility can also be installed separately on devices silently using the following command:
+### Installation Methods
 
-```[installer filename] /VERYSILENT```
+**Option 1: As part of Commercial Vantage Enterprise deployment**
 
-The utility is designed to be installed in a fixed, secure location under Program Files so that it cannot be altered without Administrator privileges.
+Uncomment the installation line in `setup-commercial-vantage.bat` by removing `@REM` from the beginning.
 
-The utility can be uninstalled with the following command:
+**Option 2: Silent standalone installation**
 
-```C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT```
+```powershell
+[installer filename] /VERYSILENT
+```
 
-!!! note
-    In the Enterprise package released in July 2025, there is a new option for installing SU Helper. The package includes [VantageInstaller.exe](http://docs.lenovocdrt.com/guides/cv/commercial_vantage/#using-vantageinstallerexe) which can also be used to install SU Helper. With VantageInstaller.exe it is possible to install Commercial Vantage and SU Helper at the same time.
+**Option 3: Using VantageInstaller.exe (July 2025 Enterprise package and later)**
 
-## Intended Usage Scenarios
+```powershell
+.\VantageInstaller.exe -Vantage -SuHelper
+```
 
-SUHelper is designed to support a few scenarios to provide IT administrators more control over the updating of their devices.
+With this method, you can install Commercial Vantage and SU Helper simultaneously.
 
-Trigger Auto Update
-:  In this scenario, there may be cases where an admin wants to trigger an Auto Update session without waiting for the normal schedule to be triggered.
+### Uninstall
 
-Trigger Auto Update for filtered updates
-:  In this scenario, the admin may want to trigger an update session that only installs certain package types, reboot types or even specific updates specified by their package IDs.
-    An example where this would be useful is if you leverage Windows Update for Business for driver and firmware updates; however, there is a particular update that is not offered through Windows Update which you need to have deployed immediately. Commercial Vantage can be deployed on devices with Auto Update disabled and SUHelper can be used on-demand to install specific updates just be sending the command to the clients.
+```powershell
+C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
+```
 
-Exclude an update from being installed
-:  In some cases, a customer may find that a particular update has a compatibility issue with their environment when they apply the update to a set of test devices. To prevent that update from being applied to all production devices, SUHelper can be used to add the specific package ID(s) to an "exclude" list on the production devices. This will cause the specified update to be ignored when an Auto Update or a Manual Update is executed.
+!!! note "Security"
+    SU Helper is installed in a fixed, secure location under Program Files that cannot be altered without Administrator privileges.
 
-## Command-line Reference
+---
 
-SUHELPER [-autoupdate] [-include [string]] [-exclude [string]] [-packagetype [string]] [-reboottype [string]] [-allowdefer] [-help]
+## Quick Reference – Parameters
 
-### -autoupdate
+| Parameter | Type | Purpose | Value |
+| --- | --- | --- | --- |
+| **-autoupdate** | Required | Trigger update session | (none) |
+| **-include** | Optional | Install only specific packages | Comma-separated package IDs |
+| **-exclude** | Optional | Skip specific packages | Comma-separated package IDs |
+| **-packagetype** | Optional | Filter by update type | 0=Others, 1=App, 2=Driver, 3=BIOS, 4=Firmware |
+| **-reboottype** | Optional | Filter by reboot behavior | 0=No reboot, 1=Forced reboot, 3=Requires reboot, 4=Shutdown, 5=Delayed reboot (5 min) |
+| **-allowdefer** | Optional | Allow users to defer updates | (none) |
+| **-help** or **/?** | Optional | Display help | (none) |
 
-Required parameter. Triggers an Auto Update process by the System Update Addin. Additional parameters may be passed which will filter the updates to be applied. If used alone, any group policies that are set to filter the System Updates will be applied. Otherwise, the command line filters will take priority over the group policies.
+---
 
-### -include [string]
+## Usage Scenarios
 
-Optional. Specifies list of one or more package IDs, separated by comma (","). When this parameter is specified, these are the only packages that should be installed if they are applicable to this device.
+SU Helper is designed to support these key scenarios:
 
-You can easily find the package IDs for updates by either using Update Retriever or the [Driver & Software Matrix for IT Admins](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html). The latter has been updated to provide checkboxes in the list of search results so that one or more updates can be selected, then clicking the **Copy Package ID(s)** button will copy a string to the clipboard consisting of the selected Package IDs separated by a comma. This string can be used after the -include parameter in the command line.
+**Trigger On-Demand Update**
+:  Trigger an Auto Update session without waiting for the normal schedule. Useful when you need immediate deployment of critical updates.
 
-### -exclude [string]
+**Filtered Update Deployment**
+:  Trigger updates for specific types only (e.g., drivers and firmware via Windows Update for Business, but deploy other updates via Commercial Vantage). Example: Deploy Commercial Vantage with Auto Update disabled, then use SU Helper on-demand to install specific packages.
 
-Optional. Specifies list of one or more package IDs, separated by comma (","). When this parameter is specified these updates will NOT be installed even if they are applicable. The **-include** and **-exclude** parameters cannot be used in the same command. This would trigger an error return code for bad parameters. Once a package ID has been added to the database file, subsequent scheduled auto update sessions of the System Update Addin will NOT install this update either. If a later command is executed with the **-include** parameter specifying a package ID that is in the exclude list, the package ID will be removed from the exclude list and will be installed if applicable.
+**Block Problematic Updates**
+:  If a particular update causes compatibility issues in your test environment, use SU Helper to add it to an exclude list on production devices, preventing installation during Auto Update or Manual Update sessions.
 
-### -packagetype [string]
+---
 
-Optional. Specifies a list of one or more numbers, separated by comma (","). When this parameter is specified, only updates that correspond to the specified package type number will be installed if applicable. Package type numbers must be from the following list:
+## Parameter Reference
 
-    {0} : Others
-    {1} : Application
-    {2} : Driver
-    {3} : Bios
-    {4} : Firmware
+??? note "-autoupdate (Required)"
+    
+    Triggers an Auto Update process by the System Update Addin.
+    
+    **Behavior:**
+    - If used alone, any Group Policy filters are applied
+    - If other parameters are specified, command-line filters take priority over Group Policies
+    - Can be combined with other optional parameters for filtering
 
-### -reboottype [string]
+??? note "-include [string] (Optional)"
+    
+    Specifies one or more package IDs to install. **Only these packages** will be installed (if applicable).
+    
+    **Format:** Comma-separated package IDs (e.g., `n3uj12w,n3jcd08w`)
+    
+    **Finding Package IDs:**
+    - Use [Update Retriever](https://support.lenovo.com/us/en/solutions) tool
+    - Use [Driver & Software Matrix for IT Admins](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html) – search, select updates, click "Copy Package ID(s)"
+    
+    **Limitation:** Cannot be combined with `-exclude` or `-packagetype`/`-reboottype` parameters
 
-Optional. Specifies a list of one or more numbers, separated by comma (","). When this parameter is specified, only updates that have the corresponding reboot type will be installed if applicable. Reboot type numbers must be from the following list:
+??? note "-exclude [string] (Optional)"
+    
+    Specifies one or more package IDs to **skip during installation** (even if applicable).
+    
+    **Format:** Comma-separated package IDs (e.g., `n3jrg03w`)
+    
+    **Persistent:** Once a package ID is added to the exclude list, subsequent scheduled auto updates will also skip this package.
+    
+    **Override:** If a later command specifies the same package ID in `-include`, it will be removed from the exclude list and installed if applicable.
+    
+    **Limitation:** Cannot be combined with `-include` or `-packagetype`/`-reboottype` parameters
 
-    {0} : No reboot required
-    {1} : Forced reboot by the update itself
-    {3} : Requires reboot
-    {4} : Forces shutdown by update itself
-    {5} : Delayed forced reboot within 5 minutes
+??? note "-packagetype [string] (Optional)"
+    
+    Filter updates by type. Only updates matching the specified type(s) will be installed.
+    
+    **Package Types:**
+    
+    | Number | Type |
+    | --- | --- |
+    | 0 | Others |
+    | 1 | Application |
+    | 2 | Driver |
+    | 3 | BIOS |
+    | 4 | Firmware |
+    
+    **Format:** Comma-separated numbers (e.g., `2,3` = Drivers and BIOS)
+    
+    **Can combine with:** `-reboottype` parameter (AND logic – intersection of both filters)
 
-### -allowdefer
+??? note "-reboottype [string] (Optional)"
+    
+    Filter updates by reboot requirement. Only updates requiring the specified reboot type(s) will be installed.
+    
+    **Reboot Types:**
+    
+    | Number | Behavior |
+    | --- | --- |
+    | 0 | No reboot required |
+    | 1 | Forced reboot by update |
+    | 3 | Requires reboot |
+    | 4 | Forces shutdown by update |
+    | 5 | Delayed forced reboot (5 minutes) |
+    
+    **Format:** Comma-separated numbers (e.g., `0,3` = No reboot or requires reboot)
+    
+    **Can combine with:** `-packagetype` parameter (AND logic – intersection of both filters)
 
-Optional. When this parameter is specified, then any group policy set allowing the end-user to defer the updates will be applied. Otherwise, the default operation is that the applicable updates will be installed without an option for the user to defer updating.
+??? note "-allowdefer (Optional)"
+    
+    Allow end-users to defer updates when applicable Group Policy permits deferral.
+    
+    **Default behavior:** Updates install without user option to defer.
+    
+    **With this parameter:** Group Policy deferral rules are applied (if configured).
 
-### -help or /?
+??? note "-help or /? (Optional)"
+    
+    Display command-line help and parameter reference.
 
-Optional.  Displays this parameter reference text.
+---
 
-## Possible return codes
+## Return Codes
 
-The following list shows the possible return codes from SUHelper.exe.
+| Code | Meaning | Action |
+| --- | --- | --- |
+| **0** | Success | Update session triggered successfully |
+| **1** | Error in parameters | Check parameter syntax and combinations |
+| **2** | System Update Addin is busy | Wait and retry; another update session is running |
+| **3** | Unexpected error occurred | Check logs; see [Troubleshooting](#troubleshooting) |
 
-!!! note
-    Keep in mind that the return code only represents the result of calling suhelper.exe and does not represent the result of the update session that is triggered. The results of the update session can be found in the Lenovo_Updates WMI class.
+!!! note "Important"
+    Return codes represent only the result of calling `suhelper.exe`, not the result of the update session itself. Check the `Lenovo_Updates` WMI class for actual update results.
 
-0 = Success
+---
 
-1 = Error in parameters
+## Important Rules
 
-2 = System Update Addin is busy
+!!! warning "Parameter Constraints"
+    
+    **Cannot combine in same command:**
+    - `-include` and `-exclude` (mutually exclusive → return code 1)
+    - `-include` with `-packagetype` or `-reboottype`
+    - `-exclude` with `-packagetype` or `-reboottype`
+    
+    **Can combine in same command:**
+    - `-packagetype` and `-reboottype` (AND logic – both filters applied simultaneously)
+    - Any optional parameter with `-allowdefer`
 
-3 = Unexpected error occurred
+!!! info "Policy Precedence"
+    
+    - **Command-line parameters take priority** over Group Policy filters
+    - If no parameters: Group Policy filters apply (if configured)
+    - If no policies: All applicable updates install
 
-## Examples of command line
+!!! warning "Concurrency"
+    
+    If System Update Addin is already running, the command terminates with return code 2. Wait for the current session to finish before retrying.
 
-    suhelper.exe -autoupdate -include n3uj12w, n3jcd08w
+---
+
+## Examples by Scenario
+
+??? note "Install specific packages only"
+    
+    **Goal:** Deploy only two specific driver packages
+    
+    ```powershell
+    suhelper.exe -autoupdate -include n3uj12w,n3jcd08w
+    ```
+
+??? note "Block a problematic update"
+    
+    **Goal:** Prevent a problematic BIOS update from being installed
+    
+    ```powershell
     suhelper.exe -autoupdate -exclude n3jrg03w
-    suhelper.exe -autoupdate -packagetype 2,3 -reboottype 0,3 -allowdefer
+    ```
+
+??? note "Install drivers and firmware without reboot"
+    
+    **Goal:** Deploy drivers and BIOS that don't require reboot; allow user deferral if policy permits
+    
+    ```powershell
+    suhelper.exe -autoupdate -packagetype 2,3 -reboottype 0 -allowdefer
+    ```
+
+??? note "Install drivers or BIOS (any reboot type)"
+    
+    **Goal:** Deploy all drivers and BIOS updates regardless of reboot requirement
+    
+    ```powershell
+    suhelper.exe -autoupdate -packagetype 2,3
+    ```
+
+??? note "Display help"
+    
+    ```powershell
     suhelper.exe -help
+    ```
 
-## Considerations
+---
 
-The **-packagetype** and **-reboottype** parameters can both be specified in the same command and will be **ANDed** together so the resulting set of updates applied will be the intersection of both filters.
+## Troubleshooting
 
-The **-include** and **-exclude** parameters cannot be combined with **-packagetype** or **-reboottype** parameters. They should be specified by themselves on the command line after the **-autoupdate** parameter.
+**Return code 1 (Error in parameters):**
+- Check that you're not combining incompatible parameters (e.g., `-include` with `-packagetype`)
+- Verify package IDs are comma-separated with no spaces
+- Use `-help` to review syntax
 
-If a command line is executed on a device where the System Update Addin is already running an update session, then the command will terminate with a return code that specifies the System Update Addin is in use.
+**Return code 2 (System Update Addin is busy):**
+- Wait for the current update session to finish
+- Check Task Scheduler for running update tasks
+- Retry the command after the session completes
 
-### How Commercial Vantage Policies apply
+**Return code 3 (Unexpected error):**
+- Check event logs in Windows Event Viewer
+- Verify SU Helper is installed: `C:\Program Files\Lenovo\SUHelper\suhelper.exe`
+- Ensure running as Administrator
+- Verify network connectivity (if fetching updates)
 
-If the System Update policies for filtering updates have been configured, if you call `suhelper.exe -autoupdate` without any other parameters, the filtering policies will take effect.
-
-If the System Update policies for filtering updates have NOT been configured, if you call `suhelper.exe -autoupdate` without any other parameters, there will be no filtering applied and all possible updates will be installed.
-
-If the suhelper.exe is called with either the **-packagetype** or **-reboottype** paramters, any filtering policies configured on the device will be ignored. In other words, calling the suhelper.exe directly will take priority over the policies.
+**Updates not installing despite valid command:**
+- Verify return code is 0 (success)
+- Check `Lenovo_Updates` WMI class for session results
+- Review Configuration Manager or Intune logs if deployed remotely

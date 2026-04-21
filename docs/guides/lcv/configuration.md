@@ -1,314 +1,364 @@
+---
+title: Configuration
+description: Commercial Vantage configuration methods using Group Policy and registry
+---
+
 # Configuration
 
-!!! warning
-    Due to requirements from the Lenovo Product Security team, logging is not enabled by default any longer. To enable logging, set the following registry values to "Trace":
+Lenovo understands that some features of Commercial Vantage may not be appropriate for end users in a managed corporate environment. Most features can be hidden or disabled via Group Policy or registry settings.
+
+!!! warning "Logging Setup"
+    By default, logging is disabled. To enable logging, set these registry values to "Trace":
+    
     ```registry
     [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\VantageService\FileLogger]
     "LenovoVantageShell"="Trace"
     "AllLogs"="Trace"
     ```
+    
+    Logs are located in: `%ProgramData%\Lenovo\Vantage\Logs\`
+    
+    System Update logs: `LenovoSystemUpdateAddin` subfolder
 
-    Logs can be found in subfolders for each component under:
-    `%ProgramData%\Lenovo\Vantage\Logs\`
+## Quick Start
 
-    For the System Update Addin, the logs will be in `LenovoSystemUpdateAddin` subfolder.
+| Your Environment | Recommended Method | Setup Time |
+| --- | --- | --- |
+| Domain-joined PCs | [Group Policy](#group-policy) | 5 min |
+| Non-domain PCs | [Registry files](#registry) | 10 min |
+| OS deployment (ConfigMgr/MDT) | [Registry](#registry) or [ConfigMgr](#configuration-manager) | 15 min |
+| Intune managed devices | [Registry](#registry) | 10 min |
+| Test single PC | [Registry Editor](#registry) | 5 min |
 
-Lenovo understands that some features of Commercial Vantage may not be appropriate for end users in a managed corporate environment. Therefore, most features of Commercial Vantage can be hidden or disabled so that your end users cannot access them. There are two ways to configure Commercial Vantage:
+---
 
-## Group Policy Administrative Template
+## Configuration Methods
 
-If your PCs are joined to a domain, and you are familiar with Group Policy Administrative Templates (admx), you can add **CommercialVantage.admx** and **CommercialVantage.adml** to your Central Store. These files are located in the **Group Policy Settings** folder of the .zip file that includes this document. Then, use the Group Policy Editor to manage:
+### Group Policy
 
-- **Computer Configuration -> Administrative Templates -> Commercial Vantage**
+Recommended for domain-joined PCs.
 
-The settings listed in the Policy Editor allow controlling which parts of the Commercial Vantage User Interface are displayed to the user. For example, you can enable the &quot;Turn off Wifi Security&quot; policy to hide the WiFi Security feature of Commercial Vantage.
+**Setup:**
 
-For more information about using Group Policy Administrative Templates, please refer to the following Microsoft documentation: [https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra) .
+1. Add **CommercialVantage.admx** and **CommercialVantage.adml** to your Central Store
+   - Location: `C:\Windows\PolicyDefinitions`
+2. Edit in Group Policy Editor: **Computer Configuration → Administrative Templates → Commercial Vantage**
 
-## Registry
+For Microsoft documentation on Central Store setup: [Create and manage Group Policy Central Store](https://support.microsoft.com/help/3087759)
 
-Commercial Vantage can also be configured by importing .reg file(s) to your PCs as you deploy them. You can also create your own .reg file(s) by following these instructions on a test system:
+??? note "How to export policies as .reg file for deployment"
+    
+    **Steps:**
+    
+    1. Copy **CommercialVantage.admx** to `C:\Windows\PolicyDefinitions`
+    2. Copy **CommercialVantage.adml** to `C:\Windows\PolicyDefinitions\en-US`
+    3. Open **gpedit.msc**
+    4. Navigate to **Local Computer Policy → Computer Configuration → Administrative Templates → Commercial Vantage**
+    5. Configure desired policy settings
+    6. Close Group Policy Editor
+    7. Open **regedit.exe**
+    8. Navigate to `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Lenovo\Commercial Vantage`
+    9. Right-click **Commercial Vantage** and select **Export**
+    10. Save the `.reg` file to deploy to other PCs
 
-1. Copy **Group Policy Settings\CommercialVantage.admx** to the **C:\Windows\PolicyDefinitions** folder
-2. Copy **Group Policy Settings\en-US\CommercialVantage.adml** to the **C:\Windows\PolicyDefinitions\en-US** folder
-3. Run gpedit.msc
-4. The configuration items are at **Local Computer Policy -> Computer Configuration -> Administrative Templates -> Commercial Vantage**
-5. From here, you can configure the policy settings that you want.
-6. When you are done changing settings, close the Group Policy Editor, and then run regedit.exe
-7. In the Registry Editor, navigate to **Computer\HKEY\_LOCAL\_MACHINE\SOFTWARE\Policies\Lenovo**
-8. Right-click on **Commercial Vantage** , and then choose the option to Export
-9. Save the registry file to your PC
-10. On the PCs where you are deploying Commercial Vantage, import this registry file. This can be done before, during, or after the deployment of Commercial Vantage.
+### Registry
 
-## Features and Sample Configurations
+For non-domain or OS deployment scenarios.
 
-1. **Commercial Vantage – show/hide application features**
+**Quick Deployment:**
 
-The sample configuration (sample-policy-config.reg) is provided as a registry export file which can be used as-is (see Chapter 3). The .reg file can be imported to your target systems during deployment, as part of **setup-commercial-vantage.bat**. In this sample, the following policies are pre-configured:
+Use the **VantageDisableAutomaticSystemUpdates.reg** file (included in Enterprise Package) or create your own `.reg` file by following the Group Policy export steps above.
 
-1. Hide the &quot;Support&quot; section
-2. Hide the &quot;WiFi Security&quot; feature
-3. Automatically accept the End User License Agreement (EULA)
-4. Write the system warranty information to WMI
+**Registry Path:**
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Lenovo\Commercial Vantage
+```
 
-Again, this is just a sample. You can deploy any available policy setting in this way by following the instructions in Chapter 3.
+**Common Values:**
+- `AutoUpdateEnabled` (REG_DWORD): 0 = disabled, 1 = enabled
+- `AcceptEULAAutomatically` (REG_DWORD): Auto-accept EULA
+- `feature.giveFeedback` (REG_DWORD): Allow feedback submission
+
+---
+
+## Feature Configurations
 
 ### System Update – Automatic Updates
 
-By default, the System Update feature of Commercial Vantage automatically installs the following updates on a weekly schedule:
+By default, Commercial Vantage automatically installs updates on a weekly schedule:
+- All "Critical" updates (BIOS, firmware, drivers, software)
+- All "Recommended" driver updates
 
-- All "Critical" updates (BIOS, firmware, drivers, and software)
-- All "Recommended" driver updates (not BIOS, firmware, or software)
+??? note "Configure automatic updates"
+    
+    **Disable auto-update:**
+    
+    - **Group Policy:** Computer Configuration → Administrative Templates → Commercial Vantage → Device → System Update → Auto Update
+    - **Registry:** Set `AutoUpdateEnabled` to `0` under `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Lenovo\Commercial Vantage`
+    - **File:** Use `VantageDisableAutomaticSystemUpdates.reg` (in Enterprise Package)
+    
+    **Configure update types:**
+    
+    Edit: **Computer Configuration → Administrative Templates → Commercial Vantage → System Update → Configure System Update**
+    
+    Options:
+    - Install only driver and software updates
+    - Install only BIOS and firmware updates
+    - Install all critical and recommended updates
 
-These automatic updates can be disabled in **Computer Configuration -> Administrative Templates -> Commercial Vantage -> Device -> System Update -> Auto Update**. Or, you can use the **VantageDisableAutomaticSystemUpdates.reg** file which is included in the deployment packagee.
+### System Update – Custom Repository
 
-You can configure the types of updates that get installed automatically in **Computer Configuration -> Administrative Templates -> Commercial Vantage -> System Update -> Configure System Update**. For example, you can choose to install _only_ driver and software updates, and not any BIOS or firmware updates. Or you can install all critical and recommended updates.
+Use a custom repository instead of Lenovo's default.
+
+??? note "Configure custom update repository"
+    
+    **Location:** Group Policy or Registry
+    - **Group Policy:** Computer Configuration → Administrative Templates → Commercial Vantage → Device → System Update → System Update Repository
+    - **Registry:** `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Lenovo\Commercial Vantage\RepositoryPath`
+    
+    **Supported paths:**
+    - Local folder: `c:\myRepository`
+    - Mapped drive: `m:\myRepository`
+    - UNC path: `\\myServer\myRepository`
+    - **Cloud storage (v10.2208.22.0+):** HTTPS URL to accessible location
+    
+    **Create custom repository:**
+    - [Download Lenovo Tools for Admins](https://support.lenovo.com/us/en/solutions/ht037099)
+    - [System Update Suite Product Guide – Update Retriever](/guides/sus/su_dg/su_dg_ch3/#33-update-retriever)
 
 ### System Update – Update History
 
-The System Update feature of Commercial Vantage writes update history to WMI (in the ROOT\LENOVO namespace). The Lenovo\_Updates class will contain each applicable package ID for that specific model, along with the Severity, Status, Title, and Version.
+Commercial Vantage writes update history to WMI (ROOT\LENOVO namespace).
 
-### System Update – Update Repository
+??? note "Query update history"
+    
+    **WMI Class:** `Lenovo_Updates`
+    
+    **Available fields:**
+    - Package ID (for this model)
+    - Severity level
+    - Installation status
+    - Update title
+    - Version number
 
-By default, the System Update feature of Commercial Vantage searches the Lenovo repository of updates. If you prefer, you can create your own repository of updates and configure Vantage to use this repository instead. This is configured in **Computer Configuration -> Administrative Templates -> Commercial Vantage -> Device -> System Update -> System Update Repository**. You can point to a local folder (such as c:\myRepository), a mapped drive (such as m:\myRespository) or a UNC path (such as \\\\myServer\myRepository).
+### Application Features – Show/Hide UI Elements
 
-!!! note
-    With version 10.2208.22.0 the repository path can now also be specified as a URL path to an accessible cloud storage location.
+Hide specific Commercial Vantage features from users.
 
-See here for more information about using Update Retriever to create your own custom repository of updates:
-
-- [Download Lenovo Tools for Admins](https://support.lenovo.com/us/en/solutions/ht037099)
-- [System Update Suite Product Guide](/guides/sus/su_dg/su_dg_ch3/#33-update-retriever)
+??? note "Hide or disable features"
+    
+    **Sample configuration (sample-policy-config.reg):**
+    - Hide the "Support" section
+    - Hide the "WiFi Security" feature
+    - Automatically accept the End User License Agreement (EULA)
+    - Write system warranty information to WMI
+    
+    **Deploy custom configurations:**
+    
+    1. Configure desired policies in Group Policy Editor (see [Exporting as .reg file](#how-to-export-policies-as-reg-file-for-deployment))
+    2. Export to `.reg` file
+    3. Import during OS deployment or use Configuration Manager/Intune
 
 ### Warranty Information
 
-You can use Commercial Vantage to write the system warranty information to WMI (in the ROOT\Lenovo namespace) by setting the policy in **Computer Configuration -> Administrative Templates -> Commercial Vantage -> Device -> Warranty**. The Lenovo\_WarrantyInformation class stores SerialNumber, Product, StartDate, EndDate, LastUpdateTime and the reference of each purchased warranty, while Lenovo\_WarrantyElement stores the details of these purchased warranties.
+Write system warranty data to WMI.
 
-### Battery Information
+??? note "Enable warranty information collection"
+    
+    **Group Policy:** Computer Configuration → Administrative Templates → Commercial Vantage → Device → Warranty
+    
+    **WMI Classes:**
+    - `Lenovo_WarrantyInformation`: SerialNumber, Product, StartDate, EndDate, LastUpdateTime
+    - `Lenovo_WarrantyElement`: Details of purchased warranties
 
-On ThinkPads, you can use Commercial Vantage to write the battery information to WMI (in the ROOT\Lenovo namespace) by setting the policy in **Computer Configuration -> Administrative Templates -> Commercial Vantage -> Device -> Device Settings -> Power**. The Lenovo\_Battery class stores the same information about the battery that you can see in the Commercial Vantage application.
+### Battery Information (ThinkPad)
 
-Need help with other configurations? Have questions? Reach out to us on our forum! [https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01\_eg](https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg)
+Write battery data to WMI for monitoring.
 
-## Microsoft Configuration Manager
+??? note "Enable battery information collection"
+    
+    **Group Policy:** Computer Configuration → Administrative Templates → Commercial Vantage → Device → Device Settings → Power
+    
+    **WMI Class:** `Lenovo_Battery` – Same information displayed in Commercial Vantage application
 
-If policies need to be set in an Operating System Deployment prior to first-logon, reference the example solutions described below.
+---
 
-### Package/JSON
+## Deployment Platforms
 
-A Package containing a JSON file with the desired policies, which are applied using a PowerShell script.
+### Microsoft Configuration Manager
 
-!!! note
-    The policies in this example are a recommended baseline for enterprise customers
+Deploy policies during OS deployment or as ongoing compliance baselines.
 
-1\. Create a file named **policies.json** with the following data and save it to a source location.
-
-```json
-[
+??? note "Package/JSON Method"
+    
+    **Recommended baseline policies included in example.**
+    
+    **Step 1: Create policies.json**
+    
+    ```json
+    [
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "AcceptEULAAutomatically",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "AutoUpdateEnabled",
+            "Value": "0",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "feature.giveFeedback",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "page.hardwareScan",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "TurnOffMetricsCollection",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "RunOnce",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "wmi.warranty",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "page.wifiSecurity",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "page.mySoftware",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        }
+    ]
+    ```
+    
+    **Step 2: Create PowerShell script (Set-CommercialVantagePolicies.ps1)**
+    
+    ```powershell
+    $jsonFile = "policies.json"
+    $jsonPath = "$PSScriptRoot\$jsonFile"
+    $registryPath = "HKLM:\SOFTWARE\Policies\Lenovo\Commercial Vantage"
+    
+    if (-not (Test-Path $jsonPath))
     {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "feature.giveFeedback",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "AcceptEULAAutomatically",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "page.hardwareScan",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "TurnOffMetricsCollection",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "RunOnce",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "AutoUpdateEnabled",
-        "Value": "0",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "wmi.warranty",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "page.wifiSecurity",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "page.mySoftware",
-        "Value": "1",
-        "Type": "REG_DWORD"
+        Write-Error "JSON file not found at $jsonPath"
+        exit 1
     }
-]
-```
-
-2\. Create a second file named **Set-CommercialVantagePolicies.ps1** with the following code and save it to the same source location as **policies.json**.
-
-```powershell
-$jsonFile = "policies.json"
-$jsonPath = "$PSScriptRoot\$jsonFile"
-$registryPath = "HKLM:\SOFTWARE\Policies\Lenovo\Commercial Vantage"
-
-if (-not (Test-Path $jsonPath))
-{
-    Write-Error "JSON file not found at $jsonPath"
-    exit 1
-}
-
-if (-not (Test-Path $registryPath))
-{
-    $null = New-Item -Path $registryPath -Force -ErrorAction Stop
-}
-
-$registrySettings = Get-Content -Path $jsonPath | ConvertFrom-Json
-
-foreach ($setting in $registrySettings)
-{
-    $path = $setting.Path
-    $name = $setting.Name
-    $value = $setting.Value
-    $type = $setting.Type
-
-    if (-not (Test-Path $path))
+    
+    if (-not (Test-Path $registryPath))
     {
-        New-Item -Path $path -Force
+        $null = New-Item -Path $registryPath -Force -ErrorAction Stop
     }
+    
+    $registrySettings = Get-Content -Path $jsonPath | ConvertFrom-Json
+    
+    foreach ($setting in $registrySettings)
+    {
+        $path = $setting.Path
+        $name = $setting.Name
+        $value = $setting.Value
+        $type = $setting.Type
+    
+        if (-not (Test-Path $path))
+        {
+            New-Item -Path $path -Force
+        }
+    
+        Set-ItemProperty -Path $path -Name $name -Value $value -Type $type
+        Write-Output "Applied registry setting: Path=$path, Name=$name, Value=$value"
+    }
+    ```
+    
+    **Step 3: Create ConfigMgr Package**
+    
+    1. Go to **Software Library → Application Management → Packages**
+    2. Click **Create Package**
+    3. Specify **Name** and check **This package contains source files**
+    4. Select **Source folder** containing policies.json and script
+    5. Select **Do not create a program**
+    6. Distribute to **Distribution Points**
+    
+    **Step 4: Add to OS Deployment Task Sequence**
+    
+    1. Add **Run PowerShell Script** step after **Setup Windows and Configuration Manager**
+    2. Set **Name**: "Set Commercial Vantage Policies"
+    3. Check **Select a package with a PowerShell script** and browse to package
+    4. Set **Script name**: Set-CommercialVantagePolicies.ps1
+    5. Set **PowerShell execution policy**: Bypass
 
-    Set-ItemProperty -Path $path -Name $name -Value $value -Type $type
-    Write-Output "Applied registry setting: Path=$path, Name=$name, Value=$value"
-}
-```
+??? note "Configuration Baseline Method"
+    
+    Deploy ongoing compliance monitoring of Commercial Vantage policies.
+    
+    **Create Configuration Item:**
+    
+    1. Go to **Assets and Compliance → Compliance Settings → Configuration Items**
+    2. Click **Create Configuration Item**
+    3. On **General** page: Enter **Name** and description
+    4. Under type: Select **Windows Desktops and Servers (custom)**
+    5. On **Supported Platforms**: Select Windows 10 (64-bit), Windows 11 (ARM64, 64-bit)
+    6. On **Settings** page: Click **New**
+    7. On **General** tab:
+       - **Name**: Accept EULA Automatically
+       - **Setting type**: Registry value
+       - **Data type**: Integer
+       - **Hive**: HKEY_LOCAL_MACHINE
+       - **Key name**: SOFTWARE\Policies\Lenovo\Commercial Vantage
+       - **Value name**: AcceptEULAAutomatically
+       - **Check: Create the registry value as a REG_DWORD data type if remediated for noncompliant rules**
+    8. On **Compliance Rules** tab: Click **New**
+       - **Name**: Accept EULA Automatically
+       - **Operator**: Equals
+       - **For the following values**: 1
+       - **Check: Remediate noncompliant rules when supported**
+       - **Check: Remediate noncompliance if this setting is not found**
+       - **Noncompliance severity**: Information
+    
+    **Repeat for each policy in this table:**
+    
+    | **Policy Name** | **Registry Value Name** |
+    | :--- | :--- |
+    | Disable Auto Update | AutoUpdateEnabled |
+    | Turn Off Give Feedback | feature.giveFeedback |
+    | Turn Off Hardware Scan | page.hardwareScan |
+    | Turn Off Metrics Collection | TurnOffMetricsCollection |
+    | Turn Off My Software | page.mySoftware |
+    | Turn Off Run-Once Task | RunOnce |
+    | Turn Off Network | page.wifiSecurity |
+    | Write Warranty Info to WMI | wmi.warranty |
+    
+    **Create Configuration Baseline:**
+    
+    1. Go to **Assets and Compliance → Compliance Settings → Configuration Baselines**
+    2. Click **Create Configuration Baseline**
+    3. Enter **Name** and description
+    4. Under **Configuration data**: Click **Add** → Choose **Configuration Items** → Select your items
+    5. **Check: Always apply this baseline even for co-managed clients**
+    6. Deploy to a **Device Collection** containing Lenovo Think products
 
-3\. In the Configuration Manager console, go to the **Software Library** workspace, expand **Application Management**, and select the Packages node.
+---
 
-4\. In the **Home** tab of the ribbon, in the **Create** group, choose **Create Package**.
-
-5\. On the **Package** page of the **Create Package and Program Wizard**, specify the following information:
-
-- **Name**: Specify a name for the package
-
-- [**x**] **This package contains source files**
-
-- **Source folder**: Specify the location of the source files for the package.
-
-6\. On the **Program Type** page, select **Do not create a program**.
-
-7\. Complete the **Create Package and Program Wizard** and distribute the **Package** to **Distribution Points**.
-
-### Operating System Deployment Task Sequence
-
-Edit the Operating System Deployment task sequence and perform the following:
-
-1\. Add a **Run PowerShell Script** anywhere after **Setup Windows and Configuration Manager**.
-
-2\. Specify the following:
-
-- **Name**: For example, **Set Commercial Vantage Policies**.
-
-- [**x**] **Select a package with a PowerShell script**: Browse to the package created earlier.
-
-- **Script name**: _Set-CommercialVantagePolicies.ps1_
-
-- **PowerShell execution policy**: Bypass
-
-3\. Click **Ok** to apply changes to the task sequence.
-
-### Configuration Item/Baseline
-
-Deploy a Configuration Baseline that contains a predefined configuration item consisting of recommended Commercial Vantage policies to be enabled in an enterprise.
-
-#### Configuration Item
-
-1\. In the Configuration Manager console, go to the **Assets and Compliance** workspace, expand **Compliance Settings**, and select the **Configuration Items** node.
-
-2\. On the **Home** tab of the ribbon, in the **Create** group, select **Create Configuration Item**.
-
-3\. On the **General** page of the wizard, specify a **Name**, and optional description.
-
-4\. Under **Specify the type of configuration item that you want to create**, select **Windows Desktops and Servers (custom)**.
-
-5\. On the **Supported Platforms** page, select:
-
-- **All Windows 10 (64-bit)**
-
-- **All Windows 11 (ARM64)** and **All Windows 11 (64-bit)**
-
-6\. On the **Settings** page, select **New**.
-
-7\. On the **General** tab, provide the following information:
-
-- **Name**: Accept EULA Automatically
-
-- **Setting type**: Registry value
-
-- **Data type**: Integer
-
-- **Hive**: HKEY_LOCAL_MACHINE
-
-- **Key name**: SOFTWARE\Policies\Lenovo\Commercial Vantage
-
-- **Value name**: AcceptEULAAutomatically
-
-- [**x**] **Create the registry value as a REG_DWORD data type if remediated for noncompliant rules**
-
-8\. On the **Compliance Rules** tab, click **New** and provide the following information:
-
-- **Name**: Accept EULA Automatically
-
-- **Operator**: Equals
-
-- **For the following values**: 1
-
-- [**x**] **Remediate noncompliant rules when supported**
-
-- [**x**] **Remediate noncompliance if this setting is not found**
-
-- **Noncompliance severity for reports**: Information
-
-!!! info ""
-    Repeat steps 7 and 8 for the following recommended policies
-
-| **Policy Name** | **Value** |
-| :--- | :--- |
-| Disable Auto Update | AutoUpdateEnabled |
-| Turn Off Give Feedback | feature.giveFeedback |
-| Turn Off Hardware Scan | page.hardwareScan |
-| Turn Off Metrics Collection | TurnOffMetricsCollection |
-| Turn Off My Software | page.mySoftware |
-| Turn Off Run-Once Task | RunOnce |
-| Turn Off Network (previously named Wifi Security) | page.wifiSecurity |
-| Write Warranty Info to WMI | wmi.warranty |
-
-#### Configuration Baseline
-
-1\. In the Configuration Manager console, go to the **Assets and Compliance** workspace, expand **Compliance Settings**, and select the **Configuration Baseline** node.
-
-2\. On the **Home** tab of the ribbon, in the **Create** group, select **Create Configuration Baseline**.
-
-3\. On the **General** page of the wizard, specify a **Name**, and optional description.
-
-4\. Under **Configuration data**, click **Add**, choose **Configuration Items**. Select the **Configuration Item** created above and click **Add** to add it to the baseline.
-
-5\. [**x**] Always apply this baseline even for co-managed clients
-
-6\. Deploy the baseline to a **Device Collection** containing Lenovo Think products.
+!!! question "Need Help?"
+    Have questions about configuration? Join the [Enterprise Client Management Forum](https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg).

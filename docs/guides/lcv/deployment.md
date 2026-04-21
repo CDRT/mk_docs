@@ -1,70 +1,94 @@
+---
+title: Deployment
+description: Commercial Vantage deployment methods and procedures
+---
+
 # Deployment
 
-Commercial Vantage is a Universal Windows Platform Application that can also be installed directly from the Microsoft Store: [https://www.microsoft.com/store/apps/9NR5B8GVVM13](https://www.microsoft.com/store/apps/9NR5B8GVVM13). However, to fully install the app and its dependencies will require Administrator privileges. Therefore, this is not the recommended method of deploying the app to limited users in a managed environment as it will generate UAC prompts.
+## Deployment Methods
 
-For enterprise customers who require installing the app for their users, Lenovo provides an Enterprise Package which contains the files necessary to deploy the application during an OS deployment task sequence or as an application package from a software deployment solution such as Intune or Configuration Manager.
+### Microsoft Store (Not Recommended)
 
-!!! info "Download Enterprise Package"
-    The Enterprise Package for Lenovo Commercial Vantage can be found here:
-    [https://support.lenovo.com/us/en/solutions/hf003321](https://support.lenovo.com/us/en/solutions/hf003321)
+Available at: [https://www.microsoft.com/store/apps/9NR5B8GVVM13](https://www.microsoft.com/store/apps/9NR5B8GVVM13)
 
-Starting with the Enterprise Package released in July 2025, the VantageInstaller.exe is now provided to simplify the installation of the Commercial Vantage application and its dependencies, as well as the SU Helper utility.
+- Requires Administrator privileges
+- Generates UAC prompts
+- **Not suitable** for limited user deployments in managed environments
 
-## Using VantageInstaller.exe
+### Enterprise Package (Recommended)
 
-VantageInstaller must be executed with Administrator privileges in order to install the application and dependencies. The installation can be controlled by using the following parameters which are **case sensitive**.
+Best for OS deployment task sequences, ConfigMgr, Intune, and managed environments.
 
-### ```[Install | Uninstall]```
+!!! info "Download"
+    [Lenovo Support - hf003321](https://support.lenovo.com/us/en/solutions/hf003321)
+    
+    Includes VantageInstaller.exe (July 2025+), deployment scripts, and ADMX templates.
 
-Parameter indicates the intention to either install or uninstall the application. It must be specified first and is used in combination with the parameters below
+---
 
-#### ``` -Vantage ```
+## VantageInstaller.exe
 
-Indicates the Commercial Vantage app and its dependencies such as Lenovo Vantage Service and the Add-ins. When **uninstalling** the Lite version, it is necessary to specify `-Vantage` instead of `-Lite`.
+VantageInstaller must run with Administrator privileges. All parameters are **case sensitive**.
 
-#### ``` -App ```
-Indicates just the Commercial Vantage app and not the Lenovo Vantage Service and Add-ins.
+### Quick Reference
 
-#### ``` -SuHelper ```
-Indicates the SU Helper companion utility.
+| Parameter | Purpose |
+| --- | --- |
+| `Install \| Uninstall` | **Required.** Specify operation (must be first) |
+| `-Vantage` | Full app + Lenovo Vantage Service + Add-ins |
+| `-App` | App only (no service/add-ins) |
+| `-Lite` | System Update feature only |
+| `-SuHelper` | SU Helper command-line utility |
+| `-LogLevel -Debug` | Enable verbose logging |
+| `-Output -Path <file>` | Specify log file location |
 
-#### ```-Lite```
+### Common Scenarios
 
-Indicates just the System Update feature of Commercial Vantage. Can be used in combination with ```-SuHelper```; should not be used with ```-Vantage``` or ```-App```.
+```cmd
+# Full installation
+.\VantageInstaller.exe Install -Vantage -SuHelper
 
-!!! info
-    When Lite mode is installed, a value will be set in the registry at `HKLM\Software\WOW6432Node\Lenovo\VantageService\DeviceTags` named `System.Profile.CommercialLite`. This will ensure during upgrades that the Lite version will continue to be maintaine dduring upgrades. To switch to the full Commercial Vantage experience, run `VantageInstaller.exe Uninstall -Vantage` to remove Lite and the Vantage Service. This will clear the registry so that `VantageInstaller.exe Install -Vantage` can install the full app.
+# App and SU Helper only (no service)
+.\VantageInstaller.exe Install -App -SuHelper
 
-### ```LogLevel -Debug```
+# System Update Lite mode
+.\VantageInstaller.exe Install -Lite
 
-Used to get detailed logging in the console as well as saved to a file specified by ```Output```
+# Uninstall with debug logging
+.\VantageInstaller.exe Uninstall -Vantage -LogLevel -Debug -Output -Path C:\logs\uninstall.log
+```
 
-### ```Output -Path```
-
-Used to specify the log file to create when using the ```LogLevel -Debug``` parameter.
-
-### Examples
-
-``` \VantageInstaller.exe Install -Vantage -SuHelper ```
-
-Installs both the Commercial Vantage app and dependencies as well as SU Helper utility.
-
-``` \VantageInstaller.exe Uninstall -Vantage ```
-
-Uninstall the Commercial Vantage app and dependencies.
-
-!!!note
-    If VantageInstaller.exe is invoked in a PowerShell script, it's recommended to use the call operator (&) as the Start-Process cmdlet can be inconsistent due to argument parsing.
+### PowerShell Usage
 
 ```powershell
+# Recommended: Use call operator (&) for consistent argument parsing
 & .\VantageInstaller.exe Install -Vantage -SuHelper
 $process = Get-Process -Name "Lenovo.Vantage.InstallerHelper" -ErrorAction SilentlyContinue
 if ($process) { Wait-Process -Id $process.Id }
 ```
 
-## Deploying from Configuration Manager or Intune
+### Installation Modes
 
-If you are managing your devices with Configuration Manager or Intune, we have articles that will guide you through deploying Commercial Vantage from these solutions.
+??? note "Standard Mode (-Vantage)"
+    
+    Full installation of Commercial Vantage with all components (Vantage Service and Add-ins). When switching from Lite mode, uninstall first, then install the full version.
 
-- [Deploying Commercial Vantage with ConfigMgr](https://blog.lenovocdrt.com/deploying-commercial-vantage-with-configmgr/)
-- [Deploying Commercial Vantage with Intune](https://blog.lenovocdrt.com/deploying-commercial-vantage-with-intune/)
+??? note "Lite Mode (-Lite)"
+    
+    System Update feature only. Sets registry key at `HKLM\Software\WOW6432Node\Lenovo\VantageService\DeviceTags\System.Profile.CommercialLite` to ensure Lite mode persists through updates.
+
+??? note "App Only Mode (-App)"
+    
+    Application without Vantage Service and Add-ins. Use when components are deployed separately.
+
+---
+
+## Platform-Specific Deployment
+
+??? note "Configuration Manager"
+    
+    [Deploying Commercial Vantage with ConfigMgr](https://blog.lenovocdrt.com/deploying-commercial-vantage-with-configmgr/)
+
+??? note "Intune"
+    
+    [Deploying Commercial Vantage with Intune](https://blog.lenovocdrt.com/deploying-commercial-vantage-with-intune/)

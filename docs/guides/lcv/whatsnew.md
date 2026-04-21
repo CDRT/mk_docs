@@ -1,14 +1,19 @@
+---
+title: What's New
+description: Latest features and updates for Commercial Vantage
+---
+
 # What's New
 
-### v20.2511.24.0 - January 23, 2026
+## Latest Release: v20.2511.24.0 (January 23, 2026)
 
-**Main Application**
+### Main Application
 
 - WiFi Security improvements
 - Battery Assist Mode updates
 - Dust Monitoring for ThinkCentre
 - Power Management updates
-    - Intelligent Thermal Sollution mode
+    - Intelligent Thermal Solution mode
     - Mode performance charts
     - Background task power update
 - Telemetry
@@ -16,7 +21,7 @@
     - Follows the existing policy for Metrics collection
     - New check box on initial Welcome dialog for User Consent at first launch
 
-**System Update**
+### System Update
 
 - Available updates indicator will now appear on Commercial Vantage icon in Taskbar
 - Available updates indicator will now appear on the "Check for updates" button on the Dashboard
@@ -43,140 +48,144 @@
 
     IT admins can disable metrics collection via Group Policy for compliance-sensitive environments.
 
-## v20.2509 - October 03, 2025
+---
 
-**Main Application**
+## Release History
 
-- Additional True Wireless Stereo (TWS) support for Aura Edition models
-- Battery Assist Mode updates
-- WiFi Security improvements
+??? note "v20.2509 – October 03, 2025"
 
-**System Update Features**
+    ### Main Application
 
-- Improved error messaging/logging provided to Lenovo Device Orchestration (LDO)
-- Added logging of the stages that the System Update process goes through for (LDO)
-- Added driver rollback capability that will be delivered through LDO
-- Increased the size of customer logo:  minimum 32 x 32; maximum 32 x 128
+    - Additional True Wireless Stereo (TWS) support for Aura Edition models
+    - Battery Assist Mode updates
+    - WiFi Security improvements
 
-**New Group Policies**
+    ### System Update Features
 
-- **Device - System update - Auto update - Show Pre-Install Notification**: Control whether users receive a visible notification before updates are installed. When enabled, updates will be downloaded in the background and the user will be prompted regardless of whether or not the updates will force a reboot. The normal behavior when this policy is **Not Configured** or is **Disabled** will be to prompt only when there are updates that will need to force the machine to reboot.
+    - Improved error messaging/logging provided to Lenovo Device Orchestration (LDO)
+    - Added logging of the stages that the System Update process goes through for (LDO)
+    - Added driver rollback capability that will be delivered through LDO
+    - Increased the size of customer logo:  minimum 32 x 32; maximum 32 x 128
 
-!!! alert "New ADMX template"
-    The Enterprise Package is not updated for 25.09; therefore, to obtain the updated Group Policy Template that includes this new policy, [please download this zip file.](https://download.lenovo.com/cdrt/support/lcv_grouppolicy_2509.zip) Once extracted, copy the contents of the Group Policy folder to the `C:\Windows\PolicyDefinitions` folder. Then you can use **gpedit.msc** to configure the policies under Computer Configuration - Administrative Templates - Commercial Vantage.
+    ### New Group Policies
 
-## v20.2508.42.0 - September 17 2025
+    - **Device - System update - Auto update - Show Pre-Install Notification**: Control whether users receive a visible notification before updates are installed. When enabled, updates will be downloaded in the background and the user will be prompted regardless of whether or not the updates will force a reboot. The normal behavior when this policy is **Not Configured** or is **Disabled** will be to prompt only when there are updates that will need to force the machine to reboot.
 
-**Main Application**
+    !!! warning "New ADMX template required"
+        The Enterprise Package is not updated for 25.09; therefore, to obtain the updated Group Policy Template that includes this new policy, [please download this zip file.](https://download.lenovo.com/cdrt/support/lcv_grouppolicy_2509.zip) Once extracted, copy the contents of the Group Policy folder to the `C:\Windows\PolicyDefinitions` folder. Then you can use **gpedit.msc** to configure the policies under Computer Configuration - Administrative Templates - Commercial Vantage.
 
-- Intelligent Cooling power management updates
-- Battery Discharge update
-- Smart Performance enablement (only available when service is purchased)
-- HW Scan:
-    - USB Type-C port test
-    - Restored Audio Controller Test
-    - Integrated LDE v5.23 SDK
-- Removed Dolby VoIP
+??? note "v20.2508.42.0 – September 17, 2025"
 
-**System Update Features**
+    ### Main Application
 
-- Added a parameter for SU Helper that bypasses Do Not Disturb detection
-- System Update dialogs will automatically close after a set period of time (Microsoft usability requirement)
-- Enable Lenovo Device Orchestration to detect user is using an application in full screen mode to avoid prompting with updates
-- Dock update behavior fixes
+    - Intelligent Cooling power management updates
+    - Battery Discharge update
+    - Smart Performance enablement (only available when service is purchased)
+    - HW Scan:
+        - USB Type-C port test
+        - Restored Audio Controller Test
+        - Integrated LDE v5.23 SDK
+    - Removed Dolby VoIP
 
-## v20.2506.39.0 - July 23 2025
+    ### System Update Features
 
-**Main Application**
+    - Added a parameter for SU Helper that bypasses Do Not Disturb detection
+    - System Update dialogs will automatically close after a set period of time (Microsoft usability requirement)
+    - Enable Lenovo Device Orchestration to detect user is using an application in full screen mode to avoid prompting with updates
+    - Dock update behavior fixes
 
-- New UI throughout application with Light/Dark mode options configurable under Preferences
-- Hidden Keyboard Functions
-    - Depending on model, if there are available keyboard functions that are not illustrated on the keyboard physically, these will be listed on the Device Settings - Input page
-- Accessible Trackpad - Palm rejection (depends on model)
-- Upgraded to .Net8
-- Added VantageInstaller.exe to provide a simpler installation mechanism
+??? note "v20.2506.39.0 – July 23, 2025"
 
-**System Update Features**
+    ### Main Application
 
-- Auto Update Settings
-    - Can now control which updates are provided automatically on a scheduled basis by selecting from "Drivers and other" and "BIOS and firmware". (Note: BIOS and Firmware typically require reboot where as Drivers and othe will not.)
-    - Schedule is weekly and the day and time can be configured in the UI if not specified by group policy configuration.
-    - If the Auto Update Settings are configured through policies by the IT administrator, these controls will not be accessible and a message will be shown to indicate this to the user.
+    - New UI throughout application with Light/Dark mode options configurable under Preferences
+    - Hidden Keyboard Functions
+        - Depending on model, if there are available keyboard functions that are not illustrated on the keyboard physically, these will be listed on the Device Settings - Input page
+    - Accessible Trackpad - Palm rejection (depends on model)
+    - Upgraded to .Net8
+    - Added VantageInstaller.exe to provide a simpler installation mechanism
 
-**New Features Support**
+    ### System Update Features
 
-- Smart Care (for Aura Edition models)
-- Smart Modes (for Aura Edition models)
-- Dynamic App Tuning for ThinkPad X9 models
-- ThinkSmart Core G2 Support
+    - Auto Update Settings
+        - Can now control which updates are provided automatically on a scheduled basis by selecting from "Drivers and other" and "BIOS and firmware". (Note: BIOS and Firmware typically require reboot where as Drivers and other will not.)
+        - Schedule is weekly and the day and time can be configured in the UI if not specified by group policy configuration.
+        - If the Auto Update Settings are configured through policies by the IT administrator, these controls will not be accessible and a message will be shown to indicate this to the user.
 
-**New Group Policies**
+    ### New Features Support
 
-- **Device - Device settings - Power - Turn off At a glance**: The "At a glance" section is new and displays various details about the battery. When this policy is enabled, the section will be hidden.
+    - Smart Care (for Aura Edition models)
+    - Smart Modes (for Aura Edition models)
+    - Dynamic App Tuning for ThinkPad X9 models
+    - ThinkSmart Core G2 Support
 
-- **Device - Device settings - Power - Turn off Battery health**: The Battery health section displays current charge, full charge capacity and original design capacity with an overall health indicator for the battery.  When this policy is enabled, the section will be hidden.
+    ### New Group Policies
 
-- **Device - Device settings - Power - Turn off Battery temperature**: The battery temperature is a new section. When this policy is enabled, the section will be hidden.
+    - **Device - Device settings - Power - Turn off At a glance**: The "At a glance" section is new and displays various details about the battery. When this policy is enabled, the section will be hidden.
 
-- **Device - Device settings - Microphone - Turn off Smart noice cancelling**: This Group Policy setting affects the Smart noise cancelling setting in the Microphone tab in Commercial Vantage. **Enabled**: Enabling this setting turns off and hides the Smart noise cancelling feature from Commercial Vantage. In case the noise cancelling settings have been modified prior to enabling this group policy, all the changes will be rolled back and the settings will be reset to default. **Disabled**: If you disable this setting, the Smart noise cancelling feature will be visible and the users will be able to update the settings through Commercial Vantage. **Not Configured**: Leaving this setting unconfigured maintains the default behavior. Users can freely access and update the Smart noise cancelling settings in the Microphone page in Commercial Vantage.
+    - **Device - Device settings - Power - Turn off Battery health**: The Battery health section displays current charge, full charge capacity and original design capacity with an overall health indicator for the battery.  When this policy is enabled, the section will be hidden.
 
-- The **WiFi Security** policy has been renamed to **Network**
+    - **Device - Device settings - Power - Turn off Battery temperature**: The battery temperature is a new section. When this policy is enabled, the section will be hidden.
 
-- The **Turn off Modes** policy is moved to **Device - Device settings**
+    - **Device - Device settings - Microphone - Turn off Smart noise cancelling**: This Group Policy setting affects the Smart noise cancelling setting in the Microphone tab in Commercial Vantage. **Enabled**: Enabling this setting turns off and hides the Smart noise cancelling feature from Commercial Vantage. In case the noise cancelling settings have been modified prior to enabling this group policy, all the changes will be rolled back and the settings will be reset to default. **Disabled**: If you disable this setting, the Smart noise cancelling feature will be visible and the users will be able to update the settings through Commercial Vantage. **Not Configured**: Leaving this setting unconfigured maintains the default behavior. Users can freely access and update the Smart noise cancelling settings in the Microphone page in Commercial Vantage.
 
-## v10.2501.15.0 - January 2025
+    - The **WiFi Security** policy has been renamed to **Network**
 
-**Main Application**
+    - The **Turn off Modes** policy is moved to **Device - Device settings**
 
-- Some SMB models now come with the Commercial Vantage preinstalled.
-- Models that are Aura Edition will have a Mode (F8) function key that provides quick access to the new Smart Modes through a modal pop-up widget.
-- Introduction of smart noise-canceling features to enhance audio quality.
-- Automatic adjustment of keyboard backlighting based on ambient lighting conditions.
-- Screen dimming adapts based on user presence detected by the time-of-flight (ToF) sensor.
-- New settings available for managing Lenovo's True Wireless earbuds.
-- Feature to predict battery end-of-life for proactive maintenance.
-- Support for human presence detection (HPD) in M90a Gen6 AIO devices.
-- Enables zero touch locking and login when an AIO device is connected to an external monitor.
-- Replaces screen blurring with dimming in high contrast mode for users utilizing Privacy Guard.
-- Removal of on-screen keyboard graphics when not needed.
+??? note "v10.2501.15.0 – January 2025"
 
-**System Update Feature**
+    ### Main Application
 
-- **Support for Test/Active Status in Update Retriever Repositories**: System Update Add-in now supports test and active statuses in Update Retriever repositories. A new group policy setting, Test Content Mode, is added to control the behavior.
+    - Some SMB models now come with the Commercial Vantage preinstalled.
+    - Models that are Aura Edition will have a Mode (F8) function key that provides quick access to the new Smart Modes through a modal pop-up widget.
+    - Introduction of smart noise-canceling features to enhance audio quality.
+    - Automatic adjustment of keyboard backlighting based on ambient lighting conditions.
+    - Screen dimming adapts based on user presence detected by the time-of-flight (ToF) sensor.
+    - New settings available for managing Lenovo's True Wireless earbuds.
+    - Feature to predict battery end-of-life for proactive maintenance.
+    - Support for human presence detection (HPD) in M90a Gen6 AIO devices.
+    - Enables zero touch locking and login when an AIO device is connected to an external monitor.
+    - Replaces screen blurring with dimming in high contrast mode for users utilizing Privacy Guard.
+    - Removal of on-screen keyboard graphics when not needed.
 
-- **Customizable System Update Dialogs**: Allows customization of System Update dialogs with customer branding.
-    - A 32px by 32px image file (png, bmp, gif (static), etc.) can be placed in the ```C:\ProgramData\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\session\resources``` folder.
-    - **The image file must be named ```"companylogo.<ext>"```.**
-    - The company name can be specified in a new group policy setting, **Company Name**.
-    - These will appear on the dialogs that are shown when updates are available that will reboot the user's system and the restart prompt.
+    ### System Update Features
 
-- **Ability to control deferral group policies within Lenovo Device Manager (LDM)**: Now LDM admins can control the deferral limits when managing System Updates leveraging Commercial Vantage on the clients.
+    - **Support for Test/Active Status in Update Retriever Repositories**: System Update Add-in now supports test and active statuses in Update Retriever repositories. A new group policy setting, Test Content Mode, is added to control the behavior.
 
-**New Group Policies**
+    - **Customizable System Update Dialogs**: Allows customization of System Update dialogs with customer branding.
+        - A 32px by 32px image file (png, bmp, gif (static), etc.) can be placed in the `C:\ProgramData\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\session\resources` folder.
+        - **The image file must be named `"companylogo.<ext>"`.**
+        - The company name can be specified in a new group policy setting, **Company Name**.
+        - These will appear on the dialogs that are shown when updates are available that will reboot the user's system and the restart prompt.
 
-- **Device - System Update - Company Name**: Defines the Company Name to be displayed on the System Update dialogs. Excessively long names may be truncated.
+    - **Ability to control deferral group policies within Lenovo Device Manager (LDM)**: Now LDM admins can control the deferral limits when managing System Updates leveraging Commercial Vantage on the clients.
 
-- **Device - System Update - Test Content Mode**: When enabled, this policy will cause System Update to only process packages that have a Status of "Test" in the local repository.  This policy only takes effect if a local repository is configured by the System Update Repository policy.  If this policy is not configured or disabled, then only packages with a Status of "Active" will be processed from the local repository.
+    ### New Group Policies
 
-## v10.2407.66.0 - August 2024
+    - **Device - System Update - Company Name**: Defines the Company Name to be displayed on the System Update dialogs. Excessively long names may be truncated.
 
-**Main Application**
+    - **Device - System Update - Test Content Mode**: When enabled, this policy will cause System Update to only process packages that have a Status of "Test" in the local repository.  This policy only takes effect if a local repository is configured by the System Update Repository policy.  If this policy is not configured or disabled, then only packages with a Status of "Active" will be processed from the local repository.
 
-- Improved the Power page by adding Power Controller and Display Brightness Control
-- Changed section name from Power Smart settings to System Total Power Management
-- Improved the description of Intelligent Cooling for new products shipping in 2024
-- Add a tip for Windows 11 touch screen devices for the Clean My Device feature
+??? note "v10.2407.66.0 – August 2024"
 
-**System Update Feature**
+    ### Main Application
 
-- **Separate filtering policies for Manual versus Auto Update**:  Previously, the policies for System Update provided one set of filtering options for package types and severity levels and these applied to both the Auto Update scenario and the manual Check for Updates. Now it is possible to specify filtering for the manual Check for Updates scenario separately from the Auto Update scenario. This policy is added under Administrative Templates - Commercial Vantage - Device - System Update - Auto Update.  The policy name is **Configure Auto System Update**. If this policy is not configured, then the **Configure System Update** policy in the System Update folder will take affect if configured.
+    - Improved the Power page by adding Power Controller and Display Brightness Control
+    - Changed section name from Power Smart settings to System Total Power Management
+    - Improved the description of Intelligent Cooling for new products shipping in 2024
+    - Add a tip for Windows 11 touch screen devices for the Clean My Device feature
 
-- **Improved handling of some Reboot Type 3 (reboot required) updates**:  Previously, there were some updates that would cause Commercial Vantage to display a failure status after installing; however, the updates would be installed properly after a simple reboot. Now, Commercial Vantage will display a status of "Pending restart" instead. There were also some Reboot Type 3 updates that were successfully installed without the reboot; however, Commercial Vantage would still present a reboot prompt. Now, if no other updates that were installed require a reboot, there will be no reboot prompt presented.
+    ### System Update Features
 
-- **Improved messaging when updates have been installed that requires Commercial Vantage to force a reboot (Reboot type 5)**:  Previously, after installing such updates a dialog would be presented stating that the system will need to reboot with Yes and No buttons. Clicking Yes would allow the system to go ahead and reboot.  Clicking No would close the dialog and the system would automatically reboot within 5 minutes. Now, a more clear message is presented stating the time at which the system will reboot, with a single button that go ahead and proceed with the reboot without waiting. This allows users time to save their work and then initiate the reboot if they are ready before the time expires.
+    - **Separate filtering policies for Manual versus Auto Update**:  Previously, the policies for System Update provided one set of filtering options for package types and severity levels and these applied to both the Auto Update scenario and the manual Check for Updates. Now it is possible to specify filtering for the manual Check for Updates scenario separately from the Auto Update scenario. This policy is added under Administrative Templates - Commercial Vantage - Device - System Update - Auto Update.  The policy name is **Configure Auto System Update**. If this policy is not configured, then the **Configure System Update** policy in the System Update folder will take affect if configured.
 
-- **Remove XML Schema Check**:  Previously, the System Update Add-in would check each XML Package Descriptor for each update against an XML Schema. Since the System Update Add-in is already validating the digital signature of the XML file, this schema check is redundant and has been removed to improve performance.
+    - **Improved handling of some Reboot Type 3 (reboot required) updates**:  Previously, there were some updates that would cause Commercial Vantage to display a failure status after installing; however, the updates would be installed properly after a simple reboot. Now, Commercial Vantage will display a status of "Pending restart" instead. There were also some Reboot Type 3 updates that were successfully installed without the reboot; however, Commercial Vantage would still present a reboot prompt. Now, if no other updates that were installed require a reboot, there will be no reboot prompt presented.
 
-**New Group Policies**
+    - **Improved messaging when updates have been installed that requires Commercial Vantage to force a reboot (Reboot type 5)**:  Previously, after installing such updates a dialog would be presented stating that the system will need to reboot with Yes and No buttons. Clicking Yes would allow the system to go ahead and reboot.  Clicking No would close the dialog and the system would automatically reboot within 5 minutes. Now, a more clear message is presented stating the time at which the system will reboot, with a single button that go ahead and proceed with the reboot without waiting. This allows users time to save their work and then initiate the reboot if they are ready before the time expires.
 
-- **Device - System Update - Auto Update - Configure Auto System Update**: Separate filter for Manual vs Auto Update. See above.
+    - **Remove XML Schema Check**:  Previously, the System Update Add-in would check each XML Package Descriptor for each update against an XML Schema. Since the System Update Add-in is already validating the digital signature of the XML file, this schema check is redundant and has been removed to improve performance.
+
+    ### New Group Policies
+
+    - **Device - System Update - Auto Update - Configure Auto System Update**: Separate filter for Manual vs Auto Update. See above.
