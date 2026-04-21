@@ -1,5 +1,22 @@
 # What's New
 
+### v20.2603.19.0 - April 20, 2026
+
+**Main Application**
+
+- Search Bar added
+- Removed "Aura Edition" branding
+
+**System Update**
+
+- Configure countdown to reboot from 5 to 60 minutes
+- Auto-Update trigger time policy now indicates start of 90-minute window in which devices will update. This prevents all devices from downloading updates at exactly the same time.
+
+**SU Helper**
+
+- Added `-scanonly` parameter to SU Helper - Indicates that System Update Addin will only perform check for updates and will not install any updates. The results will be recorded in the Lenovo_Updates WMI class under root\Lenovo.
+- Added `-ignorexmlsignature` parameter to SU Helper.
+
 ### v20.2511.24.0 - January 23, 2026
 
 **Main Application**
