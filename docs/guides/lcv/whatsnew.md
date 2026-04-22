@@ -15,7 +15,7 @@
 **SU Helper**
 
 - Added `-scanonly` parameter to SU Helper - Indicates that System Update Addin will only perform check for updates and will not install any updates. The results will be recorded in the Lenovo_Updates WMI class under root\Lenovo.
-- Added `-ignorexmlsignature` parameter to SU Helper.
+- Added `-noreboot` parameter to SU Helper - Intended for use when updates are being orchestrated by a process like OS deployment task sequences. This will prevent any reboots for Reboot Type 3 and 5 and avoid the reboot countdown dialog for Reboot Type 5. The handling of the reboot becomes your responsibility. The updates will not be completely installed until the system reboots.
 
 ### v20.2511.24.0 - January 23, 2026
 
