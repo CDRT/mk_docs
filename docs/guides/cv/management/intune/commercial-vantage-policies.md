@@ -118,6 +118,24 @@ Values:
 <disabled/>
 ```
 
+#### Turn off Sustainability
+
+When this policy is enabled, Sustainability page of Commercial Vantage will be hidden.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD/70358F9858C64F4CB4EA4F77DA778710
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
+
 ### Display and Camera
 
 #### Turn off Camera
@@ -1042,6 +1060,30 @@ Values:
     3297105136FCEC5D3432C0FA2FDB73BB = Optional BIOS<br>
     C62002C924CF75712313AC1CF94525AB = Optional Firmware<br>
     9A82A62C3EF3BA2FCC142413A1FAC951 = Optional Others
+
+#### Show Pre-Install Notification
+
+Control whether users receive a visible notification before software packages are installed. When enabled, applicable updates will be downloaded in the background before prompting.
+
+When Not Configured, follow current behavior where Reboot type 0 and 3 updates are downloaded and installed automatically before prompting for any Reboot type 1, 4, 5 updates.
+
+When Enabled, all updates would be downloaded first, then the standard WPF dialog would be displayed before installing any of the updates if the user clicks Install and Restart. This applies to Reboot Type 0, 1, 3, 4 and 5.
+
+When Disabled, the behavior will follow the same as Not Configured.
+
+```xml
+./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/C1740AE92796891F54E1046A4DFB1630
+```
+
+Values:
+
+```xml
+<enabled/>
+```
+
+```xml
+<disabled/>
+```
 
 ### Warranty
 
