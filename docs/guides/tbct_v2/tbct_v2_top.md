@@ -1,3 +1,8 @@
+---
+title: Think BIOS Config Tool V2
+description: PowerShell WFX GUI for managing Lenovo BIOS settings via WMI, with Intune packaging support.
+---
+
 # Think BIOS Config Tool V2
 
 ## Overview
@@ -12,6 +17,8 @@ Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSCon
 - Saving and restoring custom defaults.
 
 This solution can be used in combination with the [Lenovo BIOS Certificates Tool and Module](../lbct/index.md) for complete password-less management of BIOS settings on Lenovo commercial PCs.
+
+For detailed information on individual cmdlets, see the [Module cmdlet reference](./tbc_module_reference.md).
 
 !!! note ""
     **This solution replaces the older Think BIOS Config Tool which was implemented as an HTA.** Archived documentation for the HTA version is still available here: [Think BIOS Config Tool - HTA](https://docs.lenovocdrt.com/guides/tbct/tbct_top/)
@@ -40,158 +47,168 @@ This solution can be used in combination with the [Lenovo BIOS Certificates Tool
 - For Intune packaging/upload: `IntuneWinAppUtil.exe` (tool will be downloaded if missing) and Microsoft Graph modules with appropriate tenant permissions.
 - [Licensed](https://learn.microsoft.com/intune/intune-service/fundamentals/remediations#licensing) for Remediations.
 
-## Installation / setup recommendations
+## Getting started
 
-The Think BIOS Config Tool UI is provided as a PowerShell script that is hosted on the PowerShell Gallery. It can be easily installed with the following command:
+### Install the GUI
+
+The Think BIOS Config Tool UI is provided as a PowerShell script hosted on the PowerShell Gallery:
 
 ```powershell
 Install-Script 'ThinkBiosConfigUI'
 ```
+This installs the script to:
 
-This will install the script to the default script path:
+- Windows PowerShell v5: `C:\Users\{your user name}\WindowsPowerShell\Scripts`
+- PowerShell v7: `C:\Users\{your user name}\Documents\PowerShell\Scripts`
 
-- Windows PowerShell v5: `C:\Users\ {your user name} \WindowsPowerShell\Scripts`
-- PowerShell v7: `C:\Users\ {your user name} \Documents\PowerShell\Scripts`
+If this is your first script from the PowerShell Gallery, you'll be prompted to establish the script path and add it to your PATH environment variable.
 
-If this is the first time installing a script from the PowerShell Gallery, you will be given the option to establish the default script path and add it to the PATH environment variable.
+**Or download directly:**
 
-The GUI script can install and import the required `Lenovo.BIOS.Config` module automatically, or if you only need to work directly with the module, it can be installed from the PowerShell Gallery as well:
+[https://download.lenovo.com/cdrt/tools/tbct_202_102.zip](https://download.lenovo.com/cdrt/tools/tbct_202_102.zip)
+
+Simply unzip to a local folder and run the GUI script in an elevated terminal.
+
+### Install the module
+
+For direct cmdlet usage (with or without the GUI):
 
 ```powershell
 Install-Module 'Lenovo.BIOS.Config'
 ```
 
-!!! note "(Optional)"
-    To use Graph/Intune features interactively, install Microsoft Graph modules (the GUI can prompt and install automatically):
+### Install optional dependencies
+
+!!! note ""
+    To use Graph/Intune features interactively, install Microsoft Graph modules:
 
     ```powershell
     Install-Module Microsoft.Graph -Scope CurrentUser -Force
     ```
 
-    When creating a Win32 Package, the IntuneWinAppUtil.exe tool will be downloaded to the `C:\ProgramData\Lenovo\ThinkBiosConfig\Download` folder.
+    When creating a Win32 Package, IntuneWinAppUtil.exe will be downloaded automatically to `C:\ProgramData\Lenovo\ThinkBiosConfig\Download`.
 
-Alternatively, the GUI and module files can be downloaded from:
-
-[https://download.lenovo.com/cdrt/tools/tbct_202_102.zip](https://download.lenovo.com/cdrt/tools/tbct_202_102.zip)
-
-Simply unzip to a local folder and run the GUI script in an elevated terminal. The GUI script will locate the module and import it automatically.
-
-## Quick start — launch the GUI
+### Launch the GUI
 
 1. Open an elevated PowerShell terminal (Run as Administrator).
-2. Launch the GUI
+2. Run:
 
 ```powershell
 # Assuming installed to default script path and PATH environment variable set accordingly
 ThinkBIOSConfigUI
 ```
 
-### Notes
+!!! note
+    The script includes `#Requires -RunAsAdministrator` and will auto-import the module if installed, or attempt to install it from the PowerShell Gallery.
 
-- The script includes `#Requires -RunAsAdministrator`.
-- The GUI script auto-imports `Lenovo.BIOS.Config` if already installed from the PowerShell Gallery. If it is not already installed, it will attempt to install the module from the PowerShell Gallery. If that fails it will try to find the module in the GUI script's location.
+    The GUI script auto-imports `Lenovo.BIOS.Config` if already installed from the PowerShell Gallery. If it is not already installed, it will attempt to install the module from the PowerShell Gallery. If that fails it will try to find the module in the GUI script's location.
 
-## UI layout and walkthrough
+## Using the GUI
 
-The main user interface for the application includes the following elements:
+The main user interface includes:
 
-- Top-level navigation (left column): `Settings`, `Actions`, `Preferences` — each opens a panel on the right.
-- Header: application title appears at the top of the window.
-- Main Content: panels appear based on item selected from the Top-level navigation.
-- Status bar: runtime messages and progress appear at the bottom of the window. A log file can also be enabled from the **Preferences** panel.
+- **Top-level navigation** (left column): `Settings`, `Actions`, `Preferences` — each opens a panel on the right.
+- **Header**: application title and target computer information.
+- **Main Content**: panel views based on navigation selection.
+- **Status bar**: runtime messages and progress at the bottom; optional logging available from **Preferences** panel.
 
-Panels and major controls:
+### UI Panels
 
-### Settings
+??? note "Settings Panel"
+    The Settings panel is shown first when the GUI launches. It displays two columns of BIOS settings with controls for selecting or entering values.
 
-The Settings panel is always shown first when the UI is launched. It will display two columns of settings and their values with controls for selecting from the possible values for each setting.
+    ![Opening screen](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/initial-settings.png)
 
-![Opening screen](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/initial-settings.png)
+    **Elements:**
 
-- Target: shows the targeted computer and BIOS version.
-- Settings list: two-column view; each setting is either a ComboBox (Analog) or TextBox (Time/Date/BootOrder).
-- Unsaved-change indicator: labels turn red when a value differs from initial value.
-- Buttons:
-    - **Save Changed Settings**: this will make the necessary calls to save any changes that are in a changed state. **Once saved, the system will need to reboot before the changes will be active.**
-    - **Revert Changes**: this will cause any settings that are in a changed state to be reverted back to their original values when the session began.
-    - **Reset to Factory Defaults**: this will configure all settings to their Factory Defaults.
-    - **Save Custom Defaults**: this will allow saving the current settings as a Custom Default. This allows you to have a profile of settings that you can revert back to which may be different than the Factory Defaults.
-    - **Reset to Custom Defaults**: this will configure all settings to match the Custom Defaults.
-    - **Generate INI**: this will prompt for a location to save an .ini file containing the current profile of settings. If a Supervisor Password may be needed when applying this INI to other devices, that password can be specified and a passphrase must be entered which will allow the Supervisor Password to be encrypted so it is not stored as plain text in the .ini file. If a path is not specified, the .ini file will be saved in the output folder defined in Preferences. The default location is `%ProgramData%\Lenovo\ThinkBiosConfig\Output`
+    - **Target**: shows the targeted computer and BIOS version
+    - **Settings list**: two-column view with ComboBoxes (for predefined options) or TextBoxes (for Time/Date/BootOrder)
+    - **Unsaved-change indicator**: labels turn red when values differ from initial state
+    
+    **Buttons:**
 
-### Actions
+    - **Save Changed Settings** – Commits changes; system will need to reboot before changes take effect
+    - **Revert Changes** – Reverts modified settings to original values
+    - **Reset to Factory Defaults** – Restores all settings to factory defaults
+    - **Save Custom Defaults** – Saves current settings as a custom profile
+    - **Reset to Custom Defaults** – Restores settings to the saved custom profile
+    - **Generate INI** – Exports current settings to an .ini file with optional encrypted supervisor password; saves to location defined in Preferences (default: `%ProgramData%\Lenovo\ThinkBiosConfig\Output`)
 
-Actions displays a panel of cards for each of the possible actions you can take with this tool.
+??? note "Actions Panel"
+    The Actions panel displays cards for each major operation available in the tool.
 
-![Actions panel](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions.png)
+    ![Actions panel](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions.png)
 
-- **Apply Settings**: opens the "Apply settings from saved INI file" panel
-- **Remove Password or Fingerprint Data**: opens the "Clear Supervisor Password or Fingerprint Data" panel
-- **Change Password**: opens the "Change Supervisor Password" panel
-- **Create Intune Package**: opens the "Create Intune Package" panel
+    **Available actions:**
 
-#### Apply settings from saved INI file
+    ??? note "Apply Settings"
+        ![Apply INI File](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-applysettings.png)
+        
+        Applies settings from a saved INI file. Accepts inputs for:
 
-![Apply INI File](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-applysettings.png)
+        - INI file path (with file browser)
+        - Supervisor or System Management password (if needed)
+        - Passphrase to decrypt encrypted passwords in the INI
+        - Automatically handles both password-change and settings INI files
 
-This panel displays inputs for the following information:
+    ??? note "Remove Password or Fingerprint Data"
+        ![Clear password or fingerprint data](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-removepassword.png)
+        
+        Clears the Supervisor password and/or fingerprint data. Requires:
 
-- INI file path and browse button to pick an INI.
-- Password input box for Supervisor or System Management Password, password input box for the Passphrase to decrypt encrypted password in the INI.
-- Button to apply settings from INI (can handle password-change file vs settings INI automatically).
+        - Current Supervisor password
+        - Click **Clear SVP** or **Clear Fingerprint Data** as needed
+        - Only available when a Supervisor Password is set
 
-#### Clear Supervisor Password or Fingerprint Data
+    ??? note "Change Supervisor Password"
+        ![Change password](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-changepassword.png)
+        
+        Creates a password change request. Enter:
 
-![Clear password or fingerprint data](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-removepassword.png)
+        - Current password
+        - New password (with confirmation)
+        - Click **Change Password** to update the current device, or **Create Password Change File** to create a file for deployment to other devices
 
-- Enter current Supervisor password, then click 'Clear SVP' or 'Clear Fingerprint Data'. This action can only be taken when a Supervisor Password is set.
+    ??? note "Create Intune Package"
+        ![Create Intune Package](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-intunepackage.png)
+        
+        Packages BIOS configuration for Intune deployment. Specify:
 
-#### Change Supervisor Password
+        - Source INI file and optional passphrase
+        - Package Name and Version (displayed in Intune portal)
+        - Package type: Win32, Remediation, or both
+        - Tag file name for Win32 detection rules
+        - Output location (from Preferences)
+        - Optional: upload directly to Intune via MS Graph
 
-![Change password](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-changepassword.png)
+??? note "Preferences Panel"
+    ![Preferences](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/preferences.png)
 
-- Enter current password, new password, and confirm new password, then click **Change Password** to change the password on the current device or click **Create Password Change File** to create a password-change file that can be used on other devices.
+    Configure tool behavior:
 
-#### Create Intune Package
+    - **Output Location**: folder for saving generated INI files
+    - **Logging**: enable/disable and specify log folder (default: `%ProgramData%\Lenovo\ThinkBiosConfig\Logs`)
+    - **Save Preferences**: settings saved to `.json` in `%ProgramData%\Lenovo\ThinkBiosConfig`
+    
+<!--Generate Debug File: TODO-->
 
-![Create Intune Package](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-intunepackage.png)
 
-- Select an INI file and optionally a passphrase if the INI includes an encrypted password.
-- Specify a Package Name and Version which will be shown in the Intune portal for Win32 Packages.
-- Choose Win32 and/or Remediation package types. For Win32 packages, specify a tag file name which will be used in the detection rule.
-- Click 'Create Intune Package`. The selected packages will be created in separate subfolders in the output folder specified in Preferences. You will be prompted with the option to upload the packages directly to Intune using MS Graph (optional).
+??? note "Dialog Boxes"
+    
+    **Password Save Changes**  
+    Shown when a supervisor password is required for Save/Reset actions.
 
-### Preferences
+    ![Password Prompt](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/password-prompt.png){: style="width:400px; height:auto;"}
 
-![Preferences](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/preferences.png)
+    **Password Generate INI**  
+    Used when generating INI with optional password and passphrase.
+    ![Generate INI](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/generate-ini.png)
 
-- Output Location: specify the folder path for saving generated INI files
-- Logging: Checkbox to enable logging, and input for folder to store log files. The default is `%ProgramData%\Lenovo\ThinkBiosConfig\Logs`
-- Save Preferences:  the preferences are saved to a .json file in `%ProgramData%\Lenovo\ThinkBiosConfig` folder
-- Generate Debug File: TODO
+??? note "Status Bar"
 
-### Dialog boxes
+    The UI writes runtime messages to the StatusBar and uses the module logger to write log files to `%ProgramData%\Lenovo\ThinkBiosConfig\Logs` by default.
 
-**Password Save Changes** — shown when a supervisor password is required for Save/Reset actions.
-
-![Password Prompt](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/password-prompt.png){: style="width:400px; height:auto;"}
-
-**Password Generate INI** — used when generating INI with optional password and passphrase.
-
-![Generate INI](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/generate-ini.png)
-
-### Status and logging
-
-The UI writes runtime messages to the `StatusBar` and uses the module logger to write log files to `%ProgramData%\Lenovo\ThinkBiosConfig\Logs` by default.
-
-## Module cmdlet reference
-
-The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are documented in this [reference guide.](tbc_module_reference.md)
-
-!!! info "Tip"
-    Run an explicit example such as `Get-Help Read-LnvTBCPreferenceFile -Full` after importing the module to get parameter details for a cmdlet.
-
-## Typical workflows (step-by-step)
+## Typical workflows
 
 1. Export current BIOS settings to INI (GUI):
     - GUI: Settings → Generate INI → optionally provide Supervisor password and passphrase → choose folder → Continue.
@@ -202,7 +219,7 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
         Export-LnvWmiSettings -ConfigFile "C:\Temp\mysettings.ini" -NoKey
         ```
 
-1. Apply an INI to a target (GUI):
+2. Apply an INI to a target (GUI):
     - GUI: Actions → Apply Settings → Browse INI → provide required Supervisor password or passphrase → Apply Settings.
 
     - CLI:
@@ -212,7 +229,7 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
         Import-LnvWmiSettings -ConfigFile 'C:\Temp\mysettings.ini' -K 'MyEncryptKey' -Current $pw
         ```
 
-1. Create a password-change file (for remote deployment):
+3. Create a password-change file (for remote deployment):
     - GUI: Actions → Change Password → Fill current/new/confirm + encrypting passphrase → Create Password Change File.
 
     - CLI (interactive):
@@ -221,7 +238,7 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
         Export-LnvPasswordChangeFile -FileLocation 'C:\Temp\Password.ini' -Type pap
         ```
 
-1. Clear Supervisor password or fingerprint data:
+4. Clear Supervisor password or fingerprint data:
     - GUI: Actions → Remove Password or Fingerprint Data → enter current password → use Clear actions.
 
     - CLI:
@@ -233,18 +250,28 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
         Update-LnvPassword -Old $cur -New $null -Ty 'pap'
         ```
 
-1. Create an Intune package and optionally upload to Intune (only available in GUI):
+5. Create an Intune package and optionally upload to Intune (GUI only):
     - GUI: Actions → Create Intune Package: choose INI, output path, select Win32/Remediation, click Create Package.
         - You will be asked if you want to upload the generated content directly to Intune. Only do this if you have the necessary access rights to do so.
         - GUI checks/installs Microsoft Graph modules and prompts to sign in.
         - Packaging the Win32 package uses Intune Win32 Content Prep Tool which is available here: [https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe).
 
-## Logs, preferences and storage
+## Configuration
 
-- Preferences file: `%ProgramData%\Lenovo\ThinkBiosConfig\preferences.json`
-- Default output folder: `%ProgramData%\Lenovo\ThinkBiosConfig\Output`
-- Logs: `%ProgramData%\Lenovo\ThinkBiosConfig\Logs`
-- Use the Preferences panel to change Output and Log locations or call `Update-LnvTBCPreferenceFile`.
+### Storage locations
+
+- **Preferences file**: `%ProgramData%\Lenovo\ThinkBiosConfig\preferences.json`
+- **Output folder**: `%ProgramData%\Lenovo\ThinkBiosConfig\Output` (for generated INI, Intune packages)
+- **Logs**: `%ProgramData%\Lenovo\ThinkBiosConfig\Logs`
+
+Use the Preferences panel to change Output and Log locations, or call `Update-LnvTBCPreferenceFile` from the command line.
+
+### Module reference
+
+For detailed information on individual cmdlets, see the [Module cmdlet reference](./tbc_module_reference.md).
+
+!!! info "Tip"
+    Run `Get-Help <cmdlet> -Full` after importing the module to get parameter details. Example: `Get-Help Read-LnvTBCPreferenceFile -Full`
 
 ## Troubleshooting (common problems)
 
@@ -258,21 +285,29 @@ The primary cmdlets exposed by the included `Lenovo.BIOS.Config` module are docu
 
 - Always run the GUI in an elevated, trusted environment.
 - Treat Supervisor passwords and encryption passphrases as secrets. Do not store them in plain text.
-- Remove or rotate any hard-coded secrets. (The module contains a helper `ConnectToGraphClientSecret` with a client secret in source — treat this as a placeholder and remove or replace it for production use.)
+
+!!! danger "Security: Remove hard-coded secrets before production use"
+    The `ConnectToGraphClientSecret` helper in the module contains a placeholder client secret.
+    Replace or remove it before deploying in any production or shared environment.
+
 - Restrict permissions and delete temporary password-change files after use or protect with strict filesystem ACLs.
 - Test changes on non-production hardware first.
 - Ensure the **Lenovo.BIOS.Config** module is either installed/imported on endpoints before attempting to apply settings using the tool.
 
-## FAQ
+## Troubleshooting & FAQ
 
-- Q: Do I need a Supervisor password to change BIOS settings?
+!!! bug "Common problems"
+    - **GUI fails to load or reports STA errors**: start PowerShell with `-STA` and run elevated.
+    - **Intune packaging issues**: ensure `IntuneWinAppUtil.exe` is present or allow the tool to download it. Confirm you have Microsoft Graph modules and tenant permissions for upload.
+    - **Unexpected failures**: check the log files in the Logs folder for stack traces and contextual messages.
 
-    - A: Many operations require the Supervisor password if one is set on the device. The GUI will prompt for it when necessary.
+### Frequently asked questions
 
-- Q: Can I run the module headless for automation?
+??? question "Do I need a Supervisor password to change BIOS settings?"
+    Many operations require the Supervisor password if one is set on the device. The GUI will prompt for it when necessary.
 
-    - A: Yes — use the module cmdlets directly in scripts (Export-LnvWmiSettings, Import-LnvWmiSettings, ConvertTo-LnvIntunePackage, etc.).
+??? question "Can I run the module headless for automation?"
+    Yes — use the module cmdlets directly in scripts. Start with `Initialize-LnvThinkBiosConfig` to initialize the module, then use cmdlets such as `Export-LnvWmiSettings`, `Import-LnvWmiSettings`, and `ConvertTo-LnvIntunePackage` for your automation tasks.
 
-- Q: Does the GUI automatically upload to Intune?
-
-    - A: The GUI supports packaging and contains code to upload via Microsoft Graph, but upload requires Graph modules and proper tenant permissions and frequently requires interactive consent.
+??? question "Does the GUI automatically upload to Intune?"
+    The GUI supports packaging and contains code to upload via Microsoft Graph, but upload requires Graph modules and proper tenant permissions and frequently requires interactive consent.

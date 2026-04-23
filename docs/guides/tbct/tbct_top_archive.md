@@ -1,3 +1,14 @@
+---
+title: Think BIOS Config Tool
+description: Legacy HTA-based Think BIOS Config Tool for viewing and updating BIOS settings
+status: deprecated
+---
+
+!!! warning "Superseded"
+    Think BIOS Config Tool V2 (PowerShell-based) supersedes this HTA version.
+    See the [Think BIOS Config Tool V2 guide](../tbct_v2/tbct_v2_top.md) for the current solution.
+    Previously created INI files with encrypted passwords are **not compatible** with V2.
+
 # Think BIOS Config Tool
 
 Think BIOS Config Tool from Lenovo is a free, lightweight HTML Application (HTA) tool designed to let IT view and update BIOS settings directly or remotely from a simple Graphic User Interface (GUI), allowing for the automation of BIOS configurations with a simple initialization file (INI).
@@ -19,60 +30,39 @@ Think BIOS Config Tool from Lenovo is a free, lightweight HTML Application (HTA)
 
 ---
 
->Notice: This script is shared AS IS with no implied warranty or support.  If you have questions or suggestions please post a comment to the [Enterprise Client Management Forum](http://forums.lenovo.com/t5/Enterprise-Management-Board/bd-p/sa01_eg)
+!!! info "Support Notice"
+    This script is shared AS IS with no implied warranty or support. If you have questions or suggestions, please post a comment to the [Enterprise Client Management Forum](http://forums.lenovo.com/t5/Enterprise-Management-Board/bd-p/sa01_eg).
 
-**Download link**
-
-[https://download.lenovo.com/cdrt/tools/tbct144.zip](https://download.lenovo.com/cdrt/tools/tbct144.zip)
-
-**User Guide link**
-[User Guide](https://docs.lenovocdrt.com/guides/tbct/tbct)
+!!! tip "Resources"
+    - **[Download Think BIOS Config Tool](https://download.lenovo.com/cdrt/tools/tbct144.zip)**
+    - **[User Guide](../tbct/tbct.md)**
 
 ---
 
-!!! note "Changes:"
-    ```text
-    1.44: Changed how passwords are handled on desktop devices.
+## Version History
 
-    1.42: Removed password from log file.
+| Version | Changes |
+|---------|---------|
+| 1.44    | Changed how passwords are handled on desktop devices |
+| 1.42    | Removed password from log file |
+| 1.40    | Support complex passwords on ThinkPad |
+| 1.35    | Fix for handling 'show only' settings |
+| 1.34    | Fix for condition to prevent popup if passwords don't match. Return Code 3 will represent passwords not matching |
+| 1.33    | Fix for setting defaults via GUI and command line when password is present |
+| 1.32    | Fix for password validity check showing during unattended deployment; Fix for reserved WMI settings |
+| 1.31    | Updated to handle new ThinkCentre models |
+| 1.30    | Added command line option to disable log file creation |
+| 1.28    | Added password validity check; Added support for creating a System Deployment Mode password file |
+| 1.26    | Fixed issue applying config file to machine using plain text SVP |
+| 1.25    | Fixed bug on no supervisor password applying the first setting from a file |
+| 1.22    | Logging and automatic detection of the supervisor password |
+| 1.21    | Fixed issue when running by command line and a duplicate setting is reported from BIOS |
+| 1.20    | Bug fix for not showing settings correctly when connecting remotely from laptop to a desktop |
+| 1.19    | Bug fix on alarm times; bug fix on password div not disappearing; removed auto-generated key and added button to generate a key; updated picture in guide |
+| 1.17    | Bug fix on boot order export when the changes haven't been saved |
+| 1.16    | Added support to change the supervisor password. Added support to create a supervisor password change file |
+| 1.15    | Fixed the export of Alarm Time and Date |
+| 1.14    | Improved handling of boot order on certain ThinkStation/ThinkCentre models; added version to title |
+| 1.11    | Added command line option to change back to default settings - Eg. ThinkBiosConfig.hta "default=true" |
 
-    1.40: Support complex passwords on ThinkPad.
 
-    1.35: Fix for handling 'show only' settings.
-
-    1.34: Fix for condition to prevent popup if passwords don't match. Return Code 3 will represent passwords not matching.
-
-    1.33: Fix for setting defaults via GUI and command line when password is present
-
-    1.32: Fix for password validity check showing during unattended deployment; Fix for reserved WMI settings
-
-    1.31: Updated to handle new ThinkCentre models
-
-    1.30: Added command line option to disable log file creation
-
-    1.28: Added password validity check; Added support for creating a System Deployment Mode password file
-
-    1.26: Fixed issue applying config file to machine using plain text SVP
-
-    1.25: Fixed bug on no supervisor password applying the first setting from a file.
-
-    1.22: Logging. Automatic detection of the supervisor password
-
-    1.21:  Fixed issue when running by command line and a duplicate setting is reported from BIOS
-
-    1.20:  Bug fix for not showing settings correctly when connecting remotely from laptop to a desktop
-
-    1.19:  Bug fix on alarm times; bug fix on password div not disappearing; removed auto-generated key and added button to generate a key; updated picture in guide
-
-    1.17:  Bug fix on boot order export when the changes haven't been saved
-
-    v1.16:  Added support to change the supervisor password. Added support to create a supervisor password change file
-
-    1.15:  Fixed the export of Alarm Time and Date
-
-    1.14:  Improved handling of boot order on certain ThinkStation/ThinkCentre models; added version to title
-
-    1.11:  Added command line option to change back to default settings - Eg. ThinkBiosConfig.hta “default=true”
-    ```
-
-</details>

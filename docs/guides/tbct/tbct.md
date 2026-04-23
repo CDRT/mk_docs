@@ -1,11 +1,22 @@
+---
+title: Think BIOS Config Tool User Guide
+description: Complete user guide for the legacy HTA-based Think BIOS Config Tool
+status: deprecated
+---
+
+!!! warning "Superseded"
+    Think BIOS Config Tool V2 (PowerShell-based) supersedes this HTA version.
+    See the [Think BIOS Config Tool V2 guide](../tbct_v2/tbct_v2_top.md) for the current solution.
+    Previously created INI files with encrypted passwords are **not compatible** with V2.
+
 # Think BIOS Config Tool
 
 ## Introduction
 
-The Think BIOS Configurator tool was developed using the WMI BIOS interface methods and the scripts located at [this website](http://support.lenovo.com/us/en/documents/ht100612)  to create a user friendly way of applying changes to the BIOS from within the Windows environment. This document will describe the ways the tool can be used and the various options it supports. The application needs no other files for execution. The application will read from WMI to provide the proper options for each of the available settings.
+The Think BIOS Configurator tool was developed using the WMI BIOS interface methods and the scripts located at [this website](https://support.lenovo.com/us/en/documents/ht100612) to create a user friendly way of applying changes to the BIOS from within the Windows environment. This document will describe the ways the tool can be used and the various options it supports. The application needs no other files for execution. The application will read from WMI to provide the proper options for each of the available settings.
 
 !!! note
-	Not all BIOS settings are exposed through the WMI interface.  This tool will list only the settings that are configurable through WMI.</i>
+    Not all BIOS settings are exposed through the WMI interface. This tool will list only the settings that are configurable through WMI.
 
 ### Standard Execution of the Application
 
@@ -23,18 +34,18 @@ This tool is in the HTML application format (hta) so it can be portable and be u
 
 	![Security Actions](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct2.png)
 
-	Encoding can be either "ascii" or "scancode" and language is either "us", "fr", "gr". In most cases, the user should only have to supply the password and leave the other fields as they are. The password box is for the Supervisor password on the targeted machine. The encrypting key box is only used if the Export Settings function will be used to capture the settings of this targeted machine into an .INI file.  A random 16 character string can be generated or the user can create their own personal encryption key using characters from this set: a-z, A-Z, 0-9.  Do not use any punctuation or special characters.  This will allow the Supervisor password to be encrypted using [xxTEA](http://www.movable-type.co.uk/scripts/tea-block.html) in the .INI file, which is simply plain text. The encrypting key would be used later when the tool is used to apply the settings in the .INI file.
+	Encoding can be either "ascii" or "scancode" and language is either "us", "fr", "gr". In most cases, the user should only have to supply the password and leave the other fields as they are. The password box is for the Supervisor password on the targeted machine. The encrypting key box is only used if the Export Settings function will be used to capture the settings of this targeted machine into an .INI file. A random 16 character string can be generated or the user can create their own personal encryption key using characters from this set: a-z, A-Z, 0-9. Do not use any punctuation or special characters. This will allow the Supervisor password to be encrypted using [xxTEA](http://www.movable-type.co.uk/scripts/tea-block.html) in the .INI file, which is simply plain text. The encrypting key would be used later when the tool is used to apply the settings in the .INI file.
 
-	Under the first security action section is the area to change the current supervisor password. By providing the new password, the user can click the **Change password** button to change the current machine’s password or click the **Create password change** file button to generate a file to change the password on multiple machines. If you want to clear the password from the machine just leave the new password fields blank. The generated password file will contain the previous password and the new password encrypted with the encrypting key that is provided above.
+	Under the first security action section is the area to change the current supervisor password. By providing the new password, the user can click the **Change password** button to change the current machine's password or click the **Create password change** file button to generate a file to change the password on multiple machines. If you want to clear the password from the machine just leave the new password fields blank. The generated password file will contain the previous password and the new password encrypted with the encrypting key that is provided above.
 
 	!!! warning
 		The user CANNOT set a supervisor password.
 
-	Now on updated Whiskey Lake ThinkPads, administrators can set a supervisor password using System Deployment Boot Mode (boot to device list and press ‘delete’). In this one-time boot environment, a password change file can be used to set the supervisor password for the machine. To create a specialized System Deployment Boot Mode password file, leave the current supervisor password field blank and fill in the other information for a password change file.
+	Now on updated Whiskey Lake ThinkPads, administrators can set a supervisor password using System Deployment Boot Mode (boot to device list and press 'delete'). In this one-time boot environment, a password change file can be used to set the supervisor password for the machine. To create a specialized System Deployment Boot Mode password file, leave the current supervisor password field blank and fill in the other information for a password change file.
 
 	![System Deploy Mode](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct3.png)
 
-	On the right side of the Security Actions section the user can select the check box next to **Use different credentials to connect to target machine** to expand the user interface to show additional input fields.  When connecting to a remote machine over the network, a username and password for a local administrator account of the targeted machine must be supplied.  On a domain network, the username may need to be in the format of "\<domain\>\\\<username\>".  
+	On the right side of the Security Actions section the user can select the check box next to **Use different credentials to connect to target machine** to expand the user interface to show additional input fields. When connecting to a remote machine over the network, a username and password for a local administrator account of the targeted machine must be supplied. On a domain network, the username may need to be in the format of "\<domain\>\\\<username\>".
 
 	!!! warning
 		The user CANNOT use different credentials when targeting the local machine.
@@ -205,18 +216,29 @@ cmd.exe /c PathToApp\ThinkBiosConfig.hta "config=BootOrder,HDD0:PCILAN"
 
 ### Troubleshooting
 
-If a supervisor password exists and you know you are typing in the correct password but are receiving ‘Access Denied’ errors, restart the machine.  You may have exceeded the allowed attempts. The tool will validate the password to prevent exceeding the number of allowed attempts.
+#### Access Denied despite correct password
 
-M910x has a slightly different ‘Load Defaults’ functionality. Once it is completed, you will no longer be able to see the settings until after a reboot.
+If a supervisor password exists and you know you are typing in the correct password but are receiving 'Access Denied' errors, restart the machine. You may have exceeded the allowed attempts. The tool will validate the password to prevent exceeding the number of allowed attempts.
 
-Executing ThinkBiosConfig.hta under Powershell requires special attention when command line parameters are used. To pass the desired switches, Powershell needs them inside single quotes.
+#### ThinkStation M910x - Load Defaults behavior
 
-Example:
+!!! note "Note: M910x Load Defaults"
+    M910x has a slightly different 'Load Defaults' functionality. Once it is completed, you will no longer be able to see the settings until after a reboot.
 
-```cmd
-ThinkBiosConfig.hta '"help"'  
+#### PowerShell parameter quoting
 
-ThinkBiosConfig.hta '"file=C:\W550sConfig.ini"' '"pass=myEncryptionKey"'
-```
+!!! note "Note: PowerShell parameter quoting"
+    Executing ThinkBiosConfig.hta under PowerShell requires special attention when command line parameters are used. PowerShell needs them inside single quotes.
 
-When using the Config switch, pay close attention to the exact values that can be used for each setting. For example, settings on a ThinkPad may use "Enable" whereas on a ThinkCentre the value is "Enabled". If the correct string is not used then you may see "Invalid parameter" errors.
+    Example:
+
+    ```cmd
+    ThinkBiosConfig.hta '"help"'  
+
+    ThinkBiosConfig.hta '"file=C:\W550sConfig.ini"' '"pass=myEncryptionKey"'
+    ```
+
+#### Config switch - case-sensitive values
+
+!!! note "Note: Case-sensitive values"
+    When using the Config switch, pay close attention to the exact values that can be used for each setting. For example, settings on a ThinkPad may use "Enable" whereas on a ThinkCentre the value is "Enabled". If the correct string is not used then you may see "Invalid parameter" errors.
