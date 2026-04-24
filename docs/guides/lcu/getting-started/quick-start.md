@@ -20,9 +20,6 @@ Install-Module Lenovo.Client.Update #Installs the module from PS Gallery
 Import-Module Lenovo.Client.Update -Force #Loads the module into the current session
 ```
 
-!!! note ""
-    If the module is not in the gallery yet, use: `Import-Module .\Lenovo.Client.Update.psd1 -Force`
-
 ### 2. Check Available Updates
 
 See what updates are available for your system:
