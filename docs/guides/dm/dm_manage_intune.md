@@ -7,6 +7,9 @@ description: Configure Dock Manager policies in Microsoft Intune using ADMX temp
 
 This page covers advanced configuration of Dock Manager using Microsoft Intune ADMX policies and OMA-URIs. For basic deployment steps, see [Dock Manager Deployment Guide](dm.md).
 
+!!! note 
+    If new policies have been introduced, you will need to ingest the updated ADMX file. The policies documented here are based on the latest ADMX template. New policies may be added in future releases, so check the [Lenovo Tools for Administrators](https://support.lenovo.com/solutions/ht037099) page for updates.
+
 ## Prerequisites
 
 Before configuring Dock Manager policies, you must:
@@ -18,101 +21,6 @@ Before configuring Dock Manager policies, you must:
 
 !!! note ""
     Introduced in the [2208](https://learn.microsoft.com/mem/intune/fundamentals/whats-new-archive#import-create-and-manage-custom-admx-and-adml-administrative-templates) Intune Service release, custom ADMX and ADML templates can be imported, created, and managed directly in Intune.
-
-## Quick Reference
-
-Use this table to quickly find the policy you need:
-
-| Policy Name | Category | Type | Purpose |
-|-------------|----------|------|---------|
-| **Command** | System | Action | Send commands to Dock Manager (e.g., check for updates) |
-| **Ask Before Firmware Update** | General | Boolean | Prompt user before firmware installation |
-| **Auto Update** | General | Boolean | Enable automatic Dock Manager software updates |
-| **Enable Notifications** | General | Boolean | Show notifications during firmware operations |
-| **Firmware White List** | General | String | Restrict firmware updates to approved versions |
-| **Hide Update Software Button** | General | Boolean | Remove update button from UI |
-| **Log File Age to Cleanup** | General | Integer | Auto-delete log files older than N days |
-| **Log File Max Size** | General | Integer | Rotate logs when size exceeds N KB |
-| **MAC Address Clone Enabled** | General | Boolean | Enable MAC address cloning feature |
-| **Port** | General | Integer | Proxy server port (default 8080) |
-| **Proxy Server** | General | String | Proxy address for firmware downloads |
-| **Repository Location** | General | String | UNC or local path to firmware repository |
-| **Update Firmware on First Connection** | General | Boolean | Auto-update when dock first connects |
-| **Update Firmware Without Disconnect** | General | Boolean | Update supported docks without unplugging |
-| **Frequency** | Scheduler | Enum | Task schedule frequency (Daily/Weekly/Monthly) |
-| **Run At** | Scheduler | Time | Time of day for scheduled task (24-hour format) |
-| **Run On** | Scheduler | String | Days of week (Sunday–Friday) |
-| **Run Days** | Scheduler | String | Days of month (1–31) for monthly tasks |
-| **Run Month** | Scheduler | String | Months (January–December) for monthly tasks |
-| **Run Monthly On** | Scheduler | String | Week pattern (First/Second/Last) for monthly tasks |
-
-## Common Configurations
-
-### Scenario 1: Enable Auto-Updates with Weekly Firmware Checks
-
-Check for firmware updates every Sunday at 2:00 AM without user prompts:
-
-**Policies to enable:**
-
-```xml
-<!-- Auto-update Dock Manager software -->
-<enabled/>
-<data id="AutoUpdate_Prompt" value="1"/>
-
-<!-- Weekly firmware check at 2:00 AM Sundays -->
-<enabled/>
-<data id="Frequency_Dropdown" value="WEEKLY"/>
-
-<enabled/>
-<data id="RunAt_Prompt" value="02:00:00"/>
-
-<enabled/>
-<data id="RunOn_Prompt" value="Sunday"/>
-
-<!-- Update firmware without user prompts -->
-<enabled/>
-```
-
-**Apply to policies:** Auto Update, Frequency, Run At, Run On, Ask Before Firmware Update (disabled state)
-
----
-
-### Scenario 2: Restrict Firmware Versions with White List
-
-Only allow specific firmware versions for supported docks:
-
-```xml
-<!-- Whitelist firmware versions by dock model -->
-<enabled/>
-<data id="FWWhitelist_Prompt" value="40AY:3.0.85,3.0.92;40B0:4.2.15;40AN:2.8.10"/>
-```
-
-**Apply to policy:** Firmware White List
-
-**Note:** Dock model codes are 4-character identifiers (see [Supported Docks](index.md#supported-docks))
-
----
-
-### Scenario 3: Proxy-Based Firmware Download from Internal Repository
-
-Configure Dock Manager to pull firmware from a local network share via proxy:
-
-```xml
-<!-- Network repository location -->
-<enabled/>
-<data id="RepositoryLocation_Prompt" value="\\internal-share\dock-firmware"/>
-
-<!-- Proxy server settings -->
-<enabled/>
-<data id="ProxyServer_Prompt" value="http://proxy.company.com"/>
-
-<enabled/>
-<data id="Port_Prompt" value="3128"/>
-```
-
-**Apply to policies:** Repository Location, Proxy Server, Port
-
----
 
 ## ADMX Ingestion
 
@@ -144,56 +52,42 @@ On the **Configuration Settings** screen, click **Add** and enter the following:
 !!! note
     The **Group Policy Template File** that contains the ADMX can be found under the Dock Manager section on [Lenovo Tools for Administrators](https://support.lenovo.com/solutions/ht037099) page.
 
-## Command Policy
+## Policy Overview
 
-Send commands to Dock Manager for remote management. Currently supports:
+### Quick Reference
 
-- **1** – Check for Dock Manager software updates and install if available
+Use this table to quickly find the policy you need by category. Click any policy name to jump to its detailed configuration section:
 
-To resend the same command, update the timestamp in `SendTime_Prompt`.
+| Policy Name | Category | Type | Purpose |
+|-------------|----------|------|---------|
+| [**Command**](#command) | System | Action | Send commands to Dock Manager (e.g., check for updates) |
+| [**Ask Before Firmware Update**](#ask-before-firmware-update) | General | Boolean | Prompt user before firmware installation |
+| [**Auto Update**](#auto-update) | General | Boolean | Enable automatic Dock Manager software updates |
+| [**Enable Notifications**](#enable-notifications) | General | Boolean | Show notifications during firmware operations |
+| [**Firmware White List**](#firmware-white-list) | General | String | Restrict firmware updates to approved versions |
+| [**Hide Update Software Button**](#hide-update-software-button) | General | Boolean | Remove update button from UI |
+| [**Log File Age to Cleanup**](#log-file-age-to-cleanup) | General | Integer | Auto-delete log files older than N days |
+| [**Log File Max Size**](#log-file-max-size) | General | Integer | Rotate logs when size exceeds N KB |
+| [**MAC Address Clone Enabled**](#mac-address-clone-enabled) | General | Boolean | Enable MAC address cloning feature |
+| [**Port**](#port) | General | Integer | Proxy server port (default 8080) |
+| [**Proxy Server**](#proxy-server) | General | String | Proxy address for firmware downloads |
+| [**Repository Location**](#repository-location) | General | String | UNC or local path to firmware repository |
+| [**Update Firmware on First Connection**](#update-firmware-on-first-connection) | General | Boolean | Auto-update when dock first connects |
+| [**Update Firmware Without Disconnect**](#update-firmware-without-disconnect) | General | Boolean | Update supported docks without unplugging |
+| [**Frequency**](#frequency) | Scheduler | Enum | Task schedule frequency (Daily/Weekly/Monthly) |
+| [**Run At**](#run-at) | Scheduler | Time | Time of day for scheduled task (24-hour format) |
+| [**Run On**](#run-on) | Scheduler | String | Days of week (Sunday–Friday) |
+| [**Run Days**](#run-days) | Scheduler | String | Days of month (1–31) for monthly tasks |
+| [**Run Month**](#run-month) | Scheduler | String | Months (January–December) for monthly tasks |
+| [**Run Monthly On**](#run-monthly-on) | Scheduler | String | Week pattern (First/Second/Last) for monthly tasks |
 
-**OMA-URI:**
-```
-./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Command/CommandString
-```
+## Policy Categories
 
-**Example – Check for updates:**
-```xml
-<enabled/>
-<data id="CommandString_Prompt" value="1"/>
-<data id="SendTime_Prompt" value="2024-06-01 03:12:05Z"/>
-```
+### Firmware Update Control
 
-**To disable:**
-```xml
-<disabled/>
-```
+Control how and when firmware updates occur.
 
----
-
-## General Policies
-
-### Update Firmware on First Connection
-
-If this setting is enabled, dock will check and update firmware automatically when it connect to the computer for the first time after installing Dock Manager.
-
-```oma-uri
-./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/UpdateFWOnFirstConnection
-```
-
-Values:
-
-```xml
-<enabled/>
-```
-
-```xml
-<disabled/>
-```
-
-## General Policies
-
-### Ask Before Firmware Update
+#### Ask Before Firmware Update
 
 **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/AskBeforeFirmwareUpdate`
 
@@ -208,7 +102,7 @@ Values:
 
 ---
 
-### Auto Update
+#### Auto Update
 
 **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/AutoUpdate`
 
@@ -223,147 +117,7 @@ Values:
 
 ---
 
-### Enable Notifications
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/EnableNotifications`
-
-**Purpose:** Show user notifications during firmware download and update operations.
-
-**Values:**
-```xml
-<enabled/>    <!-- Display notifications -->
-<!-- or -->
-<disabled/>   <!-- Silent operation, no notifications -->
-```
-
----
-
-### Firmware White List
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/FWWhiteList`
-
-**Purpose:** Restrict firmware updates to approved versions only. Devices can only upgrade to whitelisted versions.
-
-**Format:** `DOCK_TYPE:VERSION1,VERSION2;OTHER_TYPE:VERSION3`
-
-**Example:**
-```xml
-<enabled/>
-<data id="FWWhitelist_Prompt" value="40AY:3.0.85,3.0.92;40B0:4.2.15;40AN:2.8.10"/>
-```
-
-!!! note ""
-    Dock types are 4-character codes found on the dock label or in the [Supported Docks](index.md#supported-docks) list.
-
----
-
-### Hide Update Software Button
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/HideUpdateSoftwareButton`
-
-**Purpose:** Remove the update button from the Dock Manager UI.
-
-**Values:**
-```xml
-<enabled/>    <!-- Hide button -->
-<!-- or -->
-<disabled/>   <!-- Show button -->
-```
-
----
-
-### Log File Age to Cleanup
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/LogfileAgeToCleanup`
-
-**Purpose:** Automatically delete log files older than the specified number of days.
-
-**Example – Delete logs older than 30 days:**
-```xml
-<enabled/>
-<data id="LogfileAgeToCleanup_Prompt" value="30"/>
-```
-
----
-
-### Log File Max Size
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/LogfileMaxSize`
-
-**Purpose:** Rotate log files when they exceed the specified size in KB.
-
-**Example – Rotate when logs reach 1024 KB (1 MB):**
-```xml
-<enabled/>
-<data id="LogfileMaxSize_Prompt" value="1024"/>
-```
-
----
-
-### MAC Address Clone Enabled
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/MacAddressCloneEnabled`
-
-**Purpose:** Enable or disable MAC address cloning functionality on supported docks.
-
-**Values:**
-```xml
-<enabled/>    <!-- Enable MAC cloning -->
-<!-- or -->
-<disabled/>   <!-- Disable MAC cloning -->
-```
-
----
-
-### Port
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/Port`
-
-**Purpose:** Configure the proxy server port for firmware downloads.
-
-**Example – Use port 3128:**
-```xml
-<enabled/>
-<data id="Port_Prompt" value="3128"/>
-```
-
----
-
-### Proxy Server
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/ProxyServer`
-
-**Purpose:** Configure a proxy server address for downloading firmware over a corporate proxy.
-
-**Example:**
-```xml
-<enabled/>
-<data id="ProxyServer_Prompt" value="http://proxy.company.com"/>
-```
-
----
-
-### Repository Location
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/RepositoryLocation`
-
-**Purpose:** Specify where Dock Manager should download firmware (internet or local repository).
-
-**Example – Network share:**
-```xml
-<enabled/>
-<data id="RepositoryLocation_Prompt" value="\\internal-share\dock-firmware"/>
-```
-
-**Example – Local path:**
-```xml
-<enabled/>
-<data id="RepositoryLocation_Prompt" value="C:\dock-firmware"/>
-```
-
----
-
-### Update Firmware on First Connection
+#### Update Firmware on First Connection
 
 **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/UpdateFWOnFirstConnection`
 
@@ -378,7 +132,7 @@ Values:
 
 ---
 
-### Update Firmware Without Disconnect
+#### Update Firmware Without Disconnect
 
 **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/UpdateFWWithoutDisconnect`
 
@@ -401,16 +155,174 @@ Values:
 
 ---
 
-## Scheduler Policies
+#### Firmware White List
+
+**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/FWWhiteList`
+
+**Purpose:** Restrict firmware updates to approved versions only. Devices can only upgrade to whitelisted versions.
+
+**Format:** `DOCK_TYPE:VERSION1,VERSION2;OTHER_TYPE:VERSION3`
+
+**Example:**
+```xml
+<enabled/>
+<data id="FWWhitelist_Prompt" value="40AY:3.0.85,3.0.92;40B0:4.2.15;40AN:2.8.10"/>
+```
 
 !!! note ""
-    Configure these policies together to define when Dock Manager checks for and updates firmware. These policies are interdependent based on the **Frequency** setting:
+    Dock types are 4-character codes found on the dock label or in the [Supported Docks](index.md#supported-docks) list.
+
+---
+
+### Network & Repository Configuration
+
+Manage firmware download sources and proxy settings.
+
+#### Repository Location
+
+**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/RepositoryLocation`
+
+**Purpose:** Specify where Dock Manager should download firmware (internet or local repository).
+
+**Example – Network share:**
+```xml
+<enabled/>
+<data id="RepositoryLocation_Prompt" value="\\internal-share\dock-firmware"/>
+```
+
+**Example – Local path:**
+```xml
+<enabled/>
+<data id="RepositoryLocation_Prompt" value="C:\dock-firmware"/>
+```
+
+---
+
+#### Proxy Server
+
+**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/ProxyServer`
+
+**Purpose:** Configure a proxy server address for downloading firmware over a corporate proxy.
+
+**Example:**
+```xml
+<enabled/>
+<data id="ProxyServer_Prompt" value="http://proxy.company.com"/>
+```
+
+---
+
+#### Port
+
+**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/Port`
+
+**Purpose:** Configure the proxy server port for firmware downloads.
+
+**Example – Use port 3128:**
+```xml
+<enabled/>
+<data id="Port_Prompt" value="3128"/>
+```
+
+---
+
+### User Experience & Display
+
+Control how Dock Manager appears and interacts with users.
+
+#### Enable Notifications
+
+**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/EnableNotifications`
+
+**Purpose:** Show user notifications during firmware download and update operations.
+
+**Values:**
+```xml
+<enabled/>    <!-- Display notifications -->
+<!-- or -->
+<disabled/>   <!-- Silent operation, no notifications -->
+```
+
+---
+
+#### Hide Update Software Button
+
+**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/HideUpdateSoftwareButton`
+
+**Purpose:** Remove the update button from the Dock Manager UI.
+
+**Values:**
+```xml
+<enabled/>    <!-- Hide button -->
+<!-- or -->
+<disabled/>   <!-- Show button -->
+```
+
+---
+
+### Logging & Maintenance
+
+Manage Dock Manager log file behavior.
+
+#### Log File Age to Cleanup
+
+**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/LogfileAgeToCleanup`
+
+**Purpose:** Automatically delete log files older than the specified number of days.
+
+**Example – Delete logs older than 30 days:**
+```xml
+<enabled/>
+<data id="LogfileAgeToCleanup_Prompt" value="30"/>
+```
+
+---
+
+#### Log File Max Size
+
+**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/LogfileMaxSize`
+
+**Purpose:** Rotate log files when they exceed the specified size in KB.
+
+**Example – Rotate when logs reach 1024 KB (1 MB):**
+```xml
+<enabled/>
+<data id="LogfileMaxSize_Prompt" value="1024"/>
+```
+
+---
+
+### Hardware Features
+
+Enable or disable hardware-specific features.
+
+#### MAC Address Clone Enabled
+
+**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/MacAddressCloneEnabled`
+
+**Purpose:** Enable or disable MAC address cloning functionality on supported docks.
+
+**Values:**
+```xml
+<enabled/>    <!-- Enable MAC cloning -->
+<!-- or -->
+<disabled/>   <!-- Disable MAC cloning -->
+```
+
+---
+
+### Scheduling Configuration
+
+Define when Dock Manager checks for and installs firmware updates.
+
+!!! note ""
+    Configure these policies together to define a complete schedule. They are interdependent based on the **Frequency** setting:
     
     - **DAILY** – Uses only **Run At**
     - **WEEKLY** – Uses **Run At** + **Run On** (days of week)
     - **MONTHLY** – Uses **Run At** + **Run Month** + **Run Days**, OR **Run At** + **Run Monthly On** + **Run On**
 
-### Frequency
+#### Frequency
 
 **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/Frequency`
 
@@ -425,7 +337,7 @@ Values:
 
 ---
 
-### Run At
+#### Run At
 
 **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunAt`
 
@@ -439,7 +351,7 @@ Values:
 
 ---
 
-### Run On
+#### Run On
 
 **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunOn`
 
@@ -453,7 +365,7 @@ Values:
 
 ---
 
-### Run Days
+#### Run Days
 
 **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunDays`
 
@@ -467,7 +379,7 @@ Values:
 
 ---
 
-### Run Month
+#### Run Month
 
 **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunMonth`
 
@@ -481,7 +393,7 @@ Values:
 
 ---
 
-### Run Monthly On
+#### Run Monthly On
 
 **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunMonthlyOn`
 
@@ -501,6 +413,34 @@ Values:
 
 ---
 
+### System Commands
+
+Send direct commands to Dock Manager for remote management.
+
+#### Command Policy
+
+**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Command/CommandString`
+
+**Purpose:** Send commands to Dock Manager for remote management. Currently supports:
+
+- **1** – Check for Dock Manager software updates and install if available
+
+To resend the same command, update the timestamp in `SendTime_Prompt`.
+
+**Example – Check for updates:**
+```xml
+<enabled/>
+<data id="CommandString_Prompt" value="1"/>
+<data id="SendTime_Prompt" value="2024-06-01 03:12:05Z"/>
+```
+
+**To disable:**
+```xml
+<disabled/>
+```
+
+---
+
 ## Format Reference
 
 | Setting | Format | Examples |
@@ -516,3 +456,88 @@ Values:
 | **Port** | Integer | `3128`, `8080`, `80` |
 | **Path** | UNC or local | `\\share\path` / `C:\path` |
 | **URL** | HTTP or HTTPS | `http://proxy.company.com` |
+
+## Common Scenarios
+
+??? note "Scenario 1: Enable Auto-Updates with Weekly Firmware Checks"
+
+    Check for firmware updates every Sunday at 2:00 AM without user prompts.
+
+    **Policies to configure:**
+
+    1. **Auto Update** – Enable
+    2. **Ask Before Firmware Update** – Disable  
+    3. **Frequency** – Set to WEEKLY
+    4. **Run At** – Set to 02:00:00
+    5. **Run On** – Set to Sunday
+
+    **Configuration example:**
+    ```xml
+    <!-- Auto Update -->
+    <enabled/>
+    <data id="AutoUpdate_Prompt" value="1"/>
+
+    <!-- Ask Before Firmware Update (disabled) -->
+    <disabled/>
+
+    <!-- Frequency: Weekly -->
+    <enabled/>
+    <data id="Frequency_Dropdown" value="WEEKLY"/>
+
+    <!-- Run At 2:00 AM -->
+    <enabled/>
+    <data id="RunAt_Prompt" value="02:00:00"/>
+
+    <!-- Run On Sunday -->
+    <enabled/>
+    <data id="RunOn_Prompt" value="Sunday"/>
+    ```
+
+??? note "Scenario 2: Restrict Firmware Versions with White List"
+
+    Only allow specific firmware versions for supported docks.
+
+    **Policies to configure:**
+
+    1. **Firmware White List** – Enable with dock types and approved versions
+
+    **Configuration example:**
+    ```xml
+    <enabled/>
+    <data id="FWWhitelist_Prompt" value="40AY:3.0.85,3.0.92;40B0:4.2.15;40AN:2.8.10"/>
+    ```
+
+    **Note:** Dock model codes are 4-character identifiers (see [Supported Docks](index.md#supported-docks))
+
+??? note "Scenario 3: Internal Repository with Proxy Download"
+
+    Configure Dock Manager to pull firmware from a local network share via proxy.
+
+    **Policies to configure:**
+
+    1. **Repository Location** – Set to network share path
+    2. **Proxy Server** – Set to proxy address
+    3. **Port** – Set to proxy port
+
+    **Configuration example:**
+    ```xml
+    <!-- Repository Location -->
+    <enabled/>
+    <data id="RepositoryLocation_Prompt" value="\\internal-share\dock-firmware"/>
+
+    <!-- Proxy Server -->
+    <enabled/>
+    <data id="ProxyServer_Prompt" value="http://proxy.company.com"/>
+
+    <!-- Port -->
+    <enabled/>
+    <data id="Port_Prompt" value="3128"/>
+    ```
+
+## Next Steps
+
+After configuring Dock Manager policies in Intune, see these related topics:
+
+- **[Dock Manager Deployment Guide](dm.md)** – Deploy Dock Manager with ConfigMgr and Intune
+- **[Dock Manager Troubleshooting](dm_troubleshooting.md)** – Troubleshoot deployment and scheduling issues
+- **[Dock Manager FAQ](dock_manager_faq.md)** – Frequently asked questions and support resources

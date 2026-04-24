@@ -5,175 +5,276 @@ description: Deploy Dock Manager with Microsoft Configuration Manager and Micros
 
 # Dock Manager Deployment Guide
 
+## Quick Start
+
+Choose your deployment method:
+
+- **[ConfigMgr Deployment](#deploying-with-configmgr)** – Deploy using Microsoft Configuration Manager Application model
+- **[Intune Deployment](#deploying-with-microsoft-intune)** – Deploy using Microsoft Intune Win32 apps
+- **[Advanced Configuration](#advanced-configuration)** – WMI inventory, custom reporting, and detection scripts
+
+## Before You Begin
+
+### Requirements
+
+- **Dock Manager installer** – `dock_manager_setup.exe` (available from [Lenovo Support](https://support.lenovo.com/us/en/solutions/ht037099#dm))
+- **Operating System** – Windows 10/11 (64-bit)
+- **Admin access** – Required to create applications and deployment rules
+
+### Key Information
+
+!!! note "Version Numbering"
+    The version `1.0.0.125` shown in examples is a sample. Always substitute your current or target Dock Manager version in detection rules.
+
 ## Deploying with ConfigMgr
 
-Dock Manager is provided as an executable. Here's an example of how to deploy with Microsoft Configuration Manager (ConfigMgr) using the Application model.
+Dock Manager is provided as an executable. Deploy it using the ConfigMgr Application model with the steps below.
 
-In the console, navigate to the **Software > Application Management > Applications** node and click **Create Application** in the ribbon bar.
+### Quick Reference
 
-Tick the **Manually specify the application information** radio button, click **Next**
+| Phase | Steps | Time |
+|-------|-------|------|
+| **Setup & Preparation** | Create application, configure app details, select deployment type | ~2 min |
+| **Configuration** | Set install/uninstall commands, define detection rules, add requirements | ~5 min |
+| **Deployment** | Deploy to device collection | ~1 min |
+
+### Setup & Preparation
+
+#### Step 1: Create Application
+
+In the ConfigMgr console, navigate to **Software > Application Management > Applications** and click **Create Application** in the ribbon bar.
+
+Tick the **Manually specify the application information** radio button and click **Next**.
 
 ![ConfigMgr Application wizard showing application information step](https://cdrt.github.io/mk_docs/img/guides/dm/image1.PNG)
 
-Specify information about the app, click **Next**
+#### Step 2: Enter Application Details
+
+Specify information about the app and click **Next**.
 
 ![ConfigMgr Application wizard showing application details entry](https://cdrt.github.io/mk_docs/img/guides/dm/image2.PNG)
 
-Enter Software Center details, click **Next**
+Enter Software Center details and click **Next**.
 
 ![ConfigMgr Application wizard showing Software Center details configuration](https://cdrt.github.io/mk_docs/img/guides/dm/image3.PNG)
 
-Set the deployment type to **Script Installer** and click **Next**
+#### Step 3: Configure Deployment Type
+
+Set the deployment type to **Script Installer** and click **Next**.
 
 ![ConfigMgr Application wizard showing Script Installer deployment type option](https://cdrt.github.io/mk_docs/img/guides/dm/image4.PNG)
 
-Set the deployment type name and click **Next**
+Set the deployment type name and click **Next**.
 
 ![ConfigMgr Application wizard showing deployment type name entry](https://cdrt.github.io/mk_docs/img/guides/dm/image5.PNG)
 
-Enter the content location path to the Dock Manager executable
+### Configuration
 
-Install command:
+#### Step 4: Configure Installation Commands
+
+Enter the content location path to the Dock Manager executable.
+
+**Install command:**
 
 ```
 "dock_manager_setup.exe" /VERYSILENT
 ```
 
-Uninstall command:
+**Uninstall command:**
 
 ```
 unins000.exe /SILENT
 ```
 
-Uninstall start in:
+**Uninstall start in:**
 
 ```
 %ProgramFiles%\Lenovo\Dock Manager
 ```
 
+#### Step 5: Set Detection Rules
+
 ![ConfigMgr showing detection rule registry path configuration](https://cdrt.github.io/mk_docs/img/guides/dm/image6.PNG)
 
-Set the detection rule setting type to **Registry**
+Configure the detection rule with the following settings:
 
-Hive: **HKLM**
-
-Key:
-
-```
-SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DockManager_is1
-```
-
-Value:
-
-```
-DisplayVersion
-```
-
-Data Type: **String**
-
-Tick the radio button for **This registry setting must satisfy the following rule...**
-Operator: **Equals**
-Value:
-
-```
-1.0.0.125
-```
+| Setting | Value |
+|---------|-------|
+| Setting type | Registry |
+| Hive | HKLM |
+| Key | `SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DockManager_is1` |
+| Value | `DisplayVersion` |
+| Data Type | String |
+| Operator | Equals |
+| Version | `1.0.0.125` |
 
 !!! note "Version String"
-    The version `1.0.0.125` shown in these examples is a sample. Substitute your current deployed version of Dock Manager or the target version you want to enforce.
+    Substitute `1.0.0.125` with your current deployed version or target version.
+
+#### Step 6: Configure Requirements
 
 ![ConfigMgr Application wizard showing User Experience settings step](https://cdrt.github.io/mk_docs/img/guides/dm/image7.PNG)
 
-Set the installation behavior to **Install for system** and logon requirement to " **Whether or not a user is logged on** ".
+Set the installation behavior to **Install for system** and logon requirement to **Whether or not a user is logged on**.
 
-Add any installation requirements such as Operating system is One of Windows 10 (64-bit)
+Add operating system requirements (e.g., Windows 10/11 64-bit):
 
 ![ConfigMgr Application wizard showing operating system requirements](https://cdrt.github.io/mk_docs/img/guides/dm/image8.PNG)
 
-Complete the deployment type and App wizards.  Deploy to a Device Collection.
+### Deployment
+
+#### Step 7: Deploy to Collection
+
+Complete the deployment type and application wizards. Deploy the application to a Device Collection.
 
 ## Deploying with Microsoft Intune
 
-Using the Win32 Content Prep [Tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool), convert the Dock Manager installer to an .intunewin format.  A sample command would look like this:
+Deploy Dock Manager using Microsoft Intune Win32 app management. Follow the steps below to package and deploy the application.
+
+### Quick Reference
+
+| Phase | Steps | Time |
+|-------|-------|------|
+| **Setup & Preparation** | Package installer, create Win32 app | ~3 min |
+| **Configuration** | Add app details, install commands, requirements, detection rules | ~5 min |
+| **Deployment** | Assign to user/device groups | ~1 min |
+
+### Setup & Preparation
+
+#### Step 1: Package the Installer
+
+Use the Win32 Content Prep [Tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) to convert the Dock Manager installer to .intunewin format:
 
 ```
 IntuneWinAppUtil.exe -c "C:\IntuneWin\DM\" -s "dock_manager_setup.exe" -o "C:\IntuneWin\output\" -q
 ```
+
 ![Win32 Content Prep Tool console output showing successful packaging](https://cdrt.github.io/mk_docs/img/guides/dm/image9.PNG)
 
-Login to the Endpoint admin center [portal](https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsWindowsMenu/windowsApps) to create a new Windows app and select the **Windows app (Win32)** type.
+#### Step 2: Create Windows App in Intune
 
-Select the **dock_manager_setup.intunewin** app package file.
+Log in to the Endpoint Admin Center [portal](https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsWindowsMenu/windowsApps) and create a new Windows app.
 
-Enter required and optional information about the app
+Select **Windows app (Win32)** as the app type and upload the **dock_manager_setup.intunewin** package file.
+
+### Configuration
+
+#### Step 3: Configure Application Details
+
+Enter required and optional information about the app:
 
 ![Microsoft Intune app creation wizard showing application information step](https://cdrt.github.io/mk_docs/img/guides/dm/image10.PNG)
 
-Enter the Install command
+#### Step 4: Configure Installation Commands
+
+Enter the install and uninstall commands:
+
+**Install command:**
 
 ```
 dock_manager_setup.exe /VERYSILENT
 ```
 
-and Uninstall command
+**Uninstall command:**
 
 ```
 %ProgramFiles%\Lenovo\Dock Manager\unins000.exe /SILENT
 ```
+
 ![Microsoft Intune app creation wizard showing install and uninstall command configuration](https://cdrt.github.io/mk_docs/img/guides/dm/image11.PNG)
 
-Set the requirements.  You can take it a bit further with a detection script to check if a supported dock is currently connected to the system.  Here's a sample PowerShell script
+#### Step 5: Set Device Requirements
+
+Configure operating system and device requirements based on your environment.
+
+![Microsoft Intune app creation wizard showing device requirements and detection script](https://cdrt.github.io/mk_docs/img/guides/dm/image12.PNG)
+
+!!! info "Optional: Device Detection Script"
+    To ensure Dock Manager is only deployed to devices with compatible docks, you can add a custom detection script. See [Device Detection Script](#optional-device-detection-script) below.
+
+#### Step 6: Configure Detection Rules
+
+Set up detection rules to verify the correct version of Dock Manager is installed:
+
+| Setting | Value |
+|---------|-------|
+| Key path | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DockManager_is1` |
+| Value name | `DisplayVersion` |
+| Detection method | String comparison |
+| Operator | Equals |
+| Value | `1.0.0.125` |
+
+![Microsoft Intune detection rule configuration showing registry path and version matching](https://cdrt.github.io/mk_docs/img/guides/dm/image13.PNG)
+
+!!! note "Version String"
+    Replace `1.0.0.125` with your current or target Dock Manager version.
+
+### Deployment
+
+#### Step 7: Assign to Groups
+
+Complete the app creation wizard and assign the application to user or device groups.
+
+### Optional: Device Detection Script
+
+To deploy Dock Manager only to devices with supported Lenovo docks, add this PowerShell script as a requirement or detection script:
 
 ```powershell
 # Check for Thunderbolt 3 Dock Gen 2
 $dock = Get-WmiObject -Class Win32_PnPEntity | Where-Object { $_.DeviceID -like 'USB\VID_2109&PID_8887*' }
 if ($dock) {
     Write-Output "Thunderbolt 3 Dock Detected!"
+    exit 0
 }
 else {
-    Exit 1
+    exit 1
 }
 ```
-![Microsoft Intune app creation wizard showing device requirements and detection script](https://cdrt.github.io/mk_docs/img/guides/dm/image12.PNG)
 
-Enter the detection rules to verify the current version of Dock Manager is installed
+**Common Dock IDs:**
 
-Key path:
+| Dock Model | USB VID/PID |
+|------------|------------|
+| Thunderbolt 3 Dock Gen 2 | `USB\VID_2109&PID_8887*` |
+| Thunderbolt 3 Dock | `USB\VID_2109&PID_0503*` |
+| USB-C Dock Gen 2 | `USB\VID_17EF&PID_1060*` |
+| USB-C Dock | `USB\VID_17EF&PID_A387*` |
 
-```
-HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DockManager_is1
-```
+Contact [Lenovo Support](https://support.lenovo.com) for additional dock IDs.
 
-Value name: **DisplayVersion**
+## Advanced Configuration
 
-Detection method: **String comparison**
+### WMI Hardware Inventory Integration
 
-Operator: **Equals**
+Extend hardware inventory in ConfigMgr to collect Dock Manager data from your clients. You can import the provided .mof file to add custom WMI classes to inventory:
 
-Value: **1.0.0.125**
+**Download MOF file:** [ConfigMgr-MOF-DockManager.zip](https://download.lenovo.com/cdrt/blog/ConfigMgr-MOF-DockManager.zip)
 
-!!! note "Version String"
-    Replace `1.0.0.125` with your current or target Dock Manager version.
+**Steps:**
+1. Download and extract the MOF file
+2. Navigate to **Administration > Client Settings** in ConfigMgr
+3. Configure **Hardware Inventory** and add the Dock Manager classes
+4. Deploy the updated client settings
 
-![Microsoft Intune detection rule configuration showing registry path and version matching](https://cdrt.github.io/mk_docs/img/guides/dm/image13.PNG)
+**Example Resource Explorer view:**
 
-Finish out the wizard and assign to a group.
+![WMI data displayed in ConfigMgr Resource Explorer](https://cdrt.github.io/mk_docs/img/guides/dm/image14.PNG)
 
-## WMI Classes
+### Custom Reporting
 
-You can [extend hardware inventory](https://docs.microsoft.com/en-us/mem/configmgr/core/clients/manage/inventory/extend-hardware-inventory)  in Config Manager to collect the data written by Dock Manager on your clients by importing the provided .mof file below:
+Use SQL Server Reporting Services (SSRS) to create reports on Dock Manager deployment and firmware status:
 
-[Download](https://download.lenovo.com/cdrt/blog/ConfigMgr-MOF-DockManager.zip)
+![Sample SSRS report showing Dock Manager firmware versions and status](https://cdrt.github.io/mk_docs/img/guides/dm/image15.PNG)
 
-An example from Resource Explorer
+!!! info "Sample Report Template"
+    A sample SSRS report template is available for download: [LenovoDockManager.zip](https://download.lenovo.com/cdrt/docs/LenovoDockManager.zip)
+    
+    After downloading, update the Data Source properties to connect to your ConfigMgr database.
 
-![WMI](https://cdrt.github.io/mk_docs/img/guides/dm/image14.PNG)
+## Next Steps
 
-## Reporting
+After deployment, refer to the following resources:
 
-Example of what can be gathered using SSRS
-
-![SSRS](https://cdrt.github.io/mk_docs/img/guides/dm/image15.PNG)
-
-!!! info
-    Sample report can be downloaded [here](https://download.lenovo.com/cdrt/docs/LenovoDockManager.zip). Update the Data Source properties for your environment.
+- **[Managing Dock Manager with Intune](dm_manage_intune.md)** – Configure advanced policies and scheduling using ADMX templates
+- **[Dock Manager Troubleshooting](dm_troubleshooting.md)** – Troubleshoot common deployment and scheduling issues
+- **[Dock Manager FAQ](dock_manager_faq.md)** – Find answers to frequently asked questions
