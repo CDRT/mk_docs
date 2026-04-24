@@ -16,21 +16,19 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 ??? note "What's New"
 
     ??? note "April 9, 2026:  Version 2.4.1"
-        
-    
+
         - Removed two cmdlets that have been moved to the Lenovo.Client.Update module: `Get-LnvUpdate`, `Get-LnvUpdatesRepo`
-    
+
     ??? note "April 6, 2026:  Version 2.4.0"
-        
-    
+
         - As part of the ThinkVantage PowerShell Library launch and the new Lenovo.Client.Update module release, some cmdlets are being deprecated or moved. Deprecated cmdlets are denoted with a warning note.
-    
+
         - **New Cmdlets:**
             - `Get-LnvSystemFirmwareVersion` - Retrieve System Firmware version from the PnP device tree in human-readable decimal format
             - `Invoke-LnvCVLogViewer` - Parse and analyze Lenovo Commercial Vantage System Update Addin log files with color-coded summaries
             - `Invoke-LnvTILogViewer` - Parse Lenovo ThinInstaller log files and produce concise summaries
             - `Show-LnvUpdatesHistory` - Display update history from WMI Lenovo_Updates class
-    
+
         - **Enhancements:**
             - `Find-LnvDriverPack` - Now returns structured PSCustomObject with named properties (Model, OS, OSVersion, SHA256, MD5, DateReleased, URL)
             - `Add-LnvSULogging` - Updated for new Lenovo Vantage logging architecture (VantageService\FileLogger registry path)
@@ -39,7 +37,7 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
             - `Find-LnvUpdate` - Catalog downloads now use HTTPS (cmdlet deprecated)
             - `Get-LnvAvailableBiosVersion` / `Get-LnvCVE` - Added `-UseBasicParsing` for IE-less systems
             - `Get-LnvCVE` - Added early validation for missing BIOS updates
-    
+
         - **Bug Fixes:**
             - `Get-LnvBatteryInfo` - Fixed Write-Object to Write-Output in error paths
             - `Get-LnvBiosCode` - Added try/catch error handling around WMI calls
@@ -47,21 +45,19 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
             - `Get-LnvBiosInfo` - Fixed missing parentheses in .ToString()
             - `Export-LnvUpdateRetrieverConfig` - Fixed filename extraction for multi-dot names
             - Deprecated cmdlets (`Get-LnvUpdate`, `Remove-LnvMTOS`, `Get-LnvMTOSList`, `Add-LnvMTOS`) - Various fixes including parameter position, help text, undefined variables, and session termination issues
-    
+
         - **Removed:**
             - `Get-LnvTaxonomy` (private helper) - No longer used internally
-    
+
     ??? note "June 11, 2025:  Version 2.3.0"
-        
-    
+
         - Added `Get-LnvUpdateNotification`, `Get-LnvMTOSList`, `Add-LnvMTOS`, `Remove-LnvMTOS` cmdlets. These allow you to create a list of Machine Type + OS combinations you care about and keep track of what updates have been added to their System Update catalogs since the last time you checked.
         - Added `Get-LnvWUFriendlyName` cmdlet that provides a list of the drivers and firmware installed by Windows Update with their associated Device Names to make it easier to tell what Windows Update is providing.
         - Added `-DeltaUpdate` option to `Get-LnvUpdatesRepo` which will allow you to just download new updates to an existing repository.
         - Fixed error handling when system does not have a battery in `Get-LnvBatteryInfo`.
-    
+
     ??? note "February 26, 2025:  Version 2.2.0"
-        
-    
+
         - Added `Find-LnvHSAPack` cmdlet.  This cmdlet lets you see what HSA packs have been released for a specified Machine Type.
         - Added Release Date to the return from `Find-LnvUpdate`.
         - Added DownloadPath parameter to `Get-LnvDriverPack` so you can control where the package is downloaded to.
@@ -69,10 +65,9 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
         - Changed to display size in MB in `Get-LnvUpdatesRepo`.
         - Added CloudRepo as a switch parameter for `Get-LnvUpdatesRepo` to generate the repository as a Lenovo Cloud repository (the update packages are left on Lenovo's site).
         - Fixed an issue with `Get-LnvUpdatesRepo` if ran without specifying `-WindowsVersion`.
-    
+
     ??? note "December 11, 2024:  Version 2.1.0"
-        
-    
+
         - Now available in the PowerShell Gallery. Use ```Install-Module -Name Lenovo.Client.Scripting``` to install from the gallery.
         - Added `Find-LnvTool` to get URL and version information for the installer packages of our tools: Dock Manager, System Update, Thin Installer, Update Retriever
         - Added option to specify "Latest" as OSBuildVersion on `Get-LnvDriverPack` to get the latest version pack for the `-WindowsVersion` specified.
@@ -80,19 +75,16 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
         - Added `-ListAll` option to `Find-LnvUpdate` to get an object containing all the available updates based on any filtering parameters used.
         - Now leveraging BITS Transfers for downloads of package files in `Get-LnvDriverPack`, `Get-LnvUpdate` and `Get-LnvUpdatesRepo`
         - `Get-LnvAvailableBiosVersion` received several improvements (improved Win11/Win10 catalog handling, added `-DownloadPath`, added release date).
-    
+
     ??? note "November 7, 2024:  Version 2.0.0"
-        
-    
+
         - Changed name to Lenovo.Client.Scripting to avoid confusion with Lenovo Device Manager product. This version supersedes all prior versions of the Lenovo Device Management Module (LDMM).
         - Added new cmdlets - `Get-LnvBiosInfo`, `Find-LnvBiosInfo`, `Get-LnvWarranty`
         - Made several fixes to `Get-LnvUpdatesRepo`. The ScanOnly option is no longer available. Added `-PackageList` as a parameter to specify specific updates by Package ID.
-    
 
 ## Common Usage Scenarios
 
 ??? note "Scenario 1: Check What Updates Are Available for Your System"
-    
 
     ```powershell
     $ModelType = Get-LnvMachineType
@@ -101,14 +93,12 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
     ```
 
 ??? note "Scenario 2: Download All Available Driver Packs for a Specific Model"
-    
 
     ```powershell
     Get-LnvDriverPack -MachineType 21DD -WindowsVersion 11 -OSBuildVersion Latest
     ```
 
 ??? note "Scenario 3: Build a Local Update Repository from a List of Machine Types"
-    
 
     ```powershell
     Add-LnvMTOS -MachineType "21DD" -OS "Win11"
@@ -117,7 +107,6 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
     ```
 
 ??? note "Scenario 4: Find All Available BIOS Updates"
-    
 
     ```powershell
     Find-LnvBiosInfo -MachineType "21DD" | Select-Object Version, AvailableVersion, UpdateUrl, CVEs
@@ -125,22 +114,22 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 
 ## Cmdlet Categories
 
-**System Information & Device Identification**  
+**System Information & Device Identification**
 [Get-LnvMachineType](#get-lnvmachinetype) | [Get-LnvModelName](#get-lnvmodelname) | [Get-LnvSerial](#get-lnvserial) | [Get-LnvProductNumber](#get-lnvproductnumber) | [Get-LnvBiosCode](#get-lnvbioscode) | [Find-LnvMachineType](#find-lnvmachinetype) | [Find-LnvModel](#find-lnvmodel)
 
-**BIOS Management**  
+**BIOS Management**
 [Find-LnvBiosCode](#find-lnvbioscode) | [Find-LnvBiosInfo](#find-lnvbiosinfo) | [Get-LnvBiosCode](#get-lnvbioscode) | [Get-LnvBiosInfo](#get-lnvbiosinfo) | [Get-LnvBiosVersion](#get-lnvbiosversion) | [Get-LnvBiosPasswordsSet](#get-lnvbiospasswordsset) | [Get-LnvBiosUpdateUrl](#get-lnvbiosupdateurl) | [Get-LnvAvailableBiosVersion](#get-lnvavailablebiosversion) | [Get-LnvCVE](#get-lnvcve)
 
-**Updates & Drivers**  
+**Updates & Drivers**
 [Find-LnvUpdate](#find-lnvupdate-v100) | [Get-LnvUpdate](#get-lnvupdate) | [Find-LnvDriverPack](#find-lnvdriverpack) | [Get-LnvDriverPack](#get-lnvdriverpack) | [Get-LnvUpdatesRepo](#get-lnvupdatesrepo) | [Get-LnvUpdatesNotification](#get-lnvupdatesnotification) | [Get-LnvMTOSList](#get-lnvmtoslist) | [Add-LnvMTOS](#add-lnvmtos-v230) | [Remove-LnvMTOS](#remove-lnvmtos-v230)
 
-**Hardware & Peripherals**  
+**Hardware & Peripherals**
 [Get-LnvBatteryInfo](#get-lnvbatteryinfo) | [Find-LnvDockModel](#find-lnvdockmodel) | [Find-LnvHSAPack](#find-lnvhsapack-v220) | [Get-LnvWUFriendlyName](#get-lnvwufriendlyname-v230)
 
-**Utilities & System Updates**  
+**Utilities & System Updates**
 [Find-LnvTool](#find-lnvtool) | [Add-LnvSUCommandLine](#add-lnvsucmdline-v100) | [Add-LnvSULogging](#add-lnvsulogging) | [Export-LnvUpdateRetrieverConfig](#export-lnvupdateretrieverconfig) | [Show-LnvApplicableUpdate](#show-lnvapplicableupdate)
 
-**Warranty**  
+**Warranty**
 [Get-LnvWarranty](#get-lnvwarranty)
 
 ## Quick Reference Table
@@ -174,9 +163,9 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 | Get-LnvMTOSList | Updates | Get list of tracked Machine Type + OS pairs | 2.3.0 |
 | Get-LnvProductNumber | Device | Get 10-character product number | 1.0.0 |
 | Get-LnvSerial | Device | Get serial number of running system | 1.0.0 |
-| Get-LnvUpdate | Updates | Download updates to local folder | 1.0.0 |
+| Get-LnvUpdate | Updates | **Removed in 2.4.2 - Use Lenovo.Client.Update module instead.** | - |
 | Get-LnvUpdatesNotification | Updates | Show new updates in tracked catalogs | 2.3.0 |
-| Get-LnvUpdatesRepo | Updates | Build local or cloud update repository | 1.0.0 |
+| Get-LnvUpdatesRepo | Updates | **Removed in 2.4.2 - Use Lenovo.Client.Update module instead.** | - |
 | Get-LnvWarranty | Warranty | Get warranty information from WMI | 2.0.0 |
 | Get-LnvWUFriendlyName | Hardware | Get Windows Update driver names and versions | 2.3.0 |
 | Invoke-LnvCVLogViewer | Utilities | Parse and analyze Commercial Vantage System Update Addin log files with color-coded summaries | 2.4.0 |
@@ -187,7 +176,6 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 ## Installation & Setup
 
 ??? note "PowerShell Gallery (Recommended)"
-    
 
     As of December 11, 2024, LCSM is published in the PowerShell Gallery for easy installation.
 
@@ -205,9 +193,8 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
     ```
 
 ??? note "Manual Installation"
-    
 
-    The module itself is currently available for manual download here: [Lenovo.Client.Scripting_2.3.0.zip](https://download.lenovo.com/cdrt/tools/Lenovo.Client.Scripting_2.3.0.zip)
+    The module itself is currently available for manual download here: [Lenovo.Client.Scripting_2.3.0.zip](https://download.lenovo.com/cdrt/tools/Lenovo.Client.Scripting_2.4.2.zip)
 
     The zip file contains the `Lenovo.Client.Scripting` module folder with:
     - `Lenovo.Client.Scripting.psm1` : module script
@@ -221,7 +208,6 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
     - **All Users:** `%ProgramFiles%\WindowsPowerShell\Modules`
 
 ??? note "Removing Legacy Modules & Importing LCSM"
-    
 
     If you previously used the Lenovo Device Management Module (LDMM), remove it first:
 
@@ -244,7 +230,6 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 ## Troubleshooting & Common Issues
 
 ??? note "Module Won't Import"
-    
 
     **Error:** `The term 'Lenovo.Client.Scripting' is not recognized`
 
@@ -256,7 +241,6 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
     - Try refreshing the module cache: `Update-Module Lenovo.Client.Scripting`
 
 ??? note "Cmdlet Returns Empty Results"
-    
 
     **Possible causes:**
 
@@ -266,7 +250,6 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
     - Incorrect Windows version parameter - ensure you specify "10" or "11", not "Windows 10"
 
 ??? note "Get-LnvUpdatesRepo Takes Too Long"
-    
 
     **Optimization tips:**
 
@@ -275,14 +258,12 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
     - Use `-CloudRepo` parameter to skip downloading package files (metadata only)
 
 ??? note "BIOS Password / Get-LnvBiosPasswordsSet Requires Admin"
-    
 
     **Error:** `THIS CMDLET REQUIRES ADMIN RIGHTS`
 
     **Solution:** Run PowerShell as Administrator before executing the cmdlet.
 
 ??? note "Show-LnvApplicableUpdate File Not Found"
-    
 
     **Locations to check:**
 
@@ -292,12 +273,11 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 
 ## Cmdlet Reference
 
-
 Below are all available cmdlets organized alphabetically. Each cmdlet shows its purpose, syntax, parameters, and usage examples.
 
-??? note "Add-LnvMTOS (v2.3.0+)" 
+??? note "Add-LnvMTOS"
 
-    <a id="add-lnvmtos-v230"></a>
+    <a id="add-lnvmtos"></a>
 
     **Purpose:** Add a Machine Type + OS combination to the updates tracking database (lnvUpdatesDatabase.json) to monitor for new updates.
 
@@ -329,10 +309,10 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
 
         **Related Cmdlets:**
         [Get-LnvMTOSList](#get-lnvmtoslist) | [Remove-LnvMTOS](#remove-lnvmtos-v230) | [Get-LnvUpdatesNotification](#get-lnvupdatesnotification)
-    
-??? note "Add-LnvSUCommandLine (v1.0.0+)"
 
-    <a id="add-lnvsucmdline-v100"></a>
+??? note "Add-LnvSUCommandLine"
+
+    <a id="add-lnvsucmdline"></a>
 
     **Purpose:** Configure administrative command-line settings for Lenovo System Update via Windows Registry.
 
@@ -370,7 +350,6 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
 
         **Related Cmdlets:**
         [Add-LnvSULogging](#add-lnvsulogging) | [Export-LnvUpdateRetrieverConfig](#export-lnvupdateretrieverconfig)
-    
 
 ??? note "Add-LnvSULogging"
 
@@ -558,9 +537,9 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Output fields: "os" (win10/win11), "version" (21H2/22H2), "crc", and "#text" (URL to executable). Use Where-Object to filter by OS and version. URL is in the '#text' field.
 
-??? note "Find-LnvHSAPack (v2.2.0+)"
+??? note "Find-LnvHSAPack"
 
-    <a id="find-lnvhsapack-v220"></a>
+    <a id="find-lnvhsapack"></a>
 
     **Purpose:** Returns a list of available HSA packs for a specified machine type, including OS, build version, CRC, and URL to the package executable.
 
@@ -684,10 +663,9 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Returns current version and download URL for each tool. Supported tools: Dock Manager, System Update, Thin Installer, Update Retriever.
 
+??? note "Find-LnvUpdate"
 
-??? note "Find-LnvUpdate (v1.0.0+)"
-    
-    <a id="find-lnvupdate-v100"></a>
+    <a id="find-lnvupdate"></a>
 
     **Purpose:** Search the Lenovo System Update catalog for updates matching specified criteria.
 
@@ -950,9 +928,9 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
         Handles differences in BIOS version format between ThinkPad (decimal) and ThinkCentre/ThinkStation (hex build number). Desktop BIOS hex values are converted to standard version format.
 
 ??? note "Get-LnvCVE"
-    
+
     <a id="get-lnvcve"></a>
-    
+
     **Purpose:** List CVE (Common Vulnerabilities and Exposures) identifiers addressed in the current BIOS update.
 
     **Syntax:**
@@ -982,7 +960,7 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
 ??? note "Get-LnvDriverPack"
 
     <a id="get-lnvdriverpack"></a>
-    
+
     **Purpose:** Download SCCM driver pack for specified machine type and Windows OS version.
 
     **Syntax:**
@@ -1145,54 +1123,6 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Returns the device serial number from WMI.
 
-??? note "Get-LnvUpdate"
-
-    <a id="get-lnvupdate"></a>
-
-    **Purpose:** Search for and download updates to a specified repository folder based on machine type and criteria.
-
-    **Syntax:**
-    ```powershell
-    Get-LnvUpdate -MachineType <String> [-WindowsVersion <String>] [-RepositoryFolder <String>] [-PackageType <String>] [-RebootType <String>] [-Csv] [-Expand]
-    ```
-
-    **Parameters:**
-
-    | Parameter | Type | Mandatory | Description |
-    |-----------|------|-----------|-------------|
-    | MachineType | String | True | 4-character machine type (required) |
-    | WindowsVersion | String | False | "10" or "11" (default: 10) |
-    | RepositoryFolder | String | False | Where to save updates (created if doesn't exist; default: $env:USERPROFILE\Downloads) |
-    | PackageType | String | False | 1=App, 2=Driver, 3=BIOS, 4=Firmware (comma-separated; default: all) |
-    | RebootType | String | False | 1=Forced, 3=Requires reboot, 4=Shutdown, 5=Delayed (comma-separated; default: all) |
-    | Csv | Switch | False | Create CSV file listing downloaded updates in repository folder |
-    | Expand | Switch | False | Extract each update into subfolder named by Package ID |
-
-    **Notes on Parameters:**
-    - Use value "9" to mean "All" for PackageType, RebootType, or Severity
-    - PackageType values: 1=Application, 2=Driver, 3=BIOS, 4=Firmware
-    - RebootType values: 1=Forced reboot, 3=Requires reboot, 4=Forces shutdown, 5=Delayed forced reboot
-    - Severity values: 1=Critical, 2=Recommended, 3=Optional
-
-    **Examples:**
-
-    ```powershell
-    # Download driver updates (PackageType 2) for Win10
-    Get-LnvUpdate -MachineType 20E4 -WindowsVersion 10 -RepositoryFolder "C:\repository" -PackageType 2
-
-    # Shorthand syntax
-    Get-LnvUpdate 20E4 10 "C:\repository"
-
-    # Download to default location
-    Get-LnvUpdate -MachineType 20E6 -RepositoryFolder "C:\repository"
-
-    # Create CSV report and extract each package
-    Get-LnvUpdate -MachineType 20E4 -Csv -Expand
-    ```
-
-    !!! note "Note"
-        The -Csv parameter creates a listing of downloaded updates. The -Expand parameter extracts each update into a subfolder named by Package ID.
-
 ??? note "Get-LnvUpdatesNotification"
 
     <a id="get-lnvupdatesnotification"></a>
@@ -1227,43 +1157,6 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Tracks catalogs by CRC (Cyclic Redundancy Check) and identifies new updates since last execution. Grid-view allows clicking an update to view its readme. Requires Add-LnvMTOS to be used first to track models.
 
-??? note "Get-LnvUpdatesRepo"
-
-    <a id="get-lnvupdatesrepo"></a>
-
-    **Purpose:** Create or update a local repository of updates for deployment without Update Retriever.
-
-    **Syntax:**
-    ```powershell
-    Get-LnvUpdatesRepo -RepositoryPath <String> [-MachineType <String>] [-WindowsVersion <String>] [-PackageTypes <String>] [-RebootTypes <String>] [-RT5toRT3] [-PackageList <String>] [-CloudRepo]
-    ```
-
-    **Parameters:**
-
-    | Parameter | Type | Mandatory | Description |
-    |-----------|------|-----------|-------------|
-    | RepositoryPath | String | True | Fully qualified path to repository folder (surround with single quotes) |
-    | MachineType | String | False | 4-character machine type for filtering |
-    | WindowsVersion | String | False | "10" or "11" (default: OS of running machine) |
-    | PackageTypes | String | False | Comma-separated: 1=App, 2=Driver, 3=BIOS, 4=Firmware (default: all) |
-    | RebootTypes | String | False | Comma-separated: 1=Forced, 3=Requires, 4=Shutdown, 5=Delayed (default: all) |
-    | RT5toRT3 | Switch | False | Convert Reboot Type 5 to Type 3 (for task sequences only) |
-    | PackageList | String | False | Comma-separated package IDs to download specific updates |
-    | CloudRepo | Switch | False | Create Lenovo Cloud repo (updates stay on Lenovo servers) |
-
-    **Examples:**
-
-    ```powershell
-    # Create repository with applications and drivers
-    Get-LnvUpdatesRepo -RepositoryPath 'C:\Program Files (x86)\Lenovo\ThinInstaller\Repository' -PackageTypes '1,2' -RebootTypes '0,3'
-
-    # Create cloud repository with reboot type conversion
-    Get-LnvUpdatesRepo -RepositoryPath 'Z:\21DD' -PackageTypes '1,2,3' -RebootTypes '0,3,5' -RT5toRT3 -CloudRepo
-    ```
-
-    !!! warning "RT5toRT3 Conversion"
-        Parameter only works with Thin Installer (breaks XML digital signature). Use Thin Installer v1.04.02.00024+ with -ignorexmlsignature flag when processing converted updates.
-
 ??? note "Get-LnvWarranty"
 
     <a id="get-lnvwarranty"></a>
@@ -1289,9 +1182,9 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Requires Commercial Vantage to be installed and configured via group policy to write warranty information to WMI.
 
-??? note "Get-LnvWUFriendlyName (v2.3.0+)"
+??? note "Get-LnvWUFriendlyName"
 
-    <a id="get-lnvwufriendlyname-v230"></a>
+    <a id="get-lnvwufriendlyname"></a>
 
     **Purpose:** Return a list of drivers and firmware installed by Windows Update with their friendly names, versions, and installation dates.
 
@@ -1445,9 +1338,9 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     **Related Cmdlets:**
     [Invoke-LnvCVLogViewer](#invoke-lnvcvlogviewer)
 
-??? note "Remove-LnvMTOS (v2.3.0+)"
+??? note "Remove-LnvMTOS"
 
-    <a id="remove-lnvmtos-v230"></a>
+    <a id="remove-lnvmtos"></a>
 
     **Purpose:** Remove a Machine Type + OS combination from the updates database (lnvUpdatesDatabase.json).
 
