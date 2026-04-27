@@ -94,6 +94,10 @@ description: Frequently asked questions about Commercial Vantage deployment and 
 
     If an end-user manually adjusts the scheduled task in Task Scheduler, Commercial Vantage will overwrite those changes.
 
+??? note "As the IT administrator, I have set the policy for Auto Update to run at 11:00 AM; however, on devices the scheduled task is configured with a slightly different time. Why is that?"
+
+    The time set in the policy will indicate the beginning of a 90-minute window of time. Individual devices will be configured with a random time within that 90-minute window. This is done to prevent all devices in a managed environment from trying to download updates at exactly the same time.
+
 ---
 
 ## Troubleshooting
