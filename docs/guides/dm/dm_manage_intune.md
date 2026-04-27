@@ -7,7 +7,7 @@ description: Configure Dock Manager policies in Microsoft Intune using ADMX temp
 
 This page covers advanced configuration of Dock Manager using Microsoft Intune ADMX policies and OMA-URIs. For basic deployment steps, see [Dock Manager Deployment Guide](dm.md).
 
-!!! note 
+!!! note
     If new policies have been introduced, you will need to ingest the updated ADMX file. The policies documented here are based on the latest ADMX template. New policies may be added in future releases, so check the [Lenovo Tools for Administrators](https://support.lenovo.com/solutions/ht037099) page for updates.
 
 ## Prerequisites
@@ -60,7 +60,7 @@ Use this table to quickly find the policy you need by category. Click any policy
 
 | Policy Name | Category | Type | Purpose |
 |-------------|----------|------|---------|
-| [**Command**](#command) | System | Action | Send commands to Dock Manager (e.g., check for updates) |
+| **Command** | System | Action | Send commands to Dock Manager (e.g., check for updates) |
 | [**Ask Before Firmware Update**](#ask-before-firmware-update) | General | Boolean | Prompt user before firmware installation |
 | [**Auto Update**](#auto-update) | General | Boolean | Enable automatic Dock Manager software updates |
 | [**Enable Notifications**](#enable-notifications) | General | Boolean | Show notifications during firmware operations |
@@ -317,7 +317,7 @@ Define when Dock Manager checks for and installs firmware updates.
 
 !!! note ""
     Configure these policies together to define a complete schedule. They are interdependent based on the **Frequency** setting:
-    
+
     - **DAILY** – Uses only **Run At**
     - **WEEKLY** – Uses **Run At** + **Run On** (days of week)
     - **MONTHLY** – Uses **Run At** + **Run Month** + **Run Days**, OR **Run At** + **Run Monthly On** + **Run On**
@@ -466,7 +466,7 @@ To resend the same command, update the timestamp in `SendTime_Prompt`.
     **Policies to configure:**
 
     1. **Auto Update** – Enable
-    2. **Ask Before Firmware Update** – Disable  
+    2. **Ask Before Firmware Update** – Disable
     3. **Frequency** – Set to WEEKLY
     4. **Run At** – Set to 02:00:00
     5. **Run On** – Set to Sunday

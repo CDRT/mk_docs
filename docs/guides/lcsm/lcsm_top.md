@@ -121,13 +121,13 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 [Find-LnvBiosCode](#find-lnvbioscode) | [Find-LnvBiosInfo](#find-lnvbiosinfo) | [Get-LnvBiosCode](#get-lnvbioscode) | [Get-LnvBiosInfo](#get-lnvbiosinfo) | [Get-LnvBiosVersion](#get-lnvbiosversion) | [Get-LnvBiosPasswordsSet](#get-lnvbiospasswordsset) | [Get-LnvBiosUpdateUrl](#get-lnvbiosupdateurl) | [Get-LnvAvailableBiosVersion](#get-lnvavailablebiosversion) | [Get-LnvCVE](#get-lnvcve)
 
 **Updates & Drivers**
-[Find-LnvUpdate](#find-lnvupdate-v100) | [Get-LnvUpdate](#get-lnvupdate) | [Find-LnvDriverPack](#find-lnvdriverpack) | [Get-LnvDriverPack](#get-lnvdriverpack) | [Get-LnvUpdatesRepo](#get-lnvupdatesrepo) | [Get-LnvUpdatesNotification](#get-lnvupdatesnotification) | [Get-LnvMTOSList](#get-lnvmtoslist) | [Add-LnvMTOS](#add-lnvmtos-v230) | [Remove-LnvMTOS](#remove-lnvmtos-v230)
+[Find-LnvUpdate](#find-lnvupdate) | [Find-LnvDriverPack](#find-lnvdriverpack) | [Get-LnvDriverPack](#get-lnvdriverpack) | [Get-LnvUpdatesNotification](#get-lnvupdatesnotification) | [Get-LnvMTOSList](#get-lnvmtoslist) | [Add-LnvMTOS](#add-lnvmtos) | [Remove-LnvMTOS](#remove-lnvmtos)
 
 **Hardware & Peripherals**
-[Get-LnvBatteryInfo](#get-lnvbatteryinfo) | [Find-LnvDockModel](#find-lnvdockmodel) | [Find-LnvHSAPack](#find-lnvhsapack-v220) | [Get-LnvWUFriendlyName](#get-lnvwufriendlyname-v230)
+[Get-LnvBatteryInfo](#get-lnvbatteryinfo) | [Find-LnvDockModel](#find-lnvdockmodel) | [Find-LnvHSAPack](#find-lnvhsapack) | [Get-LnvWUFriendlyName](#get-lnvwufriendlyname)
 
 **Utilities & System Updates**
-[Find-LnvTool](#find-lnvtool) | [Add-LnvSUCommandLine](#add-lnvsucmdline-v100) | [Add-LnvSULogging](#add-lnvsulogging) | [Export-LnvUpdateRetrieverConfig](#export-lnvupdateretrieverconfig) | [Show-LnvApplicableUpdate](#show-lnvapplicableupdate)
+[Find-LnvTool](#find-lnvtool) | [Add-LnvSUCommandLine](#add-lnvsucmdline) | [Add-LnvSULogging](#add-lnvsulogging) | [Export-LnvUpdateRetrieverConfig](#export-lnvupdateretrieverconfig) | [Show-LnvApplicableUpdate](#show-lnvapplicableupdate)
 
 **Warranty**
 [Get-LnvWarranty](#get-lnvwarranty)
@@ -308,7 +308,7 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
         The database file (lnvUpdatesDatabase.json) is created automatically if it doesn't exist. It stores Machine Type, OS, CRC, and a list of available updates from the System Update catalog.
 
         **Related Cmdlets:**
-        [Get-LnvMTOSList](#get-lnvmtoslist) | [Remove-LnvMTOS](#remove-lnvmtos-v230) | [Get-LnvUpdatesNotification](#get-lnvupdatesnotification)
+        [Get-LnvMTOSList](#get-lnvmtoslist) | [Remove-LnvMTOS](#remove-lnvmtos) | [Get-LnvUpdatesNotification](#get-lnvupdatesnotification)
 
 ??? note "Add-LnvSUCommandLine"
 
@@ -704,7 +704,7 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
         By default displays results in grid view. Select an update and click OK to return it as an object. Use value "9" for any parameter to mean "All". Multiple values separated by commas (e.g., "1,3,5").
 
         **Related Cmdlets:**
-        [Get-LnvUpdate](#get-lnvupdate) | [Find-LnvDriverPack](#find-lnvdriverpack) | [Get-LnvUpdatesRepo](#get-lnvupdatesrepo)
+        [Find-LnvDriverPack](#find-lnvdriverpack)
 
 ??? note "Get-LnvAvailableBiosVersion"
 
@@ -1368,7 +1368,7 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     ```
 
     **Related Cmdlets:**
-    [Add-LnvMTOS](#add-lnvmtos-v230) | [Get-LnvMTOSList](#get-lnvmtoslist)
+    [Add-LnvMTOS](#add-lnvmtos) | [Get-LnvMTOSList](#get-lnvmtoslist)
 
 ??? note "Show-LnvApplicableUpdate"
 
