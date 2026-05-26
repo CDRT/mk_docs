@@ -1,6 +1,6 @@
 ﻿---
 title: Lenovo Client Scripting Module (LCSM) Reference
-description: PowerShell module cmdlets for Lenovo system managementâ€”BIOS, updates, drivers, hardware information, and reporting
+description: PowerShell module cmdlets for Lenovo system management, BIOS, hardware information, and reporting
 ---
 
 # Lenovo Client Scripting Module
@@ -10,10 +10,15 @@ description: PowerShell module cmdlets for Lenovo system managementâ€”BIOS,
 The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module containing 34 cmdlets that provide useful information and simplified actions for managing Lenovo commercial PCs (ThinkPad, ThinkCentre, ThinkStation).
 
 **System Requirements:**
+
 - PowerShell v5.1 or higher (64-bit)
-- Windows 10 or Windows 11
+- Windows 11
 
 ??? note "What's New"
+
+    ??? note "April 16, 2026:  Version 2.4.2"
+
+        Removed "curly quotes" from Add-LnvMTOS. ***(how did those get in there??)*** Thanks for reporting jces3.
 
     ??? note "April 9, 2026:  Version 2.4.1"
 
@@ -194,7 +199,7 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 
 ??? note "Manual Installation"
 
-    The module itself is currently available for manual download here: [Lenovo.Client.Scripting_2.3.0.zip](https://download.lenovo.com/cdrt/tools/Lenovo.Client.Scripting_2.4.2.zip)
+    The module itself is currently available for manual download here: [Lenovo.Client.Scripting_2.4.2.zip](https://download.lenovo.com/cdrt/tools/Lenovo.Client.Scripting_2.4.2.zip)
 
     The zip file contains the `Lenovo.Client.Scripting` module folder with:
     - `Lenovo.Client.Scripting.psm1` : module script
