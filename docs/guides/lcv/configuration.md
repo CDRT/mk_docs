@@ -10,8 +10,7 @@ Lenovo understands that some features of Commercial Vantage may not be appropria
     "AllLogs"="Trace"
     ```
 
-    Logs can be found in subfolders for each component under:
-    `%ProgramData%\Lenovo\Vantage\Logs\`
+    Logs can be found in subfolders for each component under: `%ProgramData%\Lenovo\Vantage\Logs\`
 
     For the System Update Addin, the logs will be in the `LenovoSystemUpdateAddin` subfolder.
 
@@ -1433,7 +1432,3 @@ The following policies toggle System Update behavior on or off. For policies wit
     ```xml
     <disabled/>
     ``` 
-    
-
-
-
