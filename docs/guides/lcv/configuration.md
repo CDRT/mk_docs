@@ -323,6 +323,8 @@ This section presents the policies found in the Commercial Vantage ADMX template
 
 For steps on how to create and deploy Commercial Vantage as a Win32 app, reference this [page](https://blog.lenovocdrt.com/deploying-commercial-vantage-with-intune).
 
+**For an even easier way to manage these policies when using Intune, try the [Commercial Vantage Policy Manager](https://blog.lenovocdrt.com/introducing-commercial-vantage-policy-manager-for-intune/).**
+
 !!! note ""
     If new policies have been introduced, you will need to ingest the updated ADMX file contained in the Commercial Vantage Enterprise Package zip file and replace your existing policies in Intune with new ones created after ingesting the new ADMX file.
 
