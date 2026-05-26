@@ -21,7 +21,7 @@ This solution can be used in combination with the [Lenovo BIOS Certificates Tool
 For detailed information on individual cmdlets, see the [Module cmdlet reference](./tbc_module_reference.md).
 
 !!! note ""
-    **This solution replaces the older Think BIOS Config Tool which was implemented as an HTA.** Archived documentation for the HTA version is still available here: [Think BIOS Config Tool - HTA](https://docs.lenovocdrt.com/guides/tbct/tbct_top/)
+    **This solution replaces the older Think BIOS Config Tool which was implemented as an HTA.** Archived documentation for the HTA version is still available here: [Think BIOS Config Tool - HTA](https://docs.lenovocdrt.com/guides/tbct/tbct_top_archive/)
 
     Previously created INI files from the HTA version which contain an encrypted password are not compatible with the new Think BIOS Config Tool V2 due to changes in encryption methods. Please recreate the INI files using the new tool.
 
