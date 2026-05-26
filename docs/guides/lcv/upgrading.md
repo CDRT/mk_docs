@@ -20,17 +20,7 @@ Commercial Vantage uses **Over-The-Air (OTA) updates** managed by the Vantage Se
 
 ## ADMX Template Management
 
-New Group Policy settings are released when necessary—sometimes between quarterly Enterprise Package releases.
-
-**Current ADMX Template:**
-
-- **Version:** v25.09
-- **Download:** [ADMX Template](https://download.lenovo.com/cdrt/tools/lcv_admx_2509.zip)
-
-**When to update:**
-
-- New policies are required for recent features
-- Check [What's New](./whatsnew.md) for ADMX template changes per release
+New Group Policy settings are released when necessary; sometimes between quarterly Enterprise Package releases. Check [What's New](./whatsnew.md) for ADMX template changes per release and for links to the latest template if changes occur outside of Enterprise Package releases.
 
 ---
 
@@ -48,7 +38,7 @@ If you need to deploy an older version:
 
 1. Deploy downlevel Enterprise Package version
 2. Allow OTA updates to automatically bring to current version
-3. This is safe and automatic—no manual intervention needed
+3. This is safe and automatic - no manual intervention needed
 
 ### Update Failures & Recovery
 
@@ -58,20 +48,22 @@ If Commercial Vantage fails to self-update or gets stuck:
 
 - Add-ins outdated or unavailable
 - Service stops responding
-- Updates fail with errors
+- System Update fails with errors
 
 **Recovery steps:**
 
 1. Verify Vantage Service is running:
+
    ```powershell
    Get-Service -Name VantageService
    ```
 
-2. Check network connectivity to Lenovo update servers
+2. Check network connectivity to Lenovo update servers (for example: https://download.lenovo.com/catalog/21NT_Win11.xml)
 
 3. Review logs: `%ProgramData%\Lenovo\Vantage\Logs\`
 
 4. If unrecoverable: Redeploy from latest Enterprise Package
+
    ```cmd
    VantageInstaller.exe Uninstall -Vantage
    VantageInstaller.exe Install -Vantage
