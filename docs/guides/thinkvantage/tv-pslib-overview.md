@@ -24,7 +24,7 @@ The ThinkVantage PowerShell Library is a collection of modules and scripts publi
     Create and maintain local repositories of Lenovo updates (alternative to Update Retriever). Supports automation and works with Lenovo.Client.Update and Commercial Vantage.  
     [Learn more](../../tvrm)
 
-- **:material-checkbox-marked-circle-minus-outline: LCV Policy Manager**
+- **:octicons-checklist-16: LCV Policy Manager**
     Simplify the management of Commercial Vantage group policies when using Intune.  
     [Read more](https://blog.lenovocdrt.com/introducing-commercial-vantage-policy-manager-for-intune/)
 
