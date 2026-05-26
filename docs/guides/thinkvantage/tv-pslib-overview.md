@@ -2,6 +2,34 @@
 
 The ThinkVantage PowerShell Library is a collection of modules and scripts published to the [PowerShell Gallery](https://www.powershellgallery.com) for managing Lenovo ThinkPad, ThinkCentre, and ThinkStation devices. The library covers driver and firmware updates, BIOS configuration, and certificate-based BIOS authentication.
 
+<div class="grid cards" markdown>
+
+- **:material-checkbox-marked-circle-minus-outline: Think BIOS Config Tool**  
+    The Think BIOS Config Tool provides an easy to use graphical interface to work with BIOS settings. It leverages the Lenovo.Bios.Config module.  
+    [Read guide](../../tbct_v2/tbct_v2_top/)
+
+- **:material-cog: Lenovo.Client.Scripting**  
+    This module provides simple access to device details and content information that can be leveraged in automation.  
+    [Learn more](../../lcsm/lcsm_top/)
+
+- **:material-shield-key: Lenovo BIOS Certificate Tool**  
+    This utility greatly simplifies the use of certificates for authenticating BIOS settings changes. It relies on the Lenovo.Bios.Certificates module.  
+    [Secure it](../../lbct)
+
+- **:material-download-circle: Lenovo.Client.Update**  
+    Module that enables automation of Lenovo driver, BIOS, and firmware updates.  
+    [Read guide](../../lcu)
+
+- **:material-package-variant-plus: ThinkVantage Repository Manager**
+    Create and maintain local repositories of Lenovo updates (alternative to Update Retriever). Supports automation and works with Lenovo.Client.Update and Commercial Vantage.  
+    [Learn more](../../tvrm)
+
+- **:material-checkbox-marked-circle-minus-outline: LCV Policy Manager**
+    Simplify the management of Commercial Vantage group policies when using Intune.  
+    [Read more](https://blog.lenovocdrt.com/introducing-commercial-vantage-policy-manager-for-intune/)
+
+</div>
+
 **Requirements:** Windows 10/11 · PowerShell 5.0+ · Administrator privileges
 
 ```powershell

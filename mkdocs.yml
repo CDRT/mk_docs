@@ -6,7 +6,7 @@ theme:
   logo: img/CDRT-REV-Red_s.png
   favicon: img/fav/favicon.ico
   font:
-    text: Work Sans
+    text: Noto Sans
     code: Roboto Mono
   features:
     - navigation.tracking
