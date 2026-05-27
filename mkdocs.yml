@@ -45,25 +45,6 @@ nav:
       - Upgrading : guides/lcv/upgrading.md
       - SU Helper Reference: guides/lcv/suhelper.md
       - Commercial Vantage FAQ: guides/lcv/commercial_vantage_faq.md
-    - System Update - Update Retriever - Thin Installer:
-      - Overview: guides/sus/index.md
-      - Deployment Guide:
-        - guides/sus/su_dg/index.md
-        - guides/sus/su_dg/su_dg_ch1.md
-        - guides/sus/su_dg/su_dg_ch2.md
-        - guides/sus/su_dg/su_dg_ch3.md
-        - guides/sus/su_dg/su_dg_ch4.md
-        - guides/sus/su_dg/su_dg_ch5.md
-        - guides/sus/su_dg/su_dg_ch6.md
-        - guides/sus/su_dg/su_dg_ch7.md
-        - guides/sus/su_dg/su_dg_ch8.md
-      - System Update FAQ: guides/sus/system_update_faq.md
-    - Dock Manager:
-      - Overview: guides/dm/index.md
-      - Deployment Guide: guides/dm/dm.md
-      - Managing with Intune: guides/dm/dm_manage_intune.md
-      - Troubleshooting: guides/dm/dm_troubleshooting.md
-      - Dock Manager FAQ: guides/dm/dock_manager_faq.md
     - ThinkVantage PowerShell Library:
       - Overview: guides/thinkvantage/tv-pslib-overview.md
       - Think BIOS Config Tool V2:
@@ -91,10 +72,32 @@ nav:
           - Install-LnvUpdate: guides/lcu/functions/install-lnvupdate.md
           - Save-LnvUpdate: guides/lcu/functions/save-lnvupdate.md
           - Set-LnvUpdateConfiguration: guides/lcu/functions/set-lnvupdateconfiguration.md
+      - ThinkVantage Repository Manager:
+        - Overview: guides/tvrm/index.md
+        - Module Reference: guides/tvrm/module_reference.md
     - Lenovo Updates Catalog:
       - Overview: guides/luc/luc_ovrvw.md
       - guides/luc/luc_agnt.md
       - guides/luc/luc_ts.md
+    - Dock Manager:
+      - Overview: guides/dm/index.md
+      - Deployment Guide: guides/dm/dm.md
+      - Managing with Intune: guides/dm/dm_manage_intune.md
+      - Troubleshooting: guides/dm/dm_troubleshooting.md
+      - Dock Manager FAQ: guides/dm/dock_manager_faq.md
+    - System Update - Update Retriever - Thin Installer:
+      - Overview: guides/sus/index.md
+      - Deployment Guide:
+        - guides/sus/su_dg/index.md
+        - guides/sus/su_dg/su_dg_ch1.md
+        - guides/sus/su_dg/su_dg_ch2.md
+        - guides/sus/su_dg/su_dg_ch3.md
+        - guides/sus/su_dg/su_dg_ch4.md
+        - guides/sus/su_dg/su_dg_ch5.md
+        - guides/sus/su_dg/su_dg_ch6.md
+        - guides/sus/su_dg/su_dg_ch7.md
+        - guides/sus/su_dg/su_dg_ch8.md
+      - System Update FAQ: guides/sus/system_update_faq.md
     - Lenovo View:
       - guides/lenovo_view/index.md
   - References:
