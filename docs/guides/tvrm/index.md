@@ -203,7 +203,7 @@ Packages that have been superseded by a newer version appear dimmed and in itali
 
 ### Promote or Demote Update Status
 
-Status controls which packages a client deployment tool (such as Thin Installer or System Update pointed at this repository) will install.
+Status controls which packages a client deployment tool (such as Lenovo Commercial Vantage or Thin Installer pointed at this repository) will install.
 
 1. Select a single package row.
 2. Use the **Test / Active** toggle slider in the action bar. When the toggle shows **Test** highlighted, the package is in Test status; when **Active** is highlighted, it is Active.
