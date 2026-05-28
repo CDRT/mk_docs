@@ -134,7 +134,7 @@ The tool fetches catalog XML files for each applicable model in parallel, then d
 ### Search Results Grid
 
 | Column | Description |
-|--------|-------------|
+| -------- | ------------- |
 | Title | Package display name. Hover for full text if truncated. |
 | Version | Package version string |
 | Type | Application, Driver, BIOS, or Firmware |
@@ -186,7 +186,7 @@ Click **Refresh** to reload the repository contents from disk.
 ### Repository Grid
 
 | Column | Description |
-|--------|-------------|
+| -------- | ------------- |
 | Title | Package description. Hover for full text if truncated. |
 | Package ID | Unique package identifier (used with cmdlets) |
 | Version | Package version |
