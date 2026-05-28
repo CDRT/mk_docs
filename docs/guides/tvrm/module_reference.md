@@ -612,7 +612,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     New-LnvRMRepository -Path 'D:\LenovoUpdates\Production' -Name 'Production' -SetActive
 
     # Add models
-    Add-LnvRMModel -MachineType '21NT' -FriendlyName 'ThinkPad X1 Carbon Gen 11' -OS 'Windows 11'
+    Add-LnvRMModel -MachineType '21NT' -FriendlyName 'ThinkPad X1 Carbon Gen 13' -OS 'Windows 11'
     Add-LnvRMModel -MachineType '21AH' -FriendlyName 'ThinkPad T14s Gen 3' -OS 'Windows 11'
 
     # Search and download Critical and Recommended updates at Test status
@@ -647,7 +647,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
 
     ```powershell
     # Register the new model
-    Add-LnvRMModel -MachineType '21CQ' -FriendlyName 'ThinkPad X1 Yoga Gen 7' -OS 'Windows 11'
+    Add-LnvRMModel -MachineType '21CQ' -FriendlyName 'ThinkPad T14s Gen 3 AMD' -OS 'Windows 11'
 
     # Search - updates already in the repo will be identified
     $updates = Search-LnvRMUpdate
@@ -673,7 +673,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     # Remove them
     foreach ($pkg in $superseded) {
         Write-Host "Removing $($pkg.PackageID) - $($pkg.Description)..."
-        Remove-LnvRMUpdate -PackageID $pkg.PackageID -Confirm:$false
+        Remove-LnvRMUpdate -PackageID $pkg.PackageID
     }
     ```
 
