@@ -33,7 +33,7 @@ Dock Manager is provided as an executable. Deploy it using the ConfigMgr Applica
 ### Quick Reference
 
 | Phase | Steps | Time |
-|-------|-------|------|
+| ------- | ------- | ------ |
 | **Setup & Preparation** | Create application, configure app details, select deployment type | ~2 min |
 | **Configuration** | Set install/uninstall commands, define detection rules, add requirements | ~5 min |
 | **Deployment** | Deploy to device collection | ~1 min |
@@ -251,6 +251,7 @@ Extend hardware inventory in ConfigMgr to collect Dock Manager data from your cl
 **Download MOF file:** [ConfigMgr-MOF-DockManager.zip](https://download.lenovo.com/cdrt/blog/ConfigMgr-MOF-DockManager.zip)
 
 **Steps:**
+
 1. Download and extract the MOF file
 2. Navigate to **Administration > Client Settings** in ConfigMgr
 3. Configure **Hardware Inventory** and add the Dock Manager classes
@@ -268,7 +269,7 @@ Use SQL Server Reporting Services (SSRS) to create reports on Dock Manager deplo
 
 !!! info "Sample Report Template"
     A sample SSRS report template is available for download: [LenovoDockManager.zip](https://download.lenovo.com/cdrt/docs/LenovoDockManager.zip)
-    
+
     After downloading, update the Data Source properties to connect to your ConfigMgr database.
 
 ## Next Steps
