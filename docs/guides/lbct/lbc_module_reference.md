@@ -408,12 +408,12 @@ All functions log their activities and errors for troubleshooting purposes.
 
 The module creates and uses the following directory structure:
 
-```text
-%ProgramData%\Lenovo\
-├── BIOSCertificates\
-│   ├── Logs\          # Module operation logs
-│   └── Output\        # Generated signed command files
-```
+    
+    %ProgramData%\Lenovo\
+    ├── BIOSCertificates\
+    ├── Logs\          # Module operation logs
+    └── Output\        # Generated signed command files
+    
 ---
 
 ## Version History

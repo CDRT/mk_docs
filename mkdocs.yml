@@ -49,8 +49,10 @@ nav:
       - Overview: guides/thinkvantage/tv-pslib-overview.md
       - Think BIOS Config Tool V2:
         - Overview: guides/tbct_v2/tbct_v2_top.md
+        - Module Reference: guides/tbct_v2/tbc_module_reference.md
       - Lenovo BIOS Certificate Tool:
         - Overview: guides/lbct/index.md
+        - Module Reference: guides/lbct/lbc_module_reference.md
       - Lenovo Client Scripting Module:
         - Overview: guides/lcsm/lcsm_top.md
       - Lenovo Client Update Module:
