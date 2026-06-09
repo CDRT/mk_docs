@@ -52,41 +52,31 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 
 | Parameter | Type | Purpose | Value |
 | --- | --- | --- | --- |
-| **-autoupdate** | Required | Trigger update session | (none) |
-| **-include** | Optional | Install only specific packages | Comma-separated package IDs |
-| **-exclude** | Optional | Skip specific packages | Comma-separated package IDs |
-| **-packagetype** | Optional | Filter by update type | 0=Others, 1=App, 2=Driver, 3=BIOS, 4=Firmware |
-| **-reboottype** | Optional | Filter by reboot behavior | 0=No reboot, 1=Forced reboot, 3=Requires reboot, 4=Shutdown, 5=Delayed reboot (5 min) |
-| **-allowdefer** | Optional | Allow users to defer updates | (none) |
-| **-help** or **/?** | Optional | Display help | (none) |
-
----
-
-## Usage Scenarios
-
-SU Helper is designed to support these key scenarios:
-
-**Trigger On-Demand Update**
-:  Trigger an Auto Update session without waiting for the normal schedule. Useful when you need immediate deployment of critical updates.
-
-**Filtered Update Deployment**
-:  Trigger updates for specific types only (e.g., drivers and firmware via Windows Update for Business, but deploy other updates via Commercial Vantage). Example: Deploy Commercial Vantage with Auto Update disabled, then use SU Helper on-demand to install specific packages.
-
-**Block Problematic Updates**
-:  If a particular update causes compatibility issues in your test environment, use SU Helper to add it to an exclude list on production devices, preventing installation during Auto Update or Manual Update sessions.
+| [**-autoupdate**](#autoupdate) | Required | Trigger update session | (none) |
+| [**-include**](#include) | Optional | Install only specific packages | Comma-separated package IDs |
+| [**-exclude**](#exclude) | Optional | Skip specific packages | Comma-separated package IDs |
+| [**-packagetype**](#packagetype) | Optional | Filter by update type | 0=Others, 1=App, 2=Driver, 3=BIOS, 4=Firmware |
+| [**-reboottype**](#reboottype) | Optional | Filter by reboot behavior | 0=No reboot, 1=Forced reboot, 3=Requires reboot, 4=Shutdown, 5=Delayed reboot (5 min) |
+| [**-allowdefer**](#allowdefer) | Optional | Allow users to defer updates | (none) |
+| [**-help** or **/?**](#help) | Optional | Display help | (none) |
 
 ---
 
 ## Parameter Reference
+
+<a id="autoupdate"></a>
 
 ??? note "-autoupdate (Required)"
     
     Triggers an Auto Update process by the System Update Addin.
     
     **Behavior:**
+
     - If used alone, any Group Policy filters are applied
     - If other parameters are specified, command-line filters take priority over Group Policies
     - Can be combined with other optional parameters for filtering
+
+<a id="include"></a>
 
 ??? note "-include [string] (Optional)"
     
@@ -95,10 +85,13 @@ SU Helper is designed to support these key scenarios:
     **Format:** Comma-separated package IDs (e.g., `n3uj12w,n3jcd08w`)
     
     **Finding Package IDs:**
+    
     - Use [Update Retriever](https://support.lenovo.com/us/en/solutions) tool
     - Use [Driver & Software Matrix for IT Admins](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html) – search, select updates, click "Copy Package ID(s)"
     
     **Limitation:** Cannot be combined with `-exclude` or `-packagetype`/`-reboottype` parameters
+
+<a id="exclude"></a>
 
 ??? note "-exclude [string] (Optional)"
     
@@ -111,6 +104,8 @@ SU Helper is designed to support these key scenarios:
     **Override:** If a later command specifies the same package ID in `-include`, it will be removed from the exclude list and installed if applicable.
     
     **Limitation:** Cannot be combined with `-include` or `-packagetype`/`-reboottype` parameters
+
+<a id="packagetype"></a>
 
 ??? note "-packagetype [string] (Optional)"
     
@@ -130,6 +125,8 @@ SU Helper is designed to support these key scenarios:
     
     **Can combine with:** `-reboottype` parameter (AND logic – intersection of both filters)
 
+<a id="reboottype"></a>
+
 ??? note "-reboottype [string] (Optional)"
     
     Filter updates by reboot requirement. Only updates requiring the specified reboot type(s) will be installed.
@@ -148,6 +145,8 @@ SU Helper is designed to support these key scenarios:
     
     **Can combine with:** `-packagetype` parameter (AND logic – intersection of both filters)
 
+<a id="allowdefer"></a>
+
 ??? note "-allowdefer (Optional)"
     
     Allow end-users to defer updates when applicable Group Policy permits deferral.
@@ -156,23 +155,11 @@ SU Helper is designed to support these key scenarios:
     
     **With this parameter:** Group Policy deferral rules are applied (if configured).
 
+<a id="help"></a>
+
 ??? note "-help or /? (Optional)"
     
     Display command-line help and parameter reference.
-
----
-
-## Return Codes
-
-| Code | Meaning | Action |
-| --- | --- | --- |
-| **0** | Success | Update session triggered successfully |
-| **1** | Error in parameters | Check parameter syntax and combinations |
-| **2** | System Update Addin is busy | Wait and retry; another update session is running |
-| **3** | Unexpected error occurred | Check logs; see [Troubleshooting](#troubleshooting) |
-
-!!! note "Important"
-    Return codes represent only the result of calling `suhelper.exe`, not the result of the update session itself. Check the `Lenovo_Updates` WMI class for actual update results.
 
 ---
 
@@ -198,6 +185,35 @@ SU Helper is designed to support these key scenarios:
 !!! warning "Concurrency"
     
     If System Update Addin is already running, the command terminates with return code 2. Wait for the current session to finish before retrying.
+
+---
+
+## Return Codes
+
+| Code | Meaning | Action |
+| --- | --- | --- |
+| **0** | Success | Update session triggered successfully |
+| **1** | Error in parameters | Check parameter syntax and combinations |
+| **2** | System Update Addin is busy | Wait and retry; another update session is running |
+| **3** | Unexpected error occurred | Check logs; see [Troubleshooting](#troubleshooting) |
+
+!!! note "Important"
+    Return codes represent only the result of calling `suhelper.exe`, not the result of the update session itself. Check the `Lenovo_Updates` WMI class for actual update results.
+
+---
+
+## Usage Scenarios
+
+SU Helper is designed to support these key scenarios:
+
+**Trigger On-Demand Update**
+:  Trigger an Auto Update session without waiting for the normal schedule. Useful when you need immediate deployment of critical updates.
+
+**Filtered Update Deployment**
+:  Trigger updates for specific types only (e.g., drivers and firmware via Windows Update for Business, but deploy other updates via Commercial Vantage). Example: Deploy Commercial Vantage with Auto Update disabled, then use SU Helper on-demand to install specific packages.
+
+**Block Problematic Updates**
+:  If a particular update causes compatibility issues in your test environment, use SU Helper to add it to an exclude list on production devices, preventing installation during Auto Update or Manual Update sessions.
 
 ---
 

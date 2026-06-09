@@ -26,22 +26,22 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
 
 | Cmdlet | Purpose |
 | ------ | --------- |
-| `New-LnvRMRepository` | Create a new local update repository |
-| `Get-LnvRMRepository` | List registered repositories |
-| `Set-LnvRMRepository` | Modify repository settings or switch the active repository |
-| `Remove-LnvRMRepository` | Unregister a repository from configuration |
-| `Add-LnvRMModel` | Register a Lenovo model for update searches |
-| `Get-LnvRMModel` | List configured models |
-| `Remove-LnvRMModel` | Remove a model from the configuration |
-| `Search-LnvRMUpdate` | Query Lenovo catalogs for available updates |
-| `Save-LnvRMUpdate` | Download updates to the active repository |
-| `Get-LnvRMRepoContent` | List packages currently in the repository |
-| `Set-LnvRMUpdateStatus` | Promote or demote a package between Test and Active |
-| `Remove-LnvRMUpdate` | Remove a package from the repository |
-| `Sync-LnvRMSupportedSystem` | Add missing model associations to existing packages |
-| `Get-LnvRMAuditLog` | Read repository audit log entries |
-| `Get-LnvRMPreference` | Read an application preference value |
-| `Set-LnvRMPreference` | Write an application preference value |
+| [`New-LnvRMRepository`](#new-lnvrmrepository) | Create a new local update repository |
+| [`Get-LnvRMRepository`](#get-lnvrmrepository) | List registered repositories |
+| [`Set-LnvRMRepository`](#set-lnvrmrepository) | Modify repository settings or switch the active repository |
+| [`Remove-LnvRMRepository`](#remove-lnvrmrepository) | Unregister a repository from configuration |
+| [`Add-LnvRMModel`](#add-lnvrmmodel) | Register a Lenovo model for update searches |
+| [`Get-LnvRMModel`](#get-lnvrmmodel) | List configured models |
+| [`Remove-LnvRMModel`](#remove-lnvrmmodel) | Remove a model from the configuration |
+| [`Search-LnvRMUpdate`](#search-lnvrmupdate) | Query Lenovo catalogs for available updates |
+| [`Save-LnvRMUpdate`](#save-lnvrmupdate) | Download updates to the active repository |
+| [`Get-LnvRMRepoContent`](#get-lnvrmrepocontent) | List packages currently in the repository |
+| [`Set-LnvRMUpdateStatus`](#set-lnvrmupdatestatus) | Promote or demote a package between Test and Active |
+| [`Remove-LnvRMUpdate`](#remove-lnvrmupdate) | Remove a package from the repository |
+| [`Sync-LnvRMSupportedSystem`](#sync-lnvrmsupportedsystem) | Add missing model associations to existing packages |
+| [`Get-LnvRMAuditLog`](#get-lnvrmauditlog) | Read repository audit log entries |
+| [`Get-LnvRMPreference`](#get-lnvrmpreference) | Read an application preference value |
+| [`Set-LnvRMPreference`](#set-lnvrmpreference) | Write an application preference value |
 
 ---
 
@@ -49,6 +49,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
 
 #### Repository Management
 
+<a id="new-lnvrmrepository"></a>
 ??? note "New-LnvRMRepository"
 
     **Synopsis:** Creates a new local update repository.
@@ -81,6 +82,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     New-LnvRMRepository -Path 'D:\TestRepo' -Name 'Test' -WhatIf
     ```
 
+<a id="get-lnvrmrepository"></a>
 ??? note "Get-LnvRMRepository"
 
     **Synopsis:** Lists registered repositories and indicates which is active.
@@ -109,6 +111,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     (Get-LnvRMRepository -Name 'Production').Active
     ```
 
+<a id="set-lnvrmrepository"></a>
 ??? note "Set-LnvRMRepository"
 
     **Synopsis:** Modifies repository settings or switches the active repository.
@@ -145,6 +148,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     Set-LnvRMRepository -Name 'Staging' -SetActive -Mode 'Full'
     ```
 
+<a id="remove-lnvrmrepository"></a>
 ??? note "Remove-LnvRMRepository"
 
     **Synopsis:** Unregisters a repository from the module configuration.
@@ -180,6 +184,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
 
 #### Model Management
 
+<a id="add-lnvrmmodel"></a>
 ??? note "Add-LnvRMModel"
 
     **Synopsis:** Registers a Lenovo model for update searches.
@@ -210,6 +215,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     Add-LnvRMModel -MachineType '11SX' -FriendlyName 'ThinkCentre M75q Gen 2' -OS 'Windows 11'
     ```
 
+<a id="get-lnvrmmodel"></a>
 ??? note "Get-LnvRMModel"
 
     **Synopsis:** Lists configured models.
@@ -234,6 +240,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     Get-LnvRMModel -MachineType '21NT'
     ```
 
+<a id="remove-lnvrmmodel"></a>
 ??? note "Remove-LnvRMModel"
 
     **Synopsis:** Removes a model from the configuration.
@@ -263,6 +270,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
 
 #### Update Operations
 
+<a id="search-lnvrmupdate"></a>
 ??? note "Search-LnvRMUpdate"
 
     **Synopsis:** Queries Lenovo online catalogs for available updates.
@@ -315,6 +323,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     Search-LnvRMUpdate | Group-Object PackageType | Select-Object Name, Count
     ```
 
+<a id="save-lnvrmupdate"></a>
 ??? note "Save-LnvRMUpdate"
 
     **Synopsis:** Downloads updates to the active repository.
@@ -361,6 +370,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     }
     ```
 
+<a id="get-lnvrmrepocontent"></a>
 ??? note "Get-LnvRMRepoContent"
 
     **Synopsis:** Lists all packages currently in the repository.
@@ -394,6 +404,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     (Get-LnvRMRepoContent -SkipSuperseded).Count
     ```
 
+<a id="set-lnvrmupdatestatus"></a>
 ??? note "Set-LnvRMUpdateStatus"
 
     **Synopsis:** Changes a package's status between Test and Active.
@@ -426,6 +437,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     Set-LnvRMUpdateStatus -PackageID 'n4bce08w' -Status 'Test'
     ```
 
+<a id="remove-lnvrmupdate"></a>
 ??? note "Remove-LnvRMUpdate"
 
     **Synopsis:** Removes a package from the repository.
@@ -456,6 +468,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
         ForEach-Object { Remove-LnvRMUpdate -PackageID $_.PackageID }
     ```
 
+<a id="sync-lnvrmsupportedsystem"></a>
 ??? note "Sync-LnvRMSupportedSystem"
 
     **Synopsis:** Adds missing model associations to packages already in the repository.
@@ -483,6 +496,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
 
 #### Audit and Preferences
 
+<a id="get-lnvrmauditlog"></a>
 ??? note "Get-LnvRMAuditLog"
 
     **Synopsis:** Reads audit log entries from the repository.
@@ -539,6 +553,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     Get-LnvRMAuditLog -Last 50 | Format-Table Timestamp, User, Action, Message -AutoSize
     ```
 
+<a id="get-lnvrmpreference"></a>
 ??? note "Get-LnvRMPreference"
 
     **Synopsis:** Reads an application preference value from the configuration.
@@ -564,6 +579,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     Get-LnvRMPreference -Name 'DownloadMethod'
     ```
 
+<a id="set-lnvrmpreference"></a>
 ??? note "Set-LnvRMPreference"
 
     **Synopsis:** Writes an application preference value to the configuration.
@@ -597,11 +613,11 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
 
 | Pattern | Use Case | Key Cmdlets |
 | --------- | ---------- | ------------- |
-| Initial population | Seed a new repository with Critical updates for all models | `Search-LnvRMUpdate`, `Save-LnvRMUpdate` |
-| Status promotion | Move validated packages from Test to Active | `Get-LnvRMRepoContent`, `Set-LnvRMUpdateStatus` |
-| Model expansion | Add a new model and sync existing packages | `Add-LnvRMModel`, `Search-LnvRMUpdate`, `Sync-LnvRMSupportedSystem` |
-| Repository cleanup | Remove superseded packages | `Get-LnvRMRepoContent`, `Remove-LnvRMUpdate` |
-| Audit review | Review download and failure history | `Get-LnvRMAuditLog` |
+| Initial population | Seed a new repository with Critical updates for all models | [`Search-LnvRMUpdate`](#search-lnvrmupdate), [`Save-LnvRMUpdate`](#save-lnvrmupdate) |
+| Status promotion | Move validated packages from Test to Active | [`Get-LnvRMRepoContent`](#get-lnvrmrepocontent), [`Set-LnvRMUpdateStatus`](#set-lnvrmupdatestatus) |
+| Model expansion | Add a new model and sync existing packages | [`Add-LnvRMModel`](#add-lnvrmmodel), [`Search-LnvRMUpdate`](#search-lnvrmupdate), [`Sync-LnvRMSupportedSystem`](#sync-lnvrmsupportedsystem) |
+| Repository cleanup | Remove superseded packages | [`Get-LnvRMRepoContent`](#get-lnvrmrepocontent), [`Remove-LnvRMUpdate`](#remove-lnvrmupdate) |
+| Audit review | Review download and failure history | [`Get-LnvRMAuditLog`](#get-lnvrmauditlog) |
 
 ??? note "Initial Repository Population"
 
