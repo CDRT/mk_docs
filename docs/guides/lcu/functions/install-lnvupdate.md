@@ -35,7 +35,7 @@ Requires administrative privileges on the local computer.
 ## Parameters
 
 | Parameter | Type | Description |
-|-----------|------|-------------|
+| ----------- | ------ | ------------- |
 | `-Package` | PSObject | Package(s) from `Get-LnvUpdate` (accepts pipeline input) |
 | `-Path` | DirectoryInfo | Directory containing cached packages |
 | `-SaveBIOSUpdateInfoToRegistry` | switch | Write BIOS update details to registry for tracking |

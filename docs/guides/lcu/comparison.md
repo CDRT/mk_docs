@@ -10,7 +10,7 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 ## Feature Comparison
 
 | Feature | LSU | LCU | Notes |
-|---------|--------------|-----------------|-------|
+| --- | --- | --- | --- |
 | **Core Update Discovery** | YES | YES | Fetch available updates for Lenovo systems |
 | **Driver Updates** | YES | YES | Install device drivers |
 | **BIOS/UEFI Updates** | YES | YES | Update system BIOS/UEFI |
@@ -184,7 +184,7 @@ $updates | Test-LnvSignature
 
 ??? note "Security Parameters"
     | Parameter | LSU | LCU | Purpose |
-    |-----------|-----|----------|---------|
+    | --- | --- | --- | --- |
     | `VerifySignature` | NO | YES | Enforce digital signature verification before installation |
     | `SkipSignatureCheck` | NO | YES | Bypass verification for testing (not recommended for production) |
     | **Component** | **LSU** | **LCU** | **Purpose** |
@@ -215,7 +215,7 @@ $updates = Get-LnvUpdate -StatusMode "Approved"
 
 ??? note "Logging & Tracking Parameters"
     | Parameter | Command | LSU | LCU | Purpose |
-    |-----------|---------|-----|----------|---------|
+    | --- | --- | --- | --- | --- |
     | `ExportToWMI` | Install-LnvUpdate | NO | YES | Export installation info to WMI for audit/tracking |
     | `SaveBIOSUpdateInfoToRegistry` | Install-LnvUpdate | YES | YES | Record BIOS updates in registry |
     | `-LogFile` | Get-LnvUpdate | NO | YES | Create logfile in default path (`C:\ProgramData\Lenovo\...`) |
@@ -228,7 +228,7 @@ $updates = Get-LnvUpdate -StatusMode "Approved"
 
 ??? note "Install-LnvUpdate – All Parameters"
     | Parameter | LSU | LCU | Purpose |
-    |-----------|-----|----------|---------|
+    | --- | --- | --- | --- |
     | `Package` | YES | YES | Update package to install |
     | `Path` | YES | YES | Downloaded package location |
     | `Proxy` | YES | YES | Proxy server URL |
@@ -240,7 +240,7 @@ $updates = Get-LnvUpdate -StatusMode "Approved"
 
 ??? note "Get-LnvUpdate – All Parameters"
     | Parameter | LSU | LCU | Purpose |
-    |-----------|-----|----------|---------|
+    | --- | --- | --- | --- |
     | `Model` | YES | YES | Computer model to target |
     | `All` | YES | YES | Return all packages |
     | `Proxy` | YES | YES | Proxy server |
