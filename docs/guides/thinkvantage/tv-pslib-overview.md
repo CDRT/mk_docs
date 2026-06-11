@@ -1,189 +1,119 @@
 # ThinkVantage PowerShell Library
 
-The ThinkVantage PowerShell Library is a collection of modules and scripts published to the [PowerShell Gallery](https://www.powershellgallery.com) for managing Lenovo ThinkPad, ThinkCentre, and ThinkStation devices. The library covers driver and firmware updates, BIOS configuration, and certificate-based BIOS authentication.
-
-<div class="grid cards" markdown>
-
-- **:material-checkbox-marked-circle-minus-outline: Think BIOS Config Tool**  
-    The Think BIOS Config Tool provides an easy to use graphical interface to work with BIOS settings. It leverages the Lenovo.Bios.Config module.  
-    [Read guide](../../tbct_v2/tbct_v2_top/)
-
-- **:material-cog: Lenovo.Client.Scripting**  
-    This module provides simple access to device details and content information that can be leveraged in automation.  
-    [Learn more](../../lcsm/lcsm_top/)
-
-- **:material-shield-key: Lenovo BIOS Certificate Tool**  
-    This utility greatly simplifies the use of certificates for authenticating BIOS settings changes. It relies on the Lenovo.Bios.Certificates module.  
-    [Secure it](../../lbct)
-
-- **:material-download-circle: Lenovo.Client.Update**  
-    Module that enables automation of Lenovo driver, BIOS, and firmware updates.  
-    [Read guide](../../lcu)
-
-- **:material-package-variant-plus: ThinkVantage Repository Manager**
-    Create and maintain local repositories of Lenovo updates (alternative to Update Retriever). Supports automation and works with Lenovo.Client.Update and Commercial Vantage.  
-    [Learn more](../../tvrm)
-
-- **:octicons-checklist-16: LCV Policy Manager**
-    Simplify the management of Commercial Vantage group policies when using Intune.  
-    [Read more](https://blog.lenovocdrt.com/introducing-commercial-vantage-policy-manager-for-intune/)
-
-</div>
+The ThinkVantage PowerShell Library is a collection of PowerShell modules and companion scripts
+published to the [PowerShell Gallery](https://www.powershellgallery.com) for managing Lenovo
+ThinkPad, ThinkCentre, and ThinkStation devices. It covers driver and firmware updates, BIOS
+configuration, and certificate-based BIOS authentication.
 
 **Requirements:** Windows 10/11 · PowerShell 5.0+ · Administrator privileges
 
+---
+
+## Script + Module Solutions
+
+These solutions pair a **standalone script** (graphical or automation-oriented) with a
+**supporting PowerShell module**. The script can be installed and run independently, while the
+module provides the underlying cmdlets that can also be used directly in your own scripts.
+
+---
+
+### Think BIOS Config Tool + `Lenovo.BIOS.Config`
+
+A WPF-based GUI for interactively viewing, modifying, exporting, and deploying BIOS settings on
+Lenovo commercial devices. The companion `Lenovo.BIOS.Config` module exposes cmdlets
+(`Export-LnvWmiSettings`, `Import-LnvWmiSettings`) for script-driven BIOS configuration —
+enabling INI-based BIOS profiles, Intune remediation package generation, and Supervisor Password
+management without the GUI.
+
+```powershell
+Install-Script  'ThinkBiosConfigUI'
+Install-Module  'Lenovo.BIOS.Config'
+```
+
+[:material-book-open: Read the guide](../tbct_v2/tbct_v2_top/)
+
+---
+
+### Lenovo BIOS Certificate Tool + `Lenovo.Bios.Certificates`
+
+A GUI and cmdlet library for replacing Supervisor Password authentication with X.509
+certificate-based signing. BIOS configuration commands are cryptographically signed — the private
+key never leaves its secure store. Signing can use a local key file or an Azure Key Vault key,
+making it suitable for zero-trust and cloud-managed fleet deployments.
+
+```powershell
+Install-Script  'LnvBiosCertInterface'
+Install-Module  'Lenovo.Bios.Certificates'
+```
+
+[:material-shield-lock: Read the guide](../lbct/)
+
+---
+
+### ThinkVantage Repository Manager
+
+A script-based tool for creating and maintaining local repositories of Lenovo updates — a modern
+alternative to Update Retriever. This solution leverages the `Lenovo.Client.RepositoryManager`module to perform all the functions of the UI. This means it supports fully automated repository builds which can be used by both `Lenovo.Client.Update` and Commercial Vantage. The script itself can handle installing the module.
+
+```powershell
+Install-Script 'ThinkVantageRepositoryManager'
+```
+
+[:material-folder-sync: Read the guide](../tvrm/)
+
+---
+
+## Module-Only Solutions
+
+These are standalone PowerShell modules with no companion script. They are designed to be
+imported directly into your own scripts, task sequences, or automation pipelines.
+
+---
+
+### `Lenovo.Client.Scripting`
+
+Provides cmdlets for querying device details, searching for driver packs and HSA packs,
+identifying CVEs addressed by BIOS updates, and generating Windows Update-friendly driver names.
+Designed as a general-purpose automation toolkit for day-to-day Lenovo fleet management.
+
 ```powershell
 Install-Module 'Lenovo.Client.Scripting'
+```
+
+[:material-book-open: Read the guide](../lcsm/lcsm_top/)
+
+---
+
+### `Lenovo.Client.Update`
+
+The official Lenovo fork of the [LSUClient](https://github.com/jantari/LSUClient) project.
+Provides cmdlets for discovering, downloading, and installing driver, BIOS/UEFI, and firmware
+updates on Lenovo commercial PCs. Supports local repositories, OSD task sequences, WMI
+installation history, and digital signature enforcement.
+
+```powershell
 Install-Module 'Lenovo.Client.Update'
-Install-Module 'Lenovo.BIOS.Config'
-Install-Module 'Lenovo.Bios.Certificates'
 ```
+
+[:material-update: Read the guide](../lcu/)
 
 ---
 
-## Lenovo.Client.Scripting
+## Other PowerShell Solutions
 
-`Lenovo.Client.Scripting` is a PowerShell Module containing numerous cmdlets which provide useful information or simplified actions that can be leveraged in day to day management of Lenovo commercial PCs (ThinkPad, ThinkCentre, ThinkStation).
+### LCV Policy Manager
 
-## Key Capabilities
+The Lenovo Commercial Vantage Policy Manager is a PowerShell script that provides a UI that simplifies management of Commercial Vantage group policies in Microsoft Intune — removing the need to manually construct large XML policy payloads.
 
-- Query device information (model, BIOS version, serial number, warranty)
-- Search for available driver packs and HSA packs
-- Identify CVE's addressed by BIOS updates
-- Generate Windows Update friendly names for drivers
-
-
-## Popular Use Cases
-
-- **Update Management**: Find and download driver packs for deployment
-- **Inventory**: Collect hardware/software details from devices
-- **BIOS Updates**: Check available BIOS versions and automate downloads
-- **Compliance Tracking**: Monitor CVEs and security updates
-
-## Installation & Quick Start
-
-```powershell
-# Install from PowerShell Gallery
-Install-Module -Name Lenovo.Client.Scripting -Force
-
-# Examples
-Get-LnvMachineType
-Find-LnvUpdate -MachineType 21DD
-Get-LnvAvailableBiosVersion
-```
-
----
-
-## Lenovo.Client.Update
-
-`Lenovo.Client.Update` is the official Lenovo fork of the popular LSUClient project on Github. It provides 12 cmdlets for discovering, downloading, and installing driver, BIOS/UEFI, and firmware updates on Lenovo commercial PCs.
-
-| Cmdlet | Purpose |
-|--------|---------|
-| `Get-LnvUpdate` | Query applicable updates for this device or a target model |
-| `Save-LnvUpdate` | Download update packages to a local directory |
-| `Install-LnvUpdate` | Install packages silently with optional signature enforcement |
-| `Get-LnvUpdatesRepo` | Build a local update repository filtered by package type and reboot behavior |
-| `Get-LnvUpdateSummary` | Get a point-in-time compliance snapshot for the current device |
-| `Get-LnvUpdateHistory` | Retrieve installation history filtered by date range |
-
-**Basic workflow:**
-
-```powershell
-$updates = Get-LnvUpdate
-$updates | Save-LnvUpdate -Path 'C:\Lenovo\Updates' -ShowProgress
-$updates | Install-LnvUpdate -Verbose
-```
-
-**OSD task sequence — use in two passes to handle chained driver dependencies:**
-
-```powershell
-$repo = 'C:\Lenovo_Updates'
-Get-LnvUpdatesRepo -RepositoryPath $repo -RebootType '0,3,5'
-
-Get-LnvUpdate -Repository $repo | Install-LnvUpdate -Path $repo -ExportToWMI -Verbose
-```
-
-The `-ExportToWMI` parameter writes installation history to WMI for later retrieval with `Get-LnvUpdateHistory`. By default, the `Install-LnvUpdate` blocks any package that fails Lenovo's digital signature check.
-
-Existing LSUClient scripts require only cmdlet renames (`Get-LSUpdate` → `Get-LnvUpdate`, etc.) to migrate.
-
----
-
-## Lenovo.BIOS.Config
-
-`Lenovo.BIOS.Config` provides PowerShell cmdlets for reading and modifying BIOS settings via WMI, along with a WPF GUI (`ThinkBiosConfigUI`) for interactive management. It replaces the older HTA-based Think BIOS Config Tool.
-
-**Core cmdlets:**
-
-| Cmdlet | Purpose |
-|--------|---------|
-| `Export-LnvWmiSettings` | Export current BIOS settings to an INI file |
-| `Import-LnvWmiSettings` | Apply a saved INI profile to the current device |
-
-**Script-driven BIOS deployment:**
-
-```powershell
-# Export current settings to a baseline INI
-Export-LnvWmiSettings -ConfigFile 'C:\Temp\corp-bios.ini' -NoKey
-
-# Apply the baseline to a target device
-$svp = Read-Host -AsSecureString 'Supervisor Password'
-Import-LnvWmiSettings -ConfigFile 'C:\Temp\corp-bios.ini' -Current $svp
-```
-
-**GUI features (`ThinkBiosConfigUI`):**
-
-- View and modify all BIOS settings interactively; changed values are highlighted until saved
-- Export the current configuration to an INI file with optional Supervisor Password encryption
-- Apply a saved INI profile to the local device
-- Generate Win32 app or Remediation packages from an INI and optionally upload them to Microsoft Intune via Microsoft Graph
-- Create and apply Supervisor Password change files
-- Save a set of settings as Custom Defaults for fleet-wide baseline reversion
-
-```powershell
-Install-Script 'ThinkBiosConfigUI'
-ThinkBiosConfigUI   # Run from an elevated terminal
-```
-
----
-
-## Lenovo.Bios.Certificates
-
-`Lenovo.Bios.Certificates` enables certificate-based BIOS authentication, replacing the Supervisor Password with an X.509 certificate. BIOS configuration commands are cryptographically signed — the private key never leaves its secure store.
-
-Signing can use a local key file or an **Azure Key Vault** key, making it suitable for zero-trust and cloud-managed deployments.
-
-**Azure Key Vault example:**
-
-```powershell
-Connect-AzAccount
-
-# Sign and apply a single BIOS setting change
-$cmd = Get-LnvSignedWmiCommand -Method SetBiosSetting `
-    -VaultName 'CorpKeyVault' -KeyName 'BiosSigningKey' `
-    -SettingName 'WakeOnLAN' -SettingValue 'Enable'
-Submit-LnvBiosChange -Command $cmd
-
-# Or sign and apply an entire INI configuration batch
-Convert-LnvBiosConfigFile -ConfigFile 'settings.ini' `
-    -VaultName 'CorpKeyVault' -KeyName 'BiosSigningKey'
-Submit-LnvBiosConfigFile -ConfigFile 'SignedSettings.ini'
-```
-
-A companion GUI (`LnvBiosCertInterface`) is also available:
-
-```powershell
-Install-Script 'LnvBiosCertInterface'
-```
+[:material-cog: Read the guide](https://blog.lenovocdrt.com/introducing-commercial-vantage-policy-manager-for-intune/)
 
 ---
 
 ## Resources
 
 | | |
-|---|---|
-| **PowerShell Gallery** | Search "lenovocdrt" at [www.powershellgallery.com](https://www.powershellgallery.com) |
+| --- | --- |
+| **PowerShell Gallery** | Search `lenovocdrt` at [powershellgallery.com](https://www.powershellgallery.com) |
 | **Documentation** | [docs.lenovocdrt.com](https://docs.lenovocdrt.com) |
 | **Blog** | [blog.lenovocdrt.com](https://blog.lenovocdrt.com) |
-| **Community forum** | [forums.lenovo.com — Enterprise Client Management Board](https://forums.lenovo.com/t5/Enterprise-Management-Board/bd-p/sa01_eg) |
+| **Community** | [Lenovo Enterprise Client Management Board](https://forums.lenovo.com/t5/Enterprise-Management-Board/bd-p/sa01_eg) |
