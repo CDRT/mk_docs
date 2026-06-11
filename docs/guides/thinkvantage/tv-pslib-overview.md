@@ -4,28 +4,28 @@ The ThinkVantage PowerShell Library is a collection of modules and scripts publi
 
 <div class="grid cards" markdown>
 
-- **:material-checkbox-marked-circle-minus-outline: Think BIOS Config Tool**  
-    The Think BIOS Config Tool provides an easy to use graphical interface to work with BIOS settings. It leverages the Lenovo.Bios.Config module.  
+- **:material-checkbox-marked-circle-minus-outline: Think BIOS Config Tool**
+    The Think BIOS Config Tool provides an easy to use graphical interface to work with BIOS settings. It leverages the Lenovo.Bios.Config module.
     [Read guide](../../tbct_v2/tbct_v2_top/)
 
-- **:material-cog: Lenovo.Client.Scripting**  
-    This module provides simple access to device details and content information that can be leveraged in automation.  
+- **:material-cog: Lenovo.Client.Scripting**
+    This module provides simple access to device details and content information that can be leveraged in automation.
     [Learn more](../../lcsm/lcsm_top/)
 
-- **:material-shield-key: Lenovo BIOS Certificate Tool**  
-    This utility greatly simplifies the use of certificates for authenticating BIOS settings changes. It relies on the Lenovo.Bios.Certificates module.  
+- **:material-shield-key: Lenovo BIOS Certificate Tool**
+    This utility greatly simplifies the use of certificates for authenticating BIOS settings changes. It relies on the Lenovo.Bios.Certificates module.
     [Secure it](../../lbct)
 
-- **:material-download-circle: Lenovo.Client.Update**  
-    Module that enables automation of Lenovo driver, BIOS, and firmware updates.  
+- **:material-download-circle: Lenovo.Client.Update**
+    Module that enables automation of Lenovo driver, BIOS, and firmware updates.
     [Read guide](../../lcu)
 
 - **:material-package-variant-plus: ThinkVantage Repository Manager**
-    Create and maintain local repositories of Lenovo updates (alternative to Update Retriever). Supports automation and works with Lenovo.Client.Update and Commercial Vantage.  
+    Create and maintain local repositories of Lenovo updates (alternative to Update Retriever). Supports automation and works with Lenovo.Client.Update and Commercial Vantage.
     [Learn more](../../tvrm)
 
 - **:octicons-checklist-16: LCV Policy Manager**
-    Simplify the management of Commercial Vantage group policies when using Intune.  
+    Simplify the management of Commercial Vantage group policies when using Intune.
     [Read more](https://blog.lenovocdrt.com/introducing-commercial-vantage-policy-manager-for-intune/)
 
 </div>
@@ -85,7 +85,7 @@ Get-LnvAvailableBiosVersion
 | `Install-LnvUpdate` | Install packages silently with optional signature enforcement |
 | `Get-LnvUpdatesRepo` | Build a local update repository filtered by package type and reboot behavior |
 | `Get-LnvUpdateSummary` | Get a point-in-time compliance snapshot for the current device |
-| `Get-LnvUpdateHistory` | Retrieve installation history filtered by date range |
+| `Get-LnvUpdateHist` | Retrieve installation history filtered by date range |
 
 **Basic workflow:**
 
@@ -104,7 +104,7 @@ Get-LnvUpdatesRepo -RepositoryPath $repo -RebootType '0,3,5'
 Get-LnvUpdate -Repository $repo | Install-LnvUpdate -Path $repo -ExportToWMI -Verbose
 ```
 
-The `-ExportToWMI` parameter writes installation history to WMI for later retrieval with `Get-LnvUpdateHistory`. By default, the `Install-LnvUpdate` blocks any package that fails Lenovo's digital signature check.
+The `-ExportToWMI` parameter writes installation history to WMI for later retrieval with `Get-LnvUpdateHist`. By default, the `Install-LnvUpdate` blocks any package that fails Lenovo's digital signature check.
 
 Existing LSUClient scripts require only cmdlet renames (`Get-LSUpdate` → `Get-LnvUpdate`, etc.) to migrate.
 

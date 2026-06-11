@@ -1,9 +1,9 @@
 ---
-title: Get-LnvUpdateHistory
+title: Get-LnvUpdateHist
 description: View the history of updates installed by the Lenovo.Client.Update module
 ---
 
-# Get-LnvUpdateHistory
+# Get-LnvUpdateHist
 
 Retrieves the installation history of Lenovo updates on the system.
 
@@ -13,7 +13,7 @@ Displays a complete history of Lenovo packages installed by Install-LnvUpdate, i
 
 ## Description
 
-`Get-LnvUpdateHistory` queries the update history stored locally in JSON files. Installation records include success/failure status, timestamps, package information, user details, and exit codes.
+`Get-LnvUpdateHist` queries the update history stored locally in JSON files. Installation records include success/failure status, timestamps, package information, user details, and exit codes.
 
 History data is retained indefinitely unless manually removed, making it useful for audit trails and compliance reporting.
 
@@ -30,7 +30,7 @@ History data is retained indefinitely unless manually removed, making it useful 
 ### Example 1: View all update history
 
 ```powershell
-Get-LnvUpdateHistory | Format-Table -Property InstallDate, Title, Status
+Get-LnvUpdateHist | Format-Table -Property InstallDate, Title, Status
 ```
 
 Displays all update installations in table format.
@@ -38,7 +38,7 @@ Displays all update installations in table format.
 ### Example 2: View failed installations
 
 ```powershell
-Get-LnvUpdateHistory -Status Failed
+Get-LnvUpdateHist -Status Failed
 ```
 
 Shows only installation attempts that failed.
@@ -46,7 +46,7 @@ Shows only installation attempts that failed.
 ### Example 3: View BIOS update history
 
 ```powershell
-Get-LnvUpdateHistory -Category BIOS | Format-Table -Property InstallDate, Title, Result
+Get-LnvUpdateHist -Category BIOS | Format-Table -Property InstallDate, Title, Result
 ```
 
 Filters for BIOS updates only.
@@ -54,7 +54,7 @@ Filters for BIOS updates only.
 ### Example 4: View recent updates
 
 ```powershell
-Get-LnvUpdateHistory | Where-Object { $_.InstallDate -gt (Get-Date).AddDays(-30) }
+Get-LnvUpdateHist | Where-Object { $_.InstallDate -gt (Get-Date).AddDays(-30) }
 ```
 
 Retrieves updates installed in the past 30 days.
@@ -62,7 +62,7 @@ Retrieves updates installed in the past 30 days.
 ### Example 5: Get last 10 installations
 
 ```powershell
-Get-LnvUpdateHistory -Last 10
+Get-LnvUpdateHist -Last 10
 ```
 
 Shows the 10 most recent update installations.

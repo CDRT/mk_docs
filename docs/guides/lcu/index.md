@@ -44,7 +44,7 @@ This PowerShell module is provided to assist in managing Lenovo driver, BIOS/UEF
 
 - [Get-LnvUpdateConfiguration](functions/get-lnvupdateconfiguration.md)
 - [Set-LnvUpdateConfiguration](functions/set-lnvupdateconfiguration.md)
-- [Get-LnvUpdateHistory](functions/get-lnvupdatehistory.md)
+- [Get-LnvUpdateHist](functions/get-lnvupdatehist.md)
 - [Get-LnvUpdateFromWmi](functions/get-lnvupdatefromwmi.md)
 
 ### Repository Management

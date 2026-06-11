@@ -14,7 +14,7 @@ Retrieves update information stored in WMI by the Install-LnvUpdate cmdlet using
 ## Syntax
 
 ```powershell
-Get-LnvUpdateFromWmi [-ComputerName <string>] [-Status <string>] 
+Get-LnvUpdateFromWmi [-ComputerName <string>] [-Status <string>]
                      [-Severity <string>] [-IncludeHistory]
 ```
 
@@ -88,6 +88,6 @@ Returns WMI objects with properties such as:
 
 ## See Also
 
-- [Get-LnvUpdateHistory](get-lnvupdatehistory.md)
+- [Get-LnvUpdateHist](get-lnvupdatehist.md)
 - [Install-LnvUpdate](install-lnvupdate.md)
 - [Get-LnvUpdateSummary](get-lnvupdatesummary.md)

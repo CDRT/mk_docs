@@ -33,6 +33,7 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 ### Quick Reference: Commands
 
 #### Migrated from LSU (6 commands)
+
 All work identically, just renamed:
 
 - [`Get-LnvUpdate`](functions/get-lnvupdate.md) (renamed from Get-LSUpdate)
@@ -45,7 +46,7 @@ All work identically, just renamed:
 #### New to LCU (6 commands)
 
 - [`Get-LnvDownload`](functions/get-lnvdownload.md) – Download and optionally expand packages by machine type
-- [`Get-LnvUpdateHistory`](functions/get-lnvupdatehistory.md) – View update installation history
+- [`Get-LnvUpdateHist`](functions/get-lnvupdatehist.md) – View update installation history
 - [`Get-LnvUpdateSummary`](functions/get-lnvupdatesummary.md) – Get system update status summary
 - [`Get-LnvUpdatesRepo`](functions/get-lnvupdatesrepo.md) – Build a local update repository
 - [`Get-LnvUpdateFromWmi`](functions/get-lnvupdatefromwmi.md) – Query WMI for update information
@@ -130,12 +131,12 @@ These commands work the same in both LSU and LCU:
     Get-LnvDownload -MachineType 21N2 -RepositoryFolder "C:\Repo" -Expand
     ```
 
-??? note "Get-LnvUpdateHistory – View update installation history"
+??? note "Get-LnvUpdateHist – View update installation history"
     **NEW** - Get update install history:
 
     ```powershell
     # LCU (NEW)
-    Get-LnvUpdateHistory | Where-Object { $_.InstallDate -gt (Get-Date).AddDays(-30) }
+    Get-LnvUpdateHist | Where-Object { $_.InstallDate -gt (Get-Date).AddDays(-30) }
     ```
 
 ??? note "Get-LnvUpdateSummary – Get system update status"
