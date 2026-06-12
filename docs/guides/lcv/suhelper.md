@@ -52,13 +52,13 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 
 | Parameter | Type | Purpose | Value |
 | --- | --- | --- | --- |
-| [**-autoupdate**](#autoupdate) | Required | Trigger update session | (none) |
-| [**-include**](#include) | Optional | Install only specific packages | Comma-separated package IDs |
-| [**-exclude**](#exclude) | Optional | Skip specific packages | Comma-separated package IDs |
-| [**-packagetype**](#packagetype) | Optional | Filter by update type | 0=Others, 1=App, 2=Driver, 3=BIOS, 4=Firmware |
-| [**-reboottype**](#reboottype) | Optional | Filter by reboot behavior | 0=No reboot, 1=Forced reboot, 3=Requires reboot, 4=Shutdown, 5=Delayed reboot (5 min) |
-| [**-allowdefer**](#allowdefer) | Optional | Allow users to defer updates | (none) |
-| [**-help** or **/?**](#help) | Optional | Display help | (none) |
+| [**-autoupdate**](#autoupdate) &nbsp;&nbsp;&nbsp;&nbsp; | Required | Trigger update session | (none) |
+| [**-include**](#include) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Optional | Install only specific packages | Comma-separated package IDs |
+| [**-exclude**](#exclude) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Optional | Skip specific packages | Comma-separated package IDs |
+| [**-packagetype**](#packagetype) &nbsp;&nbsp;&nbsp;&nbsp; | Optional | Filter by update type | 0=Others, 1=App, 2=Driver, 3=BIOS, 4=Firmware |
+| [**-reboottype**](#reboottype) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Optional | Filter by reboot behavior | 0=No reboot, 1=Forced reboot, 3=Requires reboot, 4=Shutdown, 5=Delayed reboot (5 min) |
+| [**-allowdefer**](#allowdefer) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Optional | Allow users to defer updates | (none) |
+| [**-help** or **/?**](#help) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Optional | Display help | (none) |
 
 ---
 

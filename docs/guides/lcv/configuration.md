@@ -118,230 +118,225 @@ Commercial Vantage provides flexible configuration options across multiple featu
 
 If policies need to be set in an Operating System Deployment prior to first-logon, reference the example solutions described below. Choose the deployment method that best fits your environment:
 
-| **Method** | **Best For** | **Key Characteristic** |
-| :--- | :--- | :--- |
-| Package/JSON | Task Sequences with PowerShell | JSON-driven configuration with script automation |
-| OS Deployment Task Sequence | OSD Integration | Direct task sequence step integration |
-| Configuration Item/Baseline | Compliance Management | Ongoing compliance monitoring and remediation |
 
-??? note "Package/JSON"
-    
-    A Package containing a JSON file with the desired policies, which are applied using a PowerShell script.
+### Package/JSON
 
-    !!! note
-        The policies in this example are a recommended baseline for enterprise customers
+A Package containing a JSON file with the desired policies, which are applied using a PowerShell script.
 
-    1\. Create a file named **policies.json** with the following data and save it to a source location.
+!!! note
+    The policies in this example are a recommended baseline for enterprise customers
 
-    ```json
-    [
-        {
-            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-            "Name": "feature.giveFeedback",
-            "Value": "1",
-            "Type": "REG_DWORD"
-        },
-        {
-            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-            "Name": "AcceptEULAAutomatically",
-            "Value": "1",
-            "Type": "REG_DWORD"
-        },
-        {
-            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-            "Name": "page.hardwareScan",
-            "Value": "1",
-            "Type": "REG_DWORD"
-        },
-        {
-            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-            "Name": "TurnOffMetricsCollection",
-            "Value": "1",
-            "Type": "REG_DWORD"
-        },
-        {
-            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-            "Name": "RunOnce",
-            "Value": "1",
-            "Type": "REG_DWORD"
-        },
-        {
-            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-            "Name": "AutoUpdateEnabled",
-            "Value": "0",
-            "Type": "REG_DWORD"
-        },
-        {
-            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-            "Name": "wmi.warranty",
-            "Value": "1",
-            "Type": "REG_DWORD"
-        },
-        {
-            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-            "Name": "page.wifiSecurity",
-            "Value": "1",
-            "Type": "REG_DWORD"
-        },
-        {
-            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-            "Name": "page.mySoftware",
-            "Value": "1",
-            "Type": "REG_DWORD"
-        }
-    ]
-    ```
+1\. Create a file named **policies.json** with the following data and save it to a source location.
 
-    2\. Create a second file named **Set-CommercialVantagePolicies.ps1** with the following code and save it to the same source location as **policies.json**.
-
-    ```powershell
-    $jsonFile = "policies.json"
-    $jsonPath = "$PSScriptRoot\$jsonFile"
-    $registryPath = "HKLM:\SOFTWARE\Policies\Lenovo\Commercial Vantage"
-
-    if (-not (Test-Path $jsonPath))
+```json
+[
     {
-        Write-Error "JSON file not found at $jsonPath"
-        exit 1
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+        "Name": "feature.giveFeedback",
+        "Value": "1",
+        "Type": "REG_DWORD"
+    },
+    {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+        "Name": "AcceptEULAAutomatically",
+        "Value": "1",
+        "Type": "REG_DWORD"
+    },
+    {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+        "Name": "page.hardwareScan",
+        "Value": "1",
+        "Type": "REG_DWORD"
+    },
+    {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+        "Name": "TurnOffMetricsCollection",
+        "Value": "1",
+        "Type": "REG_DWORD"
+    },
+    {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+        "Name": "RunOnce",
+        "Value": "1",
+        "Type": "REG_DWORD"
+    },
+    {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+        "Name": "AutoUpdateEnabled",
+        "Value": "0",
+        "Type": "REG_DWORD"
+    },
+    {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+        "Name": "wmi.warranty",
+        "Value": "1",
+        "Type": "REG_DWORD"
+    },
+    {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+        "Name": "page.wifiSecurity",
+        "Value": "1",
+        "Type": "REG_DWORD"
+    },
+    {
+        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+        "Name": "page.mySoftware",
+        "Value": "1",
+        "Type": "REG_DWORD"
+    }
+]
+```
+
+2\. Create a second file named **Set-CommercialVantagePolicies.ps1** with the following code and save it to the same source location as **policies.json**.
+
+```powershell
+$jsonFile = "policies.json"
+$jsonPath = "$PSScriptRoot\$jsonFile"
+$registryPath = "HKLM:\SOFTWARE\Policies\Lenovo\Commercial Vantage"
+
+if (-not (Test-Path $jsonPath))
+{
+    Write-Error "JSON file not found at $jsonPath"
+    exit 1
+}
+
+if (-not (Test-Path $registryPath))
+{
+    $null = New-Item -Path $registryPath -Force -ErrorAction Stop
+}
+
+$registrySettings = Get-Content -Path $jsonPath | ConvertFrom-Json
+
+foreach ($setting in $registrySettings)
+{
+    $path = $setting.Path
+    $name = $setting.Name
+    $value = $setting.Value
+    $type = $setting.Type
+
+    if (-not (Test-Path $path))
+    {
+        New-Item -Path $path -Force
     }
 
-    if (-not (Test-Path $registryPath))
-    {
-        $null = New-Item -Path $registryPath -Force -ErrorAction Stop
-    }
+    Set-ItemProperty -Path $path -Name $name -Value $value -Type $type
+    Write-Output "Applied registry setting: Path=$path, Name=$name, Value=$value"
+}
+```
 
-    $registrySettings = Get-Content -Path $jsonPath | ConvertFrom-Json
+3\. In the Configuration Manager console, go to the **Software Library** workspace, expand **Application Management**, and select the Packages node.
 
-    foreach ($setting in $registrySettings)
-    {
-        $path = $setting.Path
-        $name = $setting.Name
-        $value = $setting.Value
-        $type = $setting.Type
+4\. In the **Home** tab of the ribbon, in the **Create** group, choose **Create Package**.
 
-        if (-not (Test-Path $path))
-        {
-            New-Item -Path $path -Force
-        }
+5\. On the **Package** page of the **Create Package and Program Wizard**, specify the following information:
 
-        Set-ItemProperty -Path $path -Name $name -Value $value -Type $type
-        Write-Output "Applied registry setting: Path=$path, Name=$name, Value=$value"
-    }
-    ```
+- **Name**: Specify a name for the package
 
-    3\. In the Configuration Manager console, go to the **Software Library** workspace, expand **Application Management**, and select the Packages node.
+- [**x**] **This package contains source files**
 
-    4\. In the **Home** tab of the ribbon, in the **Create** group, choose **Create Package**.
+- **Source folder**: Specify the location of the source files for the package.
 
-    5\. On the **Package** page of the **Create Package and Program Wizard**, specify the following information:
+6\. On the **Program Type** page, select **Do not create a program**.
 
-    - **Name**: Specify a name for the package
+7\. Complete the **Create Package and Program Wizard** and distribute the **Package** to **Distribution Points**.
 
-    - [**x**] **This package contains source files**
+### Operating System Deployment Task Sequence
 
-    - **Source folder**: Specify the location of the source files for the package.
+Edit the Operating System Deployment task sequence and perform the following:
 
-    6\. On the **Program Type** page, select **Do not create a program**.
+1\. Add a **Run PowerShell Script** anywhere after **Setup Windows and Configuration Manager**.
 
-    7\. Complete the **Create Package and Program Wizard** and distribute the **Package** to **Distribution Points**.
+2\. Specify the following:
 
-??? note "Operating System Deployment Task Sequence"
-    
-    Edit the Operating System Deployment task sequence and perform the following:
+- **Name**: For example, **Set Commercial Vantage Policies**.
 
-    1\. Add a **Run PowerShell Script** anywhere after **Setup Windows and Configuration Manager**.
+- [**x**] **Select a package with a PowerShell script**: Browse to the package created earlier.
 
-    2\. Specify the following:
+- **Script name**: _Set-CommercialVantagePolicies.ps1_
 
-    - **Name**: For example, **Set Commercial Vantage Policies**.
+- **PowerShell execution policy**: Bypass
 
-    - [**x**] **Select a package with a PowerShell script**: Browse to the package created earlier.
+3\. Click **Ok** to apply changes to the task sequence.
 
-    - **Script name**: _Set-CommercialVantagePolicies.ps1_
+### Configuration Item/Baseline
 
-    - **PowerShell execution policy**: Bypass
+Deploy a Configuration Baseline that contains a predefined configuration item consisting of recommended Commercial Vantage policies to be enabled in an enterprise.
 
-    3\. Click **Ok** to apply changes to the task sequence.
+#### Configuration Item
 
-??? note "Configuration Item/Baseline"
-    
-    Deploy a Configuration Baseline that contains a predefined configuration item consisting of recommended Commercial Vantage policies to be enabled in an enterprise.
+1\. In the Configuration Manager console, go to the **Assets and Compliance** workspace, expand **Compliance Settings**, and select the **Configuration Items** node.
 
-    #### Configuration Item
+2\. On the **Home** tab of the ribbon, in the **Create** group, select **Create Configuration Item**.
 
-    1\. In the Configuration Manager console, go to the **Assets and Compliance** workspace, expand **Compliance Settings**, and select the **Configuration Items** node.
+3\. On the **General** page of the wizard, specify a **Name**, and optional description.
 
-    2\. On the **Home** tab of the ribbon, in the **Create** group, select **Create Configuration Item**.
+4\. Under **Specify the type of configuration item that you want to create**, select **Windows Desktops and Servers (custom)**.
 
-    3\. On the **General** page of the wizard, specify a **Name**, and optional description.
+5\. On the **Supported Platforms** page, select:
 
-    4\. Under **Specify the type of configuration item that you want to create**, select **Windows Desktops and Servers (custom)**.
+- **All Windows 10 (64-bit)**
 
-    5\. On the **Supported Platforms** page, select:
+- **All Windows 11 (ARM64)** and **All Windows 11 (64-bit)**
 
-    - **All Windows 10 (64-bit)**
+6\. On the **Settings** page, select **New**.
 
-    - **All Windows 11 (ARM64)** and **All Windows 11 (64-bit)**
+7\. On the **General** tab, provide the following information:
 
-    6\. On the **Settings** page, select **New**.
+- **Name**: Accept EULA Automatically
 
-    7\. On the **General** tab, provide the following information:
+- **Setting type**: Registry value
 
-    - **Name**: Accept EULA Automatically
+- **Data type**: Integer
 
-    - **Setting type**: Registry value
+- **Hive**: HKEY_LOCAL_MACHINE
 
-    - **Data type**: Integer
+- **Key name**: SOFTWARE\Policies\Lenovo\Commercial Vantage
 
-    - **Hive**: HKEY_LOCAL_MACHINE
+- **Value name**: AcceptEULAAutomatically
 
-    - **Key name**: SOFTWARE\Policies\Lenovo\Commercial Vantage
+- [**x**] **Create the registry value as a REG_DWORD data type if remediated for noncompliant rules**
 
-    - **Value name**: AcceptEULAAutomatically
+8\. On the **Compliance Rules** tab, click **New** and provide the following information:
 
-    - [**x**] **Create the registry value as a REG_DWORD data type if remediated for noncompliant rules**
+- **Name**: Accept EULA Automatically
 
-    8\. On the **Compliance Rules** tab, click **New** and provide the following information:
+- **Operator**: Equals
 
-    - **Name**: Accept EULA Automatically
+- **For the following values**: 1
 
-    - **Operator**: Equals
+- [**x**] **Remediate noncompliant rules when supported**
 
-    - **For the following values**: 1
+- [**x**] **Remediate noncompliance if this setting is not found**
 
-    - [**x**] **Remediate noncompliant rules when supported**
+- **Noncompliance severity for reports**: Information
 
-    - [**x**] **Remediate noncompliance if this setting is not found**
+!!! info ""
+    Repeat steps 7 and 8 for the following recommended policies
 
-    - **Noncompliance severity for reports**: Information
+| **Policy Name** | **Value** |
+| :--- | :--- |
+| Disable Auto Update | AutoUpdateEnabled |
+| Turn Off Give Feedback | feature.giveFeedback |
+| Turn Off Hardware Scan | page.hardwareScan |
+| Turn Off Metrics Collection | TurnOffMetricsCollection |
+| Turn Off My Software | page.mySoftware |
+| Turn Off Run-Once Task | RunOnce |
+| Turn Off Network (previously named Wifi Security) | page.wifiSecurity |
+| Write Warranty Info to WMI | wmi.warranty |
 
-    !!! info ""
-        Repeat steps 7 and 8 for the following recommended policies
+#### Configuration Baseline
 
-    | **Policy Name** | **Value** |
-    | :--- | :--- |
-    | Disable Auto Update | AutoUpdateEnabled |
-    | Turn Off Give Feedback | feature.giveFeedback |
-    | Turn Off Hardware Scan | page.hardwareScan |
-    | Turn Off Metrics Collection | TurnOffMetricsCollection |
-    | Turn Off My Software | page.mySoftware |
-    | Turn Off Run-Once Task | RunOnce |
-    | Turn Off Network (previously named Wifi Security) | page.wifiSecurity |
-    | Write Warranty Info to WMI | wmi.warranty |
+1\. In the Configuration Manager console, go to the **Assets and Compliance** workspace, expand **Compliance Settings**, and select the **Configuration Baseline** node.
 
-    #### Configuration Baseline
+2\. On the **Home** tab of the ribbon, in the **Create** group, select **Create Configuration Baseline**.
 
-    1\. In the Configuration Manager console, go to the **Assets and Compliance** workspace, expand **Compliance Settings**, and select the **Configuration Baseline** node.
+3\. On the **General** page of the wizard, specify a **Name**, and optional description.
 
-    2\. On the **Home** tab of the ribbon, in the **Create** group, select **Create Configuration Baseline**.
+4\. Under **Configuration data**, click **Add**, choose **Configuration Items**. Select the **Configuration Item** created above and click **Add** to add it to the baseline.
 
-    3\. On the **General** page of the wizard, specify a **Name**, and optional description.
+5\. [**x**] Always apply this baseline even for co-managed clients
 
-    4\. Under **Configuration data**, click **Add**, choose **Configuration Items**. Select the **Configuration Item** created above and click **Add** to add it to the baseline.
-
-    5\. [**x**] Always apply this baseline even for co-managed clients
-
-    6\. Deploy the baseline to a **Device Collection** containing Lenovo Think products.
+6\. Deploy the baseline to a **Device Collection** containing Lenovo Think products.
 
 ## Microsoft Intune
 
