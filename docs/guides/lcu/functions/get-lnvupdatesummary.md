@@ -26,7 +26,7 @@ This is useful for understanding the update landscape for a system without detai
 ## Parameters
 
 | Parameter | Type | Description |
-|-----------|------|-------------|
+| --- | --- | --- |
 | `-Updates` | PSObject | Update object(s) from `Get-LnvUpdate` (accepts pipeline input) |
 
 ## Examples

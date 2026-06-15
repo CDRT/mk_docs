@@ -20,7 +20,7 @@ History data is retained indefinitely unless manually removed, making it useful 
 ## Parameters
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| --- | --- | --- | --- |
 | `-Status` | string | - | Filter by status: `Success`, `Failed`, `Skipped` |
 | `-Category` | string | - | Filter by category: `Driver`, `BIOS`, `Firmware`, `Application`, etc. |
 | `-Last` | int | - | Return only the last N records |
@@ -88,7 +88,8 @@ Returns an array of installation history objects with properties:
 ## Notes
 
 History storage location:
-```
+
+```powershell
 $env:ProgramData\Lenovo\Lenovo.Client.Update\History\InstallHistory-<timestamp>.json
 ```
 

@@ -26,33 +26,33 @@ This function downloads packages to individual folders named by package ID and s
 ## Parameters
 
 | Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
+| --- | --- | --- | --- | --- |
 | `-MachineType` | String | Yes | - | 4-character Lenovo machine type (e.g., `21HM`, `20E4`) |
 | `-WindowsVersion` | String | No | `11` | Windows version: `10` or `11` |
 | `-RepositoryFolder` | String | No | `C:\testrepo` | Path where packages will be downloaded |
-| `-PackageType` | String | No | `9` (All) | Filter by package type:<br>- `1` = Application<br>- `2` = Driver<br>- `3` = BIOS<br>- `4` = Firmware<br>- `9` = All<br>Multiple types: `"1,2"` |
-| `-RebootType` | String | No | `9` (All) | Filter by reboot requirement:<br>- `0` = No reboot required<br>- `1` = Forced reboot<br>- `3` = Requires reboot<br>- `4` = Forces shutdown<br>- `5` = Delayed forced reboot<br>- `9` = All<br>Multiple types: `"0,3"` |
+| `-PackageType` | String | No | `9` (All) | Filter by package type:<ul><li>`1` = Application</li><li>`2` = Driver</li><li>`3` = BIOS</li><li>`4` = Firmware</li><li>`9` = All</li></ul>Multiple types: `"1,2"` |
+| `-RebootType` | String | No | `9` (All) | Filter by reboot requirement:<ul><li>`0` = No reboot required</li><li>`1` = Forced reboot</li><li>`3` = Requires reboot</li><li>`4` = Forces shutdown</li><li>`5` = Delayed forced reboot</li><li>`9` = All</li></ul>Multiple types: `"0,3"` |
 | `-Csv` | Switch | No | - | Export package list to CSV file |
 | `-Expand` | Switch | No | - | Extract installers after download (requires admin) |
 
 ## Folder Structure
 
 When using `Get-LnvDownload`, packages are organized as follows:
-```
-RepositoryFolder\
-  ├── packageID1\
-  │   ├── package.exe          ← Downloaded installer
-  │   ├── readme.html          ← Package documentation
-  │   ├── descriptor.xml       ← Package metadata
-  │   └── [extracted files]    ← Extracted here if -Expand used
-  ├── packageID2\
-  │   └── ...
-  └── MachineType_WindowsVersion.csv  ← If -Csv used
-```
+
+    RepositoryFolder\
+    ├── packageID1\
+    │   ├── package.exe          ← Downloaded installer
+    │   ├── readme.html          ← Package documentation
+    │   ├── descriptor.xml       ← Package metadata
+    │   └── [extracted files]    ← Extracted here if -Expand used
+    ├── packageID2\
+    │   └── ...
+    └── MachineType_WindowsVersion.csv  ← If -Csv used
 
 ## Examples
 
 ### Example 1: Download drivers for a machine type
+
 ```powershell
 Get-LnvDownload -MachineType 21HM -WindowsVersion 11 -RepositoryFolder "C:\Drivers\21HM"
 ```
@@ -60,6 +60,7 @@ Get-LnvDownload -MachineType 21HM -WindowsVersion 11 -RepositoryFolder "C:\Drive
 Downloads all available packages for ThinkPad machine type 21HM running Windows 11.
 
 ### Example 2: Download only drivers and applications
+
 ```powershell
 Get-LnvDownload -MachineType 20E4 -PackageType "1,2" -RepositoryFolder "C:\Updates"
 ```
@@ -67,6 +68,7 @@ Get-LnvDownload -MachineType 20E4 -PackageType "1,2" -RepositoryFolder "C:\Updat
 Downloads only applications (1) and drivers (2), excluding BIOS and firmware.
 
 ### Example 3: Download and extract packages
+
 ```powershell
 Get-LnvDownload -MachineType 21N2 -WindowsVersion 11 -RepositoryFolder "E:\LCU\21N2" -Csv -Expand
 ```
@@ -74,6 +76,7 @@ Get-LnvDownload -MachineType 21N2 -WindowsVersion 11 -RepositoryFolder "E:\LCU\2
 Downloads packages and extracts installers. Requires running PowerShell as Administrator. Creates a CSV file listing all packages with their properties.
 
 ### Example 4: Download drivers with specific reboot types
+
 ```powershell
 $path = "E:\Drivers\ThinkPad"
 Get-LnvDownload -MachineType 21HM -WindowsVersion 11 -RepositoryFolder $path -PackageType "2" -RebootType "0,3" -Expand
@@ -98,7 +101,6 @@ Downloads only drivers that either don't require reboot (0) or require reboot (3
 - `3` - Reboot recommended.
 - `4` - The update will force the system to power off. This cannot be prevented if you install this update.
 - `5` - Reboot required immediately. Allows for multiple updates to be installed and serviced by one reboot.
-
 
 ### Extraction Behavior
 

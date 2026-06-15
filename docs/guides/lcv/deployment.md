@@ -21,7 +21,7 @@ Best for OS deployment task sequences, ConfigMgr, Intune, and managed environmen
 
 !!! info "Download"
     [Lenovo Support - hf003321](https://support.lenovo.com/us/en/solutions/hf003321)
-    
+
     Includes VantageInstaller.exe (July 2025+), deployment scripts, and ADMX templates.
 
 ---
@@ -70,15 +70,15 @@ if ($process) { Wait-Process -Id $process.Id }
 ### Installation Modes
 
 ??? note "Standard Mode (-Vantage)"
-    
+
     Full installation of Commercial Vantage with all components (Vantage Service and Add-ins). When switching from Lite mode, uninstall first, then install the full version.
 
 ??? note "Lite Mode (-Lite)"
-    
+
     System Update feature only. Sets registry key at `HKLM\Software\WOW6432Node\Lenovo\VantageService\DeviceTags\System.Profile.CommercialLite` to ensure Lite mode persists through updates.
 
 ??? note "App Only Mode (-App)"
-    
+
     Application without Vantage Service and Add-ins. Use when components are deployed separately.
 
 ---
@@ -86,9 +86,9 @@ if ($process) { Wait-Process -Id $process.Id }
 ## Platform-Specific Deployment
 
 ??? note "Configuration Manager"
-    
+
     [Deploying Commercial Vantage with ConfigMgr](https://blog.lenovocdrt.com/deploying-commercial-vantage-with-configmgr/)
 
 ??? note "Intune"
-    
+
     [Deploying Commercial Vantage with Intune](https://blog.lenovocdrt.com/deploying-commercial-vantage-with-intune/)

@@ -67,7 +67,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 <a id="autoupdate"></a>
 
 ??? note "-autoupdate (Required)"
-    
+
     Triggers an Auto Update process by the System Update Addin.
     
     **Behavior:**
@@ -79,7 +79,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 <a id="include"></a>
 
 ??? note "-include [string] (Optional)"
-    
+
     Specifies one or more package IDs to install. **Only these packages** will be installed (if applicable).
     
     **Format:** Comma-separated package IDs (e.g., `n3uj12w,n3jcd08w`)
@@ -94,7 +94,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 <a id="exclude"></a>
 
 ??? note "-exclude [string] (Optional)"
-    
+
     Specifies one or more package IDs to **skip during installation** (even if applicable).
     
     **Format:** Comma-separated package IDs (e.g., `n3jrg03w`)
@@ -108,7 +108,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 <a id="packagetype"></a>
 
 ??? note "-packagetype [string] (Optional)"
-    
+
     Filter updates by type. Only updates matching the specified type(s) will be installed.
     
     **Package Types:**
@@ -128,7 +128,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 <a id="reboottype"></a>
 
 ??? note "-reboottype [string] (Optional)"
-    
+
     Filter updates by reboot requirement. Only updates requiring the specified reboot type(s) will be installed.
     
     **Reboot Types:**
@@ -148,7 +148,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 <a id="allowdefer"></a>
 
 ??? note "-allowdefer (Optional)"
-    
+
     Allow end-users to defer updates when applicable Group Policy permits deferral.
     
     **Default behavior:** Updates install without user option to defer.
@@ -158,7 +158,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 <a id="help"></a>
 
 ??? note "-help or /? (Optional)"
-    
+
     Display command-line help and parameter reference.
 
 ---
@@ -166,7 +166,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 ## Important Rules
 
 !!! warning "Parameter Constraints"
-    
+
     **Cannot combine in same command:**
     - `-include` and `-exclude` (mutually exclusive → return code 1)
     - `-include` with `-packagetype` or `-reboottype`
@@ -177,13 +177,13 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
     - Any optional parameter with `-allowdefer`
 
 !!! info "Policy Precedence"
-    
+
     - **Command-line parameters take priority** over Group Policy filters
     - If no parameters: Group Policy filters apply (if configured)
     - If no policies: All applicable updates install
 
 !!! warning "Concurrency"
-    
+
     If System Update Addin is already running, the command terminates with return code 2. Wait for the current session to finish before retrying.
 
 ---
@@ -220,7 +220,7 @@ SU Helper is designed to support these key scenarios:
 ## Examples by Scenario
 
 ??? note "Install specific packages only"
-    
+
     **Goal:** Deploy only two specific driver packages
     
     ```powershell
@@ -228,7 +228,7 @@ SU Helper is designed to support these key scenarios:
     ```
 
 ??? note "Block a problematic update"
-    
+
     **Goal:** Prevent a problematic BIOS update from being installed
     
     ```powershell
@@ -236,7 +236,7 @@ SU Helper is designed to support these key scenarios:
     ```
 
 ??? note "Install drivers and firmware without reboot"
-    
+
     **Goal:** Deploy drivers and BIOS that don't require reboot; allow user deferral if policy permits
     
     ```powershell
@@ -244,7 +244,7 @@ SU Helper is designed to support these key scenarios:
     ```
 
 ??? note "Install drivers or BIOS (any reboot type)"
-    
+
     **Goal:** Deploy all drivers and BIOS updates regardless of reboot requirement
     
     ```powershell
@@ -252,7 +252,7 @@ SU Helper is designed to support these key scenarios:
     ```
 
 ??? note "Display help"
-    
+
     ```powershell
     suhelper.exe -help
     ```
@@ -262,22 +262,26 @@ SU Helper is designed to support these key scenarios:
 ## Troubleshooting
 
 **Return code 1 (Error in parameters):**
+
 - Check that you're not combining incompatible parameters (e.g., `-include` with `-packagetype`)
 - Verify package IDs are comma-separated with no spaces
 - Use `-help` to review syntax
 
 **Return code 2 (System Update Addin is busy):**
+
 - Wait for the current update session to finish
 - Check Task Scheduler for running update tasks
 - Retry the command after the session completes
 
 **Return code 3 (Unexpected error):**
+
 - Check event logs in Windows Event Viewer
 - Verify SU Helper is installed: `C:\Program Files\Lenovo\SUHelper\suhelper.exe`
 - Ensure running as Administrator
 - Verify network connectivity (if fetching updates)
 
 **Updates not installing despite valid command:**
+
 - Verify return code is 0 (success)
 - Check `Lenovo_Updates` WMI class for session results
 - Review Configuration Manager or Intune logs if deployed remotely

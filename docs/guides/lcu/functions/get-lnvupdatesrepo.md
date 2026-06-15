@@ -42,7 +42,7 @@ The generated repository includes package folders, metadata catalogs, and detail
 ## Parameters
 
 | Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
+| --- | --- | --- | --- |
 | `-RepositoryPath` | string | Yes | Path where the local repository is created. Will be created if it doesn't exist. |
 | `-MachineTypes` | string | No | Comma-separated 4-character Lenovo machine types (e.g., `"21DD,21DE"`). Defaults to local system machine type. |
 | `-WindowsVersion` | string | No | Target OS: `"10"` or `"11"`. Defaults to current system OS. |
@@ -74,6 +74,7 @@ Use comma-separated values with `-RebootTypes`:
 - `5` – Delayed forced reboot
 
 **Common combinations:**
+
 - `"3,5"` – Include updates that either require or delay reboot (standard deployment)
 - `"3"` – Only updates requiring reboot (conservative for production)
 - `"1,4,5"` – All forced reboot types (aggressive scheduling)

@@ -21,5 +21,3 @@ description: Frequently asked questions about Dock Manager deployment, firmware 
 ## Additional Questions
 
 If your question is not answered here, visit the [Lenovo Community Forums](https://support.lenovo.com/en_US/forums) for additional support and to connect with other users.
-
-

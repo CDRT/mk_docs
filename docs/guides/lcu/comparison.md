@@ -10,7 +10,7 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 ## Feature Comparison
 
 | Feature | LSU | LCU | Notes |
-|---------|--------------|-----------------|-------|
+| --- | --- | --- | -------|
 | **Core Update Discovery** | YES | YES | Fetch available updates for Lenovo systems |
 | **Driver Updates** | YES | YES | Install device drivers |
 | **BIOS/UEFI Updates** | YES | YES | Update system BIOS/UEFI |
@@ -33,6 +33,7 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 ### Quick Reference: Commands
 
 #### Migrated from LSU (6 commands)
+
 All work identically, just renamed:
 
 - [`Get-LnvUpdate`](functions/get-lnvupdate.md) (renamed from Get-LSUpdate)

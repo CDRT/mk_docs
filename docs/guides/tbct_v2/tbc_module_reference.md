@@ -31,13 +31,13 @@ Show-LnvWmiSettings
 ### Common tasks
 
 | Task | Cmdlet |
-|------|--------|
-| Export BIOS settings to file | `Export-LnvWmiSettings` |
-| Import settings from file | `Import-LnvWmiSettings` |
-| Change a single setting | `Set-LnvWmiSetting`, then `Save-LnvWmiSettings` |
-| Update BIOS password | `Update-LnvPassword` |
-| Reset to factory defaults | `Restore-LnvDefaultSettings` |
-| Create Intune package | `ConvertTo-LnvIntunePackage` |
+| --- | --- |
+| Export BIOS settings to file |  [`Export-LnvWmiSettings`](#export-lnvwmisettings) |
+| Import settings from file | [`Import-LnvWmiSettings`](#import-lnvwmisettings) |
+| Change a single setting | [`Set-LnvWmiSetting`](#set-lnvwmisetting), then [`Save-LnvWmiSettings`](#save-lnvwmisettings) |
+| Update BIOS password | [`Update-LnvPassword`](#update-lnvpassword) |
+| Reset to factory defaults | [`Restore-LnvDefaultSettings`](#restore-lnvdefaultsettings) |
+| Create Intune package | [`ConvertTo-LnvIntunePackage`](#convertto-lnvintunepackage) |
 
 ---
 
@@ -319,7 +319,6 @@ Show-LnvWmiSettings
     - `PasswordFound` - Boolean indicating if a supervisor password is set
     - Custom defaults information
 
-
 ??? note "Open-LnvTBCRemoteComputer"
     Connects to a remote machine with the specified credentials.
 
@@ -359,8 +358,6 @@ Show-LnvWmiSettings
     - Requires appropriate permissions on the remote machine
     - Must use hostname, not IP address
     - If credentials are not provided, you will be prompted
-
-
 
 ??? note "Close-LnvTBCRemoteComputer"
     Closes the connection to the target computer.
@@ -418,7 +415,6 @@ Show-LnvWmiSettings
 
     **Output:**
     Returns `$true` if there are pending changes, `$false` otherwise.
-
 
 ??? note "Test-LnvTBCPendingReboot"
     Checks if there is a pending reboot.
@@ -497,7 +493,6 @@ Show-LnvWmiSettings
     - Type "svp" is treated as "pap" (both are supervisor passwords)
     - Returns success or error message
 
-
 ??? note "Import-LnvPasswordChangeFile"
     Imports a password change file.
 
@@ -536,7 +531,7 @@ Show-LnvWmiSettings
     - Requires the current password to be correct
     - Changes take effect immediately but may require a reboot
 
-
+<a id="update-lnvpassword"></a>
 ??? note "Update-LnvPassword"
     Updates the password on the current machine.
 
@@ -592,6 +587,7 @@ Show-LnvWmiSettings
 
 ### WMI settings operations
 
+<a id="export-lnvwmisettings"></a>
 ??? note "Export-LnvWmiSettings"
     Creates a file of the WMI settings.
 
@@ -656,7 +652,7 @@ Show-LnvWmiSettings
     ...
     ```
 
-
+<a id="import-lnvwmisettings"></a>
 ??? note "Import-LnvWmiSettings"
     Imports WMI settings from the specified file.
 
@@ -709,7 +705,6 @@ Show-LnvWmiSettings
     - If file contains encrypted password but no key provided, operation will fail
     - Changes may require a reboot to take effect
 
-
 ??? note "Get-LnvWmiSetting"
     Gets the value of a specific setting.
 
@@ -752,7 +747,7 @@ Show-LnvWmiSettings
     - Setting names are case-sensitive in some contexts
     - Returns actual current value from BIOS, not pending changes
 
-
+<a id="set-lnvwmisetting"></a>
 ??? note "Set-LnvWmiSetting"
     Sets the value of the specified setting.
 
@@ -799,7 +794,7 @@ Show-LnvWmiSettings
     - Some settings may have dependencies on other settings
     - For boot order settings, use comma-separated values
 
-
+<a id="save-lnvwmisettings"></a>
 ??? note "Save-LnvWmiSettings"
     Saves all settings that have been changed to new values.
 
@@ -845,7 +840,6 @@ Show-LnvWmiSettings
     - If save fails, changes remain staged and can be retried
     - Some critical settings may require multiple reboots
 
-
 ??? note "Reset-LnvWmiSettings"
     Resets all settings back to their initial values.
 
@@ -889,6 +883,7 @@ Show-LnvWmiSettings
 
 ### Default settings management
 
+<a id="restore-lnvdefaultsettings"></a>
 ??? note "Restore-LnvDefaultSettings"
     Resets the WMI settings to the default settings.
 
@@ -931,7 +926,6 @@ Show-LnvWmiSettings
     - Custom default settings are not affected
     - Cannot be undone without a backup configuration
 
-
 ??? note "Save-LnvCustomDefault"
     Saves the current settings as a custom default list.
 
@@ -972,7 +966,6 @@ Show-LnvWmiSettings
     - Overwrites any previously saved custom default
     - Useful for maintaining a standard configuration
     - Can be restored using `Restore-LnvCustomDefault`
-
 
 ??? note "Restore-LnvCustomDefault"
     Restores the WMI settings to the previously saved custom default settings.
@@ -1127,7 +1120,7 @@ Show-LnvWmiSettings
     - Scripts are ready to upload to Intune or other management platforms
     - Templates are located in the module's Templates folder
 
-
+<a id="convertto-lnvintunepackage"></a>
 ??? note "ConvertTo-LnvIntunePackage"
     Converts configuration to an Intune package.
 
@@ -1167,7 +1160,6 @@ Show-LnvWmiSettings
     - Package includes all necessary scripts and files
     - Can be uploaded directly to Microsoft Intune
     - Suitable for large-scale deployments
-
 
 ??? note "Convert-LnvConfigFileToScript"
     Converts configuration file to PowerShell script.

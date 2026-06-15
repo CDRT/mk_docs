@@ -5,28 +5,12 @@ description: Complete reference for the Lenovo.Bios.Certificates PowerShell modu
 
 # Lenovo BIOS Certificates PowerShell Module Reference
 
-<table>
-<tr>
-<td><strong>Module</strong></td>
-<td>Lenovo.Bios.Certificates</td>
-</tr>
-<tr>
-<td><strong>Version</strong></td>
-<td>1.0.8</td>
-</tr>
-<tr>
-<td><strong>Author</strong></td>
-<td>Devin McDermott</td>
-</tr>
-<tr>
-<td><strong>Company</strong></td>
-<td>Lenovo</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>PowerShell module providing secure access to Lenovo Certificate WMI classes for BIOS certificate management</td>
-</tr>
-</table>
+| Module | Lenovo.Bios.Certificates |
+| --- | --- |
+| Version | 1.0.8 |
+| Author | Devin McDermott |
+| Company | Lenovo |
+| Description | PowerShell module providing secure access to Lenovo Certificate WMI classes for BIOS certificate management |
 
 ---
 
@@ -47,7 +31,7 @@ The Lenovo BIOS Certificates module enables secure management of BIOS settings a
 ### Quick Reference
 
 | Cmdlet | Purpose |
-|--------|---------|
+| --- | --- |
 | `Get-LnvSignedWmiCommand` | Generate signed WMI commands for BIOS operations |
 | `Submit-LnvBiosChange` | Execute a signed WMI command on the device |
 | `Submit-LnvBiosConfigFile` | Apply multiple signed commands from a file |
@@ -55,7 +39,6 @@ The Lenovo BIOS Certificates module enables secure management of BIOS settings a
 | `Set-LnvBiosCertificate` | Install or update a BIOS certificate |
 | `Get-LnvUnlockCode` | Decrypt unlock code from an unlock file |
 | `Test-LnvCheckForAzureModule` | Verify Azure module installation |
-
 
 ### Cmdlet Reference
 
@@ -155,7 +138,6 @@ The Lenovo BIOS Certificates module enables secure management of BIOS settings a
     ```
 
     **Direct Command Format:** Commands can be submitted in the format `ClassName[,Parameters]`, where the class name is typically `Lenovo_SetBiosSetting` or another Lenovo BIOS WMI class name. Parameters are comma-separated and must match the expected signature. This format is useful when building commands programmatically or from configuration files.
-
 
 ??? note "Submit-LnvBiosConfigFile"
 
@@ -270,7 +252,6 @@ The Lenovo BIOS Certificates module enables secure management of BIOS settings a
 
     **Output:** Returns the decrypted unlock code as a string.
 
-
 ??? note "Test-LnvCheckForAzureModule"
 
     **Synopsis:** Checks if the specified Azure module is installed.
@@ -302,12 +283,11 @@ The Lenovo BIOS Certificates module enables secure management of BIOS settings a
 ### Quick Reference
 
 | Pattern | Use Case | Complexity | Key Cmdlets |
-|---------|----------|------------|-------------|
+| --- | --- | --- | --- |
 | Basic BIOS Setting | Change single setting on one device | Beginner | `Get-LnvSignedWmiCommand`, `Submit-LnvBiosChange` |
 | Batch Configuration | Apply multiple settings to multiple devices | Intermediate | `Convert-LnvBiosConfigFile`, `Submit-LnvBiosConfigFile` |
 | Azure Key Vault | Enterprise deployment with cloud-based key management | Advanced | `Test-LnvCheckForAzureModule`, `Get-LnvSignedWmiCommand` (Azure) |
 | Certificate Management | Install or update BIOS certificates | Intermediate | `Set-LnvBiosCertificate`, `Get-LnvUnlockCode` |
-
 
 ??? note "Basic BIOS Setting Management"
 
@@ -408,7 +388,6 @@ All functions log their activities and errors for troubleshooting purposes.
 
 The module creates and uses the following directory structure:
 
-    
     %ProgramData%\Lenovo\
     ├── BIOSCertificates\
     ├── Logs\          # Module operation logs

@@ -27,7 +27,7 @@ Results can be filtered by status (Applicable, Installed, NotApplicable) and sev
 ## Parameters
 
 | Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
+| --- | --- | --- | --- |
 | `-ComputerName` | string | $env:COMPUTERNAME | Local or remote computer name |
 | `-Status` | string | - | Filter by status: `Applicable`, `Installed`, `NotApplicable` |
 | `-Severity` | string | - | Filter by severity: `Critical`, `Recommended`, `Optional` |

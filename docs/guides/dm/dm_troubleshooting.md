@@ -29,17 +29,17 @@ On the domain controller, verify these settings in Group Policy Management Edito
 
 1. **Frequency** should be **Enabled** and set to **Weekly**
 
-	![Group Policy settings dialog showing Dock Manager scheduling frequency option](https://cdrt.github.io/mk_docs/img/guides/dm/ts1.PNG)
+    ![Group Policy settings dialog showing Dock Manager scheduling frequency option](https://cdrt.github.io/mk_docs/img/guides/dm/ts1.PNG)
 
-	![Group Policy dialog showing frequency set to Weekly](https://cdrt.github.io/mk_docs/img/guides/dm/ts2.PNG)
+    ![Group Policy dialog showing frequency set to Weekly](https://cdrt.github.io/mk_docs/img/guides/dm/ts2.PNG)
 
 2. **RunOn** should be **Enabled** and set to **MONDAY, TUESDAY**
 
-	![Group Policy dialog showing RunOn schedule set to Monday and Tuesday](https://cdrt.github.io/mk_docs/img/guides/dm/ts3.PNG)
+    ![Group Policy dialog showing RunOn schedule set to Monday and Tuesday](https://cdrt.github.io/mk_docs/img/guides/dm/ts3.PNG)
 
 3. **RunAt** should be **Enabled** and set to **06:05:00**
 
-	![Group Policy dialog showing RunAt time set to 06:05:00](https://cdrt.github.io/mk_docs/img/guides/dm/ts4.PNG)
+    ![Group Policy dialog showing RunAt time set to 06:05:00](https://cdrt.github.io/mk_docs/img/guides/dm/ts4.PNG)
 
 ### Check Registry Settings
 
@@ -53,13 +53,13 @@ On the same client PC, verify the scheduled task in Task Scheduler:
 
 1. Right-click **Task Scheduler** and select **Run as administrator** – elevated privileges are required to see all tasks
 
-	![Task Scheduler Run as administrator context menu option](https://cdrt.github.io/mk_docs/img/guides/dm/ts6.PNG)
+    ![Task Scheduler Run as administrator context menu option](https://cdrt.github.io/mk_docs/img/guides/dm/ts6.PNG)
 
 2. Verify that a task named **DockManager – Task Scheduler** exists in the expected folder
 
 3. Check the **Triggers** tab to confirm the task is scheduled correctly (weekly on Monday and Tuesday in this example)
 
-	![Task Scheduler showing DockManager task with weekly triggers for Monday and Tuesday](https://cdrt.github.io/mk_docs/img/guides/dm/ts7.PNG)
+    ![Task Scheduler showing DockManager task with weekly triggers for Monday and Tuesday](https://cdrt.github.io/mk_docs/img/guides/dm/ts7.PNG)
 
 4. Review **Last Run Time** and **Last Run Result** for additional details and possible causes of failures
 

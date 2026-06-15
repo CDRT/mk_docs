@@ -17,9 +17,9 @@ description: Latest features and updates for Commercial Vantage
     - Mode performance charts
     - Background task power update
 - Telemetry
-    - Collect anonymous usage metrics to gauge what features are used
-    - Follows the existing policy for Metrics collection
-    - New check box on initial Welcome dialog for User Consent at first launch
+  - Collect anonymous usage metrics to gauge what features are used
+  - Follows the existing policy for Metrics collection
+  - New check box on initial Welcome dialog for User Consent at first launch
 
 ### System Update
 

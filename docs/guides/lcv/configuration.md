@@ -62,7 +62,7 @@ Commercial Vantage provides flexible configuration options across multiple featu
 | WMI Data Collection | Write system information to WMI | Inventory and warranty tracking |
 
 ??? note "Sample Configuration"
-    
+
     The sample configuration (**sample-policy-config.reg**) is provided as a registry export file which can be used as-is. The .reg file can be imported to your target systems during deployment, as part of **setup-commercial-vantage.bat**. In this sample, the following policies are pre-configured:
 
     - Hide the &quot;Support&quot; section
@@ -73,7 +73,7 @@ Commercial Vantage provides flexible configuration options across multiple featu
     You can deploy any available policy setting in this way by following the Registry instructions above.
 
 ??? note "System Update"
-    
+
     #### Automatic Updates
 
     By default, the System Update feature of Commercial Vantage automatically installs the following updates on a weekly schedule:
@@ -102,7 +102,7 @@ Commercial Vantage provides flexible configuration options across multiple featu
     - [System Update Suite Product Guide](/guides/sus/su_dg/su_dg_ch3/#33-update-retriever)
 
 ??? note "WMI Data Collection"
-    
+
     #### Warranty Information
 
     You can use Commercial Vantage to write the system warranty information to WMI (in the ROOT\Lenovo namespace) by setting the policy in **Computer Configuration -> Administrative Templates -> Commercial Vantage -> Device -> Warranty**. The Lenovo\_WarrantyInformation class stores SerialNumber, Product, StartDate, EndDate, LastUpdateTime and the reference of each purchased warranty, while Lenovo\_WarrantyElement stores the details of these purchased warranties.
@@ -117,7 +117,6 @@ Commercial Vantage provides flexible configuration options across multiple featu
 ## Microsoft Configuration Manager
 
 If policies need to be set in an Operating System Deployment prior to first-logon, reference the example solutions described below. Choose the deployment method that best fits your environment:
-
 
 ### Package/JSON
 

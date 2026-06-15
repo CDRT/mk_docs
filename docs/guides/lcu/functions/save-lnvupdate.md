@@ -28,7 +28,7 @@ Downloads can be quite large. The `-ShowProgress` parameter shows real-time down
 ## Parameters
 
 | Parameter | Type | Description |
-|-----------|------|-------------|
+| --- | --- | --- |
 | `-Package` | PSObject | Package(s) from `Get-LnvUpdate` (accepts pipeline input) |
 | `-Path` | DirectoryInfo | Target directory for downloads |
 | `-ShowProgress` | switch | Display download progress for each package |

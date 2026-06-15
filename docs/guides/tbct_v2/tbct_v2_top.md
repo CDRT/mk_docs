@@ -40,7 +40,6 @@ For detailed information on individual cmdlets, see the [Module cmdlet reference
 
         - Initial release
 
-
 ## Prerequisites
 
 - Windows with PowerShell (Windows PowerShell or PowerShell Core) and administrative privileges.
@@ -56,6 +55,7 @@ The Think BIOS Config Tool UI is provided as a PowerShell script hosted on the P
 ```powershell
 Install-Script 'ThinkBiosConfigUI'
 ```
+
 This installs the script to:
 
 - Windows PowerShell v5: `C:\Users\{your user name}\WindowsPowerShell\Scripts`
@@ -191,7 +191,6 @@ The main user interface includes:
     - **Save Preferences**: settings saved to `.json` in `%ProgramData%\Lenovo\ThinkBiosConfig`
     
 <!--Generate Debug File: TODO-->
-
 
 ??? note "Dialog Boxes"
     

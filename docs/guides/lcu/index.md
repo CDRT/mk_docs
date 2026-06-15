@@ -18,7 +18,6 @@ This PowerShell module is provided to assist in managing Lenovo driver, BIOS/UEF
 - ThinkBiosConfigUI.ps1
 - LnvBiosCertInterface.ps1
 
-
 ## Requirements
 
 - Windows 10 or Windows 11
@@ -28,11 +27,13 @@ This PowerShell module is provided to assist in managing Lenovo driver, BIOS/UEF
 ## Documentation
 
 ### Getting Started
+
 - [Installation](getting-started/installation.md)
 - [Quick Start Guide](getting-started/quick-start.md)
 - [LSU vs LCU](comparison.md)
 
 ### Core Commands
+
 - [Get-LnvUpdate](functions/get-lnvupdate.md)
 - [Get-LnvDownload](functions/get-lnvdownload.md)
 - [Save-LnvUpdate](functions/save-lnvupdate.md)
@@ -40,11 +41,13 @@ This PowerShell module is provided to assist in managing Lenovo driver, BIOS/UEF
 - [Expand-LnvUpdate](functions/expand-lnvupdate.md)
 
 ### Configuration & History
+
 - [Get-LnvUpdateConfiguration](functions/get-lnvupdateconfiguration.md)
 - [Set-LnvUpdateConfiguration](functions/set-lnvupdateconfiguration.md)
 - [Get-LnvUpdateHistory](functions/get-lnvupdatehistory.md)
 - [Get-LnvUpdateFromWmi](functions/get-lnvupdatefromwmi.md)
 
 ### Repository Management
+
 - [Get-LnvUpdatesRepo](functions/get-lnvupdatesrepo.md)
 - [Get-LnvUpdateSummary](functions/get-lnvupdatesummary.md)

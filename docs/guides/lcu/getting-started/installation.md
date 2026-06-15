@@ -14,6 +14,7 @@ Install-Module -Name Lenovo.Client.Update -Scope CurrentUser
 ```
 
 Then verify it works:
+
 ```powershell
 Get-Command -Module Lenovo.Client.Update
 ```
@@ -127,14 +128,19 @@ Simply delete the `Lenovo.Client.Update` folder from your modules directory.
 **Symptom**: `Import-Module: The specified module 'Lenovo.Client.Update' was not found`
 
 **Solutions:**
+
 1. Verify the module path:
+
    ```powershell
    $env:PSModulePath -split ";"
    ```
+
 2. Manually specify the path if needed:
+
    ```powershell
    Import-Module "C:\path\to\Lenovo.Client.Update"
    ```
+
 3. Restart PowerShell after installation
 4. Run as Administrator if installing for all users
 

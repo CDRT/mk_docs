@@ -54,7 +54,7 @@ The four-character "machine type" for supported docks can be used in Update Retr
 ## Supported Docks
 
 | Dock Model | Machine Type |
-|------------|--------------|
+| --- | --- |
 | ThinkPad Universal USB-C Dock v2 | [40B7](https://support.lenovo.com/solutions/acc500295) |
 | ThinkPad Thunderbolt 4 Workstation Dock | [40B0](https://pcsupport.lenovo.com/accessories/pd500533) |
 | ThinkPad Universal Thunderbolt 4 Dock | [40B0](https://support.lenovo.com/solutions/pd500503) |

@@ -31,7 +31,7 @@ Use the `-All` parameter to retrieve all available packages regardless of applic
 ## Parameters
 
 | Parameter | Type | Description |
-|-----------|------|-------------|
+| --- | --- | --- |
 | `-Model` | string | Target computer model (default: current system) |
 | `-All` | switch | Return all packages, including installed and non-applicable |
 | `-IncludePhantomDevices` | switch | Include offline/disconnected devices in applicability checks |

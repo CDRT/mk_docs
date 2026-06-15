@@ -140,7 +140,7 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 ## Quick Reference Table
 
 | Cmdlet | Category | Purpose | Version |
-|--------|----------|---------|---------|
+| --- | ---- | --- | --- |
 | [Add-LnvMTOS](#add-lnvmtos) | Updates | Add Machine Type + OS to tracking database | 2.3.0 |
 | [Add-LnvSUCommandLine](#add-lnvsucmdline) | Utilities | Configure System Update admin command line | 1.0.0 |
 | [Add-LnvSULogging](#add-lnvsulogging) | Utilities | Enable/disable System Update logging | 1.0.0 |
@@ -280,9 +280,8 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 
 Below are all available cmdlets organized alphabetically. Each cmdlet shows its purpose, syntax, parameters, and usage examples.
 
+<a id="add-lnvmtos"></a>
 ??? note "Add-LnvMTOS"
-
-    <a id="add-lnvmtos"></a>
 
     **Purpose:** Add a Machine Type + OS combination to the updates tracking database (lnvUpdatesDatabase.json) to monitor for new updates.
 
@@ -315,10 +314,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
         **Related Cmdlets:**
         [Get-LnvMTOSList](#get-lnvmtoslist) | [Remove-LnvMTOS](#remove-lnvmtos) | [Get-LnvUpdatesNotification](#get-lnvupdatesnotification)
 
+<a id="add-lnvsucmdline"></a>
 ??? note "Add-LnvSUCommandLine"
-
-    <a id="add-lnvsucmdline"></a>
-
     **Purpose:** Configure administrative command-line settings for Lenovo System Update via Windows Registry.
 
     **Syntax:**
@@ -356,9 +353,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
         **Related Cmdlets:**
         [Add-LnvSULogging](#add-lnvsulogging) | [Export-LnvUpdateRetrieverConfig](#export-lnvupdateretrieverconfig)
 
+<a id="add-lnvsulogging"></a>
 ??? note "Add-LnvSULogging"
-
-    <a id="add-lnvsulogging"></a>
 
     **Purpose:** Enable or disable logging for Lenovo System Update during update sessions.
 
@@ -387,9 +383,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         If neither `-Enable` nor `-Disable` is specified, logging will be ENABLED by default. When logging is enabled a restart may be required. Log file location: `%ProgramData%\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\logs`
 
+<a id="export-lnvupdateretrieverconfig"></a>
 ??? note "Export-LnvUpdateRetrieverConfig"
-
-    <a id="export-lnvupdateretrieverconfig"></a>
 
     **Purpose:** Export Update Retriever settings (repository path and model list) to a .reg file.
 
@@ -414,9 +409,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Exports settings from: `HKLM\Software\Wow6432Node\Lenovo\Update Retriever\Preferences\UserSetting\General`. Specify filename without extension; .reg will be added automatically.
 
+<a id="find-lnvbioscode"></a>
 ??? note "Find-LnvBiosCode"
-
-    <a id="find-lnvbioscode"></a>
 
     **Purpose:** Find BIOS code by model friendly name or machine type. BIOS code is the first four characters of the BIOS image name.
 
@@ -447,9 +441,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         When searching by friendly name, omit generation reference to get all generations of that model. For example, use 'ThinkPad X13 Yoga' (not 'Gen 4') to see results for all X13 Yoga generations.
 
+<a id="find-lnvbiosinfo"></a>
 ??? note "Find-LnvBiosInfo"
-
-    <a id="find-lnvbiosinfo"></a>
 
     **Purpose:** Search for BIOS information by model friendly name or BIOS code. Returns BIOS version, URLs, and CVE information.
 
@@ -478,9 +471,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Specify either ModelName or BiosCode (one is required). Returns BIOS code, available version, executable URL, readme link, and associated CVEs.
 
+<a id="find-lnvdockmodel"></a>
 ??? note "Find-LnvDockModel"
-
-    <a id="find-lnvdockmodel"></a>
 
     **Purpose:** Find dock model name by machine type and optionally display PnP IDs for USB Billboard and audio devices.
 
@@ -509,9 +501,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Without -Details, returns only dock name. With -Details, shows USB Billboard and audio device PnP IDs useful for device targeting.
 
+<a id="find-lnvdriverpack"></a>
 ??? note "Find-LnvDriverPack"
-
-    <a id="find-lnvdriverpack"></a>
 
     **Purpose:** List available driver packs for a specified machine type with OS, build version, CRC, and download URL.
 
@@ -542,9 +533,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Output fields: "os" (win10/win11), "version" (21H2/22H2), "crc", and "#text" (URL to executable). Use Where-Object to filter by OS and version. URL is in the '#text' field.
 
+<a id="find-lnvhsapack"></a>
 ??? note "Find-LnvHSAPack"
-
-    <a id="find-lnvhsapack"></a>
 
     **Purpose:** Returns a list of available HSA packs for a specified machine type, including OS, build version, CRC, and URL to the package executable.
 
@@ -576,9 +566,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     **Related Cmdlets:**
     [Find-LnvDriverPack](#find-lnvdriverpack) | [Get-LnvDriverPack](#get-lnvdriverpack)
 
+<a id="find-lnvmachinetype"></a>
 ??? note "Find-LnvMachineType"
-
-    <a id="find-lnvmachinetype"></a>
 
     **Purpose:** Search for machine types by model friendly name. Returns all matching machine types as models often have multiple variants.
 
@@ -608,9 +597,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Include a trailing space in partial names to narrow results. For example: 'ThinkPad P1 ' limits to P1 models (excludes P15, P16).
 
+<a id="find-lnvmodel"></a>
 ??? note "Find-LnvModel"
-
-    <a id="find-lnvmodel"></a>
 
     **Purpose:** Get the friendly model name from a machine type code. Useful when display systems show machine type and you need the model name.
 
@@ -638,9 +626,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Output also shows other machine types associated with the same model.
 
+<a id="find-lnvtool"></a>
 ??? note "Find-LnvTool"
-
-    <a id="find-lnvtool"></a>
 
     **Purpose:** Get Lenovo tool version and download URLs for: Dock Manager, System Update, Thin Installer, Update Retriever.
 
@@ -668,9 +655,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Returns current version and download URL for each tool. Supported tools: Dock Manager, System Update, Thin Installer, Update Retriever.
 
+<a id="find-lnvupdate"></a>
 ??? note "Find-LnvUpdate"
-
-    <a id="find-lnvupdate"></a>
 
     **Purpose:** Search the Lenovo System Update catalog for updates matching specified criteria.
 
@@ -711,9 +697,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
         **Related Cmdlets:**
         [Find-LnvDriverPack](#find-lnvdriverpack)
 
+<a id="get-lnvavailablebiosversion"></a>
 ??? note "Get-LnvAvailableBiosVersion"
-
-    <a id="get-lnvavailablebiosversion"></a>
 
     **Purpose:** Get the currently available BIOS update version for a machine type with optional download.
 
@@ -748,9 +733,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         WindowsVersion is optional; if not specified and BIOS update not found in Win11 catalog, checks Win10 catalog. When omitted, uses system's detected OS and compares availability.
 
+<a id="get-lnvbatteryinfo"></a>
 ??? note "Get-LnvBatteryInfo"
-
-    <a id="get-lnvbatteryinfo"></a>
 
     **Purpose:** Get detailed information about all batteries in the system.
 
@@ -782,9 +766,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Uses deprecated Get-WmiObject due to compatibility issues with Get-CimInstance and Win32_Battery class. Systems with multiple batteries return multiple objects.
 
+<a id="get-lnvbioscode"></a>
 ??? note "Get-LnvBiosCode"
-
-    <a id="get-lnvbioscode"></a>
 
     **Purpose:** Read BIOS image name and return the first 4 characters (BIOS code) from the device.
 
@@ -807,9 +790,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         BIOS code is the first 4 characters of the BIOS image name and is useful for uniquely targeting a device model.
 
+<a id="get-lnvbiosinfo"></a>
 ??? note "Get-LnvBiosInfo"
-
-    <a id="get-lnvbiosinfo"></a>
 
     **Purpose:** Get BIOS information and metadata from current device including version, CVEs, and update URLs.
 
@@ -842,9 +824,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Returns BIOS version, image code, available update version, download URLs, and list of CVEs unique to the device.
 
+<a id="get-lnvbiospasswordsset"></a>
 ??? note "Get-LnvBiosPasswordsSet"
-
-    <a id="get-lnvbiospasswordsset"></a>
 
     **Purpose:** Get BIOS password state and interpret which passwords are set on the device.
 
@@ -872,9 +853,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! warning "Admin Required"
         THIS CMDLET REQUIRES ADMIN RIGHTS TO EXECUTE. Make sure the PowerShell session is running with elevated privileges.
 
+<a id="get-lnvbiosupdateurl"></a>
 ??? note "Get-LnvBiosUpdateUrl"
-
-    <a id="get-lnvbiosupdateurl"></a>
 
     **Purpose:** Get URL to the current BIOS update package for specified or current machine type.
 
@@ -902,9 +882,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Device must be a Lenovo ThinkPad, ThinkCentre, or ThinkStation.
 
+ <a id="get-lnvbiosversion"></a>
 ??? note "Get-LnvBiosVersion"
-
-    <a id="get-lnvbiosversion"></a>
 
     **Purpose:** Get BIOS version from device in specified format (string or decimal).
 
@@ -932,9 +911,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Handles differences in BIOS version format between ThinkPad (decimal) and ThinkCentre/ThinkStation (hex build number). Desktop BIOS hex values are converted to standard version format.
 
+<a id="get-lnvcve"></a>
 ??? note "Get-LnvCVE"
-
-    <a id="get-lnvcve"></a>
 
     **Purpose:** List CVE (Common Vulnerabilities and Exposures) identifiers addressed in the current BIOS update.
 
@@ -962,9 +940,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         CVE data may not be available for all machine types.
 
+<a id="get-lnvdriverpack"></a>
 ??? note "Get-LnvDriverPack"
-
-    <a id="get-lnvdriverpack"></a>
 
     **Purpose:** Download SCCM driver pack for specified machine type and Windows OS version.
 
@@ -998,9 +975,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Uses BITS Transfer for downloads. Tab completion supported for -OSBuildVersion. Use "Latest" to get the most current pack for the specified Windows version.
 
+<a id="get-lnvmachinetype"></a>
 ??? note "Get-LnvMachineType"
-
-    <a id="get-lnvmachinetype"></a>
 
     **Purpose:** Get the 4-character machine type of the current device.
 
@@ -1023,9 +999,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Returns the 4-character machine type code of the running device.
 
+<a id="get-lnvmodelname"></a>
 ??? note "Get-LnvModelName"
-
-    <a id="get-lnvmodelname"></a>
 
     **Purpose:** Get the friendly model name of the current device.
 
@@ -1048,9 +1023,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Returns the friendly model name (e.g., "ThinkPad P1") from WMI.
 
+<a id="get-lnvmtoslist"></a>
 ??? note "Get-LnvMTOSList"
-
-    <a id="get-lnvmtoslist"></a>
 
     **Purpose:** Get list of Machine Type + OS pairs from the updates tracking database (lnvUpdatesDatabase.json).
 
@@ -1078,9 +1052,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Returns all Machine Type + OS pairs that are being tracked for updates in lnvUpdatesDatabase.json.
 
+<a id="get-lnvproductnumber"></a>
 ??? note "Get-LnvProductNumber"
-
-    <a id="get-lnvproductnumber"></a>
 
     **Purpose:** Get the 10-character product number of the current device.
 
@@ -1103,9 +1076,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Returns the full 10-character product number from WMI.
 
+<a id="get-lnvserial"></a>
 ??? note "Get-LnvSerial"
-
-    <a id="get-lnvserial"></a>
 
     **Purpose:** Get the serial number of the current device.
 
@@ -1128,9 +1100,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Returns the device serial number from WMI.
 
+<a id="get-lnvupdatesnotification"></a>
 ??? note "Get-LnvUpdatesNotification"
-
-    <a id="get-lnvupdatesnotification"></a>
 
     **Purpose:** Display new updates added to tracked System Update catalogs since last check.
 
@@ -1162,9 +1133,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Tracks catalogs by CRC (Cyclic Redundancy Check) and identifies new updates since last execution. Grid-view allows clicking an update to view its readme. Requires Add-LnvMTOS to be used first to track models.
 
+<a id="get-lnvwarranty"></a>
 ??? note "Get-LnvWarranty"
-
-    <a id="get-lnvwarranty"></a>
 
     **Purpose:** Get the device's available warranty status from WMI.
 
@@ -1187,9 +1157,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! note "Note"
         Requires Commercial Vantage to be installed and configured via group policy to write warranty information to WMI.
 
+<a id="get-lnvwufriendlyname"></a>
 ??? note "Get-LnvWUFriendlyName"
-
-    <a id="get-lnvwufriendlyname"></a>
 
     **Purpose:** Return a list of drivers and firmware installed by Windows Update with their friendly names, versions, and installation dates.
 
@@ -1218,9 +1187,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     !!! info "Attribution"
         This cmdlet is based on the work of Trevor Jones. Original implementation: [smsagent.blog](https://smsagent.blog/2023/07/07/translating-windows-update-driver-names-to-friendly-driver-names/)
 
+<a id="invoke-lnvcvlogviewer"></a>
 ??? note "Invoke-LnvCVLogViewer"
-
-    <a id="invoke-lnvcvlogviewer"></a>
 
     **Purpose:** Parse and analyze Lenovo Commercial Vantage System Update Addin log files, producing a color-coded, section-by-section summary including session info, scan results, per-package install metrics, errors, and warnings. Supports both the current and legacy log formats, optional output to file, section filtering, and benign-warning suppression.
 
@@ -1231,8 +1199,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
 
     **Parameters**
 
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
+    | Parameter | Type | Mandatory |
+    | --- | --- | --- |
     | LogFile | string | True |
     | OutputFile | string | False |
     | Sections | string | False |
@@ -1288,9 +1256,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     **Related Cmdlets:**
     [Invoke-LnvTILogViewer](#invoke-lnvtilogviewer)
 
+<a id="invoke-lnvtilogviewer"></a>
 ??? note "Invoke-LnvTILogViewer"
-
-    <a id="invoke-lnvtilogviewer"></a>
 
     **Purpose:** Analyze log files generated by Lenovo ThinInstaller and provide a human-readable summary of key session details. Supports both the current and legacy log formats, optional output to file, and color-coded console output.
 
@@ -1301,8 +1268,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
 
     **Parameters**
 
-	| Parameter | Type | Mandatory |
-	| --- | --- | --- |
+    | Parameter | Type | Mandatory |
+    | --- | --- | --- |
     | LogFile | string | True |
     | LogDirectory | string | False |
     | OutputFile | string | False |
@@ -1343,9 +1310,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     **Related Cmdlets:**
     [Invoke-LnvCVLogViewer](#invoke-lnvcvlogviewer)
 
+<a id="remove-lnvmtos"></a>
 ??? note "Remove-LnvMTOS"
-
-    <a id="remove-lnvmtos"></a>
 
     **Purpose:** Remove a Machine Type + OS combination from the updates database (lnvUpdatesDatabase.json).
 
@@ -1375,9 +1341,8 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     **Related Cmdlets:**
     [Add-LnvMTOS](#add-lnvmtos) | [Get-LnvMTOSList](#get-lnvmtoslist)
 
+<a id="show-lnvapplicableupdate"></a>
 ??? note "Show-LnvApplicableUpdate"
-
-    <a id="show-lnvapplicableupdate"></a>
 
     **Purpose:** Read update applicability log from Thin Installer or System Update and return applicable package IDs.
 

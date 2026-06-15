@@ -33,7 +33,7 @@ Dock Manager is provided as an executable. Deploy it using the ConfigMgr Applica
 ### Quick Reference
 
 | Phase | Steps | Time |
-|-------|-------|------|
+| --- | --- | --- |
 | **Setup & Preparation** | Create application, configure app details, select deployment type | ~2 min |
 | **Configuration** | Set install/uninstall commands, define detection rules, add requirements | ~5 min |
 | **Deployment** | Deploy to device collection | ~1 min |
@@ -76,19 +76,19 @@ Enter the content location path to the Dock Manager executable.
 
 **Install command:**
 
-```
+``` powershell
 "dock_manager_setup.exe" /VERYSILENT
 ```
 
 **Uninstall command:**
 
-```
+``` powershell
 unins000.exe /SILENT
 ```
 
 **Uninstall start in:**
 
-```
+``` powershell
 %ProgramFiles%\Lenovo\Dock Manager
 ```
 
@@ -99,7 +99,7 @@ unins000.exe /SILENT
 Configure the detection rule with the following settings:
 
 | Setting | Value |
-|---------|-------|
+| --- | --- |
 | Setting type | Registry |
 | Hive | HKLM |
 | Key | `SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DockManager_is1` |
@@ -134,7 +134,7 @@ Deploy Dock Manager using Microsoft Intune Win32 app management. Follow the step
 ### Quick Reference
 
 | Phase | Steps | Time |
-|-------|-------|------|
+| --- | --- | --- |
 | **Setup & Preparation** | Package installer, create Win32 app | ~3 min |
 | **Configuration** | Add app details, install commands, requirements, detection rules | ~5 min |
 | **Deployment** | Assign to user/device groups | ~1 min |
@@ -145,7 +145,7 @@ Deploy Dock Manager using Microsoft Intune Win32 app management. Follow the step
 
 Use the Win32 Content Prep [Tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) to convert the Dock Manager installer to .intunewin format:
 
-```
+``` powershell
 IntuneWinAppUtil.exe -c "C:\IntuneWin\DM\" -s "dock_manager_setup.exe" -o "C:\IntuneWin\output\" -q
 ```
 
@@ -171,13 +171,13 @@ Enter the install and uninstall commands:
 
 **Install command:**
 
-```
+``` powershell
 dock_manager_setup.exe /VERYSILENT
 ```
 
 **Uninstall command:**
 
-```
+``` powershell
 %ProgramFiles%\Lenovo\Dock Manager\unins000.exe /SILENT
 ```
 
@@ -197,7 +197,7 @@ Configure operating system and device requirements based on your environment.
 Set up detection rules to verify the correct version of Dock Manager is installed:
 
 | Setting | Value |
-|---------|-------|
+| --- | --- |
 | Key path | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DockManager_is1` |
 | Value name | `DisplayVersion` |
 | Detection method | String comparison |
@@ -234,7 +234,7 @@ else {
 **Common Dock IDs:**
 
 | Dock Model | USB VID/PID |
-|------------|------------|
+| --- | --- |
 | Thunderbolt 3 Dock Gen 2 | `USB\VID_2109&PID_8887*` |
 | Thunderbolt 3 Dock | `USB\VID_2109&PID_0503*` |
 | USB-C Dock Gen 2 | `USB\VID_17EF&PID_1060*` |
@@ -251,6 +251,7 @@ Extend hardware inventory in ConfigMgr to collect Dock Manager data from your cl
 **Download MOF file:** [ConfigMgr-MOF-DockManager.zip](https://download.lenovo.com/cdrt/blog/ConfigMgr-MOF-DockManager.zip)
 
 **Steps:**
+
 1. Download and extract the MOF file
 2. Navigate to **Administration > Client Settings** in ConfigMgr
 3. Configure **Hardware Inventory** and add the Dock Manager classes
@@ -268,7 +269,7 @@ Use SQL Server Reporting Services (SSRS) to create reports on Dock Manager deplo
 
 !!! info "Sample Report Template"
     A sample SSRS report template is available for download: [LenovoDockManager.zip](https://download.lenovo.com/cdrt/docs/LenovoDockManager.zip)
-    
+
     After downloading, update the Data Source properties to connect to your ConfigMgr database.
 
 ## Next Steps

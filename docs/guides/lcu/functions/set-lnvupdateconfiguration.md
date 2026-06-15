@@ -37,7 +37,7 @@ You can set individual options using parameter names, or import an entire config
 ## Parameters
 
 | Parameter | Type | Description |
-|-----------|------|-------------|
+| --- | --- | --- |
 | `-InputObject` | LnvUpdateConfiguration | Complete configuration object (use with `Get-LnvUpdateConfiguration` to save/restore configs) |
 | `-Proxy` | Uri | Default proxy URL for all cmdlets. Pass `$null` to disable. |
 | `-ProxyCredential` | PSCredential | Default proxy user account credentials. |

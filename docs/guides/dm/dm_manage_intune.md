@@ -59,7 +59,7 @@ On the **Configuration Settings** screen, click **Add** and enter the following:
 Use this table to quickly find the policy you need by category. Click any policy name to jump to its detailed configuration section:
 
 | Policy Name | Category | Type | Purpose |
-|-------------|----------|------|---------|
+| --- | --- | --- | --- |
 | **Command** | System | Action | Send commands to Dock Manager (e.g., check for updates) |
 | [**Ask Before Firmware Update**](#ask-before-firmware-update) | General | Boolean | Prompt user before firmware installation |
 | [**Auto Update**](#auto-update) | General | Boolean | Enable automatic Dock Manager software updates |
@@ -444,7 +444,7 @@ To resend the same command, update the timestamp in `SendTime_Prompt`.
 ## Format Reference
 
 | Setting | Format | Examples |
-|---------|--------|----------|
+| --- | --- | --- |
 | **Time** (Run At) | 24-hour HH:MM:SS | `02:00:00`, `14:30:00`, `23:59:59` |
 | **Days of Week** (Run On) | Full day names, comma-separated | `Monday,Friday` / `Sunday` |
 | **Days of Month** (Run Days) | Numbers 1–31, comma-separated | `1,15` / `5` |
