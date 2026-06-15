@@ -68,7 +68,7 @@ You should see all 11+ commands listed.
 
 Use this method if you need to install from a local copy or have network restrictions.
 
-1. Download from [Lenovo](https://download.lenovo.com/cdrt/tools/luc-1.0.0.zip)
+1. Download from [Lenovo](https://download.lenovo.com/cdrt/tools/Lenovo.Client.Update-1.0.1.zip)
 2. Extract the ZIP file
 3. Copy the `Lenovo.Client.Update` folder to your modules directory:
    - **Current user only**: `$PROFILE\..\Modules\Lenovo.Client.Update\`
