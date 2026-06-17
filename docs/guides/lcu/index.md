@@ -54,6 +54,9 @@ This PowerShell module is provided to assist in managing Lenovo driver, BIOS/UEF
 
 ## Version History
 
+- 1.0.2 - June 17, 2026:
+    - Bug fix due to lines being removed incorrectly causing error in dependency checking
+
 - 1.0.1 - June 11, 2026:
     - Changed the Registry Key location for BIOS update details to `HKLM\SOFTWARE\LenovoUpdate\BIOSUpdate`
 
