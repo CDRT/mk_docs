@@ -9,10 +9,10 @@ Commercial Vantage provides flexible configuration across multiple platforms and
 
 | **Configuration Platform** | **Best For** | **Deployment Context** |
 | :--- | :--- | :--- |
-| [Group Policy + Registry](#group-policy-administrative-template) | Domain-joined environments | Traditional on-premises |
-| [Feature Configuration](#feature-configuration) | Understanding specific policies | Reference and deployment planning |
-| [Microsoft Configuration Manager](#microsoft-configuration-manager) | OSD and compliance management | ConfigMgr-managed environments |
-| [Microsoft Intune](#microsoft-intune) | Cloud-managed endpoints | Intune managed devices |
+| [**Group Policy + Registry**](#group-policy-administrative-template) | Domain-joined environments | Traditional on-premises |
+| [**Feature Configuration**](#feature-configuration) | Understanding specific policies | Reference and deployment planning |
+| [**Microsoft Configuration Manager**](#microsoft-configuration-manager) | OSD and compliance management | ConfigMgr-managed environments |
+| [**Microsoft Intune**](#microsoft-intune) | Cloud-managed endpoints | Intune managed devices |
 
 !!! warning "Enabling Logging"
     Due to requirements from the Lenovo Product Security team, logging is not enabled by default. To enable logging, set the following registry values to "Trace":
@@ -315,12 +315,12 @@ Deploy a Configuration Baseline that contains a predefined configuration item co
 | **Policy Name** | **Value** |
 | :--- | :--- |
 | Disable Auto Update | AutoUpdateEnabled |
-| Turn Off Give Feedback | feature.giveFeedback |
-| Turn Off Hardware Scan | page.hardwareScan |
-| Turn Off Metrics Collection | TurnOffMetricsCollection |
-| Turn Off My Software | page.mySoftware |
-| Turn Off Run-Once Task | RunOnce |
-| Turn Off Network (previously named Wifi Security) | page.wifiSecurity |
+| [Turn Off Give Feedback](#turn-off-give-feedback) | feature.giveFeedback |
+| [Turn Off Hardware Scan](#turn-off-hardware-scan) | page.hardwareScan |
+| [Turn Off Metrics Collection](#turn-off-metrics-collection) | TurnOffMetricsCollection |
+| [Turn Off My Software](#turn-off-my-software) | page.mySoftware |
+| [Turn Off Run-Once Task](#turn-off-run-once-task) | RunOnce |
+| [Turn Off Network](#turn-off-network) (previously named Wifi Security) | page.wifiSecurity |
 | Write Warranty Info to WMI | wmi.warranty |
 
 #### Configuration Baseline
@@ -369,15 +369,15 @@ For steps on how to create and deploy Commercial Vantage as a Win32 app, referen
 
 | **Category** | **Purpose** |
 | :--- | :--- |
-| [Dashboard](#dashboard) | Control Dashboard visibility and feedback features |
-| [Device](#device) | Manage core device features including System Update, Battery, and Power |
-| [EULA](#eula) | Control EULA and license agreement settings |
-| [Hardware Scan](#hardware-scan) | Manage hardware scan feature visibility |
-| [Metrics](#metrics) | Control data collection and metrics reporting |
-| [Network](#network) | Manage network and WiFi security features |
-| [Preference Settings](#preference-settings) | Control preference settings page visibility |
-| [Smart Care](#smart-care) | Manage Smart Care feature visibility |
-| [Toast Messages](#toast-messages) | Control toast notification display settings |
+| [**Dashboard**](#dashboard) | Control Dashboard visibility and feedback features |
+| [**Device**](#device) | Manage core device features including System Update, Battery, and Power |
+| [**EULA**](#eula) | Control EULA and license agreement settings |
+| [**Hardware Scan**](#hardware-scan) | Manage hardware scan feature visibility |
+| [**Metrics**](#metrics) | Control data collection and metrics reporting |
+| [**Network**](#network) | Manage network and WiFi security features |
+| [**Preference Settings**](#preference-settings) | Control preference settings page visibility |
+| [**Smart Care**](#smart-care) | Manage Smart Care feature visibility |
+| [**Toast Messages**](#toast-messages) | Control toast notification display settings |
 
 ### Dashboard
 
@@ -397,6 +397,7 @@ For steps on how to create and deploy Commercial Vantage as a Win32 app, referen
     <disabled/>
     ```
 
+<a id="turn-off-give-feedback"></a>
 ??? note "Turn off Give Feedback"
     **Description**: When this policy is enabled, the Give Feedback feature of Commercial Vantage will be turned off.
 
@@ -889,6 +890,7 @@ The following top-level policies control entire sections of the Device page.
 
 #### My Software
 
+<a id="turn-off-my-software"></a>
 ??? note "Turn off My Software"
     **Description**: When this policy is enabled, My Software page will be hidden.
 
@@ -945,6 +947,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     <disabled/>
     ```
 
+<a id="turn-off-run-once-task"></a>
 ??? note "Turn off Run-Once Task"
     _Added in version 10.2104 v2_
 
@@ -1337,6 +1340,7 @@ The following policies toggle System Update behavior on or off. For policies wit
 
 ### Hardware Scan
 
+<a id="turn-off-hardware-scan"></a>
 ??? note "Turn Off Hardware Scan"
     _Added in version 10.2201_
 
@@ -1357,6 +1361,7 @@ The following policies toggle System Update behavior on or off. For policies wit
 
 ### Metrics
 
+<a id="turn-off-metrics-collection"></a>
 ??? note "Turn off Metrics Collection"
     **Description**: When enabled, prevents data collection by Commercial Vantage. No metrics information (e.g., EULA acceptance) will be reported to Lenovo.
 
@@ -1375,6 +1380,7 @@ The following policies toggle System Update behavior on or off. For policies wit
 
 ### Network
 
+<a id="turn-off-network"></a>
 ??? note "Turn Off Network"
     **Description**: _(Previously named Wifi Security)_ When enabled, the Network feature of Commercial Vantage will be turned off.
 

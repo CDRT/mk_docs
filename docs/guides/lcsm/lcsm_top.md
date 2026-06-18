@@ -120,63 +120,69 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 ## Cmdlet Categories
 
 **System Information & Device Identification**
-[Get-LnvMachineType](#get-lnvmachinetype) | [Get-LnvModelName](#get-lnvmodelname) | [Get-LnvSerial](#get-lnvserial) | [Get-LnvProductNumber](#get-lnvproductnumber) | [Get-LnvBiosCode](#get-lnvbioscode) | [Find-LnvMachineType](#find-lnvmachinetype) | [Find-LnvModel](#find-lnvmodel)
+
+[`Get-LnvMachineType`](#get-lnvmachinetype) | [`Get-LnvModelName`](#get-lnvmodelname) | [`Get-LnvSerial`](#get-lnvserial) | [`Get-LnvProductNumber`](#get-lnvproductnumber) | [`Get-LnvBiosCode`](#get-lnvbioscode) | [`Find-LnvMachineType`](#find-lnvmachinetype) | [`Find-LnvModel`](#find-lnvmodel)
 
 **BIOS Management**
-[Find-LnvBiosCode](#find-lnvbioscode) | [Find-LnvBiosInfo](#find-lnvbiosinfo) | [Get-LnvBiosCode](#get-lnvbioscode) | [Get-LnvBiosInfo](#get-lnvbiosinfo) | [Get-LnvBiosVersion](#get-lnvbiosversion) | [Get-LnvBiosPasswordsSet](#get-lnvbiospasswordsset) | [Get-LnvBiosUpdateUrl](#get-lnvbiosupdateurl) | [Get-LnvAvailableBiosVersion](#get-lnvavailablebiosversion) | [Get-LnvCVE](#get-lnvcve)
+
+[`Find-LnvBiosCode`](#find-lnvbioscode) | [`Find-LnvBiosInfo`](#find-lnvbiosinfo) | [`Get-LnvBiosCode`](#get-lnvbioscode) | [`Get-LnvBiosInfo`](#get-lnvbiosinfo) | [`Get-LnvBiosVersion`](#get-lnvbiosversion) | [`Get-LnvBiosPasswordsSet`](#get-lnvbiospasswordsset) | [`Get-LnvBiosUpdateUrl`](#get-lnvbiosupdateurl) | [`Get-LnvAvailableBiosVersion`](#get-lnvavailablebiosversion) | [`Get-LnvCVE`](#get-lnvcve)
 
 **Updates & Drivers**
-[Find-LnvUpdate](#find-lnvupdate) | [Find-LnvDriverPack](#find-lnvdriverpack) | [Get-LnvDriverPack](#get-lnvdriverpack) | [Get-LnvUpdatesNotification](#get-lnvupdatesnotification) | [Get-LnvMTOSList](#get-lnvmtoslist) | [Add-LnvMTOS](#add-lnvmtos) | [Remove-LnvMTOS](#remove-lnvmtos)
+
+[`Find-LnvUpdate`](#find-lnvupdate) | [`Find-LnvDriverPack`](#find-lnvdriverpack) | [`Get-LnvDriverPack`](#get-lnvdriverpack) | [`Get-LnvUpdatesNotification`](#get-lnvupdatesnotification) | [`Get-LnvMTOSList`](#get-lnvmtoslist) | [`Add-LnvMTOS`](#add-lnvmtos) | [`Remove-LnvMTOS`](#remove-lnvmtos)
 
 **Hardware & Peripherals**
-[Get-LnvBatteryInfo](#get-lnvbatteryinfo) | [Find-LnvDockModel](#find-lnvdockmodel) | [Find-LnvHSAPack](#find-lnvhsapack) | [Get-LnvWUFriendlyName](#get-lnvwufriendlyname)
+
+[`Get-LnvBatteryInfo`](#get-lnvbatteryinfo) | [`Find-LnvDockModel`](#find-lnvdockmodel) | [`Find-LnvHSAPack`](#find-lnvhsapack) | [`Get-LnvWUFriendlyName`](#get-lnvwufriendlyname)
 
 **Utilities & System Updates**
-[Find-LnvTool](#find-lnvtool) | [Add-LnvSUCommandLine](#add-lnvsucmdline) | [Add-LnvSULogging](#add-lnvsulogging) | [Export-LnvUpdateRetrieverConfig](#export-lnvupdateretrieverconfig) | [Show-LnvApplicableUpdate](#show-lnvapplicableupdate)
+
+[`Find-LnvTool`](#find-lnvtool) | [`Add-LnvSUCommandLine`](#add-lnvsucmdline) | [`Add-LnvSULogging`](#add-lnvsulogging) | [`Export-LnvUpdateRetrieverConfig`](#export-lnvupdateretrieverconfig) | [`Show-LnvApplicableUpdate`](#show-lnvapplicableupdate)
 
 **Warranty**
-[Get-LnvWarranty](#get-lnvwarranty)
+
+[`Get-LnvWarranty`](#get-lnvwarranty)
 
 ## Quick Reference Table
 
 | Cmdlet | Category | Purpose | Version |
 | --- | ---- | --- | --- |
-| [Add-LnvMTOS](#add-lnvmtos) | Updates | Add Machine Type + OS to tracking database | 2.3.0 |
-| [Add-LnvSUCommandLine](#add-lnvsucmdline) | Utilities | Configure System Update admin command line | 1.0.0 |
-| [Add-LnvSULogging](#add-lnvsulogging) | Utilities | Enable/disable System Update logging | 1.0.0 |
-| [Export-LnvUpdateRetrieverConfig](#export-lnvupdateretrieverconfig) | Utilities | Export Update Retriever settings as .reg file | 1.0.0 |
-| [Find-LnvBiosCode](#find-lnvbioscode) | BIOS | Find BIOS code by model name or machine type | 1.0.0 |
-| [Find-LnvBiosInfo](#find-lnvbiosinfo) | BIOS | Search BIOS information by model or code | 1.0.0 |
-| [Find-LnvDockModel](#find-lnvdockmodel) | Hardware | Get dock model name by machine type | 1.0.0 |
-| [Find-LnvDriverPack](#find-lnvdriverpack) | Updates | List available driver packs for a model | 1.0.0 |
-| [Find-LnvHSAPack](#find-lnvhsapack) | Hardware | List available HSA packs for a model | 2.2.0 |
-| [Find-LnvMachineType](#find-lnvmachinetype) | Device | Search machine types by model name | 1.0.0 |
-| [Find-LnvModel](#find-lnvmodel) | Device | Get model name from machine type | 1.0.0 |
-| [Find-LnvTool](#find-lnvtool) | Utilities | Get Lenovo tool versions and URLs | 2.1.0 |
-| [Find-LnvUpdate](#find-lnvupdate) | Updates | Search System Update catalog for updates | 1.0.0 |
-| [Get-LnvAvailableBiosVersion](#get-lnvavailablebiosversion) | BIOS | Get available BIOS update for a model | 1.0.0 |
-| [Get-LnvBatteryInfo](#get-lnvbatteryinfo) | Hardware | Get battery information for system | 1.0.0 |
-| [Get-LnvBiosCode](#get-lnvbioscode) | BIOS | Get BIOS code from running device | 1.0.0 |
-| [Get-LnvBiosInfo](#get-lnvbiosinfo) | BIOS | Get BIOS info from running device | 2.0.0 |
-| [Get-LnvBiosPasswordsSet](#get-lnvbiospasswordsset) | BIOS | Get BIOS password state | 1.0.0 |
-| [Get-LnvBiosUpdateUrl](#get-lnvbiosupdateurl) | BIOS | Get BIOS update URL for a model | 1.0.0 |
-| [Get-LnvBiosVersion](#get-lnvbiosversion) | BIOS | Get BIOS version in various formats | 1.0.0 |
-| [Get-LnvCVE](#get-lnvcve) | BIOS | Get CVE identifiers addressed in BIOS update | 1.0.0 |
-| [Get-LnvDriverPack](#get-lnvdriverpack) | Updates | Download driver pack for specified model | 1.0.0 |
-| [Get-LnvMachineType](#get-lnvmachinetype) | Device | Get machine type of running system | 1.0.0 |
-| [Get-LnvModelName](#get-lnvmodelname) | Device | Get model name of running system | 1.0.0 |
-| [Get-LnvMTOSList](#get-lnvmtoslist) | Updates | Get list of tracked Machine Type + OS pairs | 2.3.0 |
-| [Get-LnvProductNumber](#get-lnvproductnumber) | Device | Get 10-character product number | 1.0.0 |
-| [Get-LnvSerial](#get-lnvserial) | Device | Get serial number of running system | 1.0.0 |
-| Get-LnvUpdate | Updates | **Removed in 2.4.2 - Use Lenovo.Client.Update module instead.** | - |
-| [Get-LnvUpdatesNotification](#get-lnvupdatesnotification) | Updates | Show new updates in tracked catalogs | 2.3.0 |
-| Get-LnvUpdatesRepo | Updates | **Removed in 2.4.2 - Use Lenovo.Client.Update module instead.** | - |
-| [Get-LnvWarranty](#get-lnvwarranty) | Warranty | Get warranty information from WMI | 2.0.0 |
-| [Get-LnvWUFriendlyName](#get-lnvwufriendlyname) | Hardware | Get Windows Update driver names and versions | 2.3.0 |
-| [Invoke-LnvCVLogViewer](#invoke-lnvcvlogviewer) | Utilities | Parse and analyze Commercial Vantage System Update Addin log files with color-coded summaries | 2.4.0 |
-| [Invoke-LnvTILogViewer](#invoke-lnvtilogviewer) | Utilities | Parse Lenovo ThinInstaller log files and produce concise summaries | 2.4.0 |
-| [Remove-LnvMTOS](#remove-lnvmtos) | Updates | Remove Machine Type + OS from tracking database | 2.3.0 |
-| [Show-LnvApplicableUpdate](#show-lnvapplicableupdate) | Utilities | Get applicable updates from trace log | 1.0.0 |
+| [`Add-LnvMTOS`](#add-lnvmtos) | Updates | Add Machine Type + OS to tracking database | 2.3.0 |
+| [`Add-LnvSUCommandLine`](#add-lnvsucmdline) | Utilities | Configure System Update admin command line | 1.0.0 |
+| [`Add-LnvSULogging`](#add-lnvsulogging) | Utilities | Enable/disable System Update logging | 1.0.0 |
+| [`Export-LnvUpdateRetrieverConfig`](#export-lnvupdateretrieverconfig) | Utilities | Export Update Retriever settings as .reg file | 1.0.0 |
+| [`Find-LnvBiosCode`](#find-lnvbioscode) | BIOS | Find BIOS code by model name or machine type | 1.0.0 |
+| [`Find-LnvBiosInfo`](#find-lnvbiosinfo) | BIOS | Search BIOS information by model or code | 1.0.0 |
+| [`Find-LnvDockModel`](#find-lnvdockmodel) | Hardware | Get dock model name by machine type | 1.0.0 |
+| [`Find-LnvDriverPack`](#find-lnvdriverpack) | Updates | List available driver packs for a model | 1.0.0 |
+| [`Find-LnvHSAPack`](#find-lnvhsapack) | Hardware | List available HSA packs for a model | 2.2.0 |
+| [`Find-LnvMachineType`](#find-lnvmachinetype) | Device | Search machine types by model name | 1.0.0 |
+| [`Find-LnvModel`](#find-lnvmodel) | Device | Get model name from machine type | 1.0.0 |
+| [`Find-LnvTool`](#find-lnvtool) | Utilities | Get Lenovo tool versions and URLs | 2.1.0 |
+| [`Find-LnvUpdate`](#find-lnvupdate) | Updates | Search System Update catalog for updates | 1.0.0 |
+| [`Get-LnvAvailableBiosVersion`](#get-lnvavailablebiosversion) | BIOS | Get available BIOS update for a model | 1.0.0 |
+| [`Get-LnvBatteryInfo`](#get-lnvbatteryinfo) | Hardware | Get battery information for system | 1.0.0 |
+| [`Get-LnvBiosCode`](#get-lnvbioscode) | BIOS | Get BIOS code from running device | 1.0.0 |
+| [`Get-LnvBiosInfo`](#get-lnvbiosinfo) | BIOS | Get BIOS info from running device | 2.0.0 |
+| [`Get-LnvBiosPasswordsSet`](#get-lnvbiospasswordsset) | BIOS | Get BIOS password state | 1.0.0 |
+| [`Get-LnvBiosUpdateUrl`](#get-lnvbiosupdateurl) | BIOS | Get BIOS update URL for a model | 1.0.0 |
+| [`Get-LnvBiosVersion`](#get-lnvbiosversion) | BIOS | Get BIOS version in various formats | 1.0.0 |
+| [`Get-LnvCVE`](#get-lnvcve) | BIOS | Get CVE identifiers addressed in BIOS update | 1.0.0 |
+| [`Get-LnvDriverPack`](#get-lnvdriverpack) | Updates | Download driver pack for specified model | 1.0.0 |
+| [`Get-LnvMachineType`](#get-lnvmachinetype) | Device | Get machine type of running system | 1.0.0 |
+| [`Get-LnvModelName`](#get-lnvmodelname) | Device | Get model name of running system | 1.0.0 |
+| [`Get-LnvMTOSList`](#get-lnvmtoslist) | Updates | Get list of tracked Machine Type + OS pairs | 2.3.0 |
+| [`Get-LnvProductNumber`](#get-lnvproductnumber) | Device | Get 10-character product number | 1.0.0 |
+| [`Get-LnvSerial`](#get-lnvserial) | Device | Get serial number of running system | 1.0.0 |
+| [`Get-LnvUpdate`](#get-lnvupdate) | Updates | **Removed in 2.4.2 - Use Lenovo.Client.Update module instead.** | - |
+| [`Get-LnvUpdatesNotification`](#get-lnvupdatesnotification) | Updates | Show new updates in tracked catalogs | 2.3.0 |
+| [`Get-LnvUpdatesRepo`](#get-lnvupdatesrepo) | Updates | **Removed in 2.4.2 - Use Lenovo.Client.Update module instead.** | - |
+| [`Get-LnvWarranty`](#get-lnvwarranty) | Warranty | Get warranty information from WMI | 2.0.0 |
+| [`Get-LnvWUFriendlyName`](#get-lnvwufriendlyname) | Hardware | Get Windows Update driver names and versions | 2.3.0 |
+| [`Invoke-LnvCVLogViewer`](#invoke-lnvcvlogviewer) | Utilities | Parse and analyze Commercial Vantage System Update Addin log files with color-coded summaries | 2.4.0 |
+| [`Invoke-LnvTILogViewer`](#invoke-lnvtilogviewer) | Utilities | Parse Lenovo ThinInstaller log files and produce concise summaries | 2.4.0 |
+| [`Remove-LnvMTOS`](#remove-lnvmtos) | Updates | Remove Machine Type + OS from tracking database | 2.3.0 |
+| [`Show-LnvApplicableUpdate`](#show-lnvapplicableupdate) | Utilities | Get applicable updates from trace log | 1.0.0 |
 
 ## Installation & Setup
 

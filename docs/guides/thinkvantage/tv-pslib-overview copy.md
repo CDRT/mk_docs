@@ -52,7 +52,6 @@ Install-Module 'Lenovo.Bios.Certificates'
 - Identify CVE's addressed by BIOS updates
 - Generate Windows Update friendly names for drivers
 
-
 ## Popular Use Cases
 
 - **Update Management**: Find and download driver packs for deployment
@@ -79,7 +78,7 @@ Get-LnvAvailableBiosVersion
 `Lenovo.Client.Update` is the official Lenovo fork of the popular LSUClient project on Github. It provides 12 cmdlets for discovering, downloading, and installing driver, BIOS/UEFI, and firmware updates on Lenovo commercial PCs.
 
 | Cmdlet | Purpose |
-|--------|---------|
+| --- | --- |
 | `Get-LnvUpdate` | Query applicable updates for this device or a target model |
 | `Save-LnvUpdate` | Download update packages to a local directory |
 | `Install-LnvUpdate` | Install packages silently with optional signature enforcement |
@@ -117,7 +116,7 @@ Existing LSUClient scripts require only cmdlet renames (`Get-LSUpdate` → `Get-
 **Core cmdlets:**
 
 | Cmdlet | Purpose |
-|--------|---------|
+| --- | --- |
 | `Export-LnvWmiSettings` | Export current BIOS settings to an INI file |
 | `Import-LnvWmiSettings` | Apply a saved INI profile to the current device |
 
@@ -182,7 +181,7 @@ Install-Script 'LnvBiosCertInterface'
 ## Resources
 
 | | |
-|---|---|
+| --- | --- |
 | **PowerShell Gallery** | Search "lenovocdrt" at [www.powershellgallery.com](https://www.powershellgallery.com) |
 | **Documentation** | [docs.lenovocdrt.com](https://docs.lenovocdrt.com) |
 | **Blog** | [blog.lenovocdrt.com](https://blog.lenovocdrt.com) |

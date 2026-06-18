@@ -60,7 +60,7 @@ Use this table to quickly find the policy you need by category. Click any policy
 
 | Policy Name | Category | Type | Purpose |
 | --- | --- | --- | --- |
-| **Command** | System | Action | Send commands to Dock Manager (e.g., check for updates) |
+| [**Command**](#command) | System | Action | Send commands to Dock Manager (e.g., check for updates) |
 | [**Ask Before Firmware Update**](#ask-before-firmware-update) | General | Boolean | Prompt user before firmware installation |
 | [**Auto Update**](#auto-update) | General | Boolean | Enable automatic Dock Manager software updates |
 | [**Enable Notifications**](#enable-notifications) | General | Boolean | Show notifications during firmware operations |
@@ -87,234 +87,210 @@ Use this table to quickly find the policy you need by category. Click any policy
 
 Control how and when firmware updates occur.
 
-#### Ask Before Firmware Update
+<a id="ask-before-firmware-update"></a>
+??? note "The OMA-URI for Ask Before Firmware Update"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/AskBeforeFirmwareUpdate`
 
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/AskBeforeFirmwareUpdate`
+    **Purpose:** Prompt user before installing firmware updates on connected docks.
 
-**Purpose:** Prompt user before installing firmware updates on connected docks.
+    **Values:**
+    ```xml
+    <enabled/>    <!-- Show prompt, user can decline -->
+    <!-- or -->
+    <disabled/>   <!-- Install firmware silently without prompting -->
+    ```
+<a id="auto-update"></a>
+??? note "The OMA-URI for Auto Update"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/AutoUpdate`
 
-**Values:**
-```xml
-<enabled/>    <!-- Show prompt, user can decline -->
-<!-- or -->
-<disabled/>   <!-- Install firmware silently without prompting -->
-```
+    **Purpose:** Enable automatic check for Dock Manager software updates.
 
----
+    **Values:**
+    ```xml
+    <enabled/>    <!-- Auto-check and install Dock Manager updates -->
+    <!-- or -->
+    <disabled/>   <!-- Manual update only -->
+    ```
 
-#### Auto Update
+<a id="update-firmware-on-first-connection"></a>
+??? note "The OMA-URI for Update Firmware on First Connection"
 
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/AutoUpdate`
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/UpdateFWOnFirstConnection`
 
-**Purpose:** Enable automatic check for Dock Manager software updates.
+    **Purpose:** Automatically update dock firmware when a dock is connected for the first time after Dock Manager installation.
 
-**Values:**
-```xml
-<enabled/>    <!-- Auto-check and install Dock Manager updates -->
-<!-- or -->
-<disabled/>   <!-- Manual update only -->
-```
+    **Values:**
+    ```xml
+    <enabled/>    <!-- Auto-update on first connection -->
+    <!-- or -->
+    <disabled/>   <!-- Manual update only -->
+    ```
 
----
+<a id="update-firmware-without-disconnect"></a>
+??? note "The OMA-URI for Update Firmware Without Disconnect"
 
-#### Update Firmware on First Connection
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/UpdateFWWithoutDisconnect`
 
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/UpdateFWOnFirstConnection`
+    **Purpose:** Allow specified dock models to update firmware without disconnecting from the computer (if supported by dock firmware version).
 
-**Purpose:** Automatically update dock firmware when a dock is connected for the first time after Dock Manager installation.
+    !!! warning ""
+        Only enable this after upgrading docks to a supported firmware version that handles live updates.
 
-**Values:**
-```xml
-<enabled/>    <!-- Auto-update on first connection -->
-<!-- or -->
-<disabled/>   <!-- Manual update only -->
-```
+    **Example – Enable for Thunderbolt 3 Dock Gen 2:**
+    ```xml
+    <enabled/>
+    <data id="UpdateFWWithoutDisconnect_Prompt" value="40AN"/>
+    ```
 
----
+    **Example – Multiple dock types:**
+    ```xml
+    <enabled/>
+    <data id="UpdateFWWithoutDisconnect_Prompt" value="40AN,40B0,40B7"/>
+    ```
 
-#### Update Firmware Without Disconnect
+<a id="firmware-white-list"></a>
+??? note "The OMA-URI for Firmware White List"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/FWWhiteList`
 
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/UpdateFWWithoutDisconnect`
+    **Purpose:** Restrict firmware updates to approved versions only. Devices can only upgrade to whitelisted versions.
 
-**Purpose:** Allow specified dock models to update firmware without disconnecting from the computer (if supported by dock firmware version).
+    **Format:** `DOCK_TYPE:VERSION1,VERSION2;OTHER_TYPE:VERSION3`
 
-!!! warning ""
-    Only enable this after upgrading docks to a supported firmware version that handles live updates.
+    **Example:**
+    ```xml
+    <enabled/>
+    <data id="FWWhitelist_Prompt" value="40AY:3.0.85,3.0.92;40B0:4.2.15;40AN:2.8.10"/>
+    ```
 
-**Example – Enable for Thunderbolt 3 Dock Gen 2:**
-```xml
-<enabled/>
-<data id="UpdateFWWithoutDisconnect_Prompt" value="40AN"/>
-```
-
-**Example – Multiple dock types:**
-```xml
-<enabled/>
-<data id="UpdateFWWithoutDisconnect_Prompt" value="40AN,40B0,40B7"/>
-```
-
----
-
-#### Firmware White List
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/FWWhiteList`
-
-**Purpose:** Restrict firmware updates to approved versions only. Devices can only upgrade to whitelisted versions.
-
-**Format:** `DOCK_TYPE:VERSION1,VERSION2;OTHER_TYPE:VERSION3`
-
-**Example:**
-```xml
-<enabled/>
-<data id="FWWhitelist_Prompt" value="40AY:3.0.85,3.0.92;40B0:4.2.15;40AN:2.8.10"/>
-```
-
-!!! note ""
-    Dock types are 4-character codes found on the dock label or in the [Supported Docks](index.md#supported-docks) list.
-
----
+    !!! note ""
+        Dock types are 4-character codes found on the dock label or in the [Supported Docks](index.md#supported-docks) list.
 
 ### Network & Repository Configuration
 
 Manage firmware download sources and proxy settings.
 
-#### Repository Location
+<a id="repository-location"></a>
+??? note "The OMA-URI for Repository Location"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/RepositoryLocation`
 
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/RepositoryLocation`
+    **Purpose:** Specify where Dock Manager should download firmware (internet or local repository).
 
-**Purpose:** Specify where Dock Manager should download firmware (internet or local repository).
+    **Example – Network share:**
+    ```xml
+    <enabled/>
+    <data id="RepositoryLocation_Prompt" value="\\internal-share\dock-firmware"/>
+    ```
 
-**Example – Network share:**
-```xml
-<enabled/>
-<data id="RepositoryLocation_Prompt" value="\\internal-share\dock-firmware"/>
-```
+    **Example – Local path:**
+    ```xml
+    <enabled/>
+    <data id="RepositoryLocation_Prompt" value="C:\dock-firmware"/>
+    ```
 
-**Example – Local path:**
-```xml
-<enabled/>
-<data id="RepositoryLocation_Prompt" value="C:\dock-firmware"/>
-```
+<a id="proxy-server"></a>
+??? note "The OMA-URI for Proxy Server"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/ProxyServer`
 
----
+    **Purpose:** Configure a proxy server address for downloading firmware over a corporate proxy.
 
-#### Proxy Server
+    **Example:**
+    ```xml
+    <enabled/>
+    <data id="ProxyServer_Prompt" value="http://proxy.company.com"/>
+    ```
 
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/ProxyServer`
+<a id="port"></a>
+??? note "The OMA-URI for Port"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/Port`
 
-**Purpose:** Configure a proxy server address for downloading firmware over a corporate proxy.
+    **Purpose:** Configure the proxy server port for firmware downloads.
 
-**Example:**
-```xml
-<enabled/>
-<data id="ProxyServer_Prompt" value="http://proxy.company.com"/>
-```
-
----
-
-#### Port
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/Port`
-
-**Purpose:** Configure the proxy server port for firmware downloads.
-
-**Example – Use port 3128:**
-```xml
-<enabled/>
-<data id="Port_Prompt" value="3128"/>
-```
-
----
+    **Example – Use port 3128:**
+    ```xml
+    <enabled/>
+    <data id="Port_Prompt" value="3128"/>
+    ```
 
 ### User Experience & Display
 
 Control how Dock Manager appears and interacts with users.
 
-#### Enable Notifications
+<a id="enable-notifications"></a>
+??? note "The OMA-URI for Enable Notifications"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/EnableNotifications`
 
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/EnableNotifications`
+    **Purpose:** Show user notifications during firmware download and update operations.
 
-**Purpose:** Show user notifications during firmware download and update operations.
+    **Values:**
+    ```xml
+    <enabled/>    <!-- Display notifications -->
+    <!-- or -->
+    <disabled/>   <!-- Silent operation, no notifications -->
+    ```
 
-**Values:**
-```xml
-<enabled/>    <!-- Display notifications -->
-<!-- or -->
-<disabled/>   <!-- Silent operation, no notifications -->
-```
+<a id="hide-update-software-button"></a>
+??? note "The OMA-URI for Hide Update Software Button"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/HideUpdateSoftwareButton`
 
----
+    **Purpose:** Remove the update button from the Dock Manager UI.
 
-#### Hide Update Software Button
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/HideUpdateSoftwareButton`
-
-**Purpose:** Remove the update button from the Dock Manager UI.
-
-**Values:**
-```xml
-<enabled/>    <!-- Hide button -->
-<!-- or -->
-<disabled/>   <!-- Show button -->
-```
-
----
+    **Values:**
+    ```xml
+    <enabled/>    <!-- Hide button -->
+    <!-- or -->
+    <disabled/>   <!-- Show button -->
+    ```
 
 ### Logging & Maintenance
 
 Manage Dock Manager log file behavior.
 
-#### Log File Age to Cleanup
+<a id="log-file-age-to-cleanup"></a>
+??? note "The OMA-URI for Log File Age to Cleanup"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/LogfileAgeToCleanup`
 
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/LogfileAgeToCleanup`
+    **Purpose:** Automatically delete log files older than the specified number of days.
 
-**Purpose:** Automatically delete log files older than the specified number of days.
+    **Example – Delete logs older than 30 days:**
+    ```xml
+    <enabled/>
+    <data id="LogfileAgeToCleanup_Prompt" value="30"/>
+    ```
 
-**Example – Delete logs older than 30 days:**
-```xml
-<enabled/>
-<data id="LogfileAgeToCleanup_Prompt" value="30"/>
-```
+<a id="log-file-max-size"></a>
+??? note "The OMA-URI for Log File Max Size"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/LogfileMaxSize`
 
----
+    **Purpose:** Rotate log files when they exceed the specified size in KB.
 
-#### Log File Max Size
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/LogfileMaxSize`
-
-**Purpose:** Rotate log files when they exceed the specified size in KB.
-
-**Example – Rotate when logs reach 1024 KB (1 MB):**
-```xml
-<enabled/>
-<data id="LogfileMaxSize_Prompt" value="1024"/>
-```
-
----
+    **Example – Rotate when logs reach 1024 KB (1 MB):**
+    ```xml
+    <enabled/>
+    <data id="LogfileMaxSize_Prompt" value="1024"/>
+    ```
 
 ### Hardware Features
 
 Enable or disable hardware-specific features.
 
-#### MAC Address Clone Enabled
+<a id="mac-address-clone-enabled"></a>
+??? note "The OMA-URI for MAC Address Clone Enabled"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/MacAddressCloneEnabled`
 
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/MacAddressCloneEnabled`
+    **Purpose:** Enable or disable MAC address cloning functionality on supported docks.
 
-**Purpose:** Enable or disable MAC address cloning functionality on supported docks.
-
-**Values:**
-```xml
-<enabled/>    <!-- Enable MAC cloning -->
-<!-- or -->
-<disabled/>   <!-- Disable MAC cloning -->
-```
-
----
+    **Values:**
+    ```xml
+    <enabled/>    <!-- Enable MAC cloning -->
+    <!-- or -->
+    <disabled/>   <!-- Disable MAC cloning -->
+    ```
 
 ### Scheduling Configuration
 
 Define when Dock Manager checks for and installs firmware updates.
 
+<a id="scheduling-configuration"></a>
 !!! note ""
     Configure these policies together to define a complete schedule. They are interdependent based on the **Frequency** setting:
 
@@ -322,124 +298,110 @@ Define when Dock Manager checks for and installs firmware updates.
     - **WEEKLY** – Uses **Run At** + **Run On** (days of week)
     - **MONTHLY** – Uses **Run At** + **Run Month** + **Run Days**, OR **Run At** + **Run Monthly On** + **Run On**
 
-#### Frequency
+<a id="frequency"></a>
+??? note "The OMA-URI for Frequency"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/Frequency`
 
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/Frequency`
+    **Purpose:** Set how often the firmware check runs: Daily, Weekly, or Monthly.
 
-**Purpose:** Set how often the firmware check runs: Daily, Weekly, or Monthly.
+    **Values:**
+    ```xml
+    <enabled/>
+    <data id="Frequency_Dropdown" value="WEEKLY"/>
+    <!-- Options: DAILY, WEEKLY, MONTHLY -->
+    ```
 
-**Values:**
-```xml
-<enabled/>
-<data id="Frequency_Dropdown" value="WEEKLY"/>
-<!-- Options: DAILY, WEEKLY, MONTHLY -->
-```
+<a id="run-at"></a>
+??? note "The OMA-URI for Run At"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunAt`
 
----
+    **Purpose:** Set the time of day (24-hour format) when the scheduled task runs.
 
-#### Run At
+    **Example – 2:00 AM:**
+    ```xml
+    <enabled/>
+    <data id="RunAt_Prompt" value="02:00:00"/>
+    ```
 
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunAt`
+<a id="run-on"></a>
+??? note "The OMA-URI for Run On"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunOn`
 
-**Purpose:** Set the time of day (24-hour format) when the scheduled task runs.
+    **Purpose:** Specify days of the week for the task (used with WEEKLY or MONTHLY frequency).
 
-**Example – 2:00 AM:**
-```xml
-<enabled/>
-<data id="RunAt_Prompt" value="02:00:00"/>
-```
+    **Example – Sunday and Friday:**
+    ```xml
+    <enabled/>
+    <data id="RunOn_Prompt" value="Sunday,Friday"/>
+    ```
 
----
+<a id="run-days"></a>
+??? note "The OMA-URI for Run Days"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunDays`
 
-#### Run On
+    **Purpose:** Specify days of the month (1–31) when the task runs (MONTHLY frequency only).
 
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunOn`
+    **Example – 1st and 15th of each month:**
+    ```xml
+    <enabled/>
+    <data id="RunDays_Prompt" value="1,15"/>
+    ```
 
-**Purpose:** Specify days of the week for the task (used with WEEKLY or MONTHLY frequency).
+<a id="run-month"></a>
+??? note "The OMA-URI for Run Month"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunMonth`
 
-**Example – Sunday and Friday:**
-```xml
-<enabled/>
-<data id="RunOn_Prompt" value="Sunday,Friday"/>
-```
+    **Purpose:** Specify which months the task runs (MONTHLY frequency only).
 
----
+    **Example – Every other month (Jan, Mar, May, Jul, Sep, Nov):**
+    ```xml
+    <enabled/>
+    <data id="RunMonth_Prompt" value="January,March,May,July,September,November"/>
+    ```
 
-#### Run Days
+<a id="run-monthly-on"></a>
+??? note "The OMA-URI for Run Monthly On"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunMonthlyOn`
 
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunDays`
+    **Purpose:** Specify week pattern for monthly tasks (e.g., "First Monday", "Last Friday"). Used with **Run On**.
 
-**Purpose:** Specify days of the month (1–31) when the task runs (MONTHLY frequency only).
+    **Example – First and Last day of the month:**
+    ```xml
+    <enabled/>
+    <data id="RunMonthlyOn_Prompt" value="First,Last"/>
+    ```
 
-**Example – 1st and 15th of each month:**
-```xml
-<enabled/>
-<data id="RunDays_Prompt" value="1,15"/>
-```
-
----
-
-#### Run Month
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunMonth`
-
-**Purpose:** Specify which months the task runs (MONTHLY frequency only).
-
-**Example – Every other month (Jan, Mar, May, Jul, Sep, Nov):**
-```xml
-<enabled/>
-<data id="RunMonth_Prompt" value="January,March,May,July,September,November"/>
-```
-
----
-
-#### Run Monthly On
-
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunMonthlyOn`
-
-**Purpose:** Specify week pattern for monthly tasks (e.g., "First Monday", "Last Friday"). Used with **Run On**.
-
-**Example – First and Last day of the month:**
-```xml
-<enabled/>
-<data id="RunMonthlyOn_Prompt" value="First,Last"/>
-```
-
-**Example – First and second Tuesday (used with `RunOn: Tuesday`):**
-```xml
-<enabled/>
-<data id="RunMonthlyOn_Prompt" value="First,Second"/>
-```
-
----
+    **Example – First and second Tuesday (used with `RunOn: Tuesday`):**
+    ```xml
+    <enabled/>
+    <data id="RunMonthlyOn_Prompt" value="First,Second"/>
+    ```
 
 ### System Commands
 
 Send direct commands to Dock Manager for remote management.
 
-#### Command Policy
+<a id="command"></a>
+??? note "The OMA-URI for Command Policy"
+    **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Command/CommandString`
 
-**OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Command/CommandString`
+    **Purpose:** Send commands to Dock Manager for remote management. Currently supports:
 
-**Purpose:** Send commands to Dock Manager for remote management. Currently supports:
+    - **1** – Check for Dock Manager software updates and install if available
 
-- **1** – Check for Dock Manager software updates and install if available
+    To resend the same command, update the timestamp in `SendTime_Prompt`.
 
-To resend the same command, update the timestamp in `SendTime_Prompt`.
+    **Example – Check for updates:**
+    ```xml
+    <enabled/>
+    <data id="CommandString_Prompt" value="1"/>
+    <data id="SendTime_Prompt" value="2024-06-01 03:12:05Z"/>
+    ```
 
-**Example – Check for updates:**
-```xml
-<enabled/>
-<data id="CommandString_Prompt" value="1"/>
-<data id="SendTime_Prompt" value="2024-06-01 03:12:05Z"/>
-```
-
-**To disable:**
-```xml
-<disabled/>
-```
-
----
+    **To disable:**
+    ```xml
+    <disabled/>
+    ```
 
 ## Format Reference
 

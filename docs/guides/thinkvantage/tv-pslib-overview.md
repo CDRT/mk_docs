@@ -111,9 +111,21 @@ The Lenovo Commercial Vantage Policy Manager is a PowerShell script that provide
 
 ## Resources
 
-| | |
-| --- | --- |
-| **PowerShell Gallery** | Search `lenovocdrt` at [powershellgallery.com](https://www.powershellgallery.com) |
-| **Documentation** | [docs.lenovocdrt.com](https://docs.lenovocdrt.com) |
-| **Blog** | [blog.lenovocdrt.com](https://blog.lenovocdrt.com) |
-| **Community** | [Lenovo Enterprise Client Management Board](https://forums.lenovo.com/t5/Enterprise-Management-Board/bd-p/sa01_eg) |
+<table>
+<tr>
+<td><strong>PowerShell Gallery</strong></td>
+<td>Search "lenovocdrt" at <a href="https://www.powershellgallery.com">www.powershellgallery.com</a></td>
+</tr>
+<tr>
+<td><strong>Documentation</strong></td>
+<td><a href="https://docs.lenovocdrt.com">docs.lenovocdrt.com</a></td>
+</tr>
+<tr>
+<td><strong>Blog</strong></td>
+<td><a href="https://blog.lenovocdrt.com">blog.lenovocdrt.com</a></td>
+</tr>
+<tr>
+<td><strong>Community forum</strong></td>
+<td><a href="https://forums.lenovo.com/t5/Enterprise-Management-Board/bd-p/sa01_eg">forums.lenovo.com — Enterprise Client Management Board</a></td>
+</tr>
+</table>

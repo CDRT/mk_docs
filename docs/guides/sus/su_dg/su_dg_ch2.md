@@ -30,8 +30,6 @@ HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\LanguageOverride
 
 The following table presents the languages and the corresponding language override codes for System Update.
 
-<center>
-
 | **Language** | **Identifier** | **Language Override Code** |
 | --- | --- | --- |
 | Danish | 1030 | DA |
@@ -51,7 +49,6 @@ The following table presents the languages and the corresponding language overri
 | Traditional Chinese | 1028 | CHT |
 
 _Table 2-1. System Update language codes_
-</center>
 
 The following are scenarios in which System Update will load the substitute NLS language pack:
 

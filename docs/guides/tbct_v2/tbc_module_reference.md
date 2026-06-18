@@ -4,12 +4,28 @@ title: Lenovo BIOS Config Module Reference
 
 # Lenovo BIOS Config Module - Cmdlet Reference
 
-!!! info ""
-    - **Module:** Lenovo.BIOS.Config
-    - **Version:** 1.0.2
-    - **Author:** Devin McDermott
-    - **Company:** Lenovo
-    - **Copyright:** (c) 2025 All rights reserved.
+<table>
+<tr>
+<td><strong>Module</strong></td>
+<td>Lenovo.Bios.Certificates</td>
+</tr>
+<tr>
+<td><strong>Version</strong></td>
+<td>1.0.8</td>
+</tr>
+<tr>
+<td><strong>Author</strong></td>
+<td>Devin McDermott</td>
+</tr>
+<tr>
+<td><strong>Company</strong></td>
+<td>Lenovo</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>PowerShell module providing secure access to Lenovo Certificate WMI classes for BIOS certificate management</td>
+</tr>
+</table>
 
 ---
 
