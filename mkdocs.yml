@@ -241,6 +241,7 @@ plugins:
   - redirects:
       redirect_maps:
         'guides/tbct/tbct_top.md': 'guides/tbct_v2/tbct_v2_top.md'
+        'guides/cv/index.md' : 'guides/lcv/index.md'
 
 markdown_extensions:
   - admonition
