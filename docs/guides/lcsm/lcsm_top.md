@@ -174,9 +174,9 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 | [`Get-LnvMTOSList`](#get-lnvmtoslist) | Updates | Get list of tracked Machine Type + OS pairs | 2.3.0 |
 | [`Get-LnvProductNumber`](#get-lnvproductnumber) | Device | Get 10-character product number | 1.0.0 |
 | [`Get-LnvSerial`](#get-lnvserial) | Device | Get serial number of running system | 1.0.0 |
-| [`Get-LnvUpdate`](#get-lnvupdate) | Updates | **Removed in 2.4.2 - Use Lenovo.Client.Update module instead.** | - |
+| `Get-LnvUpdate` | Updates | **Removed in 2.4.2 - Use Lenovo.Client.Update module instead.** | - |
 | [`Get-LnvUpdatesNotification`](#get-lnvupdatesnotification) | Updates | Show new updates in tracked catalogs | 2.3.0 |
-| [`Get-LnvUpdatesRepo`](#get-lnvupdatesrepo) | Updates | **Removed in 2.4.2 - Use Lenovo.Client.Update module instead.** | - |
+| `Get-LnvUpdatesRepo` | Updates | **Removed in 2.4.2 - Use Lenovo.Client.Update module instead.** | - |
 | [`Get-LnvWarranty`](#get-lnvwarranty) | Warranty | Get warranty information from WMI | 2.0.0 |
 | [`Get-LnvWUFriendlyName`](#get-lnvwufriendlyname) | Hardware | Get Windows Update driver names and versions | 2.3.0 |
 | [`Invoke-LnvCVLogViewer`](#invoke-lnvcvlogviewer) | Utilities | Parse and analyze Commercial Vantage System Update Addin log files with color-coded summaries | 2.4.0 |

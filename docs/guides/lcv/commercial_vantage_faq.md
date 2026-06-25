@@ -7,7 +7,7 @@ description: Frequently asked questions about Commercial Vantage deployment and 
 
 ## Logging & Diagnostics
 
-??? note "How do I enable logging for the System Update process?"
+??? question "How do I enable logging for the System Update process?"
 
     Due to requirements from the Lenovo Product Security team, logging is disabled by default.
 
@@ -28,7 +28,7 @@ description: Frequently asked questions about Commercial Vantage deployment and 
 
 ## Networking & Connectivity
 
-??? note "What IP addresses do I need to whitelist for Commercial Vantage?"
+??? question "What IP addresses do I need to whitelist for Commercial Vantage?"
 
     **Short answer:** None. Whitelist domain names instead.
 
@@ -47,7 +47,7 @@ description: Frequently asked questions about Commercial Vantage deployment and 
 
 ## System Update – General
 
-??? note "Can I control the System Update process from the command line?"
+??? question "Can I control the System Update process from the command line?"
 
     **Yes**, using the SU Helper utility (requires Commercial Vantage v20.2407.66.0 or later + SU Helper deployed).
 
@@ -57,7 +57,7 @@ description: Frequently asked questions about Commercial Vantage deployment and 
 
     **Alternative:** Use Group Policy to configure timing and filtering. See [Configuration Guide](./configuration.md) → System Update section.
 
-??? note "Does Commercial Vantage automatically create a scheduled task for updates?"
+??? question "Does Commercial Vantage automatically create a scheduled task for updates?"
 
     **Yes.** A few minutes after installation, a background process creates the scheduled task:
 
@@ -74,7 +74,7 @@ description: Frequently asked questions about Commercial Vantage deployment and 
 
     **If PC is off/sleeping:** Windows will attempt to run the task as soon as possible after it's missed.
 
-??? note "Can administrators customize the update schedule?"
+??? question "Can administrators customize the update schedule?"
 
     **Yes.** Use Group Policy to configure:
 
@@ -88,13 +88,13 @@ description: Frequently asked questions about Commercial Vantage deployment and 
 
     **For details:** See [Configuration Guide](./configuration.md) → System Update section
 
-??? note "Can end-users modify the update schedule in Commercial Vantage?"
+??? question "Can end-users modify the update schedule in Commercial Vantage?"
 
     **No.** End-users can only click "Check for Updates" manually.
 
     If an end-user manually adjusts the scheduled task in Task Scheduler, Commercial Vantage will overwrite those changes.
 
-??? note "As the IT administrator, I have set the policy for Auto Update to run at 11:00 AM; however, on devices the scheduled task is configured with a slightly different time. Why is that?"
+??? question "As the IT administrator, I have set the policy for Auto Update to run at 11:00 AM; however, on devices the scheduled task is configured with a slightly different time. Why is that?"
 
     The time set in the policy will indicate the beginning of a 90-minute window of time. Individual devices will be configured with a random time within that 90-minute window. This is done to prevent all devices in a managed environment from trying to download updates at exactly the same time.
 
@@ -102,7 +102,7 @@ description: Frequently asked questions about Commercial Vantage deployment and 
 
 ## Troubleshooting
 
-??? note "I have Commercial Vantage installed but I'm not receiving any updates. Why?"
+??? question "I have Commercial Vantage installed but I'm not receiving any updates. Why?"
 
     This commonly happens in managed environments with strict security policies.
 
