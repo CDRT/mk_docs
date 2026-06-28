@@ -119,27 +119,27 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 
 ## Cmdlet Categories
 
-**System Information & Device Identification**
+### System Information & Device Identification
 
 [`Get-LnvMachineType`](#get-lnvmachinetype) | [`Get-LnvModelName`](#get-lnvmodelname) | [`Get-LnvSerial`](#get-lnvserial) | [`Get-LnvProductNumber`](#get-lnvproductnumber) | [`Get-LnvBiosCode`](#get-lnvbioscode) | [`Find-LnvMachineType`](#find-lnvmachinetype) | [`Find-LnvModel`](#find-lnvmodel)
 
-**BIOS Management**
+### BIOS Management
 
 [`Find-LnvBiosCode`](#find-lnvbioscode) | [`Find-LnvBiosInfo`](#find-lnvbiosinfo) | [`Get-LnvBiosCode`](#get-lnvbioscode) | [`Get-LnvBiosInfo`](#get-lnvbiosinfo) | [`Get-LnvBiosVersion`](#get-lnvbiosversion) | [`Get-LnvBiosPasswordsSet`](#get-lnvbiospasswordsset) | [`Get-LnvBiosUpdateUrl`](#get-lnvbiosupdateurl) | [`Get-LnvAvailableBiosVersion`](#get-lnvavailablebiosversion) | [`Get-LnvCVE`](#get-lnvcve)
 
-**Updates & Drivers**
+### Updates & Drivers
 
 [`Find-LnvUpdate`](#find-lnvupdate) | [`Find-LnvDriverPack`](#find-lnvdriverpack) | [`Get-LnvDriverPack`](#get-lnvdriverpack) | [`Get-LnvUpdatesNotification`](#get-lnvupdatesnotification) | [`Get-LnvMTOSList`](#get-lnvmtoslist) | [`Add-LnvMTOS`](#add-lnvmtos) | [`Remove-LnvMTOS`](#remove-lnvmtos)
 
-**Hardware & Peripherals**
+### Hardware & Peripherals
 
 [`Get-LnvBatteryInfo`](#get-lnvbatteryinfo) | [`Find-LnvDockModel`](#find-lnvdockmodel) | [`Find-LnvHSAPack`](#find-lnvhsapack) | [`Get-LnvWUFriendlyName`](#get-lnvwufriendlyname)
 
-**Utilities & System Updates**
+### Utilities & System Updates
 
 [`Find-LnvTool`](#find-lnvtool) | [`Add-LnvSUCommandLine`](#add-lnvsucmdline) | [`Add-LnvSULogging`](#add-lnvsulogging) | [`Export-LnvUpdateRetrieverConfig`](#export-lnvupdateretrieverconfig) | [`Show-LnvApplicableUpdate`](#show-lnvapplicableupdate)
 
-**Warranty**
+### Warranty
 
 [`Get-LnvWarranty`](#get-lnvwarranty)
 
