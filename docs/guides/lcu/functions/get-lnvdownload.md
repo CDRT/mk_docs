@@ -53,6 +53,7 @@ RepositoryFolder\
 ## Examples
 
 ### Example 1: Download drivers for a machine type
+
 ```powershell
 Get-LnvDownload -MachineType 21HM -WindowsVersion 11 -RepositoryFolder "C:\Drivers\21HM"
 ```
@@ -60,6 +61,7 @@ Get-LnvDownload -MachineType 21HM -WindowsVersion 11 -RepositoryFolder "C:\Drive
 Downloads all available packages for ThinkPad machine type 21HM running Windows 11.
 
 ### Example 2: Download only drivers and applications
+
 ```powershell
 Get-LnvDownload -MachineType 20E4 -PackageType "1,2" -RepositoryFolder "C:\Updates"
 ```
@@ -67,6 +69,7 @@ Get-LnvDownload -MachineType 20E4 -PackageType "1,2" -RepositoryFolder "C:\Updat
 Downloads only applications (1) and drivers (2), excluding BIOS and firmware.
 
 ### Example 3: Download and extract packages
+
 ```powershell
 Get-LnvDownload -MachineType 21N2 -WindowsVersion 11 -RepositoryFolder "E:\LCU\21N2" -Csv -Expand
 ```
@@ -74,6 +77,7 @@ Get-LnvDownload -MachineType 21N2 -WindowsVersion 11 -RepositoryFolder "E:\LCU\2
 Downloads packages and extracts installers. Requires running PowerShell as Administrator. Creates a CSV file listing all packages with their properties.
 
 ### Example 4: Download drivers with specific reboot types
+
 ```powershell
 $path = "E:\Drivers\ThinkPad"
 Get-LnvDownload -MachineType 21HM -WindowsVersion 11 -RepositoryFolder $path -PackageType "2" -RebootType "0,3" -Expand
@@ -105,6 +109,6 @@ Downloads only drivers that either don't require reboot (0) or require reboot (3
 When using `-Expand`:
 
 - Extraction happens in the background using PowerShell runspaces
-- Progress messages display every 5 seconds
+- Progress messages display every 15 seconds
 - Extracted files are placed directly in each package folder
 - The function waits for all extractions to complete before exiting
