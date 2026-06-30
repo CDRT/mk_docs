@@ -69,7 +69,7 @@ Shows the total count of all available packages, including installed and non-app
 
 ```powershell
 $updates = Get-LnvUpdate -Model '20LS' -All
-$updates | Where-Object { $_.Category -eq 'Driver' } | Save-LnvUpdate -Path "C:\20LS_Drivers"
+$updates | Where-Object { $_.Type -eq 'Driver' } | Save-LnvUpdate -Path "C:\20LS_Drivers"
 ```
 
 Retrieves all drivers for model 20LS and downloads them.
