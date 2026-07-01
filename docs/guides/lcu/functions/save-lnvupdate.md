@@ -17,6 +17,7 @@ Downloads specified update packages to disk for local storage, caching, or offli
 Save-LnvUpdate [-Package] <PSObject> [-Path <DirectoryInfo>]
                [-ShowProgress] [-Force]
                [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-ProxyUseDefaultCredentials]
+               [-SkipSignatureCheck]
 ```
 
 ## Description
@@ -36,6 +37,7 @@ Downloads can be quite large. The `-ShowProgress` parameter shows real-time down
 | `-Proxy` | Uri | Proxy server URL |
 | `-ProxyCredential` | PSCredential | Proxy authentication credentials |
 | `-ProxyUseDefaultCredentials` | switch | Use current user credentials for proxy |
+| `-SkipSignatureCheck` | switch | Skip verifying the downloaded package files are digitally signed by Lenovo |
 
 ## Examples
 
@@ -70,10 +72,10 @@ Downloads all packages available for model 20LS to a model-specific folder.
 
 ```powershell
 $updates = Get-LnvUpdate
-$updates | Save-LnvUpdate -Path "C:\Updates" -Force -ShowProgress
+$updates | Save-LnvUpdate -Path "C:\Updates" -Force -ShowProgress -SkipSignatureCheck
 ```
 
-Downloads packages even if they already exist locally, overwriting cached versions.
+Downloads packages even if they already exist locally, overwriting cached versions, and skipping file signature check.
 
 ### Example 5: Download specific packages in a pipeline
 
