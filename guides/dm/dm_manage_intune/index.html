@@ -1,0 +1,8145 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Configure Dock Manager policies in Microsoft Intune using ADMX templates and OMA-URIs for advanced deployment control">
+      
+      
+      
+        <link rel="canonical" href="https://docs.lenovocdrt.com/guides/dm/dm_manage_intune/">
+      
+      
+        <link rel="prev" href="../dm/">
+      
+      
+        <link rel="next" href="../dm_troubleshooting/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../img/fav/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Managing Dock Manager with Intune - Lenovo CDRT Docs Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-Q3G8XPJ5GY"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-Q3G8XPJ5GY",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-Q3G8XPJ5GY",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+  
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#managing-dock-manager-with-intune" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Lenovo CDRT Docs Site" class="md-header__button md-logo" aria-label="Lenovo CDRT Docs Site" data-md-component="logo">
+      
+  <img src="../../../img/CDRT-REV-Red_s.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lenovo CDRT Docs Site
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Managing Dock Manager with Intune
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="light-blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue-grey"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Lenovo CDRT Docs Site" class="md-nav__button md-logo" aria-label="Lenovo CDRT Docs Site" data-md-component="logo">
+      
+  <img src="../../../img/CDRT-REV-Red_s.png" alt="logo">
+
+    </a>
+    Lenovo CDRT Docs Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Product Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Product Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commercial Vantage
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Commercial Vantage
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcv/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcv/whatsnew/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    What's New
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcv/deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcv/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcv/upgrading/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Upgrading
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcv/suhelper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SU Helper Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcv/commercial_vantage_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commercial Vantage FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThinkVantage PowerShell Library
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThinkVantage PowerShell Library
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../thinkvantage/tv-pslib-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Think BIOS Config Tool V2
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Think BIOS Config Tool V2
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tbct_v2/tbct_v2_top/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo BIOS Certificate Tool
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo BIOS Certificate Tool
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lbct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Client Scripting Module
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo Client Scripting Module
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcsm/lcsm_top/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Client Update Module
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo Client Update Module
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5_2" id="__nav_2_2_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/getting-started/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5_3" id="__nav_2_2_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Migration Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/comparison/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LSU Client vs Lenovo Client Update
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_5_4" id="__nav_2_2_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Functions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/functions/expand-lnvupdate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Expand-LnvUpdate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/functions/get-lnvdownload/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get-LnvDownload
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/functions/get-lnvupdate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get-LnvUpdate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/functions/get-lnvupdateconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get-LnvUpdateConfiguration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/functions/get-lnvupdatefromwmi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get-LnvUpdateFromWMI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/functions/get-lnvupdatehist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get-LnvUpdateHist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/functions/get-lnvupdatesummary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get-LnvUpdateSummary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/functions/get-lnvupdatesrepo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Get-LnvUpdatesRepo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/functions/install-lnvupdate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install-LnvUpdate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/functions/save-lnvupdate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Save-LnvUpdate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lcu/functions/set-lnvupdateconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Set-LnvUpdateConfiguration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThinkVantage Repository Manager
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThinkVantage Repository Manager
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tvrm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tvrm/module_reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Module Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Updates Catalog
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo Updates Catalog
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../luc/luc_ovrvw/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../luc/luc_agnt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Updates Catalog Agent
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../luc/luc_ts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting Lenovo Updates Catalog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Dock Manager
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing with Intune
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing with Intune
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#admx-ingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADMX Ingestion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Policy Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Categories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Policy Categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#firmware-update-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firmware Update Control
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Firmware Update Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ask-before-firmware-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ask Before Firmware Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-firmware-on-first-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Firmware on First Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-firmware-without-disconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Firmware Without Disconnect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firmware-white-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firmware White List
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-repository-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network &amp; Repository Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network &amp; Repository Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repository-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repository Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxy-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proxy Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Port
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-experience-display" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Experience &amp; Display
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Experience &amp; Display">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable Notifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hide-update-software-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hide Update Software Button
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging &amp; Maintenance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logging &amp; Maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#log-file-age-to-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log File Age to Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-file-max-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log File Max Size
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hardware Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mac-address-clone-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MAC Address Clone Enabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scheduling-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduling Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scheduling Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-at" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run At
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run On
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-days" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run Days
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-month" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run Month
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-monthly-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run Monthly On
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Scenarios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dm_troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dock_manager_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update - Update Retriever - Thin Installer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    System Update - Update Retriever - Thin Installer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deployment Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide: Lenovo System Update Suite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1 Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2 Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3 General Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4 Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5 Command Line Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6 Appendix A: Advanced Configurations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7 Appendix B: Mapdrv Utility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/su_dg/su_dg_ch8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8 Appendix C: Notices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/system_update_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo View
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lenovo View
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lenovo_view/" class="md-nav__link">
+        
+  
+  
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2V9h2m0 9h-2v-2h2M1 21h22L12 2z"/></svg>
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo View
+  
+
+    
+  </span>
+  
+  
+    
+  
+  
+    <span class="md-status md-status--deprecated"></span>
+  
+
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    References
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    References
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BIOS Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/bios_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo BIOS/UEFI Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/wmi/wmi_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WMI BIOS Interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4" id="__nav_3_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Settings Dictionary
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    BIOS Settings Dictionary
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4_1" id="__nav_3_1_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThinkPad
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThinkPad
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/usb/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....USB
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/keyboardmouse/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Keyboard/Mouse
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/display/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Display
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/beepalarm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Beep and Alarm
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/cpu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/thunderbolttm4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Thunderbolt(TM) 4
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/intelramt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel(R) AMT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/hdmi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....HDMI Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/datetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Date/Time
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/fingerprint/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Fingerprint
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/securitychip/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Security Chip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/uefibiosupdate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....UEFI BIOS Update Option
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/memoryprotection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Memory Protection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/virtualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Virtualization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/ioportaccess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....I/O Port Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/internaldeviceaccess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Internal Device Access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/abspersistencemodule/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Absolute Persistence(R) Module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/secureboot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Secure Boot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/deviceguard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Device Guard
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/thinkshieldsecurewipe/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ThinkShield Secure Wipe
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/thinkshieldpasswordless/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ThinkShield Passwordless Power-On
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/intelligentsecurity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intelligent Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/resetsystemtofactorydefaults/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Reset System to Factory Defaults
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/certbasedbiosauth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Certificate-based BIOS Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkpad/restart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Restart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4_2" id="__nav_3_1_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThinkCentre
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThinkCentre
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/system_summary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/system_time_and_date/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Time and Date
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/serial_port_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Serial Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/parallel_port_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Parallel Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/usb_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....USB Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/storage_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Storage Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/ata_drive_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ATA Drive Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/video_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Video Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/audio_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Audio Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/network_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Network Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/pci_express_configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCI Express Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/intel_r_thunderbolt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel(R) Thunderbolt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/cpu_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/intel_r_manageability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel(R) Manageability
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/dash_configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....DASH Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/intelligent_cooling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intelligent Cooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/automatic_power_on/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Automatic Power On
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/system_management_password_access_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Management Password Access Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/hard_disk_password/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Hard Disk Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/password_policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Password Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/tcg_feature_setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....TCG Feature Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/system_event_log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/secure_boot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Secure Boot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/certificate_based_bios_authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Certificate Based BIOS Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/computrace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Computrace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/boot_priority_order/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Boot Priority Order
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkcentre/exit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_1_4_3" id="__nav_3_1_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ThinkStation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ThinkStation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Main
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/systemsummary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Summary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/systemtimedate/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Time & Date
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/bioseventlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....BIOS Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/serialportsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Serial Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/parallelportsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Parallel Port Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/usbsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....USB Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/storagesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Storage Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/intelvmd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ........Intel(R) VMD Technology
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/atadrivesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....ATA Drive Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/nvme/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....NVME Drive Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/videosetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Video Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/audiosetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Audio Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/networksetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Network Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/pciesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCIe Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/pciexpress/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCI Express Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/intelthunderbolt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel Thunderbolt
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/bmcsetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....BMC Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/diagnostics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Diagnostics (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/pcieconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCIe Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/pciexpressconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....PCI Express Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/cpuconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/cpusetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....CPU Setup (Intel)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/memoryconfig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Memory Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/rasconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....RAS Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/commonrefcodeconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Common RefCode Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/dashconfiguration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....DASH Configuration (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/intelmanageability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Intel Manageability Settings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/serialportconsoleredirection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Serial Port Console Redirection (AMD)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/autopoweron/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Automatic Power On
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/harddiskpass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Hard Disk Password
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/passwordpolicies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Password Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/smpaccesscontrol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....SMP Access Control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/tcgfeaturesetup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....TCG Feature Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/secureboot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Secure Boot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/systemeventlog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....System Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/certbasedbiosauth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Certificate-based BIOS Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/startup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/bootpriorityorder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ....Boot Priority Order
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/thinkstation/exit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exit
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/settings/bios_logging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BIOS Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/sdbm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Deployment Boot Mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/bios/startup_menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Startup Interrupt Menu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docks Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docks Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/docks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lenovo Docks Reference Materials
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/docks/docks_main/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/docks/configmgr_dock_queries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration Manager Queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/dash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AMD DASH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ref/scripts/samples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripting Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Frequently Asked Questions
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Frequently Asked Questions
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sus/system_update_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Update FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cv/commercial_vantage_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commercial Vantage FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dock_manager_faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dock Manager FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#admx-ingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ADMX Ingestion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Overview
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Policy Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Reference
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Categories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Policy Categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#firmware-update-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firmware Update Control
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Firmware Update Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ask-before-firmware-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ask Before Firmware Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auto-update" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auto Update
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-firmware-on-first-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Firmware on First Connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update-firmware-without-disconnect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Update Firmware Without Disconnect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firmware-white-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Firmware White List
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-repository-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network &amp; Repository Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Network &amp; Repository Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#repository-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Repository Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proxy-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proxy Server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Port
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-experience-display" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User Experience &amp; Display
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="User Experience &amp; Display">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-notifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable Notifications
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hide-update-software-button" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hide Update Software Button
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logging-maintenance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logging &amp; Maintenance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Logging &amp; Maintenance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#log-file-age-to-cleanup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log File Age to Cleanup
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log-file-max-size" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Log File Max Size
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hardware-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hardware Features
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Hardware Features">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mac-address-clone-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MAC Address Clone Enabled
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scheduling-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scheduling Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Scheduling Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frequency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frequency
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-at" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run At
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run On
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-days" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run Days
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-month" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run Month
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-monthly-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run Monthly On
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="System Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#format-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Format Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-scenarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Scenarios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../lcv/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Product Guides
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Dock Manager
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="managing-dock-manager-with-intune">Managing Dock Manager with Intune<a class="headerlink" href="#managing-dock-manager-with-intune" title="Permanent link">#</a></h1>
+<p>This page covers advanced configuration of Dock Manager using Microsoft Intune ADMX policies and OMA-URIs. For basic deployment steps, see <a href="../dm/">Dock Manager Deployment Guide</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If new policies have been introduced, you will need to ingest the updated ADMX file. The policies documented here are based on the latest ADMX template. New policies may be added in future releases, so check the <a href="https://support.lenovo.com/solutions/ht037099">Lenovo Tools for Administrators</a> page for updates.</p>
+</div>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h2>
+<p>Before configuring Dock Manager policies, you must:</p>
+<ol>
+<li><strong>Download the ADMX file</strong> – Available in the Dock Manager section on <a href="https://support.lenovo.com/solutions/ht037099">Lenovo Tools for Administrators</a></li>
+<li><strong>Create a custom Intune profile</strong> – Navigate to <strong>Devices</strong> &gt; <strong>Windows</strong> &gt; <strong>Configuration Profiles</strong> and create a new <strong>Custom</strong> profile</li>
+<li><strong>Ingest the ADMX</strong> – Import the template using the OMA-URI procedure in the <a href="#admx-ingestion">ADMX Ingestion</a> section below</li>
+<li><strong>Understand OMA-URI format</strong> – Each policy is configured via an OMA-URI path and XML value</li>
+</ol>
+<div class="admonition note">
+<p>Introduced in the <a href="https://learn.microsoft.com/mem/intune/fundamentals/whats-new-archive#import-create-and-manage-custom-admx-and-adml-administrative-templates">2208</a> Intune Service release, custom ADMX and ADML templates can be imported, created, and managed directly in Intune.</p>
+</div>
+<h2 id="admx-ingestion">ADMX Ingestion<a class="headerlink" href="#admx-ingestion" title="Permanent link">#</a></h2>
+<p>Sign in to the Microsoft Intune <a href="https://intune.microsoft.com">admin center</a></p>
+<p>Navigate to <strong>Devices</strong> &gt; <strong>Windows</strong> &gt; <strong>Configuration Profiles</strong>. Click <strong>Create</strong></p>
+<ul>
+<li>Select <strong>New Policy</strong> &gt; <strong>Windows 10 and later</strong> for the platform.</li>
+<li>Select <strong>Templates</strong> for <strong>Profile Type</strong> and choose <strong>Custom</strong> from the list and click <strong>Create</strong></li>
+</ul>
+<p>Enter the required information for the new profile, for example:</p>
+<ul>
+<li>
+<p><strong>Name</strong>: Lenovo Dock Manager Configuration</p>
+</li>
+<li>
+<p><strong>Description</strong>: (Optional)</p>
+</li>
+</ul>
+<p>On the <strong>Configuration Settings</strong> screen, click <strong>Add</strong> and enter the following:</p>
+<ul>
+<li>
+<p><strong>Name</strong>: Dock Manager ADMX Ingest</p>
+</li>
+<li>
+<p><strong>Description</strong>: (Optional)</p>
+</li>
+<li>
+<p><strong>OMA-URI</strong>: ./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/DockManager/Policy/DockManager</p>
+</li>
+<li>
+<p><strong>Data Type</strong>: String</p>
+</li>
+<li>
+<p><strong>Value</strong>: Copy the contents of the Dock Manager ADMX file into this field</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>Group Policy Template File</strong> that contains the ADMX can be found under the Dock Manager section on <a href="https://support.lenovo.com/solutions/ht037099">Lenovo Tools for Administrators</a> page.</p>
+</div>
+<h2 id="policy-overview">Policy Overview<a class="headerlink" href="#policy-overview" title="Permanent link">#</a></h2>
+<h3 id="quick-reference">Quick Reference<a class="headerlink" href="#quick-reference" title="Permanent link">#</a></h3>
+<p>Use this table to quickly find the policy you need by category. Click any policy name to jump to its detailed configuration section:</p>
+<table>
+<thead>
+<tr>
+<th>Policy Name</th>
+<th>Category</th>
+<th>Type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Command</strong></td>
+<td>System</td>
+<td>Action</td>
+<td>Send commands to Dock Manager (e.g., check for updates)</td>
+</tr>
+<tr>
+<td><a href="#ask-before-firmware-update"><strong>Ask Before Firmware Update</strong></a></td>
+<td>General</td>
+<td>Boolean</td>
+<td>Prompt user before firmware installation</td>
+</tr>
+<tr>
+<td><a href="#auto-update"><strong>Auto Update</strong></a></td>
+<td>General</td>
+<td>Boolean</td>
+<td>Enable automatic Dock Manager software updates</td>
+</tr>
+<tr>
+<td><a href="#enable-notifications"><strong>Enable Notifications</strong></a></td>
+<td>General</td>
+<td>Boolean</td>
+<td>Show notifications during firmware operations</td>
+</tr>
+<tr>
+<td><a href="#firmware-white-list"><strong>Firmware White List</strong></a></td>
+<td>General</td>
+<td>String</td>
+<td>Restrict firmware updates to approved versions</td>
+</tr>
+<tr>
+<td><a href="#hide-update-software-button"><strong>Hide Update Software Button</strong></a></td>
+<td>General</td>
+<td>Boolean</td>
+<td>Remove update button from UI</td>
+</tr>
+<tr>
+<td><a href="#log-file-age-to-cleanup"><strong>Log File Age to Cleanup</strong></a></td>
+<td>General</td>
+<td>Integer</td>
+<td>Auto-delete log files older than N days</td>
+</tr>
+<tr>
+<td><a href="#log-file-max-size"><strong>Log File Max Size</strong></a></td>
+<td>General</td>
+<td>Integer</td>
+<td>Rotate logs when size exceeds N KB</td>
+</tr>
+<tr>
+<td><a href="#mac-address-clone-enabled"><strong>MAC Address Clone Enabled</strong></a></td>
+<td>General</td>
+<td>Boolean</td>
+<td>Enable MAC address cloning feature</td>
+</tr>
+<tr>
+<td><a href="#port"><strong>Port</strong></a></td>
+<td>General</td>
+<td>Integer</td>
+<td>Proxy server port (default 8080)</td>
+</tr>
+<tr>
+<td><a href="#proxy-server"><strong>Proxy Server</strong></a></td>
+<td>General</td>
+<td>String</td>
+<td>Proxy address for firmware downloads</td>
+</tr>
+<tr>
+<td><a href="#repository-location"><strong>Repository Location</strong></a></td>
+<td>General</td>
+<td>String</td>
+<td>UNC or local path to firmware repository</td>
+</tr>
+<tr>
+<td><a href="#update-firmware-on-first-connection"><strong>Update Firmware on First Connection</strong></a></td>
+<td>General</td>
+<td>Boolean</td>
+<td>Auto-update when dock first connects</td>
+</tr>
+<tr>
+<td><a href="#update-firmware-without-disconnect"><strong>Update Firmware Without Disconnect</strong></a></td>
+<td>General</td>
+<td>Boolean</td>
+<td>Update supported docks without unplugging</td>
+</tr>
+<tr>
+<td><a href="#frequency"><strong>Frequency</strong></a></td>
+<td>Scheduler</td>
+<td>Enum</td>
+<td>Task schedule frequency (Daily/Weekly/Monthly)</td>
+</tr>
+<tr>
+<td><a href="#run-at"><strong>Run At</strong></a></td>
+<td>Scheduler</td>
+<td>Time</td>
+<td>Time of day for scheduled task (24-hour format)</td>
+</tr>
+<tr>
+<td><a href="#run-on"><strong>Run On</strong></a></td>
+<td>Scheduler</td>
+<td>String</td>
+<td>Days of week (Sunday–Friday)</td>
+</tr>
+<tr>
+<td><a href="#run-days"><strong>Run Days</strong></a></td>
+<td>Scheduler</td>
+<td>String</td>
+<td>Days of month (1–31) for monthly tasks</td>
+</tr>
+<tr>
+<td><a href="#run-month"><strong>Run Month</strong></a></td>
+<td>Scheduler</td>
+<td>String</td>
+<td>Months (January–December) for monthly tasks</td>
+</tr>
+<tr>
+<td><a href="#run-monthly-on"><strong>Run Monthly On</strong></a></td>
+<td>Scheduler</td>
+<td>String</td>
+<td>Week pattern (First/Second/Last) for monthly tasks</td>
+</tr>
+</tbody>
+</table>
+<h2 id="policy-categories">Policy Categories<a class="headerlink" href="#policy-categories" title="Permanent link">#</a></h2>
+<h3 id="firmware-update-control">Firmware Update Control<a class="headerlink" href="#firmware-update-control" title="Permanent link">#</a></h3>
+<p>Control how and when firmware updates occur.</p>
+<h4 id="ask-before-firmware-update">Ask Before Firmware Update<a class="headerlink" href="#ask-before-firmware-update" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/AskBeforeFirmwareUpdate</code></p>
+<p><strong>Purpose:</strong> Prompt user before installing firmware updates on connected docks.</p>
+<p><strong>Values:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">&lt;enabled/&gt;</span><span class="w">    </span><span class="cm">&lt;!-- Show prompt, user can decline --&gt;</span>
+</span><span id="......span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cm">&lt;!-- or --&gt;</span>
+</span><span id="......span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nt">&lt;disabled/&gt;</span><span class="w">   </span><span class="cm">&lt;!-- Install firmware silently without prompting --&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="auto-update">Auto Update<a class="headerlink" href="#auto-update" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/AutoUpdate</code></p>
+<p><strong>Purpose:</strong> Enable automatic check for Dock Manager software updates.</p>
+<p><strong>Values:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nt">&lt;enabled/&gt;</span><span class="w">    </span><span class="cm">&lt;!-- Auto-check and install Dock Manager updates --&gt;</span>
+</span><span id="......span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cm">&lt;!-- or --&gt;</span>
+</span><span id="......span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nt">&lt;disabled/&gt;</span><span class="w">   </span><span class="cm">&lt;!-- Manual update only --&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="update-firmware-on-first-connection">Update Firmware on First Connection<a class="headerlink" href="#update-firmware-on-first-connection" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/UpdateFWOnFirstConnection</code></p>
+<p><strong>Purpose:</strong> Automatically update dock firmware when a dock is connected for the first time after Dock Manager installation.</p>
+<p><strong>Values:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">&lt;enabled/&gt;</span><span class="w">    </span><span class="cm">&lt;!-- Auto-update on first connection --&gt;</span>
+</span><span id="......span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cm">&lt;!-- or --&gt;</span>
+</span><span id="......span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nt">&lt;disabled/&gt;</span><span class="w">   </span><span class="cm">&lt;!-- Manual update only --&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="update-firmware-without-disconnect">Update Firmware Without Disconnect<a class="headerlink" href="#update-firmware-without-disconnect" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/UpdateFWWithoutDisconnect</code></p>
+<p><strong>Purpose:</strong> Allow specified dock models to update firmware without disconnecting from the computer (if supported by dock firmware version).</p>
+<div class="admonition warning">
+<p>Only enable this after upgrading docks to a supported firmware version that handles live updates.</p>
+</div>
+<p><strong>Example – Enable for Thunderbolt 3 Dock Gen 2:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;UpdateFWWithoutDisconnect_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;40AN&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<p><strong>Example – Multiple dock types:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;UpdateFWWithoutDisconnect_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;40AN,40B0,40B7&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="firmware-white-list">Firmware White List<a class="headerlink" href="#firmware-white-list" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/FWWhiteList</code></p>
+<p><strong>Purpose:</strong> Restrict firmware updates to approved versions only. Devices can only upgrade to whitelisted versions.</p>
+<p><strong>Format:</strong> <code>DOCK_TYPE:VERSION1,VERSION2;OTHER_TYPE:VERSION3</code></p>
+<p><strong>Example:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;FWWhitelist_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;40AY:3.0.85,3.0.92;40B0:4.2.15;40AN:2.8.10&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<div class="admonition note">
+<p>Dock types are 4-character codes found on the dock label or in the <a href="../#supported-docks">Supported Docks</a> list.</p>
+</div>
+<hr />
+<h3 id="network-repository-configuration">Network &amp; Repository Configuration<a class="headerlink" href="#network-repository-configuration" title="Permanent link">#</a></h3>
+<p>Manage firmware download sources and proxy settings.</p>
+<h4 id="repository-location">Repository Location<a class="headerlink" href="#repository-location" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/RepositoryLocation</code></p>
+<p><strong>Purpose:</strong> Specify where Dock Manager should download firmware (internet or local repository).</p>
+<p><strong>Example – Network share:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;RepositoryLocation_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;\\internal-share\dock-firmware&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<p><strong>Example – Local path:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;RepositoryLocation_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;C:\dock-firmware&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="proxy-server">Proxy Server<a class="headerlink" href="#proxy-server" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/ProxyServer</code></p>
+<p><strong>Purpose:</strong> Configure a proxy server address for downloading firmware over a corporate proxy.</p>
+<p><strong>Example:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;ProxyServer_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;http://proxy.company.com&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="port">Port<a class="headerlink" href="#port" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/Port</code></p>
+<p><strong>Purpose:</strong> Configure the proxy server port for firmware downloads.</p>
+<p><strong>Example – Use port 3128:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;Port_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;3128&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h3 id="user-experience-display">User Experience &amp; Display<a class="headerlink" href="#user-experience-display" title="Permanent link">#</a></h3>
+<p>Control how Dock Manager appears and interacts with users.</p>
+<h4 id="enable-notifications">Enable Notifications<a class="headerlink" href="#enable-notifications" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/EnableNotifications</code></p>
+<p><strong>Purpose:</strong> Show user notifications during firmware download and update operations.</p>
+<p><strong>Values:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="nt">&lt;enabled/&gt;</span><span class="w">    </span><span class="cm">&lt;!-- Display notifications --&gt;</span>
+</span><span id="......span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="cm">&lt;!-- or --&gt;</span>
+</span><span id="......span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="nt">&lt;disabled/&gt;</span><span class="w">   </span><span class="cm">&lt;!-- Silent operation, no notifications --&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="hide-update-software-button">Hide Update Software Button<a class="headerlink" href="#hide-update-software-button" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/HideUpdateSoftwareButton</code></p>
+<p><strong>Purpose:</strong> Remove the update button from the Dock Manager UI.</p>
+<p><strong>Values:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nt">&lt;enabled/&gt;</span><span class="w">    </span><span class="cm">&lt;!-- Hide button --&gt;</span>
+</span><span id="......span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="cm">&lt;!-- or --&gt;</span>
+</span><span id="......span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nt">&lt;disabled/&gt;</span><span class="w">   </span><span class="cm">&lt;!-- Show button --&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h3 id="logging-maintenance">Logging &amp; Maintenance<a class="headerlink" href="#logging-maintenance" title="Permanent link">#</a></h3>
+<p>Manage Dock Manager log file behavior.</p>
+<h4 id="log-file-age-to-cleanup">Log File Age to Cleanup<a class="headerlink" href="#log-file-age-to-cleanup" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/LogfileAgeToCleanup</code></p>
+<p><strong>Purpose:</strong> Automatically delete log files older than the specified number of days.</p>
+<p><strong>Example – Delete logs older than 30 days:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;LogfileAgeToCleanup_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;30&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="log-file-max-size">Log File Max Size<a class="headerlink" href="#log-file-max-size" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/LogfileMaxSize</code></p>
+<p><strong>Purpose:</strong> Rotate log files when they exceed the specified size in KB.</p>
+<p><strong>Example – Rotate when logs reach 1024 KB (1 MB):</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;LogfileMaxSize_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1024&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h3 id="hardware-features">Hardware Features<a class="headerlink" href="#hardware-features" title="Permanent link">#</a></h3>
+<p>Enable or disable hardware-specific features.</p>
+<h4 id="mac-address-clone-enabled">MAC Address Clone Enabled<a class="headerlink" href="#mac-address-clone-enabled" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/MacAddressCloneEnabled</code></p>
+<p><strong>Purpose:</strong> Enable or disable MAC address cloning functionality on supported docks.</p>
+<p><strong>Values:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nt">&lt;enabled/&gt;</span><span class="w">    </span><span class="cm">&lt;!-- Enable MAC cloning --&gt;</span>
+</span><span id="......span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="cm">&lt;!-- or --&gt;</span>
+</span><span id="......span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="nt">&lt;disabled/&gt;</span><span class="w">   </span><span class="cm">&lt;!-- Disable MAC cloning --&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h3 id="scheduling-configuration">Scheduling Configuration<a class="headerlink" href="#scheduling-configuration" title="Permanent link">#</a></h3>
+<p>Define when Dock Manager checks for and installs firmware updates.</p>
+<div class="admonition note">
+<p>Configure these policies together to define a complete schedule. They are interdependent based on the <strong>Frequency</strong> setting:</p>
+<ul>
+<li><strong>DAILY</strong> – Uses only <strong>Run At</strong></li>
+<li><strong>WEEKLY</strong> – Uses <strong>Run At</strong> + <strong>Run On</strong> (days of week)</li>
+<li><strong>MONTHLY</strong> – Uses <strong>Run At</strong> + <strong>Run Month</strong> + <strong>Run Days</strong>, OR <strong>Run At</strong> + <strong>Run Monthly On</strong> + <strong>Run On</strong></li>
+</ul>
+</div>
+<h4 id="frequency">Frequency<a class="headerlink" href="#frequency" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/Frequency</code></p>
+<p><strong>Purpose:</strong> Set how often the firmware check runs: Daily, Weekly, or Monthly.</p>
+<p><strong>Values:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;Frequency_Dropdown&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;WEEKLY&quot;</span><span class="nt">/&gt;</span>
+</span><span id="......span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="cm">&lt;!-- Options: DAILY, WEEKLY, MONTHLY --&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="run-at">Run At<a class="headerlink" href="#run-at" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunAt</code></p>
+<p><strong>Purpose:</strong> Set the time of day (24-hour format) when the scheduled task runs.</p>
+<p><strong>Example – 2:00 AM:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;RunAt_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;02:00:00&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="run-on">Run On<a class="headerlink" href="#run-on" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunOn</code></p>
+<p><strong>Purpose:</strong> Specify days of the week for the task (used with WEEKLY or MONTHLY frequency).</p>
+<p><strong>Example – Sunday and Friday:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;RunOn_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Sunday,Friday&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="run-days">Run Days<a class="headerlink" href="#run-days" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunDays</code></p>
+<p><strong>Purpose:</strong> Specify days of the month (1–31) when the task runs (MONTHLY frequency only).</p>
+<p><strong>Example – 1st and 15th of each month:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;RunDays_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1,15&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="run-month">Run Month<a class="headerlink" href="#run-month" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunMonth</code></p>
+<p><strong>Purpose:</strong> Specify which months the task runs (MONTHLY frequency only).</p>
+<p><strong>Example – Every other month (Jan, Mar, May, Jul, Sep, Nov):</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;RunMonth_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;January,March,May,July,September,November&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h4 id="run-monthly-on">Run Monthly On<a class="headerlink" href="#run-monthly-on" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunMonthlyOn</code></p>
+<p><strong>Purpose:</strong> Specify week pattern for monthly tasks (e.g., "First Monday", "Last Friday"). Used with <strong>Run On</strong>.</p>
+<p><strong>Example – First and Last day of the month:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;RunMonthlyOn_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;First,Last&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<p><strong>Example – First and second Tuesday (used with <code>RunOn: Tuesday</code>):</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;RunMonthlyOn_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;First,Second&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h3 id="system-commands">System Commands<a class="headerlink" href="#system-commands" title="Permanent link">#</a></h3>
+<p>Send direct commands to Dock Manager for remote management.</p>
+<h4 id="command-policy">Command Policy<a class="headerlink" href="#command-policy" title="Permanent link">#</a></h4>
+<p><strong>OMA-URI:</strong> <code>./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Command/CommandString</code></p>
+<p><strong>Purpose:</strong> Send commands to Dock Manager for remote management. Currently supports:</p>
+<ul>
+<li><strong>1</strong> – Check for Dock Manager software updates and install if available</li>
+</ul>
+<p>To resend the same command, update the timestamp in <code>SendTime_Prompt</code>.</p>
+<p><strong>Example – Check for updates:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;CommandString_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</span><span id="......span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;SendTime_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;2024-06-01 03:12:05Z&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<p><strong>To disable:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="nt">&lt;disabled/&gt;</span>
+</span></code></pre></div></p>
+<hr />
+<h2 id="format-reference">Format Reference<a class="headerlink" href="#format-reference" title="Permanent link">#</a></h2>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Format</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Time</strong> (Run At)</td>
+<td>24-hour HH:MM:SS</td>
+<td><code>02:00:00</code>, <code>14:30:00</code>, <code>23:59:59</code></td>
+</tr>
+<tr>
+<td><strong>Days of Week</strong> (Run On)</td>
+<td>Full day names, comma-separated</td>
+<td><code>Monday,Friday</code> / <code>Sunday</code></td>
+</tr>
+<tr>
+<td><strong>Days of Month</strong> (Run Days)</td>
+<td>Numbers 1–31, comma-separated</td>
+<td><code>1,15</code> / <code>5</code></td>
+</tr>
+<tr>
+<td><strong>Months</strong> (Run Month)</td>
+<td>Full month names, comma-separated</td>
+<td><code>January,March,May</code> / <code>December</code></td>
+</tr>
+<tr>
+<td><strong>Week Pattern</strong> (Run Monthly On)</td>
+<td>First/Second/Third/Fourth/Last, comma-separated</td>
+<td><code>First,Last</code> / <code>Second</code></td>
+</tr>
+<tr>
+<td><strong>Dock Types</strong></td>
+<td>4-character code (dock label)</td>
+<td><code>40AY</code>, <code>40B0</code>, <code>40AN,40B7</code></td>
+</tr>
+<tr>
+<td><strong>Dock Firmware</strong></td>
+<td>Version numbers, comma-separated</td>
+<td><code>3.0.85,3.0.92</code></td>
+</tr>
+<tr>
+<td><strong>Frequency</strong></td>
+<td>Enum: DAILY, WEEKLY, MONTHLY</td>
+<td><code>WEEKLY</code></td>
+</tr>
+<tr>
+<td><strong>Port</strong></td>
+<td>Integer</td>
+<td><code>3128</code>, <code>8080</code>, <code>80</code></td>
+</tr>
+<tr>
+<td><strong>Path</strong></td>
+<td>UNC or local</td>
+<td><code>\\share\path</code> / <code>C:\path</code></td>
+</tr>
+<tr>
+<td><strong>URL</strong></td>
+<td>HTTP or HTTPS</td>
+<td><code>http://proxy.company.com</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-scenarios">Common Scenarios<a class="headerlink" href="#common-scenarios" title="Permanent link">#</a></h2>
+<details class="note">
+<summary>Scenario 1: Enable Auto-Updates with Weekly Firmware Checks</summary>
+<p>Check for firmware updates every Sunday at 2:00 AM without user prompts.</p>
+<p><strong>Policies to configure:</strong></p>
+<ol>
+<li><strong>Auto Update</strong> – Enable</li>
+<li><strong>Ask Before Firmware Update</strong> – Disable</li>
+<li><strong>Frequency</strong> – Set to WEEKLY</li>
+<li><strong>Run At</strong> – Set to 02:00:00</li>
+<li><strong>Run On</strong> – Set to Sunday</li>
+</ol>
+<p><strong>Configuration example:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="cm">&lt;!-- Auto Update --&gt;</span>
+</span><span id="......span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;AutoUpdate_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</span><span id="......span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
+</span><span id="......span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="cm">&lt;!-- Ask Before Firmware Update (disabled) --&gt;</span>
+</span><span id="......span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="nt">&lt;disabled/&gt;</span>
+</span><span id="......span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>
+</span><span id="......span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="cm">&lt;!-- Frequency: Weekly --&gt;</span>
+</span><span id="......span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;Frequency_Dropdown&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;WEEKLY&quot;</span><span class="nt">/&gt;</span>
+</span><span id="......span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>
+</span><span id="......span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a><span class="cm">&lt;!-- Run At 2:00 AM --&gt;</span>
+</span><span id="......span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;RunAt_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;02:00:00&quot;</span><span class="nt">/&gt;</span>
+</span><span id="......span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>
+</span><span id="......span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a><span class="cm">&lt;!-- Run On Sunday --&gt;</span>
+</span><span id="......span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;RunOn_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;Sunday&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+</details>
+<details class="note">
+<summary>Scenario 2: Restrict Firmware Versions with White List</summary>
+<p>Only allow specific firmware versions for supported docks.</p>
+<p><strong>Policies to configure:</strong></p>
+<ol>
+<li><strong>Firmware White List</strong> – Enable with dock types and approved versions</li>
+</ol>
+<p><strong>Configuration example:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;FWWhitelist_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;40AY:3.0.85,3.0.92;40B0:4.2.15;40AN:2.8.10&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+<p><strong>Note:</strong> Dock model codes are 4-character identifiers (see <a href="../#supported-docks">Supported Docks</a>)</p>
+</details>
+<details class="note">
+<summary>Scenario 3: Internal Repository with Proxy Download</summary>
+<p>Configure Dock Manager to pull firmware from a local network share via proxy.</p>
+<p><strong>Policies to configure:</strong></p>
+<ol>
+<li><strong>Repository Location</strong> – Set to network share path</li>
+<li><strong>Proxy Server</strong> – Set to proxy address</li>
+<li><strong>Port</strong> – Set to proxy port</li>
+</ol>
+<p><strong>Configuration example:</strong>
+<div class="language-xml highlight"><pre><span></span><code><span id="......span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="cm">&lt;!-- Repository Location --&gt;</span>
+</span><span id="......span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;RepositoryLocation_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;\\internal-share\dock-firmware&quot;</span><span class="nt">/&gt;</span>
+</span><span id="......span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>
+</span><span id="......span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a><span class="cm">&lt;!-- Proxy Server --&gt;</span>
+</span><span id="......span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;ProxyServer_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;http://proxy.company.com&quot;</span><span class="nt">/&gt;</span>
+</span><span id="......span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>
+</span><span id="......span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a><span class="cm">&lt;!-- Port --&gt;</span>
+</span><span id="......span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="nt">&lt;enabled/&gt;</span>
+</span><span id="......span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="nt">&lt;data</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;Port_Prompt&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;3128&quot;</span><span class="nt">/&gt;</span>
+</span></code></pre></div></p>
+</details>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">#</a></h2>
+<p>After configuring Dock Manager policies in Intune, see these related topics:</p>
+<ul>
+<li><strong><a href="../dm/">Dock Manager Deployment Guide</a></strong> – Deploy Dock Manager with ConfigMgr and Intune</li>
+<li><strong><a href="../dm_troubleshooting/">Dock Manager Troubleshooting</a></strong> – Troubleshoot deployment and scheduling issues</li>
+<li><strong><a href="../dock_manager_faq/">Dock Manager FAQ</a></strong> – Frequently asked questions and support resources</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2026 <a href="https://docs.lenovocdrt.com"  target="_blank" rel="noopener">Lenovo Commercial Deployment Readiness Team</a><br><a href="#__consent" style="text-decoration:underline;">Change cookie settings</a>
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+  
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences such as light and dark mode, as well as to measure anonymous usage data to determine effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" checked>
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+      
+        
+  
+  
+    
+    
+  
+  <li class="task-list-item">
+    <label class="task-list-control">
+      <input type="checkbox" name="analytics" checked>
+      <span class="task-list-indicator"></span>
+      Google Analytics
+    </label>
+  </li>
+
+      
+    
+    
+      
+    
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tracking", "navigation.path", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation", "content.code.copy", "content.code.select"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../js/open_in_new_tab.js"></script>
+      
+    
+  </body>
+</html>
