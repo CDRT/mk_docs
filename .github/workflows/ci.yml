@@ -5,7 +5,9 @@ on:
       - master
       - main
 permissions:
-  contents: write
+  contents: read          # keep limited contents permission
+  pages: write            # required to create/update Pages deployments
+  id-token: write         # required for OIDC-based actions used by Pages actions
 jobs:
   deploy:
     runs-on: ubuntu-latest
