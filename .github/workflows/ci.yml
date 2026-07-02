@@ -28,4 +28,4 @@ jobs:
       - run: pip install mkdocs-material 
       - run: pip install mkdocs-open-in-new-tab
       - run: pip install mkdocs-redirects
-      - run: mkdocs gh-deploy --force
+#      - run: mkdocs gh-deploy --force
