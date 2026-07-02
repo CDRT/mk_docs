@@ -10,7 +10,7 @@ This document outlines the differences between the original **LSUClient** (LSU) 
 ## Feature Comparison
 
 | Feature | LSU | LCU | Notes |
-| --- | --- | --- | -------|
+| --- | --- | --- | --- |
 | **Core Update Discovery** | YES | YES | Fetch available updates for Lenovo systems |
 | **Driver Updates** | YES | YES | Install device drivers |
 | **BIOS/UEFI Updates** | YES | YES | Update system BIOS/UEFI |
@@ -46,7 +46,7 @@ All work identically, just renamed:
 #### New to LCU (6 commands)
 
 - [`Get-LnvDownload`](functions/get-lnvdownload.md) – Download and optionally expand packages by machine type
-- [`Get-LnvUpdateHistory`](functions/get-lnvupdatehistory.md) – View update installation history
+- [`Get-LnvUpdateHist`](functions/get-lnvupdatehist.md) – View update installation history
 - [`Get-LnvUpdateSummary`](functions/get-lnvupdatesummary.md) – Get system update status summary
 - [`Get-LnvUpdatesRepo`](functions/get-lnvupdatesrepo.md) – Build a local update repository
 - [`Get-LnvUpdateFromWmi`](functions/get-lnvupdatefromwmi.md) – Query WMI for update information
@@ -131,12 +131,12 @@ These commands work the same in both LSU and LCU:
     Get-LnvDownload -MachineType 21N2 -RepositoryFolder "C:\Repo" -Expand
     ```
 
-??? note "Get-LnvUpdateHistory – View update installation history"
+??? note "Get-LnvUpdateHist – View update installation history"
     **NEW** - Get update install history:
 
     ```powershell
     # LCU (NEW)
-    Get-LnvUpdateHistory | Where-Object { $_.InstallDate -gt (Get-Date).AddDays(-30) }
+    Get-LnvUpdateHist | Where-Object { $_.InstallDate -gt (Get-Date).AddDays(-30) }
     ```
 
 ??? note "Get-LnvUpdateSummary – Get system update status"
@@ -184,7 +184,7 @@ $updates | Test-LnvSignature
 
 ??? note "Security Parameters"
     | Parameter | LSU | LCU | Purpose |
-    |-----------|-----|----------|---------|
+    | --- | --- | --- | --- |
     | `VerifySignature` | NO | YES | Enforce digital signature verification before installation |
     | `SkipSignatureCheck` | NO | YES | Bypass verification for testing (not recommended for production) |
     | **Component** | **LSU** | **LCU** | **Purpose** |
@@ -215,7 +215,7 @@ $updates = Get-LnvUpdate -StatusMode "Approved"
 
 ??? note "Logging & Tracking Parameters"
     | Parameter | Command | LSU | LCU | Purpose |
-    |-----------|---------|-----|----------|---------|
+    | --- | --- | --- | --- | --- |
     | `ExportToWMI` | Install-LnvUpdate | NO | YES | Export installation info to WMI for audit/tracking |
     | `SaveBIOSUpdateInfoToRegistry` | Install-LnvUpdate | YES | YES | Record BIOS updates in registry |
     | `-LogFile` | Get-LnvUpdate | NO | YES | Create logfile in default path (`C:\ProgramData\Lenovo\...`) |
@@ -228,7 +228,7 @@ $updates = Get-LnvUpdate -StatusMode "Approved"
 
 ??? note "Install-LnvUpdate – All Parameters"
     | Parameter | LSU | LCU | Purpose |
-    |-----------|-----|----------|---------|
+    | --- | --- | --- | --- |
     | `Package` | YES | YES | Update package to install |
     | `Path` | YES | YES | Downloaded package location |
     | `Proxy` | YES | YES | Proxy server URL |
@@ -240,7 +240,7 @@ $updates = Get-LnvUpdate -StatusMode "Approved"
 
 ??? note "Get-LnvUpdate – All Parameters"
     | Parameter | LSU | LCU | Purpose |
-    |-----------|-----|----------|---------|
+    | --- | --- | --- | --- |
     | `Model` | YES | YES | Computer model to target |
     | `All` | YES | YES | Return all packages |
     | `Proxy` | YES | YES | Proxy server |

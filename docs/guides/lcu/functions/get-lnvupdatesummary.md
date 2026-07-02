@@ -84,5 +84,5 @@ Returns a summary object with properties such as:
 ## See Also
 
 - [Get-LnvUpdate](get-lnvupdate.md)
-- [Get-LnvUpdateHistory](get-lnvupdatehistory.md)
+- [Get-LnvUpdateHist](get-lnvupdatehist.md)
 - [Get-LnvUpdateFromWmi](get-lnvupdatefromwmi.md)

@@ -23,6 +23,8 @@ The script resolves the `Lenovo.Client.RepositoryManager` module automatically i
 2. Installed from the PowerShell Gallery (requires internet access and NuGet provider)
 3. Bundled copy in the same folder as the script
 
+For local manual installation, download the [script and module from here](https://download.lenovo.com/cdrt/tools/Lenovo.Client.RepositoryManager_1.0.1.zip).
+
 To install the module manually from the PowerShell Gallery:
 
 ```powershell

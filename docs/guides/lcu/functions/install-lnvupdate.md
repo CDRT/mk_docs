@@ -16,7 +16,7 @@ Installs Lenovo driver, BIOS, firmware, and application update packages. Package
 ```powershell
 Install-LnvUpdate [-Package] <PSObject> [-Path <DirectoryInfo>]
                   [-SaveBIOSUpdateInfoToRegistry] [-SkipSignatureCheck]
-                  [-ExportToWMI] [-Proxy <Uri>] 
+                  [-ExportToWMI] [-Proxy <Uri>]
                   [-ProxyCredential <PSCredential>] [-ProxyUseDefaultCredentials]
 ```
 
@@ -135,7 +135,7 @@ Interactive installers may hang deployments waiting for user input.
 
 When `-SaveBIOSUpdateInfoToRegistry` is used, the following registry key is updated:
 
-```powershell
+```text
 HKLM\Software\LenovoUpdate\BIOSUpdate
   - Version      : BIOS version installed
   - InstallDate  : Date and time of installation
@@ -144,11 +144,7 @@ HKLM\Software\LenovoUpdate\BIOSUpdate
 
 ### WMI Export for Compliance
 
-When `-ExportToWMI` is used, installation history is written to:
-
-```powershell
-root\Lenovo\Lenovo_Updates class
-```
+When `-ExportToWMI` is used, installation history is written to `root\Lenovo\Lenovo_Updates` class.
 
 This enables audit trails and compliance reporting through enterprise management tools.
 
@@ -157,5 +153,5 @@ This enables audit trails and compliance reporting through enterprise management
 - [Get-LnvUpdate](get-lnvupdate.md)
 - [Save-LnvUpdate](save-lnvupdate.md)
 - [Expand-LnvUpdate](expand-lnvupdate.md)
-- [Get-LnvUpdateHistory](get-lnvupdatehistory.md)
+- [Get-LnvUpdateHist](get-lnvupdatehist.md)
 - [Get-LnvUpdateFromWmi](get-lnvupdatefromwmi.md)

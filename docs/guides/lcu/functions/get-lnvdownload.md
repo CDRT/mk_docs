@@ -107,6 +107,6 @@ Downloads only drivers that either don't require reboot (0) or require reboot (3
 When using `-Expand`:
 
 - Extraction happens in the background using PowerShell runspaces
-- Progress messages display every 5 seconds
+- Progress messages display every 15 seconds
 - Extracted files are placed directly in each package folder
 - The function waits for all extractions to complete before exiting

@@ -44,10 +44,25 @@ This PowerShell module is provided to assist in managing Lenovo driver, BIOS/UEF
 
 - [Get-LnvUpdateConfiguration](functions/get-lnvupdateconfiguration.md)
 - [Set-LnvUpdateConfiguration](functions/set-lnvupdateconfiguration.md)
-- [Get-LnvUpdateHistory](functions/get-lnvupdatehistory.md)
+- [Get-LnvUpdateHist](functions/get-lnvupdatehist.md)
 - [Get-LnvUpdateFromWmi](functions/get-lnvupdatefromwmi.md)
 
 ### Repository Management
 
 - [Get-LnvUpdatesRepo](functions/get-lnvupdatesrepo.md)
 - [Get-LnvUpdateSummary](functions/get-lnvupdatesummary.md)
+
+## Version History
+
+- 1.0.3 - July 1, 2026:
+    - Reorganized how classes and custom types are defined to address an error being thrown in Install-LnvUpdate
+    - Removed the downloading of update installer executables in Get-LnvUpdate. This cmdlet assesses current updates to determine applicability and it was unnecessary to download the installer executables. The installers will be installed when calling Save-LnvUpdate or Install-LnvUpdate when you pass the list of applicable updates from Get-LnvUpdate.
+    - Added file signature checking to Save-LnvUpdate since the downloading of the update installer exectuable was removed from Get-LnvUpdate. Added -SkipSignatureCheck switch parameter.
+- 1.0.2 - June 17, 2026:
+    - Bug fix due to lines being removed incorrectly causing error in dependency checking
+
+- 1.0.1 - June 11, 2026:
+    - Changed the Registry Key location for BIOS update details to `HKLM\SOFTWARE\LenovoUpdate\BIOSUpdate`
+
+- 1.0.0 - April 07, 2026:
+    - Initial release

@@ -9,20 +9,17 @@ description: Frequently asked questions about Commercial Vantage deployment and 
 
 ??? question "How do I enable logging for the System Update process?"
 
-    Due to requirements from the Lenovo Product Security team, logging is disabled by default.
+    Due to requirements from the Lenovo Product Security team, logging is not enabled by default. To enable logging, set the following registry values to "Trace":
 
-    **To enable:**
-
-    Set this registry value to "True":
     ```registry
-    [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\SystemUpdateAddin\Logs]
-    "EnableLogs"="True"
+    [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\VantageService\FileLogger]
+    "LenovoVantageShell"="Trace"
+    "AllLogs"="Trace"
     ```
 
-    **Log location:**
-    ```
-    %ProgramData%\Lenovo\Vantage\AddinData\LenovoSystemUpdateAddin\logs
-    ```
+    Logs can be found in subfolders for each component under: `%ProgramData%\Lenovo\Vantage\Logs\`
+
+    For the System Update Addin, the logs will be in the `LenovoSystemUpdateAddin` subfolder.
 
 ---
 
