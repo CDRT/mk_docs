@@ -1,7 +1,6 @@
 # I/O Port Access Settings #
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img
-   /tp_ioportaccess.png)
+!IO Port Access](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_ioportaccess.png)
 
 Ethernet LAN
 :  Select whether to enable or disable Ethernet LAN device and keeps it disabled in the OS environment.

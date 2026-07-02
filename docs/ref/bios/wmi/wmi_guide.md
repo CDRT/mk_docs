@@ -2,23 +2,15 @@
 
 ## Introduction
 
-IT administrators are always looking for easier ways to manage client computer BIOS settings, which include
-passwords, settings, and the boot order. The Lenovo BIOS WMI interface provides a simplified way to change
-these settings. Lenovo has developed a BIOS interface that can be manipulated through Windows Management
-Instrumentation (WMI). The Lenovo BIOS WMI interface enables IT administrators to make queries on current
-BIOS settings, restore settings to their factory defaults, change single settings, reset or change passwords, and
-modify the boot order either at client computers or remotely.
+IT administrators are always looking for easier ways to manage client computer BIOS settings, which include passwords, settings, and the boot order. The Lenovo BIOS WMI interface provides a simplified way to change these settings. Lenovo has developed a BIOS interface that can be manipulated through Windows Management Instrumentation (WMI). The Lenovo BIOS WMI interface enables IT dministrators to make queries on current BIOS settings, restore settings to their factory defaults, change single settings, reset or change passwords, and modify the boot order either at client computers or remotely.
 
-If you have suggestions, comments, or questions, please talk to us on our forum! A team of deployment engineers
-(including the author of this document) is standing by, ready to help with any deployment challenges you are facing:
+If you have suggestions, comments, or questions, please talk to us on our forum! Our small team of deployment engineers is standing by, ready to help with any deployment challenges you are facing:
+
 <https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg>
 
 ### Using Windows Management Instrumentation
 
-WMI is provided as a standard feature in most Windows® operating systems. It provides a powerful set of
-functions, such as query-based information retrieval and event notification, which enables users to manage both
-local and remote computers. The Lenovo BIOS WMI interface extends the capabilities of WMI to allow
-management of BIOS settings.
+WMI is provided as a standard feature in most Windows® operating systems. It provides a powerful set of functions, such as query-based information retrieval and event notification, which enables users to manage both local and remote computers. The Lenovo BIOS WMI interface extends the capabilities of WMI to allow management of BIOS settings.
 
 ### Key Benefits
 
@@ -27,8 +19,7 @@ The Lenovo BIOS WMI interface provides the following benefits:
 #### Functions
 
 + Flexible BIOS configuration, including the ability to change a single BIOS setting or all BIOS settings
-+ BIOS password management, including updating supervisor passwords, power-on passwords, and hard
-disk drive (HDD) passwords
++ BIOS password management, including updating supervisor passwords, power-on passwords, and hard disk drive (HDD) passwords
 + No dependency on a specific BIOS level
 
 #### Environment
@@ -123,8 +114,7 @@ You will receive one of the following return values after making changes to BIOS
 
 ## Password Handling
 
-Recent models (2020 and newer ThinkPads, 2017 and newer ThinkCentre and ThinkStations) support complex BIOS passwords.
-Acceptable characters for BIOS password are the following:
+Recent models (2020 and newer ThinkPads, 2017 and newer ThinkCentre and ThinkStations) support complex BIOS passwords. Acceptable characters for BIOS password are the following:
 
 + Alphabet (case sensitive) {‘A-Z‘, ‘a-z‘}
 + Number {‘0-9‘}
@@ -318,8 +308,7 @@ Invoke-CimMethod $cimSaveBiosSettings -MethodName SaveBiosSettings -Arguments @{
 
 ### Change a BIOS Password
 
-Use the following commands to change the BIOS supervisor password. Note that you cannot use this method to
-set an initial password; it can only be used to change an existing password. This is a multi-step process.
+Use the following commands to change the BIOS supervisor password. Note that you cannot use this method to set an initial password; it can only be used to change an existing password. This is a multi-step process.
 
 !!! note
     The first step is only required for ThinkCentre and ThinkStation models. Skip step 1 on ThinkPads.
