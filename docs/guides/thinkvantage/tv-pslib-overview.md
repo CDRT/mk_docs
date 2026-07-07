@@ -21,7 +21,7 @@ Install-Script  'ThinkBiosConfigUI'
 Install-Module  'Lenovo.BIOS.Config'
 ```
 
-[:material-book-open: Read the guide](../tbct_v2/tbct_v2_top/)
+[:material-book-open: Read the guide](/guides/tbct_v2/tbct_v2_top/)
 
 ---
 
@@ -34,7 +34,7 @@ Install-Script  'LnvBiosCertInterface'
 Install-Module  'Lenovo.Bios.Certificates'
 ```
 
-[:material-shield-lock: Read the guide](../lbct/)
+[:material-shield-lock: Read the guide](/guides/lbct/)
 
 ---
 
@@ -46,7 +46,7 @@ A script-based tool for creating and maintaining local repositories of Lenovo up
 Install-Script 'ThinkVantageRepositoryManager'
 ```
 
-[:material-folder-sync: Read the guide](../tvrm/)
+[:material-folder-sync: Read the guide](/guides/tvrm/)
 
 ---
 
@@ -64,7 +64,7 @@ Provides cmdlets for querying device details, searching for driver packs and HSA
 Install-Module 'Lenovo.Client.Scripting'
 ```
 
-[:material-book-open: Read the guide](../lcsm/lcsm_top/)
+[:material-book-open: Read the guide](/guides/lcsm/lcsm_top/)
 
 ---
 
@@ -76,7 +76,7 @@ The official Lenovo fork of the [LSUClient](https://github.com/jantari/LSUClient
 Install-Module 'Lenovo.Client.Update'
 ```
 
-[:material-update: Read the guide](../lcu/)
+[:material-update: Read the guide](/guides/lcu/)
 
 ---
 
