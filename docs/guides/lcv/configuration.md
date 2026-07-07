@@ -1185,7 +1185,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     ```
 
 ??? note "Schedule the Time for Auto Update"
-    **Description**: This policy setting provides the ability for the Administrator to configure the time for auto updates. For example, 18:30:00 for 6:30 PM.
+    **Description**: This policy setting provides the ability for the Administrator to configure the time for auto updates. For example, 18:30:00 for 6:30 PM. This will represent the start of a 90-minute window. Devices will randomly start the Auto Update during this 90 minutes. This helps ensure that all devices do not start downloading updates over the network at exactly the same time.
 
     **OMA-URI**:
     ```
@@ -1479,4 +1479,4 @@ The following policies toggle System Update behavior on or off. For policies wit
     ```
     ```xml
     <disabled/>
-    ``` 
+    ```
