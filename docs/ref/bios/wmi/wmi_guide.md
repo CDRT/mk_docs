@@ -78,7 +78,7 @@ The following interface details can be used to access Lenovo BIOS settings.
 | Lenovo_BiosSetting | Query | CurrentSetting: “Item,Value” | “WakeOnLAN,Enable” |
 | Lenovo_GetBiosSelections | Method | “Item” | “WakeOnLAN” |
 | Lenovo_SetBiosSetting | Method | “Item,Value" | “WakeOnLAN,Disable” |
-| Lenovo_WmiOpcodeInterface | Method  | WmiOpcodePasswordAdmin:{value};<br>WmiOpcodePasswordType:{value};<br>WmiOpcodePasswordCurrent01:{value};<br>   WmiOpcodePasswordNew01:{value};<br>WmiOpcodePasswordSetUpdate; | WmiOpcodePasswordAdmin:MyPassword!;<br>WmiOpcodePasswordType:pap;<br>WmiOpcodePasswordCurrent01:123;<br>WmiOpcodePasswordNew01:456;<br>WmiOpcodePasswordSetUpdate; |
+| Lenovo_WmiOpcodeInterface | Method | WmiOpcodePasswordAdmin:{value};<br>WmiOpcodePasswordType:{value};<br>WmiOpcodePasswordCurrent01:{value};<br>   WmiOpcodePasswordNew01:{value};<br>WmiOpcodePasswordSetUpdate; | WmiOpcodePasswordAdmin:MyPassword!;<br>WmiOpcodePasswordType:pap;<br>WmiOpcodePasswordCurrent01:123;<br>WmiOpcodePasswordNew01:456;<br>WmiOpcodePasswordSetUpdate; |
 | Lenovo_SaveBiosSettings | Method  | none | *Also see Legacy Password Handling Section* |
 | Lenovo_DiscardBiosSettings | Method  | “Password,Encoding,KbdLang;” | “pswd,ascii,us;” |
 | Lenovo_LoadDefaultSettings | Method  | “Password,Encoding,KbdLang;” | “pswd,ascii,us;” |
@@ -88,13 +88,13 @@ The following interface details can be used to access Lenovo BIOS settings.
 **ThinkCentre/ThinkStation**:
 
 | Class Name | Type | Parameter / Return | Example |
-|----------- | ---- | ---------------- | ---------------- |
-| Lenovo_BiosSetting  | Query | CurrentSetting: "Item,Value" | “WakeonLAN,Automatic” |
-| Lenovo_SetBiosSetting | Method  | “Item,Value” | “WakeonLAN,Disabled” |
-| Lenovo_SaveBios Settings | Method | none |   |
-| Lenovo_DiscardBios Settings  | Method  | none |  |
-| Lenovo_LoadDefault Settings  | Method  | none |  |
-| Lenovo_WmiOpcodeInterface | Method  | WmiOpcodePasswordAdmin:{value};<br>WmiOpcodePasswordType:{value};<br>WmiOpcodePasswordCurrent01:{value};<br>   WmiOpcodePasswordNew01:{value};<br>WmiOpcodePasswordSetUpdate; | WmiOpcodePasswordAdmin:MyPassword!;<br>WmiOpcodePasswordType:pap;<br>WmiOpcodePasswordCurrent01:123;<br>WmiOpcodePasswordNew01:456;<br>WmiOpcodePasswordSetUpdate; |
+| ---------- | ---- | ---------------- | ---------------- |
+| Lenovo_BiosSetting | Query | CurrentSetting: "Item,Value" | “WakeonLAN,Automatic” |
+| Lenovo_SetBiosSetting | Method | “Item,Value” | “WakeonLAN,Disabled” |
+| Lenovo_SaveBios Settings | Method | none | |
+| Lenovo_DiscardBios Settings | Method | none | |
+| Lenovo_LoadDefault Settings | Method | none | |
+| Lenovo_WmiOpcodeInterface | Method | WmiOpcodePasswordAdmin:{value};<br>WmiOpcodePasswordType:{value};<br>WmiOpcodePasswordCurrent01:{value};<br>   WmiOpcodePasswordNew01:{value};<br>WmiOpcodePasswordSetUpdate; | WmiOpcodePasswordAdmin:MyPassword!;<br>WmiOpcodePasswordType:pap;<br>WmiOpcodePasswordCurrent01:123;<br>WmiOpcodePasswordNew01:456;<br>WmiOpcodePasswordSetUpdate; |
 | Lenovo_SetBios Password <br>***Deprecated - use Lenovo_WmiOpcodeInterface*** | Method | "PasswordType,CurrentPassword, NewPassword, <br>Encoding,KbdLang;" | “pop,oldpop,<br>newpop,<br>ascii,us;” |
 | Lenovo_BiosPasswordSettings | Query | [See section below.](#detecting-password-state) | |
 <!--| Lenovo_BiosPasswordSettings 	| Method 	| PasswordMode:”Value”<br>-0:Legacy Mode<br>-Others: Reserved PasswordState:”Value”<br>-BIT0=1: User password is installed<br>-BIT1=1:Admin password isinstalled<br>-BIT2=1:Hard disk passwords are installed <br>MinLength:”Value”<br>-1:always one byte MaxLength:”Value”<br>-64:always 64 byte SupportedKeyboard:”Value”<br>-BIT0=1:Support US keyboard<br>-BIT1=1:Support French keyboard<br>-BIT2=1:Support German keyboard <br>SupportedEncodings:”Value”<br>-BIT0=1: support ASCII password input<br>-BIT1=1:support scancode password input <br>Port0HardDiskPasswordState:”Value”<br>-BIT0=1:User hard disk password is installed<br>-BIT1=1:Master hard disk password is installed<br>   Port1HardDiskPasswordState:”Value”<br>   Port2HardDiskPasswordState:”Value”<br>   Port3HardDiskPasswordState:”Value”<br>   Port4HardDiskPasswordState:”Value”<br>   Port5HardDiskPasswordState:”Value” 	| PasswordMode:1 <br>PasswordState:0 <br>MinLength:1 <br>MaxLength:64 <br>SuportedKeyboard:7 <br>SupportedEncodings:3 <br>Port0HardDiskPasswordState:00 <br>Port1HardDiskPasswordState:00 <br>Port2HardDiskPasswordState:00 <br>Port3HardDiskPasswordState:00 <br>Port4HardDiskPasswordState:00 <br>Port5HardDiskPasswordState:00 	| -->

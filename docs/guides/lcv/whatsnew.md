@@ -5,52 +5,76 @@ description: Latest features and updates for Commercial Vantage
 
 # What's New
 
-## Latest Release: v20.2511.24.0 (January 23, 2026)
+## Latest Release: v20.2603.19.0 (June 30, 2026)
 
 ### Main Application
 
-- WiFi Security improvements
-- Battery Assist Mode updates
-- Dust Monitoring for ThinkCentre
-- Power Management updates
-    - Intelligent Thermal Solution mode
-    - Mode performance charts
-    - Background task power update
-- Telemetry
-  - Collect anonymous usage metrics to gauge what features are used
-  - Follows the existing policy for Metrics collection
-  - New check box on initial Welcome dialog for User Consent at first launch
+- Search bar added to make it easier to find settings
+- Removed "Aura Edition" branding
+- Added external Terms of Service disclaimer in "My Software" section
+- ARM Support - Enable features for ThinkPad T14s Gen 7 QC
+    - Fn + R
+    - ESG page
+    - Battery charge/discharge
+    - Clean device
+    - Dolby Audio
 
 ### System Update
 
-- Available updates indicator will now appear on Commercial Vantage icon in Taskbar
-- Available updates indicator will now appear on the "Check for updates" button on the Dashboard
-- Increased the size of the customer logo:  Minimum = 32x32 px  Maximum = 32x128 px
-- Improvements for Lenovo Device Orchestration:
-    - Improved error messaging/logging provided to LDO
-    - Added indication of the stages of the process in the logging for LDO
-    - Added driver rollback functionality to be controlled from LDO
+- Improved logic to identify Lenovo Accessories
+- Auto Update Time policy is treated as start time of 90-minute window. Devices will trigger within this window but not all at the same exact time.
 
-!!! info "About Metrics Collection"
-    Lenovo Commercial Vantage includes an optional Metrics Collection feature to help improve product reliability and user experience.
+### New Group Policies
 
-    **What is collected?**
-
-    - Anonymized telemetry on feature usage and system health
-    - No personally identifiable information (PII)
-
-    **Why enable metrics?**
-
-    - Supports proactive issue detection
-    - Helps Lenovo enhance performance and stability by focusing on the features used most
-
-    **Control options**
-
-    IT admins can disable metrics collection via Group Policy for compliance-sensitive environments.
+- **Device - System update - Auto update - Turn on BITS**: Controls whether downloads of system updates are performed using Background Intelligent Transfer Service (BITS) if available. if not available, a standard download will be attempted. This can be leveraged in environments where peer caching is being used.
+- **Device - System update - Auto update - Reboot delay time**: When this policy is Enabled, Commercial Vantage will wait the specified number of minutes before rebooting the system after Reboot Type 5 updates have been installed. There will be a warning dialog displayed to show the time at which the reboot will occur with an option to reboot immediately.
 
 ---
 
 ## Release History
+
+??? note "v20.2511.24.0 - January 23, 2026"
+
+    ### Main Application
+
+    - WiFi Security improvements
+    - Battery Assist Mode updates
+    - Dust Monitoring for ThinkCentre
+    - Power Management updates
+    - Intelligent Thermal Solution mode
+    - Mode performance charts
+    - Background task power update
+    - Telemetry
+    - Collect anonymous usage metrics to gauge what features are used
+    - Follows the existing policy for Metrics collection
+    - New check box on initial Welcome dialog for User Consent at first launch
+
+    ### System Update
+
+    - Available updates indicator will now appear on Commercial Vantage icon in Taskbar
+    - Available updates indicator will now appear on the "Check for updates" button on the Dashboard
+    - Increased the size of the customer logo:  Minimum = 32x32 px  Maximum = 32x128 px
+    - Improvements for Lenovo Device Orchestration:
+    - Improved error messaging/logging provided to LDO
+    - Added indication of the stages of the process in the logging for LDO
+    - Added driver rollback functionality to be controlled from LDO
+
+    !!! info "About Metrics Collection"
+        Lenovo Commercial Vantage includes an optional Metrics Collection feature to help improve product reliability and user experience.
+
+        **What is collected?**
+
+        - Anonymized telemetry on feature usage and system health
+        - No personally identifiable information (PII)
+
+        **Why enable metrics?**
+
+        - Supports proactive issue detection
+        - Helps Lenovo enhance performance and stability by focusing on the features used most
+
+        **Control options**
+
+        IT admins can disable metrics collection via Group Policy for compliance-sensitive environments.
 
 ??? note "v20.2509 – October 03, 2025"
 
