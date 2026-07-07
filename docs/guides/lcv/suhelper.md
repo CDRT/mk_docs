@@ -19,17 +19,17 @@ SUHelper is provided as a separate installer (not included with Commercial Vanta
 
 ### Installation Methods
 
-**Option 1: As part of Commercial Vantage Enterprise deployment**
+#### Option 1: As part of Commercial Vantage Enterprise deployment
 
 Uncomment the installation line in `setup-commercial-vantage.bat` by removing `@REM` from the beginning.
 
-**Option 2: Silent standalone installation**
+#### Option 2: Silent standalone installation
 
 ```powershell
 [installer filename] /VERYSILENT
 ```
 
-**Option 3: Using VantageInstaller.exe (July 2025 Enterprise package and later)**
+#### Option 3: Using VantageInstaller.exe (July 2025 Enterprise package and later)
 
 ```powershell
 .\VantageInstaller.exe -Vantage -SuHelper
@@ -52,13 +52,15 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 
 | Parameter | Type | Purpose | Value |
 | --- | --- | --- | --- |
-| [**`-autoupdate`**](#autoupdate) &nbsp;&nbsp;&nbsp;&nbsp; | Required | Trigger update session | (none) |
-| [**`-include`**](#include) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Optional | Install only specific packages | Comma-separated package IDs |
-| [**`-exclude`**](#exclude) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Optional | Skip specific packages | Comma-separated package IDs |
-| [**`-packagetype`**](#packagetype) &nbsp;&nbsp;&nbsp;&nbsp; | Optional | Filter by update type | 0=Others, 1=App, 2=Driver, 3=BIOS, 4=Firmware |
-| [**`-reboottype`**](#reboottype) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Optional | Filter by reboot behavior | 0=No reboot, 1=Forced reboot, 3=Requires reboot, 4=Shutdown, 5=Delayed reboot (5 min) |
-| [**`-allowdefer`**](#allowdefer) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Optional | Allow users to defer updates | (none) |
-| [**`-help`** or **`/?`**](#help) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Optional | Display help | (none) |
+| [**`-autoupdate`**](#autoupdate) | Required | Trigger update session | (none) |
+| [**`-include`**](#include) | Optional | Install only specific packages | Comma-separated package IDs |
+| [**`-exclude`**](#exclude) | Optional | Skip specific packages | Comma-separated package IDs |
+| [**`-packagetype`**](#packagetype) | Optional | Filter by update type | 0=Others, 1=App, 2=Driver, 3=BIOS, 4=Firmware |
+| [**`-reboottype`**](#reboottype) | Optional | Filter by reboot behavior | 0=No reboot, 1=Forced reboot, 3=Requires reboot, 4=Shutdown, 5=Delayed reboot (5 min) |
+| [**`-allowdefer`**](#allowdefer) | Optional | Allow users to defer updates | (none) |
+| [**`-noreboot`**](#noreboot) | Optional | Skip performing a reboot when Reboot Type 5 updates are installed | (none) |
+| [**`-scanonly`**](#scanonly) | Optional | System Update Addin will only perform check for updates and will not install any updates | (none) |
+| [**`-help`** or **`/?`**](#help) | Optional | Display help | (none) |
 
 ---
 
@@ -69,7 +71,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 ??? note "-autoupdate (Required)"
 
     Triggers an Auto Update process by the System Update Addin.
-    
+
     **Behavior:**
 
     - If used alone, any Group Policy filters are applied
@@ -81,14 +83,14 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 ??? note "-include [string] (Optional)"
 
     Specifies one or more package IDs to install. **Only these packages** will be installed (if applicable).
-    
+
     **Format:** Comma-separated package IDs (e.g., `n3uj12w,n3jcd08w`)
-    
+
     **Finding Package IDs:**
-    
+
     - Use [Update Retriever](https://support.lenovo.com/us/en/solutions) tool
     - Use [Driver & Software Matrix for IT Admins](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html) – search, select updates, click "Copy Package ID(s)"
-    
+
     **Limitation:** Cannot be combined with `-exclude` or `-packagetype`/`-reboottype` parameters
 
 <a id="exclude"></a>
@@ -96,13 +98,13 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 ??? note "-exclude [string] (Optional)"
 
     Specifies one or more package IDs to **skip during installation** (even if applicable).
-    
+
     **Format:** Comma-separated package IDs (e.g., `n3jrg03w`)
-    
+
     **Persistent:** Once a package ID is added to the exclude list, subsequent scheduled auto updates will also skip this package.
-    
+
     **Override:** If a later command specifies the same package ID in `-include`, it will be removed from the exclude list and installed if applicable.
-    
+
     **Limitation:** Cannot be combined with `-include` or `-packagetype`/`-reboottype` parameters
 
 <a id="packagetype"></a>
@@ -110,9 +112,9 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 ??? note "-packagetype [string] (Optional)"
 
     Filter updates by type. Only updates matching the specified type(s) will be installed.
-    
+
     **Package Types:**
-    
+
     | Number | Type |
     | --- | --- |
     | 0 | Others |
@@ -120,9 +122,9 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
     | 2 | Driver |
     | 3 | BIOS |
     | 4 | Firmware |
-    
+
     **Format:** Comma-separated numbers (e.g., `2,3` = Drivers and BIOS)
-    
+
     **Can combine with:** `-reboottype` parameter (AND logic – intersection of both filters)
 
 <a id="reboottype"></a>
@@ -130,9 +132,9 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 ??? note "-reboottype [string] (Optional)"
 
     Filter updates by reboot requirement. Only updates requiring the specified reboot type(s) will be installed.
-    
+
     **Reboot Types:**
-    
+
     | Number | Behavior |
     | --- | --- |
     | 0 | No reboot required |
@@ -140,9 +142,9 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
     | 3 | Requires reboot |
     | 4 | Forces shutdown by update |
     | 5 | Delayed forced reboot (5 minutes) |
-    
+
     **Format:** Comma-separated numbers (e.g., `0,3` = No reboot or requires reboot)
-    
+
     **Can combine with:** `-packagetype` parameter (AND logic – intersection of both filters)
 
 <a id="allowdefer"></a>
@@ -150,10 +152,30 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 ??? note "-allowdefer (Optional)"
 
     Allow end-users to defer updates when applicable Group Policy permits deferral.
-    
+
     **Default behavior:** Updates install without user option to defer.
-    
+
     **With this parameter:** Group Policy deferral rules are applied (if configured).
+
+<a id="noreboot"></a>
+
+??? note "-noreboot (Optional)"
+
+     Indicates that System Update Addin will skip performing a reboot when **Reboot Type 5** updates are installed to allow the calling process to control the reboot. This parameter has no affect for other Reboot Types.
+
+    **Default behavior:** System will be rebooted by the System Update Addin within 5 minutes after installing the Reboot Type 5 update(s).
+
+    **With this parameter:** System is not rebooted and the user is responsible for executing the reboot.
+
+<a id="scanonly"></a>
+
+??? note "-scanonly (Optional)"
+
+     Indicates that System Update Addin will only perform check for updates and will not install any updates. The results will be recorded in the Lenovo_Updates WMI class under root\Lenovo.
+
+    **Default behavior:** System Update Addin performs normal check for updates and then installs the applicable updates.
+
+    **With this parameter:** System Update Addin only performs check for updates and stores the results in WMI.
 
 <a id="help"></a>
 
@@ -171,7 +193,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
     - `-include` and `-exclude` (mutually exclusive → return code 1)
     - `-include` with `-packagetype` or `-reboottype`
     - `-exclude` with `-packagetype` or `-reboottype`
-    
+
     **Can combine in same command:**
     - `-packagetype` and `-reboottype` (AND logic – both filters applied simultaneously)
     - Any optional parameter with `-allowdefer`
@@ -222,7 +244,7 @@ SU Helper is designed to support these key scenarios:
 ??? note "Install specific packages only"
 
     **Goal:** Deploy only two specific driver packages
-    
+
     ```powershell
     suhelper.exe -autoupdate -include n3uj12w,n3jcd08w
     ```
@@ -230,7 +252,7 @@ SU Helper is designed to support these key scenarios:
 ??? note "Block a problematic update"
 
     **Goal:** Prevent a problematic BIOS update from being installed
-    
+
     ```powershell
     suhelper.exe -autoupdate -exclude n3jrg03w
     ```
@@ -238,7 +260,7 @@ SU Helper is designed to support these key scenarios:
 ??? note "Install drivers and firmware without reboot"
 
     **Goal:** Deploy drivers and BIOS that don't require reboot; allow user deferral if policy permits
-    
+
     ```powershell
     suhelper.exe -autoupdate -packagetype 2,3 -reboottype 0 -allowdefer
     ```
@@ -246,7 +268,7 @@ SU Helper is designed to support these key scenarios:
 ??? note "Install drivers or BIOS (any reboot type)"
 
     **Goal:** Deploy all drivers and BIOS updates regardless of reboot requirement
-    
+
     ```powershell
     suhelper.exe -autoupdate -packagetype 2,3
     ```

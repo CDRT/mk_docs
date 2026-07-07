@@ -232,7 +232,7 @@ nav:
     - Scripting Samples: ref/scripts/samples.md
   - Frequently Asked Questions:
     - System Update FAQ: guides/sus/system_update_faq.md
-    - Commercial Vantage FAQ: guides/cv/commercial_vantage_faq.md
+    - Commercial Vantage FAQ: guides/lcv/commercial_vantage_faq.md
     - Dock Manager FAQ: guides/dm/dock_manager_faq.md
 
 plugins:

@@ -23,6 +23,9 @@ description: Latest features and updates for Commercial Vantage
 
 - Improved logic to identify Lenovo Accessories
 - Auto Update Time policy is treated as start time of 90-minute window. Devices will trigger within this window but not all at the same exact time.
+- SU Helper new parameters:
+    - `-scanonly`: Optional. Indicates that System Update Addin will only perform check for updates and will not install any updates. The results will be recorded in the Lenovo_Updates WMI class under root\Lenovo.
+    - `-noreboot`: Optional. Indicates that System Update Addin will skip performing a reboot when Reboot Type 5 updates are installed to allow the calling process to control the reboot. A reboot is still required for these updates to be completely installed and to avoid abnormal system behavior.
 
 ### New Group Policies
 
