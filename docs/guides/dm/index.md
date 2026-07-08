@@ -55,6 +55,12 @@ The four-character "machine type" for supported docks can be used in Update Retr
 
 | Dock Model | Machine Type |
 | --- | --- |
+| ThinkPad USB4 Dock 5000 | [40BF](https://support.lenovo.com/solutions/acc500429) |
+| ThinkPad Thunderbolt 4 Smart Dock Gen 2 7500 | [40BE](https://support.lenovo.com/solutions/acc500391) |
+| ThinkPad USB4 Smart Dock 5500 | [40BC](https://support.lenovo.com/solutions/acc500392) |
+| ThinkPad Thunderbolt 5 Smart Dock 7500 | [40BA](https://support.lenovo.com/solutions/acc500405) |
+| ThinkPad Universal USB-C Smart Dock | [40B2](https://support.lenovo.com/solutions/acc500253) |
+| ThinkPad Universal Thunderbolt 4 Smart Dock | [40B1](https://support.lenovo.com/solutions/acc500254) |
 | ThinkPad Universal USB-C Dock v2 | [40B7](https://support.lenovo.com/solutions/acc500295) |
 | ThinkPad Thunderbolt 4 Workstation Dock | [40B0](https://pcsupport.lenovo.com/accessories/pd500533) |
 | ThinkPad Universal Thunderbolt 4 Dock | [40B0](https://support.lenovo.com/solutions/pd500503) |
@@ -69,4 +75,4 @@ The four-character "machine type" for supported docks can be used in Update Retr
 | Lenovo USB-C Dock | [40B5](https://pcsupport.lenovo.com/accessories/acc500276) |
 
 !!! note "Last Updated"
-    This documentation reflects Dock Manager support as of 2024. For new dock models or updates, check the Lenovo Support page.
+    This documentation reflects Dock Manager support as of 2026 (Dock Manager 1.6.5.3). For new dock models or updates, check the Lenovo Support page.
