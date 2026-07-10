@@ -3,7 +3,7 @@
 ![Fingerprint Settings](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_fingerprint.png)
 
 Predesktop Authentication
-:  Whether to enable authentication by a fingerprint at predesktop. 
+:  Whether to enable authentication by a fingerprint at predesktop.
 
     Possible options:
 
@@ -30,10 +30,10 @@ Security Mode
     | FingerprintSecurityMode | Normal, High | Yes | Both |
 
 Password Authentication
-:  Whether to enable authentication by password when fingerprint is not available. 
+:  Whether to enable authentication by password when fingerprint is not available.
 
     !!! note ""
-        Visible and active only if ‘Security Mode’ has value ‘High’.
+        Visible and active only if `Security Mode` has value `High`.
 
     Possible options:
 
@@ -60,7 +60,7 @@ Single-touch authentication
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
-    | FingerprintSingleTouchAuthentication | On, Off | yes | both |
+    | FingerprintSingleTouchAuthentication | On, Off | Yes | Both |
 
 Reset Fingerprints Data
 :  Erase all fingerprint data stored in the fingerprint reader and reset settings to the factory state (ex. Power-on security, LEDs, etc.).
@@ -70,9 +70,3 @@ Reset Fingerprints Data
 
     !!! note ""
         Requires additional confirmation.
-
-
-
-
-
-

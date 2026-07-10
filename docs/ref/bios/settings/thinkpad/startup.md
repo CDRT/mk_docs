@@ -123,9 +123,3 @@ Excluded from boot priority order
 
     1. Other CD
     2. Other HDD
-
-
-
-
-
-

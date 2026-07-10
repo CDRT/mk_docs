@@ -112,10 +112,4 @@ ePrivacy Lock
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
-    | ePrivacyLock | Disable,Enable | Yes | both |
-
-
-
-
-
-
+    | ePrivacyLock | Disable, Enable | Yes | Both |

@@ -33,9 +33,3 @@ System Time
         a. HH - Hour:  00 ~ 23
         b. MM - Minute:  00 ~ 59
         c. SS - Second:  00 ~ 59
-
-
-
-
-
-

@@ -16,8 +16,48 @@ Reset Certificate
 Reset Supervisor Certificate
 :  Remove the enrolled Supervisor certificate.
 
+    !!! note ""
+        Grayed out if `Subject` and `Issuer` are both `No Certificate`.
+
 Reset System Management Certificate
 :  Remove the enrolled System Management certificate.
+
+    !!! note ""
+        Grayed out if `Subject` and `Issuer` are both `No Certificate`.
+
+Supervisor Certificate Information
+:  View-only display of the currently enrolled Supervisor certificate.
+
+    Subject:
+    :  The subject of the enrolled Supervisor certificate.
+
+        Possible options:
+
+        1. **No Certificate** – Default.
+
+    Issuer:
+    :  The issuer of the enrolled Supervisor certificate.
+
+        Possible options:
+
+        1. **No Certificate** – Default.
+
+System Management Certificate Information
+:  View-only display of the currently enrolled System Management certificate.
+
+    Subject:
+    :  The subject of the enrolled System Management certificate.
+
+        Possible options:
+
+        1. **No Certificate** – Default.
+
+    Issuer:
+    :  The issuer of the enrolled System Management certificate.
+
+        Possible options:
+
+        1. **No Certificate** – Default.
 
 
 

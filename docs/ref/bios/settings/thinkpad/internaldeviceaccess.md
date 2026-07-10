@@ -1,6 +1,6 @@
 # Internal Device Access Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_internaldeviceaccess.png)
+![Internal Device Access Settings](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_internaldeviceaccess.png)
 
 Bottom Cover Tamper Detection
 :  Whether to enable tamper detection.
@@ -37,9 +37,3 @@ Internal Storage Tamper Detection
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | InternalStorageTamper | Disable, Enable | Yes | Both |
-
-
-
-
-
-

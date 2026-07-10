@@ -32,9 +32,3 @@ Charge in Battery Mode
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | ChargeInBatteryMode | Disable, Enable | No | Both |
-
-
-
-
-
-

@@ -223,11 +223,27 @@ Add Custom HTTPS Boot Option
     
     A new HTTPS Boot Option will be created according to this Boot URL.
 
-Add Custom HTTPS Boot Option
+    * Boot URL Address – the HTTPS URL for the new Custom HTTPS Boot Option.
+    * Description text to display – the label shown for this boot option in the boot list. Default: `UEFI HTTP Boot`.
+    * Generate the new Custom HTTPS Boot Option – creates the boot option from the values entered above.
+
+Delete Custom HTTPS Boot Option
 :   Description of custom HTTPS boot option list that can be deleted. 
 
+    !!! note ""
+        Displays "No Custom HTTPS Boot Option exists" if none have been created.
+
 Enroll OnPremise Server CA Cert
+:   Enroll the on-premise deployment server's CA (Certification Authority) certificate, used to validate the HTTPS connection to an on-premise server.
+
+    * Enroll Cert Using File – enroll the CA certificate from a file.
+    * File Explorer – browse to and select the certificate file to enroll.
+
+Delete OnPremise Server CA Cert
 :   Delete OnPremise Server CA Cert and reset the Server CA Cert back to the default.
+
+TLS Authorization Configuration
+:   Configure TLS authorization for the Custom HTTPS Boot connection.
 
 ## WiFi Configuration
 

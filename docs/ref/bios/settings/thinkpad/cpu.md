@@ -6,14 +6,14 @@ Efficient-cores Support
 :  Whether to enable Efficient-cores support which is available on Intel 12th Generation and later processors.
 
     1. **On** – Default.
-    1. Off
+    2. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | EfficientCores | Disable, Enable | No | Intel |
 
 Intel (R) Hyper-Threading Technology
-:  Whether to enable additional CPU threads, which appear as additional processors but share some resources with the other threads within a CPU. 
+:  Whether to enable additional CPU threads, which appear as additional processors but share some resources with the other threads within a CPU.
 
     !!! note ""
         When disable, allows only one thread within each execution core unit.
@@ -29,14 +29,8 @@ Core Multi-Processing
 :  Whether to enable Core Multi-Processing support which enables additional execution core units within a CPU or only one execution core unit within a CPU.
 
     1. **On** – Default.
-    1. Off
+    2. Off
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | CoreMultiProcessing | Disable, Enable | No | Intel |
-
-
-
-
-
-

@@ -87,7 +87,13 @@ Internal Storage (HDD/SSD)
     Options:
 
     1. **Keep** – Default.
-    2. Wipe Disk
+    2. Wipe all disks
+    3. Select disks – enables a sub-list (for example `NVMe0:xxxxx`, `NVMe1:xxxxx`) to choose which individual disk(s) to wipe.
+
+        Options per listed disk:
+
+        1. **Keep** – Default.
+        2. Wipe disk
 
 Wipe Selected Data
 :  Permanently delete selected data.

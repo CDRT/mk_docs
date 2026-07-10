@@ -1,6 +1,6 @@
 # Intel(R) AMT Settings / Standard Manageability
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_intelramt.png)
+![Intel(R) AMT Settings / Standard Manageability](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_intelramt.png)
 
 Intel (R) AMT Control
 :  Whether to enable Intel (R) Active Management Technology Control.
@@ -12,7 +12,7 @@ Intel (R) AMT Control
     3. Permanently Disabled
 
     !!! note ""
-        `Permanently Disabled` can be selected only once and permanently turns off Intel (R) ATM Control (cannot be reenabled). 
+        `Permanently Disabled` can be selected only once and permanently turns off Intel (R) AMT Control (cannot be reenabled). 
 
     !!! note ""
         Additional confirmation for this action will be required because it cannot be undone.
@@ -21,8 +21,8 @@ Intel (R) AMT Control
     |:---|:---|:---|:---|
     | AMTControl | Disable, Enable | No | Intel |
 
-Intel (R) Standard Manageability 
-:  This option enables or disables Intel® Standard Manageability (ISM) function. 
+Intel (R) Standard Manageability
+:  This option enables or disables Intel® Standard Manageability (ISM) function.
 
     Possible options:
 
@@ -76,9 +76,3 @@ Console Type
 
     !!! note ""
         This console type must match the Intel AMT remote console.
-
-
-
-
-
-

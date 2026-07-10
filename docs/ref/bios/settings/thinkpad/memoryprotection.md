@@ -32,6 +32,18 @@ Intel(R) Total Memory Encryption
     |:---|:---|:---|:---|
     | TotalMemoryEncryption | Disable, Enable | Yes | Intel |
 
+Transparent Secure Memory Encryption (TSME)
+:  AMD's equivalent of Intel (R) Total Memory Encryption. Encrypts DRAM data to protect against physical attacks.
+
+    Possible options:
+
+    1. **On** – Default.
+    2. Off
+
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | TSME | Disable, Enable | Yes | AMD |
+
 
 
 

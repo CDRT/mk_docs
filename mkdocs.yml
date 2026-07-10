@@ -86,11 +86,14 @@ nav:
           - ....USB: ref/bios/settings/thinkpad/usb.md
           - ....Keyboard/Mouse: ref/bios/settings/thinkpad/keyboardmouse.md
           - ....Display: ref/bios/settings/thinkpad/display.md
+          - ....Storage: ref/bios/settings/thinkpad/storage.md
           - ....Power: ref/bios/settings/thinkpad/power.md
           - ....Beep and Alarm: ref/bios/settings/thinkpad/beepalarm.md
           - ....CPU: ref/bios/settings/thinkpad/cpu.md
+          - ....AIM-T: ref/bios/settings/thinkpad/aimt.md
           - ....Thunderbolt(TM) 4: ref/bios/settings/thinkpad/thunderbolttm4.md
           - ....Intel(R) AMT: ref/bios/settings/thinkpad/intelramt.md
+          - ....Intel(R) Standard Manageability: ref/bios/settings/thinkpad/intelrsm.md
           - ....HDMI Configuration: ref/bios/settings/thinkpad/hdmi.md
           - Date/Time: ref/bios/settings/thinkpad/datetime.md
           - Security: ref/bios/settings/thinkpad/security.md
@@ -99,9 +102,11 @@ nav:
           - ....Security Chip: ref/bios/settings/thinkpad/securitychip.md
           - ....UEFI BIOS Update Option: ref/bios/settings/thinkpad/uefibiosupdate.md
           - ....Memory Protection: ref/bios/settings/thinkpad/memoryprotection.md
+          - ....Intel® SGX: ref/bios/settings/thinkpad/intelsgx.md
           - ....Virtualization: ref/bios/settings/thinkpad/virtualization.md
           - ....I/O Port Access: ref/bios/settings/thinkpad/ioportaccess.md
           - ....Internal Device Access: ref/bios/settings/thinkpad/internaldeviceaccess.md
+          - ....DASH Configuration: ref/bios/settings/thinkpad/dash.md
           - ....Absolute Persistence(R) Module: ref/bios/settings/thinkpad/abspersistencemodule.md
           - ....Secure Boot: ref/bios/settings/thinkpad/secureboot.md
           - ....Device Guard: ref/bios/settings/thinkpad/deviceguard.md

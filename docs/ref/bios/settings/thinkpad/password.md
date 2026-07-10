@@ -405,9 +405,3 @@ ATA / NVMe Password
     Lenovo BIOS supports both ATA and NVMe storage and the displayed BIOS setting changes depending on the attached storage device.
 
     The NVMe (nonvolatile memory express) password prevents unauthorized access to the data on the storage drive. When an NVMe password is set, you are prompted to type a correct password each time you try to access the storage drive. The system also supports creating **dual passwords** for an Admin and another User.
-
-
-
-
-
-

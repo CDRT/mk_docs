@@ -40,7 +40,6 @@ Secure Boot Mode
 #### Exit Deploy Mode
 :  Return to User Mode with the current Secure Boot keys.
 
-
 Secure Boot Key State
 :  Possible modes:
 
@@ -128,9 +127,3 @@ Forbidden Signature Database (DBX)
     Standard Windows commands are supported:
 
     - [Windows Secure Boot Key Creation and Management Guidance](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-secure-boot-key-creation-and-management-guidance)
-
-
-
-
-
-

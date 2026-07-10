@@ -111,9 +111,3 @@ Auto Screen Lock Timer
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | ZeroTouchLockTimer | Fast, Medium, Slow | Yes | Intel |
-
-
-
-
-
-

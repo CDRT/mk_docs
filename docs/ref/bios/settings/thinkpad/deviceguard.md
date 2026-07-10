@@ -28,9 +28,3 @@ Device Guard
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | DeviceGuard | Disable, Enable | Yes | Intel |
-
-
-
-
-
-

@@ -5,7 +5,6 @@
 Ethernet LAN
 :  Select whether to enable or disable Ethernet LAN device and keeps it disabled in the OS environment.
 
-
     !!! note ""
         The setting is removed in the recent versions.
 
@@ -216,9 +215,3 @@ Tile
      | WMI Setting name | Values | Locked by SVP | AMD/Intel |
      |:---|:---|:---|:---|
      | TileMode | Disable,Enable | Yes | both |
-
-
-
-
-
-

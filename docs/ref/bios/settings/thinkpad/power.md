@@ -204,8 +204,6 @@ Disable Built-in Battery
         * After selecting this item, the system will be automatically powered off, ready to be serviced.
         * The battery will be automatically enabled when the AC adapter is reconnected.
 
-
-
 ## Automatic Power On
 
 ![Autopower on](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_autopoweron.png)
@@ -315,10 +313,4 @@ User Defined Alarm Time (HH : MM : SS)
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
-    | UserDefinedAlarmTime | HH/MM/SS | Yes | Both |
-
-
-
-
-
-
+    | UserDefinedAlarmTime | HH:MM:SS | Yes | Both |

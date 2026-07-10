@@ -14,9 +14,3 @@ Setup UI
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | SetupUI | SimpleText, Graphical | No | Both |
-
-
-
-
-
-

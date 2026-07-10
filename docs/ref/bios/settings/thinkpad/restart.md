@@ -83,8 +83,8 @@ Discard Changes
 Save Changes
 :  Save Setup data.
 
+Intel® MEBx
+:  Enter the Intel(R) Management Engine BIOS Extension (MEBx) configuration screen.
 
-
-
-
-
+    !!! note ""
+        Only shown on vPro systems. See [Intel(R) AMT Settings](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/intelramt/) for the related Config menu settings.

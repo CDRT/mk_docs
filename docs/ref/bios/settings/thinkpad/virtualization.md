@@ -111,9 +111,3 @@ Enhanced Windows Biometric Security
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | EnhancedWindowsBiometricSecurity | Disable, Enable | Yes | Both |
-
-
-
-
-
-

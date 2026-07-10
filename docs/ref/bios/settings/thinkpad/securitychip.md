@@ -133,9 +133,3 @@ SMBIOS Reporting
 
     1. **On** – Default.
     2. Off
-
-
-
-
-
-

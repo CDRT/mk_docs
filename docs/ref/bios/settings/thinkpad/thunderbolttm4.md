@@ -32,9 +32,3 @@ PCIe Maximum Payload Size
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | PCIeMaximumPayloadSize | 128bytes, 256bytes | Yes | Both |
-
-
-
-
-
-
