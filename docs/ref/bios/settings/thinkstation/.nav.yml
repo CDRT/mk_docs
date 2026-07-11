@@ -1,0 +1,52 @@
+nav:
+    - Main:
+      - main.md
+      - System Summary: systemsummary.md
+      - System Time & Date: systemtimedate.md
+      - BIOS Event Log: bioseventlog.md
+    - Devices:
+      - devices.md
+      - Serial Port: serialportsetup.md
+      - Parallel Port: parallelportsetup.md
+      - USB: usbsetup.md
+      - Storage Setup:
+        - storagesetup.md
+        - Intel(R) VMD Technology: intelvmd.md
+      - ATA Drive: atadrivesetup.md
+      - NVME Drive: nvme.md
+      - Video: videosetup.md
+      - Audio: audiosetup.md
+      - Network: networksetup.md
+      - PCIe: pciesetup.md
+      - PCI Express: pciexpress.md
+      - Intel(R) Thunderbolt: intelthunderbolt.md
+      - BMC Setup: bmcsetup.md
+    - Advanced:
+      - advanced.md
+      - Diagnostics (AMD): diagnostics.md
+      - PCIe Configuration (AMD): pcieconfiguration.md
+      - PCI Express Setup: pciexpressconfig.md
+      - CPU Configuration (AMD): cpuconfiguration.md
+      - CPU Setup (Intel): cpusetup.md
+      - Memory Configuration: memoryconfig.md
+      - RAS Configuration (AMD): rasconfiguration.md
+      - Common RefCode Configuration (AMD): commonrefcodeconfiguration.md
+      - DASH Configuration (AMD): dashconfiguration.md
+      - Intel Manageability Settings: intelmanageability.md
+      - Serial Port Console Redirection (AMD): serialportconsoleredirection.md
+    - Power:
+      - power.md
+      - Automatice Power On: autopoweron.md
+    - Security:
+      - security.md
+      - Hard Disk Password: harddiskpass.md
+      - Password Policies: passwordpolicies.md
+      - SMP Access Control: smpaccesscontrol.md
+      - TCG Feature Setup: tcgfeaturesetup.md
+      - Secure Boot: secureboot.md
+      - System Event Log: systemeventlog.md
+      - Certificate-based BIOS Authentication: certbasedbiosauth.md
+    - Startup:
+      - startup.md
+      - Boot Priority Order: bootpriorityorder.md
+    - Exit: exit.md

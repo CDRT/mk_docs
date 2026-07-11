@@ -1,0 +1,39 @@
+nav:
+    - Main:
+      - main.md
+      - System Summary: system_summary.md
+      - System Time and Date: system_time_and_date.md
+    - Devices:
+      - Serial Port Setup: serial_port_setup.md
+      - Parallel Port Setup: parallel_port_setup.md
+      - USB Setup: usb_setup.md
+      - Storage Setup: storage_setup.md
+      - ATA Drive Setup: ata_drive_setup.md
+      - Video Setup: video_setup.md
+      - Audio Setup: audio_setup.md
+      - Network Setup: network_setup.md
+      - PCI Express Configuration: pci_express_configuration.md
+      - Intel(R) Thunderbolt: intel_r_manageability.md
+    - Advanced:
+      - advanced.md
+      - CPU Setup: cpu_setup.md
+      - Intel(R) Manageability: intel_r_manageability.md
+      - DASH Configuration: dash_configuration.md
+    - Power:
+      - power.md
+      - Intelligent Cooling: intelligent_cooling.md
+      - Automatic Power On: automatic_power_on.md
+    - Security:
+      - security.md
+      - System Management Password Access Control: system_management_password_access_control.md
+      - Hard Disk Password: hard_disk_password.md
+      - Password Policies: password_policies.md
+      - TCG Feature Setup: tcg_feature_setup.md
+      - System Event Log: system_event_log.md
+      - Secure Boot: secure_boot.md
+      - Certificate Based BIOS Authentication: certificate_based_bios_authentication.md
+      - Computrace: computrace.md
+    - Startup:
+      - startup.md
+      - Boot Priority Order: boot_priority_order.md
+    - Exit: exit.md

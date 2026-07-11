@@ -1,0 +1,41 @@
+nav:
+    - Main: main.md
+    - Config:
+      - config.md
+      - Network: network.md
+      - USB: usb.md
+      - Keyboard & Mouse: keyboardmouse.md
+      - Display: display.md
+      - Storage: storage.md
+      - Power: power.md
+      - Beep & Alarm: beepalarm.md
+      - CPU: cpu.md
+      - AIM-T: aimt.md
+      - Thunderbolt(TM) 4: thunderbolttm4.md
+      - Intel(R) AMT: intelramt.md
+      - Intel(R) Standard Manageability: intelrsm.md
+      - HDMI Configuration: hdmi.md
+    - Date/Time: datetaime.md
+    - Security:
+      - security.md
+      - Password: password.md
+      - Fingerprint: fingerprint.md
+      - Security Chip: securitychip.md
+      - UEFI BIOS Update Option: uefibiosupdate.md
+      - Memory Protection: memoryprotection.md
+      - Intel(R) SGX: intelsgx.md
+      - Virtualization: virtualization.md
+      - I/O Port Access: ioportaccess.md
+      - Internal Device Access: internaldeviceaccess.md
+      - DASH Configuration: dash.md
+      - Absolute Persistence(R) Module: abspersistencemodule.md
+      - Secure Boot: secureboot.md
+      - Device Guard: deviceguard.md
+      - ThinkShield Secure Wipe: thinkshieldsecurewipe.md
+      - ThinkShield Passwordless Power-On: thinkshieldpasswordless.md
+      - ThinkShield Wipe System Data: thinkshieldwipedata.md
+      - Intelligent Security: intelligentsecurity.md
+      - Reset System to Factory Defaults: resetsystemtofactorydefaults.md
+      - Certificate-based BIOS Authentication: certbasedbiosauth.md
+    - Startup: startup.md
+    - Restart: restart.md
