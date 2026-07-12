@@ -6,7 +6,7 @@ status: deprecated
 
 !!! warning "Superseded"
     Think BIOS Config Tool V2 (PowerShell-based) supersedes this HTA version.
-    See the [Think BIOS Config Tool V2 guide](../tbct_v2/tbct_v2_top.md) for the current solution.
+    See the [Think BIOS Config Tool V2 guide](../tbct_v2/index.md) for the current solution.
     Previously created INI files with encrypted passwords are **not compatible** with V2.
 
 # Think BIOS Config Tool
@@ -73,7 +73,7 @@ This tool is in the HTML application format (hta) so it can be portable and be u
 	Once connected to the remote computer, the screen will refresh with the data that is on that machine. To switch back to the local machine, just click the ‘Target Local’ button, which is only enabled if the application is accessing a remote machine.
 
 #### Settings Table
-:	
+:
 	![settings Table](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct8.png)
 
 	The Settings Table displays the current settings of the target machine.  As seen above, each setting has an associated value column which can be changed easily.  Most settings are in the form of dropdown boxes but options like ‘BootOrder’ have more complex options to select the new value of the setting.  If the user makes any changes, the text of the setting name will be changed to red (as seen above with the AlwaysOnUSB setting) to signify that it is a value different than what is currently set on the computer.
@@ -82,7 +82,7 @@ This tool is in the HTML application format (hta) so it can be portable and be u
 
 	![Save Setting](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct9.png)
 
-	As seen above, the application was successful in setting one setting. Error messages are provided in the case of a failure. More than likely, the error users will see will be ‘Access Denied’.  
+	As seen above, the application was successful in setting one setting. Error messages are provided in the case of a failure. More than likely, the error users will see will be ‘Access Denied’.
 
 	!!! note
 		All settings will only take affect once the computer is restarted.
@@ -93,7 +93,7 @@ This tool is in the HTML application format (hta) so it can be portable and be u
 
 	![Pending changes](https://cdrt.github.io/mk_docs/img/reference/tbct/tbct10.png)
 
-	The **Restore BIOS Defaults** button applies factory default values to the settings.  
+	The **Restore BIOS Defaults** button applies factory default values to the settings.
 
 	!!! note
 		Not all BIOS settings are affected by the BIOS defaults change and varies by product.  If the button is clicked, a warning prompt will be shown to confirm the user wishes to do that.
@@ -167,7 +167,7 @@ This was a very important feature when developing this application.  By having c
 	```
 
 #### Log Switch
-:	Use this switch to control where the log file should be written to. By default, a log file with the name of machineType_serialNumber.txt will be created in the current directory with the tool.  
+:	Use this switch to control where the log file should be written to. By default, a log file with the name of machineType_serialNumber.txt will be created in the current directory with the tool.
 
 	Example:
 
@@ -185,7 +185,7 @@ This was a very important feature when developing this application.  By having c
 	```
 
 #### Default Switch
-:	Use this switch to apply the default settings to a computer quickly. The only parameter for this setting is a case insensitive "true". Only when it is provided will the settings be reset. No actions will be taken if any other string is provided.  
+:	Use this switch to apply the default settings to a computer quickly. The only parameter for this setting is a case insensitive "true". Only when it is provided will the settings be reset. No actions will be taken if any other string is provided.
 
 	Example:
 
@@ -203,7 +203,7 @@ This was a very important feature when developing this application.  By having c
 
 ### Deployment Situations
 
-This application can be used in a deployment environment like MDT or Configuration Manager as long as support for HTA/HTML is enabled (MDT boot images provide this by default, ConfigMgr needs to have the feature enabled).  The application must be called after the disk has been partitioned.  In testing, placing the command during the Post-Install step seems like a good place.  Also remember that a restart is required to apply the settings.  
+This application can be used in a deployment environment like MDT or Configuration Manager as long as support for HTA/HTML is enabled (MDT boot images provide this by default, ConfigMgr needs to have the feature enabled).  The application must be called after the disk has been partitioned.  In testing, placing the command during the Post-Install step seems like a good place.  Also remember that a restart is required to apply the settings.
 
 Example code for a task sequence step:
 
@@ -233,7 +233,7 @@ If a supervisor password exists and you know you are typing in the correct passw
     Example:
 
     ```cmd
-    ThinkBiosConfig.hta '"help"'  
+    ThinkBiosConfig.hta '"help"'
 
     ThinkBiosConfig.hta '"file=C:\W550sConfig.ini"' '"pass=myEncryptionKey"'
     ```

@@ -14,7 +14,7 @@ The Lenovo Updates Catalog is a Lenovo curated catalog of update information ava
 The Lenovo Updates Catalog provides update metadata and content for the following devices:
 
 | | Models |
-|---|--------|
+| --- | -------- |
 | **Supported** | ThinkPad, ThinkStation, ThinkCentre |
 | **Not Supported** | IdeaPad, IdeaCentre, Legion, Lenovo, ThinkBook, ThinkCentre Neo, ThinkEdge, ThinkServer, ThinkSmart |
 

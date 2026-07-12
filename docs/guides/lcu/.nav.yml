@@ -1,0 +1,19 @@
+title: Lenovo.Client.Update Module
+nav:
+    - index.md
+    - Getting Started:
+      - Installation: guides/lcu/getting-started/installation.md
+      - Quick Start: guides/lcu/getting-started/quick-start.md
+    - Migration Guide: guides/lcu/comparison.md
+    - Functions:
+      - Expand-LnvUpdate: guides/lcu/functions/expand-lnvupdate.md
+      - Get-LnvDownload: guides/lcu/functions/get-lnvdownload.md
+      - Get-LnvUpdate: guides/lcu/functions/get-lnvupdate.md
+      - Get-LnvUpdateConfiguration: guides/lcu/functions/get-lnvupdateconfiguration.md
+      - Get-LnvUpdateFromWMI: guides/lcu/functions/get-lnvupdatefromwmi.md
+      - Get-LnvUpdateHist: guides/lcu/functions/get-lnvupdatehist.md
+      - Get-LnvUpdateSummary: guides/lcu/functions/get-lnvupdatesummary.md
+      - Get-LnvUpdatesRepo: guides/lcu/functions/get-lnvupdatesrepo.md
+      - Install-LnvUpdate: guides/lcu/functions/install-lnvupdate.md
+      - Save-LnvUpdate: guides/lcu/functions/save-lnvupdate.md
+      - Set-LnvUpdateConfiguration: guides/lcu/functions/set-lnvupdateconfiguration.md

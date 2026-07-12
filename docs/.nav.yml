@@ -1,0 +1,23 @@
+nav:
+    - index.md
+    - Product Guides:
+      - Commercial Vantage: guides/lcv
+      - ThinkVantage PowerShell Library:
+        - guides/thinkvantage/index.md
+        - Think BIOS Config Tool: guides/tbct_v2
+        - Lenovo BIOS Certificates Tool: guides/lbct
+        - Lenovo.Client.Scripting Module: guides/lcsm/lcsm_top.md
+        - Lenovo.Client.Update Module: guides/lcu
+        - ThinkVantage Repository Manager: guides/tvrm
+      - Lenovo Updates Catalog: guides/luc
+      - Dock Manager: guides/dm
+      - System Update, Update Retriever, Thin Installer: guides/sus
+    - References:
+      - BIOS Reference: ref/bios
+      - Docks Reference: ref/docks
+      - AMD DASH: ref/dash
+      - Sample Scripts: ref/scripts/samples.md
+    - Frequently Asked Questions:
+      - System Update FAQ: guides/sus/system_update_faq.md
+      - Commercial Vantage FAQ: guides/cv/commercial_vantage_faq.md
+      - Dock Manager FAQ: guides/dm/dock_manager_faq.md

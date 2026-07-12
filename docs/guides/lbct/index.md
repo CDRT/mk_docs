@@ -45,4 +45,4 @@ For a detailed view of how to get started using this solution with Lenovo commer
 
 ## Integration with Think BIOS Config Tool V2
 
-The Lenovo BIOS Certificate Tool works alongside the [Think BIOS Config Tool V2](/guides/tbct_v2/tbct_v2_top.md) to provide a complete password-less BIOS management solution. While LBCT handles certificate-based authentication and WMI command execution, TBCT v2 provides configuration templates and deployment guidance.
+The Lenovo BIOS Certificate Tool works alongside the [Think BIOS Config Tool V2](/guides/tbct_v2/index.md) to provide a complete password-less BIOS management solution. While LBCT handles certificate-based authentication and WMI command execution, TBCT v2 provides configuration templates and deployment guidance.

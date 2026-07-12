@@ -6,7 +6,7 @@ status: deprecated
 
 !!! warning "Superseded"
     Think BIOS Config Tool V2 (PowerShell-based) supersedes this HTA version.
-    See the [Think BIOS Config Tool V2 guide](../tbct_v2/tbct_v2_top.md) for the current solution.
+    See the [Think BIOS Config Tool V2 guide](../tbct_v2/index.md) for the current solution.
     Previously created INI files with encrypted passwords are **not compatible** with V2.
 
 # Think BIOS Config Tool
@@ -64,5 +64,3 @@ Think BIOS Config Tool from Lenovo is a free, lightweight HTML Application (HTA)
 | 1.15    | Fixed the export of Alarm Time and Date |
 | 1.14    | Improved handling of boot order on certain ThinkStation/ThinkCentre models; added version to title |
 | 1.11    | Added command line option to change back to default settings - Eg. ThinkBiosConfig.hta "default=true" |
-
-

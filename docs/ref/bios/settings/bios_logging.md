@@ -14,7 +14,7 @@ It allows you to
 
 !!! note
     - The clear log process will be run after setup exit.
-	- The clear operation is protected by SVP.
+    - The clear operation is protected by SVP.
 
 - [Main (ThinkPad )](https://docs.lenovocdrt.com//ref/bios/settings/thinkpad/main/)
 - [Main (ThinkCentre)](https://docs.lenovocdrt.com//ref/bios/settings/thinkcentre/main)

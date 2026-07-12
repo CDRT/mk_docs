@@ -1,0 +1,5 @@
+title: System Update, Update Retriever, Thin Installer
+nav:
+    - index.md
+    - Deployment Guide: su_dg
+    - FAQ: guides/sus/system_update_faq.md

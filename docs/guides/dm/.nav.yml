@@ -1,0 +1,7 @@
+title: Dock Manager
+nav:
+    - index.md
+    - Deployment Guide: dm.md
+    - Managing with Intune: dm_manage_intune.md
+    - Troubleshooting: dm_troubleshooting.md
+    - FAQ: dock_manager_faq.md

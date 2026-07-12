@@ -1,0 +1,12 @@
+title: BIOS Reference
+nav:
+    - index.md
+    - Lenovo BIOS/UEFI Deployment Guide: bios_guide.md
+    - WMI BIOS Interface: wmi/wmi_guide.md
+    - BIOS Settings Dictionary: settings
+    - Glossary: glossary.md
+    - BIOS Event Log: settings/bios_logging.md
+    - System Deployment Boot Mode: sdbm.md
+    - Startup Interrupt Menu: startup_menu.md
+    - Secure Boot Modes: secure_boot_modes.md
+    - BIOS Passwords: passwords.md

@@ -11,7 +11,6 @@ theme:
   features:
     - navigation.indexes
     - navigation.tracking
-    - navigation.path
     - navigation.top
     - toc.follow
     - search.suggest
@@ -35,105 +34,13 @@ theme:
       primary: black
       accent: blue grey
 
-nav:
-  - Home: 'index.md'
-  - Product Guides:
-    - Commercial Vantage:
-      - Overview: guides/lcv/index.md
-      - What's New: guides/lcv/whatsnew.md
-      - Deployment : guides/lcv/deployment.md
-      - Configuration : guides/lcv/configuration.md
-      - Upgrading : guides/lcv/upgrading.md
-      - SU Helper Reference: guides/lcv/suhelper.md
-      - Commercial Vantage FAQ: guides/lcv/commercial_vantage_faq.md
-    - ThinkVantage PowerShell Library:
-      - Overview: guides/thinkvantage/tv-pslib-overview.md
-      - Think BIOS Config Tool V2:
-        - Overview: guides/tbct_v2/tbct_v2_top.md
-        - Module Reference: guides/tbct_v2/tbc_module_reference.md
-      - Lenovo BIOS Certificate Tool:
-        - Overview: guides/lbct/index.md
-        - Module Reference: guides/lbct/lbc_module_reference.md
-      - Lenovo Client Scripting Module:
-        - Overview: guides/lcsm/lcsm_top.md
-      - Lenovo Client Update Module:
-        - Overview: guides/lcu/index.md
-        - Getting Started:
-          - Installation: guides/lcu/getting-started/installation.md
-          - Quick Start: guides/lcu/getting-started/quick-start.md
-        - Migration Guide:
-          - LSU Client vs Lenovo Client Update: guides/lcu/comparison.md
-        - Functions:
-          - Expand-LnvUpdate: guides/lcu/functions/expand-lnvupdate.md
-          - Get-LnvDownload: guides/lcu/functions/get-lnvdownload.md
-          - Get-LnvUpdate: guides/lcu/functions/get-lnvupdate.md
-          - Get-LnvUpdateConfiguration: guides/lcu/functions/get-lnvupdateconfiguration.md
-          - Get-LnvUpdateFromWMI: guides/lcu/functions/get-lnvupdatefromwmi.md
-          - Get-LnvUpdateHist: guides/lcu/functions/get-lnvupdatehist.md
-          - Get-LnvUpdateSummary: guides/lcu/functions/get-lnvupdatesummary.md
-          - Get-LnvUpdatesRepo: guides/lcu/functions/get-lnvupdatesrepo.md
-          - Install-LnvUpdate: guides/lcu/functions/install-lnvupdate.md
-          - Save-LnvUpdate: guides/lcu/functions/save-lnvupdate.md
-          - Set-LnvUpdateConfiguration: guides/lcu/functions/set-lnvupdateconfiguration.md
-      - ThinkVantage Repository Manager:
-        - Overview: guides/tvrm/index.md
-        - Module Reference: guides/tvrm/module_reference.md
-    - Lenovo Updates Catalog:
-      - Overview: guides/luc/luc_ovrvw.md
-      - guides/luc/luc_agnt.md
-      - guides/luc/luc_ts.md
-    - Dock Manager:
-      - Overview: guides/dm/index.md
-      - Deployment Guide: guides/dm/dm.md
-      - Managing with Intune: guides/dm/dm_manage_intune.md
-      - Troubleshooting: guides/dm/dm_troubleshooting.md
-      - Dock Manager FAQ: guides/dm/dock_manager_faq.md
-    - System Update - Update Retriever - Thin Installer:
-      - Overview: guides/sus/index.md
-      - Deployment Guide:
-        - guides/sus/su_dg/index.md
-        - guides/sus/su_dg/su_dg_ch1.md
-        - guides/sus/su_dg/su_dg_ch2.md
-        - guides/sus/su_dg/su_dg_ch3.md
-        - guides/sus/su_dg/su_dg_ch4.md
-        - guides/sus/su_dg/su_dg_ch5.md
-        - guides/sus/su_dg/su_dg_ch6.md
-        - guides/sus/su_dg/su_dg_ch7.md
-        - guides/sus/su_dg/su_dg_ch8.md
-      - System Update FAQ: guides/sus/system_update_faq.md
-    - Lenovo View:
-      - guides/lenovo_view/index.md
-  - References:
-    - BIOS Reference:
-      - ref/bios/index.md
-      - ref/bios/bios_guide.md
-      - WMI BIOS Interface: ref/bios/wmi/wmi_guide.md
-      - BIOS Settings Dictionary:                                                             │
-│         - ref/bios/settings/index.md          # section landing (navigation.indexes)          │
-│         - ThinkPad: ref/bios/settings/thinkpad                                                │
-│         - ThinkCentre: ref/bios/settings/thinkcentre                                          │
-│         - ThinkStation: ref/bios/settings/thinkstation
-      - Glossary: ref/bios/glossary.md
-      - BIOS Logging: ref/bios/settings/bios_logging.md
-      - System Deployment Boot Mode: ref/bios/sdbm.md
-      - Startup Interrupt Menu: ref/bios/startup_menu.md
-    - Docks Reference:
-      - ref/docks/index.md
-      - Deployment Guide: ref/docks/docks_main.md
-      - Configuration Manager Queries: ref/docks/configmgr_dock_queries.md
-    - AMD DASH: ref/dash/index.md
-    - Scripting Samples: ref/scripts/samples.md
-  - Frequently Asked Questions:
-    - System Update FAQ: guides/sus/system_update_faq.md
-    - Commercial Vantage FAQ: guides/lcv/commercial_vantage_faq.md
-    - Dock Manager FAQ: guides/dm/dock_manager_faq.md
-
 plugins:
   - search
   - open-in-new-tab
   - redirects:
       redirect_maps:
-        'guides/tbct/tbct_top.md': 'guides/tbct_v2/tbct_v2_top.md'
+        'guides/tbct/tbct_top.md': 'guides/tbct_v2/index.md'
+        'guides/tbct_v2/tbct_v2_top.md': 'guides/tbct_v2/index.md'
         'guides/cv/index.md' : 'guides/lcv/index.md'
   - awesome-nav
 

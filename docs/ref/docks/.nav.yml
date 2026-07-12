@@ -1,0 +1,5 @@
+title: Docks Reference
+nav:
+    - index.md
+    - Deployment Guide: docks_main.md
+    - Configuration Manager Dock Queries: configmgr_dock_queries.md

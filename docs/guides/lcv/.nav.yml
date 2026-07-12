@@ -1,0 +1,9 @@
+title: Commercial Vantage
+nav:
+    - index.md
+    - What's New: whatsnew.md
+    - Deployment : deployment.md
+    - Configuration: configuration.md
+    - Upgrading: upgrading.md
+    - SU Helper Reference: suhelper.md
+    - FAQ : commercial_vantage_faq.md

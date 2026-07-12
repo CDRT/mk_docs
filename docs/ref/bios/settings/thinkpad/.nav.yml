@@ -15,7 +15,7 @@ nav:
       - Intel(R) AMT: intelramt.md
       - Intel(R) Standard Manageability: intelrsm.md
       - HDMI Configuration: hdmi.md
-    - Date/Time: datetaime.md
+    - Date/Time: datetime.md
     - Security:
       - security.md
       - Password: password.md

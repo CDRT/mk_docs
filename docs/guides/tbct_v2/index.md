@@ -124,7 +124,7 @@ The main user interface includes:
     - **Target**: shows the targeted computer and BIOS version
     - **Settings list**: two-column view with ComboBoxes (for predefined options) or TextBoxes (for Time/Date/BootOrder)
     - **Unsaved-change indicator**: labels turn red when values differ from initial state
-    
+
     **Buttons:**
 
     - **Save Changed Settings** – Commits changes; system will need to reboot before changes take effect
@@ -143,7 +143,7 @@ The main user interface includes:
 
     ??? note "Apply Settings"
         ![Apply INI File](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-applysettings.png)
-        
+
         Applies settings from a saved INI file. Accepts inputs for:
 
         - INI file path (with file browser)
@@ -153,7 +153,7 @@ The main user interface includes:
 
     ??? note "Remove Password or Fingerprint Data"
         ![Clear password or fingerprint data](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-removepassword.png)
-        
+
         Clears the Supervisor password and/or fingerprint data. Requires:
 
         - Current Supervisor password
@@ -162,7 +162,7 @@ The main user interface includes:
 
     ??? note "Change Supervisor Password"
         ![Change password](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-changepassword.png)
-        
+
         Creates a password change request. Enter:
 
         - Current password
@@ -171,7 +171,7 @@ The main user interface includes:
 
     ??? note "Create Intune Package"
         ![Create Intune Package](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/actions-intunepackage.png)
-        
+
         Packages BIOS configuration for Intune deployment. Specify:
 
         - Source INI file and optional passphrase
@@ -189,17 +189,17 @@ The main user interface includes:
     - **Output Location**: folder for saving generated INI files
     - **Logging**: enable/disable and specify log folder (default: `%ProgramData%\Lenovo\ThinkBiosConfig\Logs`)
     - **Save Preferences**: settings saved to `.json` in `%ProgramData%\Lenovo\ThinkBiosConfig`
-    
+
 <!--Generate Debug File: TODO-->
 
 ??? note "Dialog Boxes"
-    
-    **Password Save Changes**  
+
+    **Password Save Changes**
     Shown when a supervisor password is required for Save/Reset actions.
 
     ![Password Prompt](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/password-prompt.png){: style="width:400px; height:auto;"}
 
-    **Password Generate INI**  
+    **Password Generate INI**
     Used when generating INI with optional password and passphrase.
     ![Generate INI](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/generate-ini.png)
 
