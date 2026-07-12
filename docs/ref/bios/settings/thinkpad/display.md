@@ -36,7 +36,7 @@ Total Graphics Memory
 
     Possible options:
 
-    1. **256 MB** - Default. 
+    1. **256 MB** - Default.
     2. 512 MB
 
     !!! note ""
@@ -87,7 +87,6 @@ ePrivacy Lock
     !!! note ""
         If switched on, prevents the user from disabling it.
 
-    !!! note ""
         If switched off, can be toggled any time with hotkey `Fn` + `D`.
 
     Options:

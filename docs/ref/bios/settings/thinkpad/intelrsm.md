@@ -1,6 +1,6 @@
 # Intel(R) Standard Manageability
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_intelrsm.png)
+![Intel Standard Manageability](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_intelrsm.png)
 
 Intel(R) Standard Manageability
 :  This option enables or disables Intel® Standard Manageability (ISM) function.
@@ -12,7 +12,7 @@ Intel(R) Standard Manageability
    3. Permanently Disabled
 
    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-   |:---|:---|:---|:---|
+   | :--- | :--- | :--- | :--- |
    |  | Disable, Enable, Permanently Disabled | No | Intel |
 
 USB Key Provisioning

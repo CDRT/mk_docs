@@ -1,6 +1,6 @@
 # Intel(R) AMT Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_intelramt.png)
+![Intel AMT](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_intelramt.png)
 
 Intel (R) AMT Control
 :  Whether to enable Intel (R) Active Management Technology Control.
@@ -12,7 +12,7 @@ Intel (R) AMT Control
     3. Permanently Disabled
 
     !!! note ""
-        `Permanently Disabled` can be selected only once and permanently turns off Intel (R) ATM Control (cannot be reenabled). 
+        `Permanently Disabled` can be selected only once and permanently turns off Intel (R) AMT Control (cannot be reenabled).
 
     !!! note ""
         Additional confirmation for this action will be required because it cannot be undone.
@@ -51,7 +51,7 @@ Console Type
     Possible options:
 
     1. **VT100+** - Adds function keys F5 to F14. Default.
-    2. VT100 
+    2. VT100
     3. VT-UTF8 - Adds function key F8
     4. PC ANSI
 

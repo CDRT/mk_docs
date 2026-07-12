@@ -1,7 +1,7 @@
 nav:
     - Main: main.md
     - Config:
-      - config.md
+      - Config: config.md
       - Network: network.md
       - USB: usb.md
       - Keyboard & Mouse: keyboardmouse.md
@@ -13,11 +13,10 @@ nav:
       - AIM-T: aimt.md
       - Thunderbolt(TM) 4: thunderbolttm4.md
       - Intel(R) AMT: intelramt.md
-      - Intel(R) Standard Manageability: intelrsm.md
       - HDMI Configuration: hdmi.md
     - Date/Time: datetime.md
     - Security:
-      - security.md
+      - Security: security.md
       - Password: password.md
       - Fingerprint: fingerprint.md
       - Security Chip: securitychip.md
