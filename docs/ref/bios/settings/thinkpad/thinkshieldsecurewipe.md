@@ -33,11 +33,11 @@ Please use “ThinkShield Secure Wipe” feature for ThinkPad 2019 or later mode
 2. Press the [F12] key at the Startup Interrupt Menu to make the Boot Menu / App Menu appear.
 3. Click [App Menu] from left column and choose [ThinkShield Secure Wipe] from the right column.
 
-	!!! note
-		If the ‘ThinkShield Secure Wipe’ selection does not appear in the App menu, confirm whether ThinkShield Secure Wipe is enabled in the Security options within the BIOS Setup Utility. The default setting is ‘On’ (enabled).
-	 
+    !!! note ""
+        If the `ThinkShield Secure Wipe` selection does not appear in the App menu, confirm whether ThinkShield Secure Wipe is enabled in the Security options within the BIOS Setup Utility. The default setting is `On` (enabled).
+
 4. Select the storage device to be erased. Please note that the selection is based on the  entire storage unit, not on a partition basis. After confirming the storage device to be erased, click [NEXT >] at the bottom.
-5.  Select an erase method and click [NEXT >]. You can choose from erasure methods(*),  including those commonly used for data deletion - ATA Secure Erase (Secure Erase) and  Enhanced Secure Erase. The erase methods available for selection may vary depending on the type and condition of the installed storage.
+5. Select an erase method and click [NEXT >]. You can choose from erasure methods(*),  including those commonly used for data deletion - ATA Secure Erase (Secure Erase) and  Enhanced Secure Erase. The erase methods available for selection may vary depending on the type and condition of the installed storage.
 6. If the hard disk password has been set, you will be prompted to enter the password. If you enter the wrong password three times, ThinkShield Secure Wipe will be terminated.
 7. Once you choose the wipe-out method, the following warning message is displayed before proceeding to wipe out. Please carefully read it and ensure that power loss will not occur during the wipe-out process.
 8. If everything is OK, the ThinkShield Secure Wipe starts with the progress indication as below. Do not power off the system during the wipe. The time required to complete the secure wipe varies depending on the storage type, size, and wipe method.

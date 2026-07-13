@@ -1,33 +1,9 @@
 ---
-title: Lenovo BIOS Config Module Reference
+title: Lenovo.BIOS.Config Module Reference
+description: Complete reference for the Lenovo.Bios.Config PowerShell module cmdlets, parameters, and usage patterns.
 ---
 
-# Lenovo BIOS Config Module - Cmdlet Reference
-
-<table>
-<tr>
-<td><strong>Module</strong></td>
-<td>Lenovo.Bios.Certificates</td>
-</tr>
-<tr>
-<td><strong>Version</strong></td>
-<td>1.0.8</td>
-</tr>
-<tr>
-<td><strong>Author</strong></td>
-<td>Devin McDermott</td>
-</tr>
-<tr>
-<td><strong>Company</strong></td>
-<td>Lenovo</td>
-</tr>
-<tr>
-<td><strong>Description</strong></td>
-<td>PowerShell module providing secure access to Lenovo Certificate WMI classes for BIOS certificate management</td>
-</tr>
-</table>
-
----
+# Lenovo.BIOS.Config Module Reference
 
 ## Quick start
 
@@ -1057,13 +1033,13 @@ Show-LnvWmiSettings
 
     ??? note "Advanced: Discovering available functions"
         To see a list of available function requests for your system, you can access the internal LenovoSettings instance:
-        
+
         ```powershell
         # This uses the internal module API
         $wmi = [LenovoSettings]::GetInstance()
         $wmi.GetFunctionNames()
         ```
-        
+
         Note: This technique accesses an internal implementation detail and may change in future versions. For most use cases, the common methods listed in the Notes section are sufficient.
 
     **Interactive Prompts:**

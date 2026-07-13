@@ -13,7 +13,7 @@ Exit Discarding Changes
 
     !!! note ""
         The following changes WILL NOT be discarded and must be reset within ThinkPad Setup:
-        
+
         - Date & Time
         - Supervisor Password
         - Power-on password
@@ -43,7 +43,7 @@ Load Setup Defaults -or- Load Factory Defaults
 
     !!! note ""
         The following changes WILL NOT be discarded and must be reset within ThinkPad Setup:
-        
+
         - Security
         - Date & Time
 
@@ -68,14 +68,20 @@ Discard Changes
 
     !!! note ""
         The following changes WILL NOT be discarded and must be reset within ThinkPad Setup:
-        
+
         - Date & Time
         - Supervisor password
         - Power-on password
-        - Hard disk password 
+        - Hard disk password
 
     !!! note ""
         The option requires additional confirmation.
 
 Save Changes
 :  Save Setup data.
+
+Intel(R) MEBx
+:  Enter the Intel(R) Management Engine BIOS Extension (MEBx) configuration screen.
+
+    !!! note ""
+        Only shown on vPro systems. See [Intel(R) AMT Settings](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/intelramt/) for the related Config menu settings.

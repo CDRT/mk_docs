@@ -1,0 +1,116 @@
+# ThinkShield Wipe System Data
+
+Wipe Data in Bulk
+: This will Permanently delete all data including:
+
+    - System Firmware Settings
+    - TPM
+    - Fingerprint
+    - WWAN
+    - Haptics Touchpad
+    - Internal Storage (HDD/SSD)
+
+    After selecting item, the system will automatically reboot.
+
+    Options:
+
+    1. **No** – Default.
+    2. Yes
+
+## Wipe Specified Data
+
+System Firmware Settings
+:  If selected, the following items will be included in the deletion:
+
+    - Lenovo BIOS Setting
+    - Secure Boot Keys
+    - Boot Order
+    - BIOS Log
+    - BIOS Passwords
+    - BIOS Certificates
+    - FirmwareShield Provisioning Data
+    - ECFW Settings
+    - CSME Settings
+
+    Options:
+
+    1. **Keep** – Default.
+    2. Permanently Delete
+
+TPM
+:  If selected, the encryption keys will be included in the deletion.
+
+    Options:
+
+    1. **Keep** – Default.
+    2. Permanently Delete
+
+Fingerprint
+:  If selected, fingerprint data will be included in the deletion.
+
+    !!! note ""
+        I/O Port > Fingerprint Reader is disabled. To delete Fingerprint Reader data, please enable it first.
+
+    Options:
+
+    1. **Keep** – Default.
+    2. Permanently Delete
+
+WWAN
+:  If selected, eSIM for WWAN will be included in the deletion.
+
+    !!! note ""
+        I/O Port > WWAN is disabled. To delete WWAN data, please enable it first.
+
+    !!! note ""
+        If I/O Port > WWAN is On. If the SKU does not support WWAN, this item is hidden.
+
+    Options:
+
+    1. **Keep** – Default.
+    2. Permanently Delete
+
+Haptics Touchpad
+:  If selected, User data within Haptics Touchpad will be included in the deletion.
+
+    Options:
+
+    1. **Keep** – Default.
+    2. Permanently Delete
+
+Internal Storage (HDD/SSD)
+:  If selected, Internal Storage (HDD/SSD) will be included in the deletion.
+
+    !!! note ""
+        ThinkShield secure wipe > ThinkShield secure wipe in App Menu is disabled. To delete Interna; Storage (HDD/SSD) data, please enable it first.
+
+    Options:
+
+    1. **Keep** – Default.
+    2. Wipe all disks
+    3. Select disks – enables a sub-list (for example `NVMe0:xxxxx`, `NVMe1:xxxxx`) to choose which individual disk(s) to wipe.
+
+        Options per listed disk:
+
+        1. **Keep** – Default.
+        2. Wipe disk
+
+Wipe Selected Data
+:  Permanently delete selected data.
+
+    Options:
+
+    1. **No** – Default.
+    2. Yes
+
+Reset System Factory Defaults
+: This option is used clear all the data stored in UEFI system. It does not affect the SSD storage data. After selecting this item, the system will automatically reboot and reset to factory default settings.
+
+    !!! note ""
+        System will be reboot, permanently clear all stored data, and reset to factory default settings. Absolute Persistence Module Permanent Disabled and Intel AMT Control Permanent Disabled settings will not reset.
+
+
+
+
+
+

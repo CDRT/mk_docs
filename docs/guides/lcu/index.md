@@ -5,18 +5,7 @@ description: PowerShell module for managing Lenovo driver, BIOS/UEFI, and firmwa
 
 # Lenovo.Client.Update
 
-This PowerShell module is provided to assist in managing Lenovo driver, BIOS/UEFI, and firmware updates. This module is part of the growing ThinkVantage PowerShell Library which is a collection of PowerShell modules and scripts that include:
-
-**Modules**
-
-- Lenovo.Client.Scripting
-- Lenovo.Bios.Config
-- Lenovo.Bios.Certificates
-
-**Scripts**
-
-- ThinkBiosConfigUI.ps1
-- LnvBiosCertInterface.ps1
+This PowerShell module is provided to assist in managing Lenovo driver, BIOS/UEFI, and firmware updates. It is based on the LSU Client community solution available on GitHub. This module is part of the growing ThinkVantage PowerShell Library which is a collection of PowerShell modules and scripts for managing Lenovo commercial PCs.
 
 ## Requirements
 

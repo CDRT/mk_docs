@@ -1,18 +1,9 @@
 ---
-title: Lenovo BIOS Certificates Module Reference
+title: Lenovo.BIOS.Certificates Module Reference
 description: Complete reference for the Lenovo.Bios.Certificates PowerShell module cmdlets, parameters, and usage patterns.
 ---
 
-# Lenovo BIOS Certificates PowerShell Module Reference
-
-| Module | Lenovo.Bios.Certificates |
-| --- | --- |
-| Version | 1.0.8 |
-| Author | Devin McDermott |
-| Company | Lenovo |
-| Description | PowerShell module providing secure access to Lenovo Certificate WMI classes for BIOS certificate management |
-
----
+# Lenovo.BIOS.Certificates PowerShell Module Reference
 
 ## Overview
 
@@ -68,7 +59,7 @@ The Lenovo BIOS Certificates module enables secure management of BIOS settings a
     **Valid Methods:**
 
     | Method | Description |
-    |--------|-------------| 
+    |--------|-------------|
     | `SetBiosSetting` | Set a BIOS setting |
     | `SaveBiosSettings` | Save BIOS settings to persist changes |
     | `ClearBiosCertificate` | Clear BIOS certificate from the device |
@@ -83,7 +74,7 @@ The Lenovo BIOS Certificates module enables secure management of BIOS settings a
     **Valid Function Names for SetFunctionRequest:**
 
     | Function | Description |
-    |----------|-------------| 
+    |----------|-------------|
     | `ClearSecurityChip` | Clear the security chip on the device |
     | `ResetFingerprintData` | Reset fingerprint sensor data |
     | `ResettoSetupMode` | Reset system to BIOS setup mode |
@@ -399,7 +390,7 @@ The module creates and uses the following directory structure:
     ├── BIOSCertificates\
     ├── Logs\          # Module operation logs
     └── Output\        # Generated signed command files
-    
+
 ---
 
 ## Version History

@@ -1,5 +1,5 @@
 nav:
-    - index.md
+    - Home: index.md
     - Product Guides:
       - Commercial Vantage: guides/lcv
       - ThinkVantage PowerShell Library:

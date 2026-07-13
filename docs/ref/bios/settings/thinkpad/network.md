@@ -2,7 +2,7 @@
 
 ## General
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_network.png)
+![Network Settings](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_network.png)
 
 Wake On Lan
 :  Whether Wake On LAN function works only when AC is attached, or also when with battery power.
@@ -19,13 +19,13 @@ Wake On Lan
     !!! note ""
         * AC is required with magic packet type Wake On LAN.
         * Wake On LAN function may be blocked due to password configuration.
-    
+
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
     |:---|:---|:---|:---|
     | WakeOnLAN | Disable, ACOnly, ACandBattery, Enable | No | Both |
 
 Wake On LAN from Dock
-:  
+:
     !!! note ""
         - Only for ThinkPads with no Ethernet port.
         - Will not work while Secure Boot is disabled.
@@ -59,7 +59,7 @@ Lenovo Cloud Services
     Lenovo Cloud Services enables these additional options:
 
     1. **Lenovo Cloud Deploy (ITC)** – sends Factory-Style images to customers for deployment in the field. More information: [Lenovo Cloud Deploy](https://www.lenovoclouddeploy.com/en/auth/welcome)
-    2. **Windows Virtual Desktop (VDI)** – provides VDI environment to customer. VDI itself will be setup by the customer (IT Admin). If this option is selected, then it will become available as a boot option.  
+    2. **Windows Virtual Desktop (VDI)** – provides VDI environment to customer. VDI itself will be setup by the customer (IT Admin). If this option is selected, then it will become available as a boot option.
     More information: <br> - [Client Virtualization & Infrastructure Solutions - Lenovo](https://www.lenovo.com/lt/lt/data-center/solutions/client-virtualization) <br> - [Windows Virtual Desktop](https://www.microsoft.com/en-us/microsoft-365/blog/2019/09/30/windows-virtual-desktop-generally-available-worldwide/).
 
     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -145,6 +145,29 @@ MAC Address Pass Through
     |:---|:---|:---|:---|
     | MACAddressPassThrough  | Disable, Enable, Second | No | Both |
 
+Proxy Support
+:  Enable/Disable Proxy Support. If Enabled, the system connects to End-Point Server (such as Lenovo Cloud) via Proxy Server.
+
+    Possible options:
+
+    1. **Off** – Default. This feature will not work while Secure Boot is disabled.
+    2. On
+
+    !!! note ""
+        To avoid security risks, only use reliable Proxy servers.
+
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | ProxySupport  | Disable, Enable | Yes | Both |
+
+Proxy URI
+:  Please set the URL starting with "http://" for Proxy Server.
+
+    !!! note ""
+        "https://" is not supported.
+
+    The default port number for Proxy Server access is 80. However, a specific port number can be set after the colon( ":"). For example, "http://192.168.1.100:8080" for Port 8080 is used. Maximum character length is 255.
+
 Reinstall Windows from Cloud
 :  Enable/Disable “Reinstall Windows from Cloud (Microsoft® Connected System Recovery)” in the App Menu invoked by F12.
 
@@ -155,6 +178,58 @@ Reinstall Windows from Cloud
 
     1. **Disabled** - Default.
     2. Enable.
+
+## Custom URL Support Settings
+
+Custom URL Support
+:   Enable/Disable Custom URL Support.
+
+    Possible options:
+
+    1. **Off** – Default. This feature will not work while Secure Boot is disabled.
+    2. On
+
+
+    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
+    |:---|:---|:---|:---|
+    | CustomUri  | Disable, Enable | Yes | Both |
+
+Add Custom HTTPS Boot Option
+:   Description for Custom HTTPS Boot Option.
+
+    !!! note ""
+        The description must be a unique string.
+
+    Maximum character length is 255.
+
+    The URL must start with "https://" for Custom HTTPS Boot Option.
+
+    !!! note ""
+        "http://" is not supported.
+
+    A new HTTPS Boot Option will be created according to this Boot URL.
+
+    * Boot URL Address – the HTTPS URL for the new Custom HTTPS Boot Option.
+    * Description text to display – the label shown for this boot option in the boot list. Default: `UEFI HTTP Boot`.
+    * Generate the new Custom HTTPS Boot Option – creates the boot option from the values entered above.
+
+Delete Custom HTTPS Boot Option
+:   Description of custom HTTPS boot option list that can be deleted.
+
+    !!! note ""
+        Displays "No Custom HTTPS Boot Option exists" if none have been created.
+
+Enroll OnPremise Server CA Cert
+:   Enroll the on-premise deployment server's CA (Certification Authority) certificate, used to validate the HTTPS connection to an on-premise server.
+
+    * Enroll Cert Using File – enroll the CA certificate from a file.
+    * File Explorer – browse to and select the certificate file to enroll.
+
+Delete OnPremise Server CA Cert
+:   Delete OnPremise Server CA Cert and reset the Server CA Cert back to the default.
+
+TLS Authorization Configuration
+:   Configure TLS authorization for the Custom HTTPS Boot connection.
 
 ## WiFi Configuration
 
@@ -205,7 +280,7 @@ Each SSID can be selected to display more details.
     ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_wifinetworkconfig.png)
 
     ??? note "Connection Status"
-        
+
         Whether device is connected to this Wi-Fi network.
 
         !!! note ""
@@ -342,7 +417,7 @@ Password
         * Password length: 8-63 characters.
 
 EAP Authentication Method
-:  
+:
     !!! note ""
         Visible only for a network with security WPA2-Enterprise.
 
@@ -352,7 +427,7 @@ EAP Authentication Method
     2. EAP-TLS
 
 EAP Second Authentication Method
-:  
+:
     !!! note ""
         Visible only for a network with security WPA2-Enterprise and if `EAP Authentication Method` is `PEAP`.
 
@@ -392,7 +467,7 @@ Identity
         * Visible only for a network with security WPA2-Enterprise.
 
 EAP Password
-:  
+:
     Field for entering EAP password.
 
     !!! note ""
