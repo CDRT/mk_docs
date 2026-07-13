@@ -4,6 +4,26 @@
 
 ![Network Settings](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_network.png)
 
+### Wake On LAN
+
+Controls whether the system powers on in response to a magic packet
+received over the network adapter.
+
+Possible options:
+
+1. **AC Only** - Default.
+2. Disabled
+3. AC and Battery
+
+!!! warning "Dependency"
+    - Only for ThinkPads with built-in Ethernet port.
+    - AC is required with magic packet type Wake On LAN.
+    - Wake On LAN function may be blocked due to password configuration.
+
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| WakeOnLAN | Disable, ACOnly, ACandBattery, Enable | No | Both |
+
 Wake On Lan
 :  Whether Wake On LAN function works only when AC is attached, or also when with battery power.
 
