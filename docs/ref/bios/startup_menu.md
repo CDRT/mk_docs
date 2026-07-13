@@ -50,4 +50,19 @@ This option will boot into WinRE (Recovery Environment) and provide options for 
 
 ## F12 to choose a temporary startup device
 
-This option will display a list of possible boot options such as USB HDD or Network. It will also provide the option to switch the the Apps Menu for other options.
+This option will display a list of possible boot options such as USB HDD or Network. It will also provide the option to switch to the Apps Menu for other options.
+
+### App Menu
+
+The options available in the App Menu will vary depending on the model. Some of the options may include:
+
+- Setup: Enter the BIOS Setup UI
+- Diagnostic Splash Screen: the start screen for the on-board diagnostics
+- Lenovo Diagnostics: UEFI diagnostic tools
+- Asset Information: see above
+- Regulatory Information: see above
+- ThinkShield secure wipe
+- ThinkShield Passwordless Power-On Device Manager: enroll FIDO keys
+- WiFi Configuration: manage WiFi networks; UEFI WiFi Network Boot must be enabled in BIOS
+- Intel(R) MEBx: Configure Intel AMT features
+- Lenovo Memory Self Repair

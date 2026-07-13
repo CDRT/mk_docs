@@ -25,7 +25,8 @@ Wake On Lan
     | WakeOnLAN | Disable, ACOnly, ACandBattery, Enable | No | Both |
 
 Wake On LAN from Dock
-:
+:  Controls Wake On LAN when connected to a cable dock (USB-C or Thunderbolt)
+
     !!! note ""
         - Only for ThinkPads with no Ethernet port.
         - Will not work while Secure Boot is disabled.
@@ -237,6 +238,8 @@ TLS Authorization Configuration
 ![WiFi 2](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_wifi2.png)
 
 !!! note ""
+    Older models of ThinkPad present the management of WiFi Networks in BIOS Setup while newer models provide the WiFi Configation in the F12 Apps Menu at [Startup](/ref/bios/startup_menu).
+
     All the settings in this group are not available via WMI.
 
 MAC Address
@@ -275,7 +278,7 @@ For each network the Security Type is shown.
 
 Each SSID can be selected to display more details.
 
-!!! note "```[SSID Value](Status)```"
+!!! note "`[SSID Value](Status)`"
 
     ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_wifinetworkconfig.png)
 
@@ -417,7 +420,8 @@ Password
         * Password length: 8-63 characters.
 
 EAP Authentication Method
-:
+:  Select EAP Authentication Method
+
     !!! note ""
         Visible only for a network with security WPA2-Enterprise.
 
@@ -427,7 +431,8 @@ EAP Authentication Method
     2. EAP-TLS
 
 EAP Second Authentication Method
-:
+:  Select Second Authentication Method
+
     !!! note ""
         Visible only for a network with security WPA2-Enterprise and if `EAP Authentication Method` is `PEAP`.
 
@@ -460,15 +465,14 @@ Enroll Client Private Key
         Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
 
 Identity
-: Enter identity value (if there is any).
+:  Enter identity value (if there is any).
 
     !!! note ""
         * Identity length: 6-20 characters.
         * Visible only for a network with security WPA2-Enterprise.
 
 EAP Password
-:
-    Field for entering EAP password.
+:  Field for entering EAP password.
 
     !!! note ""
         * Password length: 1-63 characters.
@@ -480,7 +484,7 @@ Scan Anyway
     1. **On** - the network will be scanned when it does not broadcast its name. Default.
     2. Off - the network will not be scanned when it does not broadcast its name.
 
-    Visible only for a network with security WPA2-Enterprise.
+    Visible only for a network with WPA2-Enterprise security.
 
 Commit Changes and Exit
 :  This is the option to save changes and exits back to the Manage Wi-Fi network page.
