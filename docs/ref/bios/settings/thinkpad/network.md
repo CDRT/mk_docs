@@ -2,7 +2,7 @@
 
 ## General
 
-### Wake On Lan
+### **Wake On Lan**
 
 Whether Wake On LAN function works only when AC is attached, or also when with battery power.
 
@@ -21,7 +21,7 @@ Possible options:
 | :--- | :--- | :--- | :--- |
 | WakeOnLAN | Disable, ACOnly, ACandBattery, Enable | No | Both |
 
-### Wake On LAN from Dock
+### **Wake On LAN from Dock**
 
 Controls Wake On LAN when connected to a cable dock (USB-C or Thunderbolt)
 
@@ -40,7 +40,7 @@ Possible options:
 |:---|:---|:---|:---|
 | WakeOnLANDock  | Disable, Enable | No | Both |
 
-### Lenovo Cloud Services
+### **Lenovo Cloud Services**
 
 System connects Lenovo Cloud Services via HTTPs. DHCP option settings are not required.
 
@@ -66,7 +66,7 @@ More information: <br> - [Client Virtualization & Infrastructure Solutions - Len
 |:---|:---|:---|:---|
 | LenovoCloudServices  | Disable, Enable | No | Intel |
 
-### UEFI WI-FI Network Boot
+### **UEFI WI-FI Network Boot**
 
 Wether to load UEFI Wi-Fi driver at next boot, able to connect to Access point.
 
@@ -82,7 +82,7 @@ Possible options:
 |:---|:---|:---|:---|
 | WiFiNetworkBoot  | Disable, Enable | No | Intel |
 
-### UEFI IPv4 Network Stack
+### **UEFI IPv4 Network Stack**
 
 Whether to enable UEFI IPv4 Network Stack for UEFI environment.
 
@@ -95,7 +95,7 @@ Possible options:
 |:---|:---|:---|:---|
 | IPv4NetworkStack  | Disable, Enable | No | Both |
 
-### UEFI IPv6 Network Stack
+### **UEFI IPv6 Network Stack**
 
 Whether to enable UEFI IPv6 Network Stack for UEFI environment.
 
@@ -108,7 +108,7 @@ Possible options:
 |:---|:---|:---|:---|
 | IPv6NetworkStack  | Disable, Enable | No | Both |
 
-### UEFI Network Boot Priority
+### **UEFI Network Boot Priority**
 
 Select Network Stack priority for UEFI PXE Boot.
 
@@ -121,7 +121,7 @@ Possible options:
 |:---|:---|:---|:---|
 | UefiPxeBootPriority  | IPv6First, IPv4First | No | Both |
 
-### Wireless Auto Disconnection
+### **Wireless Auto Disconnection**
 
 Whether to Auto Disconnect Wireless feature when Ethernet cable is connected to Ethernet LAN.
 
@@ -134,7 +134,7 @@ Possible states:
 |:---|:---|:---|:---|
 | WirelessAutoDisconnection  | Disable, Enable | No | Both |
 
-### MAC Address Pass Through
+### **MAC Address Pass Through**
 
 Whether to enable MAC Address Pass Through when dock is attached.
 
@@ -154,7 +154,7 @@ Possible options:
 |:---|:---|:---|:---|
 | MACAddressPassThrough  | Disable, Enable, Second | No | Both |
 
-### Proxy Support
+### **Proxy Support**
 
 Enable/Disable Proxy Support. If Enabled, the system connects to End-Point Server (such as Lenovo Cloud) via Proxy Server.
 
@@ -170,7 +170,7 @@ Possible options:
 |:---|:---|:---|:---|
 | ProxySupport  | Disable, Enable | Yes | Both |
 
-### Proxy URI
+### **Proxy URI**
 
 Please set the URL starting with "http://" for Proxy Server.
 
@@ -179,7 +179,7 @@ Please set the URL starting with "http://" for Proxy Server.
 
 The default port number for Proxy Server access is 80. However, a specific port number can be set after the colon( ":"). For example, "http://192.168.1.100:8080" for Port 8080 is used. Maximum character length is 255.
 
-### Reinstall Windows from Cloud
+### **Reinstall Windows from Cloud**
 
 Enable/Disable "Reinstall Windows from Cloud (Microsoft® Connected System Recovery)" in the App Menu invoked by F12.
 
@@ -193,7 +193,7 @@ Possible options:
 
 ## Custom URL Support Settings
 
-### Custom URL Support
+### **Custom URL Support**
 
 Enable/Disable Custom URL Support.
 
@@ -206,7 +206,7 @@ Possible options:
 |:---|:---|:---|:---|
 | CustomUri  | Disable, Enable | Yes | Both |
 
-### Add Custom HTTPS Boot Option
+### **Add Custom HTTPS Boot Option**
 
 Description for Custom HTTPS Boot Option.
 
@@ -224,25 +224,25 @@ A new HTTPS Boot Option will be created according to this Boot URL.
 * Description text to display – the label shown for this boot option in the boot list. Default: `UEFI HTTP Boot`.
 * Generate the new Custom HTTPS Boot Option – creates the boot option from the values entered above.
 
-### Delete Custom HTTPS Boot Option
+### **Delete Custom HTTPS Boot Option**
 
 Description of custom HTTPS boot option list that can be deleted.
 
 !!! warning "Attention"
     Displays "No Custom HTTPS Boot Option exists" if none have been created.
 
-### Enroll OnPremise Server CA Cert
+### **Enroll OnPremise Server CA Cert**
 
 Enroll the on-premise deployment server's CA (Certification Authority) certificate, used to validate the HTTPS connection to an on-premise server.
 
 * Enroll Cert Using File – enroll the CA certificate from a file.
 * File Explorer – browse to and select the certificate file to enroll.
 
-### Delete OnPremise Server CA Cert
+### **Delete OnPremise Server CA Cert**
 
 Delete OnPremise Server CA Cert and reset the Server CA Cert back to the default.
 
-### TLS Authorization Configuration
+### **TLS Authorization Configuration**
 
 Configure TLS authorization for the Custom HTTPS Boot connection.
 
@@ -253,7 +253,7 @@ Configure TLS authorization for the Custom HTTPS Boot connection.
 
     All the settings in this group are not available via WMI.
 
-### MAC Address
+### **MAC Address**
 
 Media access control (MAC) address of the wireless network interface controller.
 
@@ -284,7 +284,7 @@ For each network the Security Type is shown.
 * Possible values are "Open" and "Secured".
 * If Secured, the security type is displayed.
 
-### `[SSID Value][Type]`
+### **`[SSID Value][Type]`**
 
 Each SSID has its own sub-group of settings. Open the items below for details.
 
@@ -392,11 +392,11 @@ Each SSID has its own sub-group of settings. Open the items below for details.
 !!! warning "Attention"
      All the settings in this group are not available via WMI.
 
-### SSID
+### **SSID**
 
 Field for entering SSID value.
 
-### Security
+### **Security**
 
 Select the security type of this Wi-Fi network.
 
@@ -406,7 +406,7 @@ Possible options:
 2. WPA2 – Personal
 3. WPA2 – Enterprise
 
-### Password
+### **Password**
 
 Enter password.
 
@@ -414,7 +414,7 @@ Enter password.
     * Visible only for a network with security WPA2-Personal.
     * Password length: 8-63 characters.
 
-### EAP Authentication Method
+### **EAP Authentication Method**
 
 Select EAP Authentication Method
 
@@ -426,7 +426,7 @@ Possible options:
 1. **PEAP** – Default
 2. EAP-TLS
 
-### EAP Second Authentication Method
+### **EAP Second Authentication Method**
 
 Select Second Authentication Method
 
@@ -437,7 +437,7 @@ Possible options:
 
 1. **MSCHAPv2** – Default.
 
-### Enroll CA Cert
+### **Enroll CA Cert**
 
 Enroll CA (Certification Authority) certificate.
 
@@ -446,7 +446,7 @@ Empty by default.
 !!! warning "Attention"
     Visible only for networks with security WPA2-Enterprise.
 
-### Enroll Client Cert
+### **Enroll Client Cert**
 
 Enroll client certificate.
 
@@ -455,7 +455,7 @@ Empty by default.
 !!! warning "Attention"
     Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
 
-### Enroll Client Private Key
+### **Enroll Client Private Key**
 
 Enroll client private key.
 
@@ -464,7 +464,7 @@ Empty by default.
 !!! warning "Attention"
     Visible only for networks with security WPA2-Enterprise and if `EAP Authentication Method` is `EAP-TLS`.
 
-### Identity
+### **Identity**
 
 Enter identity value (if there is any).
 
@@ -472,7 +472,7 @@ Enter identity value (if there is any).
     * Identity length: 6-20 characters.
     * Visible only for a network with security WPA2-Enterprise.
 
-### EAP Password
+### **EAP Password**
 
 Field for entering EAP password.
 
@@ -480,7 +480,7 @@ Field for entering EAP password.
     * Password length: 1-63 characters.
     * Visible only for a network with security WPA2-Enterprise.
 
-### Scan Anyway
+### **Scan Anyway**
 
 Possible options:
 
@@ -489,7 +489,7 @@ Possible options:
 
 Visible only for a network with WPA2-Enterprise security.
 
-### Commit Changes and Exit
+### **Commit Changes and Exit**
 
 This is the option to save changes and exits back to the Manage Wi-Fi network page.
 
@@ -499,7 +499,7 @@ This is the option to save changes and exits back to the Manage Wi-Fi network pa
     - All the settings in this group are not available via WMI.
     - Each listed network is represented by a `[SSID Value][Type]` and has its own sub-group of settings - open the items below for details.
 
-### `[SSID Value][Type]`
+### **`[SSID Value][Type]`**
 
 Each SSID has its own sub-group of settings. Open the items below for details.
 
@@ -600,7 +600,7 @@ Each SSID has its own sub-group of settings. Open the items below for details.
 ??? note "Forget This Network"
     Forget the settings for the selected network and disconnect from it.
 
-### Change Priority
+### **Change Priority**
 
 View list of saved Wi-Fi networks.
 
