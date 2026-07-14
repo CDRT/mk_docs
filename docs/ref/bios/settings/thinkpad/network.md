@@ -7,9 +7,9 @@
 Whether Wake On LAN function works only when AC is attached, or also when with battery power.
 
 !!! warning "Attention"
-    * Only for ThinkPads with built-in Ethernet port.
-    * AC is required with magic packet type Wake On LAN.
-    * Wake On LAN function may be blocked due to password configuration.
+    - Only for ThinkPads with built-in Ethernet port.
+    - AC is required with magic packet type Wake On LAN.
+    - Wake On LAN function may be blocked due to password configuration.
 
 Possible options:
 
@@ -37,12 +37,20 @@ Possible options:
 2. Off
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| WakeOnLANDock  | Disable, Enable | No | Both |
+| :--- | :--- | :--- | :--- |
+| WakeOnLANDock | Disable, Enable | No | Both |
 
 ### **Lenovo Cloud Services**
 
 System connects Lenovo Cloud Services via HTTPs. DHCP option settings are not required.
+
+Once this feature is switched `On`, it becomes available for selection in BIOS: [Startup](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/startup/), at either `Edit Boot Order`, or `Network Boot`, or via F12 Boot Menu.
+
+Lenovo Cloud Services enables additional options which vary by model:
+
+1. **Lenovo Cloud Deploy (ITC)** – sends Factory-Style images to customers for deployment in the field. More information: [Lenovo Cloud Deploy](https://www.lenovoclouddeploy.com/en/auth/welcome)
+2. **Windows Virtual Desktop (VDI)** – ***No longer offered.*** provides VDI environment to customer. VDI itself will be setup by the customer (IT Admin). If this option is selected, then it will become available as a boot option.
+3. **System Firmware Update** - select models can obtain and apply BIOS updates over the Internet.
 
 !!! warning "Attention"
     This feature will not work while Secure Boot is disabled.
@@ -52,19 +60,9 @@ Possible options:
 1. **On** - Default.
 2. Off
 
-**Lenovo Cloud Services Features**
-
-Once this feature is switched `On`, it becomes available for selection in BIOS: [Startup](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/startup/), at either `Edit Boot Order`, or `Network Boot`, or via F12 Boot Menu.
-
-Lenovo Cloud Services enables these additional options:
-
-1. **Lenovo Cloud Deploy (ITC)** – sends Factory-Style images to customers for deployment in the field. More information: [Lenovo Cloud Deploy](https://www.lenovoclouddeploy.com/en/auth/welcome)
-2. **Windows Virtual Desktop (VDI)** – provides VDI environment to customer. VDI itself will be setup by the customer (IT Admin). If this option is selected, then it will become available as a boot option.
-More information: <br> - [Client Virtualization & Infrastructure Solutions - Lenovo](https://www.lenovo.com/lt/lt/data-center/solutions/client-virtualization) <br> - [Windows Virtual Desktop](https://www.microsoft.com/en-us/microsoft-365/blog/2019/09/30/windows-virtual-desktop-generally-available-worldwide/).
-
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| LenovoCloudServices  | Disable, Enable | No | Intel |
+| :--- | :--- | :--- | :--- |
+| LenovoCloudServices | Disable, Enable | No | Intel |
 
 ### **UEFI WI-FI Network Boot**
 
@@ -79,8 +77,8 @@ Possible options:
     Secure Boot must be enabled to use UEFI Network Boot.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| WiFiNetworkBoot  | Disable, Enable | No | Intel |
+| :--- | :--- | :--- | :--- |
+| WiFiNetworkBoot | Disable, Enable | No | Intel |
 
 ### **UEFI IPv4 Network Stack**
 
@@ -92,8 +90,8 @@ Possible options:
 2. Off
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| IPv4NetworkStack  | Disable, Enable | No | Both |
+| :--- | :--- | :--- | :--- |
+| IPv4NetworkStack | Disable, Enable | No | Both |
 
 ### **UEFI IPv6 Network Stack**
 
@@ -105,8 +103,8 @@ Possible options:
 2. Off
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| IPv6NetworkStack  | Disable, Enable | No | Both |
+| :--- | :--- | :--- | :--- |
+| IPv6NetworkStack | Disable, Enable | No | Both |
 
 ### **UEFI Network Boot Priority**
 
@@ -118,8 +116,8 @@ Possible options:
 2. IPv6 First
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| UefiPxeBootPriority  | IPv6First, IPv4First | No | Both |
+| :--- | :--- | :--- | :--- |
+| UefiPxeBootPriority | IPv6First, IPv4First | No | Both |
 
 ### **Wireless Auto Disconnection**
 
@@ -131,8 +129,8 @@ Possible states:
 2. **Off** - Default.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| WirelessAutoDisconnection  | Disable, Enable | No | Both |
+| :--- | :--- | :--- | :--- |
+| WirelessAutoDisconnection | Disable, Enable | No | Both |
 
 ### **MAC Address Pass Through**
 
@@ -147,12 +145,12 @@ Possible options:
 !!! warning "Attention"
     For systems that do not have an internal NIC, the options are:
 
-    * **off** - the dock will use it's own MAC Address
-    * **on** - dock will use MAC address stored in the system EEPROM.
+    - **off** - the dock will use it's own MAC Address
+    - **on** - dock will use MAC address stored in the system EEPROM.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| MACAddressPassThrough  | Disable, Enable, Second | No | Both |
+| :--- | :--- | :--- | :--- |
+| MACAddressPassThrough | Disable, Enable, Second | No | Both |
 
 ### **Proxy Support**
 
@@ -167,8 +165,8 @@ Possible options:
     To avoid security risks, only use reliable Proxy servers.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| ProxySupport  | Disable, Enable | Yes | Both |
+| :--- | :--- | :--- | :--- |
+| ProxySupport | Disable, Enable | Yes | Both |
 
 ### **Proxy URI**
 
@@ -203,16 +201,16 @@ Possible options:
 2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-|:---|:---|:---|:---|
-| CustomUri  | Disable, Enable | Yes | Both |
+| :--- | :--- | :--- | :--- |
+| CustomUri | Disable, Enable | Yes | Both |
 
 ### **Add Custom HTTPS Boot Option**
 
 Description for Custom HTTPS Boot Option.
 
 !!! warning "Attention"
-    * The description must be a unique string.
-    * http://" is not supported.
+    - The description must be a unique string.
+    - http://" is not supported.
 
 Maximum character length is 255.
 
@@ -220,9 +218,9 @@ The URL must start with "https://" for Custom HTTPS Boot Option.
 
 A new HTTPS Boot Option will be created according to this Boot URL.
 
-* Boot URL Address – the HTTPS URL for the new Custom HTTPS Boot Option.
-* Description text to display – the label shown for this boot option in the boot list. Default: `UEFI HTTP Boot`.
-* Generate the new Custom HTTPS Boot Option – creates the boot option from the values entered above.
+- Boot URL Address – the HTTPS URL for the new Custom HTTPS Boot Option.
+- Description text to display – the label shown for this boot option in the boot list. Default: `UEFI HTTP Boot`.
+- Generate the new Custom HTTPS Boot Option – creates the boot option from the values entered above.
 
 ### **Delete Custom HTTPS Boot Option**
 
@@ -235,8 +233,8 @@ Description of custom HTTPS boot option list that can be deleted.
 
 Enroll the on-premise deployment server's CA (Certification Authority) certificate, used to validate the HTTPS connection to an on-premise server.
 
-* Enroll Cert Using File – enroll the CA certificate from a file.
-* File Explorer – browse to and select the certificate file to enroll.
+- Enroll Cert Using File – enroll the CA certificate from a file.
+- File Explorer – browse to and select the certificate file to enroll.
 
 ### **Delete OnPremise Server CA Cert**
 
@@ -259,7 +257,7 @@ Media access control (MAC) address of the wireless network interface controller.
 
 For every MAC Address the following information is shown:
 
-* MAC Address - Media access control (MAC) address of the selected wireless network interface controller.
+- MAC Address - Media access control (MAC) address of the selected wireless network interface controller.
 
 Possible options:
 
@@ -267,22 +265,22 @@ Possible options:
 2. Connected to [SSID]
 
 !!! warning "Attention"
-    * There could be several MAC addresses for machines that have several wireless network interface controllers (NICs).
-    * Option `Connected to [SSID]` displays the ID of the wireless network.
-    * View only.
+    - There could be several MAC addresses for machines that have several wireless network interface controllers (NICs).
+    - Option `Connected to [SSID]` displays the ID of the wireless network.
+    - View only.
 
 ## Wi-Fi Network List
 
 !!! warning "Attention"
-    * All the settings in this group are not available via WMI.
-    * View only.
+    - All the settings in this group are not available via WMI.
+    - View only.
 
 **Number of networks:** Number of current available networks.
 
 For each network the Security Type is shown.
 
-* Possible values are "Open" and "Secured".
-* If Secured, the security type is displayed.
+- Possible values are "Open" and "Secured".
+- If Secured, the security type is displayed.
 
 ### **`[SSID Value][Type]`**
 
@@ -323,8 +321,8 @@ Each SSID has its own sub-group of settings. Open the items below for details.
     Enter password.
 
     !!! warning "Attention"
-        * Visible only for networks with security WPA2-Personal.
-        * Password length: 8-63 characters.
+        - Visible only for networks with security WPA2-Personal.
+        - Password length: 8-63 characters.
 
 ??? note "EAP Authentication Method"
     Select EAP Authentication Method.
@@ -371,15 +369,15 @@ Each SSID has its own sub-group of settings. Open the items below for details.
     View only.
 
     !!! warning "Attention"
-        * Identity length: 6-20 characters.
-        * Visible only for networks with security WPA2-Enterprise.
+        - Identity length: 6-20 characters.
+        - Visible only for networks with security WPA2-Enterprise.
 
 ??? note "EAP Password"
     Field for entering EAP password.
 
     !!! warning "Attention"
-        * Password length: 1-63 characters.
-        * Visible only for networks with security WPA2-Enterprise.
+        - Password length: 1-63 characters.
+        - Visible only for networks with security WPA2-Enterprise.
 
 ??? note "[Action]"
     Possible actions:
@@ -411,8 +409,8 @@ Possible options:
 Enter password.
 
 !!! warning "Attention"
-    * Visible only for a network with security WPA2-Personal.
-    * Password length: 8-63 characters.
+    - Visible only for a network with security WPA2-Personal.
+    - Password length: 8-63 characters.
 
 ### **EAP Authentication Method**
 
@@ -469,16 +467,16 @@ Empty by default.
 Enter identity value (if there is any).
 
 !!! warning "Attention"
-    * Identity length: 6-20 characters.
-    * Visible only for a network with security WPA2-Enterprise.
+    - Identity length: 6-20 characters.
+    - Visible only for a network with security WPA2-Enterprise.
 
 ### **EAP Password**
 
 Field for entering EAP password.
 
 !!! warning "Attention"
-    * Password length: 1-63 characters.
-    * Visible only for a network with security WPA2-Enterprise.
+    - Password length: 1-63 characters.
+    - Visible only for a network with security WPA2-Enterprise.
 
 ### **Scan Anyway**
 
@@ -522,8 +520,8 @@ Each SSID has its own sub-group of settings. Open the items below for details.
     Enter password.
 
     !!! warning "Attention"
-        * Visible only for a network with security WPA2-Personal.
-        * Password length: 8-63 characters.
+        - Visible only for a network with security WPA2-Personal.
+        - Password length: 8-63 characters.
 
 ??? note "EAP Authentication Method"
     Select EAP Authentication Method.
@@ -573,15 +571,15 @@ Each SSID has its own sub-group of settings. Open the items below for details.
     Enter identity value (if there is any).
 
     !!! warning "Attention"
-        * Identity length: 6-20 characters.
-        * Visible only for a network with security WPA2-Enterprise.
+        - Identity length: 6-20 characters.
+        - Visible only for a network with security WPA2-Enterprise.
 
 ??? note "EAP Password"
     Enter EAP password.
 
     !!! warning "Attention"
-        * Password length: 1-63 characters.
-        * Visible only for a network with security WPA2-Enterprise.
+        - Password length: 1-63 characters.
+        - Visible only for a network with security WPA2-Enterprise.
 
 ??? note "Scan Anyway"
     Whether the network will be scanned anyway, even if it does not broadcast its name.
