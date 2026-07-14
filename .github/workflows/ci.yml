@@ -41,7 +41,7 @@ jobs:
       - name: Install MkDocs Material and plugins
         run: |
           python -m pip install --upgrade pip
-          pip install mkdocs-material mkdocs-open-in-new-tab mkdocs-redirects
+          pip install mkdocs-material mkdocs-open-in-new-tab mkdocs-redirects mkdocs-awesome-nav
  
       - name: Build and deploy to gh-pages
         run: mkdocs gh-deploy --force --clean
