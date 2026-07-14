@@ -36,7 +36,6 @@ This function downloads packages to individual folders named by package ID and s
 | `-Expand` | Switch | No | - | Extract installers after download (requires admin) |
 | `-SkipSignatureCheck` | Switch | No | - | Skip verifying that the downloaded installer is digitally signed by Lenovo |
 
-
 ## Folder Structure
 
 When using `Get-LnvDownload`, packages are organized as follows:
