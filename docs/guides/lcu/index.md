@@ -43,6 +43,10 @@ This PowerShell module is provided to assist in managing Lenovo driver, BIOS/UEF
 
 ## Version History
 
+- 1.0.4 - July 14, 2026:
+    - Signed Lenovo.Client.Update.Types.dll
+    - Added detailed Comment Help for Expand-LnvUpdate
+    - Added file signature checking to Get-LnvDownload including a -SkipSignatureCheck parameter
 - 1.0.3 - July 1, 2026:
     - Reorganized how classes and custom types are defined to address an error being thrown in Install-LnvUpdate
     - Removed the downloading of update installer executables in Get-LnvUpdate. This cmdlet assesses current updates to determine applicability and it was unnecessary to download the installer executables. The installers will be installed when calling Save-LnvUpdate or Install-LnvUpdate when you pass the list of applicable updates from Get-LnvUpdate.

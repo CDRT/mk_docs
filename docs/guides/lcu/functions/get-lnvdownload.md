@@ -34,6 +34,8 @@ This function downloads packages to individual folders named by package ID and s
 | `-RebootType` | String | No | `9` (All) | Filter by reboot requirement:<ul><li>`0` = No reboot required</li><li>`1` = Forced reboot</li><li>`3` = Requires reboot</li><li>`4` = Forces shutdown</li><li>`5` = Delayed forced reboot</li><li>`9` = All</li></ul>Multiple types: `"0,3"` |
 | `-Csv` | Switch | No | - | Export package list to CSV file |
 | `-Expand` | Switch | No | - | Extract installers after download (requires admin) |
+| `-SkipSignatureCheck` | Switch | No | - | Skip verifying that the downloaded installer is digitally signed by Lenovo |
+
 
 ## Folder Structure
 
@@ -110,3 +112,9 @@ When using `-Expand`:
 - Progress messages display every 15 seconds
 - Extracted files are placed directly in each package folder
 - The function waits for all extractions to complete before exiting
+
+### Signature Checking
+
+By default, after downloading, the installer is verified and any package whose installer is not signed by Lenovo has that file removed and an error raised.
+
+Use the -SkipSignatureCheck switch to bypass the check (not recommended for production usage).
