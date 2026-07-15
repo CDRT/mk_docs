@@ -466,6 +466,26 @@ The following top-level policies control entire sections of the Device page.
     <disabled/>
     ```
 
+#### Clean your device
+
+??? note "Turn off Clean your device"
+    _Added in version 20.2603.19.0_
+
+    **Description**: Controls whether the Clean your device section is hidden. When enabled, the Clean your device section will be hidden. When disabled or not configured, the Clean your device section will be displayed.
+
+    **OMA-URI**:
+    ```
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~06D228AC8E56DCF8F1EE6B05253DC972/AB30DC81F330F079F10455FBB7BEBD52
+    ```
+
+    **Values**:
+    ```xml
+    <enabled/>
+    ```
+    ```xml
+    <disabled/>
+    ```
+
 #### Device Settings
 
 ??? note "Turn Off Smart Assist"
@@ -864,20 +884,20 @@ The following top-level policies control entire sections of the Device page.
     <disabled/>
     ```
 
-#### Modes
+#### Smart modes
 
-??? note "Turn off Modes"
-    _Added in version 10.2407.66_
+??? note "Turn off Smart modes"
+    _Renamed from Modes in version 20.2603.19.0 (previously added in 10.2407.66)_
 
-    **Description**: This policy setting prevents end-users from using the Modes page in My Device. It determines whether the Modes functionality is available in Commercial Vantage and whether users will be able to use Lenovo Desktop Widget. By default, the page is displayed and can be accessed by the end user.
+    **Description**: This policy setting prevents end-users from using the Smart modes page in My Device. It determines whether the Smart modes functionality is available in Commercial Vantage and whether users will be able to use Lenovo Desktop Widget. By default, the page is displayed and can be accessed by the end user.
 
-    If you enable this setting, the Modes page will be hidden from Commercial Vantage. The end user will not be able to see the Modes tab in Device Settings or use Lenovo Desktop Widget on the device.
+    If you enable this setting, the Smart modes page will be hidden from Commercial Vantage. The end user will not be able to see the Smart modes tab in Device Settings or use Lenovo Desktop Widget on the device.
 
-    If you disable or do not configure this setting, the Modes will be displayed and the user will be able to use the Lenovo Desktop Widget.
+    If you disable or do not configure this setting, Smart modes will be displayed and the user will be able to use the Lenovo Desktop Widget.
 
     **OMA-URI**:
     ```
-    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~DA73FA95EE6D6962459DAFAE9957BA01/6950037C7735BA43482EEC668D0C45DA
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~1F6D526341FE3425994B9AB44C1861AD/12C11D46F588686A418AC8D13E935E01
     ```
 
     **Values**:
@@ -910,77 +930,6 @@ The following top-level policies control entire sections of the Device page.
 #### System Update
 
 The following policies toggle System Update behavior on or off. For policies with detailed configuration options, see the sections below.
-
-??? note "Test Content Mode"
-    _Added in version 2501.15_
-
-    **Description**: When enabled, System Update only processes packages with a Status of "Test" in the local repository. Only effective if a local repository is configured via the System Update Repository policy.
-
-    **OMA-URI**:
-    ```
-    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089/C6A61B1F0CCC910157C4FD733BBFBA69
-    ```
-
-    **Values**:
-    ```xml
-    <enabled/>
-    ```
-    ```xml
-    <disabled/>
-    ```
-
-??? note "Turn off Dock Auto Update"
-    _Added in version 10.2407.66_
-
-    **Description**: When enabled (or not configured), Dock Auto Update is turned off. Set to Disabled to allow Commercial Vantage to check for dock firmware updates when a supported dock is attached.
-
-    **OMA-URI**:
-    ```
-    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/3D58DE8904B4C497EB9181BEDC868A50
-    ```
-
-    **Values**:
-    ```xml
-    <enabled/>
-    ```
-    ```xml
-    <disabled/>
-    ```
-
-<a id="turn-off-run-once-task"></a>
-??? note "Turn off Run-Once Task"
-    _Added in version 10.2104 v2_
-
-    **Description**: When enabled, the initial check for updates at first launch is turned off.
-
-    **OMA-URI**:
-    ```
-    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/41055A4D350BB08B7B35250ABCD2A4B1
-    ```
-
-    **Values**:
-    ```xml
-    <enabled/>
-    ```
-    ```xml
-    <disabled/>
-    ```
-
-??? note "Auto Update"
-    **Description**: When enabled, auto update is enabled. When disabled, auto update is disabled. Not configured maintains the last status and can be controlled by the end user. By default, auto update installs critical updates and recommended drivers.
-
-    **OMA-URI**:
-    ```
-    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/DE2E5946D5FC36D6F175D99C651F8408
-    ```
-
-    **Values**:
-    ```xml
-    <enabled/>
-    ```
-    ```xml
-    <disabled/>
-    ```
 
 ??? note "Company Name"
     _Added in version 2501.15_
@@ -1063,6 +1012,146 @@ The following policies toggle System Update behavior on or off. For policies wit
     ```xml
     <enabled/>
     <data id="7D125BC7E172D57BBD95107ECECB6C0D" value="\\your_repository"/>
+    ```
+    ```xml
+    <disabled/>
+    ```
+
+??? note "Test Content Mode"
+    _Added in version 2501.15_
+
+    **Description**: When enabled, System Update only processes packages with a Status of "Test" in the local repository. Only effective if a local repository is configured via the System Update Repository policy.
+
+    **OMA-URI**:
+    ```
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089/C6A61B1F0CCC910157C4FD733BBFBA69
+    ```
+
+    **Values**:
+    ```xml
+    <enabled/>
+    ```
+    ```xml
+    <disabled/>
+    ```
+
+??? note "Auto Update"
+    **Description**: When enabled, auto update is enabled. When disabled, auto update is disabled. Not configured maintains the last status and can be controlled by the end user. By default, auto update installs critical updates and recommended drivers.
+
+    **OMA-URI**:
+    ```
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/DE2E5946D5FC36D6F175D99C651F8408
+    ```
+
+    **Values**:
+    ```xml
+    <enabled/>
+    ```
+    ```xml
+    <disabled/>
+    ```
+
+??? note "Configure Auto System Update"
+    _Added in version 10.2407.66_
+
+    **Description**: This policy setting provides the ability for the Administrator to configure the filter of searching updates for auto update specifically. If you enable this policy setting, Commercial Vantage will search for updates based on this filter for auto update. If you disable, Commercial Vantage will search for all available updates. Not configured follows the settings of 'Configure System Update'.
+
+    All elements must be specified with a value of either True or False.
+
+    **OMA-URI**:
+    ```
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/F3E50D676ED09F059CDA62D68516F80D
+    ```
+
+    !!! info "GUID Reference"
+        602015B22CFEA08C53FEC8C3E81356BF = Critical Applications<br>
+        CE7D1526B3D8674705FF75DFF52B4416 = Critical Drivers<br>
+        7C75C7AA6FF288235BCA3886FA9A4176 = Critical BIOS<br>
+        94803C37291A574BB4CAF4DFAE682CC2 = Critical Firmware<br>
+        7326616EB323392D1BB0E6436A4A02AF = Critical Others<br>
+        6564E6607DD79991C0A56F009A4102FA = Recommended Applications<br>
+        B78D824B47B0EC632B7EDEF30B63E2D9 = Recommended Drivers<br>
+        A0DEF98CD96C592582382A3453CB78BA = Recommended BIOS<br>
+        8E6885D7C10107B5CD98053B7D8B2A6E = Recommended Firmware<br>
+        A45D902F95DDD3B8597B21175A66A804 = Recommended Others<br>
+        46302403B9C32072305518FE20DC6720 = Optional Applications<br>
+        FDC13AFD3BA418958D122D78105C2F90 = Optional Drivers<br>
+        3297105136FCEC5D3432C0FA2FDB73BB = Optional BIOS<br>
+        C62002C924CF75712313AC1CF94525AB = Optional Firmware<br>
+        9A82A62C3EF3BA2FCC142413A1FAC951 = Optional Others
+
+    **Values**:
+    ```xml
+    <enabled/>
+    <data id="602015B22CFEA08C53FEC8C3E81356BF" value="true"/>
+    <data id="CE7D1526B3D8674705FF75DFF52B4416" value="true"/>
+    <data id="7C75C7AA6FF288235BCA3886FA9A4176" value="true"/>
+    <data id="94803C37291A574BB4CAF4DFAE682CC2" value="true"/>
+    <data id="7326616EB323392D1BB0E6436A4A02AF" value="false"/>
+    <data id="6564E6607DD79991C0A56F009A4102FA" value="true"/>
+    <data id="B78D824B47B0EC632B7EDEF30B63E2D9" value="true"/>
+    <data id="A0DEF98CD96C592582382A3453CB78BA" value="true"/>
+    <data id="8E6885D7C10107B5CD98053B7D8B2A6E" value="true"/>
+    <data id="A45D902F95DDD3B8597B21175A66A804" value="true"/>
+    <data id="46302403B9C32072305518FE20DC6720" value="false"/>
+    <data id="FDC13AFD3BA418958D122D78105C2F90" value="false"/>
+    <data id="3297105136FCEC5D3432C0FA2FDB73BB" value="false"/>
+    <data id="C62002C924CF75712313AC1CF94525AB" value="false"/>
+    <data id="9A82A62C3EF3BA2FCC142413A1FAC951" value="false"/>
+    ```
+    ```xml
+    <disabled/>
+    ```
+
+??? note "Defer Update"
+    _Added in version 10.2104 v2_
+
+    **Description**: This policy setting provides the ability for the Administrator to control how updates can be deferred.
+
+    If you enable this policy, you may configure the number of times the end-user is allowed to defer updates (DeferLimit) and the amount of time for each deferral (DeferTime). If these options are not configured, the end-user may defer unlimited times for 60 minutes each deferral.
+
+    If you disable this policy or the policy is not configured, the end-user may only continue with or cancel the updates. If cancelled, the updates will be presented again at the next scheduled scan.
+
+    **OMA-URI**:
+    ```
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/6E62038B159F1CC622C1E80F3BD3D1E8
+    ```
+
+    | id | valueName |
+    | :--- | :--- |
+    | `311D60F57C54D2DD03394368BDFCED99` | DeferLimit |
+    | `95E579A1A0BABCEDAC4AF1BC81B042F4` | DeferTime |
+
+    **Values**:
+    ```xml
+    <enabled/>
+    <data id="311D60F57C54D2DD03394368BDFCED99" value="4"/>
+    <data id="95E579A1A0BABCEDAC4AF1BC81B042F4" value="30"/>
+    ```
+    ```xml
+    <disabled/>
+    ```
+
+??? note "Reboot delay time"
+    _Added in version 20.2603.19.0_
+
+    **Description**: When enabled, Commercial Vantage waits the specified number of minutes before rebooting the system after Reboot Type 5 updates have been installed. A warning dialog is displayed showing the time at which the reboot will occur, with an option to reboot immediately.
+
+    The minimum value is 5 minutes and the maximum value is 60 minutes. Values less than 5 default to 5, and values greater than 60 default to 60. If set to Not Configured or Disabled, the default delay of 5 minutes is used.
+
+    **OMA-URI**:
+    ```
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/F3F1A1DD19BD01E2DA2585DA028E2685
+    ```
+
+    | id | valueName |
+    | :--- | :--- |
+    | `A177CC7E0E6711DBEC0976D105F4A5FE` | Reboot delay (minutes) |
+
+    **Values**:
+    ```xml
+    <enabled/>
+    <data id="A177CC7E0E6711DBEC0976D105F4A5FE" value="5"/>
     ```
     ```xml
     <disabled/>
@@ -1201,82 +1290,80 @@ The following policies toggle System Update behavior on or off. For policies wit
     <disabled/>
     ```
 
-??? note "Defer Update"
-    _Added in version 10.2104 v2_
+??? note "Show Pre-Install Notification"
+    _Added in version 20.2509_
 
-    **Description**: This policy setting provides the ability for the Administrator to control how updates can be deferred.
+    **Description**: Controls whether users receive a visible notification before software packages are installed. When enabled, applicable updates are downloaded in the background before prompting.
 
-    If you enable this policy, you may configure the number of times the end-user is allowed to defer updates (DeferLimit) and the amount of time for each deferral (DeferTime). If these options are not configured, the end-user may defer unlimited times for 60 minutes each deferral.
+    When Not Configured, current behavior is followed, where Reboot Type 0 and 3 updates are downloaded and installed automatically before prompting for any Reboot Type 1, 4, and 5 updates.
 
-    If you disable this policy or the policy is not configured, the end-user may only continue with or cancel the updates. If cancelled, the updates will be presented again at the next scheduled scan.
+    When Enabled, all updates are downloaded first, then the standard dialog is displayed before installing any updates if the user clicks Install and Restart. This applies to Reboot Type 0, 1, 3, 4, and 5.
+
+    When Disabled, the behavior follows the same as Not Configured.
 
     **OMA-URI**:
     ```
-    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/6E62038B159F1CC622C1E80F3BD3D1E8
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/C1740AE92796891F54E1046A4DFB1630
     ```
-
-    | id | valueName |
-    | :--- | :--- |
-    | `311D60F57C54D2DD03394368BDFCED99` | DeferLimit |
-    | `95E579A1A0BABCEDAC4AF1BC81B042F4` | DeferTime |
 
     **Values**:
     ```xml
     <enabled/>
-    <data id="311D60F57C54D2DD03394368BDFCED99" value="4"/>
-    <data id="95E579A1A0BABCEDAC4AF1BC81B042F4" value="30"/>
     ```
     ```xml
     <disabled/>
     ```
 
-??? note "Configure Auto System Update"
+??? note "Turn off Dock Auto Update"
     _Added in version 10.2407.66_
 
-    **Description**: This policy setting provides the ability for the Administrator to configure the filter of searching updates for auto update specifically. If you enable this policy setting, Commercial Vantage will search for updates based on this filter for auto update. If you disable, Commercial Vantage will search for all available updates. Not configured follows the settings of 'Configure System Update'.
-
-    All elements must be specified with a value of either True or False.
+    **Description**: When enabled (or not configured), Dock Auto Update is turned off. Set to Disabled to allow Commercial Vantage to check for dock firmware updates when a supported dock is attached.
 
     **OMA-URI**:
     ```
-    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/F3E50D676ED09F059CDA62D68516F80D
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/3D58DE8904B4C497EB9181BEDC868A50
     ```
-
-    !!! info "GUID Reference"
-        602015B22CFEA08C53FEC8C3E81356BF = Critical Applications<br>
-        CE7D1526B3D8674705FF75DFF52B4416 = Critical Drivers<br>
-        7C75C7AA6FF288235BCA3886FA9A4176 = Critical BIOS<br>
-        94803C37291A574BB4CAF4DFAE682CC2 = Critical Firmware<br>
-        7326616EB323392D1BB0E6436A4A02AF = Critical Others<br>
-        6564E6607DD79991C0A56F009A4102FA = Recommended Applications<br>
-        B78D824B47B0EC632B7EDEF30B63E2D9 = Recommended Drivers<br>
-        A0DEF98CD96C592582382A3453CB78BA = Recommended BIOS<br>
-        8E6885D7C10107B5CD98053B7D8B2A6E = Recommended Firmware<br>
-        A45D902F95DDD3B8597B21175A66A804 = Recommended Others<br>
-        46302403B9C32072305518FE20DC6720 = Optional Applications<br>
-        FDC13AFD3BA418958D122D78105C2F90 = Optional Drivers<br>
-        3297105136FCEC5D3432C0FA2FDB73BB = Optional BIOS<br>
-        C62002C924CF75712313AC1CF94525AB = Optional Firmware<br>
-        9A82A62C3EF3BA2FCC142413A1FAC951 = Optional Others
 
     **Values**:
     ```xml
     <enabled/>
-    <data id="602015B22CFEA08C53FEC8C3E81356BF" value="true"/>
-    <data id="CE7D1526B3D8674705FF75DFF52B4416" value="true"/>
-    <data id="7C75C7AA6FF288235BCA3886FA9A4176" value="true"/>
-    <data id="94803C37291A574BB4CAF4DFAE682CC2" value="true"/>
-    <data id="7326616EB323392D1BB0E6436A4A02AF" value="false"/>
-    <data id="6564E6607DD79991C0A56F009A4102FA" value="true"/>
-    <data id="B78D824B47B0EC632B7EDEF30B63E2D9" value="true"/>
-    <data id="A0DEF98CD96C592582382A3453CB78BA" value="true"/>
-    <data id="8E6885D7C10107B5CD98053B7D8B2A6E" value="true"/>
-    <data id="A45D902F95DDD3B8597B21175A66A804" value="true"/>
-    <data id="46302403B9C32072305518FE20DC6720" value="false"/>
-    <data id="FDC13AFD3BA418958D122D78105C2F90" value="false"/>
-    <data id="3297105136FCEC5D3432C0FA2FDB73BB" value="false"/>
-    <data id="C62002C924CF75712313AC1CF94525AB" value="false"/>
-    <data id="9A82A62C3EF3BA2FCC142413A1FAC951" value="false"/>
+    ```
+    ```xml
+    <disabled/>
+    ```
+
+<a id="turn-off-run-once-task"></a>
+??? note "Turn off Run-Once Task"
+    _Added in version 10.2104 v2_
+
+    **Description**: When enabled, the initial check for updates at first launch is turned off.
+
+    **OMA-URI**:
+    ```
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/41055A4D350BB08B7B35250ABCD2A4B1
+    ```
+
+    **Values**:
+    ```xml
+    <enabled/>
+    ```
+    ```xml
+    <disabled/>
+    ```
+
+??? note "Turn on BITS"
+    _Added in version 20.2603.19.0_
+
+    **Description**: Controls whether downloads of system updates are performed using Background Intelligent Transfer Service (BITS) if available. If BITS is not available, a standard download will be attempted.
+
+    **OMA-URI**:
+    ```
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/62B86BA376E94B76D035DADCB8433F3A
+    ```
+
+    **Values**:
+    ```xml
+    <enabled/>
     ```
     ```xml
     <disabled/>
