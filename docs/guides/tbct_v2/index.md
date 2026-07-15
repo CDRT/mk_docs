@@ -255,6 +255,41 @@ The main user interface includes:
         - GUI checks/installs Microsoft Graph modules and prompts to sign in.
         - Packaging the Win32 package uses Intune Win32 Content Prep Tool which is available here: [https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe).
 
+    If you allow the tool to upload the package to Intune, it will create the Package for you in Intune. If you do not upload to Intune, you must create the package manually in the Intune console. Below are the details required when creating the package:
+
+    - App Information
+        - App type:  Windows app (Win32)
+        - Select package:  Specify the ConfigScript.intunewin package that you created, the default location is in C:\ProgramData\Lenovo\ThinkBiosConfig\Output inside a time-stamped subfolder.
+        - Name: ConfigScript.ps1
+        - Description: ConfigScript.ps1 (can set to whatever you like)
+        - Publisher: Lenovo
+        - App Version: (enter value that was entered in Think BIOS Config Tool when generating the package)
+        - Category: (optional - blank)
+        - Show this as a feature app: No
+        - Information URL, Privacy URL, etc. : (optional - blank)
+    - Program
+        - Install command: `powershell.exe -ExecutionPolicy Bypass -WindowStyle Hidden -File ConfigScript.ps1`
+        - Uninstall command: `cmd.exe /c echo "No uninstall required"`
+        - Allow available uninstall: No
+        - Install behavior: System
+        - Return Codes: keep defaults except 1618, change it to 1 = Failed
+        - Keep all other settings as default
+    - Requirements
+        - Check operating system architecture: No. Allow this app to be installed on all systems.
+        - Minimum operating system: Windows 10 21H1
+    - Detection rules
+        - Rules format: Manually configure detection rules
+        - Click "+ Add" to add new rule
+            - Rule type: File
+            - Path: C:\ProgramData\Lenovo\ThinkBiosConfig
+            - File or folder: (enter the file name ending in .tag used in the Think BIOS Config tool when generating the package)
+            - Detection method: File or folder exists
+            - Associated with a 32-bit app on 64-bit clients: No
+    - Dependencies: None
+    - Supersedence: None
+    - Scope tags: None
+    - Assingments: As needed.
+
 ## Configuration
 
 ### Storage locations

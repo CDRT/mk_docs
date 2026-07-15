@@ -1,4 +1,4 @@
 title: ThinkVantage Repository Manager
 nav:
-    - guides/tvrm/index.md
+    - index.md
     - Lenovo.Client.RepositoryManager Module: guides/tvrm/module_reference.md
