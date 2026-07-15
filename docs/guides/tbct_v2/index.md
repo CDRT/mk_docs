@@ -288,7 +288,7 @@ The main user interface includes:
     - Dependencies: None
     - Supersedence: None
     - Scope tags: None
-    - Assingments: As needed.
+    - Assignments: Device Group(s) is recommended
 
 ## Configuration
 
