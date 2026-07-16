@@ -1,46 +1,49 @@
 # Memory Protection Settings
 
-![Memory Protection](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_memoryprotection.png)
+### **Execution Prevention**
 
-Execution Prevention
-:  If your OS supports Data Execution Prevention, this setting can prevent virus/worm attacks that create memory buffer overflows by running code where only data is allowed.
+If your OS supports Data Execution Prevention, this setting can prevent virus/worm attacks that create memory buffer overflows by running code where only data is allowed.
 
-    Possible options:
+!!! warning "Attention"
+    Reset to `Off` if your required applications cannot run.
 
-    1. On
-    2. **Off** – Default.
+Possible options:
 
-    !!! note ""
-        Reset to `Off` if your required applications cannot run.
+1. On
+2. **Off** – Default.
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | DataExecutionPrevention | Disable, Enable | Yes | Both |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| DataExecutionPrevention | Disable, Enable | Yes | Both |
 
-Intel(R) Total Memory Encryption
-:  Protects DRAM data from physical attacks.
+### **Intel(R) Total Memory Encryption**
 
-    !!! note ""
-        Impacts when `On`: <br> - System memory tools, such as memtest86 and Lenovo Diagnostic-Memory test, will not work correctly <br> - System performance will degrade by estimated 3-5%.
+Protects DRAM data from physical attacks.
 
-    Possible options:
+!!! warning "Attention"
+    Impacts when `On`:
 
-    1. On
-    2. **Off** – Default.
+    - System memory tools, such as memtest86 and Lenovo Diagnostic-Memory test, will not work correctly.
+    - System performance will degrade by estimated 3-5%.
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | TotalMemoryEncryption | Disable, Enable | Yes | Intel |
+Possible options:
 
-Transparent Secure Memory Encryption (TSME)
-:  AMD's equivalent of Intel (R) Total Memory Encryption. Encrypts DRAM data to protect against physical attacks.
+1. On
+2. **Off** – Default.
 
-    Possible options:
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| TotalMemoryEncryption | Disable, Enable | Yes | Intel |
 
-    1. **On** – Default.
-    2. Off
+### **Transparent Secure Memory Encryption (TSME)**
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | TSME | Disable, Enable | Yes | AMD |
-    
+AMD's equivalent of Intel (R) Total Memory Encryption. Encrypts DRAM data to protect against physical attacks.
+
+Possible options:
+
+1. **On** – Default.
+2. Off
+
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| TSME | Disable, Enable | Yes | AMD |
