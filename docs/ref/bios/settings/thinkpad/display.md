@@ -1,99 +1,102 @@
 # Display Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_display.png)
+### **Boot Display Device**
 
-Boot Display Device
-:  Whether native ThinkPad LCD, or an external display attached to USB Type-C connector or HDMI connector, will be used for boot.
+Whether native ThinkPad LCD, or an external display attached to USB Type-C connector or HDMI connector, will be used for boot.
 
-    Possible options:
+!!! warning "Attention"
+    If multiple displays are attached, the boot screen appears on the first recognized one.
 
-    1. **ThinkPad LCD** - Default.
-    2. External Display
+Possible options:
 
-    !!! note ""
-        If multiple displays are attached, the boot screen appears on the first recognized one.
+1. **ThinkPad LCD** - Default.
+2. External Display
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | BootDisplayDevice | LCD, ExternalDisplay | No | Both |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| BootDisplayDevice | LCD, ExternalDisplay | No | Both |
 
-Graphics Device
-:  Whether, if the system includes a discrete graphics adapter, both the integrated and the discrete graphics adapters are available to the OS, or only the discrete graphics adapter.
+### **Graphics Device**
 
-    Possible options:
+Whether, if the system includes a discrete graphics adapter, both the integrated and the discrete graphics adapters are available to the OS, or only the discrete graphics adapter.
 
-    1. **Hybrid Graphics** - Default.
-    2. Discrete Graphics
+Possible options:
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | GraphicsDevice | SwitchableGfx, DiscreteGfx | No | Both |
+1. **Hybrid Graphics** - Default.
+2. Discrete Graphics
 
-Total Graphics Memory
-:  **Intel-based machine**
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| GraphicsDevice | SwitchableGfx, DiscreteGfx | No | Both |
 
-    How much total memory to allocate for Intel (R) internal graphics device to share.
+### **Total Graphics Memory**
 
-    Possible options:
+**Intel-based machine**
 
-    1. **256 MB** - Default.
-    2. 512 MB
+How much total memory to allocate for Intel (R) internal graphics device to share.
 
-    !!! note ""
-        If 512 MB is selected, the maximum usable memory may be reduced on 32-bit OS.
+!!! warning "Attention"
+    If 512 MB is selected, the maximum usable memory may be reduced on 32-bit OS.
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | TotalGraphicsMemory | 256MB, 512MB | No | Intel |
+Possible options:
 
-    **AMD-based machine**
+1. **256 MB** - Default.
+2. 512 MB
 
-    How much memory to allocate for UMA (Unified Memory Architecture) frame buffer.
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| TotalGraphicsMemory | 256MB, 512MB | No | Intel |
 
-    Possible options:
+**AMD-based machine**
 
-    1. **Auto** - Default.
-    2. 1GB
-    3. 2GB
-    4. 4GB
-    5. 8GB
+How much memory to allocate for UMA (Unified Memory Architecture) frame buffer.
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | UMAFramebufferSize | Auto, 1GB, 2GB, 4GB, 8GB | No | AMD |
+Possible options:
 
-Boot Time Extension
-:  Amount of time to extend the boot process, in seconds.
+1. **Auto** - Default.
+2. 1GB
+3. 2GB
+4. 4GB
+5. 8GB
 
-    Possible options:
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| UMAFramebufferSize | Auto, 1GB, 2GB, 4GB, 8GB | No | AMD |
 
-    1. **Disabled** - Default
-    2. 1 second
-    3. 2 seconds
-    4. 3 seconds
-    5. 5 seconds
-    6. 10 seconds
+### **Boot Time Extension**
 
-    !!! note ""
-        The System cannot detect some external monitors during boot because they need a few seconds to be ready. Try this option if the monitor being used does not display the boot screen.
+Amount of time to extend the boot process, in seconds.
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | BootTimeExtension | Disable, 1, 2, 3, 5, 10 | No | Both |
+!!! warning "Attention"
+    The System cannot detect some external monitors during boot because they need a few seconds to be ready. Try this option if the monitor being used does not display the boot screen.
 
-ePrivacy Lock
-:  Whether to set Privacy Guard always on.
+Possible options:
 
-    !!! note ""
-        If switched on, prevents the user from disabling it.
+1. **Disabled** - Default
+2. 1 second
+3. 2 seconds
+4. 3 seconds
+5. 5 seconds
+6. 10 seconds
 
-        If switched off, can be toggled any time with hotkey `Fn` + `D`.
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| BootTimeExtension | Disable, 1, 2, 3, 5, 10 | No | Both |
 
-    Options:
+### **ePrivacy Lock**
 
-    1.  **Off** - Default.
-    2.  On.
+Whether to set Privacy Guard always on.
 
-    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-    |:---|:---|:---|:---|
-    | ePrivacyLock | Disable,Enable | Yes | both |
+!!! warning "Attention"
+    If switched on, prevents the user from disabling it.
+
+    If switched off, can be toggled any time with hotkey `Fn` + `D`.
+
+Options:
+
+1. **Off** - Default.
+2. On.
+
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| ePrivacyLock | Disable,Enable | Yes | both |
