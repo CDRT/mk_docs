@@ -64,10 +64,12 @@ Rule of thumb: if a sentence describes *what the setting is/does*, keep it in th
 
 ## Heading levels (H1 → H2 → H3)
 
-Check whether the page has *any* `## ` headings later on (e.g. `network.md` has `## General`, `## Custom URL Support Settings`, `## WiFi Configuration`, etc.):
+Add a `## General` heading (right after the `#` page title) if **either** of these is true:
 
-- **If the page has other `## ` sections anywhere in it**: the leading group of settings (before the first existing `## ` heading) needs its own `## ` wrapper too, so every `### ` heading sits under some `## ` — otherwise those settings float without a group while the rest of the page is grouped. Use a heading that fits the content (`## General` is the established name for this leading, ungrouped bucket in `network.md`).
-- **If the page has no `## ` headings anywhere** (it's a flat list of settings, e.g. `display.md`, `fingerprint.md`): leave it as `#` → `### `. Don't insert a placeholder `## General` just to satisfy markdownlint's MD001 (heading levels should increment by one) — that warning is an accepted exception for these flat pages.
+- **The page has a page-level preamble** — any description paragraph, link, or callout that sits directly under the `#` title before the first `### ` setting heading (e.g. `intelligentsecurity.md`'s intro paragraph about what the feature group does, plus its "may be unavailable" Attention callout). Wrap that preamble content in `## General` so it reads as its own section instead of dangling under the page title.
+- **The page has other `## ` sections later on** (e.g. `network.md` has `## General`, `## Custom URL Support Settings`, `## WiFi Configuration`, etc.) — the leading group of settings (before the first existing `## ` heading) needs its own `## ` wrapper too, so every `### ` heading sits under some `## ` instead of floating ungrouped while the rest of the page is grouped.
+
+If **neither** applies — the page is a flat list of settings with no preamble and no other `## ` anywhere (e.g. `display.md`, `fingerprint.md`) — leave it as `#` → `### `. Don't insert a placeholder `## General` just to satisfy markdownlint's MD001 (heading levels should increment by one) — that warning is an accepted exception for these flat pages.
 
 ## After editing
 

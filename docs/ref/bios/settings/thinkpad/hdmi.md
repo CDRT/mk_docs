@@ -1,13 +1,13 @@
 # HDMI Configuration
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_hdmi.png)
+### **HDMI Mode Select**
 
-Available only on certain models.
+Select HDMI mode to achieve the best compatible video output for the devices attached.
 
-HDMI Mode Select
-:  Select HDMI mode to achieve the best compatible video output for the devices attached.
+!!! warning "Attention"
+    Available only on certain models.
 
-   Possible options:
+Possible options:
 
    1. **HDMI 2.0** - Allows for higher frame rate for 4K video. Default.
    2. HDMI 1.4 - Supports 4K video with lower frame rate.
