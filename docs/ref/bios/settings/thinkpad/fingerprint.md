@@ -1,71 +1,73 @@
 # Fingerprint Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_fingerprint.png)
+### **Predesktop Authentication**
 
-Predesktop Authentication
-:  Whether to enable authentication by a fingerprint at predesktop.
+Whether to enable authentication by a fingerprint at predesktop.
 
-    Possible options:
+Possible options:
 
-    1. **On** - Default.
-    2. Off
+1. **On** - Default.
+2. Off
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | FingerprintPredesktopAuthentication | Disable, Enable | Yes | Both |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| FingerprintPredesktopAuthentication | Disable, Enable | Yes | Both |
 
-Security Mode
-:  Whether to require authentication by Power-On Password or Supervisor Password, or only by Supervisor Password, when no fingerprint is authenticated, to boot.
+### **Security Mode**
 
-    One of 2 possible options:
+Whether to require authentication by Power-On Password or Supervisor Password, or only by Supervisor Password, when no fingerprint is authenticated, to boot.
 
-    1. **Normal** - Default.
-    2. High
+!!! warning "Attention"
+    When `High` security mode is enabled, **only** the Supervisor Password will allow boot.
 
-    !!! note ""
-        When `High` security mode is enabled, **only** the Supervisor Password will allow boot.
+Possible options:
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | FingerprintSecurityMode | Normal, High | Yes | Both |
+1. **Normal** - Default.
+2. High
 
-Password Authentication
-:  Whether to enable authentication by password when fingerprint is not available.
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| FingerprintSecurityMode | Normal, High | Yes | Both |
 
-    !!! note ""
-        Visible and active only if `Security Mode` has value `High`.
+### **Password Authentication**
 
-    Possible options:
+Whether to enable authentication by password when fingerprint is not available.
 
-    1. **On** - Default.
-    2. Off
+!!! warning "Attention"
+    Visible and active only if `Security Mode` has value `High`.
 
-    !!! note ""
-        Administrators are authenticated by a Supervisor Password.
+    Administrators are authenticated by a Supervisor Password.
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | FingerprintPasswordAuthentication | Disable, Enable | Yes | Both |
+Possible options:
 
-Single-touch authentication
-:  Whether to allow a single touch fingerprint authentication to work through all security levels.
+1. **On** - Default.
+2. Off
 
-    !!! note ""
-        Switching off means requiring individual fingerprint authentication for each security level.
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| FingerprintPasswordAuthentication | Disable, Enable | Yes | Both |
 
-    Options:
+### **Single-touch authentication**
 
-    1. **On** - Default.
-    2. Off.
+Whether to allow a single touch fingerprint authentication to work through all security levels.
 
-    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-    |:---|:---|:---|:---|
-    | FingerprintSingleTouchAuthentication | On, Off | yes | both |
+!!! warning "Attention"
+    Switching off means requiring individual fingerprint authentication for each security level.
 
-Reset Fingerprints Data
-:  Erase all fingerprint data stored in the fingerprint reader and reset settings to the factory state (ex. Power-on security, LEDs, etc.).
+Possible options:
 
-    !!! note ""
-        Any power-on security features previously enabled will not be able to work until they are re-enabled in fingerprint software.
+1. **On** - Default.
+2. Off.
 
-        **Requires additional confirmation.**
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| FingerprintSingleTouchAuthentication | On, Off | yes | both |
+
+### **Reset Fingerprints Data**
+
+Erase all fingerprint data stored in the fingerprint reader and reset settings to the factory state (ex. Power-on security, LEDs, etc.).
+
+!!! warning "Attention"
+    Any power-on security features previously enabled will not be able to work until they are re-enabled in fingerprint software.
+
+    **Requires additional confirmation.**

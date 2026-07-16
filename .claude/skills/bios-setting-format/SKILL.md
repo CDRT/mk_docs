@@ -58,9 +58,16 @@ Some sentences read as part of the setting's definition; others are really a war
 
 Rule of thumb: if a sentence describes *what the setting is/does*, keep it in the lead paragraph(s). If it describes a *caveat, restriction, side effect, or something that could surprise/trip up the reader*, pull it into the Attention callout. When genuinely ambiguous, prefer leaving it in the callout — it's more visible there, and that's the safer default for a customer-facing BIOS reference.
 
-## Known acceptable exception
+## Known acceptable exceptions
 
-A setting that branches by hardware (e.g. "Total Graphics Memory" splitting into Intel-based vs. AMD-based machines) uses a bold line as a sub-label, e.g. `**Intel-based machine**`, followed by its own paragraph/Attention/options/table group. This trips markdownlint's MD036 (emphasis used instead of heading) — that's a known, accepted exception for this specific "two variants under one setting" shape. Don't promote it to a `####` heading unless the user asks for that specifically.
+- A setting that branches by hardware (e.g. "Total Graphics Memory" splitting into Intel-based vs. AMD-based machines) uses a bold line as a sub-label, e.g. `**Intel-based machine**`, followed by its own paragraph/Attention/options/table group. This trips markdownlint's MD036 (emphasis used instead of heading) — that's a known, accepted exception for this specific "two variants under one setting" shape. Don't promote it to a `####` heading unless the user asks for that specifically.
+
+## Heading levels (H1 → H2 → H3)
+
+Check whether the page has *any* `## ` headings later on (e.g. `network.md` has `## General`, `## Custom URL Support Settings`, `## WiFi Configuration`, etc.):
+
+- **If the page has other `## ` sections anywhere in it**: the leading group of settings (before the first existing `## ` heading) needs its own `## ` wrapper too, so every `### ` heading sits under some `## ` — otherwise those settings float without a group while the rest of the page is grouped. Use a heading that fits the content (`## General` is the established name for this leading, ungrouped bucket in `network.md`).
+- **If the page has no `## ` headings anywhere** (it's a flat list of settings, e.g. `display.md`, `fingerprint.md`): leave it as `#` → `### `. Don't insert a placeholder `## General` just to satisfy markdownlint's MD001 (heading levels should increment by one) — that warning is an accepted exception for these flat pages.
 
 ## After editing
 
