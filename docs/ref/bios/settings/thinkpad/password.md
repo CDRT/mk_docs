@@ -2,375 +2,384 @@
 
 ## General
 
-![Password](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_password.png)
-
 The [Types of Passwords](#types-of-passwords) section describes the different passwords' behaviors.
 
 [More information about passwords on support.lenovo.com.](https://support.lenovo.com/at/en/solutions/ht036206-types-of-password-for-thinkpad)
 
-Supervisor Password
-:  
-      Whether the system will request the user to set and confirm the Supervisor Password.
+### **Supervisor Password**
 
-      Possible options:
+Whether the system will request the user to set and confirm the Supervisor Password.
 
-      1. **Disabled** - Default.
-      2. Enabled
+!!! warning "Attention"
+    When enabled, Supervisor Password prevents unauthorized users from accessing these items in ThinkPad Setup:
 
-      While enabling the following parameters are available:
+    - Boot priority lists
+    - Network related items
+    - Date & Time
 
-      - Enter New Password
-      - Confirm New Password
-      - Show Password – [On\Off] statuses
-         - Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
-      - < Actions >:
-          - **Save** – default
-          - Cancel<br>
+    To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm).
 
-        !!! note ""
-            When enabled, Supervisor Password prevents unauthorized users from accessing these items in ThinkPad Setup: <br> - Boot priority lists <br> - Network related items <br> - Date & Time <br>
+Possible options:
 
-        !!! note ""
-            To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm).
+1. **Disabled** - Default.
+2. Enabled
 
-System Management Password
-:  Whether system will request the user to set and confirm System Management Password password.
+While enabling the following parameters are available:
 
-    Possible options:
+- Enter New Password
+- Confirm New Password
+- Show Password – [On\Off] statuses
+    - Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
+- < Actions >:
+    - **Save** – default
+    - Cancel
 
-    1. **Off** - Default.
-    2. On
+### **System Management Password**
 
-    While enabling the following parameters are available:
+Whether system will request the user to set and confirm System Management Password password.
 
-    * [Enter New Password]
-    * [Confirm New Password]
-    * Show Password – [On\Off] statuses
-    * Keyboard layout: XXXX – Possible values are the same as in [Keyboard\Mouse -> Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
-    * < Actions >:
-        * **Save** – default
-        * Cancel
+!!! warning "Attention"
+    When enabled System Management Password presents unauthorized users from accessing these items in ThinkPad Setup:
 
-    !!! note ""
-        When enabled System Management Password presents unauthorized users from accessing these items in ThinkPad Setup: <br> - Boot priority lists <br> - Network related items <br> - Date & Time
+    - Boot priority lists
+    - Network related items
+    - Date & Time
 
-    !!! note ""
-        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm.md).
+    To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm.md).
 
-Power-On Password
-:  Whether will request user to set and confirm Power-On Password password.
+Possible options:
 
-    !!! note ""
-        When enabled Power-On Password prevents unauthorized users from booting your computer.
+1. **Off** - Default.
+2. On
 
-    Possible options:
+While enabling the following parameters are available:
 
-    1. **Off** - Default.
-    2. On
+- [Enter New Password]
+- [Confirm New Password]
+- Show Password – [On\Off] statuses
+- Keyboard layout: XXXX – Possible values are the same as in [Keyboard\Mouse -> Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
+- < Actions >:
+    - **Save** – default
+    - Cancel
 
-    While enabling the following parameters are available:
+### **Power-On Password**
 
-    * [Enter New Password]
-    * [Confirm New Password]
-    * Show Password – [On\Off] statuses
-    * Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
-    * < Actions >:
-        * **Save** – default
-        * Cancel
+Whether will request user to set and confirm Power-On Password password.
 
+!!! warning "Attention"
     When enabled Power-On Password prevents unauthorized users from booting your computer.
 
-    !!! note ""
-        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm.md).
+    To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm.md).
 
-NVMe1 Password
-:  Also known as **Hard Disk Password (HDP)**.
+Possible options:
 
-    Possible options:
+1. **Off** - Default.
+2. On
 
-    1. **Off** - no password defined. Default.
-    2. On - for enabling system will request 'Setup Confirmation' and 'Password and confirmation'.
+While enabling the following parameters are available:
 
-    Setup Confirmation:
+- [Enter New Password]
+- [Confirm New Password]
+- Show Password – [On\Off] statuses
+- Keyboard layout: – Possible values are the same as in [Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
+- < Actions >:
+    - **Save** – default
+    - Cancel
 
-    1. **Single Password** - when a Single NVMe password is set, the user must enter the user NVMe password to access files and applications on the storage drive. Default.
-    2. Dual Password (User+Admin) - The admin NVMe password is set and used by a system administrator. It enables the administrator to access any storage drive in a system or any computer connected in the same network. The administrator can also assign a user NVMe password for each computer in the network. The user of the computer can change the user NVMe password as desired, but only the administrator can remove the user NVMe password.
-    3. Cancel
+### **NVMe1 Password**
 
-    Password and confirmation:
+Also known as **Hard Disk Password (HDP)**.
 
-    * [Enter New Password]
-    * [Confirm New Password]
-    * Show Password – [On\Off] statuses
-    * Keyboard layout: XXXX – Possible values are the same as in [Keyboard\Mouse -> Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
-    * < Actions >:
-        * **Save** – default
-        * Cancel
+!!! warning "Attention"
+    To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm.md).
 
-    !!! note ""
-        To have a beep sound when the system is waiting for this password, enable the [Password Beep feature in the Alarm submenu](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/beepalarm.md).
+    When prompted to enter an NVMe password, press F1 to switch between the admin NVMe password and user NVMe password.
 
-    !!! note ""
-        When prompted to enter an NVMe password, press F1 to switch between the admin NVMe password and user NVMe password.
+    The NVMe password is not available in the following situations:
 
-    !!! note ""
-        The NVMe password is not available in the following situations:
+    - A Trusted Computing Group (TCG) Opal-compliant storage drive and a TCG Opal management software program are installed in the computer, and the TCG Opal management software program is activated.
+    - For Intel models, when an eDrive storage drive is installed in the computer preinstalled with the Windows 10 operating system.
 
-        * A Trusted Computing Group (TCG) Opal-compliant storage drive and a TCG Opal management software program are installed in the computer, and the TCG Opal management software program is activated.
-        * For Intel models, when an eDrive storage drive is installed in the computer preinstalled with the Windows 10 operating system.
+Possible options:
 
-Block SID Authentication
-:  Whether TCG (Trusted Computing Group) Storage device will block attempts to authenticate the SID (Security Identifier) authority until a subsequent device power cycle occurs.
+1. **Off** - no password defined. Default.
+2. On - for enabling system will request 'Setup Confirmation' and 'Password and confirmation'.
 
-    !!! note ""
-        If switched `Off`, system will allow SID authentication in TCG Storage device at the next system boot only, but not subsequent boots.
+Setup Confirmation:
 
-    Possible options:
+1. **Single Password** - when a Single NVMe password is set, the user must enter the user NVMe password to access files and applications on the storage drive. Default.
+2. Dual Password (User+Admin) - The admin NVMe password is set and used by a system administrator. It enables the administrator to access any storage drive in a system or any computer connected in the same network. The administrator can also assign a user NVMe password for each computer in the network. The user of the computer can change the user NVMe password as desired, but only the administrator can remove the user NVMe password.
+3. Cancel
 
-    1. **On** - Default.
-    2. Off
+Password and confirmation:
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | BlockSIDAuthentication | Disable, Enable | Yes | Both |
+- [Enter New Password]
+- [Confirm New Password]
+- Show Password – [On\Off] statuses
+- Keyboard layout: XXXX – Possible values are the same as in [Keyboard\Mouse -> Keyboard Layout](https://docs.lenovocdrt.com/ref/bios/settings/thinkpad/keyboardmouse.md)
+- < Actions >:
+    - **Save** – default
+    - Cancel
 
-Lock UEFI BIOS Settings
-:  Whether to prevent users from making any changes in ThinkPad Setup without entering a Supervisor Password.
+### **Block SID Authentication**
 
-    Possible options:
+Whether TCG (Trusted Computing Group) Storage device will block attempts to authenticate the SID (Security Identifier) authority until a subsequent device power cycle occurs.
 
-    1. On
-    2. **Off** - Default.
+!!! warning "Attention"
+    If switched `Off`, system will allow SID authentication in TCG Storage device at the next system boot only, but not subsequent boots.
 
-    !!! note ""
-        UEFI BIOS Lock will not take effect unless Supervisor password is enabled.
+Possible options:
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | LockBIOSSetting | Disable, Enable | Yes | Both |
+1. **On** - Default.
+2. Off
 
-Password at Unattended Boot
-:  Whether the system prompts for passwords when the system starts from full off state or hibernate by unattended events.
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| BlockSIDAuthentication | Disable, Enable | Yes | Both |
 
-    Possible options:
+### **Lock UEFI BIOS Settings**
 
-    1. **On** - Default.
-    2. Off
+Whether to prevent users from making any changes in ThinkPad Setup without entering a Supervisor Password.
 
-    !!! note ""
-        To protect unauthorized access to the system we recommended setting user authentication on the OS.
+!!! warning "Attention"
+    UEFI BIOS Lock will not take effect unless Supervisor password is enabled.
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | BIOSPasswordAtUnattendedBoot | Disable, Enable | Yes | Both |
+Possible options:
 
-Password at Restart
-:  Whether the system prompts for passwords when the system restarts.
+1. On
+2. **Off** - Default.
 
-    Possible options:
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| LockBIOSSetting | Disable, Enable | Yes | Both |
 
-    1. On
-    2. **Off** - Default.
+### **Password at Unattended Boot**
 
-    !!! note ""
-        To protect unauthorized access to the system we recommended setting user authentication on the OS.
+Whether the system prompts for passwords when the system starts from full off state or hibernate by unattended events.
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | BIOSPasswordAtReboot | Disable, Enable | Yes | Both |
+!!! warning "Attention"
+    To protect unauthorized access to the system we recommended setting user authentication on the OS.
 
-Password at Boot Device List
-:  Whether the system prompts for the Security password.
+Possible options:
 
-    !!! note ""
-        If the Security password is set, this option is used to specify whether the Security password must be entered to display the F12 boot device list.
+1. **On** - Default.
+2. Off
 
-    Possible options:
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| BIOSPasswordAtUnattendedBoot | Disable, Enable | Yes | Both |
 
-    1. On
-    2. **Off** - system will proceed without any user action required. Default.
+### **Password at Restart**
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | BIOSPasswordAtBootDeviceList | Disable, Enable | Yes | Both |
+Whether the system prompts for passwords when the system restarts.
 
-Password Count Exceeded Error
-:  Whether system will show POST 0199 error when a wrong supervisor password is entered more than three times and prompt for the Security password.
+!!! warning "Attention"
+    To protect unauthorized access to the system we recommended setting user authentication on the OS.
 
-    Possible options:
+Possible options:
 
-    1. **On** - Default.
-    2. Off
+1. On
+2. **Off** - Default.
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | PasswordCountExceededError | Disable, Enable | Yes | Both |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| BIOSPasswordAtReboot | Disable, Enable | Yes | Both |
 
-Set Minimum Length
-:  
-    !!! note ""
-        Applies to:
+### **Password at Boot Device List**
 
-        - Supervisor Password 
-        - System Management Password
-        - Power-On password
-        - Hard Disk password
+Whether the system prompts for the Security password.
 
-    Possible options:
+!!! warning "Attention"
+    If the Security password is set, this option is used to specify whether the Security password must be entered to display the F12 boot device list.
 
-    - **Disabled** - passwords can be from 1 to 128 symbols. Default.
-    - 4 characters
-    - 5 characters
-    - 6 characters
-    - 8 characters
-    - 9 characters
-    - 10 characters
-    - 11 characters
-    - 12 characters
+Possible options:
 
-    !!! note ""
-        If a supervisor password is set, you cannot change the minimum length until you log in as a supervisor.
+1. On
+2. **Off** - system will proceed without any user action required. Default.
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | MinimumPasswordLength | Disable, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Yes | Both |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| BIOSPasswordAtBootDeviceList | Disable, Enable | Yes | Both |
 
-Set Strong Password
-:  "Strong password" means:
+### **Password Count Exceeded Error**
 
-    * 8 or more characters
-    * must include at least one uppercase character, one lowercase character and one number.
+Whether system will show POST 0199 error when a wrong supervisor password is entered more than three times and prompt for the Security password.
 
-    !!! note ""
-        Applies to:
+Possible options:
 
-        - Supervisor Password
-        - System Management Password
-        - Power-On Password
-        - Hard Disk Password
+1. **On** - Default.
+2. Off
 
-    Possible options:
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| PasswordCountExceededError | Disable, Enable | Yes | Both |
 
-    1. **Disabled** - Default.
-    2. Enabled
+### **Set Minimum Length**
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | StrongPassword | Disable, Enable | Yes | Both |
+Whether to enforce a minimum character length for passwords set in UEFI BIOS Setup.
+
+!!! warning "Attention"
+    Applies to:
+
+    - Supervisor Password
+    - System Management Password
+    - Power-On password
+    - Hard Disk password
+
+    If a supervisor password is set, you cannot change the minimum length until you log in as a supervisor.
+
+Possible options:
+
+- **Disabled** - passwords can be from 1 to 128 symbols. Default.
+- 4 characters
+- 5 characters
+- 6 characters
+- 8 characters
+- 9 characters
+- 10 characters
+- 11 characters
+- 12 characters
+
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| MinimumPasswordLength | Disable, 4, 5, 6, 7, 8, 9, 10, 11, 12 | Yes | Both |
+
+### **Set Strong Password**
+
+"Strong password" means:
+
+- 8 or more characters
+- must include at least one uppercase character, one lowercase character and one number.
+
+!!! warning "Attention"
+    Applies to:
+
+    - Supervisor Password
+    - System Management Password
+    - Power-On Password
+    - Hard Disk Password
+
+Possible options:
+
+1. **Disabled** - Default.
+2. Enabled
+
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| StrongPassword | Disable, Enable | Yes | Both |
 
 ## System Management Password Access Control
 
-![SMP](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_smpaccesscontrol.png)
+### **System Management Password Control**
 
-System Management Password Control
-:  Whether to allow System Management Password to have the same authority as Supervisor Password to control System Management Password.
+Whether to allow System Management Password to have the same authority as Supervisor Password to control System Management Password.
 
-    Possible options:
+Possible options:
 
-    1. **Off** – Default.
-    2. On
+1. **Off** – Default.
+2. On
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | SystemManagementPasswordControl | Disable, Enable | Yes | Both |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| SystemManagementPasswordControl | Disable, Enable | Yes | Both |
 
-Power-On Password Control
-:  Whether to allow System Management Password to have the same authority as Supervisor Password to control Power-On Password.
+### **Power-On Password Control**
 
-    Possible options:
+Whether to allow System Management Password to have the same authority as Supervisor Password to control Power-On Password.
 
-    1. **Off** - Default.
-    2. On
+Possible options:
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | PowerOnPasswordControl | Disable, Enable | Yes | Both |
+1. **Off** - Default.
+2. On
 
-Storage Password Control
-:  When enabled, allows System Management Password to have a same authority as Supervisor Password to control NVMe Password.
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| PowerOnPasswordControl | Disable, Enable | Yes | Both |
 
-    Possible options:
+### **Storage Password Control**
 
-    1. **Off** - Default.
-    2. On
+When enabled, allows System Management Password to have a same authority as Supervisor Password to control NVMe Password.
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | StorageDiskPasswordControl | Disable, Enable | Yes | Both |
+Possible options:
 
-Hard Disk Password Control
-:  Whether to allow System Management Password to have the same authority as Supervisor Password to control Hard Disk Password.
+1. **Off** - Default.
+2. On
 
-    Possible options:
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| StorageDiskPasswordControl | Disable, Enable | Yes | Both |
 
-    1. **Off** - Default.
-    2. On
+### **Hard Disk Password Control**
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | HardDiskPasswordControl | Disable, Enable | Yes | Both |
+Whether to allow System Management Password to have the same authority as Supervisor Password to control Hard Disk Password.
 
-BIOS Setup Configurations
-:  Whether to allow System Management Password to have the same authority as Supervisor Password to control BIOS setup items.
+Possible options:
 
-    Possible options:
+1. **Off** - Default.
+2. On
 
-    1. **Off** - Default.
-    2. On
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| HardDiskPasswordControl | Disable, Enable | Yes | Both |
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | BIOSSetupConfigurations | Disable, Enable | Yes | Both |
+### **BIOS Setup Configurations**
 
----
+Whether to allow System Management Password to have the same authority as Supervisor Password to control BIOS setup items.
+
+Possible options:
+
+1. **Off** - Default.
+2. On
+
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| BIOSSetupConfigurations | Disable, Enable | Yes | Both |
 
 ## Types of Passwords
 
-Supervisor Password (SVP)
-:  Protects the system information stored in UEFI BIOS.
+### **Supervisor Password (SVP)**
 
-    **_Entering the SVP_**
+Protects the system information stored in UEFI BIOS.
 
-    When entering the UEFI BIOS menu, enter the correct supervisor password in the window prompted.
+**_Entering the SVP_**
 
-    !!! note ""
-        If the user presses `Enter`, the password prompt will be skipped, but then most of the system configuration options in UEFI BIOS will be unavailble.
+When entering the UEFI BIOS menu, enter the correct supervisor password in the window prompted.
 
-    **_Setting the SVP_**
+!!! warning "Attention"
+    If the user presses `Enter`, the password prompt will be skipped, but then most of the system configuration options in UEFI BIOS will be unavailble.
 
-    The supervisor password can be set only through the UEFI BIOS menu.
+**_Setting the SVP_**
 
-    Once it is in place, then it can be modified using Windows Management Instrumentation (WMI) with the Lenovo client-management interface.
+The supervisor password can be set only through the UEFI BIOS menu.
 
-    **_Overriding the POP_**
+Once it is in place, then it can be modified using Windows Management Instrumentation (WMI) with the Lenovo client-management interface.
 
-    The supervisor password overrides the power-on password (POP).
+**_Overriding the POP_**
 
-    If you have set both the supervisor password and power-on password, you can use the supervisor password to access your computer when you turn it on.
+The supervisor password overrides the power-on password (POP).
 
----
+If you have set both the supervisor password and power-on password, you can use the supervisor password to access your computer when you turn it on.
 
-The System Management Password (SMP)
-:  Also protects the system information stored in UEFI BIOS like a supervisor password, but it has lower authority by default.
+### **The System Management Password (SMP)**
 
-    **_Setting the SMP_**
+Also protects the system information stored in UEFI BIOS like a supervisor password, but it has lower authority by default.
 
-    The system management password can be set through the UEFI BIOS menu or through Windows Management Instrumentation (WMI) with the Lenovo client-management interface.
+**_Setting the SMP_**
 
-    **_Overriding the SVP_**
+The system management password can be set through the UEFI BIOS menu or through Windows Management Instrumentation (WMI) with the Lenovo client-management interface.
 
-    You can enable the system management password to have the same authority as the supervisor password to control security-related features.
+**_Overriding the SVP_**
 
----
+You can enable the system management password to have the same authority as the supervisor password to control security-related features.
 
-Power-On Password
-:  When enabled, Power-On Password prevents unauthorized users from booting your computer.
+### **Power-On Password**
 
----
+When enabled, Power-On Password prevents unauthorized users from booting your computer.
 
-ATA / NVMe Password
-:  Also known as Hard Disk Password (HDP).
+### **ATA / NVMe Password**
 
-    Lenovo BIOS supports both ATA and NVMe storage and the displayed BIOS setting changes depending on the attached storage device.
+Also known as Hard Disk Password (HDP).
 
-    The NVMe (nonvolatile memory express) password prevents unauthorized access to the data on the storage drive. When an NVMe password is set, you are prompted to type a correct password each time you try to access the storage drive. The system also supports creating **dual passwords** for an Admin and another User.
+Lenovo BIOS supports both ATA and NVMe storage and the displayed BIOS setting changes depending on the attached storage device.
+
+The NVMe (nonvolatile memory express) password prevents unauthorized access to the data on the storage drive. When an NVMe password is set, you are prompted to type a correct password each time you try to access the storage drive. The system also supports creating **dual passwords** for an Admin and another User.
