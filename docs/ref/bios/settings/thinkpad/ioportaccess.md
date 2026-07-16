@@ -1,202 +1,217 @@
-# I/O Port Access Settings #
+# I/O Port Access Settings
 
-!IO Port Access](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_ioportaccess.png)
+### **Ethernet LAN**
 
-Ethernet LAN
-:  Select whether to enable or disable Ethernet LAN device and keeps it disabled in the OS environment.
+Select whether to enable or disable Ethernet LAN device and keeps it disabled in the OS environment.
 
-     Possible options:
+!!! warning "Attention"
+    The setting is removed in the recent versions.
 
-     1. **On** – Default.
-     2. Off
+Possible options:
 
-     !!! note ""
-          The setting is removed in the recent versions.
+1. **On** – Default.
+2. Off
 
-     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-     |:---|:---|:---|:---|
-     | EthernetLANAccess | Disable, Enable | Yes | Both |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| EthernetLANAccess | Disable, Enable | Yes | Both |
 
-Wireless LAN
-:  Whether to enable or disable Wireless LAN device and keep it disabled in the OS environment.
+### **Wireless LAN**
 
-     Possible options:
+Whether to enable or disable Wireless LAN device and keep it disabled in the OS environment.
 
-     1. **On** - Default.
-     2. Off
+Possible options:
 
-     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-     |:---|:---|:---|:---|
-     | WirelessLANAccess | Disable, Enable | Yes | Both |
+1. **On** - Default.
+2. Off
 
-Wireless WAN
-:  Select whether to enable or disable Wireless WAN device.
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| WirelessLANAccess | Disable, Enable | Yes | Both |
 
-     Possible options:
+### **Wireless WAN**
 
-     1. **On** – Default.
-     2. Off
+Select whether to enable or disable Wireless WAN device.
 
-     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-     |:---|:---|:---|:---|
-     | WirelessWANAccess | Disable, Enable | Yes | Both |
+Possible options:
 
-Bluetooth
-:  Possible options:
+1. **On** – Default.
+2. Off
 
-     1. **On** – Default.
-     2. Off
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| WirelessWANAccess | Disable, Enable | Yes | Both |
 
-    !!! note ""
-        Enabling Bluetooth requires setting ‘Wireless LAN’ to ‘Enabled’ state.
+### **Bluetooth**
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | BluetoothAccess | Disable, Enable | Yes | Both |
+Whether to enable or disable the Bluetooth device in the OS environment.
 
-USB Port
-:  Whether to enable all USB ports in the OS environment.
+!!! warning "Attention"
+    Enabling Bluetooth requires setting ‘Wireless LAN’ to ‘Enabled’ state.
 
-    !!! note ""
-        This setting does not affect USB-C (R) ports with a thunderbolt icon.
+Possible options:
 
-    Possible options:
+1. **On** – Default.
+2. Off
 
-    1. **On** – Default.
-    2. Off
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| BluetoothAccess | Disable, Enable | Yes | Both |
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | USBPortAccess | Disable, Enable | Yes | Both |
+### **USB Port**
 
-Memory Card Slot
-:  Whether to enable memory card slot (SD Card/MultimediaCard/Memory Stick) in the OS environment.
+Whether to enable all USB ports in the OS environment.
 
-     Possible options:
+!!! warning "Attention"
+    This setting does not affect USB-C (R) ports with a thunderbolt icon.
 
-     1. **On** – Default.
-     2. Off
+Possible options:
 
-     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-     |:---|:---|:---|:---|
-     | MemoryCardSlotAccess | Disable, Enable | Yes | Both |
+1. **On** – Default.
+2. Off
 
-Smart Card Slot
-:  Whether to enable Smart Card slot in the OS environment.
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| USBPortAccess | Disable, Enable | Yes | Both |
 
-     Possible options:
+### **Memory Card Slot**
 
-     1. **On** – Default.
-     2. Off
+Whether to enable memory card slot (SD Card/MultimediaCard/Memory Stick) in the OS environment.
 
-     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-     |:---|:---|:---|:---|
-     | SmartCardSlotAccess | Disable, Enable | Yes | Both |
+Possible options:
 
-RFID
-:  Whether to enable RFID (radio-frequency identification) in the OS environment.
+1. **On** – Default.
+2. Off
 
-     Possible options:
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| MemoryCardSlotAccess | Disable, Enable | Yes | Both |
 
-     1. **On** – Default.
-     2. Off
+### **Smart Card Slot**
 
-     !!! note ""
-     This feature is supported only for the [healthcare model](https://techtoday.lenovo.com/jp/ja/solutions/media/3970), where RFID is installed instead of Smart Card. Therefore, parameter for WMI command will be the same as for Smart Card.
+Whether to enable Smart Card slot in the OS environment.
 
-     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-     |:---|:---|:---|:---|
-     | SmartCardSlotAccess | Disable, Enable | Yes | Both |
+Possible options:
 
-Integrated Camera
-:  Whether to enable or disable Integrated Camera in the OS environment.
+1. **On** – Default.
+2. Off
 
-     Possible options:
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| SmartCardSlotAccess | Disable, Enable | Yes | Both |
 
-     1. **On** – Default.
-     2. Off
+### **RFID**
 
-     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-     |:---|:---|:---|:---|
-     | IntegratedCameraAccess | Disable, Enable | Yes | Both |
+Whether to enable RFID (radio-frequency identification) in the OS environment.
 
-Integrated Audio
-:  Whether to enable all audio functions (Microphone/Speaker) in the OS environment.
+!!! warning "Attention"
+    This feature is supported only for the [healthcare model](https://techtoday.lenovo.com/jp/ja/solutions/media/3970), where RFID is installed instead of Smart Card. Therefore, parameter for WMI command will be the same as for Smart Card.
 
-     !!! note ""
-     To enable audio functions, select `Enabled` and save the setting. Then fully shut down and power on the system.
+Possible options:
 
-     Possible options:
+1. **On** – Default.
+2. Off
 
-     1. **On** – Default.
-     2. Off
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| SmartCardSlotAccess | Disable, Enable | Yes | Both |
 
-     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-     |:---|:---|:---|:---|
-     | IntegratedAudioAccess | Disable, Enable | Yes | Both |
+### **Integrated Camera**
 
-Microphone
-:  Select whether to enable or disable Microphone (Internal/External/Line-In) in the OS environment.
+Whether to enable or disable Integrated Camera in the OS environment.
 
-     !!! note ""
-          To enable Microphone, select ‘Enabled’ save the setting. Then fully shut down and power on the system.
+Possible options:
 
-     Possible options:
+1. **On** – Default.
+2. Off
 
-     1. **On** – Default.
-     2. Off
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| IntegratedCameraAccess | Disable, Enable | Yes | Both |
 
-     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-     |:---|:---|:---|:---|
-     | MicrophoneAccess | Disable, Enable | Yes | Both |
+### **Integrated Audio**
 
-Fingerprint Reader
-:  Whether to enable Fingerprint Reader in the OS environment.
+Whether to enable all audio functions (Microphone/Speaker) in the OS environment.
 
-     Possible options:
+!!! warning "Attention"
+    To enable audio functions, select `Enabled` and save the setting. Then fully shut down and power on the system.
 
-     1. **On** – Default.
-     2. Off
+Possible options:
 
-     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-     |:---|:---|:---|:---|
-     | FingerprintReaderAccess | Disable, Enable | Yes | Both |
+1. **On** – Default.
+2. Off
 
-Thunderbolt (TM) 4
-:  Select whether to enable or disable Thunderbolt 4 (PCIe/USB) in the OS environment.
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| IntegratedAudioAccess | Disable, Enable | Yes | Both |
 
-     !!! note ""
-          Affects only USB-C ports with a thunderbolt icon.
+### **Microphone**
 
-     One of 2 Possible options:
+Select whether to enable or disable Microphone (Internal/External/Line-In) in the OS environment.
 
-     1. **On** – Default.
-     2. Off
+!!! warning "Attention"
+    To enable Microphone, select ‘Enabled’ save the setting. Then fully shut down and power on the system.
 
-     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-     |:---|:---|:---|:---|
-     | ThunderboltAccess | Disable, Enable | Yes | Both |
+Possible options:
 
-NFC Device
-:  Whether to enable or disable NFC (near-field communication) Device in the OS environment
+1. **On** – Default.
+2. Off
 
-     Possible options:
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| MicrophoneAccess | Disable, Enable | Yes | Both |
 
-     1. **On** – Default.
-     2. Off
+### **Fingerprint Reader**
 
-     | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-     |:---|:---|:---|:---|
-     | NfcAccess | Disable, Enable | Yes | Both |
+Whether to enable Fingerprint Reader in the OS environment.
 
-Tile
-:  Whether to enable Tile Mode in the OS environment.
+Possible options:
 
-     Options:
+1. **On** – Default.
+2. Off
 
-     1. **On** - Default.
-     2. Off.
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| FingerprintReaderAccess | Disable, Enable | Yes | Both |
 
-     | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-     |:---|:---|:---|:---|
-     | TileMode | Disable,Enable | Yes | both |
+### **Thunderbolt (TM) 4**
+
+Select whether to enable or disable Thunderbolt 4 (PCIe/USB) in the OS environment.
+
+!!! warning "Attention"
+    Affects only USB-C ports with a thunderbolt icon.
+
+Possible options:
+
+1. **On** – Default.
+2. Off
+
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| ThunderboltAccess | Disable, Enable | Yes | Both |
+
+### **NFC Device**
+
+Whether to enable or disable NFC (near-field communication) Device in the OS environment
+
+Possible options:
+
+1. **On** – Default.
+2. Off
+
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| NfcAccess | Disable, Enable | Yes | Both |
+
+### **Tile**
+
+Whether to enable Tile Mode in the OS environment.
+
+Possible options:
+
+1. **On** - Default.
+2. Off.
+
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| TileMode | Disable,Enable | Yes | both |
