@@ -639,23 +639,24 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
 
     **Syntax:**
     ```powershell
-    Find-LnvTool [-Tool <String>]
+    Find-LnvTool [-Tool <String>] [-Url]
     ```
 
     **Parameters:**
 
     | Parameter | Type | Mandatory | Description |
     |-----------|------|-----------|-------------|
-    | Tool | String | False | Tool name (DockManager, SystemUpdate, ThinInstaller, UpdateRetriever) |
+    | Tool | String | True | Tool name (DockManager, SystemUpdate, ThinInstaller, UpdateRetriever) |
+    | Url | Switch | False | Return only the URL to the specified tool's installer |
 
     **Examples:**
 
     ```powershell
-    # Get versions for all Lenovo tools
-    Find-LnvTool
-
-    # Get information for specific tool
+    # Get version and URL info for the specified Lenovo tool
     Find-LnvTool -Tool DockManager
+
+    # Get just the URL for a specific tool
+    Find-LnvTool -Tool DockManager -Url
     ```
 
     !!! note "Note"
