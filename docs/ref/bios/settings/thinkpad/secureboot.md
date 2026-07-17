@@ -2,117 +2,122 @@
 
 ## General
 
-![Secure Boot](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_secureboot.png)
+### **Secure Boot**
 
-Secure Boot
-:  Whether to prevent unauthorized operating systems from running at boot time.
+Whether to prevent unauthorized operating systems from running at boot time.
 
-    !!! note ""
-        Set to **On** if `OS Optimized Defaults` has value **On**.
+!!! warning "Attention"
+    - Set to **On** if `OS Optimized Defaults` has value **On**.
+    - **On** systems produced after 2020, Secure Boot setting can only be set to **Disable** using WMI when an SVP is passed.
+    - Secure Boot can be set to **Enable** without a password if there is no password set. However, if a password is set then it must be passed.
 
-    Possible options:
+Possible options:
 
-    1. On
-    2. **Off** – Default
+1. On
+2. **Off** – Default
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | SecureBoot | Disable, Enable | Yes* | Both |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| SecureBoot | Disable, Enable | Yes* | Both |
 
-    !!! note ""
-        * On systems produced after 2020, Secure Boot setting can only be set to **Disable** using WMI when an SVP is passed.
-        * Secure Boot can be set to **Enable** without a password if there is no password set. However, if a password is set then it must be passed.
+### **Secure Boot Mode**
 
-Secure Boot Mode
-:  Possible modes:
+Possible options:
 
-    1. Setup mode
-    2. **User mode** - default.
+1. Setup mode
+2. **User mode** - default.
 
-Secure Boot Key State
-:  Possible modes:
+### **Secure Boot Key State**
 
-    1. Custom mode
-    2. **Standard mode** - default.
+Possible options:
 
-Reset to Setup Mode
-:  This option is used to clear the current Platform Key and put the system into setup mode.
+1. Custom mode
+2. **Standard mode** - default.
 
-    !!! note ""
-        * You can install your own Platform Key and customize the Secure Boot signature databases in setup mode.
-        * Secure Boot Mode will be set to Custom Mode.
-        * Requires additional confirmation.
+### **Reset to Setup Mode**
 
-Restore Factory Keys
-:  Restore all keys and certificates in Secure Boot databases to factory defaults.
+This option is used to clear the current Platform Key and put the system into setup mode.
 
-    !!! note ""
-        * Any customized Secure Boot settings will be erased.
-        * The default Platform key will be re-established along with the original signature databases including certificate for Microsoft (R) Windows 10 (R).
-        * Requires additional confirmation.
+!!! warning "Attention"
+    - You can install your own Platform Key and customize the Secure Boot signature databases in setup mode.
+    - Secure Boot Mode will be set to Custom Mode.
+    - Requires additional confirmation.
 
-Clear All Secure Boot Keys
-:  Clear all keys and certificates in Secure Boot databases.
+### **Restore Factory Keys**
 
-    !!! note ""
-        * You can install your own keys and certificates after selecting this option.
-        * Requires additional confirmation.
+Restore all keys and certificates in Secure Boot databases to factory defaults.
 
-Allow Microsoft 3rd Party UEFI CA
-:  Whether to allow installation of Microsoft 3rd Party UEFI CA in Secure Boot DB, and trust it in Secure Boot.
+!!! warning "Attention"
+    - Any customized Secure Boot settings will be erased.
+    - The default Platform key will be re-established along with the original signature databases including certificate for Microsoft (R) Windows 10 (R).
+    - Requires additional confirmation.
 
-    !!! note ""
-        If add-on cards are supported, Microsoft 3rd Party UEFI CA will not be removed until load boot loader.
+### **Clear All Secure Boot Keys**
 
-    Options:
+Clear all keys and certificates in Secure Boot databases.
 
-    1. **Off** - Default.
-    2. On.
+!!! warning "Attention"
+    - You can install your own keys and certificates after selecting this option.
+    - Requires additional confirmation.
 
-    | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-    |:---|:---|:---|:---|
-    | Allow3rdPartyUEFICA |  Disable, Enable | yes | both |
+### **Allow Microsoft 3rd Party UEFI CA**
+
+Whether to allow installation of Microsoft 3rd Party UEFI CA in Secure Boot DB, and trust it in Secure Boot.
+
+!!! warning "Attention"
+    If add-on cards are supported, Microsoft 3rd Party UEFI CA will not be removed until load boot loader.
+
+Possible options:
+
+1. **Off** - Default.
+2. On.
+
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| Allow3rdPartyUEFICA | Disable, Enable | Yes | Both |
 
 ## Key Management
 
-![Key Management](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/securebootkeysmanagement.png)
+### **Platform Key (PK)**
 
-Platform Key (PK)
-:  The platform key establishes a trust relationship between the platform owner and the platform firmware.
+The platform key establishes a trust relationship between the platform owner and the platform firmware.
 
-    The platform owner enrolls the public half of the key into the platform firmware.
+The platform owner enrolls the public half of the key into the platform firmware.
 
-    The platform owner can later use the private half of the key to change platform ownership or to enroll a Key Exchange Key.
+The platform owner can later use the private half of the key to change platform ownership or to enroll a Key Exchange Key.
 
-    Standard Windows commands are supported:
+Standard Windows commands are supported:
 
-    - [Windows Secure Boot Key Creation and Management Guidance](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-secure-boot-key-creation-and-management-guidance)
+- [Windows Secure Boot Key Creation and Management Guidance](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-secure-boot-key-creation-and-management-guidance)
 
-Key Exchange Key (KEK)
-:  Key exchange keys establish a trust relationship between the operating system and the platform firmware.
+### **Key Exchange Key (KEK)**
 
-    Each operating system (and potentially, each 3rd party application that needs to communicate with platform firmware) enrolls a public key into the platform firmware.
+Key exchange keys establish a trust relationship between the operating system and the platform firmware.
 
-    Standard Windows commands are supported:
+Each operating system (and potentially, each 3rd party application that needs to communicate with platform firmware) enrolls a public key into the platform firmware.
 
-    - [Windows Secure Boot Key Creation and Management Guidance](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-secure-boot-key-creation-and-management-guidance)
+Standard Windows commands are supported:
 
-Authorized Signature Database (DB)
-:  Database keys shows the list of allowed certificates.
+- [Windows Secure Boot Key Creation and Management Guidance](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-secure-boot-key-creation-and-management-guidance)
 
-    System will check digital signatures of bootloaders using public keys in the DB.
+### **Authorized Signature Database (DB)**
 
-    Only software or firmware which has a bootloader signed with a corresponding private key will be allowed to run.
+Database keys shows the list of allowed certificates.
 
-    Standard Windows commands are supported:
+System will check digital signatures of bootloaders using public keys in the DB.
 
-    - [Windows Secure Boot Key Creation and Management Guidance](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-secure-boot-key-creation-and-management-guidance)
+Only software or firmware which has a bootloader signed with a corresponding private key will be allowed to run.
 
-Forbidden Signature Database (DBX)
-:  Forbidden Signature Database shows not allowed certificates.
+Standard Windows commands are supported:
 
-    System will block any software or firmware signed with a corresponding private key.
+- [Windows Secure Boot Key Creation and Management Guidance](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-secure-boot-key-creation-and-management-guidance)
 
-    Standard Windows commands are supported:
+### **Forbidden Signature Database (DBX)**
 
-    - [Windows Secure Boot Key Creation and Management Guidance](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-secure-boot-key-creation-and-management-guidance)
+Forbidden Signature Database shows not allowed certificates.
+
+System will block any software or firmware signed with a corresponding private key.
+
+Standard Windows commands are supported:
+
+- [Windows Secure Boot Key Creation and Management Guidance](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/windows-secure-boot-key-creation-and-management-guidance)
