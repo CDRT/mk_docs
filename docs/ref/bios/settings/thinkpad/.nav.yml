@@ -16,7 +16,6 @@ nav:
       - HDMI Configuration: hdmi.md
     - Date/Time: datetime.md
     - Security:
-      - Security: security.md
       - Password: password.md
       - Fingerprint: fingerprint.md
       - Security Chip: securitychip.md

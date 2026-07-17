@@ -2,134 +2,135 @@
 
 ## General
 
-![TPM](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_securitychip.png)
+### **Security Chip Type**
 
-Security Chip Type
-:  Shows the security chip type.
+Shows the security chip type.
 
-    View-only when only one TPM option is available.
+View-only when only one TPM option is available.
 
-    For some AMD and Qualcomm models, the TPM can be switched from the default discrete TPM 2.0 chip to the Microsoft(R) Pluton TPM 2.0.
+For some AMD and Qualcomm models, the TPM can be switched from the default discrete TPM 2.0 chip to the Microsoft(R) Pluton TPM 2.0.
 
-    !!! note ""
-        If a device registered with Autopilot is switched from discrete TPM to Pluton, it will no longer be recognized by the Autopilot service. An administrator will need to [manually register the device again](https://learn.microsoft.com/en-us/autopilot/add-devices#collect-the-hardware-hash) after switching to Pluton to enable Autopilot again.
+!!! warning "Attention"
+    If a device registered with Autopilot is switched from discrete TPM to Pluton, it will no longer be recognized by the Autopilot service. An administrator will need to [manually register the device again](https://learn.microsoft.com/en-us/autopilot/add-devices#collect-the-hardware-hash) after switching to Pluton to enable Autopilot again.
 
-    [Available via standard Windows commands](https://docs.microsoft.com/en-us/powershell/module/trustedplatformmodule/?view=windowsserver2019-ps&preserve-view=true&viewFallbackFrom=win10-ps)
+[Available via standard Windows commands](https://docs.microsoft.com/en-us/powershell/module/trustedplatformmodule/?view=windowsserver2019-ps&preserve-view=true&viewFallbackFrom=win10-ps)
 
-Security Chip
-:  Whether to enable security chip functionality.
+### **Security Chip**
 
-    Possible options:
+Whether to enable security chip functionality.
 
-    1. **On** - Default.
-    2. Off - security chip is hidden and is not functional.
+!!! warning "Attention"
+    If shows `MFG Mode` (manufacturing mode), then TPM (Trusted Platform Module) must be provisioned correctly. If this occurs on a ship-level system, please contact Lenovo Support for assistance.
 
-    !!! note ""
-        If shows `MFG Mode` (manufacturing mode), then TPM (Trusted Platform Module) must be provisioned correctly. If this occurs on a ship-level system, please contact Lenovo Support for assistance.
+Possible options:
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | SecurityChip | Active, Inactive, Disable, Enable | Yes | Both |
+1. **On** - Default.
+2. Off - security chip is hidden and is not functional.
 
-TPM Selection
-:  Only an option on some AMD and some Qualcomm models. Allows to switch from discrete TPM 2.0 to Microsoft Pluton TPM 2.0.
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| SecurityChip | Active, Inactive, Disable, Enable | Yes | Both |
 
-    !!! note ""
-        In order to switch to Pluton TPM, the Microsoft Pluton Processor Control setting must already be Enabled.
+### **TPM Selection**
 
-    !!! note ""
-        If a device registered with Autopilot is switched from discrete TPM to Pluton, it will no longer be recognized by the Autopilot service. An administrator will need to [manually register the device again](https://learn.microsoft.com/en-us/autopilot/add-devices#collect-the-hardware-hash) after switching to Pluton to enable Autopilot again.
+Only an option on some AMD and some Qualcomm models. Allows to switch from discrete TPM 2.0 to Microsoft Pluton TPM 2.0.
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | TpmSelection | DiscreteTPM2.0, PlutonTPM2.0 | Yes | AMD |
+!!! warning "Attention"
+    In order to switch to Pluton TPM, the Microsoft Pluton Processor Control setting must already be Enabled.
 
-    !!! warning
-        This setting and its possible value will vary depending on a models implementation. Be sure to verify on a targeted system before deploying.
+    If a device registered with Autopilot is switched from discrete TPM to Pluton, it will no longer be recognized by the Autopilot service. An administrator will need to [manually register the device again](https://learn.microsoft.com/en-us/autopilot/add-devices#collect-the-hardware-hash) after switching to Pluton to enable Autopilot again.
 
-Clear Security Chip
-:  Visible and active only if Security Chip` is `Enabled`.
+    This setting and its possible value will vary depending on a models implementation. Be sure to verify on a targeted system before deploying.
 
-    This option is used to clear encryption keys.
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| TpmSelection | DiscreteTPM2.0, PlutonTPM2.0 | Yes | AMD |
 
-    !!! note ""
-        * It will not be possible to access already encrypted data after these keys are cleared.
-        * The option requires additional confirmation for clearing the keys.
+### **Clear Security Chip**
 
-    Available via standard Windows commands: [Clear-Tpm](https://docs.microsoft.com/en-us/powershell/module/trustedplatformmodule/clear-tpm?view=windowsserver2019-ps)
+This option is used to clear encryption keys.
 
-Intel(R) TXT Feature
-:  Visible and active only if Security Chip` is `Enabled`.
+!!! warning "Attention"
+    - Visible and active only if `Security Chip` is `Enabled`.
+    - It will not be possible to access already encrypted data after these keys are cleared.
+    - The option requires additional confirmation for clearing the keys.
 
-    !!! note ""
-        Intel (R) Trusted Execution Technology is a hardware-based security foundation to build and maintain a chain of trust, to protect information from software-based attacks.
+Available via standard Windows commands: [Clear-Tpm](https://docs.microsoft.com/en-us/powershell/module/trustedplatformmodule/clear-tpm?view=windowsserver2019-ps)
 
-    Possible options:
+### **Intel(R) TXT Feature**
 
-    1. On
-    2. **Off** – Default.
+Intel (R) Trusted Execution Technology is a hardware-based security foundation to build and maintain a chain of trust, to protect information from software-based attacks.
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | TXTFeature | Disable, Enable | Yes | Intel |
+!!! warning "Attention"
+    Visible and active only if `Security Chip` is `Enabled`.
 
-Physical Presence for Clear
-:  Whether to require confirmation of a user`s physical presence when clearing the security chip.
+Possible options:
 
-    !!! note ""
-        It is possible to change the value from Enable to Disable only when Supervisor Password exists, because it is required to confirm the action.
+1. On
+2. **Off** – Default.
 
-    Possible options:
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| TXTFeature | Disable, Enable | Yes | Intel |
 
-    1. **On** - Default.
-    2. Off
+### **Physical Presence for Clear**
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | PhysicalPresenceForTpmClear  | Disable, Enable | Yes | Both |
+Whether to require confirmation of a user's physical presence when clearing the security chip.
 
-Microsoft(R) Pluton Processor Control
-:  Whether to enable or disable the Pluton security processor.
+!!! warning "Attention"
+    It is possible to change the value from Enable to Disable only when Supervisor Password exists, because it is required to confirm the action.
 
-    !!! note ""
-        This setting must be enabled before the TPM can be switched to Pluton.
+Possible options:
 
-    When configuring these BIOS settings using WMI scripts, it is possible to follow these steps:
+1. **On** - Default.
+2. Off
 
-    1. set `PlutonSecurityProcessor` to **Enable**
-    2. set `TpmSelection` to **PlutonTPM2.0**
-    3. specify the Supervisor password using WmiOpcodeInterface
-    4. save settings
-    5. suspend BitLocker
-    6. reboot
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| PhysicalPresenceForTpmClear | Disable, Enable | Yes | Both |
 
-    Possible options:
+### **Microsoft(R) Pluton Processor Control**
 
-    1. Disabled
-    2. Enabled
-    3. **Disabled(SW Controlled)** - Default
+Whether to enable or disable the Pluton security processor.
 
-    When set to ***Disabled*** or ***Enabled***, the setting cannot be changed without specifying a Supervisor password when using WMI.  When set to ***Disabled (SW Controlled)***, the setting can be changed using WMI without requiring Supervisor password. This allows the Pluton Security Processor to be enabled for use with a Discrete TPM 2.0 without requiring Supervisor password. If this setting is being changed in order to switch to the Pluton TPM 2.0, a Supervisor password will be required to make the TpmSelection change. If the setting is already ***Enabled***, then a Supervisor password will be required to change it using WMI. When using WMI, be sure to use the proper values from the table below.
+When configuring these BIOS settings using WMI scripts, it is possible to follow these steps:
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | PlutonSecurityProcessor  | Disable, Enable, Disable(SW_Controlled) | Yes | AMD |
+1. set `PlutonSecurityProcessor` to **Enable**
+2. set `TpmSelection` to **PlutonTPM2.0**
+3. specify the Supervisor password using WmiOpcodeInterface
+4. save settings
+5. suspend BitLocker
+6. reboot
+
+!!! warning "Attention"
+    - This setting must be enabled before the TPM can be switched to Pluton.
+    - When set to ***Disabled*** or ***Enabled***, the setting cannot be changed without specifying a Supervisor password when using WMI. When set to ***Disabled (SW Controlled)***, the setting can be changed using WMI without requiring Supervisor password. This allows the Pluton Security Processor to be enabled for use with a Discrete TPM 2.0 without requiring Supervisor password. If this setting is being changed in order to switch to the Pluton TPM 2.0, a Supervisor password will be required to make the TpmSelection change. If the setting is already ***Enabled***, then a Supervisor password will be required to change it using WMI. When using WMI, be sure to use the proper values from the table below.
+
+Possible options:
+
+1. Disabled
+2. Enabled
+3. **Disabled(SW Controlled)** - Default
+
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| PlutonSecurityProcessor | Disable, Enable, Disable(SW_Controlled) | Yes | AMD |
 
 ## Security Reporting Options
 
-![Security Reporting](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_securityreportingoptions.png)
-
-Visible and active only if `Security Chip` is `Enabled`.
-
 Opens settings for Security Reporting Options.
 
-SMBIOS Reporting
-:  Whether to enable reporting of SMBIOS data.
+!!! warning "Attention"
+    Visible and active only if `Security Chip` is `Enabled`.
 
-    !!! note ""
-        Changes to corresponding UEFI BIOS data are logged in a location, (PCR1, defined in the TCG standards), which other authorized programs can monitor, read, and analyze. 
+### **SMBIOS Reporting**
 
-    Possible options:
+Whether to enable reporting of SMBIOS data.
 
-    1. **On** - Default.
-    2. Off
+!!! warning "Attention"
+    Changes to corresponding UEFI BIOS data are logged in a location, (PCR1, defined in the TCG standards), which other authorized programs can monitor, read, and analyze.
+
+Possible options:
+
+1. **On** - Default.
+2. Off
