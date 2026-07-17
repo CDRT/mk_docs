@@ -1,20 +1,21 @@
 # ThinkShield Passwordless Power-On
 
-![ThinkShield Passwordless Power-On](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_thinkshieldpasswordless.png)
+## General
 
-ThinkShield Passwordless Power-On
-:  Whether to enable the ThinkShield Passwordless Power-On Authentication and Device Manager.
+### **ThinkShield Passwordless Power-On**
 
-    Possible options:
-
-    1. **On** – Default.
-    2. Off
-
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | ThinkShieldPasswordlessPowerOnAuthentication | Disable, Enable | Yes | Both |
+Whether to enable the ThinkShield Passwordless Power-On Authentication and Device Manager.
 
 This feature works as an alternative to password-based authentication to achieve passwordless authentication. This feature only works when a power-on password is set in UEFI BIOS and the FIDO2 USB device is registered in ThinkShield™ Passwordless Power-On Device Manager. With this feature, you can input the power-on password or use the registered FIDO2 USB device to power on your computer.
+
+Possible options:
+
+1. **On** – Default.
+2. Off
+
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| ThinkShieldPasswordlessPowerOnAuthentication | Disable, Enable | Yes | Both |
 
 ## Register your FIDO2 USB device in ThinkShield Passwordless Power-On Device Manager
 
@@ -38,10 +39,10 @@ This feature works as an alternative to password-based authentication to achieve
 
     1. Press ESC to exit and restart your computer.
 
-!!! note ""
-    * If you want to unregister your devices, click the available FIDO2 USB device that you want to unregister in the My Device field and enter the correct power-on password for verification.
+!!! warning "Attention"
+    - If you want to unregister your devices, click the available FIDO2 USB device that you want to unregister in the My Device field and enter the correct power-on password for verification.
 
-    * If you use more than one FIDO2 USB device with a common identifier for registration, only one device is available.
+    - If you use more than one FIDO2 USB device with a common identifier for registration, only one device is available.
 
 ## Log in to the System with Passwordless Power-On Authentication
 
@@ -55,7 +56,7 @@ This feature works as an alternative to password-based authentication to achieve
 
 1. After your device is verified, the power-on process continues.
 
-!!! warning ""
+!!! warning "Attention"
     You should insert the FIDO2 USB device or enter the power-on password within 60 seconds. Otherwise, your computer will shut down automatically.
 
 Here is a video walk-through of the process:

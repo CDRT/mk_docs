@@ -1,12 +1,13 @@
 # Storage Settings
 
-Controller Mode
-:  Select the operating mode for the storage controller.
+### **Controller Mode**
 
-    !!! note ""
-        Only shown if an Intel(R) Optane(TM) memory device is attached to the cache port.
+Select the operating mode for the storage controller.
 
-    Possible options:
+!!! warning "Attention"
+    Only shown if an Intel(R) Optane(TM) memory device is attached to the cache port.
 
-    1. **AHCI mode** – Default.
-    2. RST mode
+Possible options:
+
+1. **AHCI mode** – Default.
+2. RST mode
