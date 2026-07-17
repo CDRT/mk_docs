@@ -1,113 +1,112 @@
 # Virtualization Settings
 
-![Virtualization](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_virtualization.png)
+### **Kernel DMA Protection**
 
-Kernel DMA Protection
-:  Whether to enable Kernel DMA protection, to prevent drive-by Direct Memory Access (DMA) attacks using PCI hot plug devices connected to system.
+Whether to enable Kernel DMA protection, to prevent drive-by Direct Memory Access (DMA) attacks using PCI hot plug devices connected to system.
 
-    !!! note ""
-        * Defaults to `On`, if `OS Optimized Defaults` has value `On`.
-        * When switched `On`, automatically enables Intel (R) Virtualization Technology and Intel (R) VT-d Feature.
-        * Requires additional confirmation of changing these settings.
+!!! warning "Attention"
+    - Defaults to `On`, if `OS Optimized Defaults` has value `On`.
+    - When switched `On`, automatically enables Intel (R) Virtualization Technology and Intel (R) VT-d Feature.
+    - Requires additional confirmation of changing these settings.
 
-    Possible options:
+Possible options:
 
-    1. **Off** – Default.
-    2. On
+1. **Off** – Default.
+2. On
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | KernelDMAProtection | Disable, Enable | Yes | Both |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| KernelDMAProtection | Disable, Enable | Yes | Both |
 
-Intel (R) Virtualization Technology \ AMD-V
-:   ### Intel-based machine
+### **Intel (R) Virtualization Technology \ AMD-V**
 
-    Whether a VMM (Virtual Machine Monitor) can utilize the additional hardware capabilities provided by Intel (R) Virtualization technology.
+**Intel-based machine**
 
-    Defaults to `On`, if `OS Optimized Defaults` has value `On`.<br>
+Whether a VMM (Virtual Machine Monitor) can utilize the additional hardware capabilities provided by Intel (R) Virtualization technology.
 
-    Possible options:
+!!! warning "Attention"
+    - Defaults to `On`, if `OS Optimized Defaults` has value `On`.
+    - It is automatically enabled and cannot be disabled if ‘Kernel DMA Protection’ is enabled.
 
-    1. On
-    2. **Off** - Default.
+Possible options:
 
-    !!! note ""
-        It is automatically enabled and cannot be disabled if ‘Kernel DMA Protection’ is enabled.
+1. On
+2. **Off** - Default.
 
-    Additional information: [How to enable Virtualization Technology on Lenovo PC computers](https://support.lenovo.com/de/en/solutions/ht500006).
+Additional information: [How to enable Virtualization Technology on Lenovo PC computers](https://support.lenovo.com/de/en/solutions/ht500006).
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | VirtualizationTechnology | Disable, Enable | Yes | Intel |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| VirtualizationTechnology | Disable, Enable | Yes | Intel |
 
-    ### AMD-based machine
+**AMD-based machine**
 
-    Whether VMM (Virtual Machine Monitor) can utilize the additional hardware capabilities provided by AMD-V (AMD Virtualization).
+Whether VMM (Virtual Machine Monitor) can utilize the additional hardware capabilities provided by AMD-V (AMD Virtualization).
 
-    Possible options:
+!!! warning "Attention"
+    Enabled automatically when `Device Guard` is set to `On`.
 
-    1. **On** - Default.
-    2. Off
+Possible options:
 
-    !!! note ""
-        Enabled automatically when `Device Guard` is set to `On`.
+1. **On** - Default.
+2. Off
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | AmdVt | Disable, Enable | Yes | AMD |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| AmdVt | Disable, Enable | Yes | AMD |
 
-Intel (R) VT-d Feature
-:  Whether to enable Intel (R) VT-d Feature ( Intel (R) Virtualization Technology for Directed I/O).
+### **Intel (R) VT-d Feature**
 
-    !!! note ""
-        Defaults to `On`, if `OS Optimized Defaults` has value `On`.
+Whether to enable Intel (R) VT-d Feature ( Intel (R) Virtualization Technology for Directed I/O).
 
-    Possible options:
+!!! warning "Attention"
+    - Defaults to `On`, if `OS Optimized Defaults` has value `On`.
+    - Automatically enabled and cannot be disabled if `Kernel DMA Protection` is enabled.
 
-    1. On
-    2. **Off** - Default
+Possible options:
 
-    !!! note ""
-        Automatically enabled and cannot be disabled if `Kernel DMA Protection` is enabled.
+1. On
+2. **Off** - Default
 
-    More information on the [official Intel site](https://software.intel.com/content/www/us/en/develop/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices.html).
+More information on the [official Intel site](https://software.intel.com/content/www/us/en/develop/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices.html).
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | VTdFeature | Disable, Enable | Yes | Intel |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| VTdFeature | Disable, Enable | Yes | Intel |
 
-Enhanced Windows Biometric Security
-:  Whether to allow use of ‘Enhanced sign-in security’ for fingerprint and face authentication with Windows Hello.
+### **Enhanced Windows Biometric Security**
 
-    **What is Enhanced Sign-in Security (ESS)?**
+Whether to allow use of ‘Enhanced sign-in security’ for fingerprint and face authentication with Windows Hello.
 
-    Enhanced Sign-in Security is an advanced security feature built into Windows Hello that strengthens biometric authentication (face or fingerprint) by isolating sensitive processes and data from the main operating system.
+**What is Enhanced Sign-in Security (ESS)?**
 
-    Core Principle: ESS uses Virtualization-Based Security (VBS) to create a secure environment for biometric operations and credential handling.
-    Goal: Prevent malware—even with kernel-level privileges—from intercepting biometric data or authentication secrets.a
-    End-to-End Assurance: ESS can cryptographically prove to cloud services that the user was physically present during authentication, improving trust for enterprise scenarios.
+Enhanced Sign-in Security is an advanced security feature built into Windows Hello that strengthens biometric authentication (face or fingerprint) by isolating sensitive processes and data from the main operating system.
 
-    **How Does It Work?**
+Core Principle: ESS uses Virtualization-Based Security (VBS) to create a secure environment for biometric operations and credential handling.
+Goal: Prevent malware—even with kernel-level privileges—from intercepting biometric data or authentication secrets.a
+End-to-End Assurance: ESS can cryptographically prove to cloud services that the user was physically present during authentication, improving trust for enterprise scenarios.
 
-    - Isolation: The Windows Hello biometric stack and credential release processes run inside a VBS-protected enclave, separate from the OS kernel.
-    - TPM Integration: Keys may be protected by TPM 2.0, adding hardware-based security.
-    - Secure Devices (SDEV): Device firmware must include an ACPI SDEV table for ESS-capable sensors.
+**How Does It Work?**
 
-    **Why Is It Important?**
+- Isolation: The Windows Hello biometric stack and credential release processes run inside a VBS-protected enclave, separate from the OS kernel.
+- TPM Integration: Keys may be protected by TPM 2.0, adding hardware-based security.
+- Secure Devices (SDEV): Device firmware must include an ACPI SDEV table for ESS-capable sensors.
 
-    Without ESS, malware could:
+**Why Is It Important?**
 
-    - Sniff biometric input streams.
-    - Replay stolen samples.
-    - Modify match results or impersonate users.
+Without ESS, malware could:
 
-    ESS mitigates these threats by ensuring biometric data and operations are shielded from tampering.
+- Sniff biometric input streams.
+- Replay stolen samples.
+- Modify match results or impersonate users.
 
-    Possible options:
+ESS mitigates these threats by ensuring biometric data and operations are shielded from tampering.
 
-    1. **On** - Default since 2024
-    2. Off
+Possible options:
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | EnhancedWindowsBiometricSecurity | Disable, Enable | Yes | Both |
+1. **On** - Default since 2024
+2. Off
+
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| EnhancedWindowsBiometricSecurity | Disable, Enable | Yes | Both |
