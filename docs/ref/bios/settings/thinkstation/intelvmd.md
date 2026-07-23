@@ -1,51 +1,52 @@
-# Intel(R) VMD Technology #
-
+# Intel(R) VMD Technology
 
 <!-- TODO: "MCIO Hot Plug" was listed by name only in the spec, no description/options/WMI. The description and Enable/Disable options below are my own inference, not confirmed. -->
 
-![Intel VMD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_1.PNG)
-![Intel VMD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_2.PNG)
-![Intel VMD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_3.PNG)
+## General
 
 Enable the VMD(Volume Management Device) technology to support configure PCIe storages to VROC (Virtual RAID on CPU) feature.
 
-M.2 Slot{X}
-: Enable/Disable Intel(R) Volume Management Device Technologyon M.2 Slot1.
+### **M.2 Slot{X}**
 
- Options:
+Enable/Disable Intel(R) Volume Management Device Technology on M.2 Slot1.
 
- 1. **PCIe** – Default.
- 2. VMD.
+Possible options:
 
- !!! note ""
-  X represents the slot number, 1 to 3.
+1. **PCIe** – Default.
+2. VMD
 
-PCIe Slot{X}
-: Enable/Disable Intel(R) Volume Management Device Technology on PCIe Slot1.
+!!! warning "Attention"
+    X represents the slot number, 1 to 3.
 
- Options:
+### **PCIe Slot{X}**
 
- 1. **PCIe** – Default.
- 2. VMD.
+Enable/Disable Intel(R) Volume Management Device Technology on PCIe Slot1.
 
- !!! note ""
-  X represents the slot number, 1 to 9.
+Possible options:
 
-MCIO Slot{X}-{Y}
-: Enable/Disable Intel(R) Volume Management Device Technology on MCIO Slot1-1.
+1. **PCIe** – Default.
+2. VMD
 
- Options:
+!!! warning "Attention"
+    X represents the slot number, 1 to 9.
 
- 1. **PCIe** – Default.
- 2. VMD.
+### **MCIO Slot{X}-{Y}**
 
- !!! note ""
-  X & Y represent the slot numbers, 1 and 2 (interchangeably).
+Enable/Disable Intel(R) Volume Management Device Technology on MCIO Slot1-1.
 
-MCIO Hot Plug
-: Whether to enable hot-plug support for MCIO drives.
+Possible options:
 
- Options:
+1. **PCIe** – Default.
+2. VMD
 
- 1. **Disabled** – Default.
- 2. Enabled.
+!!! warning "Attention"
+    X & Y represent the slot numbers, 1 and 2 (interchangeably).
+
+### **MCIO Hot Plug**
+
+Whether to enable hot-plug support for MCIO drives.
+
+Possible options:
+
+1. **Disabled** – Default.
+2. Enabled
