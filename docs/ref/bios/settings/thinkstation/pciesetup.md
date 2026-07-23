@@ -6,7 +6,7 @@
 
 Re-Size BAR Support
 :	If system has Resizable BAR capable PCIe Devices, this optionEnables or Disables Resizable BAR Support.
-	
+
 	Options:
 
 	1. **Disabled** – Default.
@@ -29,10 +29,10 @@ SR-IOV Support
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| SRIOVSupport   | Enabled, Disabled | Yes | Both |
-	
+
 
 ASPM Support
-:	
+:
 	<Auto> Configure ASPM automatically according to what the
 	attached device supports in each PCI Express port
 	<Disabled> Disable ASPM support of all PCI Express ports.
@@ -44,7 +44,7 @@ ASPM Support
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
-	| ASPMSupport   | Disabled, Auto | Yes | Both | 
+	| ASPMSupport   | Disabled, Auto | Yes | Both |
 
 
 Link Training Timeout(uS)
@@ -58,7 +58,7 @@ Link Training Timeout(uS)
 
 
 
-<!-- Need to add all of the PCIe Slotx Configurations 
+<!-- Need to add all of the PCIe Slotx Configurations
 These will likely be subheader drop downs
 -->
 ## PCIe Slot{X} Configuration ##
@@ -75,7 +75,7 @@ PCIe Port
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
-	| PCIeSlotXPort | Enabled, Disabled | Yes | Both | 
+	| PCIeSlotXPort | Enabled, Disabled | Yes | Both |
 
 	!!! note ""
 		In the WMI class name, X represents the slot number.
@@ -95,11 +95,11 @@ PCIe Port Bifurcationt
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
-	| PCIeSlotXBifurcation   | x4x4x4x4, x8x8, x16, Auto | Yes | Both | 
+	| PCIeSlotXBifurcation   | x4x4x4x4, x8x8, x16, Auto | Yes | Both |
 
 	!!! note ""
 		In the WMI class name, X represents the slot number.
-	
+
 
 Link Speed
 :	Select PCEi Link Speed.
@@ -114,7 +114,23 @@ Link Speed
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
-	| PCIeSlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s) | Yes | Both | 
+	| PCIeSlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s) | Yes | Both |
+
+	!!! note ""
+		In the WMI class name, X represents the slot number.
+
+
+Data Link Feature
+:	Enables the Data Link Feature for this PCIe slot.
+
+	Options:
+
+	1. **Enabled** – Default.
+	2. Disabled.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| PcieSlotXDataLinkFeature | Enable, Disable | Yes | Both |
 
 	!!! note ""
 		In the WMI class name, X represents the slot number.
@@ -138,7 +154,7 @@ Link Speed
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
-	| M2SlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s), Gen 5 (32 GT/s) | Yes | Both | 
+	| M2SlotXLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s), Gen 5 (32 GT/s) | Yes | Both |
 
 	!!! note ""
 		In the WMI class name, X represents the slot number.
@@ -162,8 +178,7 @@ Link Speed
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
-	| MCIOSlotXYLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s), Gen 5 (32 GT/s) | Yes | Intel | 
+	| MCIOSlotXYLinkSpeed | Auto, Gen 1 (2.5 GT/s), Gen 2 (5 GT/s), Gen 3 (8 GT/s), Gen 4 (16 GT/s), Gen 5 (32 GT/s) | Yes | Intel |
 
 	!!! note ""
 		In the WMI class name, X & Y represents the slot numbers.
-

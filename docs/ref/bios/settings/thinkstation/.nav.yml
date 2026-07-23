@@ -20,10 +20,11 @@ nav:
       - PCIe: pciesetup.md
       - PCI Express: pciexpress.md
       - Intel(R) Thunderbolt: intelthunderbolt.md
+      - USB4 Setup: usb4setup.md
       - BMC Setup: bmcsetup.md
     - Advanced:
       - advanced.md
-      - Diagnostics (AMD): diagnostics.md
+      - Diagnostics: diagnostics.md
       - PCIe Configuration (AMD): pcieconfiguration.md
       - PCI Express Setup: pciexpressconfig.md
       - CPU Configuration (AMD): cpuconfiguration.md
@@ -31,6 +32,7 @@ nav:
       - Memory Configuration: memoryconfig.md
       - RAS Configuration (AMD): rasconfiguration.md
       - Common RefCode Configuration (AMD): commonrefcodeconfiguration.md
+      - CXL Common Options: cxlcommonoptions.md
       - DASH Configuration (AMD): dashconfiguration.md
       - Intel Manageability Settings: intelmanageability.md
       - Serial Port Console Redirection (AMD): serialportconsoleredirection.md
@@ -46,6 +48,7 @@ nav:
       - Secure Boot: secureboot.md
       - System Event Log: systemeventlog.md
       - Certificate-based BIOS Authentication: certbasedbiosauth.md
+      - Wipe System Data: wipesystemdata.md
     - Startup:
       - startup.md
       - Boot Priority Order: bootpriorityorder.md

@@ -32,3 +32,31 @@ NUMA Nodes
 	| NUMA | NPS1, NPS2, NPS4, Auto | yes | AMD |
 
 
+## Common RefCode Configuration - Intel(R) version
+
+<!-- TODO: The ThinkStation spec only listed these six item names (Virtual NUMA, MMCFG Base/Size, MMIO High Base/Granularity Size, MMIO Low Size reserved for DMI) with no descriptions, options, or WMI names at all. The descriptions below are my own explanation of what these standard UEFI/PCIe terms generally mean, not sourced from the spec — and no options/values are given anywhere because none were confirmed. Please verify. -->
+
+Displays and provides options to change the Common RefCode settings.
+
+Virtual NUMA
+:	Whether to enable virtual NUMA (Non-Uniform Memory Access) node reporting.
+
+
+MMCFG Base
+:	Base address of the MMCFG (Memory Mapped Configuration) space, used for PCIe extended configuration access.
+
+
+MMCFG Size
+:	Size of the MMCFG (Memory Mapped Configuration) space.
+
+
+MMIO High Base
+:	Base address of the high (above 4G) MMIO (Memory-Mapped I/O) region.
+
+
+MMIO High Granularity Size
+:	Granularity (alignment) size used when allocating the high MMIO region.
+
+
+MMIO Low Size reserved for DMI
+:	Amount of low MMIO address space reserved for the DMI (Direct Media Interface) link.

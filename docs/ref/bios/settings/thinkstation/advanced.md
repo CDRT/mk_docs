@@ -25,7 +25,21 @@ WHEA Support
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| WHEASupport | Disabled, Enabled | Yes | Intel |
-	
+
+
+Data Execution Prevention
+:	Whether to enable Data Execution Prevention (DEP).
+
+	Options:
+
+	1. **Enabled** – Default.
+	2. Disabled.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| DataExecutionPrevention | Enable, Disable | yes | Both |
+
+
 
 Intel(R) Total Memory Encryption
 :	Intel(R) Total Memory Encryption(TME) is a technology that encrypts data written to system memory to protect DRAM data from physical attacks.
@@ -41,7 +55,7 @@ Intel(R) Total Memory Encryption
 
 
 Intel(R) SIPP Support
-:	
+:
 	!!! note ""
 		Intel(R) Stable Image Platform Program (SIPP) aligns and stabilizes key Intel platform components, enabling a predictable transition from one technology generation to the next.
 
@@ -56,19 +70,19 @@ Intel(R) SIPP Support
 
 
 Intel(R) Thunderbolt
-:	
+:
 	Options:
 
 	1. **Disabled** – Default.
-	2. Enabled. 
+	2. Enabled.
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| IntelThunderboltTechnology | Enabled, Disabled | yes | Intel |
-	
+
 
 Dust Shield Alert
-:	
+:
 	!!! note ""
 	    If the Dust Shield is not cleaned then it will lose its effectiveness and the machine may overheat.
 
@@ -83,7 +97,7 @@ Dust Shield Alert
 
 
 Intel(R) DPTF Support
-:	
+:
 	!!! note ""
 		Intel(R) Dynamic Platform and Thermal Framework (DPTF) assists with managing power to the CPU vs temperature, keeping CPU temperature down while still delivering good performance.
 
@@ -98,6 +112,21 @@ Intel(R) DPTF Support
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| IntelDPTFSupport | Disabled, Enabled | yes | Intel |
+
+
+Available system Memory
+:	Displays the amount of system memory available.
+
+	View only.
+
+
+Watchdog Timer
+:	Whether to enable the platform watchdog timer.
+
+	Options:
+
+	1. **Disabled** – Default.
+	2. Enabled.
 
 
 Advanced - AMD version

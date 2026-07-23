@@ -187,7 +187,7 @@ Please note that this feature is not compatible with Lenovo Cloud Boot. Do not a
 Possible options:
 
 1. **Disabled** - Default.
-2. Enable.
+2. Enable
 
 ## Custom URL Support Settings
 

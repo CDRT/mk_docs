@@ -1,5 +1,10 @@
 # Security #
 
+<!-- TODO :
+- Shutdown by Cover Tamper / TPM Clear by Cover Tamper: removed from this page. WMI names confirmed real (ShutdownByCoverTamper, TpmClearByCoverTamper) via the P3TowerG2 spec, but that spec explicitly says "this item is always hidden" — not a customer-facing setting. Do we add it back in?
+- BIOS Setup Control, BIOS Unlock Control, Bottom Cover Tamper Detection: still unconfirmed: not found in the P3TinyGen2/P360Tiny/P3TowerG2 specs either. Names + Enable/Disable confirmed only via New WMI reference sheet, no description, no confirmed placement.
+-->
+
 ![Secuirty](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_security_1.PNG)
 
 <!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
@@ -37,7 +42,7 @@ Supervisor Password
 	1. Not Installed
 	2. Installed
 
-	
+
 
 Power-On Password
 :	Power-On Password prevents unauthorized users from booting your computer.
@@ -116,7 +121,7 @@ Set System Management Password
 
 
 Windows UEFI Firmware Update
-:	
+:
 	Options:
 
 	1. **Enabled** – allow Windows UEFI firmware update. Default.
@@ -127,12 +132,63 @@ Windows UEFI Firmware Update
 	| WindowsUEFIFirmwareUpdate | Disabled, Enabled | yes | Both |
 
 
+BIOS Self-healing
+:	Allows the BIOS to automatically attempt to recover a corrupted BIOS without needing a recovery file on external media.
+
+	!!! note ""
+		WMI can only read this value, not set it.
+
+	Options:
+
+	1. **Enabled** – Default.
+	2. Disabled.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| BIOSSelfHealing | Enabled, Disabled | no | Both |
+
+
+BIOS Never Crash
+:	Additional BIOS resiliency feature that helps prevent the system from becoming unbootable due to a corrupted or failed BIOS update.
+
+	Options:
+
+	1. **Enabled** – Default.
+	2. Disabled.
+
+
+BIOS Setup Control
+:	Whether access to BIOS Setup is allowed.
+
+	Options:
+
+	1. **Enabled** – Default.
+	2. Disabled.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| BiosSetupControl | Enabled, Disabled | yes | Both |
+
+
+BIOS Unlock Control
+:	Controls whether BIOS Setup is unlocked.
+
+	Options:
+
+	1. **Enabled** – Default.
+	2. Disabled.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| BiosUnlockControl | Enabled, Disabled | yes | Both |
+
+
 Smart USB Protection
 :	Smart USB Protection blocks copying data from the computer to the USB storage device in Windows.
 
 	Options:
 
-	1. **Disabled** – the user can copy data from and to USB storage device. Default. 
+	1. **Disabled** – the user can copy data from and to USB storage device. Default.
 	2. Read Only – the user can copy data from USB storage device to the Computer but not from the computer to USB storage device.
 	3. No Access – the user cannot use USB storage device in OS.
 
@@ -182,7 +238,7 @@ Absolute Persistence Module
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| AbsolutePersistenceModule | Disabled, Enabled | yes | Both |
-	
+
 
 
 
@@ -191,7 +247,7 @@ Device Guard
 
 	Options:
 
-	1. Enabled – CPU Virtualization Technology to be enabled, IOMMU (Intel Input\Output Memory Management Unit), such as Intel VT-d, AMD-Vi to be enabled, TPM to be enabled. 
+	1. Enabled – CPU Virtualization Technology to be enabled, IOMMU (Intel Input\Output Memory Management Unit), such as Intel VT-d, AMD-Vi to be enabled, TPM to be enabled.
 	Ethernet, USB, CD, and other boot methods to be disabled, only SATA device to be allowed.
 	2. **Disabled** – Ethernet, USB, CD, and other boot methods to be enabled. Default.
 
@@ -200,21 +256,44 @@ Device Guard
 	| DeviceGuard | Disabled, Enabled | yes | Both |
 
 
+Secure Core PC Level3
+:	Whether to support Windows 10/11 Secured-core PC's Level3 requirements.
+
+	!!! note ""
+		When `Enabled`, related security features (Secure Boot, Security Chip 2.0, and platform-dependent items such as TxT, IOMMU, VT-d, Pre-boot DMA Protection, Kernel DMA Protection, AMD Secure Virtual Machine, or AMD Memory Guard) are automatically enabled, and `Allow Microsoft 3rd Party UEFI CA` is automatically disabled. If a required feature isn't available, this setting is disabled automatically.
+
+	Options:
+
+	1. **Disabled** – Default.
+	2. Enabled.
+
+	[More information at Microsoft Docs](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure)
+
+
+Odometer
+:	Whether to enable the BIOS Odometer feature.
+
+	Options:
+
+	1. **Disabled** – Default.
+	2. Enabled.
+
+
 Electronic Lock
 :	Whether to lock the chassis to prevent unauthorized physical access to the system components.
 
 	Options:
 
-	1. Lock. 
-	2. **Unlock** – Default. 
+	1. Lock.
+	2. **Unlock** – Default.
 
 	!!! note ""
-		The setting is effective on the next startup after BIOS setting is saved. <br /> For more information, please refer to [user manual](https://thinkstation-specs.com/thinkstation/p350-tower/). 
+		The setting is effective on the next startup after BIOS setting is saved. <br /> For more information, please refer to [user manual](https://thinkstation-specs.com/thinkstation/p350-tower/).
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| ElectronicLock | Lock, Unlock | yes | Intel |
-	
+
 
 ThinkShield Passwordless Power-On Authentication
 :	Enable or Disable the ThinkShield Passwordless Power-On Authentication and Device Manager.
@@ -223,7 +302,7 @@ ThinkShield Passwordless Power-On Authentication
 
 	1. **Enabled** – Default.
 	2. Disabled.
-	
+
 
 Cover Tamper Detected
 :	Whether to enable Chassis Intrusion Detection, a utility that can tell whether someone has opened the case (intruded into the chassis).
@@ -241,6 +320,19 @@ Cover Tamper Detected
 	| CoverTamperDetected | Disabled, Enabled | yes | Both |
 
 
+Bottom Cover Tamper Detection
+:	Whether to enable tamper detection for the bottom cover.
+
+	Options:
+
+	1. **Disabled** – Default.
+	2. Enabled.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| BottomCoverTamperDetected | Disabled, Enabled | yes | Both |
+
+
 Configuration Change Detection
 :	Whether the system will notify the user during POST (Power On Self Test), when a device is installed or removed.
 
@@ -255,6 +347,19 @@ Configuration Change Detection
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| ConfigurationChangeDetection | Disabled, Enabled | yes | Both |
+
+
+AMD Platform Security Boot
+:	If enabled, when a new CPU is installed, the system will notify the user during POST (Power On Self Test). This notice message can be cleared by pressing Y.
+
+	Options:
+
+	1. **Enabled** – Default.
+	2. Disabled.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| AmdPlatformSecurityBoot | Enable, Disable | yes | AMD |
 
 
 Reset system to Factory Default
@@ -277,10 +382,10 @@ Set Password Encryption Algorithm
 	1. **SHA-256 Hash** - Default.
 	1. SM3 Hash
 
-	
+
 
 Custom Password Mode
-:	
+:
 	<!-- TODO: custom password mode description -->
 	Options:
 
@@ -349,7 +454,7 @@ Set Minimum Length
 
 
 Set Strong Password
-:	
+:
 	!!! note ""
 		Affects: <br> - Supervisor Password <br> - System Management Password <br> - Power-On password <br> - Hard Disk password
 
@@ -412,7 +517,7 @@ Allow Jumper Clear SVP
 	|:---|:---|:---|:---|
 	| AllowJumperClearSVP | No, Yes | Yes | Both |
 
-	
+
 
 Secure Roll Back Prevention
 :	Whether flashing BIOS to a previous or current version is prevented.
@@ -443,7 +548,7 @@ Require SVP when Flashing
 
 
 Require POP on System Boot
-:	
+:
 
 	Options:
 
@@ -526,7 +631,7 @@ Smart USB Protection
 
 	Options:
 
-	1. **Disabled** - Default. 
+	1. **Disabled** - Default.
 	1. Read Only - user can copy data from USB storage device to the computer, but cannot copy data from the computer to USB storage device.
 	1. No Access - user cannot use USB storage device in Windows.
 
@@ -589,5 +694,3 @@ Password Count Exceeded Error
 	| PasswordCountExceededError | Disabled, Enabled| Yes | Both |
 
 	<!-- TODO: confirm WMI -->
-
-

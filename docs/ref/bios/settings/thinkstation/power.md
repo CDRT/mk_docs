@@ -16,6 +16,20 @@ After Power Loss
 	| AfterPowerLoss | Power On, Power Off, Last State | yes | Both |
 
 
+Sleep State
+:	Selects the sleep state behavior for the installed operating system.
+
+	Options:
+
+	1. **Windows** – Default.
+	2. Linux.
+	3. Windows10.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| SleepState | Windows, Linux, Windows10 | yes | Both |
+
+
 
 
 Enhanced Power Saving Mode
@@ -23,7 +37,7 @@ Enhanced Power Saving Mode
 
 	Options:
 
-	1. Enabled. 
+	1. Enabled.
 	2. **Disabled** – Default.
 
 	!!! note ""
@@ -53,12 +67,12 @@ Lenovo's unique system thermal management solution.
 ![Intelligent Cooling](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/intelligentcooling.png)
 
 Performance Mode
-:	
+:
 	Options:
 
 	1. **Best performance** – the system will run at best system performance with normal acoustic level. Default.
 	2. Best experience – the system will run at the best experience with balanced noise and better performance.
-	3. Full Speed – all fans in the system will run at full speed. 
+	3. Full Speed – all fans in the system will run at full speed.
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -114,5 +128,3 @@ Fan Control Stepping
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| FanControlStepping | 1 - Lower Fan Speed, 2, 3, 4, 5, 6, 7 - Higher Fan Speed | yes | AMD |
-
-

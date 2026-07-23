@@ -1,5 +1,7 @@
 # PCIe Configuration #
 
+<!-- TODO: verify Link Training Timeout (uS) WMI table (This is an old comment) -->
+
 ![PCIe Config](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_pcieconfiguration.PNG)
 
 
@@ -35,7 +37,7 @@ SR-IOV Support
 
 
 ASPM Support
-:	
+:
 	!!! note ""
 		When set to `Auto`, configures ASPM automatically according to what each device supports.
 
@@ -83,7 +85,7 @@ Link Training Timeout (uS)
 
 
 Unpopulated Links
-:	
+:
 	!!! note ""
 		When `Disabled`, unpopulated PCI Express links are disabled to save power.
 
@@ -146,7 +148,7 @@ PCIe Port Bifurcation
 
 
 Link Speed
-:	
+:
 	Options:
 
 	1. **Auto** - Default.
@@ -186,7 +188,7 @@ M.2 Port
 
 
 M.2 Link Speed
-:	
+:
 	Options:
 
 	1. **Auto** - Default.
@@ -205,7 +207,7 @@ M.2 Link Speed
 
 
 M.2 DLF Support
-:	
+:
 	Options:
 
 	1. **Enabled** - Default.

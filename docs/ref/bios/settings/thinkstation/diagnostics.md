@@ -1,4 +1,10 @@
-# Diagnostics (AMD only) #
+# Diagnostics #
+
+<!-- TODO:
+- Diagnostic LCD Display Mode (Intel(R) version section): Which option is the default was my own guess, not marked in the source.
+-->
+
+## AMD version
 
 ![AMD Diagnostics](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amddiagnostics.PNG)
 
@@ -42,4 +48,18 @@ Clear Diagnostics Log Data
 	|:---|:---|:---|:---|
 	| ClearDIAGLog | Yes, No | yes | AMD |
 
-	
+
+## Intel(R) version
+
+Diagnostic LCD Display Mode
+:	Determines what is shown on the diagnostic LCD display.
+
+	Options:
+
+	1. **Disabled** - Default.
+	2. Only DIAG Error Code.
+	3. Both BIOS POST & DIAG Error Code.
+
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| DiagnosticLcdMode | Disable, Diagnostic Error Codes, BIOS POST & Diagnostic Error Codes | yes | Intel |

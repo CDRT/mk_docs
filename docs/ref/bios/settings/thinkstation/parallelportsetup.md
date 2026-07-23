@@ -20,6 +20,36 @@ Parallel Port Address
 	| ParallelPortAddress | 278, 378 | yes | Both |
 
 
+Parallel Port Mode
+:	Change the Parallel Port Mode. EPP (Enhanced Parallel Port) and ECP (Extended Capabilities Port) are two modes to transmit data by Parallel Port. EPP is more commonly used than ECP.
+
+	Options:
+
+	1. **ECP+EPP** – Default.
+	2. ECP.
+	3. EPP.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| ParallelPortMode | ECP+EPP, ECP, EPP | yes | Both |
+
+
+ECP Mode DMA Channel
+:	Selects the DMA (Direct Memory Access) channel used when the parallel port is in ECP mode.
+
+	!!! note ""
+		Only available when `Parallel Port Mode` uses ECP.
+
+	Options:
+
+	1. DMA1.
+	2. **DMA3** – Default.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| EcpModeDmaChannel | DMA1, DMA3 | yes | Both |
+
+
 EPP Version
 :	Sets the Enhanced Parallel Port version to use.
 
@@ -47,4 +77,3 @@ Parallel Port IRQ
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| ParallelPortIRQ | IRQ5, IRQ7 | yes | Both |
-

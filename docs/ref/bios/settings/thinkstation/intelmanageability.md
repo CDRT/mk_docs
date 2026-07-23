@@ -3,7 +3,7 @@
 ![Intel Manageability](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelmanageability.PNG)
 
 Intel(R) Manageability
-:	
+:
 	Options:
 
 	1. **Enabled** – Default.
@@ -21,7 +21,7 @@ Intel(R) Manageability
 
 
 Intel(R) Manageability Reset
-:	
+:
 	Options:
 
 	1. Enabled.
@@ -33,7 +33,7 @@ Intel(R) Manageability Reset
 
 
 Press < Ctrl-P > to Enter MEBx
-:	
+:
 	!!! note ""
 		Management Engine BIOS Extension (MEBx) provides platform-level configuration options for you to configure the behavior of Management Engine (ME) platform.
 
@@ -66,6 +66,20 @@ Options:
 4. Intel(R) Level III Manageability Upgrade
 
 
+Intel(R) AMT Control
+:	Controls Intel(R) AMT (Active Management Technology).
+
+	Options:
+
+	1. **Enabled** – Default.
+	2. Disabled.
+	3. Permanently Disabled.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| IntelAmtControl | Enable, Disable, Permanently Disable | yes | Intel |
+
+
 
 ## SOL Configuration
 
@@ -74,7 +88,7 @@ SOL (Serial over LAN) configuration group of settings.
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_solconfig.png)
 
 Console Type
-:	
+:
 	Options:
 
 	1. VT100
@@ -93,7 +107,7 @@ Console Type
 
 
 USB Provisioning
-:	
+:
 	Options:
 
 	1. Enabled.
@@ -102,5 +116,3 @@ USB Provisioning
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| USBProvisioning | Disabled, Enabled | yes | Intel |
-
-

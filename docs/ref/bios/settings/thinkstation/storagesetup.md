@@ -18,7 +18,7 @@
    /ts_storagesetup_px_2.png)-->
 
 SATA Controller
-:	
+:
 	Options:
 
 	1. **Enabled** – Default.
@@ -46,7 +46,7 @@ SATA Drive {X}
 
 
 M.2 Drive {X}
-:	
+:
 	Options:
 
 	1. **Enabled** – Default.
@@ -75,7 +75,7 @@ MCIO Drive {X}-{Y}
 
 
 SATA Drive * Hot-Plug Support
-:	
+:
 	Options:
 
 	1. Enabled.
@@ -90,7 +90,7 @@ SATA Drive * Hot-Plug Support
 
 
 Configure Storage as
-:	
+:
 	Mode Options:
 
 	1. **AHCI** – Default.
@@ -110,7 +110,7 @@ Configure Storage as
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_storagesetup_px_2.PNG)
 
 Configure SATA as
-:	
+:
 	!!! note ""
 	    Device driver support is required for AHCI or RAID. Depending on how the hard disk image was installed, changing this setting may prevent the system from booting.
 
@@ -122,6 +122,14 @@ Configure SATA as
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| ConfigureSATAas | AHCI, RAID | Yes | Both |
+
+
+RAIDXpert2 Configuration Utility
+:	Press `Enter` to launch the RAIDXpert2 Configuration Utility, used to create and manage AMD RAID arrays.
+
+	!!! note ""
+		Only available when `Configure SATA as` is `RAID`.
+
 
 
 Hard Disk Pre-delay
@@ -143,6 +151,18 @@ Hard Disk Pre-delay
 	| HardDiskPre-delay | Disabled, 3 Seconds, 6 Seconds, 9 Seconds, 12 Seconds, 15 Seconds, 21 Seconds, 30 Seconds | Yes | Both |
 
 
+RST PCIe Storage
+:	Enables or disables RST (Rapid Storage Technology) PCIe storage remapping.
+
+	!!! note ""
+		Only available when `Configure SATA as` is `Intel(R) RST with Intel(R) Optane`.
+
+	Options:
+
+	1. **Not RST Controlled** – Default.
+	2. RST Controlled.
+
+
 
 
 
@@ -155,8 +175,8 @@ Hard Disk Pre-delay
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
    /ts_intelvmd_3.png)
 
-Enable the VMD(Volume Management Device) technology to 
-support configure PCIe storages to VROC(Virtual RAID on 
+Enable the VMD(Volume Management Device) technology to
+support configure PCIe storages to VROC(Virtual RAID on
 CPU) feature. -->
 
 <!-- More options for users: (Display image here?)
@@ -164,6 +184,3 @@ would these be more dropdown subheaders? or do we make it another page
 look at atadriversetup for ex on how they did it
 EX: M.2 Slot 1, M.2 Slot 2, M.2 Slot3
 	PCIe Slot1, etc -->
-
-
-

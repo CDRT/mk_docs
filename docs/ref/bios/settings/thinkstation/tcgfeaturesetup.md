@@ -7,16 +7,16 @@ TCG Security Device State
 
 	View only.
 
-	Possible values: 
+	Possible values:
 
 	1. Discrete TPM 2.0
 	2. Firmware TPM 2.0
 
-	
+
 TCG Security Device
 :	Select the type of TCG Security Device:
 
-	1. Firmware TPM 
+	1. Firmware TPM
 	2. **Discrete TPM** – Default.
 
 	!!! note ""
@@ -32,11 +32,11 @@ Security Chip 2.0
 
 	Options:
 
-	1. **Enabled** - Default. 
+	1. **Enabled** - Default.
 	2. Disabled.
 
 	!!! note ""
-		When set to `Disabled`, then TxT will be set to `Disabled` automatically and `Clear TCG Security Feature` becomes unavailable. 
+		When set to `Disabled`, then TxT will be set to `Disabled` automatically and `Clear TCG Security Feature` becomes unavailable.
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
@@ -69,3 +69,29 @@ Physical Presence for Clear
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| PhysicalPresenceforClear | Disabled, Enabled | yes | Both |
+
+
+Security Chip Selection
+:	Selects which security chip is used as the TCG (Trusted Computing Group) Security Device.
+
+	Options:
+
+	1. **Discrete TPM 2.0** – Default.
+	2. Pluton TPM 2.0.
+
+
+
+Pluton Security Processor
+:	Whether to enable the Microsoft(R) Pluton security processor.
+
+	!!! note ""
+		Only available when `Security Chip Selection` is `Pluton TPM 2.0`.
+
+	Options:
+
+	1. **Disabled** – Default.
+	2. Enabled.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| PlutonSecurityProcessor | Disable, Enable | yes | Both |

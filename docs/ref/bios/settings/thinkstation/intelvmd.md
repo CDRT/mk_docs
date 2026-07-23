@@ -1,5 +1,8 @@
 # Intel(R) VMD Technology #
 
+
+<!-- TODO: "MCIO Hot Plug" was listed by name only in the spec, no description/options/WMI. The description and Enable/Disable options below are my own inference, not confirmed. -->
+
 ![Intel VMD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_1.PNG)
 ![Intel VMD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_2.PNG)
 ![Intel VMD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_intelvmd_3.PNG)
@@ -38,3 +41,11 @@ MCIO Slot{X}-{Y}
 
  !!! note ""
   X & Y represent the slot numbers, 1 and 2 (interchangeably).
+
+MCIO Hot Plug
+: Whether to enable hot-plug support for MCIO drives.
+
+ Options:
+
+ 1. **Disabled** – Default.
+ 2. Enabled.

@@ -124,3 +124,39 @@ CPU C6 report
 	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| CPUC6Report | Disable, Enable | yes | AMD |
+
+
+
+<!-- TODO: For all three settings below (Simultaneous Multithreading, Kernel DMA Protection, Pre-boot DMA Protection), the spec confirmed the setting name and Enable/Disable options, but no description was given for any of them, and no WMI name for Simultaneous Multithreading or Pre-boot DMA Protection specifically (Kernel DMA Protection's WMI name came from the separate "New WMI" reference sheet, so that one is higher-confidence). The descriptions are my own general knowledge of these features, not sourced from the spec. -->
+
+Simultaneous Multithreading
+:	Whether to enable Simultaneous Multithreading (SMT), which allows multiple logical processors to run on each physical CPU core.
+
+	Options:
+
+	1. **Enabled** - Default.
+	2. Disabled.
+
+
+
+Kernel DMA Protection
+:	Whether to enable Kernel DMA Protection, which uses the input/output memory management unit (IOMMU) to help block DMA (Direct Memory Access) attacks via hot-pluggable devices, such as Thunderbolt or USB4 ports.
+
+	Options:
+
+	1. **Enabled** - Default.
+	2. Disabled.
+
+	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| KernelDmaProtection | Disable, Enable | yes | AMD |
+
+
+
+Pre-boot DMA Protection
+:	Whether to enable DMA (Direct Memory Access) protection during pre-boot (before the operating system loads).
+
+	Options:
+
+	1. **Enabled** - Default.
+	2. Disabled.

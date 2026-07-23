@@ -3,7 +3,7 @@
 ![USB Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_usbsetup.PNG)
 
 AMD version of USB Setup
-:	
+:
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_usbsetup1.PNG)
 ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_usbsetup2.PNG)
 
@@ -25,6 +25,19 @@ USB Port Access
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| USBPortAccess | Disabled, Enabled | yes | Both |
+
+
+Always On USB
+:	Whether USB ports remain powered for charging when the system is off.
+
+	Options:
+
+	1. **Disabled** – Default.
+	2. Enabled.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| AlwaysOnUsb | Disabled, Enabled | yes | Both |
 
 
 
@@ -118,7 +131,7 @@ Device Reset Time-out
 
 
 Device Power-up Delay
-:	Maximum time before device reports itself to the Host Controller. 
+:	Maximum time before device reports itself to the Host Controller.
 
 	Options:
 
@@ -206,7 +219,7 @@ Internal USB2.0 Port
 
 
 Rear USB Ports
-:	Whether to enable or disable all rear USB ports and relevant settings. 
+:	Whether to enable or disable all rear USB ports and relevant settings.
 
 	Options:
 
@@ -223,7 +236,7 @@ USB Port {X}
 
 	For each Rear USB Port:
 
-	1. **Enabled**. Default, if `Enabled` is selected in `Rear USB Ports`. 
+	1. **Enabled**. Default, if `Enabled` is selected in `Rear USB Ports`.
 	2. Disabled.
 
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -232,5 +245,3 @@ USB Port {X}
 
 	!!! note ""
 		The WMI setting name in the example above represents the port number. Change the number to that of the desired rear USB port.
-
-

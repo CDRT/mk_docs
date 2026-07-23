@@ -144,7 +144,33 @@ Allow Jumper Clear SVP
 	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 	|:---|:---|:---|:---|
 	| AllowJumperClearSVP | No, Yes | yes | Both |
-	
+
+
+Jumper Clears Supervisor and System Manager Password
+:	Allows the hardware jumper to clear the Supervisor Password and System Manager Password.
+
+	Options:
+
+	1. **Enabled** – Default.
+	2. Disabled.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| JumperClearsBiosConfigPasswords | Enable, Disable | yes | Both |
+
+
+Jumper Clears Certificates
+:	Allows the hardware jumper to clear the enrolled Supervisor and System Manager certificates.
+
+	Options:
+
+	1. **Enabled** – Default.
+	2. Disabled.
+
+	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+	|:---|:---|:---|:---|
+	| JumperClearsCertificates | Enable, Disable | yes | Both |
+
 
 Password Count Exceeded Error
 :	Whether to show the POST 0199 error and prompt for password after three failed attempts.

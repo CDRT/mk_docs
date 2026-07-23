@@ -1,5 +1,7 @@
 # Audio Setup Settings #
 
+<!-- TODO: Post Beep — name only in spec, no options/description/WMI. -->
+
 ## Intel version
 
 ![Audio Setup Intel](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_audiosetup.PNG)
@@ -11,7 +13,7 @@ Onboard Audio Controller
 
 	Options:
 
-	1. **Enabled**. Default. 
+	1. **Enabled**. Default.
 	2. Disabled.
 
 	!!! note ""
@@ -22,14 +24,13 @@ Onboard Audio Controller
 	| OnboardAudioController | Disabled, Enabled | yes | Intel |
 
 
-
 Internal Speaker
 :	Whether the internal speaker is available in the OS.
 
 	Options:
 
-	1. **Enabled** - Default. 
-	2. Disabled 
+	1. **Enabled** - Default.
+	2. Disabled
 
 	!!! note ""
 		Unavailable if `Onboarding Audio Controller` is set to `Disabled`.
@@ -38,6 +39,8 @@ Internal Speaker
 	|:---|:---|:---|:---|
 	| InternalSpeaker | Disabled, Enabled | yes | both |
 
+Post Beep
+:	Whether to sound a beep at the end of POST (Power On Self Test).
 
 
 ### AMD Version ###
