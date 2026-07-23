@@ -1,25 +1,25 @@
-# BMC Setup #
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   csetup.png)-->
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_bmcsetup1.PNG)
+# BMC Setup
 
-BMC Card Support
-:
-	Options:
+### **BMC Card Support**
 
-	1. **Disabled**. Default. Disables use of BMC card and the following BMC items will be hidden.
-	2. Enabled - Enables use of BMC card.
+!!! warning "Attention"
+    Disables use of BMC card and the following BMC items will be hidden.
 
-BMC Network Configuration
-:	Configure network parameters for the BMC (Baseboard Management Controller).
+Possible options:
 
-	!!! note ""
-		Only available when `BMC Card Support` is `Enabled`.
+1. **Disabled** – Default.
+2. Enabled - Enables use of BMC card.
 
+### **BMC Network Configuration**
 
-BMC User Settings
-:	Configure BMC user accounts.
+Configure network parameters for the BMC (Baseboard Management Controller).
 
-	!!! note ""
-		Only available when `BMC Card Support` is `Enabled`.
+!!! warning "Attention"
+    Only available when `BMC Card Support` is `Enabled`.
+
+### **BMC User Settings**
+
+Configure BMC user accounts.
+
+!!! warning "Attention"
+    Only available when `BMC Card Support` is `Enabled`.
