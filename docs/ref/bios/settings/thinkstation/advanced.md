@@ -1,139 +1,110 @@
 # Advanced
 
-Advanced - Intel version
+## Intel(R) version
 
+### **WHEA Support**
 
-![Advanced](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_advanced_p3twr1.PNG)
-<!-- ![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_advanced_px1.png)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /ts_advanced_px.png)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   (https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   vanced_p3twr.png)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /advanced.png)-->
+Enable or Disable Windows Hardware Error Architechture.
 
-WHEA Support
-:	Enable or Disable Windows Hardware Error Architechture.
+Possible options:
 
-	Options:
+1. **Enabled** – Default.
+2. Disabled
 
-	1. **Enabled** – Default.
-	2. Disabled.
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| WHEASupport | Disabled, Enabled | Yes | Intel |
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| WHEASupport | Disabled, Enabled | Yes | Intel |
+### **Data Execution Prevention**
 
+Whether to enable Data Execution Prevention (DEP).
 
-Data Execution Prevention
-:	Whether to enable Data Execution Prevention (DEP).
+Possible options:
 
-	Options:
+1. **Enabled** – Default.
+2. Disabled
 
-	1. **Enabled** – Default.
-	2. Disabled.
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| DataExecutionPrevention | Enable, Disable | Yes | Both |
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| DataExecutionPrevention | Enable, Disable | yes | Both |
+### **Intel(R) Total Memory Encryption**
 
+Intel(R) Total Memory Encryption(TME) is a technology that encrypts data written to system memory to protect DRAM data from physical attacks.
 
+Possible options:
 
-Intel(R) Total Memory Encryption
-:	Intel(R) Total Memory Encryption(TME) is a technology that encrypts data written to system memory to protect DRAM data from physical attacks.
+1. **Disabled** – Default.
+2. Enabled
 
-	Options:
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| IntelTotalMemoryEncryption | Disabled, Enabled | Yes | Intel |
 
-	1. **Disabled** – Default.
-	2. Enabled.
+### **Intel(R) SIPP Support**
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| IntelTotalMemoryEncryption | Disabled, Enabled | yes | Intel |
+Intel(R) Stable Image Platform Program (SIPP) aligns and stabilizes key Intel platform components, enabling a predictable transition from one technology generation to the next.
 
+Possible options:
 
-Intel(R) SIPP Support
-:
-	!!! note ""
-		Intel(R) Stable Image Platform Program (SIPP) aligns and stabilizes key Intel platform components, enabling a predictable transition from one technology generation to the next.
+1. **Enabled** – Default.
+2. Disabled
 
-	Options:
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| IntelSIPPSupport | Disabled, Enabled | Yes | Intel |
 
-	1. **Enabled** – Default.
-	2. Disabled.
+### **Intel(R) Thunderbolt**
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| IntelSIPPSupport | Disabled, Enabled | yes | Intel |
+Possible options:
 
+1. **Disabled** – Default.
+2. Enabled
 
-Intel(R) Thunderbolt
-:
-	Options:
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| IntelThunderboltTechnology | Enabled, Disabled | Yes | Intel |
 
-	1. **Disabled** – Default.
-	2. Enabled.
+### **Dust Shield Alert**
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| IntelThunderboltTechnology | Enabled, Disabled | yes | Intel |
+If the Dust Shield is not cleaned then it will lose its effectiveness and the machine may overheat.
 
+Possible options:
 
-Dust Shield Alert
-:
-	!!! note ""
-	    If the Dust Shield is not cleaned then it will lose its effectiveness and the machine may overheat.
+1. **Disabled** – Default. The user is not reminded to clean the Dust Shield.
+2. Enabled - The user is reminded to clean the Dust Shield.
 
-	Options:
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| DustShieldAlert | Disabled, Enabled | Yes | Intel |
 
-	1. **Disabled** – Default. The user is not reminded to clean the Dust Shield.
-	2. Enabled - The user is reminded to clean the Dust Shield.
+### **Intel(R) DPTF Support**
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| DustShieldAlert | Disabled, Enabled | yes | Intel |
+Intel(R) Dynamic Platform and Thermal Framework (DPTF) assists with managing power to the CPU vs temperature, keeping CPU temperature down while still delivering good performance.
 
+!!! warning "Attention"
+    This feature is optional, so may not be available on all models.
 
-Intel(R) DPTF Support
-:
-	!!! note ""
-		Intel(R) Dynamic Platform and Thermal Framework (DPTF) assists with managing power to the CPU vs temperature, keeping CPU temperature down while still delivering good performance.
+Possible options:
 
-	Options:
+1. **Enabled** – Default.
+2. Disabled
 
-	1. **Enabled** – Default.
-	2. Disabled.
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| IntelDPTFSupport | Disabled, Enabled | Yes | Intel |
 
-	!!! note ""
-		This feature is optional, so may not be available on all models.
+### **Available system Memory**
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| IntelDPTFSupport | Disabled, Enabled | yes | Intel |
+Displays the amount of system memory available.
 
+View only.
 
-Available system Memory
-:	Displays the amount of system memory available.
+### **Watchdog Timer**
 
-	View only.
+Whether to enable the platform watchdog timer.
 
+Possible options:
 
-Watchdog Timer
-:	Whether to enable the platform watchdog timer.
-
-	Options:
-
-	1. **Disabled** – Default.
-	2. Enabled.
-
-
-Advanced - AMD version
-![Advanced AMD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amdadvanced.PNG)
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /amd_advanced.png)-->
-
-<!-- !!! note ""
-    Please see sidebar for Advnaced AMD Settings
-TODO: confirm layout because each setting is a seperate page in the sidebar Maybe put a statement there -->
+1. **Disabled** – Default.
+2. Enabled
