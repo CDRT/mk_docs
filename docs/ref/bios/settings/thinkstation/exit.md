@@ -1,40 +1,34 @@
-# Exit Settings #
+# Exit Settings
 
-![Exit](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_exit.PNG)
+### **Save Changes and Exit**
 
+Exit system Setup after saving the changes.
 
-Save Changes and Exit
-:	Exit system Setup after saving the changes.
+!!! warning "Attention"
+    The action will require additional confirmation.
 
-	The action will require additional confirmation.
+### **Discard Changes and Exit**
 
+Exit system Setup without saving any changes.
 
+!!! warning "Attention"
+    The action will require additional confirmation.
 
-Discard Changes and Exit
-:	Exit system Setup without saving any changes.
+### **Save Custom Defaults**
 
-	The action will require additional confirmation.
+Save the current changes as the customized BIOS default settings.
 
+### **Load Custom Defaults**
 
+Restore/Load customized defaults settings.
 
-Save Custom Defaults
-:	Save the current changes as the customized BIOS default settings.
+### **Load Factory Defaults**
 
+Restore/Load Factory defaults values for all the Setup options.
 
+### **Load Optimal Defaults**
 
-Load Custom Defaults
-:	Restore/Load customized defaults settings.
+Restore/Load Default values for all the setup options.
 
-
-
-Load Factory Defaults
-:	Restore/Load Factory defaults values for all the Setup options.
-
-
-
-Load Optimal Defaults
-:	Restore/Load Default values for all the setup options.
-
-	The action will require additional confirmation.
-
-
+!!! warning "Attention"
+    The action will require additional confirmation.

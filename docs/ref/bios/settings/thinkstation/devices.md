@@ -1,29 +1,27 @@
-# Devices #
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_devices_pciexpress_p3twr.PNG)
-   
+# Devices
 
-Card Reader
-:	Whether card reader will be available in OS.
+### **Card Reader**
 
-	Options:
+Whether card reader will be available in OS.
 
-	1.	**Enabled** - Default.
-	2.	Disabled
+Possible options:
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| CardReader |Disabled, Enabled  | yes | Intel |
+1. **Enabled** - Default.
+2. Disabled
 
-Bluetooth
-:	Whether Bluetooth will be available in OS.
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| CardReader | Disabled, Enabled | Yes | Intel |
 
-	Options:
+### **Bluetooth**
 
-	1.	**Enabled** - Default.
-	2.	Disabled  
+Whether Bluetooth will be available in OS.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| Bluetooth | Disabled, Enabled | yes | Both |
+Possible options:
 
+1. **Enabled** - Default.
+2. Disabled
 
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| Bluetooth | Disabled, Enabled | Yes | Both |
