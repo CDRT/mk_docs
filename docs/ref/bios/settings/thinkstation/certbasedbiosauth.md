@@ -1,29 +1,31 @@
-# Certificate-based BIOS Authentication #
+# Certificate-based BIOS Authentication
 
-![CB Bios Auth](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/certbased_bios_authentication.PNG)
+## General
 
-Beginning with 2022 ThinkPad models, it is now possible to configure systems to use a digital signing certificate instead of a supervisor password. Although this feature does not eliminate the challenge of initially securing the device, it does eliminate the need to exchange passwords in plain text when scripting BIOS settings changes.
+!!! warning "Attention"
+    Beginning with 2022 ThinkPad models, it is now possible to configure systems to use a digital signing certificate instead of a supervisor password. Although this feature does not eliminate the challenge of initially securing the device, it does eliminate the need to exchange passwords in plain text when scripting BIOS settings changes.
 
-Issuer
-:	Displays the issuer of the enrolled certificate.
+### **Issuer**
 
-	View only.
+Displays the issuer of the enrolled certificate.
 
+View only.
 
-Subject
-:	Displays the subject of the enrolled certificate.
+### **Subject**
 
-	View only.
+Displays the subject of the enrolled certificate.
 
+View only.
 
-Reset Certificate
-:	Remove the enrolled certificate.
+### **Reset Certificate**
 
+Remove the enrolled certificate.
 
-Allow the Jumper to Reset Certificate
-:	Whether to allow the hardware jumper to reset the enrolled certificate.
+### **Allow the Jumper to Reset Certificate**
 
-	Options:
+Whether to allow the hardware jumper to reset the enrolled certificate.
 
-	1. **Yes** – Default.
-	2. No.
+Possible options:
+
+1. **Yes** – Default.
+2. No
