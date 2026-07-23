@@ -1,77 +1,72 @@
-# Audio Setup Settings #
+# Audio Setup Settings
 
 <!-- TODO: Post Beep — name only in spec, no options/description/WMI. -->
 
-## Intel version
+## Intel(R) version
 
-![Audio Setup Intel](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_audiosetup.PNG)
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /audiosetup.png)-->
+### **Onboard Audio Controller**
 
-Onboard Audio Controller
-:	Enable or disable onboard audio controller.
+Enable or disable onboard audio controller.
 
-	Options:
+!!! warning "Attention"
+    If set to `Disabled`, the `Internal Speaker` setting will be unavailable.
 
-	1. **Enabled**. Default.
-	2. Disabled.
+Possible options:
 
-	!!! note ""
-		If set to `Disabled`, the `Internal Speaker` setting will be unavailable.
+1. **Enabled**. Default.
+2. Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| OnboardAudioController | Disabled, Enabled | yes | Intel |
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| OnboardAudioController | Disabled, Enabled | Yes | Intel |
 
+### **Internal Speaker**
 
-Internal Speaker
-:	Whether the internal speaker is available in the OS.
+Whether the internal speaker is available in the OS.
 
-	Options:
+!!! warning "Attention"
+    Unavailable if `Onboard Audio Controller` is set to `Disabled`.
 
-	1. **Enabled** - Default.
-	2. Disabled
+Possible options:
 
-	!!! note ""
-		Unavailable if `Onboarding Audio Controller` is set to `Disabled`.
+1. **Enabled** - Default.
+2. Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| InternalSpeaker | Disabled, Enabled | yes | both |
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| InternalSpeaker | Disabled, Enabled | Yes | Both |
 
-Post Beep
-:	Whether to sound a beep at the end of POST (Power On Self Test).
+### **Post Beep**
 
+Whether to sound a beep at the end of POST (Power On Self Test).
 
-### AMD Version ###
+## AMD version
 
-![Audio Setup AMD](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_audiosetup.PNG)
+### **Front Audio Controller**
 
-Front Audio Controller
-:	Whether to enable Front Audio Controller.
+Whether to enable Front Audio Controller.
 
-	!!! note ""
-		Setting to disabled also disables all front USB ports (both 2.0 and 3.0) and Rear Audio Controller.
+!!! warning "Attention"
+    Setting to disabled also disables all front USB ports (both 2.0 and 3.0) and Rear Audio Controller.
 
-	Options:
+Possible options:
 
-	1.  **Enabled** - Default.
-	2.  Disabled.
+1. **Enabled** - Default.
+2. Disabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| FrontAudioController | Enabled, Disabled | yes | AMD |
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| FrontAudioController | Enabled, Disabled | Yes | AMD |
 
+### **Rear Audio Controller**
 
+Whether to enable Rear Audio Controller.
 
-Rear Audio Controller
-:	Whether to enable Rear Audio Controller.
+Possible options:
 
-	Options:
+1. **Enabled** - Default.
+2. Disabled
 
-	1.  **Enabled** - Default.
-	2.  Disabled.
-
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| RearAudioController | Disable, Enable | yes | AMD |
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| RearAudioController | Disable, Enable | Yes | AMD |
