@@ -1,446 +1,384 @@
-# Network Setup Settings #
+# Network Setup Settings
 
-<!-- TODO (new-settings pass, unconfirmed — verify against an actual build before publishing):
+<!-- TODO (new-settings):
 - Proxy URL, BIOS Cloud Upgrade, Client CA Configuration: spec gave the name only (Proxy URL, Client CA Configuration) or name + Enable/Disable options with no WMI/description (BIOS Cloud Upgrade). Descriptions are my own inference — Client CA Configuration's especially, which I wrote by analogy to the neighboring (confirmed) "Server CA Configuration" entry rather than from any Client CA-specific spec text.
 - Every **bold**/Default flag added in this pass is my own guess; no default is marked anywhere in the source data.
 -->
 
-![Netwrok Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_networksetup.PNG)
-
 ## General
 
-Onboard Ethernet Controller
-:	Whether to enable the Onboard Ethernet Controller.
+### **Onboard Ethernet Controller**
 
-	Options:
+Whether to enable the Onboard Ethernet Controller.
 
-	1. **Enabled** – Default.
-	2. Disabled.
+!!! warning "Attention"
+    When `Disabled`:
 
-	!!! note ""
-		When `Disabled`:<br>    •`PXE IPV4 Network Stack` setting becomes unavailable<br>    •`PXE IPV6 Network Stack` setting becomes unavailable
+    - `PXE IPV4 Network Stack` setting becomes unavailable.
+    - `PXE IPV6 Network Stack` setting becomes unavailable.
+    - Intel only: Intel(R) AMT functions are disabled.
+    - AMD only: DASH functions will be disabled.
 
-	!!! note ""
-		Intel only: if `Disabled`, Intel(R) AMT functions are disabled.
+Possible options:
 
-	!!! note ""
-		AMD only: if `Disabled`, DASH functions will be disabled.
+1. **Enabled** – Default.
+2. Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| OnboardEthernetController | Disabled, Enabled | yes | Both |
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| OnboardEthernetController | Disabled, Enabled | Yes | Both |
 
+### **Onboard 10G Ethernet Controller**
 
-Onboard 10G Ethernet Controller
-:	Whether to enable the onboard 10G Ethernet controller.
+Whether to enable the onboard 10G Ethernet controller.
 
-	!!! note ""
-		Only available on models equipped with an onboard 10G Ethernet controller.
+!!! warning "Attention"
+    Only available on models equipped with an onboard 10G Ethernet controller.
 
-	Options:
+Possible options:
 
-	1. **Enabled** – Default.
-	2. Disabled.
+1. **Enabled** – Default.
+2. Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| Onboard10GEthernetController | Disabled, Enabled | yes | Both |
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| Onboard10GEthernetController | Disabled, Enabled | Yes | Both |
 
+### **Onboard 2.5G Ethernet Controller**
 
-Onboard 2.5G Ethernet Controller
-:	Whether to enable the onboard 2.5G Ethernet controller.
+Whether to enable the onboard 2.5G Ethernet controller.
 
-	!!! note ""
-		Only available on models equipped with an onboard 2.5G Ethernet controller.
+!!! warning "Attention"
+    Only available on models equipped with an onboard 2.5G Ethernet controller.
 
-	Options:
+Possible options:
 
-	1. **Enabled** – Default.
-	2. Disabled.
+1. **Enabled** – Default.
+2. Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| Onboard25GEthernetController | Disabled, Enabled | yes | Both |
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| Onboard25GEthernetController | Disabled, Enabled | Yes | Both |
 
+### **Wireless LAN Access**
 
-Wireless LAN Access
-:	Whether Wireless LAN will be available in OS.
+Whether Wireless LAN will be available in OS.
 
-	Options:
+Possible options:
 
-	1. **Enabled** - Default.
-	2. Disabled.
+1. **Enabled** - Default.
+2. Disabled
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| WirelessLANAccess | Disabled, Enabled | yes | Both |
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| WirelessLANAccess | Disabled, Enabled | Yes | Both |
 
+### **Wireless LAN PXE boot**
 
-Wireless LAN PXE boot
-:	Whether to support wireless LAN PXE (Pre-boot Execution Environment) boot or HTTPs boot.
+Whether to support wireless LAN PXE (Pre-boot Execution Environment) boot or HTTPs boot.
 
-	!!! note ""
-		This works by loading the Wireless LAN (Local Area Network) UNDI (Universal Network Driver Interface) Driver.
+This works by loading the Wireless LAN (Local Area Network) UNDI (Universal Network Driver Interface) Driver.
 
-	1. Enabled.
-	2. **Disabled** – Default.
+Possible options:
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| WirelessLANPXE | Disabled, Enabled  | yes | Both |
+1. Enabled
+2. **Disabled** – Default.
 
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| WirelessLANPXE | Disabled, Enabled | Yes | Both |
 
 ## Wireless Certified Information
 
 Wireless device information. View only.
-:
-	!!! note ""
-		Applicable only for platforms which have WLAN implemented.
 
-<!-- NO WMI -->
+!!! warning "Attention"
+    Applicable only for platforms which have WLAN implemented.
 
-PXE IPV4 Network Stack
-:
-	Options:
+### **PXE IPV4 Network Stack**
 
-	1. **Enabled** – Default.
-	2. Disabled
+!!! warning "Attention"
+    Unavailable if `Onboard Ethernet Controller` is set to `Disabled`.
 
-	!!! note ""
-		Unavailable if `Onboard Ethernet Controller` is set to `Disabled`.
+Possible options:
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| PXEIPV4NetworkStack | Disabled, Enabled | yes | Both |
+1. **Enabled** – Default.
+2. Disabled
 
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| PXEIPV4NetworkStack | Disabled, Enabled | Yes | Both |
 
-PXE IPV6 Network Stack
-:
-	Options:
+### **PXE IPV6 Network Stack**
 
-	1. **Enabled** – Default.
-	2. Disabled
+!!! warning "Attention"
+    Unavailable if `Onboard Ethernet Controller` is set to `Disabled`.
 
-	!!! note ""
-		Unavailable if `Onboard Ethernet Controller` is set to `Disabled`.
+Possible options:
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| PXEIPV6NetworkStack | Disabled, Enabled | yes | Both |
+1. **Enabled** – Default.
+2. Disabled
 
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| PXEIPV6NetworkStack | Disabled, Enabled | Yes | Both |
 
-PXE Option ROM
-:	Whether to load the onboard PXE (Pre-boot Execution Environment) option ROM, allowing the system to boot from a server image.
+### **PXE Option ROM**
 
-	!!! note ""
-		Hidden if the BIOS doesn't support legacy mode.
+Whether to load the onboard PXE (Pre-boot Execution Environment) option ROM, allowing the system to boot from a server image.
 
-	Options:
+!!! warning "Attention"
+    Hidden if the BIOS doesn't support legacy mode.
 
-	1. **Enabled** – Default.
-	2. Disabled.
+Possible options:
 
+1. **Enabled** – Default.
+2. Disabled
 
-UEFI IPv4 Network Stack
-:	Enables the use of IPv4 for network booting, and adds IPv4 PXE boot to the boot menu.
+### **UEFI IPv4 Network Stack**
 
-	Options:
+Enables the use of IPv4 for network booting, and adds IPv4 PXE boot to the boot menu.
 
-	1. **Enabled** – Default.
-	2. Disabled.
+Possible options:
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| UefiIpV4NetworkStack | Disable, Enable | yes | Both |
+1. **Enabled** – Default.
+2. Disabled
 
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| UefiIpV4NetworkStack | Disable, Enable | Yes | Both |
 
-UEFI IPv6 Network Stack
-:	Enables the use of IPv6 for network booting, and adds IPv6 PXE boot to the boot menu.
+### **UEFI IPv6 Network Stack**
 
-	Options:
+Enables the use of IPv6 for network booting, and adds IPv6 PXE boot to the boot menu.
 
-	1. **Enabled** – Default.
-	2. Disabled.
+Possible options:
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| UefiIpV6NetworkStack | Disable, Enable | yes | Both |
+1. **Enabled** – Default.
+2. Disabled
 
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| UefiIpV6NetworkStack | Disable, Enable | Yes | Both |
 
-PXE Boot Wait Time
-:	Select the PXE (Pre-boot Execution Environment) boot wait time before starting PXE boot.
+### **PXE Boot Wait Time**
 
-	Options:
+Select the PXE (Pre-boot Execution Environment) boot wait time before starting PXE boot.
 
-	1. **1 Second** – Default.
-	2. 5 Seconds.
-	3. 10 Seconds.
-	4. 30 Seconds.
-	5. 60 Seconds.
-	6. 120 Seconds.
+Possible options:
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| PxeBootWaitTime | 1 Second, 5 Seconds, 10 Seconds, 30 Seconds, 60 Seconds, 120 Seconds | yes | Both |
+1. **1 Second** – Default.
+2. 5 Seconds
+3. 10 Seconds
+4. 30 Seconds
+5. 60 Seconds
+6. 120 Seconds
 
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| PxeBootWaitTime | 1 Second, 5 Seconds, 10 Seconds, 30 Seconds, 60 Seconds, 120 Seconds | Yes | Both |
 
-TFTP Window Size
-:	Specify the MTFTP window size used by the UEFI PXE driver.
+### **TFTP Window Size**
 
-	Options:
+Specify the MTFTP window size used by the UEFI PXE driver.
 
-	1. **1** – Default.
-	2. 2.
-	3. 3.
-	4. 4.
+Possible options:
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| TftpWindowSize | 1, 2, 3, 4 | yes | Both |
+1. **1** – Default.
+2. 2
+3. 3
+4. 4
 
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| TftpWindowSize | 1, 2, 3, 4 | Yes | Both |
 
-Proxy Support
-:	Whether to enable proxy support for network operations such as HTTPs Boot.
+### **Proxy Support**
 
-	Options:
+Whether to enable proxy support for network operations such as HTTPs Boot.
 
-	1. **Disabled** – Default.
-	2. Enabled.
+Possible options:
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| ProxySupport | Disabled, Enabled | yes | Both |
+1. **Disabled** – Default.
+2. Enabled
 
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| ProxySupport | Disabled, Enabled | Yes | Both |
 
-Proxy URL
-:	The URL of the proxy server to use.
+### **Proxy URL**
 
-	!!! note ""
-		Only available when `Proxy Support` is `Enabled`.
+The URL of the proxy server to use.
 
+!!! warning "Attention"
+    Only available when `Proxy Support` is `Enabled`.
 
-Wireless Auto Disconnection
-:	Whether to automatically disconnect the wireless LAN connection when an Ethernet cable is connected to the system.
+### **Wireless Auto Disconnection**
 
-	Options:
+Whether to automatically disconnect the wireless LAN connection when an Ethernet cable is connected to the system.
 
-	1. **Disabled** – Default.
-	2. Enabled.
+Possible options:
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| WirelessAutoDisconnection | Disabled, Enabled | yes | Both |
+1. **Disabled** – Default.
+2. Enabled
 
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| WirelessAutoDisconnection | Disabled, Enabled | Yes | Both |
 
-HTTPs Support
-:	Enable/Disable IPv4 and IPv6 HTTPs Boot network stack.
+### **HTTPs Support**
 
-	!!! note ""
-		When `Disabled`, `HTTPs Boot` and `Lenovo Cloud Services` become unavailable. Also unavailable if `Secure Boot` is `Disabled`.
+Enable/Disable IPv4 and IPv6 HTTPs Boot network stack.
 
-	Options:
+!!! warning "Attention"
+    When `Disabled`, `HTTPs Boot` and `Lenovo Cloud Services` become unavailable. Also unavailable if `Secure Boot` is `Disabled`.
 
-	1. **Disabled** – Default.
-	2. Enabled.
+Possible options:
 
+1. **Disabled** – Default.
+2. Enabled
 
-HTTPs Boot
-:	This setting controls whether or not the system can boot over HTTPS. When enabled, additional configuration may be required. The HTTPS Boot and related settings are not configurable through WMI.
+### **HTTPs Boot**
 
-	Options:
+This setting controls whether or not the system can boot over HTTPS. When enabled, additional configuration may be required. The HTTPS Boot and related settings are not configurable through WMI.
 
-	1. Enabled – the `HTTPs Boot Configuration` and `Tls Auth Configuration` will be shown for custom configuration.
-	2. **Disabled** – Default.
+Possible options:
 
-	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	|  |  | yes | Both |
+1. Enabled – the `HTTPs Boot Configuration` and `Tls Auth Configuration` will be shown for custom configuration.
+2. **Disabled** – Default.
 
-	NO WMI -->
+### **Lenovo Cloud Services**
 
+Whether to boot system with `Lenovo Cloud` selected through boot menu, so that BIOS boots to Lenovo Cloud server directly, which provides various cloud services.
 
-Lenovo Cloud Services
-:
-	!!! note ""
-		Only available if `Secure Boot` is `Enabled`.
+!!! warning "Attention"
+    Only available if `Secure Boot` is `Enabled`.
 
-	Whether to boot system with `Lenovo Cloud` selected through boot menu, so that BIOS boots to Lenovo Cloud server directly, which provides various cloud services.
+Possible options:
 
-	Options:
+1. Enabled
+2. **Disabled** – Default.
 
-	1. Enabled.
-	2. **Disabled** – Default.
+Once the feature is enabled, then it becomes available for selection in `BIOS -> Startup -> Edit Boot Order`, or `BIOS -> Startup -> Network Boot`, or via F12 Boot Menu. When `Lenovo Cloud Services` booted, then following options will be available for selection:
 
-	!!! note ""
-		Once the feature is enabled, then it becomes available for selection in `BIOS -> Startup -> Edit Boot Order`, or `BIOS -> Startup -> Network Boot`, or via F12 Boot Menu.<br><br /> When `Lenovo Cloud Services` booted, then following options will be available for selection:<br />
+- **Lenovo Cloud Deploy (ITC)** – sends Factory-Style images to customers for deployment in the field.
 
-	- **Lenovo Cloud Deploy (ITC)** – sends Factory-Style images to customers for deployment in the field.
+Additional information: [Lenovo Cloud Deploy](https://www.lenovoclouddeploy.com/en/auth/welcome).
 
-	Additional information: [Lenovo Cloud Deploy](https://www.lenovoclouddeploy.com/en/auth/welcome).
+- **Windows Virtual Desktop (VDI)** – provides the VDI environment to customer. VDI itself must be setup by the customer (IT Admin). If this option is selected, then it will become available as a boot option.
 
-	- **Windows Virtual Desktop (VDI)** – provides the VDI environment to customer. VDI itself must be setup by the customer (IT Admin). If this option is selected, then it will become available as a boot option.
+Additional information is available here: [Client Virtualization & Infrastructure Solutions - Lenovo](https://www.lenovo.com/lt/lt/data-center/solutions/client-virtualization) and [Windows Virtual Desktop](https://www.microsoft.com/en-us/microsoft-365/blog/2019/09/30/windows-virtual-desktop-generally-available-worldwide/).
 
-	Additional information is available here: [Client Virtualization & Infrastructure Solutions - Lenovo](https://www.lenovo.com/lt/lt/data-center/solutions/client-virtualization) and [Windows Virtual Desktop](https://www.microsoft.com/en-us/microsoft-365/blog/2019/09/30/windows-virtual-desktop-generally-available-worldwide/).
+### **Win VDI Boot**
 
-	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	|  |  | yes | Both |
-	-->
+Win VDI (Virtual Desktop Infrastructure) Boot.
 
+Whether to boot the system with `Win VDI Boot` selected through boot menu, so that BIOS boots to Lenovo Cloud server, to load VDI service.
 
+Possible options:
 
-Win VDI Boot
-:	Win VDI (Virtual Desktop Infrastructure) Boot.
+1. Enabled
+2. **Disabled** – Default.
 
-	Whether to boot the system with `Win VDI Boot` selected through boot menu, so that BIOS boots to Lenovo Cloud server, to load VDI service.
+### **Reinstall Windows From Cloud**
 
-	Options:
+Whether to enable Microsoft Bare Metal Recovery from the network.
 
-	1. Enabled.
-	2. **Disabled** – Default.
+Possible options:
 
-	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	|  |  |  | Both |
-	-->
+1. **Disabled** – Default.
+2. Enabled
 
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| ReinstallWindowsFromCloud | Disabled, Enabled | Yes | Both |
 
-Reinstall Windows From Cloud
-:	Whether to enable Microsoft Bare Metal Recovery from the network.
+### **BIOS Cloud Upgrade**
 
-	Options:
+Whether to allow BIOS firmware updates to be retrieved from the cloud.
 
-	1. **Disabled** – Default.
-	2. Enabled.
+Possible options:
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| ReinstallWindowsFromCloud | Disabled, Enabled | yes | Both |
-
-
-BIOS Cloud Upgrade
-:	Whether to allow BIOS firmware updates to be retrieved from the cloud.
-
-	Options:
-
-	1. **Disabled** – Default.
-	2. Enabled.
-
+1. **Disabled** – Default.
+2. Enabled
 
 ## Boot Configuration
 
-![Boot Configuration](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/httpsbootconfig.PNG)
+### **Input the description**
 
-Input the description
-:	Input a label for new created URL, press `Enter`, and it will be displayed in the boot sequence menu.
+Input a label for new created URL, press `Enter`, and it will be displayed in the boot sequence menu.
 
-<!--
+### **Internet Protocol**
+
+Select Internet Protocol to use for this HTTPs Boot option.
+
+Possible options:
+
+1. **Ipv4** – Default.
+2. Ipv6
+
+### **Boot URL**
+
+A new Boot Option will be created according to this Boot URL.
+
+Accepts HTTPs URLs only.
+
+!!! warning "Attention"
+    Use `Tls Auth Configuration` to import the CA (Certificate Authority) to support the HTTPs boot.
+
+### **Custom URL**
+
+Whether to enable entering a custom Boot URL, instead of a default.
+
+Possible options:
+
+1. **Disabled** – Default.
+2. Enabled
+
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-|  |  |  | Both |
--->
+| :--- | :--- | :--- | :--- |
+| CustomUrl | Disable, Enable | Yes | Both |
 
+### **Delete HTTPs Boot Option from List**
 
-Internet Protocol
-:	Select Internet Protocol to use for this HTTPs Boot option.
+The list of HTTPs Boot options.
 
-	Options:
+Select and press `Enter` to remove an EFI HTTPs boot option.
 
-	1. **Ipv4** – Default.
-	2. Ipv6
+## Tls Auth Configuration
 
-	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	|  |  |  | Both |
-	-->
+### **Server CA Configuration**
 
+Press `Enter` to configure Server CA (Certificate Authority) for HTTPs Boot.
 
-Boot URL
-:	A new Boot Option will be created according to this Boot URL.
+!!! warning "Attention"
+    Visible only if `HTTPs Boot` has `Enabled` status.
 
-	Accepts HTTPs URLs only.
+### **Client CA Configuration**
 
-	!!! note ""
-		Use `Tls Auth Configuration` to import the CA (Certificate Authority) to support the HTTPs boot.
-
-	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	|  |  |  | Both |
-	-->
-
-
-Custom URL
-:	Whether to enable entering a custom Boot URL, instead of a default.
-
-	Options:
-
-	1. **Disabled** – Default.
-	2. Enabled.
-
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| CustomUrl | Disable, Enable | yes | Both |
-
-
-Delete HTTPs Boot Option from List
-:	The list of HTTPs Boot options. <br>
-
-	Select and press `Enter` to remove an EFI HTTPs boot option.
-
-	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	|  |  |  | Both |
-	-->
-
-
-## Tls Auth Configuration ##
-
-:	Visible only if `HTTPs Boot` has `Enabled` status.
-
-	Press `Enter` to configure Server CA (Certificate Authority) for HTTPs Boot.
-
-	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	|  |  |  | Both |
-	-->
-
-Client CA Configuration
-:	Press `Enter` to configure the Client CA (Certificate Authority) for HTTPs Boot.
-
+Press `Enter` to configure the Client CA (Certificate Authority) for HTTPs Boot.
 
 ## Wifi Configuration
 
-![Wifi Config](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_wificonfig.PNG)
+### **Automatic Connection Support**
 
-Automatic Connection Support
-:	Whether to enable or disable automatic Wifi connection on every boot.
+Whether to enable or disable automatic Wifi connection on every boot.
 
-	1. Enabled
-	2. **Disabled** - Default.
+Possible options:
 
-	<!--
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	|  |  |  | Both |
-	-->
+1. Enabled
+2. **Disabled** - Default.
 
+## Current Connection
 
-## Current Connection ##
-:	View only.
+View only.
 
-	Shows Connection State, if the device is connected to a Wi-Fi network, or
+Shows Connection State, if the device is connected to a Wi-Fi network, or `No Connection.`
 
-	`No Connection.`
+## Wi-Fi Scan
 
-## Wi-Fi Scan ##
-:	Press `Enter` to scan the available connections.
+Press `Enter` to scan the available connections.
 
-## Scanned List ##
-:	Scanned Wi-Fi nodes for selection to connect.
+## Scanned List
+
+Scanned Wi-Fi nodes for selection to connect.
