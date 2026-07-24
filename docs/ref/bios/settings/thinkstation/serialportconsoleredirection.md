@@ -1,170 +1,141 @@
-# Serial Port Console Redirection #
+# Serial Port Console Redirection
 
-![Serial Port](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_serialport.PNG)
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /amd_serialportconsoleredirection.png)-->
+## General
 
-Console Redirection
-:	
-	Options:
+### **Console Redirection**
 
-	1.  **Disabled** - Default.
-	2.  Enabled.
-	
+Possible options:
+
+1. **Disabled** - Default.
+2. Enabled
 
 ## Console Redirection Settings
 
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_consolerd1.PNG)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_consolerd2.PNG)
+### **Terminal Type**
 
-<!--![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /amd_consoleredirectionsettings.png)-->
+The following emulation types are available:
 
-Terminal Type
-:	
-	Options:
+- ANSI: Extended ASCII char set.
+- VT100: ASCII char set.
+- VT100+: Extends VT100 to support color, function keys, etc.
+- VT-UTF8: Uses UTF8 encoding to map Unicode chars onto 1 or more bytes.
 
-	1. VT100
-	1. VT100+
-	1. VT-UTF8
-	1. **ANSI** - Default.
+Possible options:
 
-	!!! note ""
-		The following emulation types are available. <br> ANSI: Extended ASCII char set. <br> VT100: ASCII char set. <br> VT100+: Extends VT100 to support color, function keys, etc. <br> VT-UTF8: Uses UTF8 encoding to map Unicode chars onto 1 or more bytes.<br> 
+1. VT100
+2. VT100+
+3. VT-UTF8
+4. **ANSI** - Default.
 
-<!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| ConsoleRedirection | setting_values | yes_no | both | -->
+### **Bits per second**
 
+Select serial port transmission speed. The speed must be matched on the other side. Long or noisy lines may require lower speeds.
 
+Possible options:
 
-Bits per second
-:	Select serial port transmission speed. The speed must be matched on the other side. Long or noisy lines may require lower speeds.
+1. 9600
+2. 19200
+3. 38400
+4. 57600
+5. 115200
 
-	Options:
+### **Data Bits**
 
-	1. 9600
-	1. 19200
-	1. 38400
-	1. 57600
-	1. **115200**
+Possible options:
 
-	<!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| BitsPerSecond | setting_values | yes_no | both | -->
+1. **8** - Default.
+2. 7
 
+### **Parity**
 
+Send parity bit with the data bits to detect some transmission errors.
 
-Data Bits
-:	
-	Options:
+Details below.
 
-	1. **8** - Default.
-	1. 7
+- Even: parity bit is 0 if the num of 1's in the data bits is even.
+- Odd: parity bit is 1 if the num of 1's in the data bits is odd.
+- Mark: parity bit is always 1.
+- Space: Parity bit is always 0.
 
-	<!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| DataBits | setting_values | yes | AMD | -->
+Mark and Space Parity do not allow for error detection. They can be used as an additional data bit.
 
+Possible options:
 
+1. **Disabled** - Default.
+2. Enabled
 
-Parity
-:	Send parity bit with the data bits to detect some transmission errors.
+### **Stop Bits**
 
-	Options:
+Stop bits indicate the end of a serial data packet. (A start bit indicates the beginning). The standard setting is 1 stop bit. Communication with slow devices may require more than 1 stop bit.
 
-	1.  **Disabled** - Default.
-	2.  Enabled.
+Possible options:
 
-	!!! note ""
-		Details below. <br> Even: parity bit is 0 if the num of 1's in the data bits is even. <br> Odd: parity bit is 1 if the num of 1's in the data bits is odd. <br> Mark: parity bit is always 1. <br> Space: Parity bit is always 0. <br> 
+1. **1** - Default.
+2. 2
 
-	!!! note ""
-		Mark and Space Parity do not allow for error detection.  They can be used as an additional data bit.
+### **Flow Control**
 
-	<!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| ParityMode | setting_values | yes | AMD | -->
+Flow control can prevent data loss from buffer overflow. When sending data, if the receiving buffers are full, a 'stop' signal can be sent to stop the data flow. Once the buffers are empty, a 'start' signal can be sent to re-start the flow. Hardware flow control uses two wires to send start/stop signals.
 
+Possible options:
 
+1. **None** - Default.
+2. Hardware RTS/CTS
 
-Stop Bits
-:	Stop bits indicate the end of a serial data packet. (A start bit indicates the beginning). The standard setting is 1 stop bit. Communication with slow devices may require more than 1 stop bit.
+### **VT-UTF8 Combo Key Support**
 
-	Options:
+Enables VT-UTF8 Combination Key Support for ANSI/VT100 terminals.
 
-	1.  **1** - Default.
-	2.  2.
+Possible options:
 
-	<!-- | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| StopBits | setting_values | yes | AMD | -->
+1. **Enabled** - Default.
+2. Disabled
 
+### **Recorder Mode**
 
+With this mode enabled only text will be sent. This is to capture Terminal data.
 
-Flow Control
-:	Flow control can prevent data loss from buffer overflow. When sending data, if the receiving buffers are full, a 'stop' signal can be sent to stop the data flow. Once the buffers are empty, a 'start' signal can be sent to re-start the flow. Hardware flow control uses two wires to send start/stop signals.
+Possible options:
 
-	Options:
+1. **Disabled** - Default.
+2. Enabled
 
-	1.  **None** - Default.
-	2.  Hardware RTS/CTS
-	
+### **Resolution 100x31**
 
-VT-UTF8 Combo Key Support
-:	Enables VT-UTF8 Combination Key Support for ANSI/VT100 terminals.
+Enables or disables extended terminal resolution.
 
-	Options:
+Possible options:
 
-	1.  **Enabled** - Default.
-	2.  Disabled
-	
+1. **Disabled** - Default.
+2. Enabled
 
-Recorder Mode
-:	With this mode enabled only text will be sent. This is to capture Terminal data.
+### **Legacy OS Redirection Resolution**
 
-	Options:
+On Legacy OS, the Number of Rows and Columns supported redirection.
 
-	1.  **Disabled** - Default.
-	2.  Enabled
-	
+Possible options:
 
-Resolution 100x31
-:	Enables or disables extended terminal resolution.
+1. **80x24** - Default.
+2. 80x26
 
-	Options:
+### **Putty KeyPad**
 
-	1.  **Disabled** - Default.
-	2.  Enabled
+Select FunctionKey and KeyPad on Putty.
 
+Possible options:
 
-Legacy OS Redirection Resolution
-:	On Legacy OS, the Number of Rows and Columns supported redirection.
+1. **VT100** - Default.
+2. Linux
+3. XTERMR5
+4. SCO
+5. ESCN
+6. VT401
 
-	Options:
+### **Redirection After BIOS POST**
 
-	1.  **80x24** - Default.
-	2.  80x26
+The Settings specify if BootLoader is selected then Legacy console redirection is disabled before booting to Legacy OS. Default value is Always Enable which means Legacy console Redirection is enabled for Legacy OS.
 
+Possible options:
 
-Putty KeyPad
-:	Select FunctionKey and KeyPad on Putty.
-
-	Options:
-
-	1.  **VT100** - Default.
-	2.  Linux
-	3.  XTERMR5
-	4.  SCO
-	5.  ESCN
-	6.  VT401
-
-
-Redirection After BIOS POST
-:	The Settings specify if BootLoader is selected then Legacy console redirection is disabled before booting to Legacy OS. Default value is Always Enable which means Legacy console Redirection is enabled for Legacy OS.
-
-	Options:
-
-	1.  **Always Enable** - Default.
-	2.  BootLoader
-
+1. **Always Enable** - Default.
+2. BootLoader
