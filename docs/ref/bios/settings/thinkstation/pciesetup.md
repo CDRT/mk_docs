@@ -1,5 +1,7 @@
 # PCIe Setup
 
+<!-- TODO: Link Training Timeout (uS) disagrees with the same setting in pcieconfiguration.md (AMD version). This file lists two options ("1000" - Default, and "Simulator not support"), while pcieconfiguration.md lists only "1000" with no Default marked and no second option. Both files already flag this setting as unverified independently — reconcile against a real build before publishing. -->
+
 ## General
 
 ### **Re-Size BAR Support**
