@@ -1,32 +1,35 @@
-# System Time and Date #
+# System Time and Date
 
-![System Time Date](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_systemtimedate.PNG)
+### **System Time**
 
+Set the system time.
 
-System Time
-:	Set the system time.
+Use arrow keys to switch between time fields.
 
-	Use arrow keys to switch between time fields.
+Possible options:
 
-	Options:
+1. **Currently set date**
+2. HH : MM : SS
 
-	1.	**Currently set date** 
-	2.	HH : MM : SS<br>
-		a. HH - Hour:  00 ~ 23<br>
-		b. MM - Minute:  00 ~ 59<br>
-		c. SS - Second:  00 ~ 59<br>
+    a. HH - Hour: 00 ~ 23
 
+    b. MM - Minute: 00 ~ 59
 
-System Date
-:	Set the system date. 
+    c. SS - Second: 00 ~ 59
 
-	Use arrow keys to switch between date fields.
+### **System Date**
 
-	Options:
+Set the system date.
 
-	1.	**Currently set date**
-	2.	MM/DD/YYYY:
-		a. MM – Months: January to December <br>
-		b. DD – Date: 1 ~ 31 <br>
-		c. YYYY – Year: 1980 ~ 2099 <br>
+Use arrow keys to switch between date fields.
 
+Possible options:
+
+1. **Currently set date**
+2. MM/DD/YYYY:
+
+    a. MM – Months: January to December
+
+    b. DD – Date: 1 ~ 31
+
+    c. YYYY – Year: 1980 ~ 2099
