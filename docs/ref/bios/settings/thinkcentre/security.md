@@ -1,163 +1,176 @@
 # Security
 
-![Security](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_security.PNG)
-![Security](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_security_2.PNG)
-![Security](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_security_3.PNG)
+## General
 
 [More information at Lenovo Support - types of password](https://support.lenovo.com/us/en/solutions/ht513634)
 
-Supervisor Password
-:  Display only
+### **Supervisor Password**
 
-    Options:
+Display only
 
-    1.  **Not Installed** - password disabled. Default.
-    2.  Installed -  password enabled.
+Possible options:
 
-Power-On Password
-:  Display only
+1. **Not Installed** - password disabled. Default.
+2. Installed - password enabled.
 
-    Options:
+### **Power-On Password**
 
-    1. **Not Installed** - password disabled. Default.
-    2. Installed -  password enabled.
+Display only
 
-System Management Password
-:  Display only
+Possible options:
 
-    Options:
+1. **Not Installed** - password disabled. Default.
+2. Installed - password enabled.
 
-    1. **Not Installed** - password disabled. Default.
-    2. Installed -  password enabled.
+### **System Management Password**
 
-Set Supervisor Password
-:  Set, change, or delete the Supervisor Password.
+Display only
 
-    !!! note ""
-        To delete Supervisor Password, enter blank fields for each new password line item.
+Possible options:
 
-    Enter and confirm new password.
+1. **Not Installed** - password disabled. Default.
+2. Installed - password enabled.
 
-Set Power-On Password
-:  Set, change, or delete the Power-On Password.
+### **Set Supervisor Password**
 
-    !!! note ""
-        To delete Power-On Password, enter blank fields for each new password line item.
+Set, change, or delete the Supervisor Password.
 
-    Enter and confirm new password.
+!!! warning "Attention"
+    To delete Supervisor Password, enter blank fields for each new password line item.
 
-Set System Management Password
-:  Set, change, or delete the System Management Password (SMP).
+Enter and confirm new password.
 
-    !!! note ""
-        To delete System Management Password, enter blank fields for each new password line item.
+### **Set Power-On Password**
 
-    Enter and confirm new password.
+Set, change, or delete the Power-On Password.
 
-Secure Roll Back Prevention
-:  Whether flashing BIOS to a previous or current version is prevented (NOT allowed).
+!!! warning "Attention"
+    To delete Power-On Password, enter blank fields for each new password line item.
 
-    Options:
+Enter and confirm new password.
 
-    1.  **Yes** - Flashing NOT allowed. Default.
-    1.  No - Flashing BIOS allowed.
+### **Set System Management Password**
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | SecureRollBackPrevention | No, Yes | Yes |
+Set, change, or delete the System Management Password (SMP).
 
-Windows UEFI Firmware Update
-:  
-    Options:
+!!! warning "Attention"
+    To delete System Management Password, enter blank fields for each new password line item.
 
-    1. **Enabled** - Default.
-    1. Disabled - BIOS will skip Windows UEFI firmware update.
+Enter and confirm new password.
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | WindowsUEFIFirmwareUpdate | Disabled, Enabled | Yes |
+### **Secure Roll Back Prevention**
 
-Smart USB Protection
-:  Block USB write access (copying data from computer to USB storage device) in Windows.
+Whether flashing BIOS to a previous or current version is prevented (NOT allowed).
 
-    Options:
+Possible options:
 
-    1.  **Disabled** - Default.
-    1.  Read Only - The user can copy data from USB to computer, but not from computer to USB.
-    1.  NO Access - The user cannot use USB storage device in Windows.
+1. **Yes** - Flashing NOT allowed. Default.
+2. No - Flashing BIOS allowed.
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | SmartUSBProtection | Disabled, Read Only, No Access | Yes |
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| SecureRollBackPrevention | No, Yes | Yes |
 
-Secure Wipe
-:  Hide or display the `secure wipe` option on the F12 BIOS Startup Menu.
+### **Windows UEFI Firmware Update**
 
-    Options:
+Possible options:
 
-    1.  **Disabled** - hides `secure wipe` option. Default.
-    2.  Enabled - shows `secure wipe` option.
+1. **Enabled** - Default.
+2. Disabled - BIOS will skip Windows UEFI firmware update.
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | securewipe | Disabled, Enabled | yes |
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| WindowsUEFIFirmwareUpdate | Disabled, Enabled | Yes |
 
-Device Guard
-:  Device Guard protects against malware by restricting the device across several technologies.
+### **Smart USB Protection**
 
-    Options:
+Block USB write access (copying data from computer to USB storage device) in Windows.
 
-    1.  **Disabled** - Ethernet, USB, CD, and other boot methods are enabled. Default.
-    1.  Enabled - CPU Virtualization Technology，IOMMU (Intel VT-d, AMD-Vi),  Secure boot, and TPM are enabled. Ethernet, USB, CD, and other boot methods are disabled. Only SATA devices are allowed.
+Possible options:
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | DeviceGuard | Disabled, Enabled | yes |
+1. **Disabled** - Default.
+2. Read Only - The user can copy data from USB to computer, but not from computer to USB.
+3. No Access - The user cannot use USB storage device in Windows.
 
-Secure Core PC Level3
-:  Whether to support Windows 10/11 Secured-core PCs' Level3:
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| SmartUSBProtection | Disabled, Read Only, No Access | Yes |
 
-    1.  **Disabled** - Default.
-    2.  Enabled.
+### **Secure Wipe**
+
+Hide or display the `secure wipe` option on the F12 BIOS Startup Menu.
+
+Possible options:
+
+1. **Disabled** - hides `secure wipe` option. Default.
+2. Enabled - shows `secure wipe` option.
+
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| securewipe | Disabled, Enabled | Yes |
+
+### **Device Guard**
+
+Device Guard protects against malware by restricting the device across several technologies.
+
+Possible options:
+
+1. **Disabled** - Ethernet, USB, CD, and other boot methods are enabled. Default.
+2. Enabled - CPU Virtualization Technology, IOMMU (Intel VT-d, AMD-Vi), Secure boot, and TPM are enabled. Ethernet, USB, CD, and other boot methods are disabled. Only SATA devices are allowed.
+
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| DeviceGuard | Disabled, Enabled | Yes |
+
+### **Secure Core PC Level3**
+
+Whether to support Windows 10/11 Secured-core PCs' Level3.
+
+Possible options:
+
+1. **Disabled** - Default.
+2. Enabled
 
 [More information at Microsoft Docs](https://docs.microsoft.com/en-us/windows-hardware/design/device-experiences/oem-highly-secure)
 
-Electronic Lock
-:  Whether to lock the chassis to prevent unauthorized physical access to the system components.
+### **Electronic Lock**
 
-    !!! note ""
-        Effective on the next startup after BIOS setting is saved.
+Whether to lock the chassis to prevent unauthorized physical access to the system components.
 
-    Options:
+!!! warning "Attention"
+    Effective on the next startup after BIOS setting is saved.
 
-    1.  **Disabled** - Default.
-    2.  Enabled.
+Possible options:
 
-Cover Tamper Detected
-:  Chassis Intrusion Detection is a utility that can tell whether someone has opened the case (intruded into the chassis).
+1. **Disabled** - Default.
+2. Enabled
 
-    Options:
+### **Cover Tamper Detected**
 
-    1.  **Disabled** - Default.
-    1.  Enabled.
+Chassis Intrusion Detection is a utility that can tell whether someone has opened the case (intruded into the chassis).
 
-    !!! note ""
-        If chassis tamper occurs, you can only clear this error by entering setup.
+!!! warning "Attention"
+    If chassis tamper occurs, you can only clear this error by entering setup.
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | CoverTamperDetected | Disabled, Enabled | yes |
+Possible options:
 
-Configuration Change Detection
-:  
-    Options:
+1. **Disabled** - Default.
+2. Enabled
 
-    1.  **Disabled** - Default.
-    2.  Enabled. When a device is installed or removed, the system will notify the user during POST.
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| CoverTamperDetected | Disabled, Enabled | Yes |
 
-    !!! note ""
-        This notice can only be cleared by entering BIOS setup, saving and then exiting.
+### **Configuration Change Detection**
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | ConfigurationChangeDetection | Disabled, Enabled | yes |
+!!! warning "Attention"
+    This notice can only be cleared by entering BIOS setup, saving and then exiting.
+
+Possible options:
+
+1. **Disabled** - Default.
+2. Enabled - When a device is installed or removed, the system will notify the user during POST.
+
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| ConfigurationChangeDetection | Disabled, Enabled | Yes |
