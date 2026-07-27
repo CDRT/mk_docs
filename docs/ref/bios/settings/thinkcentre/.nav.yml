@@ -13,7 +13,7 @@ nav:
       - Audio Setup: audio_setup.md
       - Network Setup: network_setup.md
       - PCI Express Configuration: pci_express_configuration.md
-      - Intel(R) Thunderbolt: intel_r_manageability.md
+      - Intel(R) Manageability: intel_r_manageability.md
     - Advanced:
       - advanced.md
       - CPU Setup: cpu_setup.md
