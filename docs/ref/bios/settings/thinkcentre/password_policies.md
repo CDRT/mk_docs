@@ -1,139 +1,150 @@
 # Password Policies
 
-![Password Policies](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_password_policies.PNG)
+## General
 
 [More information at Lenovo Support - types of password](https://support.lenovo.com/us/en/solutions/ht513634)
 
-Set Minimum Length
-:  
-    Options:
+### **Set Minimum Length**
 
-    *  **Disabled** - no minimum (see below). Default.
-    *   4 - 12 characters minimum.
+Possible options:
 
-    !!! note ""
-        - If no minimum is set, passwords may be 1 to 128 characters long.
-        - If a minimum is set, it applies to:
-            - Supervisor Password (SVP)
-            - System Management Password (SMP)
-            - Power-on (POP) and Hard Disk Passwords 
-        - If both `Set Minimum Length` and `Set Strong Password` are enabled, the longest value for minimum length applies.
+1. **Disabled** - no minimum (see below). Default.
+2. 4 - 12 characters minimum.
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | SetMinimumLength | Disabled, 4 characters, 5 characters, 6 characters, 7 characters, 8 characters, 9 characters, 10 characters, 11 characters, 12 characters | yes |
+!!! warning "Attention"
+    - If no minimum is set, passwords may be 1 to 128 characters long.
+    - If a minimum is set, it applies to:
+        - Supervisor Password (SVP)
+        - System Management Password (SMP)
+        - Power-on (POP) and Hard Disk Passwords
+    - If both `Set Minimum Length` and `Set Strong Password` are enabled, the longest value for minimum length applies.
 
-Set Strong Password
-:  
-    Options:
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| SetMinimumLength | Disabled, 4 characters, 5 characters, 6 characters, 7 characters, 8 characters, 9 characters, 10 characters, 11 characters, 12 characters | Yes |
 
-    1.  **Enabled** - Upper case, lower case and numeric characters are all required. Special characters are optional. The minimum length is 8. Default.
-    1.  Disabled - The minimum length is 1 character.
+### **Set Strong Password**
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | SetStrongPassword | Disabled, Enabled | yes |
+Possible options:
 
-Keyboard Layout
-:  Select the keyboard language for password.
+1. **Enabled** - Upper case, lower case and numeric characters are all required. Special characters are optional. The minimum length is 8. Default.
+2. Disabled - The minimum length is 1 character.
 
-    Options:
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| SetStrongPassword | Disabled, Enabled | Yes |
 
-    1.  **English** - Default.
-    2.  French
-    3.  German
-    4.  Russian
-    5.  Chinese
+### **Keyboard Layout**
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | KeyboardLayout | English, French, German, Chinese | yes |
+Select the keyboard language for password.
 
-BIOS Password At System Boot
-:  Whether to give a BIOS password prompt at system boot (when the system starts from the full off or hibernate state):
+Possible options:
 
-    1.  **Yes** - Default.
-    1.  No.
+1. **English** - Default.
+2. French
+3. German
+4. Russian
+5. Chinese
 
-    !!! note ""
-        To prevent unauthorized access to the system, we recommend setting user authentication on the OS.
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| KeyboardLayout | English, French, German, Russai, Chinese | Yes |
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | BIOSPasswordAtSystemBoot | No, Yes | yes |
+### **BIOS Password At System Boot**
 
-BIOS Password At Reboot
-:  Whether the power-on password (POP) is required when system restarts.
+Whether to give a BIOS password prompt at system boot (when the system starts from the full off or hibernate state).
 
-    Options:
+!!! warning "Attention"
+    To prevent unauthorized access to the system, we recommend setting user authentication on the OS.
 
-    1.  **No** - Default.
-    1.  Yes.
+Possible options:
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | BIOSPasswordAtReboot | No,Yes | yes |
+1. **Yes** - Default.
+2. No
 
-BIOS Password At Boot Device List
-:  Whether the user is prompted for a password when F12 is pressed during POST (and an administrator password was set).
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| BIOSPasswordAtSystemBoot | No, Yes | Yes |
 
-    Options:
+### **BIOS Password At Reboot**
 
-    1.  **No** - Default.
-    1.  Yes.
+Whether the power-on password (POP) is required when system restarts.
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | BIOSPasswordAtBootDeviceList | No, Yes | yes |
+Possible options:
 
-Require SVP when Flashing
-:  Whether the supervisor password (SVP) is required when updating the system firmware.
+1. **No** - Default.
+2. Yes
 
-    Options:
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| BIOSPasswordAtReboot | No, Yes | Yes |
 
-    1.  **No** - Default.
-    1.  Yes.
+### **BIOS Password At Boot Device List**
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | RequireSVPwhenFlashing | No, Yes | yes |
+Whether the user is prompted for a password when F12 is pressed during POST (and an administrator password was set).
 
-POP Changeable by User
-:  Whether the Power-On Password (POP) can be changed by users, or else, only with the Supervisor Password (SVP).
+Possible options:
 
-    Options:
+1. **No** - Default.
+2. Yes
 
-    1.  **Yes** - Default.
-    2.  No.
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| BIOSPasswordAtBootDeviceList | No, Yes | Yes |
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | POPChangeablebyUser | No, Yes | yes |
+### **Require SVP when Flashing**
 
-Allow the Jumper to Clear SVP
-:  Whether to allow the hardware jumper to clear the Supervisor
-password.
+Whether the supervisor password (SVP) is required when updating the system firmware.
 
-    Options:
+Possible options:
 
-    1.  **Yes** - Default.
-    2.  No.
+1. **No** - Default.
+2. Yes
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | AllowJumperClearSVP | No, Yes | yes |
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| RequireSVPwhenFlashing | No, Yes | Yes |
 
-    !!! warning
-        When disabled, no action can reset the SVP if you forget it.
+### **POP Changeable by User**
 
-Password Count Exceeded Error
-:  Whether to show the POST 0199 error and password prompt:
+Whether the Power-On Password (POP) can be changed by users, or else, only with the Supervisor Password (SVP).
 
-    1.  **Enabled** - Default.
-    2.  Disabled.
+Possible options:
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | PasswordCountExceededError | Disabled, Enabled | yes |
+1. **Yes** - Default.
+2. No
 
-    [More information at Lenovo Support](https://support.lenovo.com/lt/en/solutions/ht052093-error-0199-system-security-security-password-retry-count-exceeded-thinkcentre-m90-m90p-thinkserver-ts200v-thinkstation-e20)
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| POPChangeablebyUser | No, Yes | Yes |
+
+### **Allow the Jumper to Clear SVP**
+
+Whether to allow the hardware jumper to clear the Supervisor password.
+
+!!! warning "Attention"
+    When disabled, no action can reset the SVP if you forget it.
+
+Possible options:
+
+1. **Yes** - Default.
+2. No
+
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| AllowJumperClearSVP | No, Yes | Yes |
+
+### **Password Count Exceeded Error**
+
+Whether to show the POST 0199 error and password prompt.
+
+Possible options:
+
+1. **Enabled** - Default.
+2. Disabled
+
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| PasswordCountExceededError | Disabled, Enabled | Yes |
+
+[More information at Lenovo Support](https://support.lenovo.com/lt/en/solutions/ht052093-error-0199-system-security-security-password-retry-count-exceeded-thinkcentre-m90-m90p-thinkserver-ts200v-thinkstation-e20)
