@@ -1,247 +1,230 @@
-# USB Setup Settings #
+# USB Setup Settings
 
-![USB Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_usbsetup.PNG)
+## General
 
-AMD version of USB Setup
-:
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_usbsetup1.PNG)
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img/ts_amd_usbsetup2.PNG)
+!!! warning "Attention"
+    The number of USB ports may vary depending on model.
 
+### **USB Port Access**
 
-	!!! note ""
-		The number of USB ports may vary depending on model.
+Whether to enable USB devices.
 
-USB Port Access
-:	Whether to enable USB devices.
+!!! warning "Attention"
+    When disabled, all other USB settings are removed, except for `USB Enumeration Delay`.
 
-	!!! note ""
-		When disabled, all other USB settings are removed, except for `USB Enumeration Delay`.
+Possible options:
 
-	Options:
+1. **Enabled** – Default.
+2. Disabled
 
-	1. **Enabled** – Default.
-	2. Disabled.
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| USBPortAccess | Disabled, Enabled | Yes | Both |
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| USBPortAccess | Disabled, Enabled | yes | Both |
+### **Always On USB**
 
+Whether USB ports remain powered for charging when the system is off.
 
-Always On USB
-:	Whether USB ports remain powered for charging when the system is off.
+Possible options:
 
-	Options:
+1. **Disabled** – Default.
+2. Enabled
 
-	1. **Disabled** – Default.
-	2. Enabled.
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| AlwaysOnUsb | Disabled, Enabled | Yes | Both |
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| AlwaysOnUsb | Disabled, Enabled | yes | Both |
+### **USB BIOS Support**
 
+Whether USB keyboard and/or USB mouse may be used without device driver support.
 
+Possible options:
 
-USB BIOS Support
-:	Whether USB keyboard and/or USB mouse may be used without device driver support.
+1. **Enabled** - Default.
+2. Disabled
 
-	Options:
+### **USB Charging Port in S4/S5**
 
-	1.  **Enabled** - Default.
-	2.  Disabled
+Whether to allow USB charging in hibernation and shutdown states.
 
-	<!-- | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| USBBIOSSupport |  |  | AMD |
-	 -->
+Possible options:
 
+1. **Disabled** - Default.
+2. Enabled
 
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| USBChargingPortInS4S5 | Disable, Enable | Yes | AMD |
 
-USB Charging Port in S4/S5
-:	Whether to allow USB charging in hibernation and shutdown states.
+### **XHCI Hand-off**
 
-	Options:
+Whether USB3 ownership can be handed off to OS driver (not remaining in BIOS).
 
-	1.  **Disabled** - Default.
-	2.  Enabled.
+Possible options:
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| USBChargingPortInS4S5 | Disable, Enable | yes | AMD |
+1. **Enabled** - Default.
+2. Disabled
 
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| XHCIHandoff | Disable, Enable | Yes | AMD |
 
+## USB hardware delays and time-outs
 
-XHCI Hand-off
-:	Whether USB3 ownership can be handed off to OS driver (not remaining in BIOS).
+### **USB Enumeration Delay**
 
-	Options:
+Whether extra delay is added when host performs USB enumeration.
 
-	1. **Enabled** - Default.
-	2. Disabled.
+!!! warning "Attention"
+    May improve the compatibility of USB device detection but increase POST Time.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| XHCIHandoff | Disable, Enable | yes | AMD |
+Possible options:
 
+1. **Disabled** - Default.
+2. Enabled
 
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| USBEnumerationDelay | Disabled, Enabled | Yes | Intel |
 
-## USB hardware delays and time-outs: ##
+### **USB Transfer Time-out**
 
-USB Enumeration Delay
-:	Whether extra delay is added when host performs USB enumeration.
+The time-out value for Control, Bulk, and Interrupt transfers.
 
-	!!! note ""
-		May improve the compatibility of USB device detection but increase POST Time.
+Possible options:
 
-	1. Enabled.
-	2. **Disabled** - Default.
+1. 1 sec
+2. 5 sec
+3. 10 sec
+4. **20 sec** - Default.
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| USBEnumerationDelay | Disabled, Enabled | yes | Intel |
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| USBTransferTimeout | 1 sec, 5 sec, 10 sec, 20 sec | Yes | AMD |
 
+### **Device Reset Time-out**
 
+USB mass storage device `Start Unit` command time-out.
 
-USB Transfer Time-out
-:	The time-out value for Control, Bulk, and Interrupt transfers.
+Possible options:
 
-	Options:
+1. **Disabled** - Default.
+2. Enabled
 
-	1. 1 sec
-	1. 5 sec
-	1. 10 sec
-	1. **20 sec** - Default.
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| DeviceResetTimeout | 10 sec, 20 sec, 30 sec, 40 sec | Yes | AMD |
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| USBTransferTimeout | 1 sec, 5 sec, 10 sec, 20 sec | yes | AMD |
+### **Device Power-up Delay**
 
+Maximum time before device reports itself to the Host Controller.
 
-Device Reset Time-out
-:	USB mass storage device `Start Unit` command time-out.
+`Auto` default values:
 
-	Options:
+- Root port: 100 ms
+- Hub port: delay taken from hub descriptor
 
-	1. **Disabled** - Default.
-	2. Enabled.
+<!-- TODO: clarify hub port -->
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| DeviceResetTimeout | 10 sec, 20 sec, 30 sec, 40 sec | yes | AMD |
+Possible options:
 
+1. **Auto** - Default.
+2. Manual
 
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| DevicePowerupDelay | Auto, Manual | Yes | AMD |
 
-Device Power-up Delay
-:	Maximum time before device reports itself to the Host Controller.
+### **Front USB Ports**
 
-	Options:
+Whether to enable all Front USB ports and relevant setting fields.
 
-	1. **Auto** - Default.
-	2. Manual.
+Possible options:
 
-	!!! note ""
-		`Auto` default values: <br> - Root port: 100 ms <br> - Hub port: delay taken from hub descriptor
+1. **Enabled** – Default.
+2. Disabled
 
-	<!-- TODO: clarify hub port -->
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| FrontUSBPorts | Disabled, Enabled | Yes | Both |
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| DevicePowerupDelay | Auto, Manual | yes | AMD |
+### **Media Card Reader**
 
+Whether to enable the Media Card Reader (MCR).
 
+Possible options:
 
-Front USB Ports
-:	Whether to enable all Front USB ports and relevant setting fields.
+1. **Enabled** - Default.
+2. Disabled
 
-	Options:
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| MediaCardReader | Disable, Enable | Yes | AMD |
 
-	1. **Enabled** – Default.
-	2. Disabled.
+### **MCR USB Header**
 
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| FrontUSBPorts | Disabled, Enabled | yes | Both |
+Whether the device connected to this USB header has the characteristics of external USB.
 
+Possible options:
 
-Media Card Reader
-:	Whether to enable the Media Card Reader (MCR).
+1. **Internal** - Default. Select when connected to Media Card Reader (MCR).
+2. External. Select when connected to USB Type C port.
 
-	Options:
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| MCRUSBHeader | Internal, External | Yes | AMD |
 
-	1. **Enabled** - Default.
-	2. Disabled.
+### **Internal USB3.2 Port**
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| MediaCardReader | Disable, Enable | yes | AMD |
+Whether to enable the internal USB 3.2 port.
 
+Possible options:
 
+1. **Enabled** - Default.
+2. Disabled
 
-MCR USB Header
-:	Whether the device connected to this USB header has the characteristics of external USB.
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| InternalUSB3Port | Disable, Enable | Yes | AMD |
 
-	Options:
+### **Internal USB2.0 Port**
 
-	1. **Internal** - Default. Select when connected to Media Card Reader (MCR).
-	2  External. Select when connected to USB Type C port.
+Whether to enable the internal USB 2.0 port.
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| MCRUSBHeader | External, Internal | yes | AMD |
+Possible options:
 
+1. **Enabled** - Default.
+2. Disabled
 
+| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| InternalUSB2Port | Disable, Enable | Yes | AMD |
 
-Internal USB3.2 Port
-:	Whether to enable the internal USB 3.2 port.
+### **Rear USB Ports**
 
-	Options:
+Whether to enable or disable all rear USB ports and relevant settings.
 
-	1. **Enabled** - Default.
-	2. Disabled.
+Possible options:
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| InternalUSB3Port | Disable, Enable | yes | AMD |
+1. **Enabled** – Default.
+2. Disabled
 
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| RearUSBPorts | Disabled, Enabled | Yes | Both |
 
+### **USB Port {X}**
 
-Internal USB2.0 Port
-:	Whether to enable the internal USB 2.0 port.
+{X} is the number of the rear USB port (total number of ports dependent on model).
 
-	Options:
+For each Rear USB Port:
 
-	1. **Enabled** - Default.
-	2. Disabled.
+1. **Enabled**. Default, if `Enabled` is selected in `Rear USB Ports`.
+2. Disabled
 
-	| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| InternalUSB2Port | Disable, Enable | yes | AMD |
+| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| USBPortX | Disabled, Enabled | Yes | Both |
 
-
-
-Rear USB Ports
-:	Whether to enable or disable all rear USB ports and relevant settings.
-
-	Options:
-
-	1. **Enabled** –  Default.
-	2. Disabled.
-
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| RearUSBPorts | Disabled, Enabled | yes | Both |
-
-
-USB Port {X}
-:	{X} is the number of the rear USB port (total number of ports dependent on model).
-
-	For each Rear USB Port:
-
-	1. **Enabled**. Default, if `Enabled` is selected in `Rear USB Ports`.
-	2. Disabled.
-
-	| WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-	|:---|:---|:---|:---|
-	| USBPortX | Disabled, Enabled | yes | Both |
-
-	!!! note ""
-		The WMI setting name in the example above represents the port number. Change the number to that of the desired rear USB port.
+!!! warning "Attention"
+    The WMI setting name in the example above represents the port number. Change the number to that of the desired rear USB port.
