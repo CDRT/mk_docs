@@ -1,62 +1,64 @@
 # ATA Drive Setup
 
-![ATA Drive Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_ata_drive_setup.PNG)
+### **SATA Controller**
 
-SATA Controller
-:  Serial AT Attachment (SATA) drive access.
+Serial AT Attachment (SATA) drive access.
 
-    Options:
+!!! warning "Attention"
+    If the `SATA Controller` is set to `Disabled`, then `Configure SATA as` and `SATA Drive {Number}` will be hidden.
 
-    1.  **Enable** - Default.
-    2.  Disable.
+Possible options:
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | SATAController | Disabled, Enabled | yes |
+1. **Enable** - Default.
+2. Disable
 
-    !!! note ""
-        If the `SATA Controller` is set to `Disabled`, then `Configure SATA as` and `SATA Drive {Number}` will be hidden.
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| SATAController | Disabled, Enabled | Yes |
 
-SATA DRIVE {Number}
-:  One of the (Serial AT Attachment) Drives. Total number of drives depends on model.
+### **SATA DRIVE {Number}**
 
-    Options:
+One of the (Serial AT Attachment) Drives. Total number of drives depends on model.
 
-    1.  **Enabled** - Default.
-    2.  Disabled.
+Possible options:
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | SATADrive1 | Disabled, Enabled | yes |
+1. **Enabled** - Default.
+2. Disabled
 
-    !!! note ""
-        The WMI setting name for Drive 1 is shown. Other drives follow the pattern `SATADrive#` where `#` is the number of the drive.
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| SATADrive1 | Disabled, Enabled | Yes |
 
-Configure SATA As
-:  Configure the SATA (Serial AT Attachment) drive controller.
+!!! warning "Attention"
+    The WMI setting name for Drive 1 is shown. Other drives follow the pattern `SATADrive#`, where `#` is the number of the drive.
 
-    !!! note ""
-        - Device driver support is required  for AHCI or Intel(R) RST with Intel(R) Optane.
-        - Depending on how the hard disk image was installed, changing this setting may prevent the system from booting.
+### **Configure SATA As**
 
-    Options:
+Configure the SATA (Serial AT Attachment) drive controller.
 
-    1.  **AHCI** - enables AHCI (Advanced Host Controller Interface). Default.
-    2.  Intel (R) RST with Intel (R) Optane mode - enables RST (Rapid Storage Technology).
-    3.  RAID - enables RAID. <!-- MODEL: M70S Gen3 only-->
+!!! warning "Attention"
+    - Device driver support is required for AHCI or Intel(R) RST with Intel(R) Optane.
+    - Depending on how the hard disk image was installed, changing this setting may prevent the system from booting.
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | ConfigureSATAas  | AHCI, Intel(R) RST with Intel(R) Optane, [RAID] | yes |
+Possible options:
 
-Hard Disk Pre-Delay
-:  Ensures the hard disk has initialized after power up, prior to being accessed. This avoids the disk hanging because of access by the OS before initialization.
+1. **AHCI** - enables AHCI (Advanced Host Controller Interface). Default.
+2. Intel (R) RST with Intel (R) Optane mode - enables RST (Rapid Storage Technology).
+3. RAID - enables RAID. <!-- MODEL: M70S Gen3 only-->
 
-    Options:
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| ConfigureSATAas | AHCI, Intel(R) RST with Intel(R) Optane, [RAID] | Yes |
 
-    1.  **Disabled** - Default.
-    2.  3 - 30 seconds - enables delay, in increments of 3 seconds up 15, then 21 or 30.
+### **Hard Disk Pre-Delay**
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | HardDiskPre-delay | Disabled, 3 Seconds, 6 Seconds, 9 Seconds, 12 Seconds, 15 Seconds, 21 Seconds, 30 Seconds | yes |
+Ensures the hard disk has initialized after power up, prior to being accessed. This avoids the disk hanging because of access by the OS before initialization.
+
+Possible options:
+
+1. **Disabled** - Default.
+2. 3 - 30 seconds - enables delay, in increments of 3 seconds up 15, then 21 or 30.
+
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| HardDiskPre-delay | Disabled, 3 Seconds, 6 Seconds, 9 Seconds, 12 Seconds, 15 Seconds, 21 Seconds, 30 Seconds | Yes |
