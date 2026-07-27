@@ -4,7 +4,7 @@
 
 Possible options:
 
-1. **English**
+1. **English** - Default.
 2. French
 3. Russian
 4. Chinese (Mandarin)

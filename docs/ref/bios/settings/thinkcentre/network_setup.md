@@ -1,171 +1,177 @@
 # Network Setup
 
-![Network Setup](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_network_setup_1.PNG)
+## General
 
-Onboard Ethernet Controller
-:  
-    Options:
+### **Onboard Ethernet Controller**
 
-    1. **Enabled** - Default.
-    2. Disabled.
+!!! warning "Attention"
+    Setting to `Disabled` also disables all [Intel (R) AMT](https://software.intel.com/sites/manageability/AMT_Implementation_and_Reference_Guide/default.htm) related functions.
 
-    !!! note ""
-        Setting to `Disabled` also disables all [Intel (R) AMT](https://software.intel.com/sites/manageability/AMT_Implementation_and_Reference_Guide/default.htm) related functions.
+Possible options:
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | OnboardEthernetController | Disabled, Enabled | yes |
+1. **Enabled** - Default.
+2. Disabled
 
-Wireless LAN Access
-:  Controls access to WiFi.
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| OnboardEthernetController | Disabled, Enabled | Yes |
 
-    Options:
+### **Wireless LAN Access**
 
-    1. **Enabled** - Default.
-    2. Disabled.
+Controls access to WiFi.
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | WirelessLANAccess | Disabled, Enabled | yes |
+Possible options:
 
-Wireless LAN PXE boot
-:  Whether to load Wireless LAN UNDI Driver to support wireless LAN PXE boot or HTTPS boot.
+1. **Enabled** - Default.
+2. Disabled
 
-    Options:
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| WirelessLANAccess | Disabled, Enabled | Yes |
 
-    1. **Disabled** - Default.
-    2. Enabled.
+### **Wireless LAN PXE boot**
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | WirelessLANPXE | Disabled, Enabled | yes |
+Whether to load Wireless LAN UNDI Driver to support wireless LAN PXE boot or HTTPS boot.
 
-Wireless Auto Disconnection
-:  Disable wireless LAN when onboard Ethernet is connected.
+Possible options:
 
-    1. **Disabled** - Default.
-    2. Enable.
+1. **Disabled** - Default.
+2. Enabled
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | WirelessAutoDisconnection | Disabled, Enabled | yes |
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| WirelessLANPXE | Disabled, Enabled | Yes |
 
-Wireless Certified Information
-:  Display only
+### **Wireless Auto Disconnection**
 
-PXE IPV4 Network Stack
-:  
-    Options:
+Disable wireless LAN when onboard Ethernet is connected.
 
-    1. **Disabled** - Default.
-    2. Enabled.
+Possible options:
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | PXEIPV4NetworkStack | Disabled, Enabled | yes |
+1. **Disabled** - Default.
+2. Enabled
 
-PXE IPV6 Network Stack
-:  
-    Options:
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| WirelessAutoDisconnection | Disabled, Enabled | Yes |
 
-    1. **Disabled** - Default.
-    2. Enabled.
+### **Wireless Certified Information**
 
-    | WMI Setting name | Values | Locked by SVP |
-    |:---|:---|:---|
-    | PXEIPV6NetworkStack | Disabled, Enabled | yes |
+Display only
 
-HTTPS Support
-:  IPV4 and IPV6 boot support.
+### **PXE IPV4 Network Stack**
 
-    Options:
+Possible options:
 
-    1. **Disabled** - Default.
-    1. Enabled.
+1. **Disabled** - Default.
+2. Enabled
 
-HTTPS Boot
-:  Custom HTTPS boot.
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| PXEIPV4NetworkStack | Disabled, Enabled | Yes |
 
-    Options:
+### **PXE IPV6 Network Stack**
 
-    1. **Disabled** - Default.
-    2. Enabled.
+Possible options:
 
-    !!! note ""
-        If enabled, `HTTPs Boot Configuration` and `TLS Auth Configuration` will be shown.
+1. **Disabled** - Default.
+2. Enabled
 
-Lenovo Cloud Services
-:  Whether `Lenovo Cloud` will be selected in boot menu, to boot from Lenovo Cloud server directly.
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| PXEIPV6NetworkStack | Disabled, Enabled | Yes |
 
-    Options:
+### **HTTPS Support**
 
-    1. **Disabled** - Default.
-    2. Enabled.
+IPV4 and IPV6 boot support.
 
-Win VDI Boot
-:  When enabled, `Win VDI Boot` will be selected in boot menu, to boot from Lenovo Cloud server and load VDI service.
+Possible options:
 
-    Options:
+1. **Disabled** - Default.
+2. Enabled
 
-    1. **Disabled** - Default.
-    2. Enabled.
+### **HTTPS Boot**
 
-HTTPs Boot Configuration
-:  
-    ![HTTPS Boot Configuration](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/thinkcentre_https_boot_configuration.png)
+Custom HTTPS boot.
 
-    Create a new boot option based on a HTTPS URL.
+!!! warning "Attention"
+    If enabled, `HTTPs Boot Configuration` and `TLS Auth Configuration` will be shown.
 
-    !!! note ""
-        Only one configuration can be entered at a time. The configuration will take effect after a system reboot.
+Possible options:
 
-    Input the description
-    :  Press `Enter` to input a label for the newly created URL and it will be displayed in the boot sequence menu.
+1. **Disabled** - Default.
+2. Enabled
 
-    Internet Protocol
-    :  
-            
+### **Lenovo Cloud Services**
 
-        Options:
+Whether `Lenovo Cloud` will be selected in boot menu, to boot from Lenovo Cloud server directly.
 
-        1. **Ipv4** - enables IPV4. Default.
-        2. Ipv6 - enables IPV6.
+Possible options:
 
-    Boot URL
-    :  
-        Use the `TLS Auth configuration` to import the CA to support the HTTPs boot 
+1. **Disabled** - Default.
+2. Enabled
 
-    Delete HTTPs Boot Option from List
-    :  Select and press `Enter` to remove an EFI HTTPs boot option.
+### **Win VDI Boot**
 
-<!-- NO WMI -->
+When enabled, `Win VDI Boot` will be selected in boot menu, to boot from Lenovo Cloud server and load VDI service.
+
+Possible options:
+
+1. **Disabled** - Default.
+2. Enabled
+
+## HTTPs Boot Configuration
+
+Create a new boot option based on a HTTPS URL.
+
+!!! warning "Attention"
+    Only one configuration can be entered at a time. The configuration will take effect after a system reboot.
+
+### **Input the description**
+
+Press `Enter` to input a label for the newly created URL and it will be displayed in the boot sequence menu.
+
+### **Internet Protocol**
+
+Possible options:
+
+1. **Ipv4** - enables IPV4. Default.
+2. Ipv6 - enables IPV6.
+
+### **Boot URL**
+
+Use the `TLS Auth configuration` to import the CA to support the HTTPs boot.
+
+### **Delete HTTPs Boot Option from List**
+
+Select and press `Enter` to remove an EFI HTTPs boot option.
 
 ## TLS Auth Configuration
 
-![TLS Auth Configuration](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/thinkcentre_tls_auth_configuration.png)
-
 Server CA configuration (display only).
 
-!!! note ""
+!!! warning "Attention"
     Press `Enter` to select TLS auto configuration for HTTPS boot.
 
 ## WiFi Configuration
 
-![WiFi Configuration](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkcentre/img/tc_wifi_config.PNG)
+### **Automatic Connection Support**
 
-Automatic Connection Support
-:  Automatically connect to WiFi on boot.
+Automatically connect to WiFi on boot.
 
-    Options:
+Possible options:
 
-    1. **Disabled** - Default.
-    2. Enabled.
+1. **Disabled** - Default.
+2. Enabled
 
-Current Connection (display only)
-:  Displays the current WiFi connection.
+### **Current Connection (display only)**
 
-Wi-Fi Scan
-:  Press `Enter` to scan the available connections.
+Displays the current WiFi connection.
 
-Scanned List (display only)
-:  Scanned WiFi nodes.
+### **Wi-Fi Scan**
+
+Press `Enter` to scan the available connections.
+
+### **Scanned List (display only)**
+
+Scanned WiFi nodes.
