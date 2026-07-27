@@ -15,7 +15,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| ASPMSupport | Disabled, Auto | Yes |
+| ASPMSupport | Auto, Disabled | Yes |
 
 ## Select PCI Express port speed
 
@@ -31,7 +31,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| PCIe16xSlotSpeed | Disabled, Enabled | Yes |
+| PCIe16xSlotSpeed | Auto, Gen1, Gen2, Gen3, Gen 4 | Yes |
 
 ### **PCIe 8x Slot speed**
 
@@ -42,6 +42,10 @@ Possible options:
 3. Gen 2
 4. Gen 3
 5. Gen 4
+
+| WMI Setting name | Values | Locked by SVP |
+| :--- | :--- | :--- |
+| PCIe8xSlotSpeed | Auto, Gen1, Gen2, Gen3, Gen 4 | Yes |
 
 ### **PCIe 4x Slot speed**
 
@@ -55,7 +59,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| PCIe4xSlotSpeed | Auto, Gen1, Gen2, Gen3 | Yes |
+| PCIe4xSlotSpeed | Auto, Gen1, Gen2, Gen3, Gen4 | Yes |
 
 ### **PCIe 1x Slot speed**
 
