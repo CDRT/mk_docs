@@ -395,14 +395,17 @@ The module creates and uses the following directory structure:
 
 ## Version History
 
-??? note "Version 1.0.8"
-    Initial public release with Azure Key Vault support and enhanced functionality
-
-??? note "Version 1.0.7"
-    Technical Preview release adding Azure Key Vault support
-
-??? note "Version 1.0.6"
-    Technical Preview release
+- Version 1.0.9
+    - Fix for timer (1 second default, 3 seconds for Azure)
+    - Get-LnvSignedWmiCommand: Added -Desktop switch for creating ThinkCentre/ThinkStation certificate -> password command
+    - Get-LnvSignedWmiCommand: Fixed rare issue on applying the proper certificate type to commands
+    - Get-LnvUnlockCode: Added support for Base64 unlock codes used by desktop models
+- Version 1.0.8
+    - Initial public release with Azure Key Vault support and enhanced functionality
+- Version 1.0.7
+    - Technical Preview release adding Azure Key Vault support
+- Version 1.0.6
+    - Technical Preview release
 
 ---
 
