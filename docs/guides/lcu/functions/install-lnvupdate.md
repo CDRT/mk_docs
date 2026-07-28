@@ -137,9 +137,10 @@ When `-SaveBIOSUpdateInfoToRegistry` is used, the following registry key is upda
 
 ```text
 HKLM\Software\LenovoUpdate\BIOSUpdate
-  - Version      : BIOS version installed
   - InstallDate  : Date and time of installation
   - ActionNeeded : Whether reboot/shutdown is required
+  - PackageID    : ID of the package that was installed
+  - PackageHash  : CRC checksum of that package
 ```
 
 ### WMI Export for Compliance
