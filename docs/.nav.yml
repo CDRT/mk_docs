@@ -6,6 +6,7 @@ nav:
         - guides/thinkvantage/index.md
         - Think BIOS Config Tool: guides/tbct_v2
         - Lenovo BIOS Certificates Tool: guides/lbct
+        - Lenovo BIOS Event Log: guides/lbel/lbel_module_reference.md
         - Lenovo.Client.Scripting Module: guides/lcsm/lcsm_top.md
         - Lenovo.Client.Update Module: guides/lcu
         - ThinkVantage Repository Manager: guides/tvrm
