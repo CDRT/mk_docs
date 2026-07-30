@@ -32,7 +32,7 @@ LnvBiosCertInterface
 
 Alternatively, you can download from:
 
-[https://download.lenovo.com/cdrt/tools/lbct_211_108.zip](https://download.lenovo.com/cdrt/tools/lbct_211_108.zip)
+[https://download.lenovo.com/cdrt/tools/lbct_2.1.2_1.0.9.zip](https://download.lenovo.com/cdrt/tools/lbct_2.1.2_1.0.9.zip)
 
 Simply unzip to a local folder and run the GUI script in an elevated terminal. The GUI script will locate the module and import it automatically.
 
