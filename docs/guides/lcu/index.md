@@ -43,6 +43,10 @@ This PowerShell module is provided to assist in managing Lenovo driver, BIOS/UEF
 
 ## Version History
 
+- 1.0.5 - July 28, 2026:
+    - Added PackageID to the data saved in the registry when -SaveBIOSUpdateInfoToRegistry is passed to Install-LnvUpdate
+    - Updated Lenovo.CertificateValidation.dll to latest version
+    - Changed Class importing to address issue in OSD task sequences
 - 1.0.4 - July 14, 2026:
     - Signed Lenovo.Client.Update.Types.dll
     - Added detailed Comment Help for Expand-LnvUpdate

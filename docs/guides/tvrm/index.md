@@ -23,7 +23,7 @@ The script resolves the `Lenovo.Client.RepositoryManager` module automatically i
 2. Installed from the PowerShell Gallery (requires internet access and NuGet provider)
 3. Bundled copy in the same folder as the script
 
-For local manual installation, download the [script and module from here](https://download.lenovo.com/cdrt/tools/Lenovo.Client.RepositoryManager_1.0.1.zip).
+For local manual installation, download the [script and module from here](https://download.lenovo.com/cdrt/tools/Lenovo.Client.RepositoryManager_1.0.2.zip).
 
 To install the module manually from the PowerShell Gallery:
 
@@ -242,6 +242,19 @@ The tool moves the package folder to the Windows Recycle Bin and removes the ent
 1. Open the **Repository** tab.
 2. Sort or filter to review the **Superseded** column.
 3. Select superseded packages and click **Delete**.
+
+---
+
+## Version History
+
+- *GUI version/Module version (Release date)*
+- 1.0.2/1.0.2 (July 29, 2026):
+    - Added Category in Search and Repository views
+    - Added highlight to active Repository in the Settings dialog
+    - Can now double-click a repository on the Repositories tab of the Settings dialog to set it as the Active repository
+    - Fixed the identification of superseded packages for certain culture date formats
+    - Picked up new LenovoCertificateValidation.dll
+- 1.0.1/1.0.1 (June 1, 2026): Initial release
 
 ---
 
