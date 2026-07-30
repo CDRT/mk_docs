@@ -65,7 +65,7 @@ If this is your first script from the PowerShell Gallery, you'll be prompted to 
 
 **Or download directly:**
 
-[https://download.lenovo.com/cdrt/tools/tbct_202_102.zip](https://download.lenovo.com/cdrt/tools/tbct_202_102.zip)
+[https://download.lenovo.com/cdrt/tools/tbct_2.0.3_1.0.3.zip](https://download.lenovo.com/cdrt/tools/tbct_2.0.3_1.0.3.zip)
 
 Simply unzip to a local folder and run the GUI script in an elevated terminal.
 
