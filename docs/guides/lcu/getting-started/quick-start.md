@@ -120,6 +120,8 @@ $updates | Install-LnvUpdate -Verbose
 ??? note "Deploying Updates via OSD Task Sequence"
     When performing a bare-metal OS deployment, you can dynamically retrieve the latest updates for a given machine type and install applicable updates to the specific model being deployed. This approach ensures systems receive all critical BIOS, firmware, and driver updates during imaging.
 
+    In the past, an admin had to modify the BIOS package XML descriptor to allow the update to silently install and not force a reboot. This is automatically handled by a private function in the module, leaving reboot control to the admin.
+
     ### Recommended Workflow
 
     ```powershell
