@@ -1,4 +1,4 @@
-# System Summary #
+# System Summary
 
 Displays information on system components such as:
 

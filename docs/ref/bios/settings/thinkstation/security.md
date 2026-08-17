@@ -602,11 +602,8 @@ Options:
 2.  Enabled.
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
+| :--- | :--- | :--- | :--- |
 | setting_name | setting_values | yes_no | both |
-
-
-
 
 Erase Fingerprint Data
 

@@ -1,26 +1,30 @@
 # CPU Settings
 
-![CPU](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_cpu.png)
+### **Efficient-cores Support**
 
-Efficient-cores Support
-:  Whether to enable Efficient-cores support which is available on Intel 12th Generation and later processors.
+Whether to enable Efficient-cores support which is available on Intel 12th Generation and later processors.
 
-    1. **On** - Default
-    2. Off
+Possible options:
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | EfficientCores | Disable, Enable | No | Intel |
+1. **On** - Default.
+2. Off
 
-Intel (R) Hyper-Threading Technology
-:  Whether to enable additional CPU threads, which appear as additional processors but share some resources with the other threads within a CPU.
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| EfficientCores | Disable, Enable | No | Intel |
 
-    !!! note ""
-        When disable, allows only one thread within each execution core unit.
+### **Intel (R) Hyper-Threading Technology**
 
-    1. **On** - Default.
-    2. Off
+Whether to enable additional CPU threads, which appear as additional processors but share some resources with the other threads within a CPU.
 
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | HyperThreadingTechnology | Disable, Enable | No | Intel |
+!!! warning "Attention"
+    When disable, allows only one thread within each execution core unit.
+
+Possible options:
+
+1. **On** - Default.
+2. Off
+
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| HyperThreadingTechnology | Disable, Enable | No | Intel |

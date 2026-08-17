@@ -68,13 +68,13 @@ Possible options:
 
 Wether to load UEFI Wi-Fi driver at next boot, able to connect to Access point.
 
+!!! warning "Attention"
+    Secure Boot must be enabled to use UEFI Network Boot.
+
 Possible options:
 
 1. On
 2. **Off** - Default.
-
-!!! warning "Attention"
-    Secure Boot must be enabled to use UEFI Network Boot.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -123,7 +123,7 @@ Possible options:
 
 Whether to Auto Disconnect Wireless feature when Ethernet cable is connected to Ethernet LAN.
 
-Possible states:
+Possible options:
 
 1. On
 2. **Off** - Default.
@@ -145,8 +145,8 @@ Possible options:
 !!! warning "Attention"
     For systems that do not have an internal NIC, the options are:
 
-    - **off** - the dock will use it's own MAC Address
-    - **on** - dock will use MAC address stored in the system EEPROM.
+    - **Off** - the dock will use it's own MAC Address
+    - **On** - dock will use MAC address stored in the system EEPROM.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |

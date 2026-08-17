@@ -230,15 +230,15 @@ Whether to enforce a minimum character length for passwords set in UEFI BIOS Set
 
 Possible options:
 
-- **Disabled** - passwords can be from 1 to 128 symbols. Default.
-- 4 characters
-- 5 characters
-- 6 characters
-- 8 characters
-- 9 characters
-- 10 characters
-- 11 characters
-- 12 characters
+1. **Disabled** - passwords can be from 1 to 128 symbols. Default.
+2. 4 characters
+3. 5 characters
+4. 6 characters
+5. 8 characters
+6. 9 characters
+7. 10 characters
+8. 11 characters
+9. 12 characters
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |

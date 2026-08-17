@@ -31,7 +31,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| PCIe16xSlotSpeed | Auto, Gen1, Gen2, Gen3, Gen 4 | Yes |
+| PCIe16xSlotSpeed | Auto, Gen1, Gen2, Gen3, Gen4 | Yes |
 
 ### **PCIe 8x Slot speed**
 
@@ -45,7 +45,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| PCIe8xSlotSpeed | Auto, Gen1, Gen2, Gen3, Gen 4 | Yes |
+| PCIe8xSlotSpeed | Auto, Gen1, Gen2, Gen3, Gen4 | Yes |
 
 ### **PCIe 4x Slot speed**
 

@@ -25,14 +25,14 @@ Possible options:
 Possible options:
 
 1. Setup mode
-2. **User mode** - default.
+2. **User mode** - Default.
 
 ### **Secure Boot Key State**
 
 Possible options:
 
 1. Custom mode
-2. **Standard mode** - default.
+2. **Standard mode** - Default.
 
 ### **Reset to Setup Mode**
 
@@ -70,7 +70,7 @@ Whether to allow installation of Microsoft 3rd Party UEFI CA in Secure Boot DB, 
 Possible options:
 
 1. **Off** - Default.
-2. On.
+2. On
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |

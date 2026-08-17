@@ -108,8 +108,10 @@ USB mass storage device `Start Unit` command time-out.
 
 Possible options:
 
-1. **Disabled** - Default.
-2. Enabled
+1. 10 sec
+2. 20 sec
+3. 30 sec
+4. 40 sec
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |

@@ -73,7 +73,7 @@ When `Disabled`, unpopulated PCI Express links are disabled to save power.
 Possible options:
 
 1. Keep Link ON
-2. **Disabled**
+2. **Disabled** - Default.
 
 ## PCIe Slot{X} Status
 

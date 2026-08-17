@@ -78,7 +78,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| StartupSequence | Primary, Automatic, etc | yes_no |
+| StartupSequence | Primary, Automatic, etc | Yes |
 
 ### **Alarm Time (HH : MM : SS)**
 

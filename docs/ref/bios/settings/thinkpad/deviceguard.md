@@ -1,27 +1,21 @@
 # Device Guard Settings
 
-![Device Guard](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_deviceguard.png)
+### **Device Guard**
 
-Device Guard
-:  Whether to enable Microsoft (R) Device Guard.
+Whether to enable Microsoft (R) Device Guard.
 
-    !!! note ""
-        To configure Device Guard, Supervisor Password must be set.
+!!! warning "Attention"
+    - To configure Device Guard, Supervisor Password must be set.
+    - **Device Guard is no longer available as a BIOS Setting starting with 2023 products.**
+    - When enabled, Intel Virtualization Technology, Intel VT-d Feature, Secure Boot and OS Optimized Defaults are automatically enabled.
+    - Boot Order is restricted to customer image only.
+    - This option requires additional confirmation.
 
-        **Device Guard is no longer available as a BIOS Setting starting with 2023 products.**
+Possible options:
 
-    Possible options:
+1. **Off** - Default.
+2. On
 
-    1. **Off** - Default.
-    2. On
-
-    !!! note ""
-        When enabled, Intel Virtualization Technology, Intel VT-d Feature, Secure Boot and OS Optimized Defaults are automatically enabled.
-
-        Boot Order is restricted to customer image only.
-
-        This option requires additional confirmation.
-
-    | WMI Setting name | Values | Locked by SVP | AMD/Intel |
-    |:---|:---|:---|:---|
-    | DeviceGuard | Disable, Enable | Yes | Intel |
+| WMI Setting name | Values | Locked by SVP | AMD/Intel |
+| :--- | :--- | :--- | :--- |
+| DeviceGuard | Disable, Enable | Yes | Intel |

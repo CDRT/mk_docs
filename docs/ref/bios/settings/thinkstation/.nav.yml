@@ -38,7 +38,7 @@ nav:
       - Serial Port Console Redirection (AMD): serialportconsoleredirection.md
     - Power:
       - power.md
-      - Automatice Power On: autopoweron.md
+      - Automatic Power On: autopoweron.md
     - Security:
       - security.md
       - Hard Disk Password: harddiskpass.md

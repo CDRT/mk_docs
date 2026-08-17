@@ -214,4 +214,4 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| TileMode | Disable,Enable | Yes | both |
+| TileMode | Disable, Enable | Yes | Both |

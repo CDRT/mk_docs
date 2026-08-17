@@ -76,7 +76,7 @@ Whether to disable the hotkey functionality of the function keys (F1, F2, and so
 
 Possible options:
 
-1. On -
+1. On
 2. **Off** - Default.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |

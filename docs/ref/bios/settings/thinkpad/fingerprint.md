@@ -57,11 +57,11 @@ Whether to allow a single touch fingerprint authentication to work through all s
 Possible options:
 
 1. **On** - Default.
-2. Off.
+2. Off
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| FingerprintSingleTouchAuthentication | On, Off | yes | both |
+| FingerprintSingleTouchAuthentication | On, Off | Yes | Both |
 
 ### **Reset Fingerprints Data**
 

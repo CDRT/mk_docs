@@ -41,7 +41,7 @@ Define timeout for Client Initiated Remote Access connection to be established.
 
 Possible options:
 
-1. **0**- use the default timeout of 60 seconds. Default.
+1. **0** - use the default timeout of 60 seconds. Default.
 2. 255 - wait until the connection succeeds.
 
 ### **Console Type**

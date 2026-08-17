@@ -1,6 +1,6 @@
 # Certificate-based BIOS Authentication
 
-![Certificate](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkpad/img/tp_certbasedbiosauth.png)
+## General
 
 Beginning with 2022 ThinkPad models, it is now possible to configure systems to use a digital signing certificate instead of a supervisor password. Although this feature does not eliminate the challenge of initially securing the device, it does eliminate the need to exchange passwords in plain text when scripting BIOS settings changes.
 
@@ -10,48 +10,56 @@ Learn more here:
 
 [Lenovo BIOS Certs Tool Reference](https://docs.lenovocdrt.com/guides/lbct/)
 
-Reset Supervisor Certificate
-:  Remove the enrolled Supervisor certificate.
+### **Reset Supervisor Certificate**
 
-    !!! note ""
-        Grayed out if 'Subject' and 'Issuer' are both 'No Certificate'.
+Remove the enrolled Supervisor certificate.
 
-Reset System Management Certificate
-:  Remove the enrolled System Management certificate.
+!!! warning "Attention"
+    Grayed out if 'Subject' and 'Issuer' are both 'No Certificate'.
 
-    !!! note ""
-        Grayed out if 'Subject' and 'Issuer' are both 'No Certificate'.
+### **Reset System Management Certificate**
 
-Supervisor Certificate Information
-:  View-only display of the currently enrolled Supervisor certificate.
+Remove the enrolled System Management certificate.
 
-    Subject:
-    :  The subject of the enrolled Supervisor certificate.
+!!! warning "Attention"
+    Grayed out if 'Subject' and 'Issuer' are both 'No Certificate'.
 
-        Possible options:
+### **Supervisor Certificate Information**
 
-        1. **No Certificate** – Default.
+View-only display of the currently enrolled Supervisor certificate.
 
-    Issuer:
-    :  The issuer of the enrolled Supervisor certificate.
+**Subject**
 
-        Possible options:
+The subject of the enrolled Supervisor certificate.
 
-        1. **No Certificate** – Default.
+Possible options:
 
-System Management Certificate Information
-:  View-only display of the currently enrolled System Management certificate.
+1. **No Certificate** – Default.
 
-    Subject:
-    :  The subject of the enrolled System Management certificate.
+**Issuer**
 
-        Possible options:
+The issuer of the enrolled Supervisor certificate.
 
-        1. **No Certificate** – Default.
+Possible options:
 
-    Issuer:
-    :  The issuer of the enrolled System Management certificate.
+1. **No Certificate** – Default.
 
-        Possible options:
+### **System Management Certificate Information**
 
-        1. **No Certificate** – Default.
+View-only display of the currently enrolled System Management certificate.
+
+**Subject**
+
+The subject of the enrolled System Management certificate.
+
+Possible options:
+
+1. **No Certificate** – Default.
+
+**Issuer**
+
+The issuer of the enrolled System Management certificate.
+
+Possible options:
+
+1. **No Certificate** – Default.

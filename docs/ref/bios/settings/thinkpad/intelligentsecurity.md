@@ -53,7 +53,7 @@ Whether to unlock or wake up the computer automatically when you are in front of
 Possible options:
 
 1. **On** - Default.
-2. Off.
+2. Off
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -85,7 +85,7 @@ Whether to dim the display and lock the computer when user presence is not detec
 Possible options:
 
 1. **On** - Default.
-2. Off.
+2. Off
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
