@@ -1,9 +1,5 @@
 # Common RefCode Configuration
 
-<!-- TODO:
--NUMA Nodes's WMI table lists Values: NPS1, NPS2, NPS4, Auto, which doesn't match its own options (Enabled/Disabled) at all. I replaced the possible options but I don't know what the default it. I assumed Auto.
-- The ThinkStation spec only listed these six item names (Virtual NUMA, MMCFG Base/Size, MMIO High Base/Granularity Size, MMIO Low Size reserved for DMI) with no descriptions, options, or WMI names at all. The descriptions below are my own explanation of what these standard UEFI/PCIe terms generally mean, not sourced from the spec — and no options/values are given anywhere because none were confirmed. Please verify. -->
-
 ## AMD version
 
 ### **MMIO Above 4G Limit**
@@ -42,10 +38,25 @@ Possible options:
 
 Displays and provides options to change the Common RefCode settings.
 
+### **NUMA**
+
+Enable or Disable Non Uniform Memory Access (NUMA).
+
+Possible options:
+
+1. **Enabled** - Default.
+2. Disabled
+
 ### **Virtual NUMA**
 
-Whether to enable virtual NUMA (Non-Uniform Memory Access) node reporting.
+Divide physical NUMA nodes into evenly sized virtual NUMA nodes in ACPI table. This may improve Windows performance on CPUs with more than 64 logical processors.
 
+Possible options:
+
+1. Enabled
+2. **Disabled** - Default.
+
+<!--
 ### **MMCFG Base**
 
 Base address of the MMCFG (Memory Mapped Configuration) space, used for PCIe extended configuration access.
@@ -65,3 +76,4 @@ Granularity (alignment) size used when allocating the high MMIO region.
 ### **MMIO Low Size reserved for DMI**
 
 Amount of low MMIO address space reserved for the DMI (Direct Media Interface) link.
+-->

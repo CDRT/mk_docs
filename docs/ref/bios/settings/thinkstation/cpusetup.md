@@ -110,7 +110,9 @@ Trusted Execution Technology (TxT) provides hardware-based mechanisms that help 
 Possible options:
 
 1. Enabled
-2. **Disabled** - Default.
+2. Disabled
+
+Default depends on model.
 
 Additional information is available here: [Intel(R) TXT Overview](https://www.intel.com/content/www/us/en/support/articles/000025873/technologies.html).
 

@@ -109,7 +109,7 @@ USB mass storage device `Start Unit` command time-out.
 Possible options:
 
 1. 10 sec
-2. 20 sec
+2. **20 sec** - Default
 3. 30 sec
 4. 40 sec
 
@@ -125,8 +125,6 @@ Maximum time before device reports itself to the Host Controller.
 
 - Root port: 100 ms
 - Hub port: delay taken from hub descriptor
-
-<!-- TODO: clarify hub port -->
 
 Possible options:
 

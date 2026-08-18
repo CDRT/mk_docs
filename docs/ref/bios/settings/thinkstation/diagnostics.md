@@ -1,9 +1,5 @@
 # Diagnostics
 
-<!-- TODO:
-- Diagnostic LCD Display Mode (Intel(R) version section): Which option is the default was my own guess, not marked in the source.
--->
-
 ## AMD version
 
 ### **Real-time Diagnostics Monitoring**
@@ -53,8 +49,8 @@ Determines what is shown on the diagnostic LCD display.
 
 Possible options:
 
-1. **Disabled** - Default.
-2. Only DIAG Error Code
+1. Disabled
+2. **Only DIAG Error Code** - Default.
 3. Both BIOS POST & DIAG Error Code
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |

@@ -1,12 +1,10 @@
 # Boot Priority Order
 
-<!-- TODO: Add/Delete Boot Option and Boot Order Lock added from spec, PGX_GB10/Cathaya only (no corroboration from other platforms). Descriptions are from spec; no WMI confirmed for Add/Delete Boot Option. -->
-
 ### **UEFI Boot Options**
 
 The ordered list of currently defined boot priority order.
 
-- User Up and Down arrows to select a device.
+- Use Up and Down arrows to select a device.
 - `+` and `-` move the device up or down.
 - `x` excludes/includes the device to boot.
 
@@ -16,31 +14,54 @@ For every item on the list system shows:
 
 `[Device Type] [Device Model Number]`
 
-### **Excluded from boot priority order**
+### First Boot Device
 
-Shows the items which are excluded from boot priority order.
+Select the first boot priority group. BIOS will try to boot from the group first before tryin the boot order.
 
-Can be empty, if there are no excluded items.
+Possible options:
 
-### **Add Boot Option**
+1. **Boot Order** - Default.
+2. Network Group
+3. Storage Group
+4. SATA 1
 
-Add a new EFI boot option to the boot order.
+List of possible options continues for 4 SATA drives, 3 M.2 Drives, 4 MCIO drives, 9 PCIe drives, USB HDD, USB CD, and 15 Network.
 
-### **Path for boot option**
+### USB Boot Support
 
-Enter the path to the boot option, in the format `fsx:\path\filename.efi`.
+Control whether system can boot from USB devices.
 
-### **Boot option File Path**
+Possible options:
 
-File path for the newly created boot option.
+1. **Enabled** - Default.
+2. Disabled
 
-### **Create**
+### Boot Up Num-Lock Status
 
-Creates the newly formed boot option.
+This field indicates the state of the NumLock feature of the keyboard after Statrtup. If NumLock is "On", the keys on the keypad will act as numeric keys. If NumLock is "Off", the keys on the keypad will act as cursor keys.
 
-### **Delete Boot Option**
+Possible options:
 
-Remove an EFI boot option from the boot order.
+1. **On** - Default.
+2. Off
+
+### Fast Boot
+
+This feature can record the last successful startup state to reduce the POST time at the next startup. It is recommended to turn off "fast boot" if you often use CD/DVD or network to load your operating system. Select "Enabled" for system to boot faster. Select "Disabled" to switch back to normal boot.
+
+Possible options:
+
+1. **Enabled** - Default.
+2. Disabled
+
+### Option Keys Display
+
+Controls the system software option key prompts (such as F1 key) when the system is turned on. Select "Enabled" to display the prompts. Disabling the prompts will not affect the function of a specific key.
+
+Possible options:
+
+1. Enabled
+2. **Disabled** - Default.
 
 ### **Boot Order Lock**
 

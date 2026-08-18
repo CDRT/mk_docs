@@ -1,5 +1,6 @@
-# CPU Configuration
+# CPU Configuration - AMD
 
+<!--
 ### **Processor ID**
 
 View only.
@@ -27,6 +28,7 @@ View only.
 ### **Processor Version**
 
 View only.
+-->
 
 ### **AMD Secure Virtual Machine**
 

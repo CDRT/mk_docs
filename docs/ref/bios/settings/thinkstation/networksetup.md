@@ -1,10 +1,5 @@
 # Network Setup Settings
 
-<!-- TODO (new-settings):
-- Proxy URL, BIOS Cloud Upgrade, Client CA Configuration: spec gave the name only (Proxy URL, Client CA Configuration) or name + Enable/Disable options with no WMI/description (BIOS Cloud Upgrade). Descriptions are my own inference — Client CA Configuration's especially, which I wrote by analogy to the neighboring (confirmed) "Server CA Configuration" entry rather than from any Client CA-specific spec text.
-- Every **bold**/Default flag added in this pass is my own guess; no default is marked anywhere in the source data.
--->
-
 ## General
 
 ### **Onboard Ethernet Controller**
@@ -184,10 +179,10 @@ Specify the MTFTP window size used by the UEFI PXE driver.
 
 Possible options:
 
-1. **1** – Default.
+1. 1
 2. 2
 3. 3
-4. 4
+4. **4** – Default.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -195,7 +190,7 @@ Possible options:
 
 ### **Proxy Support**
 
-Whether to enable proxy support for network operations such as HTTPs Boot.
+Whether to enable proxy support for network operations such as HTTPs Boot. Availability of this setting depends on model.
 
 Possible options:
 
@@ -240,7 +235,7 @@ Possible options:
 
 ### **HTTPs Boot**
 
-This setting controls whether or not the system can boot over HTTPS. When enabled, additional configuration may be required. The HTTPS Boot and related settings are not configurable through WMI.
+This setting controls whether or not the system can boot over HTTPS. When enabled, additional configuration may be required. The HTTPS Boot and related settings are not configurable through WMI. See [Boot Description.](#boot-configuration)
 
 Possible options:
 

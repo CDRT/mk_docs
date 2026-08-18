@@ -62,9 +62,8 @@ Value range: 10 to 10000 μs.
 
 Possible options:
 
-1. 1000
-
-<!-- TODO: verify this -->
+1. **1000** - Default.
+2. (a number between 10 and 10000)
 
 ### **Unpopulated Links**
 

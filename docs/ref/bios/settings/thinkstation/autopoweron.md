@@ -1,8 +1,5 @@
 # Automatic Power On Settings
 
-<!-- TODO: Boot Device for Wake on LAN: description paraphrased directly from a confirmed spec sentence, but the spec gave no options or WMI name at all, so none are shown here. Confirm whether it actually has a value list (e.g. a device/group picker) before publishing as a plain description-only entry.
--->
-
 ## General
 
 ### **Wake on LAN**
@@ -13,16 +10,16 @@ Controls the wake up event from onboard LAN (Local Area Network) and PCI (Periph
 
 Possible options:
 
-1. **Enabled** - Default.
+1. **Boot Order** - Default.
 2. Disabled
+3. Network Group
+4. Storage Group
+
+List of possible options continues with all possible boot device options.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| WakeonLAN | Enabled, Disabled | Yes | Both |
-
-### **Boot Device for Wake on LAN**
-
-Controls what device or group is booted when the system is woken by a Wake on LAN (WOL) event.
+| WakeonLAN | Disabled, {boot device} | Yes | Both |
 
 ### **Wake from Serial Port Ring**
 
@@ -70,6 +67,8 @@ Possible options:
 8. USB HDD
 9. USB CDROM
 10. Network 1
+
+Possible options may vary by model.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |

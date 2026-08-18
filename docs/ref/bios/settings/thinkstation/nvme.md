@@ -15,6 +15,5 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| NVMeRAIDMode | Disable, Enable | ACL | AMD |
+| NVMeRAIDMode | Disable, Enable | Yes | AMD |
 
-<!-- TODO: clarify ACL -->

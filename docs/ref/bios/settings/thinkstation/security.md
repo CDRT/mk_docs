@@ -9,7 +9,7 @@
 - Removed "Require POP on System Boot": duplicated "BIOS Password At System Boot" below it, but with broken line-wrapped text, a "form"/"from" typo, and a WMI Setting name ("RequireSVPwhenFlashing") that was already claimed by the separate "Require SVP when Flashing" setting above it. Kept the cleaner "BIOS Password At System Boot" version instead.
 -->
 
-### **Supervisor Password**
+## **Supervisor Password**
 
 The supervisor password (SVP) protects the system information stored in UEFI BIOS.
 
@@ -451,25 +451,16 @@ Select keyboard layout in pre-OS environment. Does not affect OS.
 
 Possible options:
 
-1. **Disabled** - Default.
-2. Enabled
+1. English
+2. French
+3. German
+4. Chinese
+
+Default varies by specific model.
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
 | KeyboardLayout | English, French, German, Chinese | Yes | Both |
-
-<!--Keyboard Language
-
-Select the keyboard language for password. The default
-is English keyboard.
-
-Options:
-
-1.  **English** - Default.
-2.  French.
-3.	German
-
--->
 
 ### **Allow Jumper Clear SVP**
 
@@ -584,43 +575,6 @@ Possible options:
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
 | SmartUSBProtection | Disable, Read Only, No Access | Yes | Both |
-
-<!-- ### Fingerprint Setup ###
-
-Not supported on P620
-
-![](https://cdrt.github.io/mk_docs/ref/bios/settings/thinkstation/img
-   /amd_fingerprintsetup.png)
-
-Preboot Authentication
-
-Whether to enable the fingerprint reader function for entering BIOS passwords.
-
-Options:
-
-1.  **Disabled** - Default.
-2.  Enabled.
-
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-| :--- | :--- | :--- | :--- |
-| setting_name | setting_values | yes_no | both |
-
-Erase Fingerprint Data
-
-Whether to clear fingerprint data stored in a fingerprint reader.
-
-Options:
-
-1.  **No** - Default.
-2.  Yes.
-
-TODO: confirm WMI
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
-| setting_name | setting_values | yes_no | both |
-
-
- -->
 
 ### **Password Count Exceeded Error**
 

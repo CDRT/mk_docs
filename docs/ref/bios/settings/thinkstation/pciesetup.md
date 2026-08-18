@@ -51,11 +51,7 @@ Defines number of Microseconds software will wait before polling 'Link Training'
 Possible options:
 
 1. **1000** – Default.
-2. Simulator not support
-
-<!-- Need to add all of the PCIe Slotx Configurations
-These will likely be subheader drop downs
--->
+2. (any number between 10 and 10000)
 
 ## PCIe Slot{X} Configuration
 
