@@ -21,7 +21,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| ComputeExpressLink | Enable, Disable | Yes | Intel |
+| ComputeExpressLink | Enabled, Disabled | Yes | Intel |
 <!--
 ### **CXL ASPM**
 
@@ -41,23 +41,6 @@ Possible options:
 1. **Disable** – Default.
 2. Enable
 
-## CXL vLSM Power Management
-
-Configures the low-power link states for the CXL virtual Link State Machine (vLSM), separately for the CXL.io and CXL.cache/CXL.mem protocols.
-
-### **CXL.Cache-Mem.L1**
-
-Possible options:
-
-1. **Disable** – Default.
-2. Enable
-
-### **CXL.Cache-Mem.L2**
-
-Possible options:
-
-1. **Disable** – Default.
-2. Enable
 -->
 
 ### **CXL.IO.L1**
@@ -74,4 +57,16 @@ Possible options:
 1. **Disabled** – Default.
 2. Enabled
 
-### **
+### **CXL.Cache-Mem.L1**
+
+Possible options:
+
+1. **Disabled** – Default.
+2. Enabled
+
+### **CXL.Cache-Mem.L2**
+
+Possible options:
+
+1. **Disabled** – Default.
+2. Enabled
