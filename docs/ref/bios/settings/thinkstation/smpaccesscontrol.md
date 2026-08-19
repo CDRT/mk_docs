@@ -1,9 +1,5 @@
 # System Management Password Access Control Settings
 
-<!-- TODO:
-- BIOS Setup Configuration Control & Storage Password Control: Default guessed for both (Disabled) — not marked in the source data.
--->
-
 ## **Access Security Settings**
 
 Whether to allow SMP (System Management Password) to have the same authority as SVP (Supervisor Password) to control security settings.

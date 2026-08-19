@@ -115,7 +115,7 @@ Possible options:
 | :--- | :--- | :--- | :--- |
 | CPUC6Report | Disable, Enable | Yes | AMD |
 
-<!-- TODO: For all three settings below (Simultaneous Multithreading, Kernel DMA Protection, Pre-boot DMA Protection), the spec confirmed the setting name and Enable/Disable options, but no description was given for any of them, and no WMI name for Simultaneous Multithreading or Pre-boot DMA Protection specifically (Kernel DMA Protection's WMI name came from the separate "New WMI" reference sheet, so that one is higher-confidence). The descriptions are my own general knowledge of these features, not sourced from the spec. -->
+<!-- TODO: For all three settings below (Simultaneous Multithreading, Kernel DMA Protection, Pre-boot DMA Protection), the spec confirmed the setting name and Enable/Disable options, but no description was given for any of them, and no WMI name for Simultaneous Multithreading or Pre-boot DMA Protection specifically (Kernel DMA Protection's WMI name came from the separate "New WMI" reference sheet, so that one is higher-confidence). The descriptions are my own general knowledge of these features, not sourced from the spec. Leaving commented out due to not being seen in BIOS Setup UI.
 
 ### **Simultaneous Multithreading**
 
@@ -147,3 +147,4 @@ Possible options:
 
 1. **Enabled** - Default.
 2. Disabled
+ -->

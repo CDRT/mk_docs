@@ -20,7 +20,6 @@ nav:
       - PCIe: pciesetup.md
       - PCI Express: pciexpress.md
       - Intel(R) Thunderbolt: intelthunderbolt.md
-      - USB4 Setup: usb4setup.md
       - BMC Setup: bmcsetup.md
     - Advanced:
       - advanced.md
@@ -48,7 +47,6 @@ nav:
       - Secure Boot: secureboot.md
       - System Event Log: systemeventlog.md
       - Certificate-based BIOS Authentication: certbasedbiosauth.md
-      - Wipe System Data: wipesystemdata.md
     - Startup:
       - startup.md
       - Boot Priority Order: bootpriorityorder.md

@@ -16,13 +16,13 @@ Enables Compute Express Link (CXL).
 
 Possible options:
 
-1. **Disable** – Default.
-2. Enable
+1. **Disabled** – Default.
+2. Enabled
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
 | ComputeExpressLink | Enable, Disable | Yes | Intel |
-
+<!--
 ### **CXL ASPM**
 
 Configures Active State Power Management (ASPM) for CXL links.
@@ -58,17 +58,20 @@ Possible options:
 
 1. **Disable** – Default.
 2. Enable
+-->
 
 ### **CXL.IO.L1**
 
 Possible options:
 
-1. **Disable** – Default.
-2. Enable
+1. **Disabled** – Default.
+2. Enabled
 
 ### **CXL.IO.L2**
 
 Possible options:
 
-1. **Disable** – Default.
-2. Enable
+1. **Disabled** – Default.
+2. Enabled
+
+### **

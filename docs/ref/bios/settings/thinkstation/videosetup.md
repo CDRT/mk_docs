@@ -10,7 +10,7 @@
 !!! warning "Attention"
     The Select Active Video setting will vary depending on if the platform is Intel or AMD. Select the appropriate platform below for the details.
 
-**Intel-based machine**
+**Models with Intenal Graphics Device**
 
 Select primary video device that will be used for graphic output. If `Auto` is selected, system will prioritize video devices as following sequence:
 
@@ -35,7 +35,7 @@ Possible options:
 | :--- | :--- | :--- | :--- |
 | SelectActiveVideo | IGD, PEG, Auto | Yes | Intel |
 
-**AMD-based machine**
+**Other Models**
 
 Select primary video device for graphics output.
 
@@ -55,6 +55,9 @@ Possible options:
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
 | SelectActiveVideo | Auto, Slot1(PEG), Slot2(PEG), Slot3(PEG), Slot4(PEG), Slot5(PEG), Slot6(PEG) | Yes | AMD |
+
+!!! warning "Attention"
+    Certain models may have additional slots represented by Slot1(PEG) - Slot9(PEG).
 
 ### **Primary Video Controller**
 

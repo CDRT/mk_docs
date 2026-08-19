@@ -562,20 +562,6 @@ Possible options:
 | :--- | :--- | :--- | :--- |
 | BIOSPasswordAtBootDeviceList | No, Yes | Yes | Both |
 
-### **Smart USB Protection**
-
-Blocks copying data from the computer to the USB storage device in Windows.
-
-Possible options:
-
-1. **Disabled** - Default.
-2. Read Only - user can copy data from USB storage device to the computer, but cannot copy data from the computer to USB storage device.
-3. No Access - user cannot use USB storage device in Windows.
-
-| WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
-| :--- | :--- | :--- | :--- |
-| SmartUSBProtection | Disable, Read Only, No Access | Yes | Both |
-
 ### **Password Count Exceeded Error**
 
 Whether to show the POST 0199 error and prompt for password.
@@ -588,5 +574,3 @@ Possible options:
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
 | PasswordCountExceededError | Disabled, Enabled | Yes | Both |
-
-<!-- TODO: confirm WMI -->
