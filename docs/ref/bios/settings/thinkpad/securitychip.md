@@ -66,8 +66,8 @@ Intel (R) Trusted Execution Technology is a hardware-based security foundation t
 
 Possible options:
 
-1. On
-2. **Off** – Default.
+1. **Off** – Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -108,13 +108,13 @@ When configuring these BIOS settings using WMI scripts, it is possible to follow
 
 Possible options:
 
-1. Disabled
-2. Enabled
-3. **Disabled(SW Controlled)** - Default
+1. **Disabled(SW Controlled)** - Default.
+2. Disabled
+3. Enabled
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| PlutonSecurityProcessor | Disable, Enable, Disable(SW_Controlled) | Yes | AMD |
+| PlutonSecurityProcessor | Disable(SW_Controlled), Disable, Enable | Yes | AMD |
 
 ## Security Reporting Options
 

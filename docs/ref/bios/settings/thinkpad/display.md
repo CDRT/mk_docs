@@ -92,7 +92,7 @@ Whether to set Privacy Guard always on.
 
     If switched off, can be toggled any time with hotkey `Fn` + `D`.
 
-Possible ptions:
+Possible options:
 
 1. **Off** - Default.
 2. On

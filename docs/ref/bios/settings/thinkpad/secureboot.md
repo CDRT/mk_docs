@@ -13,8 +13,8 @@ Whether to prevent unauthorized operating systems from running at boot time.
 
 Possible options:
 
-1. On
-2. **Off** – Default
+1. **Off** – Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -24,15 +24,15 @@ Possible options:
 
 Possible options:
 
-1. Setup mode
-2. **User mode** - Default.
+1. **User mode** - Default.
+2. Setup mode
 
 ### **Secure Boot Key State**
 
 Possible options:
 
-1. Custom mode
-2. **Standard mode** - Default.
+1. **Standard mode** - Default.
+2. Custom mode
 
 ### **Reset to Setup Mode**
 

@@ -40,12 +40,12 @@ Select thermal management scheme.
 
 Possible options:
 
-1. Maximize Performance - reduces CPU throttling.
-2. **Balanced** - balanced sound, temperature, and performance. Default.
+1. **Balanced** - balanced sound, temperature, and performance. Default.
+2. Maximize Performance - reduces CPU throttling.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| AdaptiveThermalManagementBattery | MaximizePerformance, Balanced | No | Both |
+| AdaptiveThermalManagementBattery | Balanced, MaximizePerformance | No | Both |
 
 ### **Intelligent Cooling Boost**
 
@@ -59,7 +59,7 @@ Whether to improve power efficiency by limiting system power based on the select
 Possible options:
 
 1. **On** - Default.
-2. Off.
+2. Off
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -90,8 +90,8 @@ Whether to power on the system when AC is attached.
 
 Possible options:
 
-1. Enabled
-2. **Disabled** - Default.
+1. **Disabled** - Default.
+2. Enabled
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -183,7 +183,7 @@ Select the exact time for the system to turn on.
 
 Possible options:
 
-1. **N/A** – Default
+1. **N/A** – Default.
 2. HH : MM : SS
 
     a. HH - Hour: 00 ~ 23
@@ -205,7 +205,7 @@ Select the exact day for the system to turn on.
 
 Possible options:
 
-1. **N/A** – Default
+1. **N/A** – Default.
 2. Sunday
 3. Monday
 4. Tuesday

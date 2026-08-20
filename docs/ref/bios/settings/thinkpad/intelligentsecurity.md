@@ -68,8 +68,8 @@ Depends on Windows® Hello. To use it, turn on face recognition in Windows® set
 Possible options:
 
 1. Near
-1. **Middle** - Default.
-1. Far
+2. **Middle** - Default.
+3. Far
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -98,8 +98,8 @@ Accuracy varies by body size, posture, and frequency of movement.
 Possible options:
 
 1. Near
-1. **Middle** - Default.
-1. Far
+2. **Middle** - Default.
+3. Far
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -112,8 +112,8 @@ Uses sensors and camera to detect your presence. However, it does NOT collect an
 Possible options:
 
 1. **Fast** - Default.
-1. Medium
-1. Slow
+2. Medium
+3. Slow
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |

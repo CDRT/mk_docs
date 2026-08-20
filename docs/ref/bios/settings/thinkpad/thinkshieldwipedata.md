@@ -89,7 +89,7 @@ Possible options:
 If selected, Internal Storage (HDD/SSD) will be included in the deletion.
 
 !!! warning "Attention"
-    ThinkShield secure wipe > ThinkShield secure wipe in App Menu is disabled. To delete Interna; Storage (HDD/SSD) data, please enable it first.
+    ThinkShield secure wipe > ThinkShield secure wipe in App Menu is disabled. To delete Internal Storage (HDD/SSD) data, please enable it first.
 
 Possible options:
 

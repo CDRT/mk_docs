@@ -9,8 +9,8 @@ If your OS supports Data Execution Prevention, this setting can prevent virus/wo
 
 Possible options:
 
-1. On
-2. **Off** – Default.
+1. **Off** – Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -28,8 +28,8 @@ Protects DRAM data from physical attacks.
 
 Possible options:
 
-1. On
-2. **Off** – Default.
+1. **Off** – Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |

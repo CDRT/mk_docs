@@ -30,8 +30,8 @@ Whether a VMM (Virtual Machine Monitor) can utilize the additional hardware capa
 
 Possible options:
 
-1. On
-2. **Off** - Default.
+1. **Off** - Default.
+2. On
 
 Additional information: [How to enable Virtualization Technology on Lenovo PC computers](https://support.lenovo.com/de/en/solutions/ht500006).
 
@@ -65,8 +65,8 @@ Whether to enable Intel (R) VT-d Feature ( Intel (R) Virtualization Technology f
 
 Possible options:
 
-1. On
-2. **Off** - Default
+1. **Off** - Default.
+2. On
 
 More information on the [official Intel site](https://software.intel.com/content/www/us/en/develop/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices.html).
 

@@ -6,8 +6,8 @@ Whether to enable built-in TrackPoint.
 
 Possible options:
 
-1. Off
-2. **On** - Default.
+1. **On** - Default.
+2. Off
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -19,8 +19,8 @@ Whether to enable built-in Trackpad.
 
 Possible options:
 
-1. Off
-2. **On** - Default.
+1. **On** - Default.
+2. Off
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -76,8 +76,8 @@ Whether to disable the hotkey functionality of the function keys (F1, F2, and so
 
 Possible options:
 
-1. On
-2. **Off** - Default.
+1. **Off** - Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -94,7 +94,7 @@ Select keyboard layout in pre-OS environment.
 
 Possible options:
 
-1. **US English** - Default
+1. **US English** - Default.
 2. Canadian French Multilingual
 3. Canadian French
 4. Spanish (Latin America)

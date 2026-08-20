@@ -18,7 +18,7 @@ Possible options:
 ## FAQ
 
 ??? Question "What is ThinkShield Secure Wipe?"
-    ThinkShield Secure Wipe is a utility program integrated into the BIOS. It off ers the functionality to erase all contents stored on drives attached to the system internally. Users can select an erase algorithm from the list, depending on their needs. **ThinkShield Secure Wipe complies with NIST SP 800-88 Revision 1 - Guidelines for Media Sanitization.**
+    ThinkShield Secure Wipe is a utility program integrated into the BIOS. It offers the functionality to erase all contents stored on drives attached to the system internally. Users can select an erase algorithm from the list, depending on their needs. **ThinkShield Secure Wipe complies with NIST SP 800-88 Revision 1 - Guidelines for Media Sanitization.**
 
     !!! warning "Attention"
         Any hard drive (HD) password will be deleted by this process.

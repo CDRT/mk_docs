@@ -8,14 +8,14 @@ AIM-T (AMD Integrated Manageability Technology) is AMD's out-of-band manageabili
 
 Whether to enable AIM-T.
 
+!!! warning "Attention"
+    If SVP is enabled and setup is entered without SVP, this option is grayed out and displays the message "This option requires a supervisor password to unlock."
+
 Possible options:
 
 1. **Disabled** – Default.
 2. Enabled
 3. Permanently Disabled
-
-!!! warning "Attention"
-    If SVP is enabled and setup is entered without SVP, this option is grayed out and displays the message "This option requires a supervisor password to unlock."
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |

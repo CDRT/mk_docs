@@ -146,8 +146,8 @@ Whether to prevent users from making any changes in ThinkPad Setup without enter
 
 Possible options:
 
-1. On
-2. **Off** - Default.
+1. **Off** - Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -178,8 +178,8 @@ Whether the system prompts for passwords when the system restarts.
 
 Possible options:
 
-1. On
-2. **Off** - Default.
+1. **Off** - Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -194,8 +194,8 @@ Whether the system prompts for the Security password.
 
 Possible options:
 
-1. On
-2. **Off** - system will proceed without any user action required. Default.
+1. **Off** - system will proceed without any user action required. Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |

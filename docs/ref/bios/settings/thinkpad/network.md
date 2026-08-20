@@ -73,8 +73,8 @@ Wether to load UEFI Wi-Fi driver at next boot, able to connect to Access point.
 
 Possible options:
 
-1. On
-2. **Off** - Default.
+1. **Off** - Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -125,8 +125,8 @@ Whether to Auto Disconnect Wireless feature when Ethernet cable is connected to 
 
 Possible options:
 
-1. On
-2. **Off** - Default.
+1. **Off** - Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -136,17 +136,17 @@ Possible options:
 
 Whether to enable MAC Address Pass Through when dock is attached.
 
-Possible options:
-
-1. **Disabled** - Dock Ethernet uses its own MAC address. Default
-2. Internal MAC Address - Dock Ethernet uses same MAC address as internal LAN.
-3. Second MAC Address - Dock Ethernet uses the second MAC address that is stored in the system's EEPROM. This allows for a device-specific MAC address that is different from the internal NIC's MAC address so they can be managed separately if necessary.
-
 !!! warning "Attention"
     For systems that do not have an internal NIC, the options are:
 
     - **Off** - the dock will use it's own MAC Address
     - **On** - dock will use MAC address stored in the system EEPROM.
+
+Possible options:
+
+1. **Disabled** - Dock Ethernet uses its own MAC address. Default.
+2. Internal MAC Address - Dock Ethernet uses same MAC address as internal LAN.
+3. Second MAC Address - Dock Ethernet uses the second MAC address that is stored in the system's EEPROM. This allows for a device-specific MAC address that is different from the internal NIC's MAC address so they can be managed separately if necessary.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -156,13 +156,14 @@ Possible options:
 
 Enable/Disable Proxy Support. If Enabled, the system connects to End-Point Server (such as Lenovo Cloud) via Proxy Server.
 
+!!! warning "Attention"
+    - This feature will not work while Secure Boot is disabled.
+    - To avoid security risks, only use reliable Proxy servers.
+
 Possible options:
 
-1. **Off** – Default. This feature will not work while Secure Boot is disabled.
+1. **Off** – Default.
 2. On
-
-!!! warning "Attention"
-    To avoid security risks, only use reliable Proxy servers.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -181,8 +182,11 @@ The default port number for Proxy Server access is 80. However, a specific port 
 
 Enable/Disable "Reinstall Windows from Cloud (Microsoft® Connected System Recovery)" in the App Menu invoked by F12.
 
-Choosing Reinstall Windows from Cloud from the F12 menu will completely replace the system software, including all user files, and cannot be undone.This feature works with system-integrated Ethernet LAN or wireless LAN (only WPA2 personal). Secure Boot must be enabled to use Reinstall Windows from Cloud.
-Please note that this feature is not compatible with Lenovo Cloud Boot. Do not attempt to start Lenovo Cloud Boot while Reinstall Windows from Cloud is enabled.
+Choosing Reinstall Windows from Cloud from the F12 menu will completely replace the system software, including all user files, and cannot be undone. This feature works with system-integrated Ethernet LAN or wireless LAN (only WPA2 personal).
+
+!!! warning "Attention"
+    - Secure Boot must be enabled to use Reinstall Windows from Cloud.
+    - This feature is not compatible with Lenovo Cloud Boot. Do not attempt to start Lenovo Cloud Boot while Reinstall Windows from Cloud is enabled.
 
 Possible options:
 
@@ -195,9 +199,12 @@ Possible options:
 
 Enable/Disable Custom URL Support.
 
+!!! warning "Attention"
+    This feature will not work while Secure Boot is disabled.
+
 Possible options:
 
-1. **Off** – Default. This feature will not work while Secure Boot is disabled.
+1. **Off** – Default.
 2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -259,15 +266,15 @@ For every MAC Address the following information is shown:
 
 - MAC Address - Media access control (MAC) address of the selected wireless network interface controller.
 
-Possible options:
-
-1. **Disconnected** - Default.
-2. Connected to [SSID]
-
 !!! warning "Attention"
     - There could be several MAC addresses for machines that have several wireless network interface controllers (NICs).
     - Option `Connected to [SSID]` displays the ID of the wireless network.
     - View only.
+
+Possible options:
+
+1. **Disconnected** - Default.
+2. Connected to [SSID]
 
 ## Wi-Fi Network List
 
@@ -292,7 +299,7 @@ Each SSID has its own sub-group of settings. Open the items below for details.
     !!! warning "Attention"
         View only.
 
-    Possible statuses:
+    Possible options:
 
     1. **Disconnected** - Default.
     2. Connected
@@ -400,7 +407,7 @@ Select the security type of this Wi-Fi network.
 
 Possible options:
 
-1. **Open** – Default
+1. **Open** – Default.
 2. WPA2 – Personal
 3. WPA2 – Enterprise
 
@@ -421,7 +428,7 @@ Select EAP Authentication Method
 
 Possible options:
 
-1. **PEAP** – Default
+1. **PEAP** – Default.
 2. EAP-TLS
 
 ### **EAP Second Authentication Method**
@@ -480,12 +487,13 @@ Field for entering EAP password.
 
 ### **Scan Anyway**
 
+!!! warning "Attention"
+    Visible only for a network with WPA2-Enterprise security.
+
 Possible options:
 
 1. **On** - the network will be scanned when it does not broadcast its name. Default.
 2. Off - the network will not be scanned when it does not broadcast its name.
-
-Visible only for a network with WPA2-Enterprise security.
 
 ### **Commit Changes and Exit**
 
@@ -528,7 +536,7 @@ Each SSID has its own sub-group of settings. Open the items below for details.
 
     Possible options:
 
-    1. **PEAP** – Default
+    1. **PEAP** – Default.
     2. EAP-TLS
 
     Visible only for a network with security WPA2-Enterprise.
@@ -536,12 +544,12 @@ Each SSID has its own sub-group of settings. Open the items below for details.
 ??? note "EAP Second Authentication Method"
     Select Second EAP Authentication Method.
 
+    !!! warning "Attention"
+        Visible only for a network with security WPA2-Enterprise and if `EAP Authentication Method` is `PEAP`.
+
     Possible options:
 
     1. **MSCHAPv2** – Default.
-
-    !!! warning "Attention"
-        Visible only for a network with security WPA2-Enterprise and if `EAP Authentication Method` is `PEAP`.
 
 ??? note "Enroll CA Cert"
     Enroll CA (Certification Authority) certificate.
@@ -584,13 +592,13 @@ Each SSID has its own sub-group of settings. Open the items below for details.
 ??? note "Scan Anyway"
     Whether the network will be scanned anyway, even if it does not broadcast its name.
 
-    Possible options:
-
-    1. On
-    2. **Off** - Default.
-
     !!! warning "Attention"
         Visible only for a network with security WPA2-Enterprise.
+
+    Possible options:
+
+    1. **Off** - Default.
+    2. On
 
 ??? note "Commit Changes and Exit"
     Save changes and exits back to the Manage Wi-Fi network page.

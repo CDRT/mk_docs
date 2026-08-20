@@ -8,7 +8,7 @@ Select top priority of the Boot Priority Order when waking from LAN.
 
 Possible options:
 
-1. **PXE BOOT** – Default
+1. **PXE BOOT** – Default.
 2. USB CD
 3. USB FDD
 4. NVMe0
@@ -77,8 +77,8 @@ Prevent other software from altering the Boot Order when it is enabled.
 
 Possible options:
 
-1. On
-2. **Off** – Default.
+1. **Off** – Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
