@@ -18,12 +18,12 @@ Whether to enable or disable the SATA controller.
 
 Possible options:
 
-1. **Enabled**. Default.
+1. **Enabled** - Default.
 2. Disabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| SATAController | Disabled, Enabled | Yes | Both |
+| SATAController | Enabled, Disabled | Yes | Both |
 
 ### **SATA Drive {X}**
 
@@ -34,12 +34,12 @@ Whether to enable each SATA Drive numbered {X}:
 
 Possible options:
 
-1. **Enabled**. Default.
+1. **Enabled** - Default.
 2. Disabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| SATADriveX | Disabled, Enabled | Yes | Both |
+| SATADriveX | Enabled, Disabled | Yes | Both |
 
 !!! warning "Attention"
     In the WMI class name, X represents the drive number.
@@ -53,8 +53,8 @@ Whether the hot-plug port is enabled.
 
 Possible options:
 
-1. Enabled
-2. **Disabled** - Default.
+1. **Disabled** - Default.
+2. Enabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -120,4 +120,4 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| HardDiskPre-delay | Disable, 3 Seconds, 6 Seconds, 9 Seconds, 12 Seconds, 15 Seconds, 21 Seconds, 30 Seconds | Yes | Both |
+| HardDiskPre-delay | Disabled, 3 Seconds, 6 Seconds, 9 Seconds, 12 Seconds, 15 Seconds, 21 Seconds, 30 Seconds | Yes | Both |

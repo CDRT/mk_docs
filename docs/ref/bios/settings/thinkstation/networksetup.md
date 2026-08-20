@@ -21,7 +21,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| OnboardEthernetController | Disabled, Enabled | Yes | Both |
+| OnboardEthernetController | Enabled, Disabled | Yes | Both |
 
 ### **Onboard 10G Ethernet Controller**
 
@@ -37,7 +37,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| Onboard10GEthernetController | Disabled, Enabled | Yes | Both |
+| Onboard10GEthernetController | Enabled, Disabled | Yes | Both |
 
 ### **Onboard 2.5G Ethernet Controller**
 
@@ -53,7 +53,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| Onboard25GEthernetController | Disabled, Enabled | Yes | Both |
+| Onboard25GEthernetController | Enabled, Disabled | Yes | Both |
 
 ### **Wireless LAN Access**
 
@@ -66,7 +66,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| WirelessLANAccess | Disabled, Enabled | Yes | Both |
+| WirelessLANAccess | Enabled, Disabled | Yes | Both |
 
 ### **Wireless LAN PXE boot**
 
@@ -76,8 +76,8 @@ This works by loading the Wireless LAN (Local Area Network) UNDI (Universal Netw
 
 Possible options:
 
-1. Enabled
-2. **Disabled** – Default.
+1. **Disabled** – Default.
+2. Enabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -102,7 +102,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| PXEIPV4NetworkStack | Disabled, Enabled | Yes | Both |
+| PXEIPV4NetworkStack | Enabled, Disabled | Yes | Both |
 
 ### **PXE IPV6 Network Stack**
 
@@ -116,7 +116,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| PXEIPV6NetworkStack | Disabled, Enabled | Yes | Both |
+| PXEIPV6NetworkStack | Enabled, Disabled | Yes | Both |
 
 ### **PXE Option ROM**
 
@@ -141,7 +141,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| UefiIpV4NetworkStack | Disable, Enable | Yes | Both |
+| UefiIpV4NetworkStack | Enable, Disable | Yes | Both |
 
 ### **UEFI IPv6 Network Stack**
 
@@ -154,7 +154,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| UefiIpV6NetworkStack | Disable, Enable | Yes | Both |
+| UefiIpV6NetworkStack | Enable, Disable | Yes | Both |
 
 ### **PXE Boot Wait Time**
 
@@ -239,8 +239,8 @@ This setting controls whether or not the system can boot over HTTPS. When enable
 
 Possible options:
 
-1. Enabled – the `HTTPs Boot Configuration` and `Tls Auth Configuration` will be shown for custom configuration.
-2. **Disabled** – Default.
+1. **Disabled** – Default.
+2. Enabled – the `HTTPs Boot Configuration` and `Tls Auth Configuration` will be shown for custom configuration.
 
 ### **Lenovo Cloud Services**
 
@@ -251,8 +251,8 @@ Whether to boot system with `Lenovo Cloud` selected through boot menu, so that B
 
 Possible options:
 
-1. Enabled
-2. **Disabled** – Default.
+1. **Disabled** – Default.
+2. Enabled
 
 Once the feature is enabled, then it becomes available for selection in `BIOS -> Startup -> Edit Boot Order`, or `BIOS -> Startup -> Network Boot`, or via F12 Boot Menu. When `Lenovo Cloud Services` booted, then following options will be available for selection:
 
@@ -272,8 +272,8 @@ Whether to boot the system with `Win VDI Boot` selected through boot menu, so th
 
 Possible options:
 
-1. Enabled
-2. **Disabled** – Default.
+1. **Disabled** – Default.
+2. Enabled
 
 ### **Reinstall Windows From Cloud**
 
@@ -361,8 +361,8 @@ Whether to enable or disable automatic Wifi connection on every boot.
 
 Possible options:
 
-1. Enabled
-2. **Disabled** - Default.
+1. **Disabled** - Default.
+2. Enabled
 
 ## Current Connection
 

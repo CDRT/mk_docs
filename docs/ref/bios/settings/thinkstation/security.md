@@ -9,7 +9,7 @@
 - Removed "Require POP on System Boot": duplicated "BIOS Password At System Boot" below it, but with broken line-wrapped text, a "form"/"from" typo, and a WMI Setting name ("RequireSVPwhenFlashing") that was already claimed by the separate "Require SVP when Flashing" setting above it. Kept the cleaner "BIOS Password At System Boot" version instead.
 -->
 
-## **Supervisor Password**
+### **Supervisor Password**
 
 The supervisor password (SVP) protects the system information stored in UEFI BIOS.
 
@@ -71,7 +71,7 @@ Parameters:
 2. `Confirm New Password`
 3. < Actions >:
 
-    a. **Save** – Default
+    a. **Save** – Default.
 
     b. Cancel
 
@@ -88,7 +88,7 @@ Parameters:
 2. `Confirm New Password`
 3. < Actions >:
 
-    a. **Save** – Default
+    a. **Save** – Default.
 
     b. Cancel
 
@@ -105,7 +105,7 @@ Parameters:
 2. `Confirm New Password`
 3. < Actions >:
 
-    a. **Save** – Default
+    a. **Save** – Default.
 
     b. Cancel
 
@@ -118,7 +118,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| WindowsUEFIFirmwareUpdate | Disabled, Enabled | Yes | Both |
+| WindowsUEFIFirmwareUpdate | Enabled, Disabled | Yes | Both |
 
 ### **BIOS Self-healing**
 
@@ -191,8 +191,8 @@ Whether to display the `secure wipe` option on the F12 BIOS Startup Menu. Users 
 
 Possible options:
 
-1. Enabled
-2. **Disabled** – Default.
+1. **Disabled** – Default.
+2. Enabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -223,7 +223,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| AbsolutePersistenceModule | Disabled, Enabled | Yes | Both |
+| AbsolutePersistenceModule | Enabled, Disabled | Yes | Both |
 
 ### **Device Guard**
 
@@ -348,7 +348,7 @@ Possible options:
 
 ### **Reset system to Factory Default**
 
-This option is used clear all data stored in UEFI system. Not affected to storage data. After selecting this item, the system will be automatically reboot, then reset system to factory default settings.
+This option clears all data stored in the UEFI system; storage data is not affected. After selecting this item, the system will automatically reboot and reset to factory default settings.
 
 ### **Set Password Encryption Algorithm**
 
@@ -573,4 +573,4 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| PasswordCountExceededError | Disabled, Enabled | Yes | Both |
+| PasswordCountExceededError | Enabled, Disabled | Yes | Both |

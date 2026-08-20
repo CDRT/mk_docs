@@ -39,7 +39,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| ClearDIAGLog | Yes, No | Yes | AMD |
+| ClearDIAGLog | No, Yes | Yes | AMD |
 
 ## Intel(R) version
 

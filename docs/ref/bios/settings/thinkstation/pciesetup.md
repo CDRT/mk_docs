@@ -15,7 +15,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| ReSizeBARSupport | Enabled, Disabled | Yes | Both |
+| ReSizeBARSupport | Disabled, Enabled | Yes | Both |
 
 ### **SR-IOV Support**
 
@@ -28,7 +28,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| SRIOVSupport | Enabled, Disabled | Yes | Both |
+| SRIOVSupport | Disabled, Enabled | Yes | Both |
 
 ### **ASPM Support**
 

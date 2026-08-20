@@ -11,7 +11,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| CardReader | Disabled, Enabled | Yes | Intel |
+| CardReader | Enabled, Disabled | Yes | Intel |
 
 ### **Bluetooth**
 
@@ -24,4 +24,4 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| Bluetooth | Disabled, Enabled | Yes | Both |
+| Bluetooth | Enabled, Disabled | Yes | Both |

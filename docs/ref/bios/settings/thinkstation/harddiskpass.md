@@ -18,10 +18,13 @@ One setting for each drive's password:
 
 For each drive it is possible to define a separate password, or leave a drive without a password.
 
+!!! warning "Attention"
+    If several disks are present, it's suggested to set all Hard Disk Passwords to the same.
+
 Possible options:
 
-1. Enabled – HDP (single or dual) is installed.
-2. **Disabled** – HDP is not installed. Default.
+1. **Disabled** – HDP is not installed. Default.
+2. Enabled – HDP (single or dual) is installed.
 
 Additional choice of the password type:
 
@@ -43,12 +46,9 @@ While enabling the following parameters are available:
 3. Show Password – `On` \ `Off` statuses
 4. < Actions >:
 
-    a. **Save** – Default
+    a. **Save** – Default.
 
     b. Cancel
-
-!!! warning "Attention"
-    If several disks are present, it's suggested to set all Hard Disk Passwords to the same.
 
 ### **Require HDP on System Boot**
 
@@ -69,7 +69,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| RequireHDPonSystemBoot | No, Power On, Auto | Yes | Both |
+| RequireHDPonSystemBoot | Auto, Power On, No | Yes | Both |
 
 ### **Block SID Authentication**
 

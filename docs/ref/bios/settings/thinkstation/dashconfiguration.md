@@ -19,8 +19,8 @@ Possible options:
 
 Possible options:
 
-1. Enabled
-2. **Disabled** - Default.
+1. **Disabled** - Default.
+2. Enabled
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -37,14 +37,14 @@ The following emulation types are available:
 
 Possible options:
 
-1. VT100
-2. VT100+
-3. VT-UTF8
-4. **ANSI** - Default.
+1. **ANSI** - Default.
+2. VT100
+3. VT100+
+4. VT-UTF8
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| ConsoleRedirectionTerminalType | VT100, VT100+, VT-UTF8, ANSI | Yes | AMD |
+| ConsoleRedirectionTerminalType | ANSI, VT100, VT100+, VT-UTF8 | Yes | AMD |
 
 ### **Bits Per Second**
 
@@ -109,34 +109,34 @@ Possible options:
 
 Possible options:
 
-1. Hardware RTS/CTS
-2. **None** - Default.
+1. **None** - Default.
+2. Hardware RTS/CTS
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| FlowControl | Hardware RTS/CTS, None | Yes | AMD |
+| FlowControl | None, Hardware RTS/CTS | Yes | AMD |
 
 ### **VT UTF8 Combo Key Support**
 
 Possible options:
 
-1. Disabled
-2. **Enabled** - Default.
+1. **Enabled** - Default.
+2. Disabled
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| VTUTF8ComboKeySupport | Disabled, Enabled | Yes | AMD |
+| VTUTF8ComboKeySupport | Enabled, Disabled | Yes | AMD |
 
 ### **Recorder Mode**
 
 Possible options:
 
-1. Disabled
-2. **Enabled** - Default.
+1. **Enabled** - Default.
+2. Disabled
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| RecorderMode | Disabled, Enabled | Yes | AMD |
+| RecorderMode | Enabled, Disabled | Yes | AMD |
 
 ### **Resolution 100x31**
 

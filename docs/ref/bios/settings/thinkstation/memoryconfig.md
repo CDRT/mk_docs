@@ -1,6 +1,6 @@
 # Memory Configuration
 
-### Memory Topology
+### **Memory Topology**
 
 Displays memory topology with DIMM population information.
 

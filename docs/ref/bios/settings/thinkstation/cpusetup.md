@@ -19,7 +19,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| SpeedShiftTechnology | Disabled, Enabled | Yes | Intel |
+| SpeedShiftTechnology | Enabled, Disabled | Yes | Intel |
 
 ### **Intel(R) Hyper-Threading Technology**
 
@@ -35,7 +35,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| HyperThreadingTechnology | Disabled, Enabled | Yes | Intel |
+| HyperThreadingTechnology | Enabled, Disabled | Yes | Intel |
 
 ### **Core Multi-Processing**
 
@@ -83,7 +83,7 @@ Additional information is available here: [How to enable Virtualization Technolo
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| VirtualizationTechnology | Disabled, Enabled | Yes | Intel |
+| VirtualizationTechnology | Enabled, Disabled | Yes | Intel |
 
 ### **VT-d Feature**
 
@@ -98,7 +98,7 @@ Additional information is available here: [VT-d Feature](https://www.intel.com/c
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| VTdFeature | Disabled, Enabled | Yes | Intel |
+| VTdFeature | Enabled, Disabled | Yes | Intel |
 
 ### **TxT**
 
@@ -112,13 +112,11 @@ Possible options:
 1. Enabled
 2. Disabled
 
-Default depends on model.
-
 Additional information is available here: [Intel(R) TXT Overview](https://www.intel.com/content/www/us/en/support/articles/000025873/technologies.html).
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| TXTFeature | Disabled, Enabled | Yes | Intel |
+| TXTFeature | Enabled, Disabled | Yes | Intel |
 
 ### **IOMMU**
 
@@ -126,8 +124,8 @@ Intel Input/Output Memory Management Unit (IOMMU) is a hardware component that p
 
 Possible options:
 
-1. Enabled
-2. **Disabled** – Default.
+1. **Disabled** – Default.
+2. Enabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -146,7 +144,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| C1ESupport | Disabled, Enabled | Yes | Intel |
+| C1ESupport | Enabled, Disabled | Yes | Intel |
 
 ### **C State Support**
 
@@ -176,7 +174,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| TurboMode | Disabled, Enabled | Yes | Intel |
+| TurboMode | Enabled, Disabled | Yes | Intel |
 
 ### **AES-NI**
 
@@ -207,7 +205,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| IntelSpeedStepTechnology | Disabled, Enabled | Yes | Intel |
+| IntelSpeedStepTechnology | Enabled, Disabled | Yes | Intel |
 
 ### **Hardware P-States**
 
@@ -215,13 +213,13 @@ Sets the P-State (performance state) mode used by the processor.
 
 Possible options:
 
-1. Disabled
-2. **Native Mode** – Default.
+1. **Native Mode** – Default.
+2. Disabled
 3. Native Mode with No Legacy Support
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| HardwarePStates | Disabled, Native Mode, Native Mode with No Legacy Support | Yes | Intel |
+| HardwarePStates | Native Mode, Disabled, Native Mode with No Legacy Support | Yes | Intel |
 
 ### **CPU C1 Auto Demotion**
 
@@ -277,7 +275,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| EnergyEfficientTurbo | Disabled, Enabled | Yes | Intel |
+| EnergyEfficientTurbo | Enabled, Disabled | Yes | Intel |
 
 ### **Energy / Performance Bias Control**
 
@@ -314,13 +312,13 @@ Possible options:
 
 Intel(R) Speed Select Technology (Intel(R) SST) is a collection of per-core performance tuning capabilities for Intel(R) Xeon(R) processors, letting the system prioritize frequency, power, or core count for specific workloads.
 
+!!! warning "Attention"
+    Enables the following sub-features, which are only available when `Intel(R) Speed Select Technology` is `Enabled`.
+
 Possible options:
 
 1. **Disabled** – Default.
 2. Enabled
-
-!!! warning "Attention"
-    Enables the following sub-features, which are only available when `Intel(R) Speed Select Technology` is `Enabled`.
 
 ### **Intel(R) SST-PP (Speed Select Technology - Performance Profile)**
 

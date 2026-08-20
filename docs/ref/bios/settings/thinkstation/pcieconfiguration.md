@@ -71,8 +71,8 @@ When `Disabled`, unpopulated PCI Express links are disabled to save power.
 
 Possible options:
 
-1. Keep Link ON
-2. **Disabled** - Default.
+1. **Disabled** - Default.
+2. Keep Link ON
 
 ## PCIe Slot{X} Status
 
@@ -87,7 +87,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| PCIeSlotXPort | Disable, Enable | Yes | AMD |
+| PCIeSlotXPort | Enable, Disable | Yes | AMD |
 
 !!! warning "Attention"
     In the WMI class name, X represents the slot number, from 1 to 6.
@@ -111,7 +111,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| PCIeSlotXBifurcation | Auto, x4x4x4x4, x8x8, x16 | Yes | AMD |
+| PCIeSlotXBifurcation | Auto, x4x4, x4x4x4x4, x4x4x8, x8x4x4, x8, x8x8, x16 | Yes | AMD |
 
 !!! warning "Attention"
     In the WMI class name, X represents the slot number, from 1 to 6.
@@ -121,7 +121,7 @@ Possible options:
 Possible options:
 
 1. **Auto** - Default.
-2. Auto, Gen 1 (2.5 GT/s)
+2. Gen 1 (2.5 GT/s)
 3. Gen 2 (5 GT/s)
 4. Gen 3 (8 GT/s)
 5. Gen 4 (16 GT/s)
@@ -146,7 +146,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| M2SlotXPort | Disable, Enable | Yes | AMD |
+| M2SlotXPort | Enable, Disable | Yes | AMD |
 
 !!! warning "Attention"
     In the WMI class name, X represents the slot number, 1 or 2.
@@ -156,7 +156,7 @@ Possible options:
 Possible options:
 
 1. **Auto** - Default.
-2. Auto, Gen 1 (2.5 GT/s)
+2. Gen 1 (2.5 GT/s)
 3. Gen 2 (5 GT/s)
 4. Gen 3 (8 GT/s)
 5. Gen 4 (16 GT/s)

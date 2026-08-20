@@ -21,8 +21,8 @@ Select the type of TCG Security Device:
 
 Possible options:
 
-1. Firmware TPM
-2. **Discrete TPM** – Default.
+1. **Discrete TPM** – Default.
+2. Firmware TPM
 
 ### **Security Chip 2.0**
 
@@ -48,8 +48,8 @@ Possible options:
 
 Possible options:
 
-1. Yes
-2. **No** – Default.
+1. **No** – Default.
+2. Yes
 
 ### **Physical Presence for Clear**
 

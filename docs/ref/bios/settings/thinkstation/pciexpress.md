@@ -6,12 +6,12 @@ If system has SR-IOV capable PCIe Devices, this option Enables or Disables Singl
 
 Possible options:
 
-1. **Disabled**. Default.
+1. **Disabled** - Default.
 2. Enabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| SRIOVSupport | Enabled, Disabled | Yes | Both |
+| SRIOVSupport | Disabled, Enabled | Yes | Both |
 
 ### **ASPM Support**
 
@@ -19,7 +19,7 @@ Whether to enable ASPM (Active State Power Management) support for PCI Express d
 
 Possible options:
 
-1. **Auto**. Default. Configure ASPM automatically according to what the attached device supports in each PCI Express port.
+1. **Auto** - Default. Configure ASPM automatically according to what the attached device supports in each PCI Express port.
 2. Disabled - Disable ASPM support of all PCI Express ports.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
@@ -32,7 +32,7 @@ Select PCI Express port speed.
 
 Possible options:
 
-1. **Auto**. Default.
+1. **Auto** - Default.
 2. Gen 1
 3. Gen 2
 4. Gen 3
@@ -48,7 +48,7 @@ Select PCI Express port speed.
 
 Possible options:
 
-1. **Auto**. Default.
+1. **Auto** - Default.
 2. Gen 1
 3. Gen 2
 4. Gen 3
@@ -64,7 +64,7 @@ Select PCI Express port speed.
 
 Possible options:
 
-1. **Auto**. Default.
+1. **Auto** - Default.
 2. Gen 1
 3. Gen 2
 4. Gen 3

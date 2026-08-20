@@ -21,7 +21,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| ComputeExpressLink | Enabled, Disabled | Yes | Intel |
+| ComputeExpressLink | Disabled, Enabled | Yes | Intel |
 <!--
 ### **CXL ASPM**
 

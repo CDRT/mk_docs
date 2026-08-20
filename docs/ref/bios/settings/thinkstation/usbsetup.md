@@ -19,7 +19,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| USBPortAccess | Disabled, Enabled | Yes | Both |
+| USBPortAccess | Enabled, Disabled | Yes | Both |
 
 ### **Always On USB**
 
@@ -67,7 +67,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| XHCIHandoff | Disable, Enable | Yes | AMD |
+| XHCIHandoff | Enable, Disable | Yes | AMD |
 
 ## USB hardware delays and time-outs
 
@@ -109,7 +109,7 @@ USB mass storage device `Start Unit` command time-out.
 Possible options:
 
 1. 10 sec
-2. **20 sec** - Default
+2. **20 sec** - Default.
 3. 30 sec
 4. 40 sec
 
@@ -146,7 +146,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| FrontUSBPorts | Disabled, Enabled | Yes | Both |
+| FrontUSBPorts | Enabled, Disabled | Yes | Both |
 
 ### **Media Card Reader**
 
@@ -159,7 +159,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| MediaCardReader | Disable, Enable | Yes | AMD |
+| MediaCardReader | Enable, Disable | Yes | AMD |
 
 ### **MCR USB Header**
 
@@ -168,7 +168,7 @@ Whether the device connected to this USB header has the characteristics of exter
 Possible options:
 
 1. **Internal** - Default. Select when connected to Media Card Reader (MCR).
-2. External. Select when connected to USB Type C port.
+2. External - Select when connected to USB Type C port.
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -185,7 +185,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| InternalUSB3Port | Disable, Enable | Yes | AMD |
+| InternalUSB3Port | Enable, Disable | Yes | AMD |
 
 ### **Internal USB2.0 Port**
 
@@ -198,7 +198,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| InternalUSB2Port | Disable, Enable | Yes | AMD |
+| InternalUSB2Port | Enable, Disable | Yes | AMD |
 
 ### **Rear USB Ports**
 
@@ -211,20 +211,20 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| RearUSBPorts | Disabled, Enabled | Yes | Both |
+| RearUSBPorts | Enabled, Disabled | Yes | Both |
 
 ### **USB Port {X}**
 
 {X} is the number of the rear USB port (total number of ports dependent on model).
 
-For each Rear USB Port:
+Possible options:
 
-1. **Enabled**. Default, if `Enabled` is selected in `Rear USB Ports`.
+1. **Enabled** - Default. If `Enabled` is selected in `Rear USN Ports`.
 2. Disabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| USBPortX | Disabled, Enabled | Yes | Both |
+| USBPortX | Enabled, Disabled | Yes | Both |
 
 !!! warning "Attention"
     The WMI setting name in the example above represents the port number. Change the number to that of the desired rear USB port.

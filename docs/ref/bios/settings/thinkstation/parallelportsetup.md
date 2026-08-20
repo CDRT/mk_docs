@@ -15,7 +15,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| ParallelPortAddress | 278, 378, Disabled | Yes | Both |
+| ParallelPortAddress | 378, 278, Disabled | Yes | Both |
 
 ### **Parallel Port Mode**
 
@@ -45,7 +45,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| EcpModeDmaChannel | DMA1, DMA3 | Yes | Both |
+| EcpModeDmaChannel | DMA3, DMA1 | Yes | Both |
 
 ### **EPP Version**
 
@@ -61,7 +61,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| EPPVersion | 1.7, 1.9 | Yes | Both |
+| EPPVersion | 1.9, 1.7 | Yes | Both |
 
 ### **Parallel Port IRQ**
 
@@ -74,4 +74,4 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| ParallelPortIRQ | IRQ5, IRQ7 | Yes | Both |
+| ParallelPortIRQ | IRQ7, IRQ5 | Yes | Both |

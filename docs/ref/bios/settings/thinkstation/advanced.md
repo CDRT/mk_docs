@@ -13,7 +13,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| WHEASupport | Disabled, Enabled | Yes | Intel |
+| WHEASupport | Enabled, Disabled | Yes | Intel |
 
 ### **Data Execution Prevention**
 
@@ -52,7 +52,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| IntelSIPPSupport | Disabled, Enabled | Yes | Intel |
+| IntelSIPPSupport | Enabled, Disabled | Yes | Intel |
 
 ### **Intel(R) Thunderbolt**
 
@@ -63,7 +63,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| IntelThunderboltTechnology | Enabled, Disabled | Yes | Intel |
+| IntelThunderboltTechnology | Disabled, Enabled | Yes | Intel |
 
 ### **Dust Shield Alert**
 
@@ -92,7 +92,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| IntelDPTFSupport | Disabled, Enabled | Yes | Intel |
+| IntelDPTFSupport | Enabled, Disabled | Yes | Intel |
 
 ### **Available system Memory**
 

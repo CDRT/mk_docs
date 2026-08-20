@@ -10,37 +10,37 @@ Enable the VMD(Volume Management Device) technology to support configure PCIe st
 
 Enable/Disable Intel(R) Volume Management Device Technology on M.2 Slot1.
 
+!!! warning "Attention"
+    X represents the slot number, 1 to 3.
+
 Possible options:
 
 1. **PCIe** – Default.
 2. VMD
-
-!!! warning "Attention"
-    X represents the slot number, 1 to 3.
 
 ### **PCIe Slot{X}**
 
 Enable/Disable Intel(R) Volume Management Device Technology on PCIe Slot1.
 
+!!! warning "Attention"
+    X represents the slot number, 1 to 9.
+
 Possible options:
 
 1. **PCIe** – Default.
 2. VMD
-
-!!! warning "Attention"
-    X represents the slot number, 1 to 9.
 
 ### **MCIO Slot{X}-{Y}**
 
 Enable/Disable Intel(R) Volume Management Device Technology on MCIO Slot1-1.
 
+!!! warning "Attention"
+    X & Y represent the slot numbers, 1 and 2 (interchangeably).
+
 Possible options:
 
 1. **PCIe** – Default.
 2. VMD
-
-!!! warning "Attention"
-    X & Y represent the slot numbers, 1 and 2 (interchangeably).
 
 ### **MCIO Hot Plug**
 
