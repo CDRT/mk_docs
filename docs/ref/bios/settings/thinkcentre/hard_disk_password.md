@@ -49,7 +49,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| RequireHDPonSystemBoot | No, Auto, Power On | Yes |
+| RequireHDPonSystemBoot | Auto, Power On, No | Yes |
 
 ### **Block SID Authentication**
 

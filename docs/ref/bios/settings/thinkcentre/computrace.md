@@ -19,4 +19,4 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| AbsolutePersistenceModule | Disabled, Enabled, PermanentlyDisabled | Yes |
+| AbsolutePersistenceModule | Enabled, Disabled, PermanentlyDisabled | Yes |

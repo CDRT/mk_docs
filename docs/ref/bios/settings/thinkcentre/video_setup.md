@@ -10,13 +10,13 @@ The primary video device for graphics output.
 
 Possible options:
 
-1. **Auto** - automatic selection of graphics output by the system. Default.
+1. **Auto** - Default. Automatic selection of graphics output by the system.
 2. IGD - Select Integrated Graphics Device.
 3. PEG - Select PCIe Graphic.
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| SelectActiveVideo | IGD, [PEG], Auto | Yes |
+| SelectActiveVideo | Auto, IGD, PEG | Yes |
 
 ### **Pre-Allocated Memory Size**
 
@@ -40,7 +40,7 @@ Total memory shared by all graphics devices.
 
 Possible options:
 
-1. **Maximum** - enables maximum memory allocation. Default.
+1. **Maximum** - Default. Enables maximum memory allocation.
 2. 128MB
 3. 256MB
 

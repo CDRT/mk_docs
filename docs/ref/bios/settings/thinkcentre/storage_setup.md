@@ -9,7 +9,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| SATAController | Disabled, Enabled | Yes | Both |
+| SATAController | Enabled, Disabled | Yes | Both |
 
 ### **SATA Drive {X}**
 
@@ -20,7 +20,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| SATADriveX | Disabled, Enabled | Yes | Both |
+| SATADriveX | Enabled, Disabled | Yes | Both |
 
 !!! warning "Attention"
     In the WMI class name, X represents the drive number.
@@ -34,14 +34,12 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| M.2DriveX | Disabled, Enabled | Yes | Intel |
+| M.2DriveX | Enabled, Disabled | Yes | Intel |
 
 !!! warning "Attention"
     In the WMI class name, X represents the drive number.
 
 ### **Configure Storage as**
-
-Adds a delay before the first access of a hard disk by the system software. Some hard disks hang if accessed before they have initialized themselves. This delay ensures the hard disk has initialized after power up, prior to being accessed.
 
 !!! warning "Attention"
     - Device driver support is required for AHCI or RAID.

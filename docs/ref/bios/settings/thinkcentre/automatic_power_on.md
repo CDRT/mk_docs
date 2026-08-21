@@ -26,7 +26,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| WakefromSerialPortRing | Primary, Automatic, Disabled | Yes |
+| WakefromSerialPortRing | Enabled, Disabled | Yes |
 
 ### **Wake Up on Alarm**
 

@@ -9,7 +9,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| Bluetooth | Disabled, Enabled | Yes |
+| Bluetooth | Enabled, Disabled | Yes |
 
 ### **Card Reader**
 

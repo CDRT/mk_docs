@@ -24,7 +24,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| IntelSIPPSupport | Disabled, Enabled | Yes |
+| IntelSIPPSupport | Enabled, Disabled | Yes |
 
 ### **Intel (R) Thunderbolt**
 
@@ -47,7 +47,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| DustShieldAlert | Disabled, Enabled | Yes |
+| DustShieldAlert | Enabled, Disabled | Yes |
 
 ### **Intel (R) DPTF Support**
 
@@ -62,7 +62,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| IntelDPTFSupport | Disabled, Enabled | Yes |
+| IntelDPTFSupport | Enabled, Disabled | Yes |
 
 ### **Windows Modern Standby**
 

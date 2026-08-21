@@ -14,7 +14,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| SATAController | Disabled, Enabled | Yes |
+| SATAController | Enabled, Disabled | Yes |
 
 ### **SATA DRIVE {Number}**
 
@@ -27,7 +27,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| SATADrive1 | Disabled, Enabled | Yes |
+| SATADrive1 | Enabled, Disabled | Yes |
 
 !!! warning "Attention"
     The WMI setting name for Drive 1 is shown. Other drives follow the pattern `SATADrive#`, where `#` is the number of the drive.

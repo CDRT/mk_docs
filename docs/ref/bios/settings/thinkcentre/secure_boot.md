@@ -20,7 +20,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| SecureBoot | Disabled, Enabled | Yes |
+| SecureBoot | Enabled, Disabled | Yes |
 
 ### **Restore Factory Keys**
 

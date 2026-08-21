@@ -14,7 +14,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| OnboardEthernetController | Disabled, Enabled | Yes |
+| OnboardEthernetController | Enabled, Disabled | Yes |
 
 ### **Wireless LAN Access**
 
@@ -27,7 +27,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| WirelessLANAccess | Disabled, Enabled | Yes |
+| WirelessLANAccess | Enabled, Disabled | Yes |
 
 ### **Wireless LAN PXE boot**
 

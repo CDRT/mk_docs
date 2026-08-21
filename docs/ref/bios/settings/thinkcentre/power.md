@@ -15,7 +15,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| AfterPowerLoss | Power Off, Power On, Last State | Yes |
+| AfterPowerLoss | Last State, Power Off, Power On | Yes |
 
 ### **Enhanced Power Saving Mode**
 
@@ -44,4 +44,4 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| SmartPowerOn | Disabled, Enabled | Yes |
+| SmartPowerOn | Enabled, Disabled | Yes |

@@ -57,7 +57,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| USBProvisioning | Disabled, Enabled | Yes |
+| USBProvisioning | Enabled, Disabled | Yes |
 
 ## SOL Configuration
 

@@ -11,7 +11,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| EISTSupport | Disabled, Enabled | Yes |
+| EISTSupport | Enabled, Disabled | Yes |
 
 ### **Intel(R) Speed Shift Technology**
 
@@ -24,7 +24,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| SpeedShiftTechnology | Disabled, Enabled | Yes |
+| SpeedShiftTechnology | Enabled, Disabled | Yes |
 
 ### **Intel(R) Hyper-Threading Technology**
 
@@ -37,7 +37,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| HyperThreadingTechnology | Disabled, Enabled | Yes |
+| HyperThreadingTechnology | Enabled, Disabled | Yes |
 
 ### **Core Multi-Processing**
 
@@ -63,7 +63,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| VirtualizationTechnology | Disabled, Enabled | Yes |
+| VirtualizationTechnology | Enabled, Disabled | Yes |
 
 ### **VT-d Feature**
 
@@ -76,7 +76,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| VTdFeature | Disabled, Enabled | Yes |
+| VTdFeature | Enabled, Disabled | Yes |
 
 ### **IOMMU**
 
@@ -89,7 +89,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| IOMMU | Disabled, Enabled | Yes |
+| IOMMU | Enabled, Disabled | Yes |
 
 ### **TxT**
 
@@ -102,7 +102,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| TXTFeature | Disabled, Enabled | Yes |
+| TXTFeature | Enabled, Disabled | Yes |
 
 ### **C1E Support**
 
@@ -115,7 +115,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| C1ESupport | Disabled, Enabled | Yes |
+| C1ESupport | Enabled, Disabled | Yes |
 
 ### **C State Support**
 
@@ -145,7 +145,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| TurboMode | Disabled, Enabled | Yes |
+| TurboMode | Enabled, Disabled | Yes |
 
 ### **CPU ID**
 
