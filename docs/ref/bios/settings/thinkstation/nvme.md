@@ -16,4 +16,3 @@ Possible options:
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
 | NVMeRAIDMode | Disable, Enable | Yes | AMD |
-
