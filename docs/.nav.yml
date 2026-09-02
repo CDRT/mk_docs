@@ -9,6 +9,7 @@ nav:
         - Lenovo.Client.Scripting Module: guides/lcsm/lcsm_top.md
         - Lenovo.Client.Update Module: guides/lcu
         - ThinkVantage Repository Manager: guides/tvrm
+        - Commercial Vantage Policy Manager for Intune: guides/lcvpm
       - Lenovo Updates Catalog: guides/luc
       - Dock Manager: guides/dm
       - System Update, Update Retriever, Thin Installer: guides/sus

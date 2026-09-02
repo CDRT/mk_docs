@@ -82,11 +82,15 @@ Install-Module 'Lenovo.Client.Update'
 
 ## Other PowerShell Solutions
 
-### LCV Policy Manager
+### Commercial Vantage Policy Manager
 
-The Lenovo Commercial Vantage Policy Manager is a PowerShell script that provides a UI that simplifies management of Commercial Vantage group policies in Microsoft Intune — removing the need to manually construct large XML policy payloads.
+The Commercial Vantage Policy Manager is a PowerShell script that provides a UI that simplifies management of Commercial Vantage group policies in Microsoft Intune - removing the need to manually construct large XML policy payloads.
 
-[:material-cog: Read the guide](https://blog.lenovocdrt.com/introducing-commercial-vantage-policy-manager-for-intune/)
+```powershell
+Install-Script  'Invoke-LnvCVPolicyManager'
+```
+
+[:material-cog: Read the guide](/guides/cvpm/)
 
 ---
 
