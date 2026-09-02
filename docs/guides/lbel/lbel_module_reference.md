@@ -16,6 +16,18 @@ CS26 commercial machines (ThinkPad, ThinkStation, ThinkCentre) introduced new WM
 
 ---
 
+## Installation
+
+<!-- TODO: replace with the official download location (e.g. PowerShell Gallery Install-Module command or a download.lenovo.com/cdrt/tools zip link) once Lenovo.BIOS.EventLog is published. Currently only available from the GitHub repo. -->
+
+Download or clone the module from its GitHub repository, then import it from the local folder:
+
+```powershell
+Import-Module .\Lenovo.BIOS.EventLog.psd1
+```
+
+---
+
 ## Module Structure
 
 The module is organized as follows:
@@ -137,11 +149,23 @@ The `Specs` folder is required for the module to know how to parse the data retu
 
 `Launch-LnvEventLogViewer.ps1` launches a GUI modeled after the event log viewer in BIOS setup. The viewer groups events together by boot, and each row in the grid can be expanded to show more detail.
 
-<!-- TODO: add a screenshot of the EventLogViewer GUI here, e.g. ![EventLogViewer](../../img/guides/lbel/lbel-eventlogviewer-01.png) -->
-
 ```powershell
 Launch-LnvEventLogViewer.ps1
 ```
+
+![BIOS Event Log main screen](../../img/guides/lbel/mainScreen.png)
+
+Selecting a row and pressing **Enter** opens an **Event Details** window, which lists every event recorded around that boot along with its associated fields.
+
+![Event Details view](../../img/guides/lbel/moreDetails.png)
+
+The **Export Log** button saves the current event log to a JSON file, corresponding to the `Export-LnvBiosEventLog` cmdlet.
+
+![Export BIOS Event Log dialog](../../img/guides/lbel/exportLog.png)
+
+The **Import Log** button loads a previously exported JSON file back into the viewer, corresponding to the `Import-LnvBiosEventLog` cmdlet.
+
+![Import BIOS Event Log dialog](../../img/guides/lbel/importLog.png)
 
 ---
 
