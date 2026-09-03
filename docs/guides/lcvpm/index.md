@@ -113,9 +113,11 @@ Commercial Vantage Policy Manager detects the OS light/dark preference at launch
 
 ---
 
-## Manual ADMX Profile Alternative
+## ADMX Ingestion
 
-Commercial Vantage Policy Manager currently focuses on the Custom OMA-URI workflow above. Administrators who need an ADMX-based Administrative Templates profile instead can create one manually in Intune:
+Commercial Vantage Policy Manager currently focuses on the Custom OMA-URI workflow above. Before any policy can be set on the device, the ADMX template will need to be deployed.
+
+This can be accomplished in 2 ways. Manually, following the steps below:
 
 1. Open the Microsoft Intune admin center.
 2. Navigate to **Devices** > **Windows** > **Configuration Profiles**.
@@ -130,8 +132,9 @@ Commercial Vantage Policy Manager currently focuses on the Custom OMA-URI workfl
 
 7. Assign the profile to the target group.
 
-!!! note "Planned automation"
-    A future Commercial Vantage Policy Manager release will add a **Create ADMX Profile** button that automates these steps from the GUI.
+-**Or**-
+
+Clicking the **Create ADMX Profile** button in the Policy Manager GUI. This feature was added in version 1.2.0.
 
 ---
 
