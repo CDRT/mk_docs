@@ -128,7 +128,7 @@ $updates | Install-LnvUpdate -Verbose
     # Create a local repository of all updates for the machine type of the device
     # - exclude updates that would automatically restart the computer (reboot type 1)
     $repoPath = 'C:\Lenovo_Updates'
-    Get-LnvUpdatesRepo -RepositoryPath $repoPath -RebootType '0,3,5'
+    Get-LnvUpdatesRepo -RepositoryPath $repoPath -RebootTypes '0,3,5'
 
     # Determine applicable updates in repository and send to Install-LnvUpdate,
     # write history in WMI and give Verbose output

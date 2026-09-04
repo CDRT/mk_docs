@@ -85,16 +85,6 @@ Get-LnvUpdate | Where-Object { $_.Severity -eq 'Critical' } | Save-LnvUpdate -Pa
 
 Downloads only critical-severity updates to a dedicated folder.
 
-## Output
-
-Returns an object with download result information including:
-
-- `PackageID` - Unique identifier
-- `DownloadPath` - Full path where downloaded
-- `FileSize` - Size of downloaded package in bytes
-- `Status` - Download status (Success, Failed, AlreadyExists)
-- `Message` - Details or error information
-
 ## Notes
 
 - Downloaded packages are organized in subfolders by package ID

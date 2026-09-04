@@ -58,7 +58,6 @@ Returns a `LnvUpdateConfiguration` object with properties such as:
 - `MaxExternalDetectionRuntime` - Time limit for detection processes
 - `MaxExtractRuntime` - Time limit for package extraction
 - `MaxInstallerRuntime` - Time limit for installer execution
-- `RepositoryPath` - Default repository location
 
 ## See Also
 

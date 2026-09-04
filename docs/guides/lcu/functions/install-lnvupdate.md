@@ -79,8 +79,9 @@ Installs updates and records BIOS information to registry for tracking.
 ```powershell
 Get-LnvUpdate | `
   Where-Object { $_.Installer.Unattended } | `
-  Save-LnvUpdate -Path "C:\Updates" | `
-  Install-LnvUpdate -SaveBIOSUpdateInfoToRegistry -ExportToWMI -Verbose
+  Save-LnvUpdate -Path "C:\Updates"
+  
+  Install-LnvUpdate -Path "C:\Updates" -SaveBIOSUpdateInfoToRegistry -ExportToWMI -Verbose
 ```
 
 Complete workflow: discover, download, and install, with history tracking.
@@ -98,13 +99,13 @@ Installs packages from a pre-built local repository.
 
 Returns a `PackageInstallResult` object with properties:
 
-- `PackageID` - Unique identifier
+- `ID` - Unique identifier
 - `Title` - Package name
-- `Status` - Installation result (Success, Failed, Skipped)
+- `Success` - Installation result (True,False)
 - `ExitCode` - Installation program exit code
-- `ActionNeeded` - Whether reboot or other action is required
-- `Message` - Details or error information
-- `Duration` - How long the installation took
+- `PendingAction` - Whether reboot or other action is required (NONE / REBOOT_SUGGESTED / REBOOT_MANDATORY / SHUTDOWN_MANDATORY)
+- `FailureReason` - Details or error information
+- `Runtime` - How long the installation took
 
 ## Notes
 
@@ -126,7 +127,7 @@ Interactive installers may hang deployments waiting for user input.
 
 ### System Reboots
 
-- Check the `ActionNeeded` property in the result object
+- Check the `PendingAction` property in the result object
 - Some packages may require system reboots or shutdowns
 - BIOS updates typically require reboots
 - Plan update schedules accordingly

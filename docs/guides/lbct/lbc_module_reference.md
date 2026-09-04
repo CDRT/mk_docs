@@ -29,7 +29,7 @@ The Lenovo BIOS Certificates module enables secure management of BIOS settings a
 | [`Convert-LnvBiosConfigFile`](#convert-lnvbiosconfigfile) | Convert BIOS settings file to signed commands |
 | [`Set-LnvBiosCertificate`](#set-lnvbioscertificate) | Install or update a BIOS certificate |
 | [`Get-LnvUnlockCode`](#get-lnvunlockcode) | Decrypt unlock code from an unlock file |
-| [`Test-LnvCheckForAzureModule`](#test-lnvcheckforazuremodule) | Verify Azure module installation |
+| [`Test-LnvIsModuleInstalled`](#test-lnvismoduleinstalled) | Verify Azure module installation |
 
 ### Cmdlet Reference
 
@@ -249,8 +249,8 @@ The Lenovo BIOS Certificates module enables secure management of BIOS settings a
 
     **Output:** Returns the decrypted unlock code as a string.
 
-<a id="test-lnvcheckforazuremodule"></a>
-??? note "Test-LnvCheckForAzureModule"
+<a id="test-lnvismoduleinstalled"></a>
+??? note "Test-LnvIsModuleInstalled"
 
     **Synopsis:** Checks if the specified Azure module is installed.
 
@@ -266,10 +266,10 @@ The Lenovo BIOS Certificates module enables secure management of BIOS settings a
 
     ```powershell
     # Check if Az.Accounts module is installed
-    Test-LnvCheckForAzureModule -ModuleName "Az.Accounts"
+    Test-LnvIsModuleInstalled -ModuleName "Az.Accounts"
 
     # Check if Az.KeyVault module is installed
-    Test-LnvCheckForAzureModule -ModuleName "Az.KeyVault"
+    Test-LnvIsModuleInstalled -ModuleName "Az.KeyVault"
     ```
 
     **Output:** Returns `$true` if the module is installed, `$false` otherwise.
@@ -284,7 +284,7 @@ The Lenovo BIOS Certificates module enables secure management of BIOS settings a
 | --- | --- | --- | --- |
 | Basic BIOS Setting | Change single setting on one device | Beginner | [`Get-LnvSignedWmiCommand`](#get-lnvsignedwmicommand), [`Submit-LnvBiosChange`](#submit-lnvbioschange) |
 | Batch Configuration | Apply multiple settings to multiple devices | Intermediate | [`Convert-LnvBiosConfigFile`](#convert-lnvbiosconfigfile), [`Submit-LnvBiosConfigFile`](#submit-lnvbiosconfigfile) |
-| Azure Key Vault | Enterprise deployment with cloud-based key management | Advanced | [`Test-LnvCheckForAzureModule`](#test-lnvcheckforazuremodule), [`Get-LnvSignedWmiCommand`](#get-lnvsignedwmicommand) (Azure) |
+| Azure Key Vault | Enterprise deployment with cloud-based key management | Advanced | [`Test-LnvIsModuleInstalled`](#test-lnvismoduleinstalled), [`Get-LnvSignedWmiCommand`](#get-lnvsignedwmicommand) (Azure) |
 | Certificate Management | Install or update BIOS certificates | Intermediate | [`Set-LnvBiosCertificate`](#set-lnvbioscertificate), [`Get-LnvUnlockCode`](#get-lnvunlockcode) |
 
 ??? note "Basic BIOS Setting Management"
@@ -329,7 +329,7 @@ The Lenovo BIOS Certificates module enables secure management of BIOS settings a
 
     ```powershell
     # Ensure Azure modules are available
-    if (-not (Test-LnvCheckForAzureModule -ModuleName "Az.Accounts") -or -not (Test-LnvCheckForAzureModule -ModuleName "Az.KeyVault")) {
+    if (-not (Test-LnvIsModuleInstalled -ModuleName "Az.Accounts") -or -not (Test-LnvIsModuleInstalled -ModuleName "Az.KeyVault")) {
         Write-Error "Required Azure modules not found. Please install Az.Accounts and Az.KeyVault"
         return
     }

@@ -58,16 +58,6 @@ Get-LnvUpdate -All | Expand-LnvUpdate -Path "E:\AllUpdates\Extracted"
 
 Gets all available packages and extracts them to E:\AllUpdates\Extracted.
 
-## Output
-
-`Expand-LnvUpdate` returns an extraction result object with properties such as:
-
-- `PackageID` - Unique identifier for the package
-- `ExtractionPath` - Full path where files were extracted
-- `FileCount` - Number of files extracted
-- `Status` - Extraction status (Success, Failed)
-- `Message` - Details or error information
-
 ## Notes
 
 - Extraction creates a subfolder for each package named by its package ID

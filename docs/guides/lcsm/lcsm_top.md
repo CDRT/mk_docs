@@ -152,7 +152,7 @@ The Lenovo Client Scripting Module (LCSM) is a comprehensive PowerShell module c
 | [`Add-LnvSULogging`](#add-lnvsulogging) | Utilities | Enable/disable System Update logging | 1.0.0 |
 | [`Export-LnvUpdateRetrieverConfig`](#export-lnvupdateretrieverconfig) | Utilities | Export Update Retriever settings as .reg file | 1.0.0 |
 | [`Find-LnvBiosCode`](#find-lnvbioscode) | BIOS | Find BIOS code by model name or machine type | 1.0.0 |
-| [`Find-LnvBiosInfo`](#find-lnvbiosinfo) | BIOS | Search BIOS information by model or code | 1.0.0 |
+| [`Find-LnvBiosInfo`](#find-lnvbiosinfo) | BIOS | Search BIOS information by machine type or code | 1.0.0 |
 | [`Find-LnvDockModel`](#find-lnvdockmodel) | Hardware | Get dock model name by machine type | 1.0.0 |
 | [`Find-LnvDriverPack`](#find-lnvdriverpack) | Updates | List available driver packs for a model | 1.0.0 |
 | [`Find-LnvHSAPack`](#find-lnvhsapack) | Hardware | List available HSA packs for a model | 2.2.0 |
@@ -450,19 +450,19 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
 <a id="find-lnvbiosinfo"></a>
 ??? note "Find-LnvBiosInfo"
 
-    **Purpose:** Search for BIOS information by model friendly name or BIOS code. Returns BIOS version, URLs, and CVE information.
+    **Purpose:** Search for BIOS information by machine type or BIOS code. Returns BIOS version, URLs, and CVE information.
 
     **Syntax:**
     ```powershell
-    Find-LnvBiosInfo [-ModelName <String>] [-BiosCode <String>]
+    Find-LnvBiosInfo [-MachineType <String>] [-BiosCode <String>]
     ```
 
     **Parameters:**
 
     | Parameter | Type | Mandatory | Description |
     |-----------|------|-----------|-------------|
-    | ModelName | String | False | Search by model friendly name |
-    | BiosCode | String | False | Search by 4-character BIOS code |
+    | MachineType | String | True | Search by model friendly name |
+    | BiosCode | String | True | Search by 4-character BIOS code |
 
     **Examples:**
 
@@ -475,7 +475,7 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     ```
 
     !!! note "Note"
-        Specify either ModelName or BiosCode (one is required). Returns BIOS code, available version, executable URL, readme link, and associated CVEs.
+        Specify either MachineType or BiosCode (one is required). Returns BIOS code, available version, executable URL, readme link, and associated CVEs.
 
 <a id="find-lnvdockmodel"></a>
 ??? note "Find-LnvDockModel"
@@ -514,7 +514,7 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
 
     **Syntax:**
     ```powershell
-    Find-LnvDriverPack [-MachineType] <String>
+    Find-LnvDriverPack [-MachineType] <String> [-Latest]
     ```
 
     **Parameters:**
@@ -522,6 +522,7 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     | Parameter | Type | Mandatory | Description |
     |-----------|------|-----------|-------------|
     | MachineType | String | True | 4-character machine type code |
+    | Latest | Switch | False | Return only the latest released  pack |
 
     **Examples:**
 
@@ -533,11 +534,11 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     Find-LnvDriverPack 21DD
 
     # Filter by OS and build version to get specific URL
-    $url = (Find-LnvDriverPack -MachineType 21DD | Where-Object { (($_.OS -eq 'win10') -and ($_.version -eq '21H2')) }).'#text'
+    $url = (Find-LnvDriverPack -MachineType 21DD | Where-Object { (($_.OS -eq 'win10') -and ($_.version -eq '21H2')) }).URL
     ```
 
     !!! note "Note"
-        Output fields: "os" (win10/win11), "version" (21H2/22H2), "crc", and "#text" (URL to executable). Use Where-Object to filter by OS and version. URL is in the '#text' field.
+        Output fields: "Model" (model name), "OS" (win10/win11), "OSVersion" (e.g. 21H2, 22H2), "SHA256", "MD5", "DateReleased" and "URL" (URL to executable). Use Where-Object to filter by OS and version.
 
 <a id="find-lnvhsapack"></a>
 ??? note "Find-LnvHSAPack"
@@ -606,11 +607,11 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
 <a id="find-lnvmodel"></a>
 ??? note "Find-LnvModel"
 
-    **Purpose:** Get the friendly model name from a machine type code. Useful when display systems show machine type and you need the model name.
+    **Purpose:** Get the friendly model name from a machine type code. Useful when display systems show machine type and you need the model name. Either -MachineType or -Bios is required.
 
     **Syntax:**
     ```powershell
-    Find-LnvModel [-MachineType] <String>
+    Find-LnvModel [-MachineType] <String> [-Bios] <String>
     ```
 
     **Parameters:**
@@ -618,6 +619,9 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
     | Parameter | Type | Mandatory | Description |
     |-----------|------|-----------|-------------|
     | MachineType | String | True | 4-character machine type code |
+    | Bios | String | True | 4-character BIOS code |
+
+    Only one of these parameters is required.
 
     **Examples:**
 
@@ -635,18 +639,18 @@ Below are all available cmdlets organized alphabetically. Each cmdlet shows its 
 <a id="find-lnvtool"></a>
 ??? note "Find-LnvTool"
 
-    **Purpose:** Get Lenovo tool version and download URLs for: Dock Manager, System Update, Thin Installer, Update Retriever.
+    **Purpose:** Get Lenovo tool version and download URLs for: Dock Manager, System Update, Thin Installer, Update Retriever, WinAIA.
 
     **Syntax:**
     ```powershell
-    Find-LnvTool [-Tool <String>] [-Url]
+    Find-LnvTool -Tool <String> [-Url]
     ```
 
     **Parameters:**
 
     | Parameter | Type | Mandatory | Description |
     |-----------|------|-----------|-------------|
-    | Tool | String | True | Tool name (DockManager, SystemUpdate, ThinInstaller, UpdateRetriever) |
+    | Tool | String | True | Tool name (DockManager, SystemUpdate, ThinInstaller, UpdateRetriever, WinAIA) |
     | Url | Switch | False | Return only the URL to the specified tool's installer |
 
     **Examples:**

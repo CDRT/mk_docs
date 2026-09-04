@@ -30,7 +30,7 @@ History data is retained indefinitely unless manually removed, making it useful 
 ### Example 1: View all update history
 
 ```powershell
-Get-LnvUpdateHist | Format-Table -Property InstallDate, Title, Status
+Get-LnvUpdateHist | Format-Table -Property Timestamp, Title, Status
 ```
 
 Displays all update installations in table format.
@@ -46,7 +46,7 @@ Shows only installation attempts that failed.
 ### Example 3: View BIOS update history
 
 ```powershell
-Get-LnvUpdateHist -Category BIOS | Format-Table -Property InstallDate, Title, Result
+Get-LnvUpdateHist -Category BIOS | Format-Table -Property Timestamp, Title, Status
 ```
 
 Filters for BIOS updates only.
@@ -54,7 +54,7 @@ Filters for BIOS updates only.
 ### Example 4: View recent updates
 
 ```powershell
-Get-LnvUpdateHist | Where-Object { $_.InstallDate -gt (Get-Date).AddDays(-30) }
+Get-LnvUpdateHist | Where-Object { $_.Timestamp -gt (Get-Date).AddDays(-30) }
 ```
 
 Retrieves updates installed in the past 30 days.
@@ -90,7 +90,7 @@ Returns an array of installation history objects with properties:
 History storage location:
 
 ```powershell
-$env:ProgramData\Lenovo\Lenovo.Client.Update\History\InstallHistory-<timestamp>.json
+$env:ProgramData\Lenovo\Lenovo.Client.Update\History\InstallHist-<timestamp>.json
 ```
 
 History files are created automatically after each installation session. Records are retained for historical tracking and cannot be easily modified.

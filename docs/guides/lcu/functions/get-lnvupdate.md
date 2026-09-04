@@ -17,7 +17,7 @@ Fetches available update packages for Lenovo computers from the update repositor
 Get-LnvUpdate [[-Model] <string>] [-All] [-IncludePhantomDevices]
               [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-ProxyUseDefaultCredentials]
               [-Repository <string>] [-ScratchDirectory <string>]
-              [-StatusMode <string>] [-LogFile] [-LogPath <string>] [-SkipSignature]
+              [-StatusMode <string>] [-LogFile] [-LogPath <string>] [-SkipSignatureCheck]
 ```
 
 ## Description
@@ -43,7 +43,7 @@ Use the `-All` parameter to retrieve all available packages regardless of applic
 | `-StatusMode` | string | Change package status (custom filtering) |
 | `-LogFile` | switch | Create logfile in default location (`C:\ProgramData\Lenovo\...`) |
 | `-LogPath` | string | Create logfile in specified custom path |
-| `-SkipSignature` | switch | Skip digital signature verification (not recommended) |
+| `-SkipSignatureCheck` | switch | Skip digital signature verification (not recommended) |
 
 ## Examples
 
@@ -130,7 +130,7 @@ During applicability evaluation:
 
 ### Signature Verification
 
-- `-SkipSignature` should only be used if you need to modify package descriptor XML
+- `-SkipSignatureCheck` should only be used if you need to modify package descriptor XML
 - Not recommended for production deployments
 
 ## See Also

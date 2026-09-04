@@ -129,8 +129,7 @@ This cmdlet does not return objects. Changes are applied immediately to global m
 
 ### Configuration Scope
 
-- Settings are stored per-user in the user's PowerShell profile directory
-- Settings persist across PowerShell sessions
+- Settings are stored in the PowerShell session as a script scope variable
 - Use `-InputObject` to apply the same configuration to multiple machines
 
 ## See Also
