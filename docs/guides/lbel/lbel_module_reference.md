@@ -7,12 +7,14 @@ description: Complete reference for the Lenovo.BIOS.EventLog PowerShell module c
 
 ## Overview
 
-CS26 commercial machines (ThinkPad, ThinkStation, ThinkCentre) introduced new WMI methods for retrieving events from the BIOS event log. The Lenovo.BIOS.EventLog PowerShell module retrieves the data returned by these methods and parses it, and includes a GUI viewer modeled after the event log viewer built into BIOS setup.
+Systems that first launched with CS26 commercial machines (ThinkPad, ThinkStation, ThinkCentre) introduced new WMI methods for retrieving events from the BIOS event log. The Lenovo.BIOS.EventLog PowerShell module retrieves the data returned by these methods and parses it, and includes a GUI viewer modeled after the event log viewer built into BIOS setup.
 
 ## Prerequisites
 
-- Supported on CS26 commercial machines (ThinkPad, ThinkStation, ThinkCentre) that expose the BIOS event log WMI methods
+- Supported on systems that first launched with CS26 commercial machines (ThinkPad, ThinkStation, ThinkCentre) that expose the BIOS event log WMI methods
 - Machines that do not expose these WMI methods are not supported
+
+<!-- TODO: confirm and document the minimum PowerShell version and whether an elevated (Run as Administrator) session is required to call the BIOS event log WMI methods -->
 
 ---
 
@@ -155,6 +157,15 @@ Launch-LnvEventLogViewer.ps1
 
 ![BIOS Event Log main screen](../../img/guides/lbel/mainScreen.png)
 
+The viewer is keyboard-driven:
+
+| Key | Action |
+| --- | --- |
+| ↑ / ↓ | Move between rows |
+| Page Up / Page Down | Move a page at a time |
+| Enter | Select the highlighted row and open its Event Details |
+| F3 | Exit the viewer |
+
 Selecting a row and pressing **Enter** opens an **Event Details** window, which lists every event recorded around that boot along with its associated fields.
 
 ![Event Details view](../../img/guides/lbel/moreDetails.png)
@@ -166,6 +177,12 @@ The **Export Log** button saves the current event log to a JSON file, correspond
 The **Import Log** button loads a previously exported JSON file back into the viewer, corresponding to the `Import-LnvBiosEventLog` cmdlet.
 
 ![Import BIOS Event Log dialog](../../img/guides/lbel/importLog.png)
+
+---
+
+## See Also
+
+- [BIOS Event Logging](/ref/bios/settings/bios_logging/) - describes the event types recorded in BIOS (Power On, System Boot, Subcomponent Measurement, and others) and the native log viewer built into BIOS Setup
 
 ---
 

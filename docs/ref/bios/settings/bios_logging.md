@@ -47,3 +47,7 @@ The following events are logged:
 The details provided for each event may vary.  An example is shown below:
 
 ![Example log entry](thinkpad/img/eventlogentry.png)
+
+## PowerShell Access
+
+On systems that first launched with CS26 commercial machines, the [Lenovo.BIOS.EventLog PowerShell module](/guides/lbel/lbel_module_reference/) retrieves and parses this same event log via WMI, and includes a GUI viewer modeled after the BIOS Setup log viewer.
