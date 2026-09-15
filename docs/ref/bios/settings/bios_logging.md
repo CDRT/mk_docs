@@ -48,6 +48,6 @@ The details provided for each event may vary.  An example is shown below:
 
 ![Example log entry](thinkpad/img/eventlogentry.png)
 
-## PowerShell Access
+## WMI Interface
 
-On systems that first launched with CS26 commercial machines, the [Lenovo.BIOS.EventLog PowerShell module](/guides/lbel/lbel_module_reference/) retrieves and parses this same event log via WMI, and includes a GUI viewer modeled after the BIOS Setup log viewer.
+On Lenovo commercial PCs that first launched in 2026, the [Lenovo.BIOS.EventLog PowerShell module](/guides/lbel/lbel_module_reference/) retrieves and parses this same event log via WMI, and includes a GUI viewer modeled after the BIOS Setup log viewer.
