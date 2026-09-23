@@ -123,6 +123,10 @@ description: Frequently asked questions about Commercial Vantage deployment and 
 
     If still failing, see [Upgrading Guide](./upgrading.md) → Update Failures & Recovery
 
+??? question "Commercial Vantage is not applying certain updates because it appears to be blocked by AppLocker, what should I do?"
+
+    If you implement AppLocker, you may need to enter exceptions for certain components of LCV to run. Make sure `SUMessageBox.exe` is allowed to run. Please make sure it is in the whitelist or unblock this file, located at `%programdata%\Lenovo\Vantage\Addins\LenovoSystemUpdateAddin\{version}\SUMessageBox.exe`
+    
 ---
 
 ## Quick Reference

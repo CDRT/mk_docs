@@ -5,36 +5,60 @@ description: Latest features and updates for Commercial Vantage
 
 # What's New
 
-## Latest Release: v20.2603.19.0 (June 30, 2026)
+## Latest Release: v20.2606.24 (September 11, 2026)
 
 ### Main Application
 
-- Search bar added to make it easier to find settings
-- Removed "Aura Edition" branding
-- Added external Terms of Service disclaimer in "My Software" section
-- ARM Support - Enable features for ThinkPad T14s Gen 7 QC
-    - Fn + R
-    - ESG page
-    - Battery charge/discharge
-    - Clean device
-    - Dolby Audio
-
-### System Update
-
-- Improved logic to identify Lenovo Accessories
-- Auto Update Time policy is treated as start time of 90-minute window. Devices will trigger within this window but not all at the same exact time.
-- SU Helper new parameters:
-    - `-scanonly`: Optional. Indicates that System Update Addin will only perform check for updates and will not install any updates. The results will be recorded in the Lenovo_Updates WMI class under root\Lenovo.
-    - `-noreboot`: Optional. Indicates that System Update Addin will skip performing a reboot when Reboot Type 5 updates are installed to allow the calling process to control the reboot. A reboot is still required for these updates to be completely installed and to avoid abnormal system behavior.
+- Added an in-product tutorial experience covering key LCV areas including Welcome, System Update, Device Diagnostics, and Battery Health
+- Simplified visuals by replacing complex illustration with cleaner, icon-based designs across LCV, System Update, and Diagnostics
+- "Hardware Scan" page renamed to "Device Diagnostics"
+- Enabled thermal telemetry collection for CPU, GPU, and disk to support data-driven improvements
+- Added page view and engagement metrics for Device Diagnostics
 
 ### New Group Policies
 
-- **Device - System update - Auto update - Turn on BITS**: Controls whether downloads of system updates are performed using Background Intelligent Transfer Service (BITS) if available. if not available, a standard download will be attempted. This can be leveraged in environments where peer caching is being used.
-- **Device - System update - Auto update - Reboot delay time**: When this policy is Enabled, Commercial Vantage will wait the specified number of minutes before rebooting the system after Reboot Type 5 updates have been installed. There will be a warning dialog displayed to show the time at which the reboot will occur with an option to reboot immediately.
+- **Device - System update - Auto update - Disable Retry if Scheduled Is Missed**: When Enabled, Auto update will not run as soon as possible if a scheduled execution window is missed and will wait until the next scheduled Auto update.
+- **Device - Device settings - SmartMeetingAssist**: Enabled or disables the entire Smart Meeting Assistant feature suite.
+
+!!! note "Smart Meeting Assistant features"
+    The Smart Meeting Assistant features will only appear on devices that support it. On startup, GestureDetectionAddin performs a one-time capability check. Only when all three checks pass will it report to Vantage that the machine supports this feature. The checks are:
+
+    1. whether the system's camera privacy permission is granted for application use;
+    2.  whether an available RGB physical camera exists on the machine;
+    3. whether the camera can be successfully opened in shared mode and its list of supported formats does not contain the MJPG format. 
+    
+    If any one of these conditions is not met, the feature will not be made available to the user.
 
 ---
 
 ## Release History
+
+??? note "v20.2603.19.0 (June 30, 2026)"
+
+    ### Main Application
+
+    - Search bar added to make it easier to find settings
+    - Removed "Aura Edition" branding
+    - Added external Terms of Service disclaimer in "My Software" section
+    - ARM Support - Enable features for ThinkPad T14s Gen 7 QC
+        - Fn + R
+        - ESG page
+        - Battery charge/discharge
+        - Clean device
+        - Dolby Audio
+
+    ### System Update
+
+    - Improved logic to identify Lenovo Accessories
+    - Auto Update Time policy is treated as start time of 90-minute window. Devices will trigger within this window but not all at the same exact time.
+    - SU Helper new parameters:
+        - `-scanonly`: Optional. Indicates that System Update Addin will only perform check for updates and will not install any updates. The results will be recorded in the Lenovo_Updates WMI class under root\Lenovo.
+        - `-noreboot`: Optional. Indicates that System Update Addin will skip performing a reboot when Reboot Type 5 updates are installed to allow the calling process to control the reboot. A reboot is still required for these updates to be completely installed and to avoid abnormal system behavior.
+
+    ### New Group Policies
+
+    - **Device - System update - Auto update - Turn on BITS**: Controls whether downloads of system updates are performed using Background Intelligent Transfer Service (BITS) if available. if not available, a standard download will be attempted. This can be leveraged in environments where peer caching is being used.
+    - **Device - System update - Auto update - Reboot delay time**: When this policy is Enabled, Commercial Vantage will wait the specified number of minutes before rebooting the system after Reboot Type 5 updates have been installed. There will be a warning dialog displayed to show the time at which the reboot will occur with an option to reboot immediately.
 
 ??? note "v20.2511.24.0 - January 23, 2026"
 
