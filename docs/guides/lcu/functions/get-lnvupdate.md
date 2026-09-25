@@ -17,7 +17,7 @@ Fetches available update packages for Lenovo computers from the update repositor
 Get-LnvUpdate [[-Model] <string>] [-All] [-IncludePhantomDevices]
               [-Proxy <Uri>] [-ProxyCredential <PSCredential>] [-ProxyUseDefaultCredentials]
               [-Repository <string>] [-ScratchDirectory <string>]
-              [-StatusMode <string>] [-LogFile] [-LogPath <string>] [-SkipSignatureCheck]
+              [-StatusMode <string>] [-LogFile] [-DetailedLog] [-LogPath <string>] [-SkipSignatureCheck] [-ExplainDependencies]
 ```
 
 ## Description
@@ -44,6 +44,7 @@ Use the `-All` parameter to retrieve all available packages regardless of applic
 | `-LogFile` | switch | Create logfile in default location (`C:\ProgramData\Lenovo\...`) |
 | `-LogPath` | string | Create logfile in specified custom path |
 | `-SkipSignatureCheck` | switch | Skip digital signature verification (not recommended) |
+| `-ExplainDependencies` | switch | Attach the detailed result of every applicability and install test to the returned package objects, as the DependencyTests and InstallTests properties. Used by Debug-LnvUpdate. The tests are always recorded when -DetailedLog is used, this switch only additionally exposes them to the caller. |
 
 ## Examples
 
@@ -114,18 +115,21 @@ Returns an array of update package objects with properties such as:
 During applicability evaluation:
 
 - All package files are temporarily downloaded to the scratch directory
-- Digital signatures are verified to ensure package authenticity
+- Digital signatures are verified to ensure package authenticity - unsigned packages are removed
 - Files are deleted after processing unless errors occur
 
 ### Logging Options
 
-- `-LogFile` and `-LogPath` cannot be used together; `-LogPath` takes precedence
-- Logs are helpful for troubleshooting and audit trails
+`-LogFile` requests a transcript and `-DetailedLog` requests the structured per-package detection log. `-LogPath` redirects whichever log(s) you requested to a custom file or directory instead of the default location.
+
+The two log types are independent: omitting -LogFile when you specify -LogPath suppresses the transcript, and omitting -DetailedLog suppresses the detection log.
+
+Use a directory path with -LogPath when requesting both logs. If you point -LogPath at a single file with both switches active, the detection log is automatically renamed with a -DetailedLog suffix and a warning is emitted.
 
 ### Performance
 
 - Applicability checking may take several minutes depending on network speed and update count
-- Specify `-Model` if querying for a different computer to speed up searches
+- Specify `-Model` and `-All` if querying for a different computer since apllicability checking on a different device is unhelpful
 - Use `-Repository` for local queries to avoid network latency
 
 ### Signature Verification

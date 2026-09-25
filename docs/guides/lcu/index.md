@@ -43,6 +43,11 @@ This PowerShell module is provided to assist in managing Lenovo driver, BIOS/UEF
 
 ## Version History
 
+- 1.0.6 - September 25, 2026:
+    - Added `Debug-LnvUpdate` cmdlet which runs a full detection pass with test tracing enabled and explains, per package, exactly which applicability (dependencies) and install-detection tests a machine did or did not satisfy.
+    - Enhanced `Get-LnvUpdate` logging with two new parameters: `-DetailedLog` and `-ExplainDependencies`
+    - Fixed an issue introduced with a previous change that incorrectly reported certain updates as already installed when inbox drivers are involved.
+    - Fixed an issue where an update session would abort if a single package had an issue with its XML or required files. Now those packages will be gracefully skipped with details in the log file.
 - 1.0.5 - July 28, 2026:
     - Added PackageID to the data saved in the registry when -SaveBIOSUpdateInfoToRegistry is passed to Install-LnvUpdate
     - Updated Lenovo.CertificateValidation.dll to latest version
