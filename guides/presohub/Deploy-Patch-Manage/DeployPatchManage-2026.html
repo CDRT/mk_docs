@@ -1,0 +1,1923 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deploy, Patch &amp; Manage — Lenovo Commercial PCs 2026</title>
+
+    <!-- === FONTS: Barlow family — strong, condensed, corporate tech feel === -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* =====================================================
+           THEME VARIABLES — Lenovo Dark 2026
+           Official Lenovo brand palette, dark slide defaults
+           ===================================================== */
+        :root {
+            /* Lenovo brand palette */
+            --black:       #1E0013;
+            --deep-blue-1: #11184F;
+            --deep-blue-2: #294E95;
+            --deep-purple: #4D144A;
+            --deep-gray:   #4E444E;
+            --mid-gray:    #ABA8B1;
+            --white:       #FFFFFF;
+            --red:         #E1251B;
+            --mid-red-2:   #F26A52;
+            --pale-gray:   #E6E2E4;
+
+            /* Semantic slots */
+            --bg:          var(--black);
+            --bg-alt:      var(--deep-blue-1);
+            --text:        var(--white);
+            --text-2:      var(--mid-gray);
+            --accent:      var(--red);
+            --accent-2:    var(--mid-red-2);
+            --card-bg:     rgba(41, 78, 149, 0.18);
+            --card-bg-alt: rgba(17, 24, 79, 0.5);
+            --border:      rgba(78, 68, 78, 0.55);
+
+            /* Typography */
+            --font-display: 'Barlow Condensed', sans-serif;
+            --font-body:    'Barlow', sans-serif;
+            --font-semi:    'Barlow Semi Condensed', sans-serif;
+            --font-mono:    'Consolas', 'Courier New', monospace;
+
+            /* Type scale — ALL use clamp() */
+            --title-size:  clamp(2.75rem, 8.125vw, 6.875rem);
+            --h2-size:     clamp(1.875rem, 4vw, 3.5rem);
+            --h3-size:     clamp(1.25rem, 2.25vw, 1.875rem);
+            --body-size:   clamp(0.975rem, 1.5625vw, 1.25rem);
+            --small-size:  clamp(0.775rem, 1.1875vw, 0.975rem);
+            --code-size:   clamp(0.775rem, 1.25vw, 0.975rem);
+
+            /* Spacing — ALL use clamp() */
+            --slide-padding:  clamp(1.5rem, 4vw, 4rem);
+            --content-gap:    clamp(0.5rem, 1.5vw, 1.5rem);
+            --element-gap:    clamp(0.3rem, 0.7vw, 0.75rem);
+
+            /* Motion */
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+            --dur:  0.65s;
+        }
+
+        /* =====================================================
+           BASE RESET
+           ===================================================== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        /* =====================================================
+           VIEWPORT BASE — mandatory; every slide = 100vh
+           ===================================================== */
+        html, body { height: 100%; overflow-x: hidden; }
+        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        /* Each slide = exact viewport height, no scroll */
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: var(--bg);
+        }
+
+        /* Content container */
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-height: 100%;
+            overflow: hidden;
+            padding: var(--slide-padding);
+            z-index: 1;
+            position: relative;
+        }
+
+        img { max-width: 100%; max-height: min(50vh, 400px); object-fit: contain; }
+
+        /* =====================================================
+           RESPONSIVE BREAKPOINTS — aggressive scaling
+           ===================================================== */
+        @media (max-height: 700px) {
+            :root {
+                --slide-padding: clamp(0.75rem, 3vw, 2rem);
+                --content-gap:   clamp(0.35rem, 1.2vw, 0.9rem);
+                --title-size:    clamp(2rem, 6.25vw, 3.75rem);
+                --h2-size:       clamp(1.5rem, 3.5vw, 2.5rem);
+            }
+        }
+        @media (max-height: 600px) {
+            :root {
+                --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem);
+                --content-gap:   clamp(0.25rem, 0.9vw, 0.65rem);
+                --title-size:    clamp(1.625rem, 5vw, 2.75rem);
+                --body-size:     clamp(0.85rem, 1.375vw, 1.1rem);
+            }
+            .nav-dots, .keyboard-hint, .decorative { display: none; }
+        }
+        @media (max-height: 500px) {
+            :root {
+                --slide-padding: clamp(0.4rem, 2vw, 1rem);
+                --title-size:    clamp(1.375rem, 4.375vw, 2rem);
+                --h2-size:       clamp(1.1875rem, 2.875vw, 1.625rem);
+                --body-size:     clamp(0.775rem, 1.25vw, 1.025rem);
+            }
+        }
+        @media (max-width: 640px) {
+            :root { --title-size: clamp(1.875rem, 8.75vw, 3.125rem); }
+            .two-col, .three-col, .toc-grid { grid-template-columns: 1fr !important; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.2s !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+
+        /* =====================================================
+           PROGRESS BAR
+           ===================================================== */
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            background: var(--red);
+            box-shadow: 0 0 14px rgba(225, 37, 27, 0.55);
+            z-index: 500;
+            width: 0;
+            transition: width 0.35s ease;
+        }
+
+        /* =====================================================
+           NAVIGATION DOTS
+           ===================================================== */
+        .nav-dots {
+            position: fixed;
+            right: clamp(10px, 1.4vw, 18px);
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            z-index: 400;
+        }
+        .nav-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--deep-gray);
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s var(--ease);
+            padding: 0;
+        }
+        .nav-dot.active {
+            background: var(--red);
+            box-shadow: 0 0 10px rgba(225, 37, 27, 0.65);
+            transform: scale(1.9);
+        }
+        .nav-dot:hover:not(.active) {
+            background: var(--mid-gray);
+            transform: scale(1.4);
+        }
+
+        /* =====================================================
+           SLIDE NUMBER FOOTER
+           ===================================================== */
+        .slide-num {
+            position: absolute;
+            bottom: clamp(10px, 1.4vh, 18px);
+            left: var(--slide-padding);
+            font-family: var(--font-body);
+            font-size: clamp(0.625rem, 0.8125vw, 0.75rem);
+            color: rgba(78, 68, 78, 0.8);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        /* =====================================================
+           REVEAL ANIMATIONS — .visible added by IntersectionObserver
+           ===================================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-26px);
+            transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.93);
+            transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
+        }
+        .reveal-blur {
+            opacity: 0;
+            filter: blur(8px);
+            transition: opacity 0.8s var(--ease), filter 0.8s var(--ease);
+        }
+        .slide.visible .reveal,
+        .slide.visible .reveal-left,
+        .slide.visible .reveal-scale { opacity: 1; transform: none; }
+        .slide.visible .reveal-blur   { opacity: 1; filter: none; }
+
+        /* Stagger delay utilities */
+        .d1 { transition-delay: 0.06s; }
+        .d2 { transition-delay: 0.18s; }
+        .d3 { transition-delay: 0.30s; }
+        .d4 { transition-delay: 0.42s; }
+        .d5 { transition-delay: 0.54s; }
+        .d6 { transition-delay: 0.66s; }
+        .d7 { transition-delay: 0.78s; }
+        .d8 { transition-delay: 0.90s; }
+
+        /* =====================================================
+           SHARED COMPONENTS
+           ===================================================== */
+        .accent   { color: var(--red); }
+        .accent-2 { color: var(--mid-red-2); }
+        .muted    { color: var(--mid-gray); }
+
+        /* Section/category tag */
+        .section-tag {
+            display: inline-block;
+            font-family: var(--font-display);
+            font-size: clamp(0.65rem, 1.0625vw, 0.85rem);
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--red);
+            border: 1px solid rgba(225, 37, 27, 0.32);
+            padding: 3px 11px;
+            border-radius: 2px;
+            margin-bottom: clamp(0.35rem, 0.9vh, 0.8rem);
+        }
+
+        /* Horizontal red accent line */
+        .red-line {
+            width: clamp(28px, 3.5vw, 48px);
+            height: 3px;
+            background: var(--red);
+            border-radius: 2px;
+            margin: clamp(0.4rem, 1vh, 0.9rem) 0;
+        }
+
+        /* Card / panel */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: clamp(0.55rem, 1.1vw, 1.1rem) clamp(0.7rem, 1.4vw, 1.4rem);
+        }
+        .card-blue   { background: var(--card-bg-alt); border-color: rgba(41, 78, 149, 0.4); }
+        .card-red    { border-color: rgba(225, 37, 27, 0.35); background: rgba(225, 37, 27, 0.06); }
+        .card-title  {
+            font-family: var(--font-semi);
+            font-size: clamp(0.9rem, 1.5vw, 1.1875rem);
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: clamp(0.25rem, 0.6vh, 0.5rem);
+        }
+
+        /* Bullet list */
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.32rem, 0.85vh, 0.75rem);
+        }
+        .bullet-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: clamp(7px, 1vw, 11px);
+            font-size: var(--body-size);
+            color: var(--mid-gray);
+            line-height: 1.5;
+        }
+        .bullet-list li .bull {
+            color: var(--red);
+            flex-shrink: 0;
+            margin-top: 0.32em;
+            font-size: 0.65em;
+        }
+        .bullet-list li strong { color: var(--white); }
+        .bullet-list li code {
+            font-family: var(--font-mono);
+            font-size: 0.86em;
+            color: var(--mid-red-2);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 1px 5px;
+            border-radius: 3px;
+        }
+
+        /* Grid layouts */
+        .two-col   { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(0.6rem, 1.5vw, 1.5rem); }
+        .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(0.5rem, 1.2vw, 1.2rem); }
+
+        /* Code block */
+        .code-block {
+            font-family: var(--font-mono);
+            font-size: var(--code-size);
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(78, 68, 78, 0.45);
+            border-radius: 6px;
+            padding: clamp(0.55rem, 1.1vw, 1rem);
+            line-height: 1.65;
+            color: #ABA8B1;
+            overflow: hidden;
+        }
+        .code-block .kw   { color: #F26A52; }   /* keywords */
+        .code-block .fn   { color: #79c0ff; }   /* cmdlets/functions */
+        .code-block .str  { color: #a8d3a0; }   /* strings */
+        .code-block .cm   { color: #564e56; }   /* comments */
+        .code-block .var  { color: #f2c94c; }   /* variables */
+        .code-block .parm { color: #b0a0ff; }   /* parameters */
+
+        /* NEW badge */
+        .new-badge {
+            display: inline-block;
+            font-family: var(--font-display);
+            font-size: clamp(0.5625rem, 0.8125vw, 0.7rem);
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: var(--red);
+            color: var(--white);
+            padding: 2px 7px;
+            border-radius: 2px;
+            margin-left: 7px;
+            vertical-align: middle;
+        }
+
+        /* URL / doc reference label */
+        .doc-url {
+            font-family: var(--font-mono);
+            font-size: clamp(0.725rem, 1.125vw, 0.9rem);
+            color: rgba(171, 168, 177, 0.55);
+            margin-top: clamp(0.4rem, 0.8vh, 0.7rem);
+        }
+        .doc-url a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(171, 168, 177, 0.2);
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+        .doc-url a:hover {
+            color: rgba(171, 168, 177, 0.9);
+            border-color: rgba(171, 168, 177, 0.6);
+        }
+
+        /* Feature pill tags */
+        .pill-row { display: flex; flex-wrap: wrap; gap: clamp(4px, 0.7vw, 7px); }
+        .pill {
+            font-family: var(--font-semi);
+            font-size: clamp(0.6875rem, 1.0625vw, 0.85rem);
+            font-weight: 500;
+            color: var(--mid-gray);
+            border: 1px solid rgba(78, 68, 78, 0.55);
+            background: rgba(41, 78, 149, 0.10);
+            padding: 3px 9px;
+            border-radius: 100px;
+        }
+
+        /* =====================================================
+           SLIDE 1: TITLE
+           ===================================================== */
+        .title-slide {
+            background: linear-gradient(140deg, #1E0013 0%, #11184F 55%, #1E0013 100%);
+        }
+        .title-slide::before {
+            /* Subtle diagonal grid overlay */
+            content: '';
+            position: absolute; inset: 0;
+            background-image:
+                linear-gradient(rgba(225, 37, 27, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(225, 37, 27, 0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .title-slide .sphere-img {
+            position: absolute;
+            right: calc(-1 * clamp(1rem, 3vw, 3rem));
+            top: 50%;
+            transform: translateY(-50%);
+            width: min(48vw, 680px);
+            height: auto;
+            max-height: 90vh;
+            object-fit: contain;
+            opacity: 0.28;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .title-slide .slide-content {
+            padding: var(--slide-padding) clamp(2rem, 8vw, 8rem);
+            justify-content: center;
+        }
+        .title-wordmark {
+            font-family: var(--font-display);
+            font-size: clamp(0.85rem, 1.375vw, 1.1rem);
+            font-weight: 700;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: clamp(1rem, 2.8vh, 2.2rem);
+        }
+        .title-slide h1 {
+            font-family: var(--font-display);
+            font-size: var(--title-size);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.01em;
+            text-transform: uppercase;
+            margin-bottom: clamp(0.5rem, 1.5vh, 1.2rem);
+        }
+        .title-slide h1 .line-red { color: var(--red); display: block; }
+        .title-slide .subtitle {
+            font-size: clamp(1.025rem, 1.75vw, 1.375rem);
+            color: var(--mid-gray);
+            line-height: 1.6;
+            max-width: 46ch;
+            margin-bottom: clamp(1rem, 2.5vh, 2rem);
+        }
+        .title-meta {
+            font-size: clamp(0.75rem, 1.125vw, 0.9375rem);
+            color: rgba(171, 168, 177, 0.5);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        /* =====================================================
+           SLIDE 2: TABLE OF CONTENTS
+           ===================================================== */
+        .toc-slide .slide-content {
+            padding: var(--slide-padding) clamp(2rem, 7vw, 7rem);
+            gap: clamp(0.5rem, 1.2vh, 1rem);
+        }
+        .toc-slide h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(0.6rem, 1.5vw, 1.5rem);
+            margin-top: clamp(0.4rem, 1vh, 0.8rem);
+        }
+        .toc-col h3 {
+            font-family: var(--font-display);
+            font-size: clamp(0.9rem, 1.375vw, 1.125rem);
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin-bottom: clamp(0.35rem, 0.8vh, 0.65rem);
+            padding-bottom: clamp(0.3rem, 0.6vh, 0.5rem);
+            border-bottom: 1px solid rgba(225, 37, 27, 0.28);
+        }
+        .toc-col ul { list-style: none; display: flex; flex-direction: column; gap: clamp(0.2rem, 0.5vh, 0.4rem); }
+        .toc-col li {
+            font-size: clamp(0.775rem, 1.25vw, 1rem);
+            color: var(--mid-gray);
+            display: flex; align-items: center; gap: 6px;
+        }
+        .toc-col li::before {
+            content: '';
+            width: 4px; height: 4px;
+            background: var(--deep-gray);
+            border-radius: 50%;
+            flex-shrink: 0;
+            transition: background 0.2s ease;
+        }
+        .toc-col li:has(a:hover)::before { background: var(--red); }
+        .toc-col li a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .toc-col li a:hover { color: var(--white); }
+        .toc-col h3 a {
+            color: inherit;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+        .toc-col h3 a:hover { opacity: 0.75; }
+        .toc-about {
+            font-size: var(--small-size);
+            color: rgba(171, 168, 177, 0.6);
+            max-width: 60ch;
+            line-height: 1.6;
+        }
+
+        /* =====================================================
+           SECTION BREAK SLIDES
+           ===================================================== */
+        .section-slide {
+            background: var(--bg);
+        }
+        .section-slide .sect-bg-img {
+            position: absolute;
+            inset: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.12;
+            z-index: 0;
+        }
+        .section-slide .sect-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to right, var(--black) 45%, rgba(30, 0, 19, 0.35) 100%);
+            z-index: 0;
+        }
+        .section-slide .slide-content {
+            justify-content: flex-end;
+            padding-bottom: clamp(3rem, 8vh, 7rem);
+            padding-left: clamp(2rem, 8vw, 8rem);
+        }
+        .section-slide .ghost-number {
+            position: absolute;
+            right: clamp(1.5rem, 5vw, 5rem);
+            bottom: clamp(0.5rem, 2vh, 2rem);
+            font-family: var(--font-display);
+            font-size: clamp(6.25rem, 25vw, 22.5rem);
+            font-weight: 900;
+            color: rgba(225, 37, 27, 0.06);
+            line-height: 1;
+            letter-spacing: -0.05em;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+        }
+        .section-slide h2 {
+            font-family: var(--font-display);
+            font-size: clamp(3.75rem, 11.25vw, 10rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+        }
+        .section-slide .sect-desc {
+            font-size: clamp(1rem, 1.625vw, 1.25rem);
+            color: var(--mid-gray);
+            max-width: 48ch;
+            line-height: 1.6;
+            margin-top: clamp(0.5rem, 1.2vh, 1rem);
+        }
+
+        /* =====================================================
+           STANDARD CONTENT SLIDES — left-aligned with red accent
+           ===================================================== */
+        .content-slide .slide-content {
+            padding: var(--slide-padding) clamp(2rem, 7vw, 7rem);
+            gap: clamp(0.3rem, 0.8vh, 0.75rem);
+        }
+        .content-slide h2 {
+            font-family: var(--font-display);
+            font-size: var(--h2-size);
+            font-weight: 800;
+            line-height: 1.0;
+            letter-spacing: -0.01em;
+        }
+        .slide-body {
+            font-size: var(--body-size);
+            color: var(--mid-gray);
+            line-height: 1.65;
+            max-width: 70ch;
+        }
+
+        /* =====================================================
+           SLIDE-SPECIFIC OVERRIDES
+           ===================================================== */
+
+        /* --- Deployment portal / recipe cards — narrow left column --- */
+        .portal-slide .slide-content {
+            padding: var(--slide-padding) clamp(2rem, 7vw, 7rem);
+        }
+        .portal-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(1rem, 3vw, 3rem);
+            align-items: start;
+        }
+        .portal-layout .left-col h2 {
+            font-family: var(--font-display);
+            font-size: var(--h2-size);
+            font-weight: 800;
+            line-height: 1.0;
+            margin-bottom: 0;
+        }
+
+        /* --- Windows Update for Business — full content slide with timeline --- */
+        .wufb-timeline {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+            margin-top: clamp(0.5rem, 1.2vh, 1rem);
+        }
+        .tl-step { text-align: center; }
+        .tl-bar {
+            height: 3px;
+            background: rgba(41, 78, 149, 0.45);
+            margin: clamp(4px, 0.7vh, 7px) 0;
+        }
+        .tl-step:first-child .tl-bar { border-radius: 3px 0 0 3px; background: var(--red); }
+        .tl-step:last-child .tl-bar  { border-radius: 0 3px 3px 0; }
+        .tl-label {
+            font-size: clamp(0.6875rem, 1.0625vw, 0.85rem);
+            color: var(--mid-gray);
+            line-height: 1.3;
+        }
+        .tl-timing {
+            font-family: var(--font-display);
+            font-size: clamp(0.75rem, 1.1875vw, 0.9375rem);
+            font-weight: 700;
+            color: var(--red);
+        }
+
+        /* --- LDO with IT Assist — two panel layout --- */
+        .ldo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(0.6rem, 1.5vw, 1.5rem);
+            margin-top: clamp(0.4rem, 1vh, 0.8rem);
+        }
+        .ldo-panel h3 {
+            font-family: var(--font-semi);
+            font-size: clamp(0.9rem, 1.4375vw, 1.15rem);
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: clamp(0.25rem, 0.6vh, 0.5rem);
+        }
+
+        /* --- LDO Features — premium/basic columns --- */
+        .ldo-feat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(0.6rem, 1.5vw, 1.5rem);
+        }
+
+        /* --- TV PS Library overview --- */
+        .lib-modules {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(0.4rem, 1vw, 0.9rem);
+            margin-top: clamp(0.4rem, 1vh, 0.8rem);
+        }
+        .lib-card {
+            background: rgba(17, 24, 79, 0.45);
+            border: 1px solid rgba(41, 78, 149, 0.35);
+            border-radius: 6px;
+            padding: clamp(0.5rem, 1vw, 1rem);
+        }
+        .lib-card .mod-name {
+            font-family: var(--font-mono);
+            font-size: clamp(0.775rem, 1.1875vw, 0.975rem);
+            color: var(--mid-red-2);
+            margin-bottom: clamp(0.2rem, 0.5vh, 0.4rem);
+        }
+        .lib-card .mod-desc {
+            font-size: clamp(0.775rem, 1.25vw, 0.975rem);
+            color: var(--mid-gray);
+            line-height: 1.45;
+        }
+
+        /* --- BIOS Config Tool V2 --- */
+        .tbct-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: clamp(0.8rem, 2vw, 2rem);
+            align-items: start;
+        }
+
+        /* --- LCU code slide --- */
+        .lcu-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: clamp(0.8rem, 2vw, 2rem);
+            align-items: start;
+        }
+
+        /* --- Cmdlet grid for LCSM --- */
+        .cmdlet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(0.3rem, 0.8vw, 0.7rem);
+            margin-top: clamp(0.4rem, 0.9vh, 0.75rem);
+        }
+        .cmdlet-chip {
+            font-family: var(--font-mono);
+            font-size: clamp(0.65rem, 1.025vw, 0.8125rem);
+            color: var(--mid-gray);
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(78, 68, 78, 0.4);
+            border-radius: 3px;
+            padding: 3px 7px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* --- Closing slide --- */
+        .closing-slide {
+            background: linear-gradient(160deg, #11184F 0%, #1E0013 50%, #4D144A 100%);
+        }
+        .closing-slide .slide-content { justify-content: center; align-items: center; text-align: center; }
+        .closing-slide h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6.875vw, 5.625rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ThinkVantage branded logo badge — slides 17-20 */
+        .tv-logo {
+            position: absolute;
+            top: var(--slide-padding);
+            right: clamp(2.5rem, 6vw, 6rem);
+            width: clamp(110px, 14vw, 170px);
+            max-height: none;
+            opacity: 0.92;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- === PROGRESS BAR === -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- === NAV DOTS === -->
+    <nav class="nav-dots" id="navDots" aria-label="Slide navigation"></nav>
+
+
+    <!-- ============================================================
+         SLIDE 1: TITLE
+         ============================================================ -->
+    <section class="slide title-slide" data-slide="1">
+        <img class="sphere-img"
+             src="resources/LenovoBrandImagery/PPT Slide Image Library/TW26_Sphere_Library_Image-01.png"
+             alt="" aria-hidden="true">
+        <div class="slide-content">
+            <p class="title-wordmark reveal d1">Lenovo</p>
+            <h1 class="reveal d2">
+                Deploy,
+                <span class="line-red">Patch &amp;</span>
+                Manage
+            </h1>
+            <p class="subtitle reveal d3">
+                Resources and tools to deploy, update, and manage Lenovo commercial PCs in enterprise environments.
+            </p>
+            <p class="title-meta reveal d4">
+                Commercial Deployment Readiness Team &nbsp;|&nbsp; 2026
+            </p>
+        </div>
+        <span class="slide-num">01 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 2: TABLE OF CONTENTS
+         ============================================================ -->
+    <section class="slide toc-slide" data-slide="2">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Contents</span>
+            <h2 class="reveal d2">What's inside</h2>
+            <div class="red-line reveal d2"></div>
+            <p class="toc-about reveal d3">
+                This guide consolidates key resources from Lenovo's Commercial Deployment Readiness Team
+                covering all phases of the PC lifecycle — from initial deployment through ongoing management.
+            </p>
+            <div class="toc-grid reveal d4">
+                <div class="toc-col">
+                    <h3><a href="#slide-3">Deploy</a></h3>
+                    <ul>
+                        <li><a href="#slide-4">Enterprise Deployment Portal</a></li>
+                        <li><a href="#slide-5">Deployment Recipe Cards</a></li>
+                        <li><a href="#slide-6">Hardware Driver Packs</a></li>
+                        <li><a href="#slide-7">Hardware Support App Packs</a></li>
+                        <li><a href="#slide-8">HSA Deployment</a></li>
+                    </ul>
+                </div>
+                <div class="toc-col">
+                    <h3><a href="#slide-9">Patch</a></h3>
+                    <ul>
+                        <li><a href="#slide-10">Commercial Vantage</a></li>
+                        <li><a href="#slide-12">Lenovo Updates Catalog</a></li>
+                        <li><a href="#slide-13">Windows Update for Business</a></li>
+                    </ul>
+                </div>
+                <div class="toc-col">
+                    <h3><a href="#slide-14">Manage</a></h3>
+                    <ul>
+                        <li><a href="#slide-15">Lenovo Device Orchestration</a></li>
+                        <li><a href="#slide-17">ThinkVantage PowerShell Library</a></li>
+                        <li><a href="#slide-18">Think BIOS Config Tool V2</a></li>
+                        <li><a href="#slide-19">Lenovo.Client.Update</a></li>
+                    </ul>
+                </div>
+                <div class="toc-col">
+                    <h3><a href="#slide-22">Resources</a></h3>
+                    <ul>
+                        <li><a href="#slide-23">CDRT Docs Site</a></li>
+                        <li><a href="#slide-24">Think Deploy Blog</a></li>
+                        <li><a href="#slide-26">ECM Forum</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <span class="slide-num">02 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 3: DEPLOY SECTION BREAK
+         ============================================================ -->
+    <section id="slide-3" class="slide section-slide" data-slide="3">
+        <img class="sect-bg-img"
+             src="resources/LenovoBrandImagery/PPT Slide Image Library/TW26_Sphere_Library_Image-05.png"
+             alt="" aria-hidden="true">
+        <div class="sect-overlay"></div>
+        <div class="ghost-number">01</div>
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Part One</span>
+            <h2 class="reveal d2">Deploy</h2>
+            <p class="sect-desc reveal d3">
+                Getting Lenovo commercial PCs out the door with the right drivers, apps,
+                and configuration — from first boot to fully managed.
+            </p>
+        </div>
+        <span class="slide-num">03 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 4: ENTERPRISE DEPLOYMENT SOLUTIONS PORTAL
+         ============================================================ -->
+    <section id="slide-4" class="slide portal-slide content-slide" data-slide="4">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Deploy</span>
+            <h2 class="reveal d2">Enterprise Deployment<br>Solutions Portal</h2>
+            <div class="red-line reveal d2"></div>
+            <div class="portal-layout reveal d3">
+                <div class="left-col">
+                    <p class="slide-body" style="margin-bottom: clamp(0.5rem,1.2vh,1rem);">
+                        One page on the Lenovo Support website that consolidates all key resources
+                        for deploying Lenovo commercial PCs — your single starting point for every deployment project.
+                    </p>
+                    <ul class="bullet-list">
+                        <li><span class="bull">▶</span><span>Deployment Recipe Cards</span></li>
+                        <li><span class="bull">▶</span><span>Hardware Driver Packs</span></li>
+                        <li><span class="bull">▶</span><span>Lenovo Tools</span></li>
+                        <li><span class="bull">▶</span><span>Resources for Deployment Engineers</span></li>
+                    </ul>
+                    <p class="doc-url" style="margin-top:clamp(0.6rem,1.4vh,1.2rem);"><a href="http://bit.ly/LNVTDRC" target="_blank" rel="noopener">http://bit.ly/LNVTDRC</a></p>
+                </div>
+                <div class="right-col">
+                    <div class="card card-blue">
+                        <p class="card-title">Maintained by</p>
+                        <p style="font-size: var(--body-size); color: var(--mid-gray); line-height:1.55;">
+                            This guide is prepared and maintained by the
+                            <strong style="color:var(--white);">Commercial Deployment Readiness Team</strong>
+                            and is hosted on the Enterprise Deployment Solutions Portal.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="slide-num">04 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 5: DEPLOYMENT RECIPE CARDS
+         ============================================================ -->
+    <section id="slide-5" class="slide content-slide" data-slide="5">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Deploy</span>
+            <h2 class="reveal d2">Deployment Recipe Cards</h2>
+            <div class="red-line reveal d2"></div>
+            <p class="slide-body reveal d3">
+                Every time a new model joins your enterprise fleet, the same key details are required.
+                Recipe Cards consolidate everything into a single on-demand page — no more hunting.
+            </p>
+            <div class="two-col reveal d4" style="margin-top:clamp(0.5rem,1.2vh,1rem);">
+                <div>
+                    <ul class="bullet-list">
+                        <li><span class="bull">▶</span><span><strong>Machine Types</strong> — all variants for the model</span></li>
+                        <li><span class="bull">▶</span><span><strong>WQL Model Queries</strong> — ready to paste into SCCM/Intune</span></li>
+                        <li><span class="bull">▶</span><span><strong>Driver Pack links</strong> — direct download for target OS build</span></li>
+                        <li><span class="bull">▶</span><span><strong>HSA Pack links</strong> and additional software</span></li>
+                        <li><span class="bull">▶</span><span><strong>Special instructions</strong> if model-specific steps are needed</span></li>
+                    </ul>
+                </div>
+                <div class="card card-red">
+                    <p class="card-title">Dynamic Generation</p>
+                    <p style="font-size:var(--body-size); color:var(--mid-gray); line-height:1.55;">
+                        Select the model and OS — the page is generated live.
+                        Print or save as PDF. Archived PDFs available for older models.
+                        Downloadable PDFs are no longer created for new models.
+                    </p>
+                    <p class="doc-url"><a href="https://lnv.gy/3JSTtUN" target="_blank" rel="noopener">https://lnv.gy/3JSTtUN</a></p>
+                </div>
+            </div>
+        </div>
+        <span class="slide-num">05 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 6: HARDWARE DRIVER PACKS
+         ============================================================ -->
+    <section id="slide-6" class="slide content-slide" data-slide="6">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Deploy</span>
+            <h2 class="reveal d2">Hardware Driver Packs</h2>
+            <div class="red-line reveal d2"></div>
+            <p class="slide-body reveal d3">
+                Most OS deployment processes target model-specific hardware drivers to the device being deployed.
+                Driver Packs simplify this by consolidating all necessary drivers into a single
+                self-extracting archive for the specific Windows build you need.
+            </p>
+            <div class="two-col reveal d4" style="margin-top:clamp(0.5rem,1.2vh,1rem); align-items:start;">
+                <ul class="bullet-list">
+                    <li><span class="bull">▶</span><span>One file per model per Windows version</span></li>
+                    <li><span class="bull">▶</span><span>Self-extracting — no extra tools required</span></li>
+                    <li><span class="bull">▶</span><span>Maintained under <strong>Enterprise Management</strong> category</span></li>
+                    <li><span class="bull">▶</span><span>Consistent with WinPE and OSD task sequences</span></li>
+                </ul>
+                <div class="card card-blue">
+                    <p class="card-title">Where to find them</p>
+                    <p style="font-size:var(--body-size); color:var(--mid-gray); line-height:1.55;">
+                        Drivers &amp; Software page on the Lenovo Support site, under the
+                        <strong style="color:var(--white);">Enterprise Management</strong> category for each specific model.
+                    </p>
+                    <p class="doc-url"><a href="https://pcsupport.lenovo.com" target="_blank" rel="noopener">https://pcsupport.lenovo.com</a></p>
+                </div>
+            </div>
+        </div>
+        <span class="slide-num">06 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 7: HARDWARE SUPPORT APP PACKS
+         ============================================================ -->
+    <section id="slide-7" class="slide content-slide" data-slide="7">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Deploy</span>
+            <h2 class="reveal d2">Hardware Support App Packs</h2>
+            <div class="red-line reveal d2"></div>
+            <p class="slide-body reveal d3">
+                Introduced with the "modern drivers" architecture in Windows 10 1809, Hardware Support Apps (HSAs)
+                provide the software layer required by certain hardware components.
+                HSA Packs bundle all model-specific apps for environments where the Microsoft Store is restricted.
+            </p>
+            <ul class="bullet-list reveal d4" style="margin-top:clamp(0.4rem,1vh,0.8rem);">
+                <li><span class="bull">▶</span><span>Drivers that need additional software use HSAs for control &amp; configuration</span></li>
+                <li><span class="bull">▶</span><span>Normally delivered through the Microsoft Store automatically</span></li>
+                <li><span class="bull">▶</span><span>HSA Packs provide the <strong>sideloading files</strong> for Store-restricted deployments</span></li>
+                <li><span class="bull">▶</span><span>Simple self-extracting archive — same format as Driver Packs</span></li>
+            </ul>
+        </div>
+        <span class="slide-num">07 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 8: HSA EASY METHOD
+         ============================================================ -->
+    <section id="slide-8" class="slide content-slide" data-slide="8">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Deploy</span>
+            <h2 class="reveal d2">HSAs — The Easy Method</h2>
+            <div class="red-line reveal d2"></div>
+            <div class="two-col reveal d3" style="align-items:start; margin-top:clamp(0.4rem,1vh,0.8rem);">
+                <div>
+                    <p class="slide-body" style="margin-bottom:clamp(0.5rem,1.2vh,1rem);">
+                        Hardware Support Apps are designed to be delivered through the
+                        Microsoft Store automatically based on the hardware drivers installed.
+                    </p>
+                    <div class="card card-red">
+                        <p class="card-title">The simple solution</p>
+                        <p style="font-size:var(--body-size); color:var(--mid-gray); line-height:1.6;">
+                            Simply <strong style="color:var(--white);">turning off the Store app</strong> prevents users from
+                            installing third-party apps from the Store <em>while still allowing</em>
+                            the OS to install and maintain HSAs automatically. No sideloading needed.
+                        </p>
+                        <p class="doc-url" style="margin-top:clamp(0.3rem,0.7vh,0.6rem);"><a href="https://blog.lenovocdrt.com/hsa-best-practices-guide/" target="_blank" rel="noopener">blog.lenovocdrt.com/hsa-best-practices-guide</a></p>
+                    </div>
+                </div>
+                <div>
+                    <div class="card card-blue">
+                        <p class="card-title">Microsoft documentation</p>
+                        <p style="font-size:var(--body-size); color:var(--mid-gray); line-height:1.55;">
+                            Configure Access To The Microsoft Store App For Windows Devices
+                        </p>
+                        <p class="doc-url"><a href="https://learn.microsoft.com/en-us/windows/configuration/store/" target="_blank" rel="noopener">Microsoft Learn</a></p>
+                    </div>
+                    <div class="card" style="margin-top:clamp(0.4rem,0.9vh,0.8rem);">
+                        <p class="card-title">When to use HSA Packs instead</p>
+                        <p style="font-size:var(--body-size); color:var(--mid-gray); line-height:1.55;">
+                            Use HSA Packs when your environment blocks Store access entirely
+                            and you need to sideload apps during OSD task sequences.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="slide-num">08 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 9: PATCH SECTION BREAK
+         ============================================================ -->
+    <section id="slide-9" class="slide section-slide" data-slide="9">
+        <img class="sect-bg-img"
+             src="resources/LenovoBrandImagery/PPT Slide Image Library/TW26_Sphere_Library_Image-12.png"
+             alt="" aria-hidden="true">
+        <div class="sect-overlay"></div>
+        <div class="ghost-number">02</div>
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Part Two</span>
+            <h2 class="reveal d2">Patch</h2>
+            <p class="sect-desc reveal d3">
+                Keeping Lenovo commercial PCs current with the latest drivers, firmware,
+                and BIOS updates — whether you're managing one device or ten thousand.
+            </p>
+        </div>
+        <span class="slide-num">09 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 10: COMMERCIAL VANTAGE
+         ============================================================ -->
+    <section id="slide-10" class="slide content-slide" data-slide="10">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Patch</span>
+            <h2 class="reveal d2">Commercial Vantage</h2>
+            <div class="red-line reveal d2"></div>
+            <div class="two-col reveal d3" style="align-items:start; margin-top:clamp(0.3rem,0.8vh,0.7rem);">
+                <div>
+                    <p class="slide-body" style="margin-bottom:clamp(0.4rem,1vh,0.8rem);">
+                        The primary utility preloaded on Lenovo commercial PCs — the central
+                        app connecting users to their device.
+                    </p>
+                    <ul class="bullet-list">
+                        <li><span class="bull">▶</span><span>Customize the PC experience</span></li>
+                        <li><span class="bull">▶</span><span>Obtain System Updates for drivers and firmware</span></li>
+                        <li><span class="bull">▶</span><span>Manage unique Lenovo hardware settings</span></li>
+                        <li><span class="bull">▶</span><span>Updates Lenovo Dock firmware when docks are attached</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="card card-blue" style="margin-bottom:clamp(0.4rem,0.9vh,0.8rem);">
+                        <p class="card-title">IT Administrator Control</p>
+                        <p style="font-size:var(--body-size); color:var(--mid-gray); line-height:1.55;">
+                            Fully customizable — control which features are visible to end-users.
+                            Updates can be filtered by the admin or driven entirely from a local repository.
+                        </p>
+                    </div>
+                    <div class="card card-red">
+                        <p class="card-title">New in 2024 / 2025</p>
+                        <ul class="bullet-list" style="margin-top:0;">
+                            <li><span class="bull">▶</span><span>Integrated with Lenovo Device Manager / Device Orchestration</span></li>
+                            <li><span class="bull">▶</span><span>SU Helper for triggering Auto Update by command line</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="doc-url reveal d4"><a href="https://docs.lenovocdrt.com/guides/lcv" target="_blank" rel="noopener">docs.lenovocdrt.com/guides/lcv</a></p>
+        </div>
+        <span class="slide-num">10 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 11: COMMERCIAL VANTAGE IN 2026
+         ============================================================ -->
+    <section class="slide content-slide" data-slide="11">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Patch</span>
+            <h2 class="reveal d2">Commercial Vantage in 2025 / 2026<span class="new-badge">Updated</span></h2>
+            <div class="red-line reveal d2"></div>
+            <div class="three-col reveal d3" style="margin-top:clamp(0.5rem,1.2vh,1rem);">
+                <div class="card">
+                    <p class="card-title">New UI Design</p>
+                    <p style="font-size:var(--body-size); color:var(--mid-gray); line-height:1.55;">
+                        Modernized interface with a simplified and more intuitive layout for end-users.
+                    </p>
+                </div>
+                <div class="card">
+                    <p class="card-title">Simplified Auto Update</p>
+                    <p style="font-size:var(--body-size); color:var(--mid-gray); line-height:1.55;">
+                        Streamlined Auto Update flows reduce complexity for both users and administrators.
+                    </p>
+                </div>
+                <div class="card card-red">
+                    <p class="card-title">Device Orchestration Integration</p>
+                    <p style="font-size:var(--body-size); color:var(--mid-gray); line-height:1.55;">
+                        Deeper integration with Lenovo Device Orchestration (formerly Lenovo Device Manager)
+                        for centralized fleet visibility.
+                    </p>
+                </div>
+            </div>
+            <div class="card card-blue reveal d4" style="margin-top:clamp(0.5rem,1.2vh,1rem);">
+                <p style="font-size:var(--body-size); color:var(--mid-gray); line-height:1.55;">
+                    Full deployment and management guidance for Commercial Vantage is available on the CDRT Docs site,
+                    including Intune policy configuration, repository setup, and log analysis with
+                    <strong style="color:var(--white);">Invoke-LnvCVLogViewer</strong> (new in Lenovo.Client.Scripting v2.4).
+                </p>
+                <p class="doc-url" style="margin-top:clamp(0.3rem,0.7vh,0.6rem);"><a href="https://docs.lenovocdrt.com/guides/lcv/whatsnew/" target="_blank" rel="noopener">docs.lenovocdrt.com/guides/lcv/whatsnew</a></p>
+            </div>
+        </div>
+        <span class="slide-num">11 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 12: LENOVO UPDATES CATALOG
+         ============================================================ -->
+    <section id="slide-12" class="slide content-slide" data-slide="12">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Patch</span>
+            <h2 class="reveal d2">Lenovo Updates Catalog</h2>
+            <div class="red-line reveal d2"></div>
+            <div class="two-col reveal d3" style="align-items:start; margin-top:clamp(0.3rem,0.8vh,0.7rem);">
+                <div>
+                    <p class="slide-body" style="margin-bottom:clamp(0.4rem,1vh,0.8rem);">
+                        The Lenovo Updates Catalog is the Third-Party Partner Catalog available for use
+                        directly in Configuration Manager or through System Center Updates Publisher (SCUP).
+                        Same content as Lenovo Patch — deployed and managed using ConfigMgr with WSUS integrated.
+                    </p>
+                    <ul class="bullet-list">
+                        <li><span class="bull">▶</span><span>Native ConfigMgr / WSUS integration</span></li>
+                        <li><span class="bull">▶</span><span>Same Lenovo content source as Lenovo Patch</span></li>
+                        <li><span class="bull">▶</span><span>Familiar approval workflow for WSUS administrators</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="card card-red" style="margin-bottom:clamp(0.4rem,0.9vh,0.8rem);">
+                        <p class="card-title">Important Notes</p>
+                        <ul class="bullet-list" style="margin-top:0;">
+                            <li><span class="bull">▶</span><span>Some component firmware and <strong>all dock firmware</strong> cannot be delivered via WSUS</span></li>
+                            <li><span class="bull">▶</span><span>Requires the <strong>Lenovo Updates Catalog Agent</strong> on all patched devices for proper hardware driver detection</span></li>
+                        </ul>
+                    </div>
+                    <div class="card" style="margin-bottom:clamp(0.4rem,0.9vh,0.8rem); border-color:rgba(230,168,23,0.5); background:rgba(230,168,23,0.07);">
+                        <p class="card-title" style="color:#E6A817; text-transform:uppercase; letter-spacing:0.06em; font-size:clamp(0.62rem,1vw,0.8rem);">Notice — WSUS Deprecated</p>
+                        <p style="font-size:var(--body-size); color:var(--mid-gray); line-height:1.55;">
+                            Microsoft has deprecated WSUS. No new features will be developed and it will be removed from a future Windows Server release. Plan migration to a modern patching solution.
+                        </p>
+                        <p class="doc-url" style="margin-top:clamp(0.3rem,0.7vh,0.6rem);"><a href="https://techcommunity.microsoft.com/blog/windows-itpro-blog/windows-server-update-services-wsus-deprecation/4250436" target="_blank" rel="noopener">Microsoft Blog — WSUS Deprecation</a></p>
+                    </div>
+                    <p class="doc-url"><a href="https://docs.lenovocdrt.com/guides/luc" target="_blank" rel="noopener">docs.lenovocdrt.com/guides/luc</a></p>
+                </div>
+            </div>
+        </div>
+        <span class="slide-num">12 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 13: WINDOWS UPDATE FOR BUSINESS — Part 1
+         ============================================================ -->
+    <section id="slide-13" class="slide content-slide" data-slide="13">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Patch</span>
+            <h2 class="reveal d2">Windows Update for Business</h2>
+            <div class="red-line reveal d2"></div>
+            <div class="two-col reveal d3" style="align-items:start; margin-top:clamp(0.3rem,0.8vh,0.7rem);">
+                <div>
+                    <p class="slide-body" style="margin-bottom:clamp(0.4rem,1vh,0.8rem);">
+                        Since 2021, Microsoft has offered per-update approval for drivers and firmware via Intune.
+                        Admins see applicable updates for their managed devices and approve what they want deployed.
+                    </p>
+                    <ul class="bullet-list">
+                        <li><span class="bull">▶</span><span>Lenovo has submitted all driver and BIOS updates to Windows Update <strong>since 2018</strong></span></li>
+                        <li><span class="bull">▶</span><span>Some component firmware and <strong>all dock firmware</strong> updates are not available via WU</span></li>
+                        <li><span class="bull">▶</span><span>Limited update detail in WU can make individual approval decisions difficult</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="card card-blue">
+                        <p class="card-title">Gradual Rollout &amp; Timeline</p>
+                        <p style="font-size:var(--body-size); color:var(--mid-gray); line-height:1.55; margin-bottom:clamp(0.3rem,0.7vh,0.6rem);">
+                            New updates are offered to a small subset first. Telemetry is monitored; rollout expands if all is well.
+                            It may take <strong style="color:var(--white);">30–45 days</strong> before all devices are offered the update.
+                        </p>
+                        <div class="wufb-timeline">
+                            <div class="tl-step">
+                                <div class="tl-timing">Submit</div>
+                                <div class="tl-bar"></div>
+                                <div class="tl-label">Lenovo submits<br>ship label</div>
+                            </div>
+                            <div class="tl-step">
+                                <div class="tl-timing">≤ 14d</div>
+                                <div class="tl-bar"></div>
+                                <div class="tl-label">MSFT verify<br>submission</div>
+                            </div>
+                            <div class="tl-step">
+                                <div class="tl-timing">≤ 14d</div>
+                                <div class="tl-bar"></div>
+                                <div class="tl-label">Web upload</div>
+                            </div>
+                            <div class="tl-step">
+                                <div class="tl-timing">30d</div>
+                                <div class="tl-bar"></div>
+                                <div class="tl-label">Gradual<br>Rollout</div>
+                            </div>
+                            <div class="tl-step">
+                                <div class="tl-timing">All</div>
+                                <div class="tl-bar"></div>
+                                <div class="tl-label">All devices<br>offered</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size:var(--small-size); color:rgba(171,168,177,0.55); margin-top:clamp(0.3rem,0.7vh,0.6rem); line-height:1.5;">
+                        Environments requiring immediate deployment (e.g., security vulnerabilities) are better served
+                        by Lenovo utilities like Commercial Vantage or Lenovo.Client.Update.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <span class="slide-num">13 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 14: MANAGE SECTION BREAK
+         ============================================================ -->
+    <section id="slide-14" class="slide section-slide" data-slide="14">
+        <img class="sect-bg-img"
+             src="resources/LenovoBrandImagery/PPT Slide Image Library/TW26_Sphere_Library_Image-18.png"
+             alt="" aria-hidden="true">
+        <div class="sect-overlay"></div>
+        <div class="ghost-number">03</div>
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Part Three</span>
+            <h2 class="reveal d2">Manage</h2>
+            <p class="sect-desc reveal d3">
+                Tools and PowerShell modules for ongoing configuration, BIOS management,
+                update automation, and dock firmware — built by the CDRT team.
+            </p>
+        </div>
+        <span class="slide-num">14 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 15: LENOVO DEVICE ORCHESTRATION WITH IT ASSIST
+         ============================================================ -->
+    <section id="slide-15" class="slide content-slide" data-slide="15">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Manage</span>
+            <h2 class="reveal d2">Lenovo Device Orchestration<br><span style="font-size:0.7em; color:var(--mid-gray); font-weight:400;">with IT Assist</span></h2>
+            <div class="red-line reveal d2"></div>
+            <p class="slide-body reveal d3" style="margin-bottom:clamp(0.4rem,1vh,0.8rem);">
+                Optimize your device fleet's health, security, and performance with Lenovo's premier endpoint management solution.
+            </p>
+            <div class="ldo-grid reveal d4">
+                <div class="ldo-panel card card-blue">
+                    <h3>Lenovo IT Assist</h3>
+                    <ul class="bullet-list" style="margin-top:0;">
+                        <li><span class="bull">▶</span><span>AI-assisted Device Insights</span></li>
+                        <li><span class="bull">▶</span><span>AI-assistant for personalized support &amp; recommendations</span></li>
+                        <li><span class="bull">▶</span><span>AI-powered visual forecasting based on historical trends</span></li>
+                    </ul>
+                </div>
+                <div class="ldo-panel card card-blue">
+                    <h3>Centralized Endpoint Management</h3>
+                    <ul class="bullet-list" style="margin-top:0;">
+                        <li><span class="bull">▶</span><span>Centralized dashboard across your fleet</span></li>
+                        <li><span class="bull">▶</span><span>Multi-layered security &amp; data protection</span></li>
+                        <li><span class="bull">▶</span><span>Multi-tenancy capabilities for MSPs</span></li>
+                    </ul>
+                </div>
+                <div class="ldo-panel card">
+                    <h3>Device Management Module</h3>
+                    <ul class="bullet-list" style="margin-top:0;">
+                        <li><span class="bull">▶</span><span>Remote device management</span></li>
+                        <li><span class="bull">▶</span><span>System updates &amp; patch management</span></li>
+                        <li><span class="bull">▶</span><span>Windows and third-party software patching</span></li>
+                    </ul>
+                </div>
+                <div class="ldo-panel card">
+                    <h3>Device Insights Module</h3>
+                    <ul class="bullet-list" style="margin-top:0;">
+                        <li><span class="bull">▶</span><span>Advanced predictive analytics</span></li>
+                        <li><span class="bull">▶</span><span>Device and fleet-level health scoring</span></li>
+                        <li><span class="bull">▶</span><span>Warranty info and component replacement guidance</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <span class="slide-num">15 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 16: LENOVO DEVICE ORCHESTRATION — FEATURES
+         ============================================================ -->
+    <section class="slide content-slide" data-slide="16">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Manage</span>
+            <h2 class="reveal d2">Lenovo Device Orchestration<span style="font-size:0.55em; color:var(--mid-gray); font-weight:400; display:block; line-height:1.4; margin-top:2px;">Previously known as Lenovo Device Manager</span></h2>
+            <div class="red-line reveal d2"></div>
+            <div class="ldo-feat-grid reveal d3" style="margin-top:clamp(0.3rem,0.8vh,0.7rem);">
+                <div>
+                    <p style="font-family:var(--font-semi); font-size:clamp(0.8125rem,1.25vw,1.025rem); font-weight:600; color:var(--red); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:clamp(0.3rem,0.7vh,0.6rem);">Premium Features</p>
+                    <ul class="bullet-list">
+                        <li><span class="bull">▶</span><span>System Updates (firmware, drivers, BIOS)</span></li>
+                        <li><span class="bull">▶</span><span>3rd Party Patch Management</span></li>
+                        <li><span class="bull">▶</span><span>Power Management</span></li>
+                        <li><span class="bull">▶</span><span>Remote Device Management</span></li>
+                    </ul>
+                </div>
+                <div>
+                    <p style="font-family:var(--font-semi); font-size:clamp(0.8125rem,1.25vw,1.025rem); font-weight:600; color:var(--mid-gray); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:clamp(0.3rem,0.7vh,0.6rem);">Basic Features</p>
+                    <ul class="bullet-list">
+                        <li><span class="bull">▶</span><span>Software Inventory</span></li>
+                        <li><span class="bull">▶</span><span>Power Management (PeakShift)</span></li>
+                        <li><span class="bull">▶</span><span>Hardware Asset Management</span></li>
+                        <li><span class="bull">▶</span><span>Reports &amp; Analytics Dashboards</span></li>
+                        <li><span class="bull">▶</span><span>Activity &amp; Insights History</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card card-red reveal d4" style="margin-top:clamp(0.4rem,1vh,0.8rem);">
+                <p class="card-title">Coming in 2025 / 2026</p>
+                <div style="display:flex; gap:clamp(1rem,2.5vw,2.5rem);">
+                    <p style="font-size:var(--body-size); color:var(--mid-gray);">● BIOS Settings management</p>
+                    <p style="font-size:var(--body-size); color:var(--mid-gray);">● Intune Integration</p>
+                </div>
+            </div>
+        </div>
+        <span class="slide-num">16 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 17: THINKVANTAGE POWERSHELL LIBRARY — OVERVIEW
+         (Replaces original pages 19–21)
+         ============================================================ -->
+    <section id="slide-17" class="slide content-slide" data-slide="17">
+        <img class="tv-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAADeCAYAAADhEH4wAAA0RElEQVR4nO3deXxU1fk/8M+dSTJZIHtYA4adAioKihsILtW2VoN2gWqt+LUudQFabW2tBexia1W0VWvd69cu/qyC2K+7EpdWFCuouAGyySKEhCRkT2bu7w8gApmZe+557p17b+bzfr18vWRmzrlnlsx95jnnPseAizaOGGi62T8RERGRrkPWbDHc6tvRjhlQERERUVA5GXA50hEDKyIiIuopnAi0RB0wsCIiIqKeShJoaTVkYEVERETpQifQCtltwOCKiIiI0olO7GMrItM5wODVm+02ISIiInLVppHlttvYyWQpPdBOYMWAioiIiILGTsClEmhZPkA1uGJgRUREREGnGmhZBVlJ71QJrhhYERERUU+jEmglC7JsL3LfH4MrIiIi6omkMU7CAMsqe8XgioiIiHoyq1gnWawUN7WVrAEDKyIiIko3yaYM400Vdstgsc4VERERkbp4sZOtNVjMXhEREVE6shsDHRBgcWqQiIiIKL5ksdDBMZRSBovBFREREZF6TNQVYHHtFREREZG+/WMpywwWs1dEREREX1CJjUIAs1dERERETtgXUyXNYDF7RURERNSdVYwk2iqHiIiIiLpjgEVERETksBDXXxERERE5Z+OIgWbCDBbXXxEREREllixW4hQhERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMyvB4ABVPzqKEw6+u73R65/Q5kfHumByMiIiLyD2awyJamfiVo6lcSN7gCgLbZV6CpXwnaZl+R4pERERH5h7FxxEAz3h2DV29O9VgOYBiGp8d3gml+8dJKn8/+fXmhbfYV6Hz077bb5X1e48Jo/KGqqgrTpk3Tbp/K9/Q/J52I7NZW5ceboRDasrLQlJODVaPHYO4tt4qO//fzz8OotWu02tbnF2Das8+Ljk9E5JZNI8vj3s4pQlKiE1wBezJePTnICoqyVe9hQEgvYf36q68CwgCrfcmTGJWdpdW2qr1DdGwiIi9wipAsNfUr8bQ9ycUEybI+moHZ/kZkhLXb7pAMnojIIwywKCkGRz2DJAdUHJJP1w8UBGnVsZj4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DBbXYBERETkhMxP/bLXY8sYDf2y2qLFFrmCARURE5JDz3nlXtNjdae92RvFIY7PXw0hLDLCIiIgcUjhsGH5Q3+T1MAAAbSbwh/7lQIinei/wVSciInLQ4tY23N8iq7zuhJ/sbsI/3l/l9TDSFgMsIiIih11VW48lbd6tx7qhsQX3cu2VpxhgEREROS0cxsxt1bivRbKBjn2tpokrGprwO6678hwDLCIiIjdkZ2N2fSO2/fI3WBuNun64/3Z0ImPRU3iQmStfYB0sIiIit0WjmNkrF1fn5WB0RtjRrld1RnGvGcJ91Tu5oN0DrINFRETklXAYf29pw4Sddbj52Mm4u7kVWwX7A66LRnFXcyueOvd8TNpZh/tqahlc+QwzWERERB757K038ecfXIbYxx+jPBzCgHAIpYaB3iEDURPYbZrYETOxKRrFpmgMA6edhGse+guM0lKvh057JcpgMcAiIiIi0sQpQiIiIqIUYYBFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOSxhgJdodmoiIiIiSx0qhQ9ZsMVI4FiIiIqIe7ZA1WwxOERIRERE5jAEWERERkcOSBlhch0VERETUnVWMFAL2zBWmZDREREREPdi+mMpyipBZLCIiIqIvqMRGXQEWs1hERERE+vaPpZQWuTOLRURERKQeEx0QYCXLYjHIIiIionSWLBY6OIayVaaBQRYRERGlI7sxULcAi2uxiIiIiNTFi50SBlMbRww0k3U2ePVmJ8ZERERE5FtWmatEiamEU4RWmSxOFxIREVFPphtcAcKtchhkERERUU8kjXEs11tZTRXuwylDIiIiCjrVwMpqpk9pQbtqkAUw0CIiIqLgsZOxUrkg0NYVg3YCrX0YcBEREZHf6EwB2qm0YLskg06QRURERBRkdstY2V7kzjpZRERElE50Yh9RsMRsFhEREfVUkqSSI9koBlpERETUUzgxW+fodB8DLSIiIgoqJ5dBubqeigEXERER+ZWb68r/P+9v2ZMQfuOLAAAAAElFTkSuQmCC" alt="ThinkVantage">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Manage</span>
+            <h2 class="reveal d2">ThinkVantage PowerShell Library<span class="new-badge">2026</span></h2>
+            <div class="red-line reveal d2"></div>
+            <p class="slide-body reveal d3">
+                A unified collection of PowerShell modules and scripts published to the PowerShell Gallery,
+                giving IT administrators native scripting control over every aspect of Lenovo commercial PC management.
+            </p>
+            <div class="lib-modules reveal d4">
+                <div class="lib-card">
+                    <p class="mod-name">Lenovo.Client.Update</p>
+                    <p class="mod-desc">Driver, BIOS, and firmware update discovery, download, and installation. Built-in signature verification and WMI export. Successor to the LSUClient community module.</p>
+                </div>
+                <div class="lib-card">
+                    <p class="mod-name">Lenovo.Client.Scripting</p>
+                    <p class="mod-desc">30+ utility cmdlets for daily PC fleet management — warranty info, BIOS info, CVE lookup, driver pack search, update history viewer, log analyzers, and more.</p>
+                </div>
+                <div class="lib-card">
+                    <p class="mod-name">Lenovo.Bios.Config</p>
+                    <p class="mod-desc">Read and modify BIOS settings via WMI. Backs the new Think BIOS Config Tool V2 (ThinkBiosConfigUI.ps1) — with Intune packaging and Custom Defaults support.</p>
+                </div>
+                <div class="lib-card">
+                    <p class="mod-name">Lenovo.Bios.Certificates</p>
+                    <p class="mod-desc">Certificate-based BIOS authentication — passwordless BIOS management using local key files or Azure Key Vault signing. Paired with LnvBiosCertInterface.ps1 GUI.</p>
+                </div>
+            </div>
+            <p class="doc-url reveal d5" style="margin-top:clamp(0.3rem,0.7vh,0.6rem);">
+                Install-Module Lenovo.Client.Update &nbsp;·&nbsp; Install-Module Lenovo.Client.Scripting &nbsp;·&nbsp; Install-Module Lenovo.Bios.Config
+            </p>
+        </div>
+        <span class="slide-num">17 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 18: THINK BIOS CONFIG TOOL V2
+         ============================================================ -->
+    <section id="slide-18" class="slide content-slide" data-slide="18">
+        <img class="tv-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAADeCAYAAADhEH4wAAA0RElEQVR4nO3deXxU1fk/8M+dSTJZIHtYA4adAioKihsILtW2VoN2gWqt+LUudQFabW2tBexia1W0VWvd69cu/qyC2K+7EpdWFCuouAGyySKEhCRkT2bu7w8gApmZe+557p17b+bzfr18vWRmzrlnlsx95jnnPseAizaOGGi62T8RERGRrkPWbDHc6tvRjhlQERERUVA5GXA50hEDKyIiIuopnAi0RB0wsCIiIqKeShJoaTVkYEVERETpQifQCtltwOCKiIiI0olO7GMrItM5wODVm+02ISIiInLVppHlttvYyWQpPdBOYMWAioiIiILGTsClEmhZPkA1uGJgRUREREGnGmhZBVlJ71QJrhhYERERUU+jEmglC7JsL3LfH4MrIiIi6omkMU7CAMsqe8XgioiIiHoyq1gnWawUN7WVrAEDKyIiIko3yaYM400Vdstgsc4VERERkbp4sZOtNVjMXhEREVE6shsDHRBgcWqQiIiIKL5ksdDBMZRSBovBFREREZF6TNQVYHHtFREREZG+/WMpywwWs1dEREREX1CJjUIAs1dERERETtgXUyXNYDF7RURERNSdVYwk2iqHiIiIiLpjgEVERETksBDXXxERERE5Z+OIgWbCDBbXXxEREREllixW4hQhERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMyvB4ABVPzqKEw6+u73R65/Q5kfHumByMiIiLyD2awyJamfiVo6lcSN7gCgLbZV6CpXwnaZl+R4pERERH5h7FxxEAz3h2DV29O9VgOYBiGp8d3gml+8dJKn8/+fXmhbfYV6Hz077bb5X1e48Jo/KGqqgrTpk3Tbp/K9/Q/J52I7NZW5ceboRDasrLQlJODVaPHYO4tt4qO//fzz8OotWu02tbnF2Das8+Ljk9E5JZNI8vj3s4pQlKiE1wBezJePTnICoqyVe9hQEgvYf36q68CwgCrfcmTGJWdpdW2qr1DdGwiIi9wipAsNfUr8bQ9ycUEybI+moHZ/kZkhLXb7pAMnojIIwywKCkGRz2DJAdUHJJP1w8UBGnVsZj4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DBbXYBERETkhMxP/bLXY8sYDf2y2qLFFrmCARURE5JDz3nlXtNjdae92RvFIY7PXw0hLDLCIiIgcUjhsGH5Q3+T1MAAAbSbwh/7lQIinei/wVSciInLQ4tY23N8iq7zuhJ/sbsI/3l/l9TDSFgMsIiIih11VW48lbd6tx7qhsQX3cu2VpxhgEREROS0cxsxt1bivRbKBjn2tpokrGprwO6678hwDLCIiIjdkZ2N2fSO2/fI3WBuNun64/3Z0ImPRU3iQmStfYB0sIiIit0WjmNkrF1fn5WB0RtjRrld1RnGvGcJ91Tu5oN0DrINFRETklXAYf29pw4Sddbj52Mm4u7kVWwX7A66LRnFXcyueOvd8TNpZh/tqahlc+QwzWERERB757K038ecfXIbYxx+jPBzCgHAIpYaB3iEDURPYbZrYETOxKRrFpmgMA6edhGse+guM0lKvh057JcpgMcAiIiIi0sQpQiIiIqIUYYBFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOSxhgJdodmoiIiIiSx0qhQ9ZsMVI4FiIiIqIe7ZA1WwxOERIRERE5jAEWERERkcOSBlhch0VERETUnVWMFAL2zBWmZDREREREPdi+mMpyipBZLCIiIqIvqMRGXQEWs1hERERE+vaPpZQWuTOLRURERKQeEx0QYCXLYjHIIiIionSWLBY6OIayVaaBQRYRERGlI7sxULcAi2uxiIiIiNTFi50SBlMbRww0k3U2ePVmJ8ZERERE5FtWmatEiamEU4RWmSxOFxIREVFPphtcAcKtchhkERERUU8kjXEs11tZTRXuwylDIiIiCjrVwMpqpk9pQbtqkAUw0CIiIqLgsZOxUrkg0NYVg3YCrX0YcBEREZHf6EwB2qm0YLskg06QRURERBRkdstY2V7kzjpZRERElE50Yh9RsMRsFhEREfVUkqSSI9koBlpERETUUzgxW+fodB8DLSIiIgoqJ5dBubqeigEXERER+ZWb68r/P+9v2ZMQfuOLAAAAAElFTkSuQmCC" alt="ThinkVantage">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Manage</span>
+            <h2 class="reveal d2">Think BIOS Config Tool V2<span class="new-badge">Released Nov 2025</span></h2>
+            <div class="red-line reveal d2"></div>
+            <div class="tbct-grid reveal d3" style="margin-top:clamp(0.3rem,0.8vh,0.7rem);">
+                <div>
+                    <p class="slide-body" style="margin-bottom:clamp(0.4rem,1vh,0.8rem);">
+                        A complete rewrite of the original HTA-based Think BIOS Config Tool,
+                        now a native <strong>PowerShell WPF GUI</strong> (<code style="font-family:var(--font-mono); font-size:0.88em; color:var(--mid-red-2);">ThinkBiosConfigUI.ps1</code>)
+                        backed by the <code style="font-family:var(--font-mono); font-size:0.88em; color:var(--mid-red-2);">Lenovo.Bios.Config</code> module.
+                    </p>
+                    <ul class="bullet-list">
+                        <li><span class="bull">▶</span><span>View, edit, and export BIOS settings interactively</span></li>
+                        <li><span class="bull">▶</span><span>Import/export .ini files with encrypted Supervisor password</span></li>
+                        <li><span class="bull">▶</span><span>Create and import password-change files</span></li>
+                        <li><span class="bull">▶</span><span>Clear or change Supervisor password and fingerprint data</span></li>
+                        <li><span class="bull">▶</span><span>Save and restore <strong>Custom Defaults</strong></span></li>
+                    </ul>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:clamp(0.4rem,0.9vh,0.8rem);">
+                    <div class="card card-red">
+                        <p class="card-title">Intune Integration</p>
+                        <p style="font-size:var(--body-size); color:var(--mid-gray); line-height:1.55;">
+                            Create Intune-friendly Win32 packages and Remediations artifacts,
+                            with optional upload via Microsoft Graph — directly from the GUI.
+                        </p>
+                    </div>
+                    <div class="card card-blue">
+                        <p class="card-title">Installation</p>
+                        <div class="code-block" style="margin-top:clamp(0.2rem,0.5vh,0.4rem);">
+<span class="fn">Install-Script</span> <span class="str">'ThinkBiosConfigUI'</span>
+<span class="fn">Install-Module</span> <span class="str">'Lenovo.Bios.Config'</span>
+                        </div>
+                    </div>
+                    <p style="font-size:var(--small-size); color:rgba(171,168,177,0.5); line-height:1.5;">
+                        Note: ThinkCentre desktop products currently not supported due to
+                        WMI BIOS Interface differences. HTA-based INI files need to be recreated.
+                    </p>
+                    <p class="doc-url"><a href="https://docs.lenovocdrt.com/guides/tbct_v2" target="_blank" rel="noopener">docs.lenovocdrt.com/guides/tbct_v2</a></p>
+                </div>
+            </div>
+        </div>
+        <span class="slide-num">18 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 19: LENOVO.CLIENT.UPDATE (LCU)
+         ============================================================ -->
+    <section id="slide-19" class="slide content-slide" data-slide="19">
+        <img class="tv-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAADeCAYAAADhEH4wAAA0RElEQVR4nO3deXxU1fk/8M+dSTJZIHtYA4adAioKihsILtW2VoN2gWqt+LUudQFabW2tBexia1W0VWvd69cu/qyC2K+7EpdWFCuouAGyySKEhCRkT2bu7w8gApmZe+557p17b+bzfr18vWRmzrlnlsx95jnnPseAizaOGGi62T8RERGRrkPWbDHc6tvRjhlQERERUVA5GXA50hEDKyIiIuopnAi0RB0wsCIiIqKeShJoaTVkYEVERETpQifQCtltwOCKiIiI0olO7GMrItM5wODVm+02ISIiInLVppHlttvYyWQpPdBOYMWAioiIiILGTsClEmhZPkA1uGJgRUREREGnGmhZBVlJ71QJrhhYERERUU+jEmglC7JsL3LfH4MrIiIi6omkMU7CAMsqe8XgioiIiHoyq1gnWawUN7WVrAEDKyIiIko3yaYM400Vdstgsc4VERERkbp4sZOtNVjMXhEREVE6shsDHRBgcWqQiIiIKL5ksdDBMZRSBovBFREREZF6TNQVYHHtFREREZG+/WMpywwWs1dEREREX1CJjUIAs1dERERETtgXUyXNYDF7RURERNSdVYwk2iqHiIiIiLpjgEVERETksBDXXxERERE5Z+OIgWbCDBbXXxEREREllixW4hQhERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMyvB4ABVPzqKEw6+u73R65/Q5kfHumByMiIiLyD2awyJamfiVo6lcSN7gCgLbZV6CpXwnaZl+R4pERERH5h7FxxEAz3h2DV29O9VgOYBiGp8d3gml+8dJKn8/+fXmhbfYV6Hz077bb5X1e48Jo/KGqqgrTpk3Tbp/K9/Q/J52I7NZW5ceboRDasrLQlJODVaPHYO4tt4qO//fzz8OotWu02tbnF2Das8+Ljk9E5JZNI8vj3s4pQlKiE1wBezJePTnICoqyVe9hQEgvYf36q68CwgCrfcmTGJWdpdW2qr1DdGwiIi9wipAsNfUr8bQ9ycUEybI+moHZ/kZkhLXb7pAMnojIIwywKCkGRz2DJAdUHJJP1w8UBGnVsZj4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DBbXYBERETkhMxP/bLXY8sYDf2y2qLFFrmCARURE5JDz3nlXtNjdae92RvFIY7PXw0hLDLCIiIgcUjhsGH5Q3+T1MAAAbSbwh/7lQIinei/wVSciInLQ4tY23N8iq7zuhJ/sbsI/3l/l9TDSFgMsIiIih11VW48lbd6tx7qhsQX3cu2VpxhgEREROS0cxsxt1bivRbKBjn2tpokrGprwO6678hwDLCIiIjdkZ2N2fSO2/fI3WBuNun64/3Z0ImPRU3iQmStfYB0sIiIit0WjmNkrF1fn5WB0RtjRrld1RnGvGcJ91Tu5oN0DrINFRETklXAYf29pw4Sddbj52Mm4u7kVWwX7A66LRnFXcyueOvd8TNpZh/tqahlc+QwzWERERB757K038ecfXIbYxx+jPBzCgHAIpYaB3iEDURPYbZrYETOxKRrFpmgMA6edhGse+guM0lKvh057JcpgMcAiIiIi0sQpQiIiIqIUYYBFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOSxhgJdodmoiIiIiSx0qhQ9ZsMVI4FiIiIqIe7ZA1WwxOERIRERE5jAEWERERkcOSBlhch0VERETUnVWMFAL2zBWmZDREREREPdi+mMpyipBZLCIiIqIvqMRGXQEWs1hERERE+vaPpZQWuTOLRURERKQeEx0QYCXLYjHIIiIionSWLBY6OIayVaaBQRYRERGlI7sxULcAi2uxiIiIiNTFi50SBlMbRww0k3U2ePVmJ8ZERERE5FtWmatEiamEU4RWmSxOFxIREVFPphtcAcKtchhkERERUU8kjXEs11tZTRXuwylDIiIiCjrVwMpqpk9pQbtqkAUw0CIiIqLgsZOxUrkg0NYVg3YCrX0YcBEREZHf6EwB2qm0YLskg06QRURERBRkdstY2V7kzjpZRERElE50Yh9RsMRsFhEREfVUkqSSI9koBlpERETUUzgxW+fodB8DLSIiIgoqJ5dBubqeigEXERER+ZWb68r/P+9v2ZMQfuOLAAAAAElFTkSuQmCC" alt="ThinkVantage">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Manage</span>
+            <h2 class="reveal d2">Lenovo.Client.Update<span class="new-badge">New</span></h2>
+            <div class="red-line reveal d2"></div>
+            <div class="lcu-layout reveal d3" style="margin-top:clamp(0.3rem,0.8vh,0.7rem);">
+                <div>
+                    <p class="slide-body" style="margin-bottom:clamp(0.4rem,1vh,0.8rem);">
+                        The official Lenovo fork of the community LSUClient module —
+                        12 public cmdlets covering the full update lifecycle with added security.
+                    </p>
+                    <ul class="bullet-list">
+                        <li><span class="bull">▶</span><span><strong>Digital signature verification</strong> &amp; enforcement</span></li>
+                        <li><span class="bull">▶</span><span><code>-ExportToWMI</code> writes history to <code>root\Lenovo\Lenovo_Updates</code></span></li>
+                        <li><span class="bull">▶</span><span>Full OSD Task Sequence support — create repositories dynamically</span></li>
+                    </ul>
+                    <div class="card card-blue" style="margin-top:clamp(0.4rem,1vh,0.8rem);">
+                        <p class="card-title">Installation</p>
+                        <div class="code-block" style="margin-top:clamp(0.2rem,0.4vh,0.35rem);">
+<span class="fn">Install-Module</span> <span class="parm">-Name</span> Lenovo.Client.Update
+<span class="fn">Import-Module</span> Lenovo.Client.Update <span class="parm">-Force</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-block" style="max-height:min(55vh, 340px); overflow:hidden;font-size: calc(var(--code-size) * 0.75);">
+<span class="cm"># Get applicable updates for this device</span><br>
+<span class="var">$updates</span> = <span class="fn">Get-LnvUpdate</span>
+<span class="var">$updates</span> | <span class="fn">Format-Table</span> Title, Category
+<br>
+<span class="cm"># Download to local folder</span><br>
+<span class="var">$updates</span> | <span class="fn">Save-LnvUpdate</span> <span class="parm">-Path</span> <span class="str">"C:\Updates"</span> <span class="parm">-ShowProgress</span>
+<br>
+<span class="cm"># Install with signature verification</span><br>
+<span class="var">$updates</span> | <span class="fn">Install-LnvUpdate</span> <span class="parm">-VerifySignature</span> <span class="parm">-Verbose</span>
+<br>
+<span class="cm"># OSD Task Sequence — build local repository</span><br>
+<span class="fn">Get-LnvUpdatesRepo</span> <span class="parm">-RepositoryPath</span> <span class="str">'C:\Repo'</span>
+    <span class="parm">-RebootType</span> <span class="str">'0,3,5'</span>
+<br>
+<span class="fn">Get-LnvUpdate</span> <span class="parm">-Repository</span> <span class="str">'C:\Repo'</span>
+    | <span class="fn">Install-LnvUpdate</span> <span class="parm">-ExportToWMI</span> <span class="parm">-Verbose</span>
+<br>
+<span class="cm"># Silent/unattended only</span><br>
+<span class="fn">Get-LnvUpdate</span> | <span class="fn">Where-Object</span> { <span class="var">$_</span>.Installer.Unattended }
+    | <span class="fn">Save-LnvUpdate</span> | <span class="fn">Install-LnvUpdate</span>
+                </div>
+            </div>
+        </div>
+        <span class="slide-num">19 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 20: LENOVO.CLIENT.SCRIPTING MODULE
+         ============================================================ -->
+    <section class="slide content-slide" data-slide="20">
+        <img class="tv-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAADeCAYAAADhEH4wAAA0RElEQVR4nO3deXxU1fk/8M+dSTJZIHtYA4adAioKihsILtW2VoN2gWqt+LUudQFabW2tBexia1W0VWvd69cu/qyC2K+7EpdWFCuouAGyySKEhCRkT2bu7w8gApmZe+557p17b+bzfr18vWRmzrlnlsx95jnnPseAizaOGGi62T8RERGRrkPWbDHc6tvRjhlQERERUVA5GXA50hEDKyIiIuopnAi0RB0wsCIiIqKeShJoaTVkYEVERETpQifQCtltwOCKiIiI0olO7GMrItM5wODVm+02ISIiInLVppHlttvYyWQpPdBOYMWAioiIiILGTsClEmhZPkA1uGJgRUREREGnGmhZBVlJ71QJrhhYERERUU+jEmglC7JsL3LfH4MrIiIi6omkMU7CAMsqe8XgioiIiHoyq1gnWawUN7WVrAEDKyIiIko3yaYM400Vdstgsc4VERERkbp4sZOtNVjMXhEREVE6shsDHRBgcWqQiIiIKL5ksdDBMZRSBovBFREREZF6TNQVYHHtFREREZG+/WMpywwWs1dEREREX1CJjUIAs1dERERETtgXUyXNYDF7RURERNSdVYwk2iqHiIiIiLpjgEVERETksBDXXxERERE5Z+OIgWbCDBbXXxEREREllixW4hQhERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMYYBERERE5jAEWERERkcMyvB4ABVPzqKEw6+u73R65/Q5kfHumByMiIiLyD2awyJamfiVo6lcSN7gCgLbZV6CpXwnaZl+R4pERERH5h7FxxEAz3h2DV29O9VgOYBiGp8d3gml+8dJKn8/+fXmhbfYV6Hz077bb5X1e48Jo/KGqqgrTpk3Tbp/K9/Q/J52I7NZW5ceboRDasrLQlJODVaPHYO4tt4qO//fzz8OotWu02tbnF2Das8+Ljk9E5JZNI8vj3s4pQlKiE1wBezJePTnICoqyVe9hQEgvYf36q68CwgCrfcmTGJWdpdW2qr1DdGwiIi9wipAsNfUr8bQ9ycUEybI+moHZ/kZkhLXb7pAMnojIIwywKCkGRz2DJAdUHJJP1w8UBGnVsZj4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DBbXYBERETkhMxP/bLXY8sYDf2y2qLFFrmCARURE5JDz3nlXtNjdae92RvFIY7PXw0hLDLCIiIgcUjhsGH5Q3+T1MAAAbSbwh/7lQIinei/wVSciInLQ4tY23N8iq7zuhJ/sbsI/3l/l9TDSFgMsIiIih11VW48lbd6tx7qhsQX3cu2VpxhgEREROS0cxsxt1bivRbKBjn2tpokrGprwO6678hwDLCIiIjdkZ2N2fSO2/fI3WBuNun64/3Z0ImPRU3iQmStfYB0sIiIit0WjmNkrF1fn5WB0RtjRrld1RnGvGcJ91Tu5oN0DrINFRETklXAYf29pw4Sddbj52Mm4u7kVWwX7A66LRnFXcyueOvd8TNpZh/tqahlc+QwzWERERB757K038ecfXIbYxx+jPBzCgHAIpYaB3iEDURPYbZrYETOxKRrFpmgMA6edhGse+guM0lKvh057JcpgMcAiIiIi0sQpQiIiIqIUYYBFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOY4BFRERE5DAGWEREREQOSxhgJdodmoiIiIiSx0qhQ9ZsMVI4FiIiIqIe7ZA1WwxOERIRERE5jAEWERERkcOSBlhch0VERETUnVWMFAL2zBWmZDREREREPdi+mMpyipBZLCIiIqIvqMRGXQEWs1hERERE+vaPpZQWuTOLRURERKQeEx0QYCXLYjHIIiIionSWLBY6OIayVaaBQRYRERGlI7sxULcAi2uxiIiIiNTFi50SBlMbRww0k3U2ePVmJ8ZERERE5FtWmatEiamEU4RWmSxOFxIREVFPphtcAcKtchhkERERUU8kjXEs11tZTRXuwylDIiIiCjrVwMpqpk9pQbtqkAUw0CIiIqLgsZOxUrkg0NYVg3YCrX0YcBEREZHf6EwB2qm0YLskg06QRURERBRkdstY2V7kzjpZRERElE50Yh9RsMRsFhEREfVUkqSSI9koBlpERETUUzgxW+fodB8DLSIiIgoqJ5dBubqeigEXERER+ZWb68r/P+9v2ZMQfuOLAAAAAElFTkSuQmCC" alt="ThinkVantage">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Manage</span>
+            <h2 class="reveal d2">Lenovo.Client.Scripting<span style="font-size:0.6em; font-weight:400; color:var(--mid-gray);"> — v2.4.0, April 2026</span></h2>
+            <div class="red-line reveal d2"></div>
+            <p class="slide-body reveal d3">
+                30+ cmdlets for daily management of ThinkPad, ThinkCentre, and ThinkStation fleets.
+                Requires PowerShell 5.1+ (64-bit) on Windows 10 or Windows 11.
+                Install from the PowerShell Gallery: <code style="font-family:var(--font-mono); font-size:0.88em; color:var(--mid-red-2);">Install-Module Lenovo.Client.Scripting</code>
+            </p>
+            <div class="cmdlet-grid reveal d4">
+                <div class="cmdlet-chip">Get-LnvBiosInfo</div>
+                <div class="cmdlet-chip">Get-LnvBiosVersion</div>
+                <div class="cmdlet-chip">Get-LnvAvailableBiosVersion</div>
+                <div class="cmdlet-chip">Find-LnvDriverPack</div>
+                <div class="cmdlet-chip">Get-LnvDriverPack</div>
+                <div class="cmdlet-chip">Find-LnvHSAPack</div>
+                <div class="cmdlet-chip">Get-LnvWarranty</div>
+                <div class="cmdlet-chip">Get-LnvBatteryInfo</div>
+                <div class="cmdlet-chip">Get-LnvCVE</div>
+                <div class="cmdlet-chip">Get-LnvMachineType</div>
+                <div class="cmdlet-chip">Get-LnvSerial</div>
+                <div class="cmdlet-chip">Get-LnvModelName</div>
+                <div class="cmdlet-chip">Find-LnvUpdate</div>
+                <div class="cmdlet-chip">Show-LnvApplicableUpdate</div>
+                <div class="cmdlet-chip">Show-LnvUpdatesHistory</div>
+                <div class="cmdlet-chip">Invoke-LnvCVLogViewer</div>
+                <div class="cmdlet-chip">Invoke-LnvTILogViewer</div>
+                <div class="cmdlet-chip">Get-LnvUpdateNotification</div>
+                <div class="cmdlet-chip">Find-LnvTool</div>
+                <div class="cmdlet-chip">Add-LnvSULogging</div>
+                <div class="cmdlet-chip">Add-LnvSUCommandLine</div>
+                <div class="cmdlet-chip">Export-LnvURConfig</div>
+                <div class="cmdlet-chip">Find-LnvMachineType</div>
+                <div class="cmdlet-chip">Find-LnvDockModel</div>
+            </div>
+            <p class="doc-url reveal d5"><a href="https://docs.lenovocdrt.com/guides/lcsm" target="_blank" rel="noopener">docs.lenovocdrt.com/guides/lcsm</a></p>
+        </div>
+        <span class="slide-num">20 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 21: REFERENCE SECTION BREAK
+         ============================================================ -->
+    <section id="slide-22" class="slide section-slide" data-slide="21">
+        <img class="sect-bg-img"
+             src="resources/LenovoBrandImagery/PPT Slide Image Library/TW26_Sphere_Library_Image-21.png"
+             alt="" aria-hidden="true">
+        <div class="sect-overlay"></div>
+        <div class="ghost-number">04</div>
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Part Four</span>
+            <h2 class="reveal d2">Reference</h2>
+            <p class="sect-desc reveal d3">
+                Documentation, blogs, and community resources maintained by the Commercial Deployment Readiness Team.
+            </p>
+        </div>
+        <span class="slide-num">21 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 22: CDRT DOCS SITE
+         ============================================================ -->
+    <section id="slide-23" class="slide content-slide" data-slide="22">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Reference</span>
+            <h2 class="reveal d2">CDRT Docs Site</h2>
+            <div class="red-line reveal d2"></div>
+            <div class="two-col reveal d3" style="align-items:start; margin-top:clamp(0.3rem,0.8vh,0.7rem);">
+                <div>
+                    <p class="slide-body" style="margin-bottom:clamp(0.4rem,1vh,0.8rem);">
+                        Detailed documentation for Lenovo's client management solutions, consolidated at a single site.
+                        Deploy guides, reference materials, BIOS settings, and scripting examples.
+                    </p>
+                    <ul class="bullet-list">
+                        <li><span class="bull">▶</span><span>Guides for deploying and managing all Lenovo software utilities</span></li>
+                        <li><span class="bull">▶</span><span><strong>BIOS Settings Dictionary</strong> — definitions, setting names, and possible values for WMI scripting</span></li>
+                        <li><span class="bull">▶</span><span>WMI BIOS Interface scripting guide</span></li>
+                        <li><span class="bull">▶</span><span>AMD DASH capabilities reference</span></li>
+                        <li><span class="bull">▶</span><span>Lenovo Dock reference materials</span></li>
+                    </ul>
+                </div>
+                <div class="card card-blue" style="max-height:min(45vh,280px); overflow:hidden;">
+                    <p class="card-title" style="margin-bottom:clamp(0.3rem,0.7vh,0.6rem);">Available Guides</p>
+                    <ul class="bullet-list" style="gap:clamp(0.2rem,0.5vh,0.4rem);">
+                        <li><span class="bull">▶</span><span>Commercial Vantage (CV)</span></li>
+                        <li><span class="bull">▶</span><span>Lenovo Updates Catalog (LUC)</span></li>
+                        <li><span class="bull">▶</span><span>System Update Suite</span></li>
+                        <li><span class="bull">▶</span><span>Lenovo.Client.Update (LCU)</span></li>
+                        <li><span class="bull">▶</span><span>Think BIOS Config Tool V2</span></li>
+                        <li><span class="bull">▶</span><span>BIOS Certificates Tool &amp; Module</span></li>
+                        <li><span class="bull">▶</span><span>Lenovo Client Scripting Module</span></li>
+                        <li><span class="bull">▶</span><span>Lenovo Update Checker (LUC agent)</span></li>
+                    </ul>
+                    <p class="doc-url" style="margin-top:clamp(0.4rem,0.8vh,0.7rem);"><a href="https://docs.lenovocdrt.com" target="_blank" rel="noopener">https://docs.lenovocdrt.com</a></p>
+                </div>
+            </div>
+        </div>
+        <span class="slide-num">22 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 23: THINK DEPLOY BLOG
+         ============================================================ -->
+    <section id="slide-24" class="slide content-slide" data-slide="23">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Reference</span>
+            <h2 class="reveal d2">Think Deploy Blog</h2>
+            <div class="red-line reveal d2"></div>
+            <div class="two-col reveal d3" style="align-items:start; margin-top:clamp(0.3rem,0.8vh,0.7rem);">
+                <div>
+                    <p class="slide-body" style="margin-bottom:clamp(0.5rem,1.2vh,1rem);">
+                        A collection of informative articles describing new ways to leverage Lenovo's client
+                        management solutions — written by the deployment engineers on the CDRT team.
+                    </p>
+                    <ul class="bullet-list">
+                        <li><span class="bull">▶</span><span>Deep dives into new features as they launch</span></li>
+                        <li><span class="bull">▶</span><span>Practical how-to guides and automation recipes</span></li>
+                        <li><span class="bull">▶</span><span>RSS feed — stay current with new articles</span></li>
+                        <li><span class="bull">▶</span><span>Questions on articles answered in the ECM Forum by the same authors</span></li>
+                    </ul>
+                    <p class="doc-url" style="margin-top:clamp(0.5rem,1.2vh,1rem);"><a href="https://blog.lenovocdrt.com" target="_blank" rel="noopener">https://blog.lenovocdrt.com</a></p>
+                </div>
+                <div class="card card-blue">
+                    <p class="card-title">Recent Topics</p>
+                    <ul class="bullet-list" style="margin-top:0;">
+                        <li><span class="bull">▶</span><span>Getting started with Lenovo.Client.Update</span></li>
+                        <li><span class="bull">▶</span><span>Certificate-based BIOS authentication with Lenovo.Bios.Certificates</span></li>
+                        <li><span class="bull">▶</span><span>Migrating from LSUClient to Lenovo.Client.Update</span></li>
+                        <li><span class="bull">▶</span><span>Think BIOS Config Tool V2 deep dive</span></li>
+                        <li><span class="bull">▶</span><span>Automating driver deployment with Intune and LCU</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <span class="slide-num">23 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 24: SUPPORT SECTION BREAK
+         ============================================================ -->
+    <section class="slide section-slide" data-slide="24">
+        <img class="sect-bg-img"
+             src="resources/LenovoBrandImagery/PPT Slide Image Library/TW26_Sphere_Library_Image-24.png"
+             alt="" aria-hidden="true">
+        <div class="sect-overlay"></div>
+        <div class="ghost-number">05</div>
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Part Five</span>
+            <h2 class="reveal d2">Support</h2>
+            <p class="sect-desc reveal d3">
+                Community and direct support channels maintained and monitored by the
+                Commercial Deployment Readiness Team.
+            </p>
+        </div>
+        <span class="slide-num">24 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 25: ENTERPRISE CLIENT MANAGEMENT FORUM
+         ============================================================ -->
+    <section id="slide-26" class="slide content-slide" data-slide="25">
+        <div class="slide-content">
+            <span class="section-tag reveal d1">Support</span>
+            <h2 class="reveal d2">Enterprise Client Management Forum</h2>
+            <div class="red-line reveal d2"></div>
+            <div class="two-col reveal d3" style="align-items:start; margin-top:clamp(0.3rem,0.8vh,0.7rem);">
+                <div>
+                    <p class="slide-body" style="margin-bottom:clamp(0.4rem,1vh,0.8rem);">
+                        Dedicated community for IT administrators managing fleets of Lenovo commercial PCs.
+                        Monitored by CDRT deployment engineers who generate <strong>over 30,000 page views monthly.</strong>
+                    </p>
+                    <ul class="bullet-list">
+                        <li><span class="bull">▶</span><span>Deep expertise: ConfigMgr, MDT, Autopilot, Intune, and more</span></li>
+                        <li><span class="bull">▶</span><span>Lab environments available to <strong>recreate problems</strong> when needed</span></li>
+                        <li><span class="bull">▶</span><span>Direct escalation path to Lenovo product development teams</span></li>
+                        <li><span class="bull">▶</span><span>Ask follow-up questions on any Think Deploy Blog article</span></li>
+                    </ul>
+                    <p class="doc-url" style="margin-top:clamp(0.5rem,1.2vh,1rem);"><a href="http://lnv.gy/2nEVrNb" target="_blank" rel="noopener">http://lnv.gy/2nEVrNb</a></p>
+                </div>
+                <div style="display:flex; flex-direction:column; gap:clamp(0.4rem,0.9vh,0.8rem);">
+                    <div class="card card-red">
+                        <p class="card-title" style="font-size:clamp(1.0625rem,1.75vw,1.375rem); margin-bottom:clamp(0.2rem,0.5vh,0.4rem);">
+                            &gt; 30,000
+                        </p>
+                        <p style="font-size:var(--body-size); color:var(--mid-gray);">page views per month</p>
+                    </div>
+                    <div class="card card-blue">
+                        <p class="card-title">Lenovo Patch Knowledgebase</p>
+                        <p style="font-size:var(--body-size); color:var(--mid-gray); line-height:1.55;">
+                            A searchable knowledge base covering known issues, solutions, and FAQs
+                            related to Lenovo patching and update tools.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="slide-num">25 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         SLIDE 26: CLOSING
+         ============================================================ -->
+    <section class="slide closing-slide" data-slide="26">
+        <div class="slide-content">
+            <p class="title-wordmark reveal d1" style="font-family:var(--font-display); font-size:clamp(0.85rem,1.375vw,1.1rem); font-weight:700; letter-spacing:0.4em; text-transform:uppercase; color:var(--red); margin-bottom:clamp(1rem,2.5vh,2rem);">Lenovo</p>
+            <h2 class="reveal d2" style="font-family:var(--font-display); font-size:clamp(2.25rem,6.875vw,5.625rem); font-weight:900; text-transform:uppercase; letter-spacing:0.04em; line-height:0.95;">
+                Smarter Technology
+                <span style="color:var(--red); display:block;">For All</span>
+            </h2>
+            <div class="red-line reveal d3" style="margin: clamp(0.8rem,2vh,1.6rem) auto;"></div>
+            <p class="reveal d4" style="font-size:var(--body-size); color:var(--mid-gray); max-width:50ch; line-height:1.7; margin-bottom:clamp(1rem,2.5vh,2rem);">
+                Learn more at <strong style="color:var(--white);">docs.lenovocdrt.com</strong><br>
+                Blog: <strong style="color:var(--white);">blog.lenovocdrt.com</strong><br>
+                Forum: <strong style="color:var(--white);">Enterprise Client Management Forum</strong>
+            </p>
+            <p class="reveal d5" style="font-size:var(--small-size); color:rgba(171,168,177,0.4); letter-spacing:0.12em; text-transform:uppercase;">
+                Commercial Deployment Readiness Team &nbsp;·&nbsp; 2026
+            </p>
+        </div>
+        <span class="slide-num">26 / 26</span>
+    </section>
+
+
+    <!-- ============================================================
+         JAVASCRIPT — SlidePresentation Controller
+         ============================================================ -->
+    <script>
+        /* ===================================================
+           SlidePresentation
+           Controls: keyboard, mouse wheel, touch, progress bar,
+           navigation dots, and scroll-triggered animations.
+           =================================================== */
+        class SlidePresentation {
+            constructor() {
+                this.slides      = document.querySelectorAll('.slide');
+                this.total       = this.slides.length;
+                this.current     = 0;
+                this.isAnimating = false;
+                this.animTimeout = null;
+
+                this.buildNavDots();
+                this.setupIntersectionObserver();
+                this.setupKeyboard();
+                this.setupWheel();
+                this.setupTouch();
+                this.setupScroll();
+
+                // Mark first slide visible on load
+                setTimeout(() => {
+                    this.slides[0].classList.add('visible');
+                    this.updateProgress(0);
+                    this.updateDots(0);
+                }, 80);
+            }
+
+            /* Build one dot per slide */
+            buildNavDots() {
+                const nav = document.getElementById('navDots');
+                this.slides.forEach((_, i) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'nav-dot' + (i === 0 ? ' active' : '');
+                    btn.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                    btn.addEventListener('click', () => this.goTo(i));
+                    nav.appendChild(btn);
+                });
+                this.dots = nav.querySelectorAll('.nav-dot');
+            }
+
+            /* IntersectionObserver — adds .visible for CSS animations */
+            setupIntersectionObserver() {
+                const obs = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            const idx = Array.from(this.slides).indexOf(entry.target);
+                            if (idx >= 0) {
+                                this.current = idx;
+                                this.updateProgress(idx);
+                                this.updateDots(idx);
+                            }
+                        }
+                    });
+                }, { threshold: 0.55 });
+
+                this.slides.forEach(s => obs.observe(s));
+            }
+
+            /* Arrow keys, Space, Page Up/Down, Home, End */
+            setupKeyboard() {
+                document.addEventListener('keydown', e => {
+                    switch (e.key) {
+                        case 'ArrowDown':
+                        case 'ArrowRight':
+                        case ' ':
+                        case 'PageDown':
+                            e.preventDefault();
+                            this.next();
+                            break;
+                        case 'ArrowUp':
+                        case 'ArrowLeft':
+                        case 'PageUp':
+                            e.preventDefault();
+                            this.prev();
+                            break;
+                        case 'Home':
+                            e.preventDefault();
+                            this.goTo(0);
+                            break;
+                        case 'End':
+                            e.preventDefault();
+                            this.goTo(this.total - 1);
+                            break;
+                    }
+                });
+            }
+
+            /* Mouse wheel — debounced */
+            setupWheel() {
+                let lastWheel = 0;
+                document.addEventListener('wheel', e => {
+                    const now = Date.now();
+                    if (now - lastWheel < 700) return;
+                    lastWheel = now;
+                    if (e.deltaY > 0) this.next();
+                    else              this.prev();
+                }, { passive: true });
+            }
+
+            /* Touch / swipe */
+            setupTouch() {
+                let startY = 0, startX = 0;
+                document.addEventListener('touchstart', e => {
+                    startY = e.touches[0].clientY;
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+                document.addEventListener('touchend', e => {
+                    const dy = startY - e.changedTouches[0].clientY;
+                    const dx = startX - e.changedTouches[0].clientX;
+                    if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 40) {
+                        if (dy > 0) this.next();
+                        else        this.prev();
+                    }
+                }, { passive: true });
+            }
+
+            /* Scroll position tracking for progress & dots */
+            setupScroll() {
+                window.addEventListener('scroll', () => {
+                    const idx = Math.round(window.scrollY / window.innerHeight);
+                    if (idx !== this.current) {
+                        this.current = Math.max(0, Math.min(idx, this.total - 1));
+                        this.updateProgress(this.current);
+                        this.updateDots(this.current);
+                    }
+                }, { passive: true });
+            }
+
+            next() { this.goTo(Math.min(this.current + 1, this.total - 1)); }
+            prev() { this.goTo(Math.max(this.current - 1, 0)); }
+
+            goTo(idx) {
+                if (idx === this.current) return;
+                this.current = idx;
+                this.slides[idx].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                this.updateProgress(idx);
+                this.updateDots(idx);
+            }
+
+            updateProgress(idx) {
+                const pct = this.total > 1 ? (idx / (this.total - 1)) * 100 : 0;
+                document.getElementById('progressBar').style.width = pct + '%';
+            }
+
+            updateDots(idx) {
+                this.dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+            }
+        }
+
+        new SlidePresentation();
+    </script>
+
+</body>
+</html>

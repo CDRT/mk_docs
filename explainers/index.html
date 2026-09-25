@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CDRT Explainers - Lenovo Commercial Products Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    /* ── Variables ────────────────────────────────────────── */
+    :root {
+      --bg:          #0d1117;
+      --bg-mid:      #111720;
+      --bg-card:     #161d2a;
+      --bg-card-h:   #1a2235;
+      --red:         #E2231A;
+      --red-glow:    rgba(226,35,26,0.14);
+      --red-border:  rgba(226,35,26,0.25);
+      --red-dim:     rgba(226,35,26,0.08);
+      --teal:        #00c9a7;
+      --teal-glow:   rgba(0,201,167,0.14);
+      --teal-border: rgba(0,201,167,0.25);
+      --off-white:   #e8edf5;
+      --muted:       rgba(232,237,245,0.52);
+      --border:      rgba(255,255,255,0.07);
+      --mono:        'IBM Plex Mono', monospace;
+      --sans:        'IBM Plex Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      font-weight: 400;
+      background: var(--bg);
+      color: var(--off-white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ── Grid background ──────────────────────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(226,35,26,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(226,35,26,0.035) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+      overflow: hidden;
+      padding: 0 24px;
+    }
+
+    /* Radial glow behind hero content */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 400px;
+      background: radial-gradient(ellipse at center, rgba(226,35,26,0.07) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Floating shape layers */
+    .hero-shapes-back,
+    .hero-shapes-mid {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .hero-shapes-back { z-index: 1; }
+    .hero-shapes-mid  { z-index: 2; }
+
+    .shape-rect {
+      position: absolute;
+      width: 320px;
+      height: 180px;
+      border: 1.5px solid rgba(226,35,26,0.12);
+      border-radius: 8px;
+      top: 12%;
+      right: 8%;
+    }
+    .shape-circle {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(226,35,26,0.06);
+      bottom: 20%;
+      left: 7%;
+    }
+    .shape-diamond {
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      background: rgba(0,201,167,0.15);
+      transform: rotate(45deg);
+      top: 60%;
+      right: 15%;
+    }
+    .shape-dot {
+      position: absolute;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--red);
+      top: 26%;
+      left: 7%;
+      opacity: 0.7;
+    }
+    .shape-line {
+      position: absolute;
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(226,35,26,0.4), transparent);
+      bottom: 35%;
+      right: 12%;
+    }
+
+    @keyframes floatA {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50%       { transform: translateY(-18px) rotate(3deg); }
+    }
+    @keyframes floatB {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-12px); }
+    }
+    @keyframes floatC {
+      0%, 100% { transform: rotate(45deg) translateY(0px); }
+      50%       { transform: rotate(50deg) translateY(-10px); }
+    }
+    .float-a { animation: floatA 8s ease-in-out infinite; }
+    .float-b { animation: floatB 10s ease-in-out infinite 1.5s; }
+    .float-c { animation: floatC 7s ease-in-out infinite 0.5s; }
+
+    /* Hero content */
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 760px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--red);
+      opacity: 0.5;
+    }
+
+    .hero-title {
+      font-size: clamp(52px, 7vw, 84px);
+      font-weight: 700;
+      color: var(--off-white);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .hero-title span {
+      color: var(--red);
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: rgba(232,237,245,0.35);
+      letter-spacing: 0.06em;
+    }
+    .hero-meta-sep { opacity: 0.3; }
+
+    /* Scroll indicator */
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.4; }
+      50%       { transform: translateX(-50%) translateY(8px); opacity: 0.9; }
+    }
+    .scroll-indicator {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2.2s ease-in-out infinite;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    /* ── Cards Section ────────────────────────────────────── */
+    .cards-section {
+      position: relative;
+      z-index: 1;
+      padding: 80px 24px 120px;
+      background: var(--bg-mid);
+      border-top: 1px solid var(--border);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 64px;
+    }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+      opacity: 0.85;
+    }
+    .section-title {
+      font-size: clamp(30px, 4vw, 44px);
+      font-weight: 600;
+      color: var(--off-white);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--muted);
+    }
+
+    /* Auto-fill grid - add more cards, they slot right in */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* ── Guide Card ───────────────────────────────────────── */
+    .guide-card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 32px 28px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+      overflow: hidden;
+    }
+
+    /* Per-card accent stripe at top */
+    .guide-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--card-accent, var(--red));
+      opacity: 0.7;
+      transition: opacity 0.25s ease;
+    }
+    .guide-card:hover::before { opacity: 1; }
+
+    .guide-card:hover {
+      background: var(--bg-card-h);
+      border-color: var(--card-accent-border, var(--red-border));
+      transform: translateY(-5px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35), 0 0 0 1px var(--card-accent-border, var(--red-border));
+    }
+
+    .card-tag {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--card-accent, var(--red));
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .card-tag::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--card-accent, var(--red));
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--off-white);
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 28px;
+    }
+
+    .card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      color: var(--card-accent, var(--red));
+      transition: gap 0.2s ease;
+    }
+    .guide-card:hover .card-cta { gap: 12px; }
+    .card-cta svg { transition: transform 0.2s ease; }
+    .guide-card:hover .card-cta svg { transform: translateX(3px); }
+
+    /* ── Footer ───────────────────────────────────────────── */
+    .footer {
+      position: relative;
+      z-index: 1;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 28px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-brand {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: rgba(232,237,245,0.35);
+      letter-spacing: 0.06em;
+    }
+    .footer-brand strong {
+      color: rgba(232,237,245,0.6);
+      font-weight: 500;
+    }
+    .footer-pip {
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      background: var(--red);
+      border-radius: 50%;
+      margin: 0 8px;
+      vertical-align: middle;
+      opacity: 0.7;
+    }
+    .footer-meta {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: rgba(232,237,245,0.22);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Responsive ───────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .footer { justify-content: center; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Hero ─────────────────────────────────────────────── -->
+  <section class="hero">
+
+    <div class="hero-shapes-back">
+      <div class="shape-rect float-a"></div>
+      <div class="shape-circle float-b"></div>
+    </div>
+    <div class="hero-shapes-mid">
+      <div class="shape-diamond float-c"></div>
+      <div class="shape-dot"></div>
+      <div class="shape-line float-b"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Lenovo Enterprise IT</div>
+      <h1 class="hero-title">CDRT <span>Explainers</span></h1>
+      <p class="hero-subtitle">
+        Interactive guides for Lenovo client deployment remediations - step-by-step walkthroughs for common detection and remediation workflows.
+      </p>
+      <div class="hero-meta">
+        <span>Client Deployment</span>
+        <span class="hero-meta-sep">·</span>
+        <span>Remediation Tools</span>
+        <span class="hero-meta-sep">·</span>
+        <span>Intune · WMI · BIOS</span>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" onclick="document.querySelector('.cards-section').scrollIntoView({behavior:'smooth'})">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 9L12 15L18 9" stroke="#E2231A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ── Cards Section ─────────────────────────────────────── -->
+  <section class="cards-section">
+    <div class="section-header">
+      <div class="section-label">Available Guides</div>
+      <h2 class="section-title">Choose a Guide</h2>
+      <p class="section-sub">Each guide walks through detection logic, script execution, and validation.</p>
+    </div>
+
+    <!--
+      To add a new guide card, copy one .guide-card block below and update:
+        - style="--card-accent: #COLOR; --card-accent-border: rgba(R,G,B,0.25);"
+        - .card-tag text
+        - .card-title text
+        - .card-desc text
+        - href on the <a> element
+    -->
+    <div class="cards-grid">
+
+      <!-- Card: Disable Audio Enhancements -->
+      <a class="guide-card"
+         href="disableaudioenhancements/index.html"
+         style="--card-accent: #00c9a7; --card-accent-border: rgba(0,201,167,0.25);">
+        <div class="card-tag">Intune Remediation</div>
+        <div class="card-title">Disable Audio Enhancements</div>
+        <p class="card-desc">
+          Step-by-step guide for remediating audio enhancement settings via Intune detection and remediation scripts.
+        </p>
+        <div class="card-cta">
+          Open Guide
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.5 7H11.5M7.5 3L11.5 7L7.5 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+
+      <!-- Card: Secure Boot Mode -->
+      <a class="guide-card"
+         href="securebootmode/index.html"
+         style="--card-accent: #E2231A; --card-accent-border: rgba(226,35,26,0.25);">
+        <div class="card-tag">CA 2023 Remediation</div>
+        <div class="card-title">Secure Boot Mode</div>
+        <p class="card-desc">
+          Walkthrough for the Lenovo CA 2023 Secure Boot Setup Mode remediation - identifying affected devices, running scripts, and validating results.
+        </p>
+        <div class="card-cta">
+          Open Guide
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.5 7H11.5M7.5 3L11.5 7L7.5 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </a>
+
+    </div><!-- /.cards-grid -->
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer-brand">
+      <strong>Explainers</strong>
+      <span class="footer-pip"></span>
+      Lenovo Commercial Deployment Readiness Team
+    </div>
+    <div class="footer-meta">Issue Remediation Guides</div>
+  </footer>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ── Hero entrance ──────────────────────────────────────
+    gsap.set([".hero-eyebrow", ".hero-title", ".hero-subtitle", ".hero-meta", ".scroll-indicator"], {
+      opacity: 0, y: 28
+    });
+
+    const heroTl = gsap.timeline({ delay: 0.15 });
+    heroTl
+      .to(".hero-eyebrow",     { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" })
+      .to(".hero-title",       { opacity: 1, y: 0, duration: 1.0, ease: "power3.out" }, "-=0.3")
+      .to(".hero-subtitle",    { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }, "-=0.55")
+      .to(".hero-meta",        { opacity: 1, y: 0, duration: 0.7, ease: "power2.out" }, "-=0.45")
+      .to(".scroll-indicator", { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, "-=0.3");
+
+    // ── Mouse parallax ─────────────────────────────────────
+    const hero = document.querySelector('.hero');
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const xPct = (e.clientX - rect.left) / rect.width - 0.5;
+      const yPct = (e.clientY - rect.top)  / rect.height - 0.5;
+
+      gsap.to(".hero-shapes-back", { duration: 2.2, x: xPct * -48, y: yPct * -24, ease: "power1.out" });
+      gsap.to(".hero-shapes-mid",  { duration: 1.6, x: xPct * -22, y: yPct * -12, ease: "power1.out" });
+      gsap.to(".hero-content",     { duration: 1.2, x: xPct *   7, y: yPct *   4, ease: "power1.out" });
+    });
+
+    // ── Section header entrance ────────────────────────────
+    gsap.from(".section-header", {
+      scrollTrigger: { trigger: ".cards-section", start: "top 72%" },
+      opacity: 0, y: 35, duration: 0.85, ease: "power3.out"
+    });
+
+    // ── Card 3D reveal ─────────────────────────────────────
+    gsap.set(".guide-card", {
+      opacity: 0, y: 50, rotateX: 16,
+      transformPerspective: 900,
+      transformOrigin: "top center"
+    });
+
+    gsap.to(".guide-card", {
+      scrollTrigger: {
+        trigger: ".cards-grid",
+        start: "top 72%",
+        toggleActions: "play none none reverse"
+      },
+      opacity: 1, y: 0, rotateX: 0,
+      duration: 0.8,
+      stagger: 0.13,
+      ease: "power2.out"
+    });
+
+    // ── Footer entrance ────────────────────────────────────
+    gsap.from(".footer", {
+      scrollTrigger: { trigger: ".footer", start: "top 95%" },
+      opacity: 0, duration: 0.6, ease: "power2.out"
+    });
+  </script>
+</body>
+</html>
