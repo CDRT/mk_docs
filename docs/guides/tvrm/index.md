@@ -248,6 +248,32 @@ The tool moves the package folder to the Windows Recycle Bin and removes the ent
 ## Version History
 
 - *GUI version/Module version (Release date)*
+- 1.0.3/1.0.3 (September 25, 2026)
+    - GUI
+        - Import models from a CSV: a new Import CSV... button in the Models dialog adds many models at once. You can choose to check each machine type against Lenovo's online catalog first. When it finishes, a summary shows how many rows were added, skipped or invalid, and why rows weren't added.
+        - Stays responsive during searches and downloads: the window no longer shows "(Not Responding)" during long catalog searches or downloads. A spinning indicator appears next to Search and next to Cancel while work is in progress.
+        - Hide superseded packages: a new checkbox on the Repository tab hides packages that a newer version has replaced.
+        - New menu layout: the single Settings button is replaced by separate Models and Repository buttons. Each opens the matching tab.
+        - Faster with large repositories: grids only draw the rows on screen, filtering is quicker, and the text filters wait until you stop typing before refreshing.
+        - Better module loading:
+            - The GUI now requires module 1.0.2 or later.
+            - It looks for the module in this order: installed on the system, then bundled next to the script, then the PowerShell Gallery. Offline machines no longer wait for a Gallery timeout.
+            - It unblocks bundled files that came from a downloaded zip.
+            - If the module can't be loaded, it explains why and gives the exact install command.
+        - Safer during downloads: while a download is running, the app won't start another download, reload the repository, change package status or open the settings dialog.
+    - Module
+        - New cmdlet Import-LnvRMModel: adds models in bulk from a CSV file.
+        - Required columns are MachineType, FriendlyName and OS. Common header names like "MTM" and "Model" are also accepted.
+        - OS shorthand such as Win11 or 11 is understood.
+        - Every row is checked before anything is saved, and each row comes back as Added, Skipped or Invalid with a reason.
+        - Supports -WhatIf, plus -ValidateMachineType to check each machine type against Lenovo's catalog.
+        - One configuration shared by all users: settings are now stored in %ProgramData%\Lenovo\TVRM\config.json instead of per user.
+        - Existing settings in the old LCU-RM folders move over automatically. Any folder permissions are kept where possible.
+        - If the shared folder can't be written, the module uses %LocalAppData%\Lenovo\TVRM and shows a warning explaining how to grant access.
+        - New -OnProgress parameter on Save-LnvRMUpdate and Search-LnvRMUpdate: runs a script block of your choice at regular intervals during long transfers. This is what keeps the GUI responsive.
+        - Fix: -WhatIf and -Confirm no longer stop the default configuration file from being created on first run.
+        - Fix: download connections are now always closed, even when a download fails.
+        - Naming: messages and help text now say "TVRM" instead of "LCU-RM".
 - 1.0.2/1.0.2 (July 29, 2026):
     - Added Category in Search and Repository views
     - Added highlight to active Repository in the Settings dialog
