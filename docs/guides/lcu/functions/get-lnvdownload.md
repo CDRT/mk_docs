@@ -40,15 +40,17 @@ This function downloads packages to individual folders named by package ID and s
 
 When using `Get-LnvDownload`, packages are organized as follows:
 
-    RepositoryFolder\
-    ├── packageID1\
-    │   ├── package.exe          ← Downloaded installer
-    │   ├── readme.html          ← Package documentation
-    │   ├── descriptor.xml       ← Package metadata
-    │   └── [extracted files]    ← Extracted here if -Expand used
-    ├── packageID2\
-    │   └── ...
-    └── MachineType_WindowsVersion.csv  ← If -Csv used
+```text
+RepositoryFolder\
+|-- packageID1\
+|   |-- package.exe          <-- Downloaded installer
+|   |-- readme.html          <-- Package documentation
+|   |-- descriptor.xml       <-- Package metadata
+|   `-- [extracted files]    <-- Extracted here if -Expand used
+|-- packageID2\
+|   `-- ...
+`-- MachineType_WindowsVersion.csv  <-- If -Csv used
+```
 
 ## Examples
 
@@ -116,4 +118,4 @@ When using `-Expand`:
 
 By default, after downloading, the installer is verified and any package whose installer is not signed by Lenovo has that file removed and an error raised.
 
-Use the -SkipSignatureCheck switch to bypass the check (not recommended for production usage).
+Use the `-SkipSignatureCheck` switch to bypass the check (not recommended for production usage).

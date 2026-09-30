@@ -5,9 +5,11 @@ description: Installing the Lenovo.Client.Update PowerShell module
 
 # Installation
 
-## Quick Start
+This page covers installing, updating, and removing the Lenovo.Client.Update module, and resolving common installation errors.
 
-Ready to install? Here's the fastest path:
+## Fastest Path
+
+For a current-user installation:
 
 ```powershell
 Install-Module -Name Lenovo.Client.Update -Scope CurrentUser
@@ -19,7 +21,7 @@ Then verify it works:
 Get-Command -Module Lenovo.Client.Update
 ```
 
-**Need to install for all users instead?** Continue to [Prerequisites](#prerequisites) and choose Method 1 with `-Scope AllUsers`.
+To install for all users instead, continue to [Prerequisites](#prerequisites) and choose Method 1 with `-Scope AllUsers`.
 
 ---
 
@@ -72,13 +74,13 @@ Use this method if you need to install from a local copy or have network restric
 1. Download from [Lenovo](https://download.lenovo.com/cdrt/tools/Lenovo.Client.Update-1.0.6.zip)
 2. Extract the ZIP file
 3. Copy the `Lenovo.Client.Update` folder to your modules directory:
-   - **Current user only**: `$PROFILE\..\Modules\Lenovo.Client.Update\`
-   - **All users**: `C:\Program Files\WindowsPowerShell\Modules\Lenovo.Client.Update\`
+    - **Current user only**: `$PROFILE\..\Modules\Lenovo.Client.Update\`
+    - **All users**: `C:\Program Files\WindowsPowerShell\Modules\Lenovo.Client.Update\`
 4. Import the module:
 
-```powershell
-Import-Module Lenovo.Client.Update
-```
+    ```powershell
+    Import-Module Lenovo.Client.Update
+    ```
 
 #### Verify Manual Installation
 
@@ -131,15 +133,15 @@ Simply delete the `Lenovo.Client.Update` folder from your modules directory.
 
 1. Verify the module path:
 
-   ```powershell
-   $env:PSModulePath -split ";"
-   ```
+    ```powershell
+    $env:PSModulePath -split ";"
+    ```
 
 2. Manually specify the path if needed:
 
-   ```powershell
-   Import-Module "C:\path\to\Lenovo.Client.Update"
-   ```
+    ```powershell
+    Import-Module "C:\path\to\Lenovo.Client.Update"
+    ```
 
 3. Restart PowerShell after installation
 4. Run as Administrator if installing for all users

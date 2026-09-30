@@ -15,7 +15,7 @@ Retrieves update information stored in WMI by the Install-LnvUpdate cmdlet using
 
 ```powershell
 Get-LnvUpdateFromWmi [-Status <string>]
-                     [-Severity <string>] 
+                     [-Severity <string>]
 ```
 
 ## Description

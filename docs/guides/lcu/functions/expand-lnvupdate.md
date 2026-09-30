@@ -26,7 +26,7 @@ Each package is extracted to its own subfolder containing all files: installers,
 ## Parameters
 
 | Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
+| --- | --- | --- | --- |
 | `-Package` | PSCustomObject | Yes | Package object(s) from `Get-LnvUpdate` (accepts pipeline input) |
 | `-Path` | string | Yes | Directory path where packages will be extracted |
 

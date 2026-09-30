@@ -77,11 +77,9 @@ Installs updates and records BIOS information to registry for tracking.
 ### Example 4: Complete pipeline with caching and WMI export
 
 ```powershell
-Get-LnvUpdate | `
-  Where-Object { $_.Installer.Unattended } | `
-  Save-LnvUpdate -Path "C:\Updates"
-  
-  Install-LnvUpdate -Path "C:\Updates" -SaveBIOSUpdateInfoToRegistry -ExportToWMI -Verbose
+$updates = Get-LnvUpdate | Where-Object { $_.Installer.Unattended }
+$updates | Save-LnvUpdate -Path "C:\Updates"
+$updates | Install-LnvUpdate -Path "C:\Updates" -SaveBIOSUpdateInfoToRegistry -ExportToWMI -Verbose
 ```
 
 Complete workflow: discover, download, and install, with history tracking.
@@ -115,7 +113,7 @@ Installation of drivers, firmware, and BIOS updates requires running PowerShell 
 
 ### Unattended Deployment
 
-When deploying via SCCM, MDT, or remote PowerShell:
+When deploying via Configuration Manager, MDT, or remote PowerShell:
 
 ```powershell
 # Always filter for unattended packages
@@ -123,7 +121,8 @@ $updates = Get-LnvUpdate | Where-Object { $_.Installer.Unattended }
 $updates | Install-LnvUpdate
 ```
 
-Interactive installers may hang deployments waiting for user input.
+!!! warning "Interactive installers can hang deployments"
+    Interactive installers wait for user input and can stall an unattended deployment.
 
 ### System Reboots
 
@@ -136,7 +135,7 @@ Interactive installers may hang deployments waiting for user input.
 
 When `-SaveBIOSUpdateInfoToRegistry` is used, the following registry key is updated:
 
-```text
+``` Registry
 HKLM\Software\LenovoUpdate\BIOSUpdate
   - InstallDate  : Date and time of installation
   - ActionNeeded : Whether reboot/shutdown is required

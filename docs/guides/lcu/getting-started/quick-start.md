@@ -3,9 +3,9 @@ title: Quick Start
 description: Get up and running with Lenovo.Client.Update module in minutes
 ---
 
-# Quick Start Guide
+# Quick Start
 
-Get up and running with the Lenovo.Client.Update module in just a few minutes. The typical workflow takes 5–10 minutes depending on network speed and the number of available updates.
+Get up and running with the Lenovo.Client.Update module in just a few minutes. The typical workflow takes 5-10 minutes depending on network speed and the number of available updates.
 
 ---
 
@@ -29,7 +29,7 @@ $updates = Get-LnvUpdate
 $updates | Format-Table -Property Title, ReleaseDate, Category
 ```
 
-By default, `Get-LnvUpdate` returns only "needed" updates (applicable and not yet installed). To ensure the updates are fully available, digitally signed, and applicable, all the files for the update will be downloaded to a scratch directory. This will either be in $env:TEMP or a folder you specify using the -ScratchDirectory parameter. The process may take a few minutes depending on how many updates are available for the device and the network connection.
+By default, `Get-LnvUpdate` returns only "needed" updates (applicable and not yet installed). To ensure the updates are fully available, digitally signed, and applicable, all the files for the update will be downloaded to a scratch directory. This is either `$env:TEMP` or a folder you specify using the `-ScratchDirectory` parameter. The process may take a few minutes depending on how many updates are available for the device and the network connection.
 
 ### 3. Download Updates
 
@@ -117,38 +117,37 @@ $updates | Install-LnvUpdate -Verbose
 
 ## Enterprise Deployment: OS Deployment (OSD) Task Sequence
 
-??? note "Deploying Updates via OSD Task Sequence"
-    When performing a bare-metal OS deployment, you can dynamically retrieve the latest updates for a given machine type and install applicable updates to the specific model being deployed. This approach ensures systems receive all critical BIOS, firmware, and driver updates during imaging.
+When performing a bare-metal OS deployment, you can dynamically retrieve the latest updates for a given machine type and install applicable updates to the specific model being deployed. This approach ensures systems receive all critical BIOS, firmware, and driver updates during imaging.
 
-    In the past, an admin had to modify the BIOS package XML descriptor to allow the update to silently install and not force a reboot. This is automatically handled by a private function in the module, leaving reboot control to the admin.
+In the past, an admin had to modify the BIOS package XML descriptor to allow the update to silently install and not force a reboot. This is automatically handled by a private function in the module, leaving reboot control to the admin.
 
-    ### Recommended Workflow
+### Recommended Workflow
 
-    ```powershell
-    # Create a local repository of all updates for the machine type of the device
-    # - exclude updates that would automatically restart the computer (reboot type 1)
-    $repoPath = 'C:\Lenovo_Updates'
-    Get-LnvUpdatesRepo -RepositoryPath $repoPath -RebootTypes '0,3,5'
+```powershell
+# Create a local repository of all updates for the machine type of the device
+# - exclude updates that would automatically restart the computer (reboot type 1)
+$repoPath = 'C:\Lenovo_Updates'
+Get-LnvUpdatesRepo -RepositoryPath $repoPath -RebootTypes '0,3,5'
 
-    # Determine applicable updates in repository and send to Install-LnvUpdate,
-    # write history in WMI and give Verbose output
-    Get-LnvUpdate -Repository $repoPath | Install-LnvUpdate -Path $repoPath -ExportToWMI -Verbose
+# Determine applicable updates in repository and send to Install-LnvUpdate,
+# write history in WMI and give Verbose output
+Get-LnvUpdate -Repository $repoPath | Install-LnvUpdate -Path $repoPath -ExportToWMI -Verbose
 
-    # Wait for device drivers to load before checking for additional updates.
-    # Some drivers must be installed before other drivers become applicable.
-    Start-Sleep -Seconds 10
+# Wait for device drivers to load before checking for additional updates.
+# Some drivers must be installed before other drivers become applicable.
+Start-Sleep -Seconds 10
 
-    # Check for applicable updates again. This catches cases where one driver must be
-    # installed before other drivers will become applicable.
-    Get-LnvUpdate -Repository $repoPath | Install-LnvUpdate -Path $repoPath -ExportToWMI -Verbose
-    ```
+# Check for applicable updates again. This catches cases where one driver must be
+# installed before other drivers will become applicable.
+Get-LnvUpdate -Repository $repoPath | Install-LnvUpdate -Path $repoPath -ExportToWMI -Verbose
+```
 
-    ### Why Two Install Passes?
+### Why Two Install Passes?
 
-    The two `Install-LnvUpdate` calls are intentional. Some drivers must be installed before others become applicable. The sleep interval allows driver installations to complete and Windows to recognize new devices before the second pass checks for newly applicable updates.
+The two `Install-LnvUpdate` calls are intentional. Some drivers must be installed before others become applicable. The sleep interval allows driver installations to complete and Windows to recognize new devices before the second pass checks for newly applicable updates.
 
-    ### WMI Export
+### WMI Export
 
-    The `-ExportToWMI` parameter exports installation history to the WMI class `root\Lenovo\Lenovo_Updates`, enabling audit trails and compliance reporting after the image is deployed.
+The `-ExportToWMI` parameter exports installation history to the WMI class `root\Lenovo\Lenovo_Updates`, enabling audit trails and compliance reporting after the image is deployed.
 
-    For complete OSD integration guidance, see the [comparison guide](../comparison.md) or [function reference](../functions/get-lnvupdatesrepo.md).
+For complete OSD integration guidance, see the [comparison guide](../comparison.md) or [function reference](../functions/get-lnvupdatesrepo.md).

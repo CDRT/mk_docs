@@ -14,8 +14,8 @@ Downloads Lenovo update metadata and packages for specified machine types and bu
 ## Syntax
 
 ```powershell
-Get-LnvUpdatesRepo -RepositoryPath <string> 
-                   [-MachineTypes <string>] 
+Get-LnvUpdatesRepo -RepositoryPath <string>
+                   [-MachineTypes <string>]
                    [-WindowsVersion <string>]
                    [-PackageTypes <string>]
                    [-RebootTypes <string>]
@@ -28,7 +28,7 @@ Get-LnvUpdatesRepo -RepositoryPath <string>
 
 ## Description
 
-`Get-LnvUpdatesRepo` retrieves Lenovo update metadata and packages directly from Lenovo's public catalogs and stores them in an **Update Retriever–style repository**.
+`Get-LnvUpdatesRepo` retrieves Lenovo update metadata and packages directly from Lenovo's public catalogs and stores them in an **Update Retriever-style repository**.
 
 This cmdlet is intended for environments where:
 
@@ -58,44 +58,44 @@ The generated repository includes package folders, metadata catalogs, and detail
 
 Use comma-separated values with `-PackageTypes`:
 
-- `1` – Application
-- `2` – Driver  
-- `3` – BIOS
-- `4` – Firmware
+- `1` - Application
+- `2` - Driver
+- `3` - BIOS
+- `4` - Firmware
 
 ### Reboot Type Reference
 
 Use comma-separated values with `-RebootTypes`:
 
-- `0` – No reboot required
-- `1` – Forced reboot
-- `3` – Requires reboot (user prompt/task sequence compatible)
-- `4` – Forced shutdown
-- `5` – Delayed forced reboot
+- `0` - No reboot required
+- `1` - Forced reboot
+- `3` - Requires reboot (user prompt/task sequence compatible)
+- `4` - Forced shutdown
+- `5` - Delayed forced reboot
 
 **Common combinations:**
 
-- `"3,5"` – Include updates that either require or delay reboot (standard deployment)
-- `"3"` – Only updates requiring reboot (conservative for production)
-- `"1,4,5"` – All forced reboot types (aggressive scheduling)
+- `"3,5"` - Include updates that either require or delay reboot (standard deployment)
+- `"3"` - Only updates requiring reboot (conservative for production)
+- `"1,4,5"` - All forced reboot types (aggressive scheduling)
 
 ### Severity Reference
 
 Use comma-separated values with `-Severities`:
 
-- `0` – Default
-- `1` – Critical (security-critical updates)
-- `2` – Recommended (stability/feature improvements)
-- `3` – Optional (convenience or cosmetic)
+- `0` - Default
+- `1` - Critical (security-critical updates)
+- `2` - Recommended (stability/feature improvements)
+- `3` - Optional (convenience or cosmetic)
 
 ## Output
 
 This cmdlet does not return objects to the pipeline. It creates a complete repository structure:
 
-- **Package folders** – Organized by machine type, Windows version, and category (Driver, BIOS, Firmware, Application)
-- **`database.xml`** – Master metadata catalog listing all packages, versions, dependencies, and file checksums
-- **`database.xsd`** – XML schema defining database structure for validation
-- **Execution log** – Detailed log file (`LnvUpdatesRepo_TIMESTAMP.log`) showing:
+- **Package folders** - Organized by machine type, Windows version, and category (Driver, BIOS, Firmware, Application)
+- **`database.xml`** - Master metadata catalog listing all packages, versions, dependencies, and file checksums
+- **`database.xsd`** - XML schema defining database structure for validation
+- **Execution log** - Detailed log file (`LnvUpdatesRepo_TIMESTAMP.log`) showing:
   - Packages downloaded/processed
   - Any conversions applied (e.g., RT5 to RT3)
   - Download errors or conflicts
@@ -161,7 +161,7 @@ Creates conservative repository with only critical-severity updates that require
 ### Initial Repository Creation
 
 - First run should **always** use full download (no `-DeltaUpdate`)
-- Disk space required varies; typically 5–50 GB depending on machine types and severity filters
+- Disk space required varies; typically 5-50 GB depending on machine types and severity filters
 - Initial download may take 30 minutes to several hours depending on bandwidth and package count
 - Network interruptions are resumable; re-running with `-DeltaUpdate` after a failure continues cleanly
 
@@ -190,7 +190,7 @@ Creates conservative repository with only critical-severity updates that require
 ### RT5toRT3 Conversion
 
 - Use only for task sequence scenarios where delayed-reboot type cannot be honored
-- Converts Reboot Type 5 → Type 3 (requires reboot, allows user deferral in task sequence context)
+- Converts Reboot Type 5 -> Type 3 (requires reboot, allows user deferral in task sequence context)
 - Does not suppress reboot; only changes scheduling behavior
 - Mutually exclusive with `-CloudRepo`
 
