@@ -39,8 +39,11 @@ VantageInstaller must run with Administrator privileges. All parameters are **ca
 | `-App` | App only (no service/add-ins) |
 | `-Lite` | System Update feature only |
 | `-SuHelper` | SU Helper command-line utility |
+
+<!--
 | `-LogLevel -Debug` | Enable verbose logging |
 | `-Output -Path <file>` | Specify log file location |
+-->
 
 ### Common Scenarios
 
@@ -54,8 +57,8 @@ VantageInstaller must run with Administrator privileges. All parameters are **ca
 # System Update Lite mode
 .\VantageInstaller.exe Install -Lite
 
-# Uninstall with debug logging
-.\VantageInstaller.exe Uninstall -Vantage -LogLevel -Debug -Output -Path C:\logs\uninstall.log
+# Uninstall
+.\VantageInstaller.exe Uninstall -Vantage
 ```
 
 ### PowerShell Usage
