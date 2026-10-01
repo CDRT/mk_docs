@@ -5,21 +5,23 @@ description: Deploy Dock Manager with Microsoft Configuration Manager and Micros
 
 # Dock Manager Deployment Guide
 
+This guide covers deploying Dock Manager with Microsoft Configuration Manager or Microsoft Intune, and optional WMI inventory and reporting.
+
 ## Quick Start
 
 Choose your deployment method:
 
-- **[ConfigMgr Deployment](#deploying-with-configmgr)** – Deploy using Microsoft Configuration Manager Application model
-- **[Intune Deployment](#deploying-with-microsoft-intune)** – Deploy using Microsoft Intune Win32 apps
-- **[Advanced Configuration](#advanced-configuration)** – WMI inventory, custom reporting, and detection scripts
+- **[ConfigMgr Deployment](#deploying-with-configmgr)** - Deploy using Microsoft Configuration Manager Application model
+- **[Intune Deployment](#deploying-with-microsoft-intune)** - Deploy using Microsoft Intune Win32 apps
+- **[Advanced Configuration](#advanced-configuration)** - WMI inventory, custom reporting, and detection scripts
 
 ## Before You Begin
 
 ### Requirements
 
-- **Dock Manager installer** – `dock_manager_setup.exe` (available from [Lenovo Support](https://support.lenovo.com/us/en/solutions/ht037099#dm))
-- **Operating System** – Windows 10/11 (64-bit)
-- **Admin access** – Required to create applications and deployment rules
+- **Dock Manager installer** - `dock_manager_setup.exe` (available from [Lenovo Support](https://support.lenovo.com/us/en/solutions/ht037099#dm))
+- **Operating System** - Windows 10/11 (64-bit)
+- **Admin access** - Required to create applications and deployment rules
 
 ### Key Information
 
@@ -76,19 +78,19 @@ Enter the content location path to the Dock Manager executable.
 
 **Install command:**
 
-``` powershell
+``` CMD
 "dock_manager_setup.exe" /VERYSILENT
 ```
 
 **Uninstall command:**
 
-``` powershell
+``` CMD
 unins000.exe /SILENT
 ```
 
 **Uninstall start in:**
 
-``` powershell
+``` CMD
 %ProgramFiles%\Lenovo\Dock Manager
 ```
 
@@ -121,8 +123,6 @@ Add operating system requirements (e.g., Windows 10/11 64-bit):
 
 ![ConfigMgr Application wizard showing operating system requirements](https://cdrt.github.io/mk_docs/img/guides/dm/image8.PNG)
 
-### Deployment
-
 #### Step 7: Deploy to Collection
 
 Complete the deployment type and application wizards. Deploy the application to a Device Collection.
@@ -143,9 +143,9 @@ Deploy Dock Manager using Microsoft Intune Win32 app management. Follow the step
 
 #### Step 1: Package the Installer
 
-Use the Win32 Content Prep [Tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) to convert the Dock Manager installer to .intunewin format:
+Use the [Win32 Content Prep Tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) to convert the Dock Manager installer to .intunewin format:
 
-``` powershell
+``` CMD
 IntuneWinAppUtil.exe -c "C:\IntuneWin\DM\" -s "dock_manager_setup.exe" -o "C:\IntuneWin\output\" -q
 ```
 
@@ -153,7 +153,7 @@ IntuneWinAppUtil.exe -c "C:\IntuneWin\DM\" -s "dock_manager_setup.exe" -o "C:\In
 
 #### Step 2: Create Windows App in Intune
 
-Log in to the Endpoint Admin Center [portal](https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsWindowsMenu/windowsApps) and create a new Windows app.
+Log in to the [Microsoft Intune admin center](https://endpoint.microsoft.com/#blade/Microsoft_Intune_DeviceSettings/AppsWindowsMenu/windowsApps) and create a new Windows app.
 
 Select **Windows app (Win32)** as the app type and upload the **dock_manager_setup.intunewin** package file.
 
@@ -171,13 +171,13 @@ Enter the install and uninstall commands:
 
 **Install command:**
 
-``` powershell
+``` CMD
 dock_manager_setup.exe /VERYSILENT
 ```
 
 **Uninstall command:**
 
-``` powershell
+``` CMD
 %ProgramFiles%\Lenovo\Dock Manager\unins000.exe /SILENT
 ```
 
@@ -276,6 +276,6 @@ Use SQL Server Reporting Services (SSRS) to create reports on Dock Manager deplo
 
 After deployment, refer to the following resources:
 
-- **[Managing Dock Manager with Intune](dm_manage_intune.md)** – Configure advanced policies and scheduling using ADMX templates
-- **[Dock Manager Troubleshooting](dm_troubleshooting.md)** – Troubleshoot common deployment and scheduling issues
-- **[Dock Manager FAQ](dock_manager_faq.md)** – Find answers to frequently asked questions
+- **[Managing Dock Manager with Intune](dm_manage_intune.md)** - Configure advanced policies and scheduling using ADMX templates
+- **[Dock Manager Troubleshooting](dm_troubleshooting.md)** - Troubleshoot common deployment and scheduling issues
+- **[Dock Manager FAQ](dock_manager_faq.md)** - Find answers to frequently asked questions

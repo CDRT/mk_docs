@@ -17,9 +17,9 @@ description: Troubleshoot Dock Manager scheduled task deployment issues and veri
 
 When troubleshooting scheduled task failures, verify settings at each level in this order:
 
-1. [**Group Policy Management Editor**](#check-group-policy-settings) – on domain controller  
-2. [**Registry**](#check-registry-settings) – on client PC  
-3. [**Task Scheduler**](#check-task-scheduler) – on client PC
+1. [**Group Policy Management Editor**](#check-group-policy-settings) - on domain controller
+2. [**Registry**](#check-registry-settings) - on client PC
+3. [**Task Scheduler**](#check-task-scheduler) - on client PC
 
 The following example uses a weekly firmware checking task set to run at **6:05 AM** on **every Monday and Tuesday**.
 
@@ -51,11 +51,11 @@ On the client PC where the issue occurs, check the registry for the Dock Manager
 
 On the same client PC, verify the scheduled task in Task Scheduler:
 
-1. Right-click **Task Scheduler** and select **Run as administrator** – elevated privileges are required to see all tasks
+1. Right-click **Task Scheduler** and select **Run as administrator** - elevated privileges are required to see all tasks
 
     ![Task Scheduler Run as administrator context menu option](https://cdrt.github.io/mk_docs/img/guides/dm/ts6.PNG)
 
-2. Verify that a task named **DockManager – Task Scheduler** exists in the expected folder
+2. Verify that a task named **DockManager - Task Scheduler** exists in the expected folder
 
 3. Check the **Triggers** tab to confirm the task is scheduled correctly (weekly on Monday and Tuesday in this example)
 
@@ -65,7 +65,7 @@ On the same client PC, verify the scheduled task in Task Scheduler:
 
 ---
 
-!!! summary "Troubleshooting Summary"
+!!! info "Troubleshooting Summary"
     Scheduled firmware checking task failures are usually caused by improperly deployed group policy settings. Always verify settings in order:
 
     - **Group Policy Management Editor** (domain controller) → **Registry** (client PC) → **Task Scheduler** (client PC)

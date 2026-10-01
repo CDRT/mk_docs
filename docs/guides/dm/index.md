@@ -5,7 +5,7 @@ description: Deploy and manage Lenovo Dock Manager for automated dock firmware u
 
 # Dock Manager Overview
 
-Lenovo Dock Manager reduces the effort IT administrators spend on large-scale deployment of Lenovo dock firmware updates. This solution runs on your PC and maintains a cache of the current firmware versions for supported Lenovo docks. When a dock is attached that has down-level firmware, it is automatically updated by Dock Manager.
+Lenovo Dock Manager reduces the effort IT administrators spend on large-scale deployment of Lenovo dock firmware updates. Dock Manager runs on your PC and maintains a cache of the current firmware versions for supported Lenovo docks. When a dock is attached that has down-level firmware, it is automatically updated by Dock Manager.
 
 ## Getting Started
 
