@@ -248,7 +248,7 @@ The tool moves the package folder to the Windows Recycle Bin and removes the ent
 ## Version History
 
 - *GUI version/Module version (Release date)*
-- 1.0.3/1.0.3 (September 25, 2026)
+- 1.0.3/1.0.3 (October 01, 2026)
     - GUI
         - Import models from a CSV: a new Import CSV... button in the Models dialog adds many models at once. You can choose to check each machine type against Lenovo's online catalog first. When it finishes, a summary shows how many rows were added, skipped or invalid, and why rows weren't added.
         - Stays responsive during searches and downloads: the window no longer shows "(Not Responding)" during long catalog searches or downloads. A spinning indicator appears next to Search and next to Cancel while work is in progress.
