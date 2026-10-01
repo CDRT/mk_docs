@@ -11,7 +11,7 @@ description: Frequently asked questions about Commercial Vantage deployment and 
 
     Due to requirements from the Lenovo Product Security team, logging is not enabled by default. To enable logging, set the following registry values to "Trace":
 
-    ```registry
+    ``` Registry
     [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\VantageService\FileLogger]
     "LenovoVantageShell"="Trace"
     "AllLogs"="Trace"
@@ -31,7 +31,7 @@ description: Frequently asked questions about Commercial Vantage deployment and 
 
     Commercial Vantage uses a Content Delivery Network (CDN) with thousands of IP addresses that change over time. Instead of tracking IPs, whitelist these domain names (HTTPS):
 
-    ```
+    ``` text
     download.lenovo.com
     filedownload.lenovo.com
     filedownload.csw.lenovo.com
@@ -42,13 +42,14 @@ description: Frequently asked questions about Commercial Vantage deployment and 
 
 ---
 
-## System Update – General
+## System Update - General
 
 ??? question "Can I control the System Update process from the command line?"
 
     **Yes**, using the SU Helper utility (requires Commercial Vantage v20.2407.66.0 or later + SU Helper deployed).
 
     **Resources:**
+
     - [Introducing SU Helper](https://blog.lenovocdrt.com/introducing-su-helper-utility/)
     - [SU Helper Reference Guide](./suhelper.md)
 
@@ -78,6 +79,7 @@ description: Frequently asked questions about Commercial Vantage deployment and 
     **Location:** Computer Configuration → Administrative Templates → Commercial Vantage → Device → System Update
 
     **Options:**
+
     - Set specific day and time for updates
     - Enable/disable auto-update entirely
     - Prevent end-users from changing these settings in the GUI
@@ -105,28 +107,29 @@ description: Frequently asked questions about Commercial Vantage deployment and 
 
     **Check these first:**
 
+
     1. **Security solution blocking executables:**
-       - The System Update Addin runs from: `C:\ProgramData\Lenovo\Vantage\`
-       - Whitelist this directory and all subdirectories to allow execution
+        - The System Update Addin runs from: `C:\ProgramData\Lenovo\Vantage\`
+        - Whitelist this directory and all subdirectories to allow execution
 
     2. **Check logs for errors:**
-       - Location: `%ProgramData%\Lenovo\Vantage\Logs\`
-       - Enable logging if needed (see [Logging & Diagnostics](#logging-diagnostics))
+        - Location: `%ProgramData%\Lenovo\Vantage\Logs\`
+        - Enable logging if needed (see [Logging & Diagnostics](#logging-diagnostics))
 
     3. **Verify network connectivity:**
-       - Ensure the device can reach Lenovo CDN (see [Networking & Connectivity](#networking-connectivity))
+        - Ensure the device can reach Lenovo CDN (see [Networking & Connectivity](#networking-connectivity))
 
     4. **Restart the Vantage Service:**
-       ```powershell
-       Restart-Service -Name VantageService
-       ```
+        ```powershell
+        Restart-Service -Name VantageService
+        ```
 
     If still failing, see [Upgrading Guide](./upgrading.md) → Update Failures & Recovery
 
 ??? question "Commercial Vantage is not applying certain updates because it appears to be blocked by AppLocker, what should I do?"
 
     If you implement AppLocker, you may need to enter exceptions for certain components of LCV to run. Make sure `SUMessageBox.exe` is allowed to run. Please make sure it is in the whitelist or unblock this file, located at `%programdata%\Lenovo\Vantage\Addins\LenovoSystemUpdateAddin\{version}\SUMessageBox.exe`
-    
+
 ---
 
 ## Quick Reference

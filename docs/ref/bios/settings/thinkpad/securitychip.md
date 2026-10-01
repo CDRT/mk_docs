@@ -95,12 +95,12 @@ Whether to enable or disable the Pluton security processor.
 
 When configuring these BIOS settings using WMI scripts, it is possible to follow these steps:
 
-1. set `PlutonSecurityProcessor` to **Enable**
-2. set `TpmSelection` to **PlutonTPM2.0**
-3. specify the Supervisor password using WmiOpcodeInterface
-4. save settings
-5. suspend BitLocker
-6. reboot
+1. Set `PlutonSecurityProcessor` to **Enable**
+2. Set `TpmSelection` to **PlutonTPM2.0**
+3. Specify the Supervisor password using WmiOpcodeInterface
+4. Save settings
+5. Suspend BitLocker
+6. Reboot
 
 !!! warning "Attention"
     - This setting must be enabled before the TPM can be switched to Pluton.

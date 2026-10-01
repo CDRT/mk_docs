@@ -7,7 +7,7 @@ description: Command-line interface reference for Commercial Vantage System Upda
 
 ## Overview
 
-The SU Helper utility is a companion to Lenovo Commercial Vantage that provides command-line control over the System Update process. This utility can be leveraged directly in a terminal window on a device or by sending a script containing the command line from a systems management solutions such as Configuration Manager or Intune.
+The SU Helper utility is a companion to Lenovo Commercial Vantage that provides command-line control over the System Update process. This utility can be used directly in a terminal window on a device or by sending a script containing the command line from a systems management tool such as Configuration Manager or Intune.
 
 ---
 
@@ -25,13 +25,13 @@ Uncomment the installation line in `setup-commercial-vantage.bat` by removing `@
 
 #### Option 2: Silent standalone installation
 
-```powershell
+``` CMD
 [installer filename] /VERYSILENT
 ```
 
 #### Option 3: Using VantageInstaller.exe (July 2025 Enterprise package and later)
 
-```powershell
+``` CMD
 .\VantageInstaller.exe -Vantage -SuHelper
 ```
 
@@ -39,7 +39,7 @@ With this method, you can install Commercial Vantage and SU Helper simultaneousl
 
 ### Uninstall
 
-```powershell
+``` CMD
 C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 ```
 
@@ -48,7 +48,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 
 ---
 
-## Quick Reference – Parameters
+## Quick Reference - Parameters
 
 | Parameter | Type | Purpose | Value |
 | --- | --- | --- | --- |
@@ -74,6 +74,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 
     **Behavior:**
 
+
     - If used alone, any Group Policy filters are applied
     - If other parameters are specified, command-line filters take priority over Group Policies
     - Can be combined with other optional parameters for filtering
@@ -88,8 +89,9 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 
     **Finding Package IDs:**
 
+
     - Use [Update Retriever](https://support.lenovo.com/us/en/solutions) tool
-    - Use [Driver & Software Matrix for IT Admins](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html) – search, select updates, click "Copy Package ID(s)"
+    - Use [Driver & Software Matrix for IT Admins](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html) - search, select updates, click "Copy Package ID(s)"
 
     **Limitation:** Cannot be combined with `-exclude` or `-packagetype`/`-reboottype` parameters
 
@@ -125,7 +127,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 
     **Format:** Comma-separated numbers (e.g., `2,3` = Drivers and BIOS)
 
-    **Can combine with:** `-reboottype` parameter (AND logic – intersection of both filters)
+    **Can combine with:** `-reboottype` parameter (AND logic - intersection of both filters)
 
 <a id="reboottype"></a>
 
@@ -145,7 +147,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 
     **Format:** Comma-separated numbers (e.g., `0,3` = No reboot or requires reboot)
 
-    **Can combine with:** `-packagetype` parameter (AND logic – intersection of both filters)
+    **Can combine with:** `-packagetype` parameter (AND logic - intersection of both filters)
 
 <a id="allowdefer"></a>
 
@@ -161,7 +163,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 
 ??? note "-noreboot (Optional)"
 
-     Indicates that System Update Addin will skip performing a reboot when **Reboot Type 5** updates are installed to allow the calling process to control the reboot. This parameter has no affect for other Reboot Types.
+    Indicates that System Update Addin will skip performing a reboot when **Reboot Type 5** updates are installed to allow the calling process to control the reboot. This parameter has no effect for other Reboot Types.
 
     **Default behavior:** System will be rebooted by the System Update Addin within 5 minutes after installing the Reboot Type 5 update(s).
 
@@ -171,7 +173,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 
 ??? note "-scanonly (Optional)"
 
-     Indicates that System Update Addin will only perform check for updates and will not install any updates. The results will be recorded in the Lenovo_Updates WMI class under root\Lenovo.
+    Indicates that System Update Addin will only perform check for updates and will not install any updates. The results will be recorded in the Lenovo_Updates WMI class under root\Lenovo.
 
     **Default behavior:** System Update Addin performs normal check for updates and then installs the applicable updates.
 
@@ -190,12 +192,14 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 !!! warning "Parameter Constraints"
 
     **Cannot combine in same command:**
+
     - `-include` and `-exclude` (mutually exclusive → return code 1)
     - `-include` with `-packagetype` or `-reboottype`
     - `-exclude` with `-packagetype` or `-reboottype`
 
     **Can combine in same command:**
-    - `-packagetype` and `-reboottype` (AND logic – both filters applied simultaneously)
+
+    - `-packagetype` and `-reboottype` (AND logic - both filters applied simultaneously)
     - Any optional parameter with `-allowdefer`
 
 !!! info "Policy Precedence"
@@ -219,7 +223,7 @@ C:\Program Files\Lenovo\SUHelper\unins000.exe /VERYSILENT
 | **2** | System Update Addin is busy | Wait and retry; another update session is running |
 | **3** | Unexpected error occurred | Check logs; see [Troubleshooting](#troubleshooting) |
 
-!!! note "Important"
+!!! note "Return codes reflect the call only"
     Return codes represent only the result of calling `suhelper.exe`, not the result of the update session itself. Check the `Lenovo_Updates` WMI class for actual update results.
 
 ---
@@ -245,7 +249,7 @@ SU Helper is designed to support these key scenarios:
 
     **Goal:** Deploy only two specific driver packages
 
-    ```powershell
+    ``` CMD
     suhelper.exe -autoupdate -include n3uj12w,n3jcd08w
     ```
 
@@ -253,7 +257,7 @@ SU Helper is designed to support these key scenarios:
 
     **Goal:** Prevent a problematic BIOS update from being installed
 
-    ```powershell
+    ``` CMD
     suhelper.exe -autoupdate -exclude n3jrg03w
     ```
 
@@ -261,7 +265,7 @@ SU Helper is designed to support these key scenarios:
 
     **Goal:** Deploy drivers and BIOS that don't require reboot; allow user deferral if policy permits
 
-    ```powershell
+    ``` CMD
     suhelper.exe -autoupdate -packagetype 2,3 -reboottype 0 -allowdefer
     ```
 
@@ -269,13 +273,13 @@ SU Helper is designed to support these key scenarios:
 
     **Goal:** Deploy all drivers and BIOS updates regardless of reboot requirement
 
-    ```powershell
+    ``` CMD
     suhelper.exe -autoupdate -packagetype 2,3
     ```
 
 ??? note "Display help"
 
-    ```powershell
+    ``` CMD
     suhelper.exe -help
     ```
 
@@ -285,11 +289,13 @@ SU Helper is designed to support these key scenarios:
 
 **Return code 1 (Error in parameters):**
 
+
 - Check that you're not combining incompatible parameters (e.g., `-include` with `-packagetype`)
 - Verify package IDs are comma-separated with no spaces
 - Use `-help` to review syntax
 
 **Return code 2 (System Update Addin is busy):**
+
 
 - Wait for the current update session to finish
 - Check Task Scheduler for running update tasks
@@ -297,12 +303,14 @@ SU Helper is designed to support these key scenarios:
 
 **Return code 3 (Unexpected error):**
 
+
 - Check event logs in Windows Event Viewer
 - Verify SU Helper is installed: `C:\Program Files\Lenovo\SUHelper\suhelper.exe`
 - Ensure running as Administrator
 - Verify network connectivity (if fetching updates)
 
 **Updates not installing despite valid command:**
+
 
 - Verify return code is 0 (success)
 - Check `Lenovo_Updates` WMI class for session results
