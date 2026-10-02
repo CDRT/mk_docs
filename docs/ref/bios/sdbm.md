@@ -22,7 +22,7 @@ No longer requires user interaction if a call to clear the TPM was performed. In
 ### ThinkPad
 
 | L-Series | P-Series | T-Series | X-Series |
-|----------|----------|----------|----------|
+| --- | --- | --- | --- |
 | L13 Gen 1/3 (Intel) | P1 Gen 2/3/4 | T14 Gen 1 (AMD) | X1 Carbon Gen 7/8/9/10 |
 | L14 (AMD) | P14s Gen 1 | T14 Gen 1 (Intel) | X1 Extreme Gen 2/3/4/5 |
 | L14 Gen 3 (Intel) | P15 Gen 1 | T14s Gen 1 (AMD/Intel) | X1 Nano Gen 1/2 |
@@ -40,7 +40,7 @@ No longer requires user interaction if a call to clear the TPM was performed. In
 
 ### ThinkCentre
 
-All 2022 and later products
+All 2022 and later M-Series products.  Neo Series SMB products do not support this feature.
 
 ### ThinkStation
 
@@ -160,14 +160,14 @@ On a test system, PXE boot (or USB boot) to WinPE and perform the following:
 ![TBCT-Disable TPM Physical Presence](https://cdrt.github.io/mk_docs/img/reference/sdbm/image6.jpg)
 
 - Scroll back to the top and click the **Export Settings** button.
-  - This will output a text file containing the BIOS setting(s) to be changed
+    - This will output a text file containing the BIOS setting(s) to be changed
 - Tick the **Supervisor password set on the target machine** box
-  - Leave the password field blank since there's currently no Supervisor Password set
-  - Enter an encrypting key (or generate one)
+    - Leave the password field blank since there's currently no Supervisor Password set
+    - Enter an encrypting key (or generate one)
 - Tick the **Change Supervisor** password box
-  - Enter a Supervisor Password.  (This will be the initial Supervisor Password)
-  -Confirm the same password
-- A prompt will appear to create a password file for System Deploy Mode. This will only be presented if the Supervisor Password field (above the encrypting key field) is blank.  Click **Yes**.
+    - Enter a Supervisor Password. (This will be the initial Supervisor Password)
+    - Confirm the same password
+- A prompt will appear to create a password file for System Deploy Mode. This will only be presented if the Supervisor Password field (above the encrypting key field) is blank. Click **Yes**.
 - A new password file will be output
 
 ![TBCT-Export](https://cdrt.github.io/mk_docs/img/reference/sdbm/image7.jpg)
