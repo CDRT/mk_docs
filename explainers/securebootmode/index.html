@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lenovo CA 2023 — Secure Boot Remediation Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    :root {
+      --bg:          #1A1A1A;
+      --bg-mid:      #212121;
+      --bg-card:     #272727;
+      --red:         #E2231A;
+      --red-hover:   #c41d15;
+      --red-light:   #ff6b65;
+      --red-glow:    rgba(226,35,26,0.14);
+      --red-border:  rgba(226,35,26,0.22);
+      --amber:       #F5A623;
+      --amber-bg:    rgba(245,166,35,0.08);
+      --green:       #22c55e;
+      --off-white:   #F5F5F5;
+      --muted:       rgba(245,245,245,0.58);
+      --border:      rgba(255,255,255,0.08);
+      --code-bg:     #0F0F0F;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--off-white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* ─── NAV ─────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(26,26,26,0.93);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      height: 58px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px;
+    }
+    .nav-brand {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 14px; font-weight: 700; letter-spacing: 0.01em;
+    }
+    .nav-pip {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--red);
+    }
+    .nav-links { display: flex; gap: 28px; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 13px; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--off-white); }
+    @media (max-width: 700px) { .nav-links { display: none; } }
+
+    /* ─── HERO ────────────────────────────────────── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--bg); overflow: hidden; padding-top: 58px;
+    }
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.022) 1px, transparent 1px);
+      background-size: 64px 64px;
+      -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 0%, transparent 70%);
+      mask-image: radial-gradient(ellipse 85% 85% at 50% 50%, black 0%, transparent 70%);
+    }
+    .hero-shapes-back, .hero-shapes-mid {
+      position: absolute; inset: 0; pointer-events: none;
+    }
+    .shape { position: absolute; }
+    .shape-rect {
+      width: 340px; height: 200px;
+      border: 2px solid rgba(226,35,26,0.10);
+      border-radius: 12px;
+      top: 11%; right: 6%;
+    }
+    .shape-circle {
+      width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(226,35,26,0.06);
+      bottom: 20%; left: 7%;
+    }
+    .shape-diamond {
+      width: 52px; height: 52px;
+      background: rgba(245,166,35,0.13);
+      transform: rotate(45deg);
+      top: 60%; right: 15%;
+    }
+    .shape-dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--red); opacity: 0.55;
+      top: 27%; left: 7%;
+    }
+
+    @keyframes floatA {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-16px) rotate(4deg); }
+    }
+    @keyframes floatB {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-11px) rotate(-3deg); }
+    }
+    @keyframes floatC {
+      0%,100% { transform: translateY(0) rotate(45deg); }
+      50%      { transform: translateY(-9px) rotate(50deg); }
+    }
+    .float-a { animation: floatA 7s ease-in-out infinite; }
+    .float-b { animation: floatB 9s ease-in-out infinite 1.5s; }
+    .float-c { animation: floatC 6s ease-in-out infinite 0.5s; }
+
+    .hero-content {
+      position: relative; z-index: 2;
+      text-align: center; max-width: 840px; padding: 0 24px;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      color: var(--red); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 5px 14px;
+      border: 1px solid var(--red-border); border-radius: 4px;
+      margin-bottom: 22px;
+    }
+    .hero-title {
+      font-size: 72px; font-weight: 800; line-height: 1.08;
+      margin-bottom: 24px; color: var(--off-white);
+    }
+    .hero-title span { color: var(--red); }
+    .hero-subtitle {
+      font-size: 18px; color: var(--muted); line-height: 1.7;
+      max-width: 620px; margin: 0 auto 32px;
+    }
+    .hero-badges {
+      display: flex; gap: 12px; justify-content: center;
+      flex-wrap: wrap; margin-bottom: 40px;
+    }
+    .badge {
+      padding: 6px 14px; border-radius: 20px;
+      font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+      background: rgba(226,35,26,0.10);
+      color: var(--red-light);
+      border: 1px solid var(--red-border);
+    }
+    .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-block; background: var(--red); color: #fff;
+      padding: 14px 36px; border-radius: 6px;
+      font-weight: 700; font-size: 15px; text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--red-hover); transform: translateY(-2px); }
+    .btn-ghost {
+      display: inline-block; background: transparent; color: var(--off-white);
+      padding: 14px 36px; border-radius: 6px;
+      font-weight: 600; font-size: 15px; text-decoration: none;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.22); transform: translateY(-2px); }
+
+    @keyframes bounce {
+      0%,100% { transform: translateX(-50%) translateY(0); opacity: 0.4; }
+      50%      { transform: translateX(-50%) translateY(7px); opacity: 0.9; }
+    }
+    .scroll-indicator {
+      position: absolute; bottom: 30px; left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s ease-in-out infinite;
+      cursor: pointer;
+    }
+
+    /* ─── SECTION SHELLS ──────────────────────────── */
+    .section-wrap {
+      padding: 96px 40px;
+    }
+    .section-wrap.alt { background: var(--bg-mid); }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--red); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.13em; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .eyebrow::before {
+      content: ''; display: block;
+      width: 20px; height: 2px; background: var(--red);
+    }
+    .section-title {
+      font-size: 44px; font-weight: 800; line-height: 1.15;
+      margin-bottom: 12px;
+    }
+    .section-lead {
+      font-size: 16px; color: var(--muted);
+      max-width: 720px; margin-bottom: 48px;
+      line-height: 1.75;
+    }
+    .section-lead strong { color: var(--off-white); }
+    .divider {
+      height: 1px; max-width: 1160px; margin: 0 auto;
+      background: linear-gradient(90deg, transparent, var(--border) 30%, var(--border) 70%, transparent);
+    }
+
+    /* ─── CALLOUTS ────────────────────────────────── */
+    .callout {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 16px 20px; border-radius: 8px; margin: 24px 0;
+    }
+    .callout-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+    .callout-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+    .callout-body { font-size: 13px; line-height: 1.65; color: rgba(245,245,245,0.82); }
+    .callout-body strong { color: var(--off-white); }
+    .callout-body code { font-family: Consolas, monospace; font-size: 12px; color: #DCDCAA; }
+    .callout.warn {
+      background: var(--amber-bg);
+      border-left: 3px solid var(--amber);
+    }
+    .callout.warn .callout-title { color: var(--amber); }
+    .callout.info {
+      background: rgba(226,35,26,0.06);
+      border-left: 3px solid var(--red);
+    }
+    .callout.info .callout-title { color: var(--red-light); }
+
+    /* ─── ROOT CAUSE CARDS ────────────────────────── */
+    .cause-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 20px; margin-bottom: 40px;
+    }
+    .cause-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 26px 22px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .cause-card:hover { border-color: var(--red-border); transform: translateY(-4px); }
+    .cause-tag {
+      display: inline-block; font-size: 10px; font-weight: 700;
+      padding: 3px 9px; border-radius: 4px; margin-bottom: 12px;
+      letter-spacing: 0.05em; text-transform: uppercase;
+    }
+    .tag-red   { background: rgba(226,35,26,0.12); color: var(--red-light); }
+    .tag-amber { background: rgba(245,166,35,0.12); color: var(--amber); }
+    .tag-muted { background: rgba(255,255,255,0.06); color: var(--muted); }
+    .cause-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+    .cause-desc  { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* ─── FIX PATHS ───────────────────────────────── */
+    .fix-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; margin-top: 40px;
+    }
+    .fix-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 30px 26px;
+      transition: border-color 0.25s;
+    }
+    .fix-card:hover { border-color: var(--red-border); }
+    .fix-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .fix-badge {
+      background: var(--red); color: #fff;
+      font-size: 10px; font-weight: 800;
+      padding: 4px 10px; border-radius: 4px;
+      letter-spacing: 0.07em; text-transform: uppercase;
+    }
+    .fix-title { font-size: 19px; font-weight: 700; }
+    .fix-sub   { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 22px; }
+    .step {
+      display: flex; gap: 14px; align-items: flex-start;
+      margin-bottom: 20px;
+    }
+    .step-num {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--red); color: #fff;
+      font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .step-label { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+    .step-desc  { font-size: 13px; color: var(--muted); margin-bottom: 10px; line-height: 1.6; }
+    .step-desc code { font-family: Consolas, monospace; font-size: 12px; color: #DCDCAA; }
+    .validated-label {
+      font-size: 11px; font-weight: 600; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 6px;
+    }
+    .validated-models { font-size: 12px; color: var(--muted); line-height: 1.9; }
+
+    /* ─── CODE BLOCKS ─────────────────────────────── */
+    .cb {
+      background: var(--code-bg);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 8px; overflow: hidden; margin: 10px 0;
+    }
+    .cb-hdr {
+      background: rgba(255,255,255,0.04);
+      padding: 7px 14px;
+      font-size: 11px; color: var(--muted); font-weight: 500;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .cb-hdr::before {
+      content: ''; width: 8px; height: 8px;
+      background: #4CAF50; border-radius: 50%;
+    }
+    .cb-body { padding: 14px 16px; overflow-x: auto; }
+    .cb-body code {
+      font-family: Consolas, Monaco, 'Courier New', monospace;
+      font-size: 12.5px; color: #D4D4D4;
+      line-height: 1.75; white-space: pre; display: block;
+    }
+    .kw  { color: #569CD6; }
+    .str { color: #CE9178; }
+    .cm  { color: #6A9955; }
+    .var { color: #9CDCFE; }
+    .cmd { color: #DCDCAA; }
+    .op  { color: #D4D4D4; }
+
+    /* ─── MODELS ──────────────────────────────────── */
+    .models-grid {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 14px; margin: 22px 0;
+    }
+    .model-card {
+      background: rgba(226,35,26,0.05);
+      border: 1px solid var(--red-border);
+      border-radius: 10px; padding: 16px 18px;
+    }
+    .model-family {
+      font-size: 10px; font-weight: 700; color: var(--red);
+      text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 6px;
+    }
+    .model-list { font-size: 13px; color: var(--off-white); font-weight: 500; line-height: 1.7; }
+    .pk-strip {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px; padding: 13px 18px;
+      font-size: 12px; color: var(--muted); line-height: 1.8;
+    }
+    .pk-strip strong { color: var(--off-white); }
+    .pk-strip code { font-family: Consolas, monospace; font-size: 11.5px; color: #9CDCFE; }
+
+    /* ─── SOLUTIONS ───────────────────────────────── */
+    .sol-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; margin-top: 36px;
+    }
+    .sol-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px; padding: 30px 26px;
+      transition: border-color 0.25s;
+    }
+    .sol-card:hover { border-color: var(--red-border); }
+    .sol-num {
+      font-size: 11px; font-weight: 700; color: var(--red);
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px;
+    }
+    .sol-title { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .sol-when {
+      font-size: 13px; color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      padding: 10px 14px; border-radius: 6px; margin-bottom: 18px;
+      line-height: 1.6;
+    }
+    .sol-when strong { color: var(--off-white); }
+    .sol-body { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+    .sol-body strong { color: var(--off-white); }
+
+    .script-pair {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0;
+    }
+    .script-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px 18px;
+    }
+    .script-name {
+      font-family: Consolas, monospace; font-size: 13px;
+      font-weight: 600; color: #DCDCAA; margin-bottom: 6px;
+    }
+    .script-role {
+      display: inline-block; font-size: 11px; font-weight: 600;
+      padding: 2px 8px; border-radius: 4px; margin-bottom: 8px;
+    }
+    .role-diag { background: rgba(34,197,94,0.1); color: #22c55e; }
+    .role-fix  { background: rgba(226,35,26,0.1); color: var(--red-light); }
+    .script-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+    .script-desc strong { color: var(--off-white); }
+
+    /* ─── VERIFICATION ────────────────────────────── */
+    .verify-block {
+      background: rgba(34,197,94,0.06);
+      border: 1px solid rgba(34,197,94,0.15);
+      border-radius: 12px; padding: 26px 28px; margin-top: 36px;
+    }
+    .verify-title {
+      font-size: 15px; font-weight: 700; color: #22c55e;
+      display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+    }
+    .verify-desc { font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+
+    .tool-card {
+      display: flex; gap: 18px; align-items: flex-start;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px 24px; margin-top: 24px;
+    }
+    .tool-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(226,35,26,0.1); border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .tool-name  { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+    .tool-desc  { font-size: 13px; color: var(--muted); line-height: 1.6; margin-bottom: 10px; }
+    .tool-link  {
+      font-size: 13px; color: var(--red); text-decoration: none; font-weight: 500;
+    }
+    .tool-link:hover { text-decoration: underline; }
+
+    /* ─── DECISION TREE ───────────────────────────── */
+    .tree-table-wrap { overflow-x: auto; margin-top: 48px; }
+    table {
+      width: 100%; border-collapse: collapse; font-size: 13px;
+    }
+    thead th {
+      text-align: left; padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted); font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background 0.15s; }
+    tbody tr:hover { background: rgba(255,255,255,0.02); }
+    tbody tr:last-child { border-bottom: none; }
+    tbody td { padding: 13px 16px; color: var(--off-white); vertical-align: top; }
+    .td-muted { color: var(--muted); }
+    .td-amber { color: var(--amber); }
+    .td-green { color: #22c55e; }
+    .td-code { font-family: Consolas, monospace; font-size: 12px; color: #DCDCAA; }
+
+    /* Visual flowchart */
+    .flow {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0; margin-top: 48px; min-width: 700px;
+    }
+    .flow-connector { width: 2px; height: 26px; background: var(--border); }
+    .flow-node {
+      padding: 12px 22px; border-radius: 10px;
+      font-size: 13px; font-weight: 600; text-align: center;
+    }
+    .fn-start {
+      background: var(--red); color: #fff;
+      padding: 14px 30px; font-size: 15px;
+    }
+    .fn-q {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.11);
+      color: var(--off-white);
+    }
+    .fn-action {
+      background: rgba(34,197,94,0.08);
+      border: 1px solid rgba(34,197,94,0.18);
+      color: #22c55e; font-family: Consolas, monospace; font-size: 12px;
+    }
+    .flow-split {
+      display: flex; gap: 40px; justify-content: center;
+      width: 100%; max-width: 900px; position: relative;
+    }
+    .flow-split::before {
+      content: ''; position: absolute;
+      top: 0; left: 50%; right: 50%;
+      height: 0; width: 0;
+    }
+    .flow-branch {
+      display: flex; flex-direction: column; align-items: center; flex: 1;
+    }
+    .flow-label {
+      font-size: 11px; font-weight: 600; color: var(--muted);
+      background: rgba(255,255,255,0.04); padding: 3px 10px; border-radius: 4px;
+      letter-spacing: 0.05em; margin-bottom: 6px; white-space: nowrap;
+    }
+    .flow-note {
+      font-size: 11px; color: var(--muted); margin-top: 6px; text-align: center;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────── */
+    .footer {
+      background: #111;
+      border-top: 1px solid var(--border);
+      padding: 48px 40px; text-align: center;
+    }
+    .footer-brand { font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+    .footer-note {
+      font-size: 13px; color: var(--muted); max-width: 600px;
+      margin: 0 auto 20px; line-height: 1.7;
+    }
+    .footer-note code { font-family: Consolas, monospace; font-size: 12px; color: #DCDCAA; }
+    .footer-warn {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 12px; color: var(--amber);
+      background: rgba(245,166,35,0.08);
+      padding: 8px 16px; border-radius: 20px;
+      border: 1px solid rgba(245,166,35,0.15);
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-title { font-size: 48px; }
+      .cause-grid { grid-template-columns: 1fr 1fr; }
+      .fix-grid   { grid-template-columns: 1fr; }
+      .sol-grid   { grid-template-columns: 1fr; }
+      .models-grid { grid-template-columns: 1fr 1fr; }
+      .section-title { font-size: 34px; }
+    }
+    @media (max-width: 600px) {
+      .hero-title { font-size: 34px; }
+      .cause-grid { grid-template-columns: 1fr; }
+      .models-grid { grid-template-columns: 1fr; }
+      .script-pair { grid-template-columns: 1fr; }
+      .section-wrap { padding: 64px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════════════ -->
+<nav class="nav">
+  <div class="nav-brand">
+    <div class="nav-pip"></div>
+    Lenovo CA 2023 · Secure Boot
+  </div>
+  <ul class="nav-links">
+    <li><a href="#issue1">Issue 1: Setup Mode</a></li>
+    <li><a href="#issue2">Issue 2: KEK 2023</a></li>
+    <li><a href="#verify">Verification</a></li>
+    <li><a href="#decision">Decision Tree</a></li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="hero-shapes-back">
+    <div class="shape shape-rect float-a"></div>
+    <div class="shape shape-circle float-b"></div>
+  </div>
+  <div class="hero-shapes-mid">
+    <div class="shape shape-diamond float-c"></div>
+    <div class="shape shape-dot float-a"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Lenovo CDRT &nbsp;·&nbsp; Secure Boot &nbsp;·&nbsp; CA 2023</div>
+    <h1 class="hero-title">Secure Boot<br><span>Remediation Guide</span></h1>
+    <p class="hero-subtitle">
+      Microsoft's CA 2023 Secure Boot transition has left some Lenovo fleets with two distinct
+      problems that require targeted remediation. This guide covers both with clear decision paths.
+    </p>
+    <div class="hero-badges">
+      <span class="badge">Issue 1 &mdash; Secure Boot Setup Mode Regression</span>
+      <span class="badge">Issue 2 &mdash; KEK 2023 Not Delivered by Windows Update</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#issue1" class="btn-primary">Issue 1: Setup Mode</a>
+      <a href="#issue2" class="btn-ghost">Issue 2: KEK 2023</a>
+    </div>
+  </div>
+
+  <div class="scroll-indicator" onclick="document.getElementById('issue1').scrollIntoView({behavior:'smooth'})">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+         stroke="#E2231A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </div>
+</section>
+
+<!-- ═══ ISSUE 1 ════════════════════════════════════════════════════ -->
+<section class="section-wrap alt" id="issue1">
+  <div class="section-inner">
+    <div class="eyebrow">Issue 1 of 2</div>
+    <h2 class="section-title">Secure Boot in Setup Mode</h2>
+    <p class="section-lead">
+      Systems where Secure Boot has dropped from <strong>User Mode</strong> to <strong>Setup Mode</strong>,
+      effectively disabling Secure Boot enforcement. Affects ThinkPad laptops and ThinkCentre desktops.
+    </p>
+
+    <!-- Root causes -->
+    <div style="font-size:14px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:18px;">Known Root Causes</div>
+    <div class="cause-grid">
+      <div class="cause-card">
+        <div class="cause-tag tag-red">KB4535680</div>
+        <div class="cause-title">MS Update KB4535680</div>
+        <div class="cause-desc">January 2020 update that resolved BSOD issues but unintentionally switched affected systems into Setup Mode as a side effect.</div>
+      </div>
+      <div class="cause-card">
+        <div class="cause-tag tag-amber">Most Common · Windows 11</div>
+        <div class="cause-title">MS Update KB5025885</div>
+        <div class="cause-desc">2023 Windows 11 update related to Black Lotus / CVE-2023-24932 KEK certificate rotation. Caused Lenovo laptop firmwares to drop into Setup Mode. <strong>Predominant cause on recent Windows&nbsp;11 fleets.</strong></div>
+      </div>
+      <div class="cause-card">
+        <div class="cause-tag tag-muted">Manual</div>
+        <div class="cause-title">Manual BIOS Intervention</div>
+        <div class="cause-desc">A user or administrator navigated into BIOS Setup and clicked "Reset to Setup Mode" intentionally or accidentally.</div>
+      </div>
+    </div>
+
+    <!-- BitLocker warning -->
+    <div class="callout warn">
+      <div class="callout-icon">⚠️</div>
+      <div>
+        <div class="callout-title">BitLocker Warning — Read Before Deploying at Scale</div>
+        <div class="callout-body">Always <strong>suspend BitLocker before</strong> performing any of these operations. Modifying Secure Boot state changes the value measured by PCR7, triggering a BitLocker recovery prompt on the next boot. <strong>Ensure recovery keys are escrowed in Active Directory or Intune before deploying at scale.</strong></div>
+      </div>
+    </div>
+
+    <!-- Fix paths -->
+    <div style="font-size:14px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin:44px 0 8px;">Remediation Paths — Choose by Device Platform</div>
+    <div class="fix-grid">
+
+      <!-- Path A: ThinkPad -->
+      <div class="fix-card">
+        <div class="fix-header">
+          <span class="fix-badge">Path A</span>
+          <span class="fix-title">ThinkPad Laptops</span>
+        </div>
+        <p class="fix-sub">
+          WMI — <strong>Restore Factory Keys.</strong> Resets all Secure Boot key databases (PK, KEK, db, dbx)
+          to factory defaults. Requires a Supervisor Password (Legacy alphanumeric only).
+          Supported on X/T/P Gen&nbsp;2+, L Gen&nbsp;3+, E Gen&nbsp;4+ models.
+        </p>
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-label">Verify the method is supported</div>
+            <div class="step-desc">Run from an elevated PowerShell prompt. If <code>RestoreFactoryKeys</code> appears in output, the method is available on this system.</div>
+            <div class="cb">
+              <div class="cb-hdr">PowerShell — Check support</div>
+              <div class="cb-body"><code><span class="cm"># Check if Lenovo_FunctionRequest exists</span>
+<span class="cmd">Get-CimInstance</span> -Namespace <span class="str">"root\wmi"</span> -ClassName <span class="str">"Lenovo_FunctionRequest"</span> |
+  <span class="cmd">ForEach-Object</span> {
+    <span class="kw">if</span> (<span class="var">$_</span>.CurrentSetting -ne <span class="str">""</span>) {
+      <span class="cmd">Write-Host</span> <span class="var">$_</span>.CurrentSetting.Replace(<span class="str">","</span>,<span class="str">" = "</span>)
+    }
+  }</code></div>
+            </div>
+            <div class="callout info" style="padding:11px 16px;margin-top:10px;">
+              <div class="callout-icon" style="font-size:14px;">ℹ️</div>
+              <div class="callout-body">Output shows <code>RestoreFactoryKeys = No</code> — this does <strong>not</strong> mean unavailable; it means not yet executed. If the line is entirely absent, the script method is not supported on that model. Use the manual BIOS approach instead.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-label">Execute Restore Factory Keys</div>
+            <div class="step-desc">Replace <code style="color:#CE9178;">0000</code> with the actual Supervisor Password. Both commands are required.</div>
+            <div class="cb">
+              <div class="cb-hdr">PowerShell — Set + Save</div>
+              <div class="cb-body"><code><span class="cmd">Invoke-CimMethod</span> -Namespace <span class="str">"root\wmi"</span> `
+  -ClassName <span class="str">"Lenovo_SetFunctionRequest"</span> `
+  -MethodName <span class="str">"SetFunctionRequest"</span> `
+  -Arguments @{ parameter = <span class="str">"RestoreFactoryKeys,Yes,0000,ascii,us"</span> }
+
+<span class="cmd">Invoke-CimMethod</span> -Namespace <span class="str">"root\wmi"</span> `
+  -ClassName <span class="str">"Lenovo_SaveBiosSettings"</span> `
+  -MethodName <span class="str">"SaveBiosSettings"</span> `
+  -Arguments @{ parameter = <span class="str">"0000,ascii,us"</span> }</code></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Path B: ThinkCentre -->
+      <div class="fix-card">
+        <div class="fix-header">
+          <span class="fix-badge">Path B</span>
+          <span class="fix-title">ThinkCentre Desktops</span>
+        </div>
+        <p class="fix-sub">
+          SRWINx64.exe — <strong>Targeted mode switch.</strong> Sets Secure Boot directly to User Mode
+          <strong>without resetting key databases</strong> (PK, KEK, db, dbx). Preferred approach
+          where applicable. Supervisor Password required.
+        </p>
+
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-label">Download Windows BIOS Setting Tool</div>
+            <div class="step-desc">Download <code>SRWINx64.exe</code> from the BIOS download section of your model's page at <a href="https://pcsupport.lenovo.com" style="color:var(--red);font-size:13px;">pcsupport.lenovo.com</a>. Extract the archive.</div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-label">Run the mode switch command</div>
+            <div class="step-desc">Replace <code style="color:#CE9178;">xxxxxx</code> with the Supervisor Password. A reboot is required for the change to take effect.</div>
+            <div class="cb">
+              <div class="cb-hdr">Command Prompt / PowerShell</div>
+              <div class="cb-body"><code>SRWINx64.exe /sbm user /pass xxxxxx</code></div>
+            </div>
+            <div style="margin-top:16px;">
+              <div class="validated-label">Validated Models</div>
+              <div class="validated-models">
+                M920x &nbsp;·&nbsp; M70q Gen1 / Gen4 / Gen5 &nbsp;·&nbsp; M75q Gen2<br>
+                Neo 50q Gen4 &nbsp;·&nbsp; P360 Ultra &nbsp;·&nbsp; P5 &nbsp;·&nbsp; P8 ThinkStation
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /fix-grid -->
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ ISSUE 2 ════════════════════════════════════════════════════ -->
+<section class="section-wrap" id="issue2">
+  <div class="section-inner">
+    <div class="eyebrow">Issue 2 of 2</div>
+    <h2 class="section-title">KEK 2023 Not Delivered by Windows Update</h2>
+    <p class="section-lead">
+      On specific ThinkCentre and ThinkStation models, CA 2023 migration fails with
+      <strong>Event ID 1795</strong> in the Windows Event Log — despite systems being fully
+      patched and Secure Boot enabled. This is a Windows Update resolution issue, not a
+      missing Lenovo deliverable.
+    </p>
+
+    <!-- Root cause -->
+    <div class="callout info">
+      <div class="callout-icon">🔍</div>
+      <div>
+        <div class="callout-title">Root Cause</div>
+        <div class="callout-body">
+          The PK thumbprint <strong>is</strong> present in Microsoft's <code>kek_update_map.json</code>
+          and the correct binary (<code>KEKUpdate_Lenovo_PK70.bin</code>) <strong>is</strong> published.
+          Lenovo has done its part — the signed binary was submitted to Microsoft months ago.
+          The issue lies in how Windows Update processes this information for these specific models.
+          The signed binary, map entry, and cryptographic chain are all valid.
+        </div>
+      </div>
+    </div>
+
+    <!-- Affected models -->
+    <div style="font-size:14px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin:40px 0 16px;">Affected Models</div>
+    <div class="models-grid">
+      <div class="model-card">
+        <div class="model-family">ThinkCentre M720 Series</div>
+        <div class="model-list">M720t &nbsp;·&nbsp; M720s &nbsp;·&nbsp; M720q</div>
+      </div>
+      <div class="model-card">
+        <div class="model-family">ThinkCentre M920 Series</div>
+        <div class="model-list">M920t &nbsp;·&nbsp; M920s<br>M920q &nbsp;·&nbsp; M920x</div>
+      </div>
+      <div class="model-card">
+        <div class="model-family">ThinkStation</div>
+        <div class="model-list">P330 Tiny</div>
+      </div>
+    </div>
+    <div class="pk-strip">
+      <strong>BIOS Family:</strong> M1U &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+      <strong>Shared PK Thumbprint:</strong> <code>F2E851A4D6C74F0671DC0DCF392C96F94AE30816</code>
+      <br><br>
+      If you observe Event ID 1795 on Lenovo models not listed above, run the diagnostic script
+      (Solution 2 below) — it reports the PK thumbprint and model info needed to identify the correct binary.
+    </div>
+
+    <!-- BitLocker warning -->
+    <div class="callout warn" style="margin-top:28px;">
+      <div class="callout-icon">⚠️</div>
+      <div>
+        <div class="callout-title">BitLocker Warning</div>
+        <div class="callout-body">
+          Injecting KEK 2023 modifies the Secure Boot state measured by PCR7. On the first reboot
+          after the operation, BitLocker may trigger a <strong>one-time recovery prompt</strong> — the
+          recovery key is required. The <code>Apply-LenovoKEK.ps1</code> script suspends BitLocker
+          automatically and resumes it after the operation. Ensure recovery keys are escrowed in AD
+          or Intune before deploying at scale.
+        </div>
+      </div>
+    </div>
+
+    <!-- Solutions -->
+    <div style="font-size:14px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin:48px 0 8px;">Remediation Paths</div>
+    <div class="sol-grid">
+
+      <!-- Solution 1 -->
+      <div class="sol-card">
+        <div class="sol-num">Solution 1 &mdash; Official BIOS Fix</div>
+        <div class="sol-title">BIOS-Level Remediation</div>
+        <div class="sol-when">
+          <strong>When to use:</strong> BIOS access is available and a Supervisor Password is set on the fleet.
+        </div>
+        <div class="sol-body">
+          Requires a <strong>BIOS update</strong> that includes KEK 2023 in the Default key store
+          (confirm applicable version with Lenovo support), plus
+          <strong>SRWINx64.exe v1.9.4.0 or later</strong> (released 2026-03-09).
+        </div>
+        <div class="cb">
+          <div class="cb-hdr">Windows BIOS Setting Tool</div>
+          <div class="cb-body"><code>SRWINx64.exe /sbm reskeys /pass &lt;SupervisorPassword&gt;</code></div>
+        </div>
+        <p style="font-size:13px;color:var(--muted);margin-top:12px;line-height:1.6;">
+          The <code style="font-family:Consolas,monospace;font-size:12px;color:#DCDCAA;">/sbm reskeys</code>
+          parameter restores all default keys to the active key store.
+        </p>
+        <div class="callout info" style="padding:12px 16px;margin-top:16px;">
+          <div class="callout-icon" style="font-size:14px;">🔐</div>
+          <div class="callout-body">
+            A Supervisor Password is mandatory. This command will not work if no password is configured.
+          </div>
+        </div>
+      </div>
+
+      <!-- Solution 2 -->
+      <div class="sol-card">
+        <div class="sol-num">Solution 2 &mdash; OS-Level Workaround</div>
+        <div class="sol-title">Manual KEK Binary Injection</div>
+        <div class="sol-when">
+          <strong>When to use:</strong> No BIOS access or Supervisor Password available — or for
+          large-scale automated remediation via Windows only.
+        </div>
+        <div class="sol-body">
+          Manually applies the Microsoft-signed binary from the OS layer. Validated cryptographically
+          against the machine's PK — if the firmware accepts it, the procedure is confirmed sound.
+          Works whether KEK 2023 is the only missing piece or no CA 2023 updates have been applied yet.
+          <strong>No third-party dependencies. Admin rights required.</strong>
+        </div>
+
+        <div class="script-pair">
+          <div class="script-card">
+            <div class="script-name">Find-LenovoKEK.ps1</div>
+            <div class="script-role role-diag">Diagnostic Only</div>
+            <div class="script-desc">
+              Reads machine PK, looks up correct binary in Microsoft's map, downloads locally.
+              <strong>No UEFI write.</strong>
+            </div>
+          </div>
+          <div class="script-card">
+            <div class="script-name">Apply-LenovoKEK.ps1</div>
+            <div class="script-role role-fix">Remediation</div>
+            <div class="script-desc">
+              Applies binary to UEFI KEK. Auto-suspends/resumes BitLocker. Idempotent — safe to re-run.
+            </div>
+          </div>
+        </div>
+
+        <div class="callout info" style="padding:11px 16px;">
+          <div class="callout-icon" style="font-size:14px;">✅</div>
+          <div class="callout-body">
+            Uses <code>Set-SecureBootUEFI -AppendWrite</code> — re-running on a machine
+            where KEK 2023 is already present will <strong>not</strong> duplicate the entry.
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /sol-grid -->
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ VERIFICATION ════════════════════════════════════════════════ -->
+<section class="section-wrap alt" id="verify">
+  <div class="section-inner">
+    <div class="eyebrow">After Remediation</div>
+    <h2 class="section-title">Verifying the Fix</h2>
+    <p class="section-lead">
+      After applying either solution, confirm that KEK 2023 is present in the active KEK store.
+    </p>
+
+    <div class="verify-block">
+      <div class="verify-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+             stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        Quick Check — PowerShell
+      </div>
+      <div class="verify-desc">Returns <strong>True</strong> if KEK 2023 is present in the active store. Run from an elevated prompt.</div>
+      <div class="cb">
+        <div class="cb-hdr">PowerShell</div>
+        <div class="cb-body"><code>[System.Text.Encoding]::ASCII.GetString((<span class="cmd">Get-SecureBootUEFI</span> -Name KEK).bytes) -match <span class="str">'CA 2023'</span></code></div>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tool-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+             stroke="#E2231A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+      </div>
+      <div>
+        <div class="tool-name">CheckCA2023 &nbsp;<span style="font-size:13px;font-weight:500;color:var(--muted);">v1.5.0</span></div>
+        <div class="tool-desc">
+          PowerShell/WPF GUI that reads and displays all relevant Secure Boot state data in one view:
+          DB, KEK, PK, AvailableUpdates, SignatureOwner GUIDs, and Event Log entries.
+          Full visibility into CA 2023 migration status across your fleet.
+        </div>
+        <a href="https://github.com/claude-boucher/CheckCA2023/" class="tool-link" target="_blank">
+          github.com/claude-boucher/CheckCA2023 &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ DECISION TREE ════════════════════════════════════════════════ -->
+<section class="section-wrap" id="decision">
+  <div class="section-inner">
+    <div class="eyebrow">Quick Reference</div>
+    <h2 class="section-title">Decision Tree</h2>
+    <p class="section-lead">Visual flow and reference table for choosing the correct remediation path.</p>
+
+    <!-- Visual tree -->
+    <div style="overflow-x:auto;">
+      <div class="flow" style="min-width:720px;">
+        <div class="flow-node fn-start">What problem are you seeing?</div>
+        <div class="flow-connector"></div>
+        <div class="flow-split">
+          <!-- Left: Setup Mode -->
+          <div class="flow-branch">
+            <div class="flow-label">Secure Boot in Setup Mode</div>
+            <div class="flow-connector"></div>
+            <div class="flow-node fn-q">Device platform?</div>
+            <div class="flow-connector"></div>
+            <div class="flow-split" style="gap:20px;">
+              <div class="flow-branch">
+                <div class="flow-label">ThinkPad</div>
+                <div class="flow-connector"></div>
+                <div class="flow-node fn-action" style="white-space:normal;max-width:180px;">WMI RestoreFactoryKeys</div>
+                <div class="flow-note">Requires Supervisor Password</div>
+              </div>
+              <div class="flow-branch">
+                <div class="flow-label">ThinkCentre</div>
+                <div class="flow-connector"></div>
+                <div class="flow-node fn-action" style="white-space:normal;max-width:180px;">SRWINx64.exe /sbm user</div>
+                <div class="flow-note">Supervisor Password required</div>
+              </div>
+            </div>
+          </div>
+          <!-- Right: KEK 2023 -->
+          <div class="flow-branch">
+            <div class="flow-label">Event ID 1795 / KEK 2023 Missing</div>
+            <div class="flow-connector"></div>
+            <div class="flow-node fn-q">BIOS access + SVP available?</div>
+            <div class="flow-connector"></div>
+            <div class="flow-split" style="gap:20px;">
+              <div class="flow-branch">
+                <div class="flow-label">Yes</div>
+                <div class="flow-connector"></div>
+                <div class="flow-node fn-action" style="white-space:normal;max-width:180px;">SRWINx64.exe /sbm reskeys</div>
+                <div class="flow-note">v1.9.4.0+ required</div>
+              </div>
+              <div class="flow-branch">
+                <div class="flow-label">No / OS-only</div>
+                <div class="flow-connector"></div>
+                <div class="flow-node fn-action" style="white-space:normal;max-width:180px;">Apply-LenovoKEK.ps1</div>
+                <div class="flow-note">No BIOS access needed</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reference table -->
+    <div class="tree-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Scenario</th>
+            <th>Platform</th>
+            <th>Tool / Command</th>
+            <th>SVP Required?</th>
+            <th>Key DB Reset?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Setup Mode &rarr; User Mode</td>
+            <td class="td-muted">ThinkPad</td>
+            <td class="td-code">WMI RestoreFactoryKeys</td>
+            <td class="td-amber">Yes (legacy alpha)</td>
+            <td class="td-amber">Yes — full reset</td>
+          </tr>
+          <tr>
+            <td>Setup Mode &rarr; User Mode</td>
+            <td class="td-muted">ThinkCentre</td>
+            <td class="td-code">SRWINx64.exe /sbm user</td>
+            <td class="td-amber">Yes</td>
+            <td class="td-green">No — mode only</td>
+          </tr>
+          <tr>
+            <td>KEK 2023 missing (BIOS fix)</td>
+            <td class="td-muted">ThinkCentre / ThinkStation</td>
+            <td class="td-code">SRWINx64.exe /sbm reskeys</td>
+            <td class="td-amber">Yes</td>
+            <td class="td-muted">Restores defaults</td>
+          </tr>
+          <tr>
+            <td>KEK 2023 missing (OS fix)</td>
+            <td class="td-muted">ThinkCentre / ThinkStation</td>
+            <td class="td-code">Apply-LenovoKEK.ps1</td>
+            <td class="td-green">No</td>
+            <td class="td-green">No — KEK only</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-brand">Lenovo Commercial Deployment &amp; Readiness Team (CDRT)</div>
+  <p class="footer-note">
+    This guide covers Secure Boot CA 2023 remediation for ThinkPad, ThinkCentre, and ThinkStation
+    platforms. For unlisted models showing Event ID 1795, share the output of
+    <code>Find-LenovoKEK.ps1</code> (PK thumbprint, model, MT) to help extend the reference table.
+  </p>
+  <div class="footer-warn">
+    ⚠️&nbsp;&nbsp;Verify BitLocker recovery key escrow in AD or Intune before any fleet-wide deployment
+  </div>
+</footer>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ── Page load entrance ── */
+  gsap.set([
+    ".hero-eyebrow", ".hero-title", ".hero-subtitle",
+    ".hero-badges", ".hero-ctas", ".scroll-indicator"
+  ], { opacity: 0, y: 32 });
+
+  const tl = gsap.timeline({ delay: 0.25 });
+  tl.to(".hero-eyebrow",    { opacity:1, y:0, duration:0.6, ease:"power3.out" })
+    .to(".hero-title",      { opacity:1, y:0, duration:1.0, ease:"power3.out" }, "-=0.3")
+    .to(".hero-subtitle",   { opacity:1, y:0, duration:0.8, ease:"power2.out" }, "-=0.5")
+    .to(".hero-badges",     { opacity:1, y:0, duration:0.7, ease:"power2.out" }, "-=0.4")
+    .to(".hero-ctas",       { opacity:1, y:0, duration:0.7, ease:"power2.out" }, "-=0.3")
+    .to(".scroll-indicator",{ opacity:1, y:0, duration:0.5, ease:"power2.out" }, "-=0.2");
+
+  /* ── Mouse parallax ── */
+  const hero = document.querySelector('.hero');
+  hero.addEventListener('mousemove', e => {
+    const r    = hero.getBoundingClientRect();
+    const xPct = (e.clientX - r.left) / r.width  - 0.5;
+    const yPct = (e.clientY - r.top)  / r.height - 0.5;
+    gsap.to(".hero-shapes-back", { duration:2.0, x: xPct*-45, y: yPct*-22, ease:"power1.out" });
+    gsap.to(".hero-shapes-mid",  { duration:1.5, x: xPct*-22, y: yPct*-11, ease:"power1.out" });
+    gsap.to(".hero-content",     { duration:1.2, x: xPct*  8, y: yPct*  5, ease:"power1.out" });
+  });
+
+  /* ── Root cause cards ── */
+  gsap.set(".cause-card", { opacity:0, y:50, rotateX:16,
+    transformPerspective:900, transformOrigin:"top center" });
+  gsap.to(".cause-card", {
+    scrollTrigger:{ trigger:".cause-grid", start:"top 72%", toggleActions:"play none none reverse" },
+    opacity:1, y:0, rotateX:0, duration:0.75, stagger:0.11, ease:"power2.out"
+  });
+
+  /* ── Fix path cards ── */
+  gsap.set(".fix-card",  { opacity:0, y:40 });
+  gsap.to(".fix-card", {
+    scrollTrigger:{ trigger:".fix-grid", start:"top 72%" },
+    opacity:1, y:0, duration:0.8, stagger:0.14, ease:"power2.out"
+  });
+
+  /* ── Model cards ── */
+  gsap.set(".model-card", { opacity:0, y:28 });
+  gsap.to(".model-card", {
+    scrollTrigger:{ trigger:".models-grid", start:"top 78%" },
+    opacity:1, y:0, duration:0.6, stagger:0.08, ease:"power2.out"
+  });
+
+  /* ── Solution cards ── */
+  gsap.set(".sol-card", { opacity:0, y:40 });
+  gsap.to(".sol-card", {
+    scrollTrigger:{ trigger:".sol-grid", start:"top 72%" },
+    opacity:1, y:0, duration:0.8, stagger:0.14, ease:"power2.out"
+  });
+
+  /* ── Section titles ── */
+  gsap.utils.toArray(".section-title").forEach(el => {
+    gsap.from(el, {
+      scrollTrigger:{ trigger:el, start:"top 82%" },
+      opacity:0, y:30, duration:0.8, ease:"power3.out"
+    });
+  });
+
+  /* ── Decision tree rows ── */
+  gsap.from("tbody tr", {
+    scrollTrigger:{ trigger:"table", start:"top 80%" },
+    opacity:0, x:-18, duration:0.5, stagger:0.07, ease:"power2.out"
+  });
+
+  /* ── Verify block ── */
+  gsap.from(".verify-block", {
+    scrollTrigger:{ trigger:".verify-block", start:"top 80%" },
+    opacity:0, y:30, duration:0.7, ease:"power2.out"
+  });
+
+  /* ── Callouts ── */
+  gsap.utils.toArray(".callout").forEach(el => {
+    gsap.from(el, {
+      scrollTrigger:{ trigger:el, start:"top 88%" },
+      opacity:0, x:-16, duration:0.5, ease:"power2.out"
+    });
+  });
+</script>
+
+</body>
+</html>
