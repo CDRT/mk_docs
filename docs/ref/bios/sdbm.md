@@ -40,7 +40,7 @@ No longer requires user interaction if a call to clear the TPM was performed. In
 
 ### ThinkCentre
 
-All 2022 and later M-Series products.  Neo Series SMB products do not support this feature.
+All 2022 and later M-Series products.  Neo Series products do not support this feature.
 
 ### ThinkStation
 
