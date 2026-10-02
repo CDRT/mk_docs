@@ -1,8 +1,13 @@
+---
+title: "System Update Suite Deployment Guide: Command Line Reference"
+description: Command-line parameters and return codes for System Update, Thin Installer, and Update Retriever.
+---
+
 # 5 Command Line Reference
 
 ## 5.1 System Update
 
-System Update can be controlled via command line by leveraging the group policy control for the Administrator Command Line. A typical scenario would have System Update executed by a task in the Windows Task Scheduler set to run on a recurring basis to ensure the device stays current. That scheduled task would execute:
+System Update can be controlled via command line by using the group policy control for the Administrator Command Line. A typical scenario would have System Update executed by a task in the Windows Task Scheduler set to run on a recurring basis to ensure the device stays current. That scheduled task would execute:
 
 ```CMD
 C:\Program Files (x86)\Lenovo\System Update\tvsu.exe /CM
@@ -26,7 +31,7 @@ This will prevent System Update from re-enabling the default tasks.
 ### Parameters
 
 !!! note
-	The parameter of -schtask should not be used in a custom command line.
+    The parameter of -schtask should not be used in a custom command line.
 
 #### /CM
 
@@ -69,24 +74,24 @@ Optional. Specifies by number the reboot types to include in the set of updates 
    **5:** Delayed forced reboot (used for firmware, System Update will enforce reboot with dialog displaying count-down timer)
 
 !!! note
-	When used with -packagetypes, the resulting set of updates is the intersection of both filters.
+    When used with -packagetypes, the resulting set of updates is the intersection of both filters.
 
 #### -packagetypes
 
 Optional. Specifies by number a filter for the package types to be applied. Multiple package types can be specified by separating with comma.
 
-   **0** : _Reserved – unused at this time._
+   **0** : _Reserved - unused at this time._
 
    **1** : Application
 
    **2** : Driver
 
-   **3** : Bios
+   **3** : BIOS
 
    **4** : Firmware
 
 !!! note
-	When used with -includerebootpackages, the resulting set of updates is the intersection of both filters. If -includerebootpackages is not specified, only reboot type 0 packages will be considered.
+    When used with -includerebootpackages, the resulting set of updates is the intersection of both filters. If -includerebootpackages is not specified, only reboot type 0 packages will be considered.
 
 #### -noreboot
 
@@ -112,7 +117,7 @@ Optional. Specifies the full path to the local repository location. This must be
 
 Optional. Causes System Update to store update history data in a WMI table:
 
-```WMI
+```text
 Root\Lenovo\Lenovo_Updates\
 ```
 
@@ -158,7 +163,7 @@ Required. Specifies the action to take with the updates found. It can only speci
 - **INSTALLDEFERRED** : install the updates which were previously downloaded using the DOWNLOAD parameter; any filtering parameters on the command line are **ignored**
 
 !!! note
-	The return codes used by Thin Installer will vary by the action performed. See section 5.2.1 Thin Installer Return Codes
+    The return codes used by Thin Installer will vary by the action performed. See section 5.2.1 Thin Installer Return Codes
 
 #### -includerebootpackages
 
@@ -175,24 +180,24 @@ Optional. Specifies by number the reboot types to include in the set of updates 
    **5** : Delayed forced reboot (used for firmware, Thin Installer will enforce reboot with dialog displaying count-down timer)
 
 !!! note
-	When used with -packagetypes, the resulting set of updates is the intersection of both filters.
+    When used with -packagetypes, the resulting set of updates is the intersection of both filters.
 
 #### -packagetypes
 
 Optional. Specifies by number a filter for the package types to be applied. Multiple package types can be specified by separating with comma.
 
-   **0** : _Reserved – unused at this time._
+   **0** : _Reserved - unused at this time._
 
    **1** : Application
 
    **2** : Driver
 
-   **3** : Bios
+   **3** : BIOS
 
    **4** : Firmware
 
 !!! note
-	When used with -includerebootpackages, the resulting set of updates is the intersection of both filters. If -includerebootpackages is not specified, only reboot type 0 packages will be considered.
+    When used with -includerebootpackages, the resulting set of updates is the intersection of both filters. If -includerebootpackages is not specified, only reboot type 0 packages will be considered.
 
 #### -noreboot
 
@@ -220,7 +225,7 @@ Optional. Displays the progress of downloading and installing updates. Not recom
 
 #### -scheduler
 
-Optional. If -action is specified as INSTALL or INSTALLDEFERRED and the ThinInstaller.exe.configuration file specifies YES for \&lt;DisplayLicenseNotice\&gt;, then this parameter will cause Thin Installer to ignore the configuration file and will not display the license notice before displaying the list of available updates.
+Optional. If -action is specified as INSTALL or INSTALLDEFERRED and the ThinInstaller.exe.configuration file specifies YES for `<DisplayLicenseNotice>`, then this parameter will cause Thin Installer to ignore the configuration file and will not display the license notice before displaying the list of available updates.
 
 #### -repository
 
@@ -230,7 +235,7 @@ Optional. Specifies the full path to the local repository location. This can be 
 
 Optional. Causes Thin Installer to store update history data in a WMI table:
 
-```WMI
+```text
 root\Lenovo\Lenovo_Updates\
 ```
 
@@ -240,14 +245,14 @@ Optional. Specifies fully qualified path for storing the log file
 
 #### -ignorexmlsignature
 
-Optional. [**Introduced in version 1.04.02.0017**](https://support.lenovo.com/us/en/solutions/HT037099), this parameter will cause Thin Installer to ignore whether or not the XML package descriptor for an update is digitally signed by Lenovo. By default, Thin Installer will check for a valid Lenovo digital signature on the XML and will skip any updates that do not have one. This ensures the security of the solution. Only use this parameter if you have knowingly modified the XML for an update and trust the changes.
+Optional. [**Introduced in version 1.04.02.0017**](https://support.lenovo.com/us/en/solutions/HT037099), this parameter will cause Thin Installer to ignore whether or not the XML package descriptor for an update is digitally signed by Lenovo. By default, Thin Installer will check for a valid Lenovo digital signature on the XML and will skip any updates that do not have one. This ensures the security of the tool. Only use this parameter if you have knowingly modified the XML for an update and trust the changes.
 
 ### 5.2.1 Thin Installer Return Codes
 
 There are specific return codes used by Thin Installer based on which -action parameter is used.
 
-| INSTALL | Code | Description |
-|---------|------|-------------|
+| Action | Code | Description |
+| --- | --- | --- |
 | INSTALL | 3010 | Indicates a reboot is required because one or more Reboot Type 3 updates were installed with the -noreboot parameter specified |
 | SCAN    | 10000 | No applicable updates found |
 | SCAN    | 10001 | Applicable updates found |
@@ -268,11 +273,11 @@ It does require Administrator privileges to run.
 
 #### /SCHEDULER
 
-Optional. Used to launch Update Retriever to perform the automatic search actions specified under &quot;Schedule updates&quot;.
+Optional. Used to launch Update Retriever to perform the automatic search actions specified under "Schedule updates".
 
 #### /GUI
 
-Optional. Launches Update Retriever to the &quot;Get new updates&quot; screen.
+Optional. Launches Update Retriever to the "Get new updates" screen.
 
 #### /CATALOGSCAN
 

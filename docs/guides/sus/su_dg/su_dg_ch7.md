@@ -1,8 +1,13 @@
+---
+title: "System Update Suite Deployment Guide: Mapdrv Utility"
+description: Command-line reference for the MapDrv utility used to store network share credentials for System Update.
+---
+
 # 7 Appendix B: Mapdrv Utility
 
 The MapDrv utility provides network share related functions for System Update. To define the network share information, use the MapDrv utility to connect or disconnect network shares. The MapDrv utility maintains network share information in a registry key that is protected by administrator access only. The network share information includes the network share name (in UNC format), user name (saved in the registry as an encrypted string), and the password (saved in the registry as an encrypted string).
 
-The MapDrv utility can be found in the System Update installation directory. The default installation directory is located at ```C:\Program Files (x86)\Lenovo\System Update```.
+The MapDrv utility can be found in the System Update installation directory. The default installation directory is located at `C:\Program Files (x86)\Lenovo\System Update`.
 
 The network share information is stored in the following registry entry:
 
@@ -38,8 +43,9 @@ The MapDrv utility also enables an administrator to use the encryption engine to
 The command-line interface to the MapDrv utility is as follows:
 
 ```CMD
-Mapdrv /<function><app id> /unc <sharename> /user <username\> /pwd <password> [/timeout <seconds>] [/s]
+Mapdrv /<function><app id> /unc <sharename> /user <username> /pwd <password> [/timeout <seconds>] [/s]
 ```
+
 <center>
 
 | **Parameter** | **Description** |
