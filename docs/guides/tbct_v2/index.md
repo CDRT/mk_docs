@@ -1,6 +1,6 @@
 ---
 title: Think BIOS Config Tool V2
-description: PowerShell WFX GUI for managing Lenovo BIOS settings via WMI, with Intune packaging support.
+description: PowerShell WPF GUI for managing Lenovo BIOS settings via WMI, with Intune packaging support.
 ---
 
 # Think BIOS Config Tool V2
@@ -16,17 +16,17 @@ Think BIOS Config Tool v2 is a PowerShell-based WPF GUI front-end (`ThinkBIOSCon
 - Creating Intune-friendly artifacts (Win32 / [Remediations](https://learn.microsoft.com/intune/intune-service/fundamentals/remediations)) and optionally uploading via Microsoft Graph. (currently only available through the UI)
 - Saving and restoring custom defaults.
 
-This solution can be used in combination with the [Lenovo BIOS Certificates Tool and Module](../lbct/index.md) for complete password-less management of BIOS settings on Lenovo commercial PCs.
+This tool can be used in combination with the [Lenovo BIOS Certificates Tool and Module](../lbct/index.md) for complete password-less management of BIOS settings on Lenovo commercial PCs.
 
 For detailed information on individual cmdlets, see the [Module cmdlet reference](./tbc_module_reference.md).
 
-!!! note ""
-    **This solution replaces the older Think BIOS Config Tool which was implemented as an HTA.** Archived documentation for the HTA version is still available here: [Think BIOS Config Tool - HTA](https://docs.lenovocdrt.com/guides/tbct/tbct_top_archive/)
+!!! note "Replaces the HTA version"
+    **This tool replaces the older Think BIOS Config Tool which was implemented as an HTA.** Archived documentation for the HTA version is still available here: [Think BIOS Config Tool - HTA](../tbct/tbct_top_archive.md)
 
     Previously created INI files from the HTA version which contain an encrypted password are not compatible with the new Think BIOS Config Tool V2 due to changes in encryption methods. Please recreate the INI files using the new tool.
 
 !!! note
-    This solution currently does not support ThinkCentre desktop products due to incompatible WMI BIOS Interface implementation. Hopefully, this will be addressed in future models or through future BIOS updates.
+    This tool currently does not support ThinkCentre desktop products due to incompatible WMI BIOS Interface implementation. Hopefully, this will be addressed in future models or through future BIOS updates.
 
 ??? note "What's New"
 
@@ -65,7 +65,7 @@ If this is your first script from the PowerShell Gallery, you'll be prompted to 
 
 **Or download directly:**
 
-[https://download.lenovo.com/cdrt/tools/tbct_2.0.3_1.0.3.zip](https://download.lenovo.com/cdrt/tools/tbct_2.0.3_1.0.3.zip)
+[Download the Think BIOS Config Tool package](https://download.lenovo.com/cdrt/tools/tbct_2.0.3_1.0.3.zip)
 
 Simply unzip to a local folder and run the GUI script in an elevated terminal.
 
@@ -79,7 +79,7 @@ Install-Module 'Lenovo.BIOS.Config'
 
 ### Install optional dependencies
 
-!!! note ""
+!!! note "Optional Microsoft Graph modules"
     To use Graph/Intune features interactively, install Microsoft Graph modules:
 
     ```powershell
@@ -93,10 +93,10 @@ Install-Module 'Lenovo.BIOS.Config'
 1. Open an elevated PowerShell terminal (Run as Administrator).
 2. Run:
 
-```powershell
-# Assuming installed to default script path and PATH environment variable set accordingly
-ThinkBIOSConfigUI
-```
+    ```powershell
+    # Assuming installed to default script path and PATH environment variable set accordingly
+    ThinkBIOSConfigUI
+    ```
 
 !!! note
     The script includes `#Requires -RunAsAdministrator` and will auto-import the module if installed, or attempt to install it from the PowerShell Gallery.
@@ -107,7 +107,7 @@ ThinkBIOSConfigUI
 
 The main user interface includes:
 
-- **Top-level navigation** (left column): `Settings`, `Actions`, `Preferences` — each opens a panel on the right.
+- **Top-level navigation** (left column): **Settings**, **Actions**, **Preferences** - each opens a panel on the right.
 - **Header**: application title and target computer information.
 - **Main Content**: panel views based on navigation selection.
 - **Status bar**: runtime messages and progress at the bottom; optional logging available from **Preferences** panel.
@@ -127,12 +127,12 @@ The main user interface includes:
 
     **Buttons:**
 
-    - **Save Changed Settings** – Commits changes; system will need to reboot before changes take effect
-    - **Revert Changes** – Reverts modified settings to original values
-    - **Reset to Factory Defaults** – Restores all settings to factory defaults
-    - **Save Custom Defaults** – Saves current settings as a custom profile
-    - **Reset to Custom Defaults** – Restores settings to the saved custom profile
-    - **Generate INI** – Exports current settings to an .ini file with optional encrypted supervisor password; saves to location defined in Preferences (default: `%ProgramData%\Lenovo\ThinkBiosConfig\Output`)
+    - **Save Changed Settings** - Commits changes; system will need to reboot before changes take effect
+    - **Revert Changes** - Reverts modified settings to original values
+    - **Reset to Factory Defaults** - Restores all settings to factory defaults
+    - **Save Custom Defaults** - Saves current settings as a custom profile
+    - **Reset to Custom Defaults** - Restores settings to the saved custom profile
+    - **Generate INI** - Exports current settings to an .ini file with optional encrypted supervisor password; saves to location defined in Preferences (default: `%ProgramData%\Lenovo\ThinkBiosConfig\Output`)
 
 ??? note "Actions Panel"
     The Actions panel displays cards for each major operation available in the tool.
@@ -195,12 +195,15 @@ The main user interface includes:
 ??? note "Dialog Boxes"
 
     **Password Save Changes**
+
     Shown when a supervisor password is required for Save/Reset actions.
 
     ![Password Prompt](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/password-prompt.png){: style="width:400px; height:auto;"}
 
     **Password Generate INI**
+
     Used when generating INI with optional password and passphrase.
+
     ![Generate INI](https://cdrt.github.io/mk_docs/img/guides/tbct_v2/generate-ini.png)
 
 ??? note "Status Bar"
@@ -253,13 +256,13 @@ The main user interface includes:
     - GUI: Actions → Create Intune Package: choose INI, output path, select Win32/Remediation, click Create Package.
         - You will be asked if you want to upload the generated content directly to Intune. Only do this if you have the necessary access rights to do so.
         - GUI checks/installs Microsoft Graph modules and prompts to sign in.
-        - Packaging the Win32 package uses Intune Win32 Content Prep Tool which is available here: [https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe).
+        - Packaging the Win32 package uses Intune Win32 Content Prep Tool which is available from the [Microsoft Win32 Content Prep Tool](https://github.com/microsoft/Microsoft-Win32-Content-Prep-Tool/blob/master/IntuneWinAppUtil.exe) repository.
 
     If you allow the tool to upload the package to Intune, it will create the Package for you in Intune. If you do not upload to Intune, you must create the package manually in the Intune console. Below are the details required when creating the package:
 
     - App Information
-        - App type:  Windows app (Win32)
-        - Select package:  Specify the ConfigScript.intunewin package that you created, the default location is in C:\ProgramData\Lenovo\ThinkBiosConfig\Output inside a time-stamped subfolder.
+        - App type: Windows app (Win32)
+        - Select package: Specify the ConfigScript.intunewin package that you created, the default location is in `C:\ProgramData\Lenovo\ThinkBiosConfig\Output` inside a time-stamped subfolder.
         - Name: ConfigScript.ps1
         - Description: ConfigScript.ps1 (can set to whatever you like)
         - Publisher: Lenovo
@@ -281,7 +284,7 @@ The main user interface includes:
         - Rules format: Manually configure detection rules
         - Click "+ Add" to add new rule
             - Rule type: File
-            - Path: C:\ProgramData\Lenovo\ThinkBiosConfig
+            - Path: `C:\ProgramData\Lenovo\ThinkBiosConfig`
             - File or folder: (enter the file name ending in .tag used in the Think BIOS Config tool when generating the package)
             - Detection method: File or folder exists
             - Associated with a 32-bit app on 64-bit clients: No
@@ -341,7 +344,7 @@ For detailed information on individual cmdlets, see the [Module cmdlet reference
     Many operations require the Supervisor password if one is set on the device. The GUI will prompt for it when necessary.
 
 ??? question "Can I run the module headless for automation?"
-    Yes — use the module cmdlets directly in scripts. Start with `Initialize-LnvThinkBiosConfig` to initialize the module, then use cmdlets such as `Export-LnvWmiSettings`, `Import-LnvWmiSettings`, and `ConvertTo-LnvIntunePackage` for your automation tasks.
+    Yes - use the module cmdlets directly in scripts. Start with `Initialize-LnvThinkBiosConfig` to initialize the module, then use cmdlets such as `Export-LnvWmiSettings`, `Import-LnvWmiSettings`, and `ConvertTo-LnvIntunePackage` for your automation tasks.
 
 ??? question "Does the GUI automatically upload to Intune?"
     The GUI supports packaging and contains code to upload via Microsoft Graph, but upload requires Graph modules and proper tenant permissions and frequently requires interactive consent.

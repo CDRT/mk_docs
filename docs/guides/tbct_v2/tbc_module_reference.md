@@ -176,9 +176,9 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
-    | Force | Switch | No | Forces settings to be reloaded from WMI |
-    | OnlyChanged | Switch | No | Displays only modified settings |
+    | --- | --- | --- | --- |
+    | `-Force` | Switch | No | Forces settings to be reloaded from WMI |
+    | `-OnlyChanged` | Switch | No | Displays only modified settings |
 
     **Examples:**
 
@@ -251,10 +251,10 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
-    | Logging | Boolean | Yes | True to enable, false to disable logging |
-    | LogFolder | String | Yes | Folder location for log files |
-    | Output | String | Yes | Folder location for output files |
+    | --- | --- | --- | --- |
+    | `-Logging` | Boolean | Yes | True to enable, false to disable logging |
+    | `-LogFolder` | String | Yes | Folder location for log files |
+    | `-Output` | String | Yes | Folder location for output files |
 
     **Examples:**
 
@@ -326,9 +326,9 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
-    | Hostname | String | Yes | Name of the target machine (not IP address) |
-    | Credential | PSCredential | No | Credentials to connect to the machine |
+    | --- | --- | --- | --- |
+    | `-Hostname` | String | Yes | Name of the target machine (not IP address) |
+    | `-Credential` | PSCredential | No | Credentials to connect to the machine |
 
     **Examples:**
 
@@ -454,9 +454,9 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | Default | Description |
-    |-----------|------|----------|---------|-------------|
-    | FileLocation | String | No | `%ProgramData%\Lenovo\ThinkBiosConfig\Output\{ComputerName}Password.ini` | Location to save the password file |
-    | Type | String | No | "pap" | Password type: "pap"/"svp" (Supervisor/Power-on Authentication Password), "smp" (System Management), "pop" (Power-on) |
+    | --- | --- | --- | --- | --- |
+    | `-FileLocation` | String | No | `%ProgramData%\Lenovo\ThinkBiosConfig\Output\{ComputerName}Password.ini` | Location to save the password file |
+    | `-Type` | String | No | "pap" | Password type: "pap"/"svp" (Supervisor/Power-on Authentication Password), "smp" (System Management), "pop" (Power-on) |
 
     **Examples:**
 
@@ -500,9 +500,9 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
-    | ConfigFile | String | Yes | Path to the password change file |
-    | Key | String | No | Decrypting key (will prompt if not provided) |
+    | --- | --- | --- | --- |
+    | `-ConfigFile` | String | Yes | Path to the password change file |
+    | `-Key` | String | No | Decrypting key (will prompt if not provided) |
 
     **Examples:**
 
@@ -539,10 +539,10 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
-    | Type | String | Yes | Password type: "pap"/"svp" (Supervisor/Power-on Authentication Password), "smp" (System Management), "pop" (Power-on) |
-    | Old | SecureString | No | Current password (if omitted, user is prompted) |
-    | New | SecureString | No | New password (if omitted, user is prompted) |
+    | --- | --- | --- | --- |
+    | `-Type` | String | Yes | Password type: "pap"/"svp" (Supervisor/Power-on Authentication Password), "smp" (System Management), "pop" (Power-on) |
+    | `-Old` | SecureString | No | Current password (if omitted, user is prompted) |
+    | `-New` | SecureString | No | New password (if omitted, user is prompted) |
 
     **Examples:**
 
@@ -595,11 +595,11 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | Default | Description |
-    |-----------|------|----------|---------|-------------|
-    | ConfigFile | String | No | `%ProgramData%\Lenovo\ThinkBiosConfig\Output\{ComputerName}.ini` | Path to export file |
-    | OnlyChanged | Switch | No | False | Export only modified settings |
-    | Key | String | No | None | Encrypting key for password |
-    | NoKey | Switch | No | False | Suppress prompt for encryption key |
+    | --- | --- | --- | --- | --- |
+    | `-ConfigFile` | String | No | `%ProgramData%\Lenovo\ThinkBiosConfig\Output\{ComputerName}.ini` | Path to export file |
+    | `-OnlyChanged` | Switch | No | False | Export only modified settings |
+    | `-Key` | String | No | None | Encrypting key for password |
+    | `-NoKey` | Switch | No | False | Suppress prompt for encryption key |
 
     **Examples:**
 
@@ -661,10 +661,10 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | ParameterSet | Description |
-    |-----------|------|----------|--------------|-------------|
-    | ConfigFile | String | Yes | CMD | Path to the configuration file |
-    | Settings | String[] | Yes | Intune | Array of settings to import |
-    | Key | String | No | Both | Decrypting key for encrypted password |
+    | --- | --- | --- | --- | --- |
+    | `-ConfigFile` | String | Yes | CMD | Path to the configuration file |
+    | `-Settings` | String[] | Yes | Intune | Array of settings to import |
+    | `-Key` | String | No | Both | Decrypting key for encrypted password |
 
     **Examples:**
 
@@ -712,8 +712,8 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
-    | Name | String | Yes | Name of the setting to retrieve |
+    | --- | --- | --- | --- |
+    | `-Name` | String | Yes | Name of the setting to retrieve |
 
     **Examples:**
 
@@ -755,9 +755,9 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
-    | Name | String | Yes | Name of the setting to change |
-    | Value | String | Yes | Value to set (validated against available options) |
+    | --- | --- | --- | --- |
+    | `-Name` | String | Yes | Name of the setting to change |
+    | `-Value` | String | Yes | Value to set (validated against available options) |
 
     **Examples:**
 
@@ -891,8 +891,8 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
-    | SuppressPrompt | Switch | No | Suppress password prompt |
+    | --- | --- | --- | --- |
+    | `-SuppressPrompt` | Switch | No | Suppress password prompt |
 
     **Examples:**
 
@@ -1017,9 +1017,9 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
-    | Method | String | Yes | The function request name |
-    | Value | String | Yes | Typically "Yes" to execute, "No" to cancel |
+    | --- | --- | --- | --- |
+    | `-Method` | String | Yes | The function request name |
+    | `-Value` | String | Yes | Typically "Yes" to execute, "No" to cancel |
 
     **Examples:**
 
@@ -1079,10 +1079,10 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
-    | FilePath | String | Yes | Path to the configuration file |
-    | PassFile | String | No | Path to password file |
-    | Key | String | No | Decryption key for password file |
+    | --- | --- | --- | --- |
+    | `-FilePath` | String | Yes | Path to the configuration file |
+    | `-PassFile` | String | No | Path to password file |
+    | `-Key` | String | No | Decryption key for password file |
 
     **Examples:**
 
@@ -1128,9 +1128,9 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
-    | ConfigFile | String | Yes | Path to configuration file |
-    | OutputPath | String | No | Destination for the package |
+    | --- | --- | --- | --- |
+    | `-ConfigFile` | String | Yes | Path to configuration file |
+    | `-OutputPath` | String | No | Destination for the package |
 
     **Examples:**
 
@@ -1168,10 +1168,10 @@ Show-LnvWmiSettings
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
-    | FilePath | String | Yes | Path to configuration file |
-    | KeyPhrase | String | No | Decryption key if file has encrypted password |
-    | Tagfile | String | No | Name for the tag file (without extension) |
+    | --- | --- | --- | --- |
+    | `-FilePath` | String | Yes | Path to configuration file |
+    | `-KeyPhrase` | String | No | Decryption key if file has encrypted password |
+    | `-Tagfile` | String | No | Name for the tag file (without extension) |
 
     **Examples:**
 
@@ -1267,7 +1267,7 @@ For issues or questions:
 - Check the logs in the configured log folder
 - Verify BIOS/firmware is up to date
 - Ensure WMI services are running
-- For additional support or questions, please visit Lenovo's [Enterprise Client Management Forum](https://forums.lenovo.com/t5/Enterprise-Management-Board/bd-p/sa01_eg)
+- For additional support or questions, please visit Lenovo's [Enterprise Client Management Forum](https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg)
 
 ---
 
