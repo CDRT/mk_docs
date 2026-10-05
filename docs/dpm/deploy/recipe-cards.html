@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1.2 Deployment Recipe Cards | Deploy, Patch &amp; Manage 2026 Edition</title>
+<meta name="description" content="Machine types, WQL queries and pack links for a model, on one page.">
+<meta name="theme-color" content="#E1251B">
+<link rel="preload" href="../assets/fonts/montserrat-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/binder.css">
+<script>(function(d){if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){d.classList.add('is-arriving');setTimeout(function(){d.classList.remove('is-arriving')},1200)}})(document.documentElement)</script>
+<script src="../assets/js/binder.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="binder">
+<main class="sheet" id="main" data-part="1">
+<header class="runhead">
+  <a class="runhead-brand" href="../index.html"><img src="../assets/img/lenovo-logo.png" width="736" height="245" alt="Lenovo"><span class="runhead-title">Deploy, Patch &amp; Manage &middot; 2026 Edition</span></a>
+  <a class="runhead-part" href="../deploy/index.html">Part 1 &middot; Deploy</a>
+</header>
+<article>
+<div class="folio page-head">
+  <div class="num" aria-hidden="true">1.2</div>
+  <h1>Deployment Recipe Cards</h1>
+  <p class="standfirst">Machine types, WQL queries and pack links for a selected model, on one page.</p>
+
+</div>
+<div class="folio body">
+<section class="inventory" aria-label="Inventory">
+  <h2>Inventory</h2>
+  <dl>
+    <dt>What it is</dt>
+    <dd>A single page with the key deployment details for one model and one operating system.</dd>
+    <dt>Format</dt>
+    <dd>Generated live in the browser when you pick a model and OS. Can print it or save it as PDF.</dd>
+    <dt>Get there</dt>
+    <dd>From the <a href="../deploy/deployment-portal.html">Enterprise Deployment Solutions portal</a> (<a class="ext" href="https://bit.ly/LNVTDRC">bit.ly/LNVTDRC</a>).</dd>
+  </dl>
+</section>
+
+<div class="num h2-num" aria-hidden="true">1.2.1</div>
+<h2 id="why-recipe-cards"><span class="h2-inline-num" aria-hidden="true">1.2.1</span>One page per model<a class="anchor" href="#why-recipe-cards" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<p>Every new model in your fleet needs the same handful of details before it can join a deployment: how to identify it, how to target it, and which packs it needs. Recipe Cards put all of it on a single page, so there is no hunting across support pages.</p>
+
+<figure>
+  <img src="../assets/img/deployment-recipe-cards.png" width="981" height="905" alt="A Deployment Recipe Card showing machine types, WQL queries, driver pack links and HSA pack links for one model." loading="lazy">
+  <figcaption><b>Figure 1.2</b>A Recipe Card, generated for a model and operating system.</figcaption>
+</figure>
+
+<div class="num h2-num" aria-hidden="true">1.2.2</div>
+<h2 id="what-a-card-contains"><span class="h2-inline-num" aria-hidden="true">1.2.2</span>What a card contains<a class="anchor" href="#what-a-card-contains" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<ul>
+  <li>The machine types for the model.</li>
+  <li>WQL queries for targeting the model in Configuration Manager and Intune.</li>
+  <li>Driver Pack links for the target OS build.</li>
+  <li>HSA Pack links and additional software.</li>
+  <li>Special instructions, when a model needs them.</li>
+</ul>
+
+<div class="num h2-num" aria-hidden="true">1.2.3</div>
+<h2 id="generated-not-downloaded"><span class="h2-inline-num" aria-hidden="true">1.2.3</span>Generated, not downloaded<a class="anchor" href="#generated-not-downloaded" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<p>Cards are now generated dynamically: pick the model and the OS and the page builds itself. Downloadable PDFs are no longer produced for new models. Archived PDFs remain available for older ones.</p>
+<p>To look up the same driver pack and HSA pack details from a script, use <code>Find-LnvDriverPack</code> and <code>Find-LnvHSAPack</code> in <a href="../manage/lenovo-client-scripting.html">Lenovo.Client.Scripting</a>.</p>
+
+<section class="sources" aria-labelledby="sources">
+  <h2 id="sources" data-plain>Sources</h2>
+  <ol>
+    <li><a class="ext" href="https://docs.lenovocdrt.com/guides/lcsm/lcsm_top/">Lenovo Client Scripting Module guide</a></li>
+  </ol>
+</section>
+
+</div>
+</article>
+<nav class="turn" aria-label="Page turn"><a class="prev" href="../deploy/deployment-portal.html" style="--part-of-link: var(--part-1)"><span class="turn-dir"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span><span class="turn-title"><span class="n">1.1</span>Enterprise Deployment Solutions portal</span></a><a class="next" href="../deploy/driver-and-hsa-packs.html" style="--part-of-link: var(--part-1)"><span class="turn-dir">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="turn-title"><span class="n">1.3</span>Hardware Driver Packs and HSA Packs</span></a></nav>
+<footer class="colophon">
+  <p class="lockup"><img src="../assets/img/lenovo-logo.png" width="736" height="245" alt="Lenovo"><span class="tagline">Smarter technology for all</span></p>
+  <p>Lenovo Commercial Deployment Readiness Team &middot; 2026 Edition</p>
+  <p>&copy; 2026 Lenovo. All rights reserved.</p>
+</footer>
+</main>
+<nav class="tabs" aria-label="Parts">
+  <ol>
+    <li><a class="tab" data-part="1" style="--part: var(--part-1)" href="../deploy/index.html" aria-current="true"><span class="tab-num">1</span> <span class="tab-name">Deploy</span></a></li>
+    <li><a class="tab" data-part="2" style="--part: var(--part-2)" href="../patch/index.html"><span class="tab-num">2</span> <span class="tab-name">Patch</span></a></li>
+    <li><a class="tab" data-part="3" style="--part: var(--part-3)" href="../manage/index.html"><span class="tab-num">3</span> <span class="tab-name">Manage</span></a></li>
+    <li><a class="tab" data-part="4" style="--part: var(--part-4)" href="../reference/index.html"><span class="tab-num">4</span> <span class="tab-name">Reference</span></a></li>
+  </ol>
+</nav>
+</div>
+</body>
+</html>

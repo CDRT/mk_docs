@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.3 Windows Update for Business | Deploy, Patch &amp; Manage 2026 Edition</title>
+<meta name="description" content="Lenovo drivers and BIOS through Intune driver update policies.">
+<meta name="theme-color" content="#E1251B">
+<link rel="preload" href="../assets/fonts/montserrat-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/binder.css">
+<script>(function(d){if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){d.classList.add('is-arriving');setTimeout(function(){d.classList.remove('is-arriving')},1200)}})(document.documentElement)</script>
+<script src="../assets/js/binder.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="binder">
+<main class="sheet" id="main" data-part="2">
+<header class="runhead">
+  <a class="runhead-brand" href="../index.html"><img src="../assets/img/lenovo-logo.png" width="736" height="245" alt="Lenovo"><span class="runhead-title">Deploy, Patch &amp; Manage &middot; 2026 Edition</span></a>
+  <a class="runhead-part" href="../patch/index.html">Part 2 &middot; Patch</a>
+</header>
+<article>
+<div class="folio page-head">
+  <div class="num" aria-hidden="true">2.3</div>
+  <h1>Windows Update for Business</h1>
+  <p class="standfirst">Lenovo drivers and BIOS through Intune driver update policies.</p>
+
+</div>
+<div class="folio body">
+<section class="inventory" aria-label="Inventory">
+  <h2>Inventory</h2>
+  <dl>
+    <dt>What it is</dt>
+    <dd>Per-update approval of drivers and firmware through Intune driver update policies, offered by Microsoft since 2021.</dd>
+    <dt>Lenovo content</dt>
+    <dd>Lenovo has submitted all driver and BIOS updates to Windows Update since 2018.</dd>
+    <dt>Not available</dt>
+    <dd>Some component firmware, and all dock firmware.</dd>
+    <dt>Time to reach devices</dt>
+    <dd>Gradual rollout of up to 30 to 45 days.</dd>
+    <dt>Guide</dt>
+    <dd><a class="ext" href="https://learn.microsoft.com/en-us/intune/device-updates/windows/manage-driver-updates">Microsoft Learn: manage driver updates</a></dd>
+  </dl>
+</section>
+
+<div class="num h2-num" aria-hidden="true">2.3.1</div>
+<h2 id="how-approval-works"><span class="h2-inline-num" aria-hidden="true">2.3.1</span>How approval works<a class="anchor" href="#how-approval-works" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<p>An Intune driver update policy shows the drivers and firmware applicable to the devices it targets. Admins review the list and approve the updates they want deployed, or let recommended drivers flow automatically.</p>
+
+<figure>
+  <img src="../assets/img/windows-update-for-business.png" width="1753" height="991" alt="The Microsoft Intune admin center showing a manual approval driver update policy for ThinkPad devices, with recommended drivers from Realtek and Lenovo listed by name, version and manufacturer." loading="lazy">
+  <figcaption><b>Figure 2.3</b>A manual-approval driver update policy for ThinkPad devices in the Intune admin center.</figcaption>
+</figure>
+
+<div class="num h2-num" aria-hidden="true">2.3.2</div>
+<h2 id="rollout"><span class="h2-inline-num" aria-hidden="true">2.3.2</span>The rollout timeline<a class="anchor" href="#rollout" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<p>An update does not reach every device the day Lenovo submits it. Microsoft verifies and publishes it, then rolls it out gradually:</p>
+<ol class="rollout">
+  <li><b>Start</b><span>Lenovo publishes the update to our support site.</span></li>
+  <li><b>&le; 14 days</b><span>Lenovo submits ship label in Microsoft Partner Center</span></li>
+  <li><b>&le; 14 days</b><span>Microsoft verifies the submission</span></li>
+  <li><b>30 days</b><span>Gradual rollout, then offered to all devices</span></li>
+</ol>
+
+<div class="num h2-num" aria-hidden="true">2.3.3</div>
+<h2 id="trade-offs"><span class="h2-inline-num" aria-hidden="true">2.3.3</span>Trade-offs<a class="anchor" href="#trade-offs" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<ul>
+  <li>Some component firmware and all dock firmware are not available through Windows Update.</li>
+  <li>The limited per-update detail can make approval decisions difficult. <code>Get-LnvWUFriendlyName</code> in <a href="../manage/lenovo-client-scripting.html">Lenovo.Client.Scripting</a> lists what Windows Update installed on a device with friendly names, versions and install dates. Additionally, there is no way for Lenovo to trace the actual update applied by Windows Update back to our submission.</li>
+  <li>Environments that need immediate deployment, such as for a security vulnerability, are better served by <a href="../patch/commercial-vantage.html">Commercial Vantage</a> or <a href="../manage/lenovo-client-update.html">Lenovo.Client.Update</a>.</li>
+</ul>
+
+<section class="sources" aria-labelledby="sources">
+  <h2 id="sources" data-plain>Sources</h2>
+  <ol>
+    <li><a class="ext" href="https://learn.microsoft.com/en-us/intune/device-updates/windows/manage-driver-updates">Microsoft Learn: manage driver updates</a></li>
+    <li><a class="ext" href="https://docs.lenovocdrt.com/guides/lcsm/lcsm_top/">Lenovo Client Scripting Module guide</a></li>
+  </ol>
+</section>
+
+</div>
+</article>
+<nav class="turn" aria-label="Page turn"><a class="prev" href="../patch/updates-catalog.html" style="--part-of-link: var(--part-2)"><span class="turn-dir"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span><span class="turn-title"><span class="n">2.2</span>Lenovo Updates Catalog</span></a><a class="next" href="../manage/index.html" style="--part-of-link: var(--part-3)"><span class="turn-dir">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="turn-title">Part 3: Manage</span></a></nav>
+<footer class="colophon">
+  <p class="lockup"><img src="../assets/img/lenovo-logo.png" width="736" height="245" alt="Lenovo"><span class="tagline">Smarter technology for all</span></p>
+  <p>Lenovo Commercial Deployment Readiness Team &middot; 2026 Edition</p>
+  <p>&copy; 2026 Lenovo. All rights reserved.</p>
+</footer>
+</main>
+<nav class="tabs" aria-label="Parts">
+  <ol>
+    <li><a class="tab" data-part="1" style="--part: var(--part-1)" href="../deploy/index.html"><span class="tab-num">1</span> <span class="tab-name">Deploy</span></a></li>
+    <li><a class="tab" data-part="2" style="--part: var(--part-2)" href="../patch/index.html" aria-current="true"><span class="tab-num">2</span> <span class="tab-name">Patch</span></a></li>
+    <li><a class="tab" data-part="3" style="--part: var(--part-3)" href="../manage/index.html"><span class="tab-num">3</span> <span class="tab-name">Manage</span></a></li>
+    <li><a class="tab" data-part="4" style="--part: var(--part-4)" href="../reference/index.html"><span class="tab-num">4</span> <span class="tab-name">Reference</span></a></li>
+  </ol>
+</nav>
+</div>
+</body>
+</html>
