@@ -6,9 +6,12 @@
 
 Select top priority of the Boot Priority Order when waking from LAN.
 
+!!! warning "Attention"
+    `LENOVO CLOUD` and `ON-PREMISE` may not be available on all models.
+
 Possible options:
 
-1. **PXE BOOT** – Default
+1. **PXE BOOT** – Default.
 2. USB CD
 3. USB FDD
 4. NVMe0
@@ -17,9 +20,6 @@ Possible options:
 7. ON-PREMISE
 8. Other CD
 9. Other HDD
-
-!!! warning "Attention"
-    `LENOVO CLOUD` and `ON-PREMISE` may not be available on all models.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -31,8 +31,8 @@ When to display the diagnostic splash screen.
 
 Possible options:
 
-1. **Quick** – only when the user presses `Esc` during boot. Default.
-2. Diagnostics – always displays during boot.
+1. **Quick** – Default. Displays only when the user presses `Esc` during boot.
+2. Diagnostics – Always displays during boot.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -77,8 +77,8 @@ Prevent other software from altering the Boot Order when it is enabled.
 
 Possible options:
 
-1. On
-2. **Off** – Default.
+1. **Off** – Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -98,6 +98,8 @@ The ordered list of currently defined boot priority order.
     - 'Shift + 1' enables or disables a device.
     - 'Delete' deletes an unprotected device.
 
+    `LENOVO CLOUD` and `ON-PREMISE` may not be available on all models.
+
 Possible items on the list:
 
 1. Windows Boot Manager
@@ -113,9 +115,6 @@ Possible items on the list:
 
 7. LENOVO CLOUD
 8. ON-PREMISE
-
-!!! warning "Attention"
-    `LENOVO CLOUD` and `ON-PREMISE` may not be available on all models.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |

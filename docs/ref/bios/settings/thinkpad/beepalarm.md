@@ -27,4 +27,4 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| KeyboardBeep | Disable, Enable | Yes | Both |
+| KeyboardBeep | Enable, Disable | Yes | Both |

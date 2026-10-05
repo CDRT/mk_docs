@@ -28,8 +28,8 @@ This option enables or disables USB key provisioning.
 
 Possible options:
 
-1. Enabled
-2. **Disabled** – Default.
+1. **Disabled** – Default.
+2. Enabled
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -44,7 +44,7 @@ Define timeout for Client Initiated Remote Access connection to be established.
 
 Possible options:
 
-1. **0** – use the default timeout of 60 seconds. Default.
+1. **0** – Default. Use the default timeout of 60 seconds.
 2. 1 – 255
 
 ### **Console Type**

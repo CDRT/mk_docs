@@ -29,7 +29,7 @@ Can be changed.
 
 Possible options:
 
-1. Current date
+1. Current time
 2. HH : MM : SS
 
     a. HH - Hour: 00 ~ 23

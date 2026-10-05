@@ -89,7 +89,7 @@ Possible options:
 If selected, Internal Storage (HDD/SSD) will be included in the deletion.
 
 !!! warning "Attention"
-    ThinkShield secure wipe > ThinkShield secure wipe in App Menu is disabled. To delete Interna; Storage (HDD/SSD) data, please enable it first.
+    ThinkShield secure wipe > ThinkShield secure wipe in App Menu is disabled. To delete Internal Storage (HDD/SSD) data, please enable it first.
 
 Possible options:
 
@@ -113,7 +113,7 @@ Possible options:
 
 ### **Reset System Factory Defaults**
 
-This option is used clear all the data stored in UEFI system. It does not affect the SSD storage data. After selecting this item, the system will automatically reboot and reset to factory default settings.
+This option is used to clear all the data stored in UEFI system. It does not affect the SSD storage data. After selecting this item, the system will automatically reboot and reset to factory default settings.
 
 !!! warning "Attention"
     System will be reboot, permanently clear all stored data, and reset to factory default settings. Absolute Persistence Module Permanent Disabled and Intel AMT Control Permanent Disabled settings will not reset.

@@ -24,7 +24,7 @@ Possible options:
 Whether to enable USB Key Provisioning.
 
 !!! warning "Attention"
-    Active only when ‘Intel (R) ATM Control’ has value ‘Enabled’.
+    Active only when ‘Intel (R) AMT Control’ has value ‘Enabled’.
 
 Possible options:
 
@@ -41,8 +41,8 @@ Define timeout for Client Initiated Remote Access connection to be established.
 
 Possible options:
 
-1. **0** - use the default timeout of 60 seconds. Default.
-2. 255 - wait until the connection succeeds.
+1. **0** - Default. Use the default timeout of 60 seconds.
+2. 255 - Wait until the connection succeeds.
 
 ### **Console Type**
 
@@ -53,7 +53,7 @@ Select console type.
 
 Possible options:
 
-1. **VT100+** - Adds function keys F5 to F14. Default.
+1. **VT100+** - Default. Adds function keys F5 to F14.
 2. VT100
-3. VT-UTF8 - Adds function key F8
+3. VT-UTF8 - Adds function key F8.
 4. PC ANSI

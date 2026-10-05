@@ -4,7 +4,7 @@
 
 ### **Intel (R) SpeedStep Technology**
 
-Whether to switch on Intel (R) SteedStep Technology at runtime.
+Whether to switch on Intel (R) SpeedStep Technology at runtime.
 
 Possible options:
 
@@ -24,7 +24,7 @@ Select thermal management scheme.
 
 Possible options:
 
-1. **Maximize Performance** - reduces CPU throttling. Default.
+1. **Maximize Performance** - Default. Reduces CPU throttling.
 2. Balanced - balanced sound, temperature, and performance.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -40,12 +40,12 @@ Select thermal management scheme.
 
 Possible options:
 
-1. Maximize Performance - reduces CPU throttling.
-2. **Balanced** - balanced sound, temperature, and performance. Default.
+1. **Balanced** - Default. Balanced sound, temperature, and performance.
+2. Maximize Performance - reduces CPU throttling.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| AdaptiveThermalManagementBattery | MaximizePerformance, Balanced | No | Both |
+| AdaptiveThermalManagementBattery | Balanced, MaximizePerformance | No | Both |
 
 ### **Intelligent Cooling Boost**
 
@@ -59,7 +59,7 @@ Whether to improve power efficiency by limiting system power based on the select
 Possible options:
 
 1. **On** - Default.
-2. Off.
+2. Off
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -90,8 +90,8 @@ Whether to power on the system when AC is attached.
 
 Possible options:
 
-1. Enabled
-2. **Disabled** - Default.
+1. **Disabled** - Default.
+2. Enabled
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -121,9 +121,8 @@ Possible options:
 
 Temporarily disables the battery to service the system.
 
-This option requires additional confirmation.
-
 !!! warning "Attention"
+    - This option requires additional confirmation.
     - After selecting this item, the system will be automatically powered off, ready to be serviced.
     - The battery will be automatically enabled when the AC adapter is reconnected.
 
@@ -138,7 +137,7 @@ Define when the system will turn on automatically.
 
 Possible options:
 
-1. **Disabled** - the system will not turn on automatically. Default.
+1. **Disabled** - Default. The system will not turn on automatically.
 2. Single Event - the system will turn on one-time on the specified day and time.
 3. Daily Event - the system will turn on every day at the specified time.
 4. Weekly Event - the system will turn on every week on the specified day and time.
@@ -146,7 +145,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| WakeUponAlarm | Disable, UserDefined, WeeklyEvent, DailyEvent, SingleEvent | Yes | Both |
+| WakeUponAlarm | Disable, SingleEvent, DailyEvent, WeeklyEvent, UserDefined | Yes | Both |
 
 ### **Alarm Date (MM/DD/YYYY)**
 
@@ -183,7 +182,7 @@ Select the exact time for the system to turn on.
 
 Possible options:
 
-1. **N/A** – Default
+1. **N/A** – Default.
 2. HH : MM : SS
 
     a. HH - Hour: 00 ~ 23
@@ -205,7 +204,7 @@ Select the exact day for the system to turn on.
 
 Possible options:
 
-1. **N/A** – Default
+1. **N/A** – Default.
 2. Sunday
 3. Monday
 4. Tuesday

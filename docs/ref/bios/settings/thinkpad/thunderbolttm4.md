@@ -8,7 +8,7 @@ Whether to enable PCIe (peripheral component interconnect express) Tunneling.
     - Some Thunderbolt devices, such as external GPUs and storage drives, may not work properly.
     - The USB functions of USB4 based devices that are Thunderbolt 4 certified may still work.
 
-Possible states:
+Possible options:
 
 1. **On** - Default.
 2. Off
