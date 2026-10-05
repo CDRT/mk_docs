@@ -9,7 +9,7 @@ Controls the wake up event from onboard LAN and PCI LAN.
 Possible options:
 
 1. **Enabled** - Default.
-2. Disabled - disables Wake on LAN.
+2. Disabled - Disables Wake on LAN.
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
@@ -21,8 +21,9 @@ Select whether to enable Wake from Serial Port Ring.
 
 Possible options:
 
-1. **Enabled** - Default.
-2. Disabled
+1. **Primary** - Default.
+2. Automatic
+3. Disabled
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
@@ -41,7 +42,7 @@ A single wake up event, or series of alarm events, can also be defined.
 Possible options:
 
 1. **Disabled** - Default.
-2. User Defined - a series of alarm events.
+2. User Defined - A series of alarm events.
 3. Single Event
 4. Daily Event
 5. Weekly Event
@@ -52,8 +53,8 @@ Select the startup sequence after a Wake Up on Alarm event.
 
 Possible options:
 
-1. **Primary** - enables primary startup sequence. Default.
-2. Automatic - disables automatic selection of startup sequence.
+1. **Primary** - Default. Enables primary startup sequence.
+2. Automatic - Disables automatic selection of startup sequence.
 3. Boot Order
 4. Network Group
 5. Storage Group
@@ -114,8 +115,8 @@ Select the day(s) of the week when the system is to wake up. Each {Weekday} (Sun
 
 Possible options:
 
-1. **Disabled** - disables wake-up. Default.
-2. Enabled - enables wake-up.
+1. **Disabled** - Default. Disables wake-up.
+2. Enabled - Enables wake-up.
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
@@ -124,6 +125,6 @@ Possible options:
 !!! warning "Attention"
     The WMI setting name for the wake-up timer week shown here is for Friday. For the other weekdays, replace `Friday` with the weekday's name.
 
-## User Defined Alarm Time (HH : MM : SS)
+### **User Defined Alarm Time (HH : MM : SS)**
 
 Specify the time when the system is to wake up.

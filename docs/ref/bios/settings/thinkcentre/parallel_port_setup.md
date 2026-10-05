@@ -4,9 +4,9 @@
 
 Possible options:
 
-1. **378** - enables logical parallel port 378. Default.
-2. 278 - enables logical parallel port 278.
-3. Disabled - disables the parallel port. The parallel port will not be seen by the OS.
+1. **378** - Enables logical parallel port 378. Default.
+2. 278 - Enables logical parallel port 278.
+3. Disabled - Disables the parallel port. The parallel port will not be seen by the OS.
 
 ### **Parallel Port Mode**
 
@@ -27,8 +27,8 @@ Version of the EPP (Enhanced Parallel Port) standard used.
 
 Possible options:
 
-1. **1.9** - enables version 1.9. Default.
-2. 1.7 - enables version 1.7.
+1. **1.9** - Enables version 1.9. Default.
+2. 1.7 - Enables version 1.7.
 
 ### **ECP Mode DMA Channel**
 
@@ -45,5 +45,5 @@ Settings for the IRQ (Interrupt Request) line.
 
 Possible options:
 
-1. **IRQ7** - enables interrupt line 7. Default.
-2. IRQ 5 - enables interrupt line 5.
+1. **IRQ7** - Enables interrupt line 7. Default.
+2. IRQ5 - Enables interrupt line 5.

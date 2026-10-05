@@ -14,7 +14,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| OnboardEthernetController | Disabled, Enabled | Yes |
+| OnboardEthernetController | Enabled, Disabled | Yes |
 
 ### **Wireless LAN Access**
 
@@ -27,7 +27,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| WirelessLANAccess | Disabled, Enabled | Yes |
+| WirelessLANAccess | Enabled, Disabled | Yes |
 
 ### **Wireless LAN PXE boot**
 
@@ -135,8 +135,8 @@ Press `Enter` to input a label for the newly created URL and it will be displaye
 
 Possible options:
 
-1. **Ipv4** - enables IPV4. Default.
-2. Ipv6 - enables IPV6.
+1. **Ipv4** - Enables IPV4. Default.
+2. Ipv6 - Enables IPV6.
 
 ### **Boot URL**
 

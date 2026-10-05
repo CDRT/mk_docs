@@ -17,8 +17,8 @@ Possible options:
 Possible options:
 
 1. 1 Second
-2. 2 Second
-3. 3 Second
-4. 4 Second
-5. 5 Second
-6. 6 Second
+2. 2 Seconds
+3. 3 Seconds
+4. 4 Seconds
+5. 5 Seconds
+6. 6 Seconds

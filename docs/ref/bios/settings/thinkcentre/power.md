@@ -5,17 +5,17 @@
 Whether the system will stay on after AC power is removed and then restored.
 
 !!! warning "Attention"
-    Select `Power on` if you use a power strip to turn the system on.
+    Select `Power On` if you use a power strip to turn the system on.
 
 Possible options:
 
-1. **Last State** - return to the previous state. Default.
-2. Power Off - remain off.
-3. Power On - turn on.
+1. **Last State** - Return to the previous state. Default.
+2. Power Off - Remain off.
+3. Power On - Turn on.
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| AfterPowerLoss | Power Off, Power On, Last State | Yes |
+| AfterPowerLoss | Last State, Power Off, Power On | Yes |
 
 ### **Enhanced Power Saving Mode**
 
@@ -40,7 +40,7 @@ When enabled, the user can use `Alt+P` to power on if a USB keyboard is plugged 
 Possible options:
 
 1. **Enabled** - Default.
-2. Disabled - disables Smart Power On.
+2. Disabled - Disables Smart Power On.
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |

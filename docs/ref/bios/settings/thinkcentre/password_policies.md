@@ -6,11 +6,6 @@
 
 ### **Set Minimum Length**
 
-Possible options:
-
-1. **Disabled** - no minimum (see below). Default.
-2. 4 - 12 characters minimum.
-
 !!! warning "Attention"
     - If no minimum is set, passwords may be 1 to 128 characters long.
     - If a minimum is set, it applies to:
@@ -18,6 +13,11 @@ Possible options:
         - System Management Password (SMP)
         - Power-on (POP) and Hard Disk Passwords
     - If both `Set Minimum Length` and `Set Strong Password` are enabled, the longest value for minimum length applies.
+
+Possible options:
+
+1. **Disabled** - No minimum (see above). Default.
+2. 4 - 12 characters minimum.
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
@@ -32,7 +32,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| SetStrongPassword | Disabled, Enabled | Yes |
+| SetStrongPassword | Enabled, Disabled | Yes |
 
 ### **Keyboard Layout**
 
@@ -48,7 +48,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| KeyboardLayout | English, French, German, Russai, Chinese | Yes |
+| KeyboardLayout | English, French, German, Russian, Chinese | Yes |
 
 ### **BIOS Password At System Boot**
 
@@ -64,7 +64,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| BIOSPasswordAtSystemBoot | No, Yes | Yes |
+| BIOSPasswordAtSystemBoot | Yes, No | Yes |
 
 ### **BIOS Password At Reboot**
 
@@ -116,7 +116,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| POPChangeablebyUser | No, Yes | Yes |
+| POPChangeablebyUser | Yes, No | Yes |
 
 ### **Allow the Jumper to Clear SVP**
 
@@ -132,7 +132,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| AllowJumperClearSVP | No, Yes | Yes |
+| AllowJumperClearSVP | Yes, No | Yes |
 
 ### **Password Count Exceeded Error**
 
@@ -145,6 +145,6 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| PasswordCountExceededError | Disabled, Enabled | Yes |
+| PasswordCountExceededError | Enabled, Disabled | Yes |
 
 [More information at Lenovo Support](https://support.lenovo.com/lt/en/solutions/ht052093-error-0199-system-security-security-password-retry-count-exceeded-thinkcentre-m90-m90p-thinkserver-ts200v-thinkstation-e20)

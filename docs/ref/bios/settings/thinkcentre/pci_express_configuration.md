@@ -15,7 +15,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| ASPMSupport | Auto, Disabled | Yes |
+| ASPMSupport | Auto, Disable | Yes |
 
 ## Select PCI Express port speed
 

@@ -11,7 +11,7 @@ Possible options:
 | :--- | :--- | :--- |
 | USBPortAccess | Disabled, Enabled | Yes |
 
-### **USB Bios Support**
+### **USB BIOS Support**
 
 BIOS support for USB mouse and keyboard.
 

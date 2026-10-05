@@ -16,7 +16,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| SelectActiveVideo | IGD, [PEG], Auto | Yes |
+| SelectActiveVideo | Auto, IGD, PEG | Yes |
 
 ### **Pre-Allocated Memory Size**
 

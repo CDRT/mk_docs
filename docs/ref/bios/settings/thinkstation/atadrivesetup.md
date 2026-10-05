@@ -23,7 +23,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| SATAController | Disabled, Enabled | Yes | Both |
+| SATAController | Enabled, Disabled | Yes | Both |
 
 ### **SATA Drive {X}**
 
