@@ -23,7 +23,7 @@ The script resolves the `Lenovo.Client.RepositoryManager` module automatically i
 2. Installed from the PowerShell Gallery (requires internet access and NuGet provider)
 3. Bundled copy in the same folder as the script
 
-For local manual installation, download the [script and module from here](https://download.lenovo.com/cdrt/tools/Lenovo.Client.RepositoryManager_1.0.2.zip).
+For local manual installation, download the [script and module package](https://download.lenovo.com/cdrt/tools/Lenovo.Client.RepositoryManager_1.0.2.zip).
 
 To install the module manually from the PowerShell Gallery:
 
@@ -115,7 +115,7 @@ To find a Machine Type code, check the system label on the device and take the f
 The **DOWNLOAD METHOD** toggle at the bottom of Settings controls how package files are transferred:
 
 - **WebClient** (default) - Direct HTTP download. Faster in most environments with stable connectivity.
-- **BITS** - Background Intelligent Transfer Service. Transfers resume after network interruptions and run at low priority in the background. Prefer BITS in environments where downloads may be interrupted or when bandwidth throttling is needed or when cacheing is implemented.
+- **BITS** - Background Intelligent Transfer Service. Transfers resume after network interruptions and run at low priority in the background. Prefer BITS in environments where downloads may be interrupted or when bandwidth throttling is needed or when caching is implemented.
 
 This setting persists across sessions.
 
@@ -136,7 +136,7 @@ The tool fetches catalog XML files for each applicable model in parallel, then d
 ### Search Results Grid
 
 | Column | Description |
-| -------- | ------------- |
+| --- | --- |
 | Title | Package display name. Hover for full text if truncated. |
 | Version | Package version string |
 | Type | Application, Driver, BIOS, or Firmware |
@@ -188,7 +188,7 @@ Click **Refresh** to reload the repository contents from disk.
 ### Repository Grid
 
 | Column | Description |
-| -------- | ------------- |
+| --- | --- |
 | Title | Package description. Hover for full text if truncated. |
 | Package ID | Unique package identifier (used with cmdlets) |
 | Version | Package version |
