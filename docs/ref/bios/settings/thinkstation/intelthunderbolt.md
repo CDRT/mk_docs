@@ -6,8 +6,8 @@ Cable standard combining data, video, and power.
 
 Possible options:
 
-1. Enabled – Intel(R) Thunderbolt technology is enabled.
-2. **Disabled** – Default.
+1. **Disabled** – Default.
+2. Enabled – Intel(R) Thunderbolt technology is enabled.
 
 More information at Intel.com and Intel websites: [Thunderbolt Technology](https://www.intel.com/content/www/us/en/architecture-and-technology/thunderbolt/overview.html), [Thunderbolt Technology for Developers](https://www.intel.com/content/www/us/en/architecture-and-technology/thunderbolt/thunderbolt-technology-developer.html), [Thunderbolt Solution Briefs](https://www.thunderbolttechnology.net/tech).
 
@@ -17,7 +17,10 @@ More information at Intel.com and Intel websites: [Thunderbolt Technology](https
 
 ### **Security Level**
 
-Whether to require user confirmation of connections, and for which devices. These settings are not exposed through WMI.
+Whether to require user confirmation of connections, and for which devices.
+
+!!! warning "Attention"
+    These settings are not exposed through WMI.
 
 Possible options:
 

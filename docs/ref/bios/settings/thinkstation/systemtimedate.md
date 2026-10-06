@@ -8,7 +8,7 @@ Use arrow keys to switch between time fields.
 
 Possible options:
 
-1. **Currently set date**
+1. **Currently set time**
 2. HH : MM : SS
 
     a. HH - Hour: 00 ~ 23

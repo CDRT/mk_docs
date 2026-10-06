@@ -20,8 +20,8 @@ For each drive it is possible to define a separate password, or leave a drive wi
 
 Possible options:
 
-1. Enabled – HDP (single or dual) is installed.
-2. **Disabled** – HDP is not installed. Default.
+1. **Disabled** – Default. HDP is not installed.
+2. Enabled – HDP (single or dual) is installed.
 
 Additional choice of the password type:
 
@@ -63,13 +63,13 @@ Whether HDP is required when the Hard Disk is in lock status, and system starts 
 
 Possible options:
 
-1. **Auto** – HDP required. Default.
+1. **Auto** – Default. HDP required.
 2. Power On
 3. No – HDP will not be required.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| RequireHDPonSystemBoot | No, Power On, Auto | Yes | Both |
+| RequireHDPonSystemBoot | Auto, Power On, No | Yes | Both |
 
 ### **Block SID Authentication**
 

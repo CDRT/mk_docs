@@ -13,12 +13,12 @@ Enable or disable onboard audio controller.
 
 Possible options:
 
-1. **Enabled**. Default.
+1. **Enabled** - Default.
 2. Disabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| OnboardAudioController | Disabled, Enabled | Yes | Intel |
+| OnboardAudioController | Enabled, Disabled | Yes | Intel |
 
 ### **Internal Speaker**
 
@@ -34,7 +34,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| InternalSpeaker | Disabled, Enabled | Yes | Both |
+| InternalSpeaker | Enabled, Disabled | Yes | Both |
 
 ### **Post Beep**
 
@@ -69,4 +69,4 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| RearAudioController | Disable, Enable | Yes | AMD |
+| RearAudioController | Enable, Disable | Yes | AMD |

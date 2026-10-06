@@ -26,7 +26,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| SecureBoot | Disabled, Enabled | Yes | Both |
+| SecureBoot | Enabled, Disabled | Yes | Both |
 
 ### **Restore Factory Keys**
 

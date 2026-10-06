@@ -31,7 +31,7 @@ Select the first boot device from the designated group:
 
 Possible options:
 
-1. **Disabled** – system will try to boot from all the devices in the group. Default.
+1. **Disabled** – Default. System will try to boot from all the devices in the group.
 2. Other options will show the relevant list of devices in the group depending on the selected item in `First Boot Device`: `Network`, `SATA Drive`, `M.2 Drive` or `PCIE`.
 
 ### **USB Boot Support**
@@ -51,8 +51,8 @@ Whether keys on the keypad will act as numeric keys.
 
 Possible options:
 
-1. **On** – numeric keys. Default.
-2. Off – cursor keys.
+1. **On** – Default. Keys act as numeric keys.
+2. Off – Keys act as cursor keys.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -72,7 +72,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| FastBoot | Disabled, Enabled | Yes | Intel |
+| FastBoot | Enabled, Disabled | Yes | Intel |
 
 ### **Option Keys Display**
 
@@ -103,7 +103,7 @@ Possible options:
 2. Legacy – prompt for F1 and F12.
 
 <!-- | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
-|:---|:---|:---|:---|
+| :--- | :--- | :--- | :--- |
 | OptionKeysDisplayStyle | Normal, Legacy | Yes | Both | -->
 
 ### **Primary Boot Sequence**

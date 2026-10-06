@@ -9,7 +9,7 @@
 - Removed "Require POP on System Boot": duplicated "BIOS Password At System Boot" below it, but with broken line-wrapped text, a "form"/"from" typo, and a WMI Setting name ("RequireSVPwhenFlashing") that was already claimed by the separate "Require SVP when Flashing" setting above it. Kept the cleaner "BIOS Password At System Boot" version instead.
 -->
 
-## **Supervisor Password**
+### **Supervisor Password**
 
 The supervisor password (SVP) protects the system information stored in UEFI BIOS.
 
@@ -71,7 +71,7 @@ Parameters:
 2. `Confirm New Password`
 3. < Actions >:
 
-    a. **Save** – Default
+    a. **Save** – Default.
 
     b. Cancel
 
@@ -88,7 +88,7 @@ Parameters:
 2. `Confirm New Password`
 3. < Actions >:
 
-    a. **Save** – Default
+    a. **Save** – Default.
 
     b. Cancel
 
@@ -105,7 +105,7 @@ Parameters:
 2. `Confirm New Password`
 3. < Actions >:
 
-    a. **Save** – Default
+    a. **Save** – Default.
 
     b. Cancel
 
@@ -113,12 +113,12 @@ Parameters:
 
 Possible options:
 
-1. **Enabled** – allow Windows UEFI firmware update. Default.
+1. **Enabled** – Default. Allow Windows UEFI firmware update.
 2. Disabled – BIOS will skip Windows UEFI firmware update.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| WindowsUEFIFirmwareUpdate | Disabled, Enabled | Yes | Both |
+| WindowsUEFIFirmwareUpdate | Enabled, Disabled | Yes | Both |
 
 ### **BIOS Self-healing**
 
@@ -177,9 +177,9 @@ Smart USB Protection blocks copying data from the computer to the USB storage de
 
 Possible options:
 
-1. **Disabled** – the user can copy data from and to USB storage device. Default.
-2. Read Only – the user can copy data from USB storage device to the Computer but not from the computer to USB storage device.
-3. No Access – the user cannot use USB storage device in OS.
+1. **Disabled** – Default. The user can copy data from and to USB storage device.
+2. Read Only – The user can copy data from USB storage device to the Computer but not from the computer to USB storage device.
+3. No Access – The user cannot use USB storage device in OS.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -191,8 +191,8 @@ Whether to display the `secure wipe` option on the F12 BIOS Startup Menu. Users 
 
 Possible options:
 
-1. Enabled
-2. **Disabled** – Default.
+1. **Disabled** – Default.
+2. Enabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -223,7 +223,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| AbsolutePersistenceModule | Disabled, Enabled | Yes | Both |
+| AbsolutePersistenceModule | Enabled, Disabled | Yes | Both |
 
 ### **Device Guard**
 
@@ -231,7 +231,7 @@ Device Guard enables PCs to be protected against malware by introducing a collec
 
 Possible options:
 
-1. **Disabled** – Ethernet, USB, CD, and other boot methods to be enabled. Default.
+1. **Disabled** – Default. Ethernet, USB, CD, and other boot methods to be enabled.
 2. Enabled – CPU Virtualization Technology to be enabled, IOMMU (Intel Input\Output Memory Management Unit), such as Intel VT-d, AMD-Vi to be enabled, TPM to be enabled. Ethernet, USB, CD, and other boot methods to be disabled, only SATA device to be allowed.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |

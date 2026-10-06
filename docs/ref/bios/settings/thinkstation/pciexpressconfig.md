@@ -29,7 +29,7 @@ ASPM (Active State Power Management).
 
 Possible options:
 
-1. **Auto** – configure ASPM automatically according to what the attached device supports in each PCI (Peripheral Component Interconnect) Express port. Default.
+1. **Auto** – Default. Configure ASPM automatically according to what the attached device supports in each PCI (Peripheral Component Interconnect) Express port.
 2. Disabled – Disable ASPM support of all PCI Express ports.
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |

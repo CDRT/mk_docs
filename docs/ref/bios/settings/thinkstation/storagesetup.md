@@ -53,7 +53,7 @@ Possible options:
 !!! warning "Attention"
     In the WMI class name, X & Y represents the drive number.
 
-### **SATA Drive * Hot-Plug Support**
+### **SATA Drive {X} Hot-Plug Support**
 
 Possible options:
 

@@ -44,7 +44,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| AMDSecureVirtualMachine | Disable, Enable | Yes | AMD |
+| AMDSecureVirtualMachine | Enable, Disable | Yes | AMD |
 
 ### **IOMMU**
 
@@ -52,13 +52,13 @@ AMD input/output memory management unit.
 
 Possible options:
 
-1. Enabled
-2. Disabled
-3. **Auto** - Default.
+1. **Auto** - Default.
+2. Enabled
+3. Disabled
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| IOMMU | Auto, Disable, Enable | Yes | AMD |
+| IOMMU | Auto, Enable, Disable | Yes | AMD |
 
 ### **AMD Memory Guard**
 
@@ -97,7 +97,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| CStateSupport | Disable, Enable | Yes | AMD |
+| CStateSupport | Enable, Disable | Yes | AMD |
 
 ### **CPU C6 report**
 
@@ -113,7 +113,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| CPUC6Report | Disable, Enable | Yes | AMD |
+| CPUC6Report | Enable, Disable | Yes | AMD |
 
 <!-- TODO: For all three settings below (Simultaneous Multithreading, Kernel DMA Protection, Pre-boot DMA Protection), the spec confirmed the setting name and Enable/Disable options, but no description was given for any of them, and no WMI name for Simultaneous Multithreading or Pre-boot DMA Protection specifically (Kernel DMA Protection's WMI name came from the separate "New WMI" reference sheet, so that one is higher-confidence). The descriptions are my own general knowledge of these features, not sourced from the spec. Leaving commented out due to not being seen in BIOS Setup UI.
 

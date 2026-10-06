@@ -22,10 +22,10 @@ The following emulation types are available:
 
 Possible options:
 
-1. VT100
-2. VT100+
-3. VT-UTF8
-4. **ANSI** - Default.
+1. **ANSI** - Default.
+2. VT100
+3. VT100+
+4. VT-UTF8
 
 ### **Bits per second**
 
