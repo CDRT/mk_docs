@@ -23,10 +23,10 @@ description: Latest features and updates for Commercial Vantage
 !!! note "Smart Meeting Assistant features"
     The Smart Meeting Assistant features will only appear on devices that support it. On startup, GestureDetectionAddin performs a one-time capability check. Only when all three checks pass will it report to Vantage that the machine supports this feature. The checks are:
 
-    1. whether the system's camera privacy permission is granted for application use;
-    2.  whether an available RGB physical camera exists on the machine;
-    3. whether the camera can be successfully opened in shared mode and its list of supported formats does not contain the MJPG format. 
-    
+    1. Whether the system's camera privacy permission is granted for application use;
+    2. Whether an available RGB physical camera exists on the machine;
+    3. Whether the camera can be successfully opened in shared mode and its list of supported formats does not contain the MJPG format.
+
     If any one of these conditions is not met, the feature will not be made available to the user.
 
 ---
@@ -103,7 +103,7 @@ description: Latest features and updates for Commercial Vantage
 
         IT admins can disable metrics collection via Group Policy for compliance-sensitive environments.
 
-??? note "v20.2509 – October 03, 2025"
+??? note "v20.2509 - October 03, 2025"
 
     ### Main Application
 
@@ -125,7 +125,7 @@ description: Latest features and updates for Commercial Vantage
     !!! warning "New ADMX template required"
         The Enterprise Package is not updated for 25.09; therefore, to obtain the updated Group Policy Template that includes this new policy, [please download this zip file.](https://download.lenovo.com/cdrt/support/lcv_grouppolicy_2509.zip) Once extracted, copy the contents of the Group Policy folder to the `C:\Windows\PolicyDefinitions` folder. Then you can use **gpedit.msc** to configure the policies under Computer Configuration - Administrative Templates - Commercial Vantage.
 
-??? note "v20.2508.42.0 – September 17, 2025"
+??? note "v20.2508.42.0 - September 17, 2025"
 
     ### Main Application
 
@@ -145,7 +145,7 @@ description: Latest features and updates for Commercial Vantage
     - Enable Lenovo Device Orchestration to detect user is using an application in full screen mode to avoid prompting with updates
     - Dock update behavior fixes
 
-??? note "v20.2506.39.0 – July 23, 2025"
+??? note "v20.2506.39.0 - July 23, 2025"
 
     ### Main Application
 
@@ -184,7 +184,7 @@ description: Latest features and updates for Commercial Vantage
 
     - The **Turn off Modes** policy is moved to **Device - Device settings**
 
-??? note "v10.2501.15.0 – January 2025"
+??? note "v10.2501.15.0 - January 2025"
 
     ### Main Application
 
@@ -218,7 +218,7 @@ description: Latest features and updates for Commercial Vantage
 
     - **Device - System Update - Test Content Mode**: When enabled, this policy will cause System Update to only process packages that have a Status of "Test" in the local repository.  This policy only takes effect if a local repository is configured by the System Update Repository policy.  If this policy is not configured or disabled, then only packages with a Status of "Active" will be processed from the local repository.
 
-??? note "v10.2407.66.0 – August 2024"
+??? note "v10.2407.66.0 - August 2024"
 
     ### Main Application
 

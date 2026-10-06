@@ -18,50 +18,46 @@ Whether to enable or disable the SATA controller.
 
 Possible options:
 
-1. **Enabled**. Default.
+1. **Enabled** - Default.
 2. Disabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| SATAController | Disabled, Enabled | Yes | Both |
+| SATAController | Enabled, Disabled | Yes | Both |
 
 ### **SATA Drive {X}**
 
-Whether to enable each SATA Drive numbered {X}:
-
-!!! warning "Attention"
-    Unavailable if `SATA Controller` is set to `Disabled`.
+Whether to enable each SATA Drive numbered {X}.
 
 Possible options:
 
-1. **Enabled**. Default.
+1. **Enabled** - Default.
 2. Disabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| SATADriveX | Disabled, Enabled | Yes | Both |
+| SATADriveX | Enabled, Disabled | Yes | Both |
 
 !!! warning "Attention"
-    In the WMI class name, X represents the drive number.
+    - Unavailable if `SATA Controller` is set to `Disabled`.
+    - In the WMI class name, X represents the drive number.
 
 ### **SATA Drive * Hot-Plug Support**
 
 Whether the hot-plug port is enabled.
 
-!!! warning "Attention"
-    Unavailable if `SATA Controller` is set to `Disabled`.
-
 Possible options:
 
-1. Enabled
-2. **Disabled** - Default.
+1. **Disabled** - Default.
+2. Enabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
 | SATADrivexHotPlugSupport | Disabled, Enabled | Yes | Both |
 
 !!! warning "Attention"
-    `x` is the port number. May vary depending on model.
+    - Unavailable if `SATA Controller` is set to `Disabled`.
+    - `x` is the port number. May vary depending on model.
 
 ### **Configure SATA as**
 

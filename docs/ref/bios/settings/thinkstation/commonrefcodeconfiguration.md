@@ -8,7 +8,7 @@ Set PCIe device aperture range to Auto/40/42/44/46/48 bits limit.
 
 Possible options:
 
-1. **Auto**. Keeps the platform default settings. - Default.
+1. **Auto** - Default. Keeps the platform default settings.
 2. 40
 3. 42
 4. 44
@@ -32,7 +32,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| NUMA | NPS1, NPS2, NPS4, Auto | Yes | AMD |
+| NUMA | Auto, NPS1, NPS2, NPS4 | Yes | AMD |
 
 ## Intel(R) version
 
@@ -53,8 +53,8 @@ Divide physical NUMA nodes into evenly sized virtual NUMA nodes in ACPI table. T
 
 Possible options:
 
-1. Enabled
-2. **Disabled** - Default.
+1. **Disabled** - Default.
+2. Enabled
 
 <!--
 ### **MMCFG Base**

@@ -1,56 +1,61 @@
+---
+title: ThinkVantage PowerShell Library
+description: Collection of PowerShell modules and companion scripts for managing Lenovo ThinkPad, ThinkCentre, and ThinkStation devices.
+---
+
 # ThinkVantage PowerShell Library
 
 The ThinkVantage PowerShell Library is a collection of PowerShell modules and companion scripts published to the [PowerShell Gallery](https://www.powershellgallery.com) for managing Lenovo ThinkPad, ThinkCentre, and ThinkStation devices. It covers driver and firmware updates, BIOS configuration, and certificate-based BIOS authentication.
 
-**Requirements:** Windows 10/11 · PowerShell 5.0+ · Administrator privileges
+**Requirements:** Windows 10/11, PowerShell 5.0 or later, and Administrator privileges
 
 ---
 
-## Script + Module Solutions
+## Script + Module Tools
 
-These solutions pair a **standalone script** (graphical or automation-oriented) with a **supporting PowerShell module**. The script can be installed and run independently, while the module provides the underlying cmdlets that can also be used directly in your own scripts.
+These tools pair a **standalone script** (graphical or automation-oriented) with a **supporting PowerShell module**. The script can be installed and run independently, while the module provides the underlying cmdlets that can also be used directly in your own scripts.
 
 ---
 
 ### Think BIOS Config Tool + `Lenovo.BIOS.Config`
 
-A WPF-based GUI for interactively viewing, modifying, exporting, and deploying BIOS settings on Lenovo commercial devices. The companion `Lenovo.BIOS.Config` module exposes cmdlets (`Export-LnvWmiSettings`, `Import-LnvWmiSettings`) for script-driven BIOS configuration — enabling INI-based BIOS profiles, Intune remediation package generation, and Supervisor Password management without the GUI.
+A WPF-based GUI for interactively viewing, modifying, exporting, and deploying BIOS settings on Lenovo commercial devices. The companion `Lenovo.BIOS.Config` module exposes cmdlets (`Export-LnvWmiSettings`, `Import-LnvWmiSettings`) for script-driven BIOS configuration - enabling INI-based BIOS profiles, Intune remediation package generation, and Supervisor Password management without the GUI.
 
 ```powershell
-Install-Script  'ThinkBiosConfigUI'
-Install-Module  'Lenovo.BIOS.Config'
+Install-Script 'ThinkBiosConfigUI'
+Install-Module 'Lenovo.BIOS.Config'
 ```
 
-[:material-book-open: Read the guide](/guides/tbct_v2/tbct_v2_top/)
+[:material-book-open: Read the guide](../tbct_v2/index.md)
 
 ---
 
 ### Lenovo BIOS Certificate Tool + `Lenovo.Bios.Certificates`
 
-A GUI and cmdlet library for replacing Supervisor Password authentication with X.509 certificate-based signing. BIOS configuration commands are cryptographically signed — the private key never leaves its secure store. Signing can use a local key file or an Azure Key Vault key, making it suitable for zero-trust and cloud-managed fleet deployments.
+A GUI and cmdlet library for replacing Supervisor Password authentication with X.509 certificate-based signing. BIOS configuration commands are cryptographically signed - the private key never leaves its secure store. Signing can use a local key file or an Azure Key Vault key, making it suitable for zero-trust and cloud-managed fleet deployments.
 
 ```powershell
-Install-Script  'LnvBiosCertInterface'
-Install-Module  'Lenovo.Bios.Certificates'
+Install-Script 'LnvBiosCertInterface'
+Install-Module 'Lenovo.Bios.Certificates'
 ```
 
-[:material-shield-lock: Read the guide](/guides/lbct/)
+[:material-shield-lock: Read the guide](../lbct/index.md)
 
 ---
 
 ### ThinkVantage Repository Manager
 
-A script-based tool for creating and maintaining local repositories of Lenovo updates — a modern alternative to Update Retriever. This solution leverages the `Lenovo.Client.RepositoryManager`module to perform all the functions of the UI. This means it supports fully automated repository builds which can be used by both `Lenovo.Client.Update` and Commercial Vantage. The script itself can handle installing the module.
+A script-based tool for creating and maintaining local repositories of Lenovo updates - a modern alternative to Update Retriever. This tool uses the `Lenovo.Client.RepositoryManager` module to perform all the functions of the UI. This means it supports fully automated repository builds which can be used by both `Lenovo.Client.Update` and Commercial Vantage. The script itself can handle installing the module.
 
 ```powershell
 Install-Script 'ThinkVantageRepositoryManager'
 ```
 
-[:material-folder-sync: Read the guide](/guides/tvrm/)
+[:material-folder-sync: Read the guide](../tvrm/index.md)
 
 ---
 
-## Module-Only Solutions
+## Module-Only Tools
 
 These are standalone PowerShell modules with no companion script. They are designed to be imported directly into your own scripts, task sequences, or automation pipelines.
 
@@ -64,7 +69,7 @@ Provides cmdlets for querying device details, searching for driver packs and HSA
 Install-Module 'Lenovo.Client.Scripting'
 ```
 
-[:material-book-open: Read the guide](/guides/lcsm/lcsm_top/)
+[:material-book-open: Read the guide](../lcsm/lcsm_top.md)
 
 ---
 
@@ -76,41 +81,29 @@ The official Lenovo fork of the [LSUClient](https://github.com/jantari/LSUClient
 Install-Module 'Lenovo.Client.Update'
 ```
 
-[:material-update: Read the guide](/guides/lcu/)
+[:material-update: Read the guide](../lcu/index.md)
 
 ---
 
-## Other PowerShell Solutions
+## Other PowerShell Tools
 
 ### Commercial Vantage Policy Manager
 
 The Commercial Vantage Policy Manager is a PowerShell script that provides a UI that simplifies management of Commercial Vantage group policies in Microsoft Intune - removing the need to manually construct large XML policy payloads.
 
 ```powershell
-Install-Script  'Invoke-LnvCVPolicyManager'
+Install-Script 'Invoke-LnvCVPolicyManager'
 ```
 
-[:material-cog: Read the guide](/guides/cvpm/)
+[:material-cog: Read the guide](../lcvpm/index.md)
 
 ---
 
 ## Resources
 
-<table>
-<tr>
-<td><strong>PowerShell Gallery</strong></td>
-<td>Search "lenovocdrt" at <a href="https://www.powershellgallery.com">www.powershellgallery.com</a></td>
-</tr>
-<tr>
-<td><strong>Documentation</strong></td>
-<td><a href="https://docs.lenovocdrt.com">docs.lenovocdrt.com</a></td>
-</tr>
-<tr>
-<td><strong>Blog</strong></td>
-<td><a href="https://blog.lenovocdrt.com">blog.lenovocdrt.com</a></td>
-</tr>
-<tr>
-<td><strong>Community forum</strong></td>
-<td><a href="https://forums.lenovo.com/t5/Enterprise-Management-Board/bd-p/sa01_eg">forums.lenovo.com — Enterprise Client Management Board</a></td>
-</tr>
-</table>
+| Resource | Link |
+| --- | --- |
+| PowerShell Gallery | Search "lenovocdrt" at [PowerShell Gallery](https://www.powershellgallery.com) |
+| Documentation | [Lenovo CDRT documentation](https://docs.lenovocdrt.com) |
+| Blog | [Lenovo CDRT blog](https://blog.lenovocdrt.com) |
+| Community forum | [Enterprise Client Management Forum](https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg) |

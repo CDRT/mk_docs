@@ -1,3 +1,8 @@
+---
+title: "System Update Suite Deployment Guide: Installation"
+description: Installation requirements, command lines, and removal for System Update, Thin Installer, and Update Retriever.
+---
+
 # 2 Installation
 
 ## 2.1 Installing System Update
@@ -12,11 +17,11 @@ System Update supports the following operating systems:
 - Windows 11 64-bit
 
 !!! note
-	System Update is qualified and supported on Windows 10 and Windows 11. System Update is no longer qualified or supported on Windows 7/8/8.1. If End User decides to install System Update on these versions, it may work without issue and may be used as is, but Lenovo makes no representations about this and has not tested such installation and such installation would not be supported. If having System Update is important to End User Lenovo recommends changing to a Windows version where it is qualified and supported.
+    System Update is qualified and supported on Windows 10 and Windows 11. System Update is no longer qualified or supported on Windows 7/8/8.1. If End User decides to install System Update on these versions, it may work without issue and may be used as is, but Lenovo makes no representations about this and has not tested such installation and such installation would not be supported. If having System Update is important to End User Lenovo recommends changing to a Windows version where it is qualified and supported.
 
 System Update requires Microsoft .NET Framework 4.5.2 or a later version. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
-[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+[Microsoft .NET download page](https://dotnet.microsoft.com/download)
 
 ### 2.1.2 Languages
 
@@ -53,13 +58,13 @@ _Table 2-1. System Update language codes_
 The following are scenarios in which System Update will load the substitute NLS language pack:
 
 - **_Loading the language pack set in the Windows Regional and Language Options settings_**: If the LanguageOverride field is empty or with an invalid value, or the value specified in the LanguageOverride field is not installed on the system, System Update will get the language override code of the operating system set in the Regional and Language Options settings. If System Update successfully loads the language pack corresponding to the language set in the Regional and Language Options settings, System Update will display the rest of the session in that language.
-- **_Loading the language pack set in the DefaultLanguage field_**: If the language pack corresponding to the language set in the Regional and Language Options settings is not available on the system, System Update will attempt to get the default language that has been set in the DefaultLanguage field when the end user used the System Update installer and selected a language during the installation. System Update will load the language pack corresponding to the default language set in the DefaultLanguage field, and display the rest of the session in that language. If the 8 System Update Solution Deployment Guide language pack corresponding to the default language set in the DefaultLanguage field is on the system, System Update will load the default language pack and display the rest of the session. The registry location for the DefaultLanguage field is:
+- **_Loading the language pack set in the DefaultLanguage field_**: If the language pack corresponding to the language set in the Regional and Language Options settings is not available on the system, System Update will attempt to get the default language that has been set in the DefaultLanguage field when the end user used the System Update installer and selected a language during the installation. System Update will load the language pack corresponding to the default language set in the DefaultLanguage field, and display the rest of the session in that language. If the language pack corresponding to the default language set in the DefaultLanguage field is on the system, System Update will load the default language pack and display the rest of the session. The registry location for the DefaultLanguage field is:
 
-	```Registry
-	HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\DefaultLanguage
-	```
+    ```Registry
+    HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\DefaultLanguage
+    ```
 
-- **_Loading the US English language pack_**: If the DefaultLanguage field is empty or contains an invalid value, or if the language pack corresponding to the default language set in the DefaultLanguage field is not on the system, the default language will not be used. System Update will attempt to load the US English language pack. If the US English language pack is not on the system, an error message will be displayed, saying &quot;System Update has found a critical problem and must close.&quot; This error message is in the US English language.
+- **_Loading the US English language pack_**: If the DefaultLanguage field is empty or contains an invalid value, or if the language pack corresponding to the default language set in the DefaultLanguage field is not on the system, the default language will not be used. System Update will attempt to load the US English language pack. If the US English language pack is not on the system, an error message will be displayed, saying "System Update has found a critical problem and must close." This error message is in the US English language.
 
 ### 2.1.3 Installation Command Lines
 
@@ -110,15 +115,15 @@ It is recommended to keep System Update running on the most current version; how
 
 1. Using regedit.exe, navigate to the following registry entry:
 
-	```Registry
-	HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UCSettings\HTTPSHelloSettings\ServerName
-	```
+    ```Registry
+    HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\System Update\Preferences\UCSettings\HTTPSHelloSettings\ServerName
+    ```
 
 2. Delete the ServerName string value, for example:
 
-	```URL
-	https://download.lenovo.com/ibmdl/pub/pc/pcbs/agent/
-	```
+    ```URL
+    https://download.lenovo.com/ibmdl/pub/pc/pcbs/agent/
+    ```
 
 3. Click **OK**.
 
@@ -135,7 +140,7 @@ Thin Installer is supported on the following operating systems:
 
 Thin Installer requires Microsoft .NET Framework version 4.5.2 or higher. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
-[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+[Microsoft .NET download page](https://dotnet.microsoft.com/download)
 
 ### 2.2.2 Removing Thin Installer
 
@@ -156,7 +161,7 @@ Update Retriever is supported on the following operating systems:
 
 Update Retriever requires Microsoft .NET Framework version 4.5.2 or higher. A compatible version of .NET Framework can be downloaded from the following Microsoft website:
 
-[https://dotnet.microsoft.com/download](https://dotnet.microsoft.com/download)
+[Microsoft .NET download page](https://dotnet.microsoft.com/download)
 
 ### 2.3.2 Languages
 
@@ -208,7 +213,7 @@ If you want to install the program silently and generate installation log files,
 [Update Retriever installation file name].exe /VERYSILENT /NORESTART /LOG=c:\tvur.log
 ```
 
-If a previous version of Update Retriever is already installed, the following pop-up is displayed. In order to download the newest version of Update Retriever, the use must click **Yes**. After selecting **Yes** , to uninstall the existing version of Update Retriever, a window will appear asking for install instructions. Please proceed with install instructions.The administrator will NOT lose any of their previous downloads, update packages, machines, or any information in Update Retriever or its repository. Everything that was displayed and available in the existing version of Update Retriever, will be in the new version that is being installed.
+If a previous version of Update Retriever is already installed, the following pop-up is displayed. In order to download the newest version of Update Retriever, the user must click **Yes**. After selecting **Yes**, to uninstall the existing version of Update Retriever, a window will appear asking for install instructions. Please proceed with install instructions. The administrator will NOT lose any of their previous downloads, update packages, machines, or any information in Update Retriever or its repository. Everything that was displayed and available in the existing version of Update Retriever, will be in the new version that is being installed.
 
 ![Previous version will be uninstalled first](https://cdrt.github.io/mk_docs/img/guides/su/img2-1.png)
 

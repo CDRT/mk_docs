@@ -15,7 +15,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| AbsolutePersistenceModuleActivation | Disable, Enable | Yes | Both |
+| AbsolutePersistenceModuleActivation | Enable, Disable | Yes | Both |
 
 ### **Current State**
 

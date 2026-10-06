@@ -14,40 +14,29 @@ This page covers advanced configuration of Dock Manager using Microsoft Intune A
 
 Before configuring Dock Manager policies, you must:
 
-1. **Download the ADMX file** – Available in the Dock Manager section on [Lenovo Tools for Administrators](https://support.lenovo.com/solutions/ht037099)
-2. **Create a custom Intune profile** – Navigate to **Devices** > **Windows** > **Configuration Profiles** and create a new **Custom** profile
-3. **Ingest the ADMX** – Import the template using the OMA-URI procedure in the [ADMX Ingestion](#admx-ingestion) section below
-4. **Understand OMA-URI format** – Each policy is configured via an OMA-URI path and XML value
+1. **Download the ADMX file** - Available in the Dock Manager section on [Lenovo Tools for Administrators](https://support.lenovo.com/solutions/ht037099)
+2. **Create a custom Intune profile** - Navigate to **Devices** > **Windows** > **Configuration Profiles** and create a new **Custom** profile
+3. **Ingest the ADMX** - Import the template using the OMA-URI procedure in the [ADMX Ingestion](#admx-ingestion) section below
+4. **Understand OMA-URI format** - Each policy is configured via an OMA-URI path and XML value
 
-!!! note ""
+!!! note "Custom ADMX support"
     Introduced in the [2208](https://learn.microsoft.com/mem/intune/fundamentals/whats-new-archive#import-create-and-manage-custom-admx-and-adml-administrative-templates) Intune Service release, custom ADMX and ADML templates can be imported, created, and managed directly in Intune.
 
 ## ADMX Ingestion
 
-Sign in to the Microsoft Intune [admin center](https://intune.microsoft.com)
-
-Navigate to **Devices** > **Windows** > **Configuration Profiles**. Click **Create**
-
-- Select **New Policy** > **Windows 10 and later** for the platform.
-- Select **Templates** for **Profile Type** and choose **Custom** from the list and click **Create**
-
-Enter the required information for the new profile, for example:
-
-- **Name**: Lenovo Dock Manager Configuration
-
-- **Description**: (Optional)
-
-On the **Configuration Settings** screen, click **Add** and enter the following:
-
-- **Name**: Dock Manager ADMX Ingest
-
-- **Description**: (Optional)
-
-- **OMA-URI**: ./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/DockManager/Policy/DockManager
-
-- **Data Type**: String
-
-- **Value**: Copy the contents of the Dock Manager ADMX file into this field
+1. Sign in to the Microsoft Intune [admin center](https://intune.microsoft.com).
+2. Navigate to **Devices** > **Windows** > **Configuration Profiles** and click **Create**.
+3. Select **New Policy** > **Windows 10 and later** for the platform.
+4. Select **Templates** for **Profile Type**, choose **Custom** from the list, and click **Create**.
+5. Enter the required information for the new profile, for example:
+    - **Name**: Lenovo Dock Manager Configuration
+    - **Description**: (Optional)
+6. On the **Configuration Settings** screen, click **Add** and enter the following:
+    - **Name**: Dock Manager ADMX Ingest
+    - **Description**: (Optional)
+    - **OMA-URI**: `./Device/Vendor/MSFT/Policy/ConfigOperations/ADMXInstall/DockManager/Policy/DockManager`
+    - **Data Type**: String
+    - **Value**: Copy the contents of the Dock Manager ADMX file into this field
 
 !!! note
     The **Group Policy Template File** that contains the ADMX can be found under the Dock Manager section on [Lenovo Tools for Administrators](https://support.lenovo.com/solutions/ht037099) page.
@@ -76,9 +65,9 @@ Use this table to quickly find the policy you need by category. Click any policy
 | [**Update Firmware Without Disconnect**](#update-firmware-without-disconnect) | General | Boolean | Update supported docks without unplugging |
 | [**Frequency**](#frequency) | Scheduler | Enum | Task schedule frequency (Daily/Weekly/Monthly) |
 | [**Run At**](#run-at) | Scheduler | Time | Time of day for scheduled task (24-hour format) |
-| [**Run On**](#run-on) | Scheduler | String | Days of week (Sunday–Friday) |
-| [**Run Days**](#run-days) | Scheduler | String | Days of month (1–31) for monthly tasks |
-| [**Run Month**](#run-month) | Scheduler | String | Months (January–December) for monthly tasks |
+| [**Run On**](#run-on) | Scheduler | String | Days of week (Sunday-Friday) |
+| [**Run Days**](#run-days) | Scheduler | String | Days of month (1-31) for monthly tasks |
+| [**Run Month**](#run-month) | Scheduler | String | Months (January-December) for monthly tasks |
 | [**Run Monthly On**](#run-monthly-on) | Scheduler | String | Week pattern (First/Second/Last) for monthly tasks |
 
 ## Policy Categories
@@ -99,6 +88,7 @@ Control how and when firmware updates occur.
     <!-- or -->
     <disabled/>   <!-- Install firmware silently without prompting -->
     ```
+
 <a id="auto-update"></a>
 ??? note "The OMA-URI for Auto Update"
     **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~General/AutoUpdate`
@@ -133,16 +123,16 @@ Control how and when firmware updates occur.
 
     **Purpose:** Allow specified dock models to update firmware without disconnecting from the computer (if supported by dock firmware version).
 
-    !!! warning ""
+    !!! warning "Requires supported dock firmware"
         Only enable this after upgrading docks to a supported firmware version that handles live updates.
 
-    **Example – Enable for Thunderbolt 3 Dock Gen 2:**
+    **Example - Enable for Thunderbolt 3 Dock Gen 2:**
     ```xml
     <enabled/>
     <data id="UpdateFWWithoutDisconnect_Prompt" value="40AN"/>
     ```
 
-    **Example – Multiple dock types:**
+    **Example - Multiple dock types:**
     ```xml
     <enabled/>
     <data id="UpdateFWWithoutDisconnect_Prompt" value="40AN,40B0,40B7"/>
@@ -162,7 +152,7 @@ Control how and when firmware updates occur.
     <data id="FWWhitelist_Prompt" value="40AY:3.0.85,3.0.92;40B0:4.2.15;40AN:2.8.10"/>
     ```
 
-    !!! note ""
+    !!! note "Dock type codes"
         Dock types are 4-character codes found on the dock label or in the [Supported Docks](index.md#supported-docks) list.
 
 ### Network & Repository Configuration
@@ -175,13 +165,13 @@ Manage firmware download sources and proxy settings.
 
     **Purpose:** Specify where Dock Manager should download firmware (internet or local repository).
 
-    **Example – Network share:**
+    **Example - Network share:**
     ```xml
     <enabled/>
     <data id="RepositoryLocation_Prompt" value="\\internal-share\dock-firmware"/>
     ```
 
-    **Example – Local path:**
+    **Example - Local path:**
     ```xml
     <enabled/>
     <data id="RepositoryLocation_Prompt" value="C:\dock-firmware"/>
@@ -205,7 +195,7 @@ Manage firmware download sources and proxy settings.
 
     **Purpose:** Configure the proxy server port for firmware downloads.
 
-    **Example – Use port 3128:**
+    **Example - Use port 3128:**
     ```xml
     <enabled/>
     <data id="Port_Prompt" value="3128"/>
@@ -251,7 +241,7 @@ Manage Dock Manager log file behavior.
 
     **Purpose:** Automatically delete log files older than the specified number of days.
 
-    **Example – Delete logs older than 30 days:**
+    **Example - Delete logs older than 30 days:**
     ```xml
     <enabled/>
     <data id="LogfileAgeToCleanup_Prompt" value="30"/>
@@ -263,7 +253,7 @@ Manage Dock Manager log file behavior.
 
     **Purpose:** Rotate log files when they exceed the specified size in KB.
 
-    **Example – Rotate when logs reach 1024 KB (1 MB):**
+    **Example - Rotate when logs reach 1024 KB (1 MB):**
     ```xml
     <enabled/>
     <data id="LogfileMaxSize_Prompt" value="1024"/>
@@ -291,12 +281,12 @@ Enable or disable hardware-specific features.
 Define when Dock Manager checks for and installs firmware updates.
 
 <a id="scheduling-configuration"></a>
-!!! note ""
+!!! note "Schedule policies are interdependent"
     Configure these policies together to define a complete schedule. They are interdependent based on the **Frequency** setting:
 
-    - **DAILY** – Uses only **Run At**
-    - **WEEKLY** – Uses **Run At** + **Run On** (days of week)
-    - **MONTHLY** – Uses **Run At** + **Run Month** + **Run Days**, OR **Run At** + **Run Monthly On** + **Run On**
+    - **DAILY** - Uses only **Run At**
+    - **WEEKLY** - Uses **Run At** + **Run On** (days of week)
+    - **MONTHLY** - Uses **Run At** + **Run Month** + **Run Days**, OR **Run At** + **Run Monthly On** + **Run On**
 
 <a id="frequency"></a>
 ??? note "The OMA-URI for Frequency"
@@ -317,7 +307,7 @@ Define when Dock Manager checks for and installs firmware updates.
 
     **Purpose:** Set the time of day (24-hour format) when the scheduled task runs.
 
-    **Example – 2:00 AM:**
+    **Example - 2:00 AM:**
     ```xml
     <enabled/>
     <data id="RunAt_Prompt" value="02:00:00"/>
@@ -329,7 +319,7 @@ Define when Dock Manager checks for and installs firmware updates.
 
     **Purpose:** Specify days of the week for the task (used with WEEKLY or MONTHLY frequency).
 
-    **Example – Sunday and Friday:**
+    **Example - Sunday and Friday:**
     ```xml
     <enabled/>
     <data id="RunOn_Prompt" value="Sunday,Friday"/>
@@ -339,9 +329,9 @@ Define when Dock Manager checks for and installs firmware updates.
 ??? note "The OMA-URI for Run Days"
     **OMA-URI:** `./Device/Vendor/MSFT/Policy/Config/DockManager~Policy~LenovoCompany~DockManager~Scheduler/RunDays`
 
-    **Purpose:** Specify days of the month (1–31) when the task runs (MONTHLY frequency only).
+    **Purpose:** Specify days of the month (1-31) when the task runs (MONTHLY frequency only).
 
-    **Example – 1st and 15th of each month:**
+    **Example - 1st and 15th of each month:**
     ```xml
     <enabled/>
     <data id="RunDays_Prompt" value="1,15"/>
@@ -353,7 +343,7 @@ Define when Dock Manager checks for and installs firmware updates.
 
     **Purpose:** Specify which months the task runs (MONTHLY frequency only).
 
-    **Example – Every other month (Jan, Mar, May, Jul, Sep, Nov):**
+    **Example - Every other month (Jan, Mar, May, Jul, Sep, Nov):**
     ```xml
     <enabled/>
     <data id="RunMonth_Prompt" value="January,March,May,July,September,November"/>
@@ -365,13 +355,13 @@ Define when Dock Manager checks for and installs firmware updates.
 
     **Purpose:** Specify week pattern for monthly tasks (e.g., "First Monday", "Last Friday"). Used with **Run On**.
 
-    **Example – First and Last day of the month:**
+    **Example - First and Last day of the month:**
     ```xml
     <enabled/>
     <data id="RunMonthlyOn_Prompt" value="First,Last"/>
     ```
 
-    **Example – First and second Tuesday (used with `RunOn: Tuesday`):**
+    **Example - First and second Tuesday (used with `RunOn: Tuesday`):**
     ```xml
     <enabled/>
     <data id="RunMonthlyOn_Prompt" value="First,Second"/>
@@ -387,11 +377,11 @@ Send direct commands to Dock Manager for remote management.
 
     **Purpose:** Send commands to Dock Manager for remote management. Currently supports:
 
-    - **1** – Check for Dock Manager software updates and install if available
+    - **1** - Check for Dock Manager software updates and install if available
 
     To resend the same command, update the timestamp in `SendTime_Prompt`.
 
-    **Example – Check for updates:**
+    **Example - Check for updates:**
     ```xml
     <enabled/>
     <data id="CommandString_Prompt" value="1"/>
@@ -409,7 +399,7 @@ Send direct commands to Dock Manager for remote management.
 | --- | --- | --- |
 | **Time** (Run At) | 24-hour HH:MM:SS | `02:00:00`, `14:30:00`, `23:59:59` |
 | **Days of Week** (Run On) | Full day names, comma-separated | `Monday,Friday` / `Sunday` |
-| **Days of Month** (Run Days) | Numbers 1–31, comma-separated | `1,15` / `5` |
+| **Days of Month** (Run Days) | Numbers 1-31, comma-separated | `1,15` / `5` |
 | **Months** (Run Month) | Full month names, comma-separated | `January,March,May` / `December` |
 | **Week Pattern** (Run Monthly On) | First/Second/Third/Fourth/Last, comma-separated | `First,Last` / `Second` |
 | **Dock Types** | 4-character code (dock label) | `40AY`, `40B0`, `40AN,40B7` |
@@ -427,11 +417,11 @@ Send direct commands to Dock Manager for remote management.
 
     **Policies to configure:**
 
-    1. **Auto Update** – Enable
-    2. **Ask Before Firmware Update** – Disable
-    3. **Frequency** – Set to WEEKLY
-    4. **Run At** – Set to 02:00:00
-    5. **Run On** – Set to Sunday
+    1. **Auto Update** - Enable
+    2. **Ask Before Firmware Update** - Disable
+    3. **Frequency** - Set to WEEKLY
+    4. **Run At** - Set to 02:00:00
+    5. **Run On** - Set to Sunday
 
     **Configuration example:**
     ```xml
@@ -461,7 +451,7 @@ Send direct commands to Dock Manager for remote management.
 
     **Policies to configure:**
 
-    1. **Firmware White List** – Enable with dock types and approved versions
+    1. **Firmware White List** - Enable with dock types and approved versions
 
     **Configuration example:**
     ```xml
@@ -469,7 +459,8 @@ Send direct commands to Dock Manager for remote management.
     <data id="FWWhitelist_Prompt" value="40AY:3.0.85,3.0.92;40B0:4.2.15;40AN:2.8.10"/>
     ```
 
-    **Note:** Dock model codes are 4-character identifiers (see [Supported Docks](index.md#supported-docks))
+    !!! note "Dock type codes"
+        Dock model codes are 4-character identifiers. See [Supported Docks](index.md#supported-docks).
 
 ??? note "Scenario 3: Internal Repository with Proxy Download"
 
@@ -477,9 +468,9 @@ Send direct commands to Dock Manager for remote management.
 
     **Policies to configure:**
 
-    1. **Repository Location** – Set to network share path
-    2. **Proxy Server** – Set to proxy address
-    3. **Port** – Set to proxy port
+    1. **Repository Location** - Set to network share path
+    2. **Proxy Server** - Set to proxy address
+    3. **Port** - Set to proxy port
 
     **Configuration example:**
     ```xml
@@ -500,6 +491,6 @@ Send direct commands to Dock Manager for remote management.
 
 After configuring Dock Manager policies in Intune, see these related topics:
 
-- **[Dock Manager Deployment Guide](dm.md)** – Deploy Dock Manager with ConfigMgr and Intune
-- **[Dock Manager Troubleshooting](dm_troubleshooting.md)** – Troubleshoot deployment and scheduling issues
-- **[Dock Manager FAQ](dock_manager_faq.md)** – Frequently asked questions and support resources
+- **[Dock Manager Deployment Guide](dm.md)** - Deploy Dock Manager with ConfigMgr and Intune
+- **[Dock Manager Troubleshooting](dm_troubleshooting.md)** - Troubleshoot deployment and scheduling issues
+- **[Dock Manager FAQ](dock_manager_faq.md)** - Frequently asked questions and support resources

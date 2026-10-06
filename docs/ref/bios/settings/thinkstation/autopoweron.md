@@ -49,7 +49,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| WakeUponAlarm | Single Event, Daily Event, Weekly Event, Disabled, User Defined | Yes | Both |
+| WakeUponAlarm | Disabled, Single Event, Daily Event, Weekly Event, User Defined | Yes | Both |
 
 ### **Startup Sequence**
 
@@ -163,7 +163,7 @@ Possible options:
 !!! warning "Attention"
     The WMI setting name shown here is for Sunday. For other week days, change `Sunday` to the desired day of the week.
 
-## User Defined Alarm Time (HH : MM : SS)
+### **User Defined Alarm Time (HH : MM : SS)**
 
 Specify the time when the system is to wake up in the format of hh:mm:ss.
 

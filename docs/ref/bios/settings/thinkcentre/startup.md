@@ -53,7 +53,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| BootUpNumLockStatus | Off, On | Yes |
+| BootUpNumLockStatus | On, Off | Yes |
 
 ### **Fast Boot**
 
@@ -69,7 +69,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| FastBoot | Disabled, Enabled | Yes |
+| FastBoot | Enabled, Disabled | Yes |
 
 ### **Option Keys Display**
 

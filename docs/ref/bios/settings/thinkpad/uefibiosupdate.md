@@ -6,12 +6,12 @@ Whether UEFI BIOS can be updated without entering supervisor password.
 
 Possible options:
 
-1. Off
-2. **On** – Default.
+1. **On** – Default.
+2. Off
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| BIOSUpdateByEndUsers | Disable, Enable | Yes | Both |
+| BIOSUpdateByEndUsers | Enable, Disable | Yes | Both |
 
 ### **Secure RollBack Prevention**
 

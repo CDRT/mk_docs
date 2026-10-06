@@ -19,11 +19,11 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| WakeOnLAN | Disable, ACOnly, ACandBattery, Enable | No | Both |
+| WakeOnLAN | ACOnly, Disable, ACandBattery | No | Both |
 
 ### **Wake On LAN from Dock**
 
-Controls Wake On LAN when connected to a cable dock (USB-C or Thunderbolt)
+Controls Wake On LAN when connected to a cable dock (USB-C or Thunderbolt).
 
 !!! warning "Attention"
     - Only for ThinkPads with no Ethernet port.
@@ -66,15 +66,15 @@ Possible options:
 
 ### **UEFI WI-FI Network Boot**
 
-Wether to load UEFI Wi-Fi driver at next boot, able to connect to Access point.
+Whether to load UEFI Wi-Fi driver at next boot, able to connect to Access point.
 
 !!! warning "Attention"
     Secure Boot must be enabled to use UEFI Network Boot.
 
 Possible options:
 
-1. On
-2. **Off** - Default.
+1. **Off** - Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -117,7 +117,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| UefiPxeBootPriority | IPv6First, IPv4First | No | Both |
+| UefiPxeBootPriority | IPv4First, IPv6First | No | Both |
 
 ### **Wireless Auto Disconnection**
 
@@ -125,8 +125,8 @@ Whether to Auto Disconnect Wireless feature when Ethernet cable is connected to 
 
 Possible options:
 
-1. On
-2. **Off** - Default.
+1. **Off** - Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -138,14 +138,14 @@ Whether to enable MAC Address Pass Through when dock is attached.
 
 Possible options:
 
-1. **Disabled** - Dock Ethernet uses its own MAC address. Default
+1. **Disabled** - Default. Dock Ethernet uses its own MAC address.
 2. Internal MAC Address - Dock Ethernet uses same MAC address as internal LAN.
 3. Second MAC Address - Dock Ethernet uses the second MAC address that is stored in the system's EEPROM. This allows for a device-specific MAC address that is different from the internal NIC's MAC address so they can be managed separately if necessary.
 
 !!! warning "Attention"
     For systems that do not have an internal NIC, the options are:
 
-    - **Off** - the dock will use it's own MAC Address
+    - **Off** - the dock will use its own MAC address
     - **On** - dock will use MAC address stored in the system EEPROM.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -156,13 +156,14 @@ Possible options:
 
 Enable/Disable Proxy Support. If Enabled, the system connects to End-Point Server (such as Lenovo Cloud) via Proxy Server.
 
+!!! warning "Attention"
+    - This feature will not work while Secure Boot is disabled.
+    - To avoid security risks, only use reliable Proxy servers.
+
 Possible options:
 
-1. **Off** – Default. This feature will not work while Secure Boot is disabled.
+1. **Off** - Default.
 2. On
-
-!!! warning "Attention"
-    To avoid security risks, only use reliable Proxy servers.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -181,8 +182,11 @@ The default port number for Proxy Server access is 80. However, a specific port 
 
 Enable/Disable "Reinstall Windows from Cloud (Microsoft® Connected System Recovery)" in the App Menu invoked by F12.
 
-Choosing Reinstall Windows from Cloud from the F12 menu will completely replace the system software, including all user files, and cannot be undone.This feature works with system-integrated Ethernet LAN or wireless LAN (only WPA2 personal). Secure Boot must be enabled to use Reinstall Windows from Cloud.
-Please note that this feature is not compatible with Lenovo Cloud Boot. Do not attempt to start Lenovo Cloud Boot while Reinstall Windows from Cloud is enabled.
+!!! warning "Attention"
+    - Choosing Reinstall Windows from Cloud from the F12 menu will completely replace the system software, including all user files, and cannot be undone.
+    - This feature works with system-integrated Ethernet LAN or wireless LAN (only WPA2 personal).
+    - Secure Boot must be enabled to use Reinstall Windows from Cloud.
+    - This feature is not compatible with Lenovo Cloud Boot. Do not attempt to start Lenovo Cloud Boot while Reinstall Windows from Cloud is enabled.
 
 Possible options:
 
@@ -195,9 +199,12 @@ Possible options:
 
 Enable/Disable Custom URL Support.
 
+!!! warning "Attention"
+    This feature will not work while Secure Boot is disabled.
+
 Possible options:
 
-1. **Off** – Default. This feature will not work while Secure Boot is disabled.
+1. **Off** - Default.
 2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
@@ -210,11 +217,9 @@ Description for Custom HTTPS Boot Option.
 
 !!! warning "Attention"
     - The description must be a unique string.
-    - http://" is not supported.
-
-Maximum character length is 255.
-
-The URL must start with "https://" for Custom HTTPS Boot Option.
+    - "http://" is not supported.
+    - Maximum character length is 255.
+    - The URL must start with "https://" for Custom HTTPS Boot Option.
 
 A new HTTPS Boot Option will be created according to this Boot URL.
 
@@ -247,7 +252,7 @@ Configure TLS authorization for the Custom HTTPS Boot connection.
 ## WiFi Configuration
 
 !!! warning "Attention"
-    Older models of ThinkPad present the management of WiFi Networks in BIOS Setup while newer models provide the WiFi Configation in the F12 Apps Menu at [Startup](/ref/bios/startup_menu).
+    Older models of ThinkPad present the management of WiFi Networks in BIOS Setup while newer models provide the WiFi Configuration in the F12 Apps Menu at [Startup](/ref/bios/startup_menu).
 
     All the settings in this group are not available via WMI.
 
@@ -311,9 +316,9 @@ Each SSID has its own sub-group of settings. Open the items below for details.
 
     Possible options:
 
-    1. Open
-    2. WPA2-Personal
-    3. **WPA2-Enterprise** - Default.
+    1. **WPA2-Enterprise** - Default.
+    2. Open
+    3. WPA2-Personal
     4. PEAP
     5. EAP-TLS
 
@@ -366,9 +371,8 @@ Each SSID has its own sub-group of settings. Open the items below for details.
 ??? note "Identity"
     Identity value if there is any.
 
-    View only.
-
     !!! warning "Attention"
+        - View only.
         - Identity length: 6-20 characters.
         - Visible only for networks with security WPA2-Enterprise.
 
@@ -388,7 +392,7 @@ Each SSID has its own sub-group of settings. Open the items below for details.
 ## Add Wi-Fi Network
 
 !!! warning "Attention"
-     All the settings in this group are not available via WMI.
+    All the settings in this group are not available via WMI.
 
 ### **SSID**
 
@@ -400,7 +404,7 @@ Select the security type of this Wi-Fi network.
 
 Possible options:
 
-1. **Open** – Default
+1. **Open** – Default.
 2. WPA2 – Personal
 3. WPA2 – Enterprise
 
@@ -421,7 +425,7 @@ Select EAP Authentication Method
 
 Possible options:
 
-1. **PEAP** – Default
+1. **PEAP** – Default.
 2. EAP-TLS
 
 ### **EAP Second Authentication Method**
@@ -480,12 +484,13 @@ Field for entering EAP password.
 
 ### **Scan Anyway**
 
+!!! warning "Attention"
+    Visible only for a network with WPA2-Enterprise security.
+
 Possible options:
 
-1. **On** - the network will be scanned when it does not broadcast its name. Default.
-2. Off - the network will not be scanned when it does not broadcast its name.
-
-Visible only for a network with WPA2-Enterprise security.
+1. **On** - Default. The network will be scanned when it does not broadcast its name.
+2. Off - The network will not be scanned when it does not broadcast its name.
 
 ### **Commit Changes and Exit**
 
@@ -526,12 +531,13 @@ Each SSID has its own sub-group of settings. Open the items below for details.
 ??? note "EAP Authentication Method"
     Select EAP Authentication Method.
 
+    !!! warning "Attention"
+        Visible only for a network with security WPA2-Enterprise.
+
     Possible options:
 
-    1. **PEAP** – Default
+    1. **PEAP** – Default.
     2. EAP-TLS
-
-    Visible only for a network with security WPA2-Enterprise.
 
 ??? note "EAP Second Authentication Method"
     Select Second EAP Authentication Method.
@@ -586,8 +592,8 @@ Each SSID has its own sub-group of settings. Open the items below for details.
 
     Possible options:
 
-    1. On
-    2. **Off** - Default.
+    1. **Off** - Default.
+    2. On
 
     !!! warning "Attention"
         Visible only for a network with security WPA2-Enterprise.

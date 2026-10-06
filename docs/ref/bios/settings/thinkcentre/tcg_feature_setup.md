@@ -54,4 +54,4 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| PhysicalPresenceforClear | Disabled, Enabled | Yes |
+| PhysicalPresenceforClear | Enabled, Disabled | Yes |

@@ -21,8 +21,8 @@ Select the type of TCG Security Device:
 
 Possible options:
 
-1. Firmware TPM
-2. **Discrete TPM** – Default.
+1. **Discrete TPM** – Default.
+2. Firmware TPM
 
 ### **Security Chip 2.0**
 
@@ -38,7 +38,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| SecurityChip | Disabled, Enabled | Yes | Both |
+| SecurityChip | Enabled, Disabled | Yes | Both |
 
 ### **Clear TCG Security Feature**
 
@@ -48,8 +48,8 @@ Possible options:
 
 Possible options:
 
-1. Yes
-2. **No** – Default.
+1. **No** – Default.
+2. Yes
 
 ### **Physical Presence for Clear**
 
@@ -65,7 +65,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| PhysicalPresenceforClear | Disabled, Enabled | Yes | Both |
+| PhysicalPresenceforClear | Enabled, Disabled | Yes | Both |
 
 ### **Security Chip Selection**
 

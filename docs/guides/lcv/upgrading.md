@@ -46,34 +46,36 @@ If Commercial Vantage fails to self-update or gets stuck:
 
 **Signs of update issues:**
 
+
 - Add-ins outdated or unavailable
 - Service stops responding
 - System Update fails with errors
 
 **Recovery steps:**
 
+
 1. Verify Vantage Service is running:
 
-   ```powershell
-   Get-Service -Name VantageService
-   ```
+    ```powershell
+    Get-Service -Name VantageService
+    ```
 
-2. Check network connectivity to Lenovo update servers (for example: https://download.lenovo.com/catalog/21NT_Win11.xml)
+2. Check network connectivity to Lenovo update servers (for example: `https://download.lenovo.com/catalog/21NT_Win11.xml`)
 
 3. Review logs: `%ProgramData%\Lenovo\Vantage\Logs\`
 
 4. If unrecoverable: Redeploy from latest Enterprise Package
 
-   ```cmd
-   VantageInstaller.exe Uninstall -Vantage
-   VantageInstaller.exe Install -Vantage
-   ```
+    ``` CMD
+    VantageInstaller.exe Uninstall -Vantage
+    VantageInstaller.exe Install -Vantage
+    ```
 
 ---
 
 ## Key Points
 
-- ✅ OTA updates are automatic—no admin action needed for monthly releases
-- ✅ Safe to deploy downlevel versions—they'll auto-update to current
+- ✅ OTA updates are automatic - no admin action needed for monthly releases
+- ✅ Safe to deploy downlevel versions - they'll auto-update to current
 - ⚠️ ADMX templates released separately when new policies are needed
 - 🔄 Enterprise Package updated quarterly with installer updates

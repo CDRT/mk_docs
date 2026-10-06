@@ -150,7 +150,7 @@ Possible options:
 Select whether to enable or disable Microphone (Internal/External/Line-In) in the OS environment.
 
 !!! warning "Attention"
-    To enable Microphone, select ‘Enabled’ save the setting. Then fully shut down and power on the system.
+    To enable Microphone, select ‘Enabled’ and save the setting. Then fully shut down and power on the system.
 
 Possible options:
 
@@ -192,7 +192,7 @@ Possible options:
 
 ### **NFC Device**
 
-Whether to enable or disable NFC (near-field communication) Device in the OS environment
+Whether to enable or disable NFC (near-field communication) Device in the OS environment.
 
 Possible options:
 
@@ -210,7 +210,7 @@ Whether to enable Tile Mode in the OS environment.
 Possible options:
 
 1. **On** - Default.
-2. Off.
+2. Off
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |

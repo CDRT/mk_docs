@@ -14,7 +14,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| PostPackageRepair | Disable, Enable | Yes | AMD |
+| PostPackageRepair | Enable, Disable | Yes | AMD |
 
 ### **Patrol Scrub**
 
@@ -58,4 +58,4 @@ Possible options:
 
 | WMI Setting name | Values | SVP or SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| DataScrambling | Disable, Enable | Yes | AMD |
+| DataScrambling | Enable, Disable | Yes | AMD |

@@ -39,7 +39,7 @@ Use the `-All` parameter to retrieve all available packages regardless of applic
 | `-ProxyCredential` | PSCredential | Credentials for proxy authentication |
 | `-ProxyUseDefaultCredentials` | switch | Use current user's credentials for proxy |
 | `-Repository` | string | Path to local repository folder (instead of Lenovo online) |
-| `-ScratchDirectory` | string | Directory for temporary files during processing (default: $env:TEMP) |
+| `-ScratchDirectory` | string | Directory for temporary files during processing (default: `$env:TEMP`) |
 | `-StatusMode` | string | Change package status (custom filtering) |
 | `-LogFile` | switch | Create logfile in default location (`C:\ProgramData\Lenovo\...`) |
 | `-LogPath` | string | Create logfile in specified custom path |
@@ -129,7 +129,7 @@ Use a directory path with -LogPath when requesting both logs. If you point -LogP
 ### Performance
 
 - Applicability checking may take several minutes depending on network speed and update count
-- Specify `-Model` and `-All` if querying for a different computer since apllicability checking on a different device is unhelpful
+- Specify `-Model` and `-All` if querying for a different computer since applicability checking on a different device is unhelpful
 - Use `-Repository` for local queries to avoid network latency
 
 ### Signature Verification

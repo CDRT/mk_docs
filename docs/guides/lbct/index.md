@@ -1,11 +1,11 @@
 ---
 title: Lenovo BIOS Certificate Tool
-description: PowerShell-based solution for certificate-based BIOS authentication on Lenovo commercial PCs.
+description: PowerShell-based tool for certificate-based BIOS authentication on Lenovo commercial PCs.
 ---
 
 # Lenovo BIOS Certificate Tool
 
-The Lenovo BIOS Certificate Tool and Module is a PowerShell-based solution for working with certificate-based BIOS authentication on supported Lenovo commercial PC products. Certificate-based BIOS authentication eliminates the need for a plain-text supervisor password, providing enhanced security for BIOS settings and system configuration management.
+The Lenovo BIOS Certificate Tool and Module is a PowerShell-based tool for working with certificate-based BIOS authentication on supported Lenovo commercial PC products. Certificate-based BIOS authentication eliminates the need for a plain-text supervisor password, providing enhanced security for BIOS settings and system configuration management.
 
 ## Installation
 
@@ -32,7 +32,7 @@ LnvBiosCertInterface
 
 Alternatively, you can download from:
 
-[https://download.lenovo.com/cdrt/tools/lbct_2.1.2_1.0.9.zip](https://download.lenovo.com/cdrt/tools/lbct_2.1.2_1.0.9.zip)
+[Download the Lenovo BIOS Certificate Tool package](https://download.lenovo.com/cdrt/tools/lbct_2.1.2_1.0.9.zip)
 
 Simply unzip to a local folder and run the GUI script in an elevated terminal. The GUI script will locate the module and import it automatically.
 
@@ -45,4 +45,4 @@ For a detailed view of how to get started using this solution with Lenovo commer
 
 ## Integration with Think BIOS Config Tool V2
 
-The Lenovo BIOS Certificate Tool works alongside the [Think BIOS Config Tool V2](/guides/tbct_v2/) to provide a complete password-less BIOS management solution. While LBCT handles certificate-based authentication and WMI command execution, TBCT v2 provides configuration templates and deployment guidance.
+The Lenovo BIOS Certificate Tool works alongside the [Think BIOS Config Tool V2](../tbct_v2/index.md) to provide complete password-less BIOS management. While LBCT handles certificate-based authentication and WMI command execution, TBCT v2 provides configuration templates and deployment guidance.

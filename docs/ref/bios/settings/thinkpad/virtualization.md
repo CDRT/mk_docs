@@ -30,8 +30,8 @@ Whether a VMM (Virtual Machine Monitor) can utilize the additional hardware capa
 
 Possible options:
 
-1. On
-2. **Off** - Default.
+1. **Off** - Default.
+2. On
 
 Additional information: [How to enable Virtualization Technology on Lenovo PC computers](https://support.lenovo.com/de/en/solutions/ht500006).
 
@@ -65,8 +65,8 @@ Whether to enable Intel (R) VT-d Feature ( Intel (R) Virtualization Technology f
 
 Possible options:
 
-1. On
-2. **Off** - Default
+1. **Off** - Default.
+2. On
 
 More information on the [official Intel site](https://software.intel.com/content/www/us/en/develop/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices.html).
 
@@ -82,9 +82,9 @@ Whether to allow use of ‘Enhanced sign-in security’ for fingerprint and face
 
 Enhanced Sign-in Security is an advanced security feature built into Windows Hello that strengthens biometric authentication (face or fingerprint) by isolating sensitive processes and data from the main operating system.
 
-Core Principle: ESS uses Virtualization-Based Security (VBS) to create a secure environment for biometric operations and credential handling.
-Goal: Prevent malware—even with kernel-level privileges—from intercepting biometric data or authentication secrets.a
-End-to-End Assurance: ESS can cryptographically prove to cloud services that the user was physically present during authentication, improving trust for enterprise scenarios.
+- Core Principle: ESS uses Virtualization-Based Security (VBS) to create a secure environment for biometric operations and credential handling.
+- Goal: Prevent malware—even with kernel-level privileges—from intercepting biometric data or authentication secrets.
+- End-to-End Assurance: ESS can cryptographically prove to cloud services that the user was physically present during authentication, improving trust for enterprise scenarios.
 
 **How Does It Work?**
 
@@ -104,7 +104,7 @@ ESS mitigates these threats by ensuring biometric data and operations are shield
 
 Possible options:
 
-1. **On** - Default since 2024
+1. **On** - Default since 2024.
 2. Off
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |

@@ -25,7 +25,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
 ### Quick Reference
 
 | Cmdlet | Purpose |
-| ------ | --------- |
+| --- | --- |
 | [`New-LnvRMRepository`](#new-lnvrmrepository) | Create a new local update repository |
 | [`Get-LnvRMRepository`](#get-lnvrmrepository) | List registered repositories |
 | [`Set-LnvRMRepository`](#set-lnvrmrepository) | Modify repository settings or switch the active repository |
@@ -59,7 +59,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-Path` | String | Yes | Root folder path for the new repository. Created if it does not exist. |
     | `-Name` | String | Yes | Friendly name for this repository. Used in the GUI tab header and audit log. |
     | `-Mode` | String | No | `Full` (default) or `Hybrid`. Full downloads installers and metadata; Hybrid downloads metadata only. |
@@ -92,7 +92,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-Name` | String | No | Filter results to the repository with this name. |
     | `-ActiveOnly` | Switch | No | Return only the active repository. |
 
@@ -121,7 +121,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-Path` | String | Conditional | Path of the repository to modify. Required if `-Name` is not specified. |
     | `-Name` | String | Conditional | Name of the repository to modify. Required if `-Path` is not specified. |
     | `-SetActive` | Switch | No | Make this the active repository. |
@@ -158,7 +158,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-Path` | String | Conditional | Path of the repository to remove. Required if `-Name` is not specified. |
     | `-Name` | String | Conditional | Name of the repository to remove. Required if `-Path` is not specified. |
 
@@ -194,7 +194,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-MachineType` | String | Yes | 4-character Lenovo Machine Type code. Case-insensitive; stored as uppercase. Example: `21NT`. |
     | `-FriendlyName` | String | Yes | Human-readable model name. Example: `ThinkPad X1 Carbon Gen 11`. |
     | `-OS` | String | Yes | Target operating system: `Windows 10` or `Windows 11`. |
@@ -225,7 +225,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-MachineType` | String | No | Filter to entries matching this 4-character Machine Type code. |
 
     **Output:** Model objects with `MachineType`, `FriendlyName`, and `OS` properties.
@@ -250,7 +250,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-MachineType` | String | Yes | 4-character Machine Type code to remove. |
     | `-OS` | String | No | If specified, removes only the entry for this OS (`Windows 10` or `Windows 11`). If omitted, all OS entries for the Machine Type are removed. |
 
@@ -280,7 +280,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-MachineType` | String | No | Override - search this specific Machine Type instead of all configured models. Requires `-OS`. |
     | `-OS` | String | Conditional | Required when `-MachineType` is used. `Windows 10` or `Windows 11`. |
     | `-MaxConcurrent` | Int | No | Maximum parallel HTTP requests. Default: `8`. |
@@ -288,7 +288,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Output:** Array of `LnvRM.CatalogUpdate` objects with the following properties:
 
     | Property | Description |
-    |----------|-------------|
+    | --- | --- |
     | `PackageID` | Unique package identifier |
     | `PackageName` | Short package name |
     | `Title` | Full package display name |
@@ -335,7 +335,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-Update` | Object[] | Yes | One or more `LnvRM.CatalogUpdate` objects from `Search-LnvRMUpdate`. Accepts pipeline input. |
     | `-Repository` | String | No | Override the active repository path. |
     | `-Status` | String | No | Initial status for downloaded packages: `Test` (default) or `Active`. |
@@ -345,7 +345,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Output:** A `LnvRM.SaveResult` object with:
 
     | Property | Description |
-    |----------|-------------|
+    | --- | --- |
     | `Downloaded` | Array of packages successfully written to the repository |
     | `SignatureSkipped` | Array of `LnvRM.SignatureFailure` objects for packages rejected due to signature failure |
     | `ExternalFileFailures` | Array of `LnvRM.ExternalFileFailure` objects for packages where a required external file could not be downloaded |
@@ -380,7 +380,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-Repository` | String | No | Override the active repository path. |
     | `-Status` | String | No | Filter by status: `Test` or `Active`. |
     | `-MachineType` | String | No | Filter to packages that include this Machine Type in their supported systems list. |
@@ -414,7 +414,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-PackageID` | String | Yes | The Package ID of the update to modify. |
     | `-Status` | String | Yes | The new status: `Test` or `Active`. |
     | `-Repository` | String | No | Override the active repository path. |
@@ -447,7 +447,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-PackageID` | String | Yes | The Package ID of the update to remove. |
     | `-Repository` | String | No | Override the active repository path. |
     | `-Force` | Switch | No | If the Recycle Bin move fails, permanently delete the package folder instead of aborting. |
@@ -480,7 +480,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-RepositoryPath` | String | Yes | Path to the repository root. |
     | `-Updates` | Object[] | Yes | Array of update objects from `Search-LnvRMUpdate`. Only updates whose Package ID is already in the repository are processed. |
 
@@ -506,7 +506,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-Repository` | String | No | Override the active repository path. |
     | `-Date` | String | No | Read only the log file for this date in `YYYY-MM-DD` format. If omitted, all available log files are read. |
     | `-Last` | Int | No | Return only the last N entries across all matched log files. |
@@ -514,7 +514,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Output:** `LnvRM.AuditEntry` objects with the following properties:
 
     | Property | Description |
-    |----------|-------------|
+    | --- | --- |
     | `Timestamp` | Date and time of the operation |
     | `User` | Windows username that performed the operation |
     | `Action` | Operation code (see table below) |
@@ -524,7 +524,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Action codes:**
 
     | Code | Description |
-    |------|-------------|
+    | --- | --- |
     | `REPO_CREATE` | A new repository was created |
     | `REPO_CONFIG` | Repository settings were modified (set active, renamed, mode changed) |
     | `DOWNLOAD` | A package was downloaded to the repository |
@@ -563,13 +563,13 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-Name` | String | Yes | The preference name to retrieve. |
 
     **Known preferences:**
 
     | Name | Valid Values | Description |
-    |------|-------------|-------------|
+    | --- | --- | --- |
     | `DownloadMethod` | `BITS`, `WebClient` | Controls how files are transferred during `Save-LnvRMUpdate` |
 
     **Examples:**
@@ -589,7 +589,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
     **Parameters:**
 
     | Parameter | Type | Required | Description |
-    |-----------|------|----------|-------------|
+    | --- | --- | --- | --- |
     | `-Name` | String | Yes | The preference name to set. |
     | `-Value` | String | Yes | The value to assign. |
 
@@ -612,7 +612,7 @@ The module is the backend used by `ThinkVantageRepositoryManager.ps1`. All GUI o
 ### Quick Reference
 
 | Pattern | Use Case | Key Cmdlets |
-| --------- | ---------- | ------------- |
+| --- | --- | --- |
 | Initial population | Seed a new repository with Critical updates for all models | [`Search-LnvRMUpdate`](#search-lnvrmupdate), [`Save-LnvRMUpdate`](#save-lnvrmupdate) |
 | Status promotion | Move validated packages from Test to Active | [`Get-LnvRMRepoContent`](#get-lnvrmrepocontent), [`Set-LnvRMUpdateStatus`](#set-lnvrmupdatestatus) |
 | Model expansion | Add a new model and sync existing packages | [`Add-LnvRMModel`](#add-lnvrmmodel), [`Search-LnvRMUpdate`](#search-lnvrmupdate), [`Sync-LnvRMSupportedSystem`](#sync-lnvrmsupportedsystem) |

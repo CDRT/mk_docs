@@ -89,9 +89,7 @@ Returns an array of installation history objects with properties:
 
 History storage location:
 
-```powershell
-$env:ProgramData\Lenovo\Lenovo.Client.Update\History\InstallHist-<timestamp>.json
-```
+`$env:ProgramData\Lenovo\Lenovo.Client.Update\History\InstallHist-<timestamp>.json`
 
 History files are created automatically after each installation session. Records are retained for historical tracking and cannot be easily modified.
 

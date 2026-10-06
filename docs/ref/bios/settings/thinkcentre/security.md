@@ -69,7 +69,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| SecureRollBackPrevention | No, Yes | Yes |
+| SecureRollBackPrevention | Yes, No | Yes |
 
 ### **Windows UEFI Firmware Update**
 
@@ -80,7 +80,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| WindowsUEFIFirmwareUpdate | Disabled, Enabled | Yes |
+| WindowsUEFIFirmwareUpdate | Enabled, Disabled | Yes |
 
 ### **Smart USB Protection**
 

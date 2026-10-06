@@ -11,8 +11,8 @@ Whether to enable tamper detection.
 
 Possible options:
 
-1. On
-2. **Off** - Default.
+1. **Off** - Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -29,8 +29,8 @@ Whether to detect removal of any fixed or removable Internal storage while the s
 
 Possible options:
 
-1. On
-2. **Off** – Default.
+1. **Off** – Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |

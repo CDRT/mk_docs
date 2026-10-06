@@ -1,8 +1,13 @@
+---
+title: "System Update Suite Deployment Guide: Overview"
+description: Overview of System Update, Update Retriever, and Thin Installer.
+---
+
 # 1 Overview
 
-The System Update Suite of tools from Lenovo include System Update, Update Retriever, and Thin Installer. Lenovo provides these free utilities to assist in updating drivers, firmware and software for Lenovo PC products running Microsoft® Windows®operating system. This deployment guide will describe how to install and use the current version of each of these programs. This deployment guide is aimed at IT administrators and will describe configurations and best practices for using these tools in a managed environment.
+The System Update Suite of tools from Lenovo include System Update, Update Retriever, and Thin Installer. Lenovo provides these free utilities to assist in updating drivers, firmware and software for Lenovo PC products running Microsoft® Windows® operating system. This deployment guide will describe how to install and use the current version of each of these programs. This deployment guide is aimed at IT administrators and will describe configurations and best practices for using these tools in a managed environment.
 
-These tools can be downloaded from the following website: [https://support.lenovo.com/us/en/solutions/ht037099](https://support.lenovo.com/us/en/solutions/ht037099)
+These tools can be downloaded from the following website: [Lenovo Tools for Administrators](https://support.lenovo.com/us/en/solutions/ht037099)
 
 ## 1.1 System Update
 

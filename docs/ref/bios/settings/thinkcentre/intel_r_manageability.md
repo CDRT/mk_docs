@@ -53,11 +53,11 @@ Displays the manageability type.
 Possible options:
 
 1. **Enabled** - Default.
-2. Disabled - disables USB provisioning.
+2. Disabled - Disables USB provisioning.
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| USBProvisioning | Disabled, Enabled | Yes |
+| USBProvisioning | Enabled, Disabled | Yes |
 
 ## SOL Configuration
 

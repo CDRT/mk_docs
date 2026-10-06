@@ -8,7 +8,7 @@ All of the following passwords default to `Disabled`.
 
 A Hard Disk Password prevents unauthorized users from accessing the data from the hard disk.
 
-In addition to the User Password, a optional Master Password can be used to recover the disk if the user password is lost.
+In addition to the User Password, an optional Master Password can be used to recover the disk if the user password is lost.
 
 !!! warning "Attention"
     If several disks are present, we recommend setting all Hard Disk Passwords to the same.
@@ -49,7 +49,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| RequireHDPonSystemBoot | No, Auto, Power On | Yes |
+| RequireHDPonSystemBoot | Auto, Power On, No | Yes |
 
 ### **Block SID Authentication**
 

@@ -25,7 +25,7 @@ Whether to enable security chip functionality.
 Possible options:
 
 1. **On** - Default.
-2. Off - security chip is hidden and is not functional.
+2. Off - Security chip is hidden and is not functional.
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -66,8 +66,8 @@ Intel (R) Trusted Execution Technology is a hardware-based security foundation t
 
 Possible options:
 
-1. On
-2. **Off** – Default.
+1. **Off** – Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -95,12 +95,12 @@ Whether to enable or disable the Pluton security processor.
 
 When configuring these BIOS settings using WMI scripts, it is possible to follow these steps:
 
-1. set `PlutonSecurityProcessor` to **Enable**
-2. set `TpmSelection` to **PlutonTPM2.0**
-3. specify the Supervisor password using WmiOpcodeInterface
-4. save settings
-5. suspend BitLocker
-6. reboot
+1. Set `PlutonSecurityProcessor` to **Enable**
+2. Set `TpmSelection` to **PlutonTPM2.0**
+3. Specify the Supervisor password using WmiOpcodeInterface
+4. Save settings
+5. Suspend BitLocker
+6. Reboot
 
 !!! warning "Attention"
     - This setting must be enabled before the TPM can be switched to Pluton.
@@ -108,13 +108,13 @@ When configuring these BIOS settings using WMI scripts, it is possible to follow
 
 Possible options:
 
-1. Disabled
-2. Enabled
-3. **Disabled(SW Controlled)** - Default
+1. **Disabled(SW Controlled)** - Default.
+2. Disabled
+3. Enabled
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| PlutonSecurityProcessor | Disable, Enable, Disable(SW_Controlled) | Yes | AMD |
+| PlutonSecurityProcessor | Disable(SW_Controlled), Disable, Enable | Yes | AMD |
 
 ## Security Reporting Options
 

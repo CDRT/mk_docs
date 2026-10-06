@@ -20,11 +20,11 @@ Intel (R) Stable Image Platform Program aligns and stabilizes key Intel platform
 Possible options:
 
 1. **Enabled** - Default.
-2. Disabled - disables SIPP.
+2. Disabled - Disables SIPP.
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| IntelSIPPSupport | Disabled, Enabled | Yes |
+| IntelSIPPSupport | Enabled, Disabled | Yes |
 
 ### **Intel (R) Thunderbolt**
 
@@ -43,11 +43,11 @@ The user is reminded to clean the Dust Shield.
 Possible options:
 
 1. **Enabled** - Default.
-2. Disabled - disables the Dust Shield alert.
+2. Disabled - Disables the Dust Shield alert.
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| DustShieldAlert | Disabled, Enabled | Yes |
+| DustShieldAlert | Enabled, Disabled | Yes |
 
 ### **Intel (R) DPTF Support**
 
@@ -58,11 +58,11 @@ IDPTF is a power and thermal management solution, used to resolve fan noise, ove
 Possible options:
 
 1. **Enabled** - Default.
-2. Disabled - disables DPTF.
+2. Disabled - Disables DPTF.
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| IntelDPTFSupport | Disabled, Enabled | Yes |
+| IntelDPTFSupport | Enabled, Disabled | Yes |
 
 ### **Windows Modern Standby**
 
@@ -71,7 +71,7 @@ Possible options:
 Possible options:
 
 1. **Enabled** - Default.
-2. Disabled - disables Windows Modern Standby.
+2. Disabled - Disables Windows Modern Standby.
 
 ### **BIOS Self-healing**
 

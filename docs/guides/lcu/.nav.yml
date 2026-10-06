@@ -4,8 +4,9 @@ nav:
     - Getting Started:
       - Installation: guides/lcu/getting-started/installation.md
       - Quick Start: guides/lcu/getting-started/quick-start.md
-    - Migration Guide: guides/lcu/comparison.md
+    - LSU vs LCU: guides/lcu/comparison.md
     - Functions:
+      - Debug-LnvUpdate: guides/lcu/functions/debug-lnvupdate.md
       - Expand-LnvUpdate: guides/lcu/functions/expand-lnvupdate.md
       - Get-LnvDownload: guides/lcu/functions/get-lnvdownload.md
       - Get-LnvUpdate: guides/lcu/functions/get-lnvupdate.md

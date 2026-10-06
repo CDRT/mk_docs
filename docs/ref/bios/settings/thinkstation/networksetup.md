@@ -76,8 +76,8 @@ This works by loading the Wireless LAN (Local Area Network) UNDI (Universal Netw
 
 Possible options:
 
-1. Enabled
-2. **Disabled** – Default.
+1. **Disabled** – Default.
+2. Enabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -190,7 +190,10 @@ Possible options:
 
 ### **Proxy Support**
 
-Whether to enable proxy support for network operations such as HTTPs Boot. Availability of this setting depends on model.
+Whether to enable proxy support for network operations such as HTTPs Boot.
+
+!!! warning "Attention"
+    Availability of this setting depends on model.
 
 Possible options:
 
@@ -235,12 +238,15 @@ Possible options:
 
 ### **HTTPs Boot**
 
-This setting controls whether or not the system can boot over HTTPS. When enabled, additional configuration may be required. The HTTPS Boot and related settings are not configurable through WMI. See [Boot Description.](#boot-configuration)
+This setting controls whether or not the system can boot over HTTPS. When enabled, additional configuration may be required. See [Boot Description.](#boot-configuration)
+
+!!! warning "Attention"
+    The HTTPS Boot and related settings are not configurable through WMI.
 
 Possible options:
 
-1. Enabled – the `HTTPs Boot Configuration` and `Tls Auth Configuration` will be shown for custom configuration.
-2. **Disabled** – Default.
+1. **Disabled** – Default.
+2. Enabled – the `HTTPs Boot Configuration` and `Tls Auth Configuration` will be shown for custom configuration.
 
 ### **Lenovo Cloud Services**
 
@@ -251,8 +257,8 @@ Whether to boot system with `Lenovo Cloud` selected through boot menu, so that B
 
 Possible options:
 
-1. Enabled
-2. **Disabled** – Default.
+1. **Disabled** – Default.
+2. Enabled
 
 Once the feature is enabled, then it becomes available for selection in `BIOS -> Startup -> Edit Boot Order`, or `BIOS -> Startup -> Network Boot`, or via F12 Boot Menu. When `Lenovo Cloud Services` booted, then following options will be available for selection:
 
@@ -272,8 +278,8 @@ Whether to boot the system with `Win VDI Boot` selected through boot menu, so th
 
 Possible options:
 
-1. Enabled
-2. **Disabled** – Default.
+1. **Disabled** – Default.
+2. Enabled
 
 ### **Reinstall Windows From Cloud**
 
@@ -361,8 +367,8 @@ Whether to enable or disable automatic Wifi connection on every boot.
 
 Possible options:
 
-1. Enabled
-2. **Disabled** - Default.
+1. **Disabled** - Default.
+2. Enabled
 
 ## Current Connection
 

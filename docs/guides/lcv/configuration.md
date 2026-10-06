@@ -8,7 +8,7 @@ description: Commercial Vantage configuration using Group Policy and registry se
 Commercial Vantage provides flexible configuration across multiple platforms and deployment scenarios. Most features can be hidden or disabled to match your organizational requirements. Use the table below to find your configuration path:
 
 | **Configuration Platform** | **Best For** | **Deployment Context** |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | [**Group Policy + Registry**](#group-policy-administrative-template) | Domain-joined environments | Traditional on-premises |
 | [**Feature Configuration**](#feature-configuration) | Understanding specific policies | Reference and deployment planning |
 | [**Microsoft Configuration Manager**](#microsoft-configuration-manager) | OSD and compliance management | ConfigMgr-managed environments |
@@ -16,7 +16,8 @@ Commercial Vantage provides flexible configuration across multiple platforms and
 
 !!! warning "Enabling Logging"
     Due to requirements from the Lenovo Product Security team, logging is not enabled by default. To enable logging, set the following registry values to "Trace":
-    ```registry
+
+    ``` Registry
     [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Lenovo\VantageService\FileLogger]
     "LenovoVantageShell"="Trace"
     "AllLogs"="Trace"
@@ -32,9 +33,9 @@ If your PCs are joined to a domain, and you are familiar with Group Policy Admin
 
 - **Computer Configuration -> Administrative Templates -> Commercial Vantage**
 
-The settings listed in the Policy Editor allow controlling which parts of the Commercial Vantage User Interface are displayed to the user. For example, you can enable the &quot;Turn off Wifi Security&quot; policy to hide the WiFi Security feature of Commercial Vantage.
+The settings listed in the Policy Editor allow controlling which parts of the Commercial Vantage User Interface are displayed to the user. For example, you can enable the "Turn off Wifi Security" policy to hide the WiFi Security feature of Commercial Vantage.
 
-For more information about using Group Policy Administrative Templates, please refer to the following Microsoft documentation: [https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra) .
+For more information about using Group Policy Administrative Templates, please refer to the following Microsoft documentation: [How to create and manage the Central Store for Group Policy Administrative Templates](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## Registry
 
@@ -56,7 +57,7 @@ Commercial Vantage can also be configured by importing .reg file(s) to your PCs 
 Commercial Vantage provides flexible configuration options across multiple feature areas. Start with the sample configuration, then expand the sections below for detailed policy information:
 
 | **Configuration Area** | **Purpose** | **Key Use Case** |
-| :--- | :--- | :--- |
+| --- | --- | --- |
 | Sample Configuration | Quick-start baseline policies | New deployments or testing |
 | System Update | Control automatic updates and update sources | Manage update timing and repository |
 | WMI Data Collection | Write system information to WMI | Inventory and warranty tracking |
@@ -65,8 +66,8 @@ Commercial Vantage provides flexible configuration options across multiple featu
 
     The sample configuration (**sample-policy-config.reg**) is provided as a registry export file which can be used as-is. The .reg file can be imported to your target systems during deployment, as part of **setup-commercial-vantage.bat**. In this sample, the following policies are pre-configured:
 
-    - Hide the &quot;Support&quot; section
-    - Hide the &quot;WiFi Security&quot; feature
+    - Hide the "Support" section
+    - Hide the "WiFi Security" feature
     - Automatically accept the End User License Agreement (EULA)
     - Write the system warranty information to WMI
 
@@ -99,7 +100,7 @@ Commercial Vantage provides flexible configuration options across multiple featu
     See here for more information about using Update Retriever to create your own custom repository of updates:
 
     - [Download Lenovo Tools for Admins](https://support.lenovo.com/us/en/solutions/ht037099)
-    - [System Update Suite Product Guide](/guides/sus/su_dg/su_dg_ch3/#33-update-retriever)
+    - [System Update Suite Product Guide](../sus/su_dg/su_dg_ch3.md#33-update-retriever)
 
 ??? note "WMI Data Collection"
 
@@ -116,7 +117,7 @@ Commercial Vantage provides flexible configuration options across multiple featu
 
 ## Microsoft Configuration Manager
 
-If policies need to be set in an Operating System Deployment prior to first-logon, reference the example solutions described below. Choose the deployment method that best fits your environment:
+If policies need to be set in an Operating System Deployment prior to first-logon, reference the examples described below. Choose the deployment method that best fits your environment:
 
 ### Package/JSON
 
@@ -125,137 +126,137 @@ A Package containing a JSON file with the desired policies, which are applied us
 !!! note
     The policies in this example are a recommended baseline for enterprise customers
 
-1\. Create a file named **policies.json** with the following data and save it to a source location.
+1. Create a file named **policies.json** with the following data and save it to a source location.
 
-```json
-[
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "feature.giveFeedback",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "AcceptEULAAutomatically",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "page.hardwareScan",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "TurnOffMetricsCollection",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "RunOnce",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "AutoUpdateEnabled",
-        "Value": "0",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "wmi.warranty",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "page.wifiSecurity",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    },
-    {
-        "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
-        "Name": "page.mySoftware",
-        "Value": "1",
-        "Type": "REG_DWORD"
-    }
-]
-```
+    ```json
+    [
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "feature.giveFeedback",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "AcceptEULAAutomatically",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "page.hardwareScan",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "TurnOffMetricsCollection",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "RunOnce",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "AutoUpdateEnabled",
+            "Value": "0",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "wmi.warranty",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "page.wifiSecurity",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        },
+        {
+            "Path": "HKLM:\\SOFTWARE\\Policies\\Lenovo\\Commercial Vantage",
+            "Name": "page.mySoftware",
+            "Value": "1",
+            "Type": "REG_DWORD"
+        }
+    ]
+    ```
 
-2\. Create a second file named **Set-CommercialVantagePolicies.ps1** with the following code and save it to the same source location as **policies.json**.
+2. Create a second file named **Set-CommercialVantagePolicies.ps1** with the following code and save it to the same source location as **policies.json**.
 
-```powershell
-$jsonFile = "policies.json"
-$jsonPath = "$PSScriptRoot\$jsonFile"
-$registryPath = "HKLM:\SOFTWARE\Policies\Lenovo\Commercial Vantage"
+    ```powershell
+    $jsonFile = "policies.json"
+    $jsonPath = "$PSScriptRoot\$jsonFile"
+    $registryPath = "HKLM:\SOFTWARE\Policies\Lenovo\Commercial Vantage"
 
-if (-not (Test-Path $jsonPath))
-{
-    Write-Error "JSON file not found at $jsonPath"
-    exit 1
-}
-
-if (-not (Test-Path $registryPath))
-{
-    $null = New-Item -Path $registryPath -Force -ErrorAction Stop
-}
-
-$registrySettings = Get-Content -Path $jsonPath | ConvertFrom-Json
-
-foreach ($setting in $registrySettings)
-{
-    $path = $setting.Path
-    $name = $setting.Name
-    $value = $setting.Value
-    $type = $setting.Type
-
-    if (-not (Test-Path $path))
+    if (-not (Test-Path $jsonPath))
     {
-        New-Item -Path $path -Force
+        Write-Error "JSON file not found at $jsonPath"
+        exit 1
     }
 
-    Set-ItemProperty -Path $path -Name $name -Value $value -Type $type
-    Write-Output "Applied registry setting: Path=$path, Name=$name, Value=$value"
-}
-```
+    if (-not (Test-Path $registryPath))
+    {
+        $null = New-Item -Path $registryPath -Force -ErrorAction Stop
+    }
 
-3\. In the Configuration Manager console, go to the **Software Library** workspace, expand **Application Management**, and select the Packages node.
+    $registrySettings = Get-Content -Path $jsonPath | ConvertFrom-Json
 
-4\. In the **Home** tab of the ribbon, in the **Create** group, choose **Create Package**.
+    foreach ($setting in $registrySettings)
+    {
+        $path = $setting.Path
+        $name = $setting.Name
+        $value = $setting.Value
+        $type = $setting.Type
 
-5\. On the **Package** page of the **Create Package and Program Wizard**, specify the following information:
+        if (-not (Test-Path $path))
+        {
+            New-Item -Path $path -Force
+        }
 
-- **Name**: Specify a name for the package
+        Set-ItemProperty -Path $path -Name $name -Value $value -Type $type
+        Write-Output "Applied registry setting: Path=$path, Name=$name, Value=$value"
+    }
+    ```
 
-- [**x**] **This package contains source files**
+3. In the Configuration Manager console, go to the **Software Library** workspace, expand **Application Management**, and select the Packages node.
 
-- **Source folder**: Specify the location of the source files for the package.
+4. In the **Home** tab of the ribbon, in the **Create** group, choose **Create Package**.
 
-6\. On the **Program Type** page, select **Do not create a program**.
+5. On the **Package** page of the **Create Package and Program Wizard**, specify the following information:
 
-7\. Complete the **Create Package and Program Wizard** and distribute the **Package** to **Distribution Points**.
+    - **Name**: Specify a name for the package
+
+    - [**x**] **This package contains source files**
+
+    - **Source folder**: Specify the location of the source files for the package.
+
+6. On the **Program Type** page, select **Do not create a program**.
+
+7. Complete the **Create Package and Program Wizard** and distribute the **Package** to **Distribution Points**.
 
 ### Operating System Deployment Task Sequence
 
 Edit the Operating System Deployment task sequence and perform the following:
 
-1\. Add a **Run PowerShell Script** anywhere after **Setup Windows and Configuration Manager**.
+1. Add a **Run PowerShell Script** anywhere after **Setup Windows and Configuration Manager**.
 
-2\. Specify the following:
+2. Specify the following:
 
-- **Name**: For example, **Set Commercial Vantage Policies**.
+    - **Name**: For example, **Set Commercial Vantage Policies**.
 
-- [**x**] **Select a package with a PowerShell script**: Browse to the package created earlier.
+    - [**x**] **Select a package with a PowerShell script**: Browse to the package created earlier.
 
-- **Script name**: _Set-CommercialVantagePolicies.ps1_
+    - **Script name**: _Set-CommercialVantagePolicies.ps1_
 
-- **PowerShell execution policy**: Bypass
+    - **PowerShell execution policy**: Bypass
 
-3\. Click **Ok** to apply changes to the task sequence.
+3. Click **Ok** to apply changes to the task sequence.
 
 ### Configuration Item/Baseline
 
@@ -263,57 +264,57 @@ Deploy a Configuration Baseline that contains a predefined configuration item co
 
 #### Configuration Item
 
-1\. In the Configuration Manager console, go to the **Assets and Compliance** workspace, expand **Compliance Settings**, and select the **Configuration Items** node.
+1. In the Configuration Manager console, go to the **Assets and Compliance** workspace, expand **Compliance Settings**, and select the **Configuration Items** node.
 
-2\. On the **Home** tab of the ribbon, in the **Create** group, select **Create Configuration Item**.
+2. On the **Home** tab of the ribbon, in the **Create** group, select **Create Configuration Item**.
 
-3\. On the **General** page of the wizard, specify a **Name**, and optional description.
+3. On the **General** page of the wizard, specify a **Name**, and optional description.
 
-4\. Under **Specify the type of configuration item that you want to create**, select **Windows Desktops and Servers (custom)**.
+4. Under **Specify the type of configuration item that you want to create**, select **Windows Desktops and Servers (custom)**.
 
-5\. On the **Supported Platforms** page, select:
+5. On the **Supported Platforms** page, select:
 
-- **All Windows 10 (64-bit)**
+    - **All Windows 10 (64-bit)**
 
-- **All Windows 11 (ARM64)** and **All Windows 11 (64-bit)**
+    - **All Windows 11 (ARM64)** and **All Windows 11 (64-bit)**
 
-6\. On the **Settings** page, select **New**.
+6. On the **Settings** page, select **New**.
 
-7\. On the **General** tab, provide the following information:
+7. On the **General** tab, provide the following information:
 
-- **Name**: Accept EULA Automatically
+    - **Name**: Accept EULA Automatically
 
-- **Setting type**: Registry value
+    - **Setting type**: Registry value
 
-- **Data type**: Integer
+    - **Data type**: Integer
 
-- **Hive**: HKEY_LOCAL_MACHINE
+    - **Hive**: HKEY_LOCAL_MACHINE
 
-- **Key name**: SOFTWARE\Policies\Lenovo\Commercial Vantage
+    - **Key name**: SOFTWARE\Policies\Lenovo\Commercial Vantage
 
-- **Value name**: AcceptEULAAutomatically
+    - **Value name**: AcceptEULAAutomatically
 
-- [**x**] **Create the registry value as a REG_DWORD data type if remediated for noncompliant rules**
+    - [**x**] **Create the registry value as a REG_DWORD data type if remediated for noncompliant rules**
 
-8\. On the **Compliance Rules** tab, click **New** and provide the following information:
+8. On the **Compliance Rules** tab, click **New** and provide the following information:
 
-- **Name**: Accept EULA Automatically
+    - **Name**: Accept EULA Automatically
 
-- **Operator**: Equals
+    - **Operator**: Equals
 
-- **For the following values**: 1
+    - **For the following values**: 1
 
-- [**x**] **Remediate noncompliant rules when supported**
+    - [**x**] **Remediate noncompliant rules when supported**
 
-- [**x**] **Remediate noncompliance if this setting is not found**
+    - [**x**] **Remediate noncompliance if this setting is not found**
 
-- **Noncompliance severity for reports**: Information
+    - **Noncompliance severity for reports**: Information
 
-!!! info ""
+!!! info "Repeat for each recommended policy"
     Repeat steps 7 and 8 for the following recommended policies
 
 | **Policy Name** | **Value** |
-| :--- | :--- |
+| --- | --- |
 | Disable Auto Update | AutoUpdateEnabled |
 | [Turn Off Give Feedback](#turn-off-give-feedback) | feature.giveFeedback |
 | [Turn Off Hardware Scan](#turn-off-hardware-scan) | page.hardwareScan |
@@ -325,36 +326,36 @@ Deploy a Configuration Baseline that contains a predefined configuration item co
 
 #### Configuration Baseline
 
-1\. In the Configuration Manager console, go to the **Assets and Compliance** workspace, expand **Compliance Settings**, and select the **Configuration Baseline** node.
+1. In the Configuration Manager console, go to the **Assets and Compliance** workspace, expand **Compliance Settings**, and select the **Configuration Baseline** node.
 
-2\. On the **Home** tab of the ribbon, in the **Create** group, select **Create Configuration Baseline**.
+2. On the **Home** tab of the ribbon, in the **Create** group, select **Create Configuration Baseline**.
 
-3\. On the **General** page of the wizard, specify a **Name**, and optional description.
+3. On the **General** page of the wizard, specify a **Name**, and optional description.
 
-4\. Under **Configuration data**, click **Add**, choose **Configuration Items**. Select the **Configuration Item** created above and click **Add** to add it to the baseline.
+4. Under **Configuration data**, click **Add**, choose **Configuration Items**. Select the **Configuration Item** created above and click **Add** to add it to the baseline.
 
-5\. [**x**] Always apply this baseline even for co-managed clients
+5. [**x**] Always apply this baseline even for co-managed clients
 
-6\. Deploy the baseline to a **Device Collection** containing Lenovo Think products.
+6. Deploy the baseline to a **Device Collection** containing Lenovo Think products.
 
 ## Microsoft Intune
 
 This section presents the policies found in the Commercial Vantage ADMX template, along with the OMA-URIs which can be used to configure the application on Intune managed clients.
 
-For steps on how to create and deploy Commercial Vantage as a Win32 app, reference this [page](https://blog.lenovocdrt.com/deploying-commercial-vantage-with-intune).
+For steps on how to create and deploy Commercial Vantage as a Win32 app, reference [Deploying Commercial Vantage with Intune](https://blog.lenovocdrt.com/deploying-commercial-vantage-with-intune).
 
-**For an even easier way to manage these policies when using Intune, try the [Commercial Vantage Policy Manager Blog](https://blog.lenovocdrt.com/introducing-commercial-vantage-policy-manager-for-intune/) or the [Commercial Vantage Policy Manager Guide](../cvpm/index.md).**
+**For an even easier way to manage these policies when using Intune, try the [Commercial Vantage Policy Manager Blog](https://blog.lenovocdrt.com/introducing-commercial-vantage-policy-manager-for-intune/) or the [Commercial Vantage Policy Manager Guide](../lcvpm/index.md).**
 
-!!! note ""
+!!! note "Re-ingest the ADMX after new policies"
     If new policies have been introduced, you will need to ingest the updated ADMX file contained in the Commercial Vantage Enterprise Package zip file and replace your existing policies in Intune with new ones created after ingesting the new ADMX file.
 
-!!! note ""
+!!! note "Custom ADMX support"
     Introduced in the [2208](https://learn.microsoft.com/mem/intune/fundamentals/whats-new-archive#import-create-and-manage-custom-admx-and-adml-administrative-templates) Intune Service release, you can import, create, and manage custom ADMX and ADML administrative templates.
 
 !!! warning "ADMX Upload Error"
     If you receive the below error when uploading the ADMX, you will need to upload the [Windows.admx](https://www.microsoft.com/download/details.aspx?id=106254) first, then retry uploading the Commercial Vantage ADMX.
 
-    ![img](https://cdrt.github.io/mk_docs/img/cv/admx_upload_error.jpg)
+    ![Intune error message shown when uploading the Commercial Vantage ADMX file](https://cdrt.github.io/mk_docs/img/cv/admx_upload_error.jpg)
 
 !!! info "OMA-URI Values"
     Unless additional data parameters are noted, all policies in this section accept the following values:
@@ -368,7 +369,7 @@ For steps on how to create and deploy Commercial Vantage as a Win32 app, referen
 **Policy Categories:**
 
 | **Category** | **Purpose** |
-| :--- | :--- |
+| --- | --- |
 | [**Dashboard**](#dashboard) | Control Dashboard visibility and feedback features |
 | [**Device**](#device) | Manage core device features including System Update, Battery, and Power |
 | [**EULA**](#eula) | Control EULA and license agreement settings |
@@ -385,7 +386,7 @@ For steps on how to create and deploy Commercial Vantage as a Win32 app, referen
     **Description**: When this policy is enabled, the Dashboard feature of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~8EB4B7362B69050BFD52D7A0636C0562/26EB604F31FEA5A31B30EE1DA8B6774D
     ```
 
@@ -402,7 +403,7 @@ For steps on how to create and deploy Commercial Vantage as a Win32 app, referen
     **Description**: When this policy is enabled, the Give Feedback feature of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~8EB4B7362B69050BFD52D7A0636C0562~3DD3DE15E0C7A9EB9EF9D505E92E74B1/392FE587856B9D466DE27527614D5EE2
     ```
 
@@ -422,7 +423,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When this policy is enabled, the Device Settings feature of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB/AD7C83D4D02A207DE73A16DBA3E41299
     ```
 
@@ -438,7 +439,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When this policy is enabled, the System Update feature of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB/47CE09B9482EAC9FD541B9E673E25EBC
     ```
 
@@ -454,7 +455,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When this policy is enabled, the My Device feature of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB/536EE0FCEA046E2AE885243C193998DD
     ```
 
@@ -474,7 +475,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: Controls whether the Clean your device section is hidden. When enabled, the Clean your device section will be hidden. When disabled or not configured, the Clean your device section will be displayed.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~06D228AC8E56DCF8F1EE6B05253DC972/AB30DC81F330F079F10455FBB7BEBD52
     ```
 
@@ -492,7 +493,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When this policy is enabled, the Smart Assist feature of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD/48D766A8D16EA17A7C0BA73A8A8FD521
     ```
 
@@ -510,7 +511,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When this policy is enabled, the Camera features of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~253B0EFA38D70AA281E219F0608579F7/2E012166F382F702A96FACF6CB2AD9BF
     ```
 
@@ -526,7 +527,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When this policy is enabled, the Display features of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~253B0EFA38D70AA281E219F0608579F7/7EFB17AA327FB4413D8CFBC79A7BC0DC
     ```
 
@@ -544,7 +545,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When this policy is enabled, the Intelligent Keyboard feature of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~8B4FEEBFA703E3CDB065A0BC9F60E2B8/C9E7C956C24B3611C29FF18FD27B5817
     ```
 
@@ -562,7 +563,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When this policy is enabled, the Microphone Settings features of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~BA6F60313310EFF34E59B7FAB53CF7B0/5FD85C9FE3983DEF5D98453B5A1A31BE
     ```
 
@@ -578,7 +579,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: Turns off and hides the Smart noise cancelling feature. When enabled, any prior noise cancelling settings are reset to default. When disabled, the feature is visible and users can update settings through Commercial Vantage.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~BA6F60313310EFF34E59B7FAB53CF7B0/772EAFEFB12384522846346824FA2EF4
     ```
 
@@ -598,7 +599,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When enabled, the battery health status will be hidden.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/08BBF44CA2CC0873631A35AF193B452B
     ```
 
@@ -616,7 +617,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When enabled, the Desktop Power Manager Power Settings will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/114BBBE0F57582EEBF1ACE595FDDFD92
     ```
 
@@ -634,7 +635,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When enabled, Global Power Management (Intelligent Cooling/Intelligent Cooling Engine) will be hidden. When disabled or not configured, it will be shown.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/1A406616747B4AEEB4184F7408D8C182
     ```
 
@@ -652,7 +653,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When enabled, the battery temperature section will be hidden.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/3EAD4546EEBB230B32DFBB487C7E5EA0
     ```
 
@@ -670,7 +671,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When enabled, the Standby Settings feature will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/BFDBD5BBEE7822675EC26177C62820D6
     ```
 
@@ -688,7 +689,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When enabled, the At a glance section will be hidden.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/D8B285396E09B47C7853FC260DA26E49
     ```
 
@@ -704,7 +705,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When enabled, the Power Settings of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/DAFCD675AF1BF429DDE3C7DBA278F84D
     ```
 
@@ -722,7 +723,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When enabled, the Energy Star features will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/EC7DDEAF97A500A0EE95864114E7CD52
     ```
 
@@ -750,15 +751,15 @@ The following top-level policies control entire sections of the Device page.
     When the toggle to "Automatically Set Threshold" is on, then Battery Threshold "Start" cannot be set.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/1B92BAC1630DE2689D54D68B7EC60A78
     ```
 
     !!! info "GUID Reference"
-        30B3EB897294AF0A770737E004CCE7B0 = Enable custom battery threshold settings<br>
-        4B9DE8D61B215393ED7255D0719FA5FA = Threshold Start<br>
-        2FE339B04615BBA5C913F45FB6A1B34D = Threshold Stop<br>
-        51A1765894644A2F58B9AF5EE7F65922 = Auto Start Charging
+        - 30B3EB897294AF0A770737E004CCE7B0 = Enable custom battery threshold settings
+        - 4B9DE8D61B215393ED7255D0719FA5FA = Threshold Start
+        - 2FE339B04615BBA5C913F45FB6A1B34D = Threshold Stop
+        - 51A1765894644A2F58B9AF5EE7F65922 = Auto Start Charging
 
     **Values**:
     ```xml
@@ -777,7 +778,7 @@ The following top-level policies control entire sections of the Device page.
 
     **Description**: This policy setting allows Commercial Vantage to write the computer battery information into the Lenovo Namespace WMI table. If you enable it, the battery information will be written to WMI.
 
-    ![battery info](https://cdrt.github.io/mk_docs/img/cv/battery_info.png)
+    ![Battery information written to the Lenovo WMI namespace](https://cdrt.github.io/mk_docs/img/cv/battery_info.png)
 
     This policy setting allows the Administrator to configure the schedule type, schedule day, and schedule time for writing the computer battery information to WMI. The Schedule type value should be a number (0-2), where 0 means daily, 1 means weekly, 2 means monthly.
 
@@ -790,14 +791,14 @@ The following top-level policies control entire sections of the Device page.
     If you disable or do not configure this policy setting, the battery information will not be written to WMI.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~E8B51492FF5A8AA72FD9593E19D9B8FF/B01A9475F26627063E7913B9D74C9658
     ```
 
     !!! info "GUID Reference"
-        ADE41242A9F8CE596481FE945E5FE5D8 = Schedule Type<br>
-        F04F922293A120999D4EB95012CA0C64 = Schedule Day<br>
-        AC72B4BC066D807C760A11748C39F451 = Schedule Time
+        - ADE41242A9F8CE596481FE945E5FE5D8 = Schedule Type
+        - F04F922293A120999D4EB95012CA0C64 = Schedule Day
+        - AC72B4BC066D807C760A11748C39F451 = Schedule Time
 
     **Values**:
     ```xml
@@ -818,7 +819,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When this policy is enabled, the Active Protection System Settings features of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~CBAB71D9A1E135A0FA3A6EA2DA0C9904/506259864F9C994767F6530DE643B36E
     ```
 
@@ -836,7 +837,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When this policy is enabled, the Intelligent Screen features of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~CBAB71D9A1E135A0FA3A6EA2DA0C9904/EEF7C410105EFB7805171740190C6965
     ```
 
@@ -854,7 +855,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When this policy is enabled, the Intelligent Security Settings features of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~CBAB71D9A1E135A0FA3A6EA2DA0C9904/F849A86B6C88FB37AFB14BAB268A8E2A
     ```
 
@@ -872,7 +873,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When this policy is enabled, the Dolby Access page will be hidden. The Advanced microphone effects section on the Microphone page will also be hidden.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7F1A82A306BBA4A0AE1E88DACC971B98/5893778C126AECE6153BAC92D216D439
     ```
 
@@ -896,7 +897,7 @@ The following top-level policies control entire sections of the Device page.
     If you disable or do not configure this setting, Smart modes will be displayed and the user will be able to use the Lenovo Desktop Widget.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD~1F6D526341FE3425994B9AB44C1861AD/12C11D46F588686A418AC8D13E935E01
     ```
 
@@ -915,7 +916,7 @@ The following top-level policies control entire sections of the Device page.
     **Description**: When this policy is enabled, My Software page will be hidden.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~C5F2E398EC7B34FE44B522453172955A/93F1E6046DD02C5953747188D106EDC8
     ```
 
@@ -937,7 +938,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Description**: Defines the Company Name to be displayed on the System Update dialogs. Excessively long names may be truncated.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089/1B712E2FAB2CBBC36596C1D66EEDDFED
     ```
 
@@ -956,26 +957,26 @@ The following policies toggle System Update behavior on or off. For policies wit
     All elements must be specified with a value of either True or False.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089/5456F227323F901F6CAF5C2F3F1AC9A5
     ```
 
     !!! info "GUID Reference"
-        602015B22CFEA08C53FEC8C3E81356BF = Critical Applications<br>
-        CE7D1526B3D8674705FF75DFF52B4416 = Critical Drivers<br>
-        7C75C7AA6FF288235BCA3886FA9A4176 = Critical BIOS<br>
-        94803C37291A574BB4CAF4DFAE682CC2 = Critical Firmware<br>
-        7326616EB323392D1BB0E6436A4A02AF = Critical Others<br>
-        6564E6607DD79991C0A56F009A4102FA = Recommended Applications<br>
-        B78D824B47B0EC632B7EDEF30B63E2D9 = Recommended Drivers<br>
-        A0DEF98CD96C592582382A3453CB78BA = Recommended BIOS<br>
-        8E6885D7C10107B5CD98053B7D8B2A6E = Recommended Firmware<br>
-        A45D902F95DDD3B8597B21175A66A804 = Recommended Others<br>
-        46302403B9C32072305518FE20DC6720 = Optional Applications<br>
-        FDC13AFD3BA418958D122D78105C2F90 = Optional Drivers<br>
-        3297105136FCEC5D3432C0FA2FDB73BB = Optional BIOS<br>
-        C62002C924CF75712313AC1CF94525AB = Optional Firmware<br>
-        9A82A62C3EF3BA2FCC142413A1FAC951 = Optional Others
+        - 602015B22CFEA08C53FEC8C3E81356BF = Critical Applications
+        - CE7D1526B3D8674705FF75DFF52B4416 = Critical Drivers
+        - 7C75C7AA6FF288235BCA3886FA9A4176 = Critical BIOS
+        - 94803C37291A574BB4CAF4DFAE682CC2 = Critical Firmware
+        - 7326616EB323392D1BB0E6436A4A02AF = Critical Others
+        - 6564E6607DD79991C0A56F009A4102FA = Recommended Applications
+        - B78D824B47B0EC632B7EDEF30B63E2D9 = Recommended Drivers
+        - A0DEF98CD96C592582382A3453CB78BA = Recommended BIOS
+        - 8E6885D7C10107B5CD98053B7D8B2A6E = Recommended Firmware
+        - A45D902F95DDD3B8597B21175A66A804 = Recommended Others
+        - 46302403B9C32072305518FE20DC6720 = Optional Applications
+        - FDC13AFD3BA418958D122D78105C2F90 = Optional Drivers
+        - 3297105136FCEC5D3432C0FA2FDB73BB = Optional BIOS
+        - C62002C924CF75712313AC1CF94525AB = Optional Firmware
+        - 9A82A62C3EF3BA2FCC142413A1FAC951 = Optional Others
 
     **Values**:
     ```xml
@@ -1004,7 +1005,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Description**: Defines the location of where System Update will pick up available content. Supports UNC paths or a local drive only.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089/7D125BC7E172D57BBD95107ECECB6C0D
     ```
 
@@ -1023,7 +1024,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Description**: When enabled, System Update only processes packages with a Status of "Test" in the local repository. Only effective if a local repository is configured via the System Update Repository policy.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089/C6A61B1F0CCC910157C4FD733BBFBA69
     ```
 
@@ -1039,7 +1040,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Description**: When enabled, auto update is enabled. When disabled, auto update is disabled. Not configured maintains the last status and can be controlled by the end user. By default, auto update installs critical updates and recommended drivers.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/DE2E5946D5FC36D6F175D99C651F8408
     ```
 
@@ -1059,26 +1060,26 @@ The following policies toggle System Update behavior on or off. For policies wit
     All elements must be specified with a value of either True or False.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/F3E50D676ED09F059CDA62D68516F80D
     ```
 
     !!! info "GUID Reference"
-        602015B22CFEA08C53FEC8C3E81356BF = Critical Applications<br>
-        CE7D1526B3D8674705FF75DFF52B4416 = Critical Drivers<br>
-        7C75C7AA6FF288235BCA3886FA9A4176 = Critical BIOS<br>
-        94803C37291A574BB4CAF4DFAE682CC2 = Critical Firmware<br>
-        7326616EB323392D1BB0E6436A4A02AF = Critical Others<br>
-        6564E6607DD79991C0A56F009A4102FA = Recommended Applications<br>
-        B78D824B47B0EC632B7EDEF30B63E2D9 = Recommended Drivers<br>
-        A0DEF98CD96C592582382A3453CB78BA = Recommended BIOS<br>
-        8E6885D7C10107B5CD98053B7D8B2A6E = Recommended Firmware<br>
-        A45D902F95DDD3B8597B21175A66A804 = Recommended Others<br>
-        46302403B9C32072305518FE20DC6720 = Optional Applications<br>
-        FDC13AFD3BA418958D122D78105C2F90 = Optional Drivers<br>
-        3297105136FCEC5D3432C0FA2FDB73BB = Optional BIOS<br>
-        C62002C924CF75712313AC1CF94525AB = Optional Firmware<br>
-        9A82A62C3EF3BA2FCC142413A1FAC951 = Optional Others
+        - 602015B22CFEA08C53FEC8C3E81356BF = Critical Applications
+        - CE7D1526B3D8674705FF75DFF52B4416 = Critical Drivers
+        - 7C75C7AA6FF288235BCA3886FA9A4176 = Critical BIOS
+        - 94803C37291A574BB4CAF4DFAE682CC2 = Critical Firmware
+        - 7326616EB323392D1BB0E6436A4A02AF = Critical Others
+        - 6564E6607DD79991C0A56F009A4102FA = Recommended Applications
+        - B78D824B47B0EC632B7EDEF30B63E2D9 = Recommended Drivers
+        - A0DEF98CD96C592582382A3453CB78BA = Recommended BIOS
+        - 8E6885D7C10107B5CD98053B7D8B2A6E = Recommended Firmware
+        - A45D902F95DDD3B8597B21175A66A804 = Recommended Others
+        - 46302403B9C32072305518FE20DC6720 = Optional Applications
+        - FDC13AFD3BA418958D122D78105C2F90 = Optional Drivers
+        - 3297105136FCEC5D3432C0FA2FDB73BB = Optional BIOS
+        - C62002C924CF75712313AC1CF94525AB = Optional Firmware
+        - 9A82A62C3EF3BA2FCC142413A1FAC951 = Optional Others
 
     **Values**:
     ```xml
@@ -1113,12 +1114,12 @@ The following policies toggle System Update behavior on or off. For policies wit
     If you disable this policy or the policy is not configured, the end-user may only continue with or cancel the updates. If cancelled, the updates will be presented again at the next scheduled scan.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/6E62038B159F1CC622C1E80F3BD3D1E8
     ```
 
     | id | valueName |
-    | :--- | :--- |
+    | --- | --- |
     | `311D60F57C54D2DD03394368BDFCED99` | DeferLimit |
     | `95E579A1A0BABCEDAC4AF1BC81B042F4` | DeferTime |
 
@@ -1140,12 +1141,12 @@ The following policies toggle System Update behavior on or off. For policies wit
     The minimum value is 5 minutes and the maximum value is 60 minutes. Values less than 5 default to 5, and values greater than 60 default to 60. If set to Not Configured or Disabled, the default delay of 5 minutes is used.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/F3F1A1DD19BD01E2DA2585DA028E2685
     ```
 
     | id | valueName |
-    | :--- | :--- |
+    | --- | --- |
     | `A177CC7E0E6711DBEC0976D105F4A5FE` | Reboot delay (minutes) |
 
     **Values**:
@@ -1168,11 +1169,11 @@ The following policies toggle System Update behavior on or off. For policies wit
 
     Example for Day(s) input:
 
-    - `All` — Auto Update will occur on all days of the month
-    - `1;7;13;25` — will only occur on days 1, 7, 13, and 25
-    - `All;1;13;25` — will only occur on days 1, 13, 25 ("All" is ignored)
-    - `LastDay` — will only occur on the last day of the month
-    - `LastDay;1;13;25` — will only occur on days 1, 13, 25, and the last day
+    - `All`  -  Auto Update will occur on all days of the month
+    - `1;7;13;25`  -  will only occur on days 1, 7, 13, and 25
+    - `All;1;13;25`  -  will only occur on days 1, 13, 25 ("All" is ignored)
+    - `LastDay`  -  will only occur on the last day of the month
+    - `LastDay;1;13;25`  -  will only occur on days 1, 13, 25, and the last day
 
     When Frequency and Days of the Week are configured, a selection must be set for both, otherwise the policy will be ignored.
 
@@ -1182,12 +1183,12 @@ The following policies toggle System Update behavior on or off. For policies wit
     - If "First" and "Third" are checked under Frequency and "Tuesday" is checked under Day of the Week, then Auto Update will occur on the first and third Tuesday of each month.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/21E270BB2BEDC888DE041CA38981726B
     ```
 
     | id | valueName |
-    | :--- | :--- |
+    | --- | --- |
     | `8954B312E3ABB22A17F7E50723750B80` | All Weeks |
     | `001C72322736D14CFC56E1F4653019F6` | First Week |
     | `806D1BC85455150F0DCD44BDFC9839FA` | Second Week |
@@ -1232,12 +1233,12 @@ The following policies toggle System Update behavior on or off. For policies wit
     If this policy is enabled, the Run Once task will be disabled automatically.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/5352EE76841C80672B56A0CEDF41837E
     ```
 
     | id | valueName |
-    | :--- | :--- |
+    | --- | --- |
     | `B2DD6109EA2E207C836383CECF4A9BEC` | All Months |
     | `ED5C30B56EF8F5365D9C42831CF04BD8` | January |
     | `BF9C2D60C64BF8F3B5099FE91F9B5089` | February |
@@ -1277,7 +1278,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Description**: This policy setting provides the ability for the Administrator to configure the time for auto updates. For example, 18:30:00 for 6:30 PM. This will represent the start of a 90-minute window. Devices will randomly start the Auto Update during this 90 minutes. This helps ensure that all devices do not start downloading updates over the network at exactly the same time.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/5D601BAD50217031B2F5939DF58ED0CE
     ```
 
@@ -1302,7 +1303,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     When Disabled, the behavior follows the same as Not Configured.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/C1740AE92796891F54E1046A4DFB1630
     ```
 
@@ -1320,7 +1321,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Description**: When enabled (or not configured), Dock Auto Update is turned off. Set to Disabled to allow Commercial Vantage to check for dock firmware updates when a supported dock is attached.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/3D58DE8904B4C497EB9181BEDC868A50
     ```
 
@@ -1339,7 +1340,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Description**: When enabled, the initial check for updates at first launch is turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/41055A4D350BB08B7B35250ABCD2A4B1
     ```
 
@@ -1357,7 +1358,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Description**: Controls whether downloads of system updates are performed using Background Intelligent Transfer Service (BITS) if available. If BITS is not available, a standard download will be attempted.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/62B86BA376E94B76D035DADCB8433F3A
     ```
 
@@ -1377,7 +1378,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Description**: When enabled, warranty information will be removed from the Commercial Vantage GUI.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~4D633640E5CF3443867C0771CE6106B0/29310C221BB9070F63950B4D1EF6E2FD
     ```
 
@@ -1395,7 +1396,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Description**: When enabled, warranty information will be written to the Lenovo Namespace WMI table.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~4D633640E5CF3443867C0771CE6106B0/8431B9B72EC21BF09C22F293D7E3F2D5
     ```
 
@@ -1413,7 +1414,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Description**: Disables the Lenovo End User License Agreement (EULA) and the Lenovo privacy statement pop-up displayed at first launch.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~261C3D29FFEB46D46D29941DC7D22786/01A7464C3D337F1E15D54CA31D7FF83B
     ```
 
@@ -1434,7 +1435,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Description**: When enabled, the Hardware Scan feature of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~3BB252355E5322463EC33426BF919239/5A6D93CCF9612C47FFF7FE6C13293CAF
     ```
 
@@ -1453,7 +1454,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Description**: When enabled, prevents data collection by Commercial Vantage. No metrics information (e.g., EULA acceptance) will be reported to Lenovo.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~856C8C55266137062827DD27AEDB1FA5/C850CEF61E7247F07CD8519AE87DA2AF
     ```
 
@@ -1472,7 +1473,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Description**: _(Previously named Wifi Security)_ When enabled, the Network feature of Commercial Vantage will be turned off.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~D5E41712EF76F886457EC1401FAEEF01/F11439A9B68301F4EC7AF579B71B30DF
     ```
 
@@ -1487,12 +1488,10 @@ The following policies toggle System Update behavior on or off. For policies wit
 ### Preference Settings
 
 ??? note "Turn off Preference Settings"
-
-    ??? note "Turn off Preference Settings"
     **Description**: When enabled, hides the Preference settings page. Settings on the page will not change.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~A3295309178C5F1CEC24529B03C24C6E/1E4CBA1B408B04FD46F365871B89A237
     ```
 
@@ -1514,7 +1513,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     If you do not configure this policy setting, end user will be able to control it from the UI.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~A3295309178C5F1CEC24529B03C24C6E~57BCEFF7C7874F4EC6423F75E5CF84B9/FAD50692743BADEBB3D3B7905708B767
     ```
 
@@ -1529,14 +1528,12 @@ The following policies toggle System Update behavior on or off. For policies wit
 ### Smart Care
 
 ??? note "Turn off Smart Care"
-
-    ??? note "Turn off Smart Care"
     _Added in version 10.2407.66.0_
 
     **Description**: When enabled, the Smart Care page will not be displayed and users cannot access Smart Care via Commercial Vantage. When disabled or not configured, Smart Care is shown if the device is connected to the internet.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~BD3A80EB0DDAB86A9E706C6CF8F64037/8E9D639B4B94B49D617C636DDC19B42F
     ```
 
@@ -1551,12 +1548,10 @@ The following policies toggle System Update behavior on or off. For policies wit
 ### Toast Messages
 
 ??? note "Turn off Toast Messages"
-
-    ??? note "Turn off Toast Messages"
     **Description**: When enabled, toast messages will not be displayed to end-users. When disabled, toast messages will be displayed to end-users. When not configured, end-users can control this from the UI.
 
     **OMA-URI**:
-    ```
+    ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~827FE50BF937C098237E83855BDE934A/12EA5BA045FD172E4FE8593904E47A4A
     ```
 

@@ -8,7 +8,7 @@ status: deprecated
 # Lenovo View Configuration Guide
 
 !!! warning "Lenovo View is being withdrawn"
-    Beginning in January 2026, Lenovo View will begin to be withdrawn. There may be an additional update released to assist in the automatic removal of this solution. For more details, see the [End of Support statement.](https://support.lenovo.com/us/en/solutions/HT518161)
+    Lenovo View is being withdrawn beginning in January 2026. An additional update may be released to assist in the automatic removal of the app. For more details, see the [End of Support statement](https://support.lenovo.com/us/en/solutions/HT518161).
 
 ## Overview
 
@@ -16,8 +16,8 @@ Lenovo View is a hardware support app for the Lenovo View device driver that enh
 
 ## Deploying Lenovo View
 
-!!! warning
-    The Lenovo View device driver must be deployed to the device before deploying the app. Deploying only the app without the driver will result in non-functional features. The device driver is included in the SCCM driver packs and available on the Lenovo Support site.
+!!! warning "Deploy the driver first"
+    The Lenovo View device driver must be deployed to the device before deploying the app. Deploying only the app without the driver will result in non-functional features. The device driver is included in the Configuration Manager driver packs and available on the Lenovo Support site.
 
 As an HSA, the Lenovo View app is available in the HSA pack for models that support it. For systems which have access to the Microsoft Store, the OS will automatically install the Lenovo View app after the device driver is deployed. Otherwise, refer to [Hardware Support Apps Without Microsoft Store](https://blog.lenovocdrt.com/hardware-support-apps-without-microsoft-store) for details on how to sideload the app from the HSA pack.
 
@@ -30,26 +30,26 @@ As an HSA, the Lenovo View app is available in the HSA pack for models that supp
 - **Collaboration**
     - **Background Removal:** Conceal the background during a video call to keep the focus on you.
 
- ![Background Removal](https://cdrt.github.io/mk_docs/img/guides/view/Background_Removal.jpg)
+![Background Removal](https://cdrt.github.io/mk_docs/img/guides/view/Background_Removal.jpg)
 
 - **Auto-framing:** Automatically keep your face centered in the video call when you move around.
 
- ![Auto-Framing](https://cdrt.github.io/mk_docs/img/guides/view/Auto-Framing.jpg)
+![Auto-Framing](https://cdrt.github.io/mk_docs/img/guides/view/Auto-Framing.jpg)
 
 - **Privacy**
     - **Privacy Alert:** An alert icon appears on your computer screen when a shoulder surfer appears behind you.
 
- ![Privacy Alert](https://cdrt.github.io/mk_docs/img/guides/view/Privacy_Alert_2023.jpg)
+![Privacy Alert](https://cdrt.github.io/mk_docs/img/guides/view/Privacy_Alert_2023.jpg)
 
-- **Privacy Guard:** Your screen becomes blurred when a shoulder surfer appears behind you. Press Alt + F2 to cancel the blur effect.
+- **Privacy Guard:** Your screen becomes blurred when a shoulder surfer appears behind you. Press ++alt+f2++ to cancel the blur effect.
 
- ![Privacy Guard](https://cdrt.github.io/mk_docs/img/guides/view/Privacy_Guard.jpg)
+![Privacy Guard](https://cdrt.github.io/mk_docs/img/guides/view/Privacy_Guard.jpg)
 
 - **Wellness**
     - **Posture Warning:** Remind you to adjust your posture when you hunch toward the screen.
     - **Eye Wellness:** Remind you to look away from the screen and relax your eyes for 20 seconds every 20 minutes.
 
- ![Wellness](https://cdrt.github.io/mk_docs/img/guides/view/a_temp_digital_wellness_2023.jpg)
+![Wellness](https://cdrt.github.io/mk_docs/img/guides/view/a_temp_digital_wellness_2023.jpg)
 
 !!! note
     The available features vary depending on the computer model. Additionally, the Lenovo View app periodically updates features to improve camera and video call experience, so feature descriptions may differ from what appears in your user interface.
@@ -58,10 +58,11 @@ As an HSA, the Lenovo View app is available in the HSA pack for models that supp
 
 The Lenovo View app supports group policy controls of the configuration settings listed below. To define a policy for your devices running Lenovo View, download the ADMX template and use the standard procedure to implement your desired settings through Active Directory. You may also [import the ADMX template into Intune](https://learn.microsoft.com/en-us/mem/intune/configuration/administrative-templates-import-custom) to manage these policies.
 
-If testing on a local machine, copy the contents of the zip file below to C:\Windows\PolicyDefinitions, then open Group Policy Editor. The Lenovo View items will be available under Administrative Templates.
+If testing on a local machine, copy the contents of the zip file below to `C:\Windows\PolicyDefinitions`, then open Group Policy Editor. The Lenovo View items will be available under Administrative Templates.
+
 ![Lenovo View policies](https://cdrt.github.io/mk_docs/img/guides/view/gpedit.png)
 
-Download:  [LenovoViewADMX.zip](https://download.lenovo.com/cdrt/tools/LenovoViewADMX.zip)
+Download: [LenovoViewADMX.zip](https://download.lenovo.com/cdrt/tools/LenovoViewADMX.zip)
 
 ---
 
@@ -71,7 +72,7 @@ Download:  [LenovoViewADMX.zip](https://download.lenovo.com/cdrt/tools/LenovoVie
 ## Policy Settings
 
 | Policy | Description |
-|--------|-------------|
+| --- | --- |
 | Auto Framing | Keeps the user centered in the video by changing the region of interest. The camera follows the person, and video conference participants see the user always centered in the frame. |
 | Background Concealment | Separates the user from the background and blurs it. |
 | Eye Wellness | Tracks display time and reminds the user to look at something different after 20 minutes to protect the eyes. A banner appears across the display to remind the user when it is time for a break. |

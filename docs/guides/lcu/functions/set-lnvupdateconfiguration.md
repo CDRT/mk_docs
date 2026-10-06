@@ -122,10 +122,12 @@ This cmdlet does not return objects. Changes are applied immediately to global m
 
 ### Proxy Authentication
 
+!!! warning "Proxy credentials are stored in the module configuration"
+    Consider the security implications before saving a proxy credential, especially if you export the configuration with `Export-Clixml`.
+
 - If `-ProxyCredential` is set, it's used for all proxy connections
 - `-ProxyUseDefaultCredential` uses the logged-in user's Windows credentials
 - If both are set, `-ProxyCredential` takes precedence
-- Credentials are stored in the module configuration (consider security implications)
 
 ### Configuration Scope
 

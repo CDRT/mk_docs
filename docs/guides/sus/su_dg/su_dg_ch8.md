@@ -1,18 +1,23 @@
+---
+title: "System Update Suite Deployment Guide: Notices"
+description: Legal notices and trademarks.
+---
+
 # 8 Appendix C: Notices
 
-Lenovo may not offer the products, services, or features discussed in this document in all countries. Consult your local Lenovo representative for information on the products and services currently available in your area. Any reference to a Lenovo product, program, or service is not intended to state or imply that only that Lenovo product, program, or service may be used. Any functionally equivalent product, program, or service that does not infringe any Lenovo intellectual property right may be used instead. However, it is the user&#39;s responsibility to evaluate and verify the operation of any other product, program, or service.
+Lenovo may not offer the products, services, or features discussed in this document in all countries. Consult your local Lenovo representative for information on the products and services currently available in your area. Any reference to a Lenovo product, program, or service is not intended to state or imply that only that Lenovo product, program, or service may be used. Any functionally equivalent product, program, or service that does not infringe any Lenovo intellectual property right may be used instead. However, it is the user's responsibility to evaluate and verify the operation of any other product, program, or service.
 
 Lenovo may have patents or pending patent applications covering subject matter described in this document. The furnishing of this document does not give you any license to these patents. You can send license inquiries, in writing, to:
 
 _Lenovo (United States), Inc._
 
-_8001 Development Dr – Building 8_
+_8001 Development Dr - Building 8_
 
 _Morrisville, NC 27560 U.S.A._
 
 _Attention: Lenovo Director of Licensing_
 
-LENOVO PROVIDES THIS PUBLICATION &quot;AS IS&quot; WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. Some jurisdictions do not allow disclaimer of express or implied warranties in certain transactions, therefore, this statement may not apply to you.
+LENOVO PROVIDES THIS PUBLICATION "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF NON-INFRINGEMENT, MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE. Some jurisdictions do not allow disclaimer of express or implied warranties in certain transactions, therefore, this statement may not apply to you.
 
 This information could include technical inaccuracies or typographical errors. Changes are periodically made to the information herein; these changes will be incorporated in new editions of the publication. Lenovo may make improvements and/or changes in the product(s) and/or the program(s) described in this publication at any time without notice.
 
@@ -26,12 +31,12 @@ Any references in this publication to non-Lenovo Web sites are provided for conv
 
 The following terms are trademarks of Lenovo in the United States, other countries, or both:
 
-   - Lenovo
-   - The Lenovo logo
-   - ThinkPad
-   - ThinkCentre
-   - ThinkStation
-   - ThinkVantage
+- Lenovo
+- The Lenovo logo
+- ThinkPad
+- ThinkCentre
+- ThinkStation
+- ThinkVantage
 
 Intel is a trademark or registered trademark of Intel Corporation or its subsidiaries in the United States and other countries.
 

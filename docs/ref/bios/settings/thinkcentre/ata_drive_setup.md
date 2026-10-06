@@ -14,7 +14,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| SATAController | Disabled, Enabled | Yes |
+| SATAController | Enabled, Disabled | Yes |
 
 ### **SATA DRIVE {Number}**
 
@@ -27,7 +27,7 @@ Possible options:
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
-| SATADrive1 | Disabled, Enabled | Yes |
+| SATADrive1 | Enabled, Disabled | Yes |
 
 !!! warning "Attention"
     The WMI setting name for Drive 1 is shown. Other drives follow the pattern `SATADrive#`, where `#` is the number of the drive.
@@ -42,9 +42,9 @@ Configure the SATA (Serial AT Attachment) drive controller.
 
 Possible options:
 
-1. **AHCI** - enables AHCI (Advanced Host Controller Interface). Default.
-2. Intel (R) RST with Intel (R) Optane mode - enables RST (Rapid Storage Technology).
-3. RAID - enables RAID. <!-- MODEL: M70S Gen3 only-->
+1. **AHCI** - Default. Enables AHCI (Advanced Host Controller Interface).
+2. Intel (R) RST with Intel (R) Optane mode - Enables RST (Rapid Storage Technology).
+3. RAID - Enables RAID. <!-- MODEL: M70S Gen3 only-->
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |
@@ -57,7 +57,7 @@ Ensures the hard disk has initialized after power up, prior to being accessed. T
 Possible options:
 
 1. **Disabled** - Default.
-2. 3 - 30 seconds - enables delay, in increments of 3 seconds up 15, then 21 or 30.
+2. 3 - 30 seconds - Enables delay, in increments of 3 seconds up to 15, then 21 or 30.
 
 | WMI Setting name | Values | Locked by SVP |
 | :--- | :--- | :--- |

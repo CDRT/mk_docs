@@ -6,8 +6,8 @@ Whether to enable built-in TrackPoint.
 
 Possible options:
 
-1. Off
-2. **On** - Default.
+1. **On** - Default.
+2. Off
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -19,12 +19,12 @@ Whether to enable built-in Trackpad.
 
 Possible options:
 
-1. Off
-2. **On** - Default.
+1. **On** - Default.
+2. Off
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| TouchPad | Disable, Enable (on AMD-based machine); Disable, Automatic (on Intel-based machine) | No | Both |
+| TouchPad | Enable, Disable (on AMD-based machine); Disable, Automatic (on Intel-based machine) | No | Both |
 
 ### **Fn and Ctrl Key swap**
 
@@ -76,8 +76,8 @@ Whether to disable the hotkey functionality of the function keys (F1, F2, and so
 
 Possible options:
 
-1. On
-2. **Off** - Default.
+1. **Off** - Default.
+2. On
 
 | WMI Setting name | Values | Locked by SVP | AMD/Intel |
 | :--- | :--- | :--- | :--- |
@@ -90,11 +90,11 @@ Select keyboard layout in pre-OS environment.
 !!! warning "Attention"
     This configuration does not affect OS.
 
-    On latest machines, BIOS added support for ASCII special characters and symbols such as `@`, `!` , `?`, etc. Those characters depend on keyboard layout and BIOS cannot know the attached keyboard, therefore users have to select keyboard layout if they replace keyboard.
+    On latest machines, BIOS added support for ASCII special characters and symbols such as `@`, `!`, `?`, etc. Those characters depend on keyboard layout and BIOS cannot know the attached keyboard, therefore users have to select keyboard layout if they replace keyboard.
 
 Possible options:
 
-1. **US English** - Default
+1. **US English** - Default.
 2. Canadian French Multilingual
 3. Canadian French
 4. Spanish (Latin America)

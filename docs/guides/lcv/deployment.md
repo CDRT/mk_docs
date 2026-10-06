@@ -9,7 +9,7 @@ description: Commercial Vantage deployment methods and procedures
 
 ### Microsoft Store (Not Recommended)
 
-Available at: [https://www.microsoft.com/store/apps/9NR5B8GVVM13](https://www.microsoft.com/store/apps/9NR5B8GVVM13)
+Available from the [Microsoft Store](https://www.microsoft.com/store/apps/9NR5B8GVVM13).
 
 - Requires Administrator privileges
 - Generates UAC prompts
@@ -47,7 +47,7 @@ VantageInstaller must run with Administrator privileges. All parameters are **ca
 
 ### Common Scenarios
 
-```cmd
+``` CMD
 # Full installation
 .\VantageInstaller.exe Install -Vantage -SuHelper
 

@@ -13,13 +13,12 @@ Possible options:
 
 ### **Console Redirection Terminal Type**
 
-!!! warning "Attention"
-    The following emulation types are available.
+The following emulation types are available.
 
-    - ANSI: Extended ASCII char set.
-    - VT100: ASCII char set.
-    - VT100+: Extends VT100 to support color, function keys, etc.
-    - VT-UTF8: Uses UTF8 encoding to map Unicode chars onto 1 or more bytes.
+- ANSI: Extended ASCII char set.
+- VT100: ASCII char set.
+- VT100+: Extends VT100 to support color, function keys, etc.
+- VT-UTF8: Uses UTF8 encoding to map Unicode chars onto 1 or more bytes.
 
 Possible options:
 

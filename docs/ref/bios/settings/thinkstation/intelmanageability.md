@@ -18,7 +18,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| ManageabilityControl | Disabled, Enabled | Yes | Intel |
+| ManageabilityControl | Enabled, Disabled | Yes | Intel |
 
 ### **Intel(R) Manageability Reset**
 
@@ -27,8 +27,8 @@ Possible options:
 
 Possible options:
 
-1. Enabled
-2. **Disabled** – Default.
+1. **Disabled** – Default.
+2. Enabled
 
 ### **Press < Ctrl-P > to Enter MEBx**
 
@@ -41,7 +41,7 @@ Possible options:
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| CtrlPEnterMEBx | Disabled, Enabled | Yes | Intel |
+| CtrlPEnterMEBx | Enabled, Disabled | Yes | Intel |
 
 ## ME Firmware Version
 
@@ -83,24 +83,24 @@ SOL (Serial over LAN) configuration group of settings.
 
 Possible options:
 
-1. VT100
-2. VT100-8bit
-3. PC-ANSI-7bit
-4. PC-ANSI
-5. **VT100+** – Default.
+1. **VT100+** – Default.
+2. VT100
+3. VT100-8bit
+4. PC-ANSI-7bit
+5. PC-ANSI
 6. VT-UTF8
 7. ASCII
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
-| SOLConfiguration | VT100, VT100-8bit, PC-ANSI-7bit, PC-ANSI, VT100+, VT-UTF8, ASCII | Yes | Intel |
+| SOLConfiguration | VT100+, VT100, VT100-8bit, PC-ANSI-7bit, PC-ANSI, VT-UTF8, ASCII | Yes | Intel |
 
 ### **USB Provisioning**
 
 Possible options:
 
-1. Enabled
-2. **Disabled** - Default.
+1. **Disabled** - Default.
+2. Enabled
 
 | WMI Setting name | Values | SVP / SMP Req'd | AMD/Intel |
 | :--- | :--- | :--- | :--- |
