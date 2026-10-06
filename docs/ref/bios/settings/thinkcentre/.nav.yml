@@ -4,6 +4,7 @@ nav:
       - System Summary: system_summary.md
       - System Time and Date: system_time_and_date.md
     - Devices:
+      - devices.md
       - Serial Port Setup: serial_port_setup.md
       - Parallel Port Setup: parallel_port_setup.md
       - USB Setup: usb_setup.md
