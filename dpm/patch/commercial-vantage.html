@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2.1 Commercial Vantage | Deploy, Patch &amp; Manage 2026 Edition</title>
+<meta name="description" content="The preloaded app for updates and Lenovo settings, fully controlled by IT.">
+<meta name="theme-color" content="#E1251B">
+<link rel="preload" href="../assets/fonts/montserrat-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/binder.css">
+<script>(function(d){if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){d.classList.add('is-arriving');setTimeout(function(){d.classList.remove('is-arriving')},1200)}})(document.documentElement)</script>
+<script src="../assets/js/binder.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="binder">
+<main class="sheet" id="main" data-part="2">
+<header class="runhead">
+  <a class="runhead-brand" href="../index.html"><img src="../assets/img/lenovo-logo.png" width="736" height="245" alt="Lenovo"><span class="runhead-title">Deploy, Patch &amp; Manage &middot; 2026 Edition</span></a>
+  <a class="runhead-part" href="../patch/index.html">Part 2 &middot; Patch</a>
+</header>
+<article>
+<div class="folio page-head">
+  <div class="num" aria-hidden="true">2.1</div>
+  <h1>Commercial Vantage</h1>
+  <p class="standfirst">The preloaded app for updates and Lenovo settings, fully controlled by IT.</p>
+</div>
+<div class="folio body">
+<section class="inventory" aria-label="Inventory">
+  <h2>Inventory</h2>
+  <dl>
+    <dt>What it is</dt>
+    <dd>The app preloaded on Lenovo commercial PCs: a UWP front end, add-ins that perform diagnostics, driver and firmware updates, and the Lenovo Vantage Service that keeps them running and current.</dd>
+    <dt>Get it</dt>
+    <dd>Preloaded on Commercial devices for easy adoption in an Autopilot scenario. For custom images, deploy the main app and add-in files provided in the Enterprise Package on Lenovo Support which includes deployment scripts, ADMX templates and installation tools.</dd>
+    <dt>Configure it</dt>
+    <dd>Group Policy (ADMX templates) or Intune. <a href="../manage/thinkvantage-powershell-library.html#other-solutions">Commercial Vantage Policy Manager</a> builds the Intune policy for you.</dd>
+
+    <dt>Guide</dt>
+    <dd><a class="ext" href="https://docs.lenovocdrt.com/guides/lcv/">docs.lenovocdrt.com/guides/lcv</a></dd>
+  </dl>
+</section>
+
+<div class="num h2-num" aria-hidden="true">2.1.1</div>
+<h2 id="what-it-does"><span class="h2-inline-num" aria-hidden="true">2.1.1</span>What it does<a class="anchor" href="#what-it-does" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<p>Commercial Vantage is the central app connecting users to their Lenovo device. Out of the box it lets users:</p>
+<ul>
+  <li>Customize the PC experience.</li>
+  <li>Install system updates for drivers and firmware.</li>
+  <li>Manage settings for Lenovo-specific hardware.</li>
+  <li>Update Lenovo dock firmware when a dock is attached.</li>
+</ul>
+
+<figure class="narrow">
+  <img src="../assets/img/commercial-vantage.png" width="1022" height="1341" alt="The Commercial Vantage app on a ThinkPad, showing device settings and system update options." loading="lazy">
+  <figcaption><b>Figure 2.1</b>Commercial Vantage on a Lenovo commercial PC.</figcaption>
+</figure>
+
+<div class="num h2-num" aria-hidden="true">2.1.2</div>
+<h2 id="it-control"><span class="h2-inline-num" aria-hidden="true">2.1.2</span>IT administrator control<a class="anchor" href="#it-control" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<p>Every part of the experience is customizable by policy. You choose which features users see, filter which updates are offered, and can drive System Update entirely from a local repository instead of Lenovo's servers.</p>
+<ul>
+  <li><strong>Update filtering.</strong> Separate filters for the manual Check for Updates flow and for scheduled Auto Update, by package type and severity.</li>
+  <li><strong>Local repositories.</strong> Point System Update at a repository built with Update Retriever or <a href="../manage/thinkvantage-powershell-library.html">ThinkVantage Repository Manager</a>. Test Content Mode processes only packages marked Test, so you can pilot updates first.</li>
+  <li><strong>Your branding on the prompts.</strong> Set a Company Name policy and drop a <code>companylogo</code> image into the System Update resources folder to brand the reboot dialogs.</li>
+  <li><strong>SU Helper.</strong> A command-line utility for controlling the System Update process from your own tooling, installable on its own or with <code>VantageInstaller.exe</code>.</li>
+</ul>
+
+<div class="num h2-num" aria-hidden="true">2.1.3</div>
+<h2 id="new-in-2026"><span class="h2-inline-num" aria-hidden="true">2.1.3</span>Commercial Vantage in 2026<a class="anchor" href="#new-in-2026" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<ul>
+  <li><strong>New UI design.</strong> A modernized interface with a simpler, more intuitive layout for users.</li>
+  <li><strong>Simplified Auto Update.</strong> Streamlined Auto Update flows reduce complexity for users and administrators.</li>
+  <li><strong>Device Orchestration.</strong> Deeper integration with <a href="../manage/device-orchestration.html">Lenovo Device Orchestration</a> (formerly Lenovo Device Manager) for fleet-wide visibility, including driver rollback controlled from the console.</li>
+</ul>
+<p>The September 2026 release (v20.2606.24) adds an in-product tutorial covering Welcome, System Update, Device Diagnostics and Battery Health, renames Hardware Scan to Device Diagnostics, and adds a policy that stops Auto Update from running as soon as possible after a missed schedule, waiting instead for the next window.</p>
+<p>Recent releases also changed scheduling and reboots. The Auto Update time policy now starts a 90-minute window, so devices do not all update at the same moment. A Reboot delay time policy warns users before a Reboot Type 5 restart. Downloads can use BITS where peer caching is in place. SU Helper gained <code>-scanonly</code>, which records results in the <code>Lenovo_Updates</code> WMI class, and <code>-noreboot</code>, which leaves the restart to your process.</p>
+
+<div class="num h2-num" aria-hidden="true">2.1.4</div>
+<h2 id="troubleshooting"><span class="h2-inline-num" aria-hidden="true">2.1.4</span>Reading the logs<a class="anchor" href="#troubleshooting" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<p><code>Invoke-LnvCVLogViewer</code>, new in <a href="../manage/lenovo-client-scripting.html">Lenovo.Client.Scripting</a> 2.4, parses the System Update add-in log into a color-coded summary of the session, scan results, per-package install results, errors and warnings.</p>
+<pre><code>Invoke-LnvCVLogViewer -LogFile &lt;path to the System Update add-in log&gt;</code></pre>
+<p>Intune policy configuration, repository setup and log analysis are covered in full in the Commercial Vantage guide on the docs site.</p>
+
+<section class="sources" aria-labelledby="sources">
+  <h2 id="sources" data-plain>Sources</h2>
+  <ol>
+    <li><a class="ext" href="https://docs.lenovocdrt.com/guides/lcv/">Commercial Vantage guide</a></li>
+    <li><a class="ext" href="https://docs.lenovocdrt.com/guides/lcv/whatsnew/">Commercial Vantage: What's New</a></li>
+    <li><a class="ext" href="https://docs.lenovocdrt.com/guides/lcsm/lcsm_top/">Lenovo Client Scripting Module guide</a></li>
+    <li><a class="ext" href="https://blog.lenovocdrt.com/deploying-commercial-vantage-with-intune/">Deploying Commercial Vantage with Intune</a></li>
+    <li><a class="ext" href="https://blog.lenovocdrt.com/deploying-commercial-vantage-with-configmgr/">Deploying Commercial Vantage with ConfigMgr</a></li>
+  </ol>
+</section>
+
+</div>
+</article>
+<nav class="turn" aria-label="Page turn"><a class="prev" href="../patch/index.html" style="--part-of-link: var(--part-2)"><span class="turn-dir"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span><span class="turn-title">Part 2: Patch</span></a><a class="next" href="../patch/updates-catalog.html" style="--part-of-link: var(--part-2)"><span class="turn-dir">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="turn-title"><span class="n">2.2</span>Lenovo Updates Catalog</span></a></nav>
+<footer class="colophon">
+  <p class="lockup"><img src="../assets/img/lenovo-logo.png" width="736" height="245" alt="Lenovo"><span class="tagline">Smarter technology for all</span></p>
+  <p>Lenovo Commercial Deployment Readiness Team &middot; 2026 Edition</p>
+  <p>&copy; 2026 Lenovo. All rights reserved.</p>
+</footer>
+</main>
+<nav class="tabs" aria-label="Parts">
+  <ol>
+    <li><a class="tab" data-part="1" style="--part: var(--part-1)" href="../deploy/index.html"><span class="tab-num">1</span> <span class="tab-name">Deploy</span></a></li>
+    <li><a class="tab" data-part="2" style="--part: var(--part-2)" href="../patch/index.html" aria-current="true"><span class="tab-num">2</span> <span class="tab-name">Patch</span></a></li>
+    <li><a class="tab" data-part="3" style="--part: var(--part-3)" href="../manage/index.html"><span class="tab-num">3</span> <span class="tab-name">Manage</span></a></li>
+    <li><a class="tab" data-part="4" style="--part: var(--part-4)" href="../reference/index.html"><span class="tab-num">4</span> <span class="tab-name">Reference</span></a></li>
+  </ol>
+</nav>
+</div>
+</body>
+</html>

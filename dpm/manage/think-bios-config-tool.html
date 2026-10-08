@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.3 Think BIOS Config Tool V2 | Deploy, Patch &amp; Manage 2026 Edition</title>
+<meta name="description" content="A PowerShell GUI for BIOS settings, passwords and Intune packages.">
+<meta name="theme-color" content="#E1251B">
+<link rel="preload" href="../assets/fonts/montserrat-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/binder.css">
+<script>(function(d){if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){d.classList.add('is-arriving');setTimeout(function(){d.classList.remove('is-arriving')},1200)}})(document.documentElement)</script>
+<script src="../assets/js/binder.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="binder">
+<main class="sheet" id="main" data-part="3">
+<header class="runhead">
+  <a class="runhead-brand" href="../index.html"><img src="../assets/img/lenovo-logo.png" width="736" height="245" alt="Lenovo"><span class="runhead-title">Deploy, Patch &amp; Manage &middot; 2026 Edition</span></a>
+  <a class="runhead-part" href="../manage/index.html">Part 3 &middot; Manage</a>
+</header>
+<article>
+<div class="folio page-head">
+  <div class="num" aria-hidden="true">3.3</div>
+  <h1>Think BIOS Config Tool V2</h1>
+  <p class="standfirst">A PowerShell GUI for configuring BIOS settings, executing BIOS WMI functions, and creating Intune packages.</p>
+
+</div>
+<div class="folio body">
+<section class="inventory" aria-label="Inventory">
+  <h2>Inventory</h2>
+  <dl>
+    <dt>What it is</dt>
+    <dd>A native PowerShell WPF GUI, <code>ThinkBiosConfigUI.ps1</code>, backed by the Lenovo.BIOS.Config module. A complete rewrite of the original HTA tool.</dd>
+    <dt>Requires</dt>
+    <dd>Windows PowerShell or PowerShell 7 in an elevated session. For Intune features: the Microsoft Graph modules, tenant permissions, and a Remediations license.</dd>
+    <dt>Not supported</dt>
+    <dd>Can be used as-is on some ThinkCentre desktops; however, because of WMI BIOS interface differences, certain functions may not work. This will be addressed in the future with a new common WMI BIOS Interface for ThinkPad, Thinkcentre and ThinkStation products.</dd>
+    <dt>Install</dt>
+    <dd><pre><code>Install-Script ThinkBiosConfigUI
+Install-Module Lenovo.BIOS.Config</code></pre></dd>
+    <dt>Guide</dt>
+    <dd><a class="ext" href="https://docs.lenovocdrt.com/guides/tbct_v2/">docs.lenovocdrt.com/guides/tbct_v2</a></dd>
+  </dl>
+</section>
+
+<div class="num h2-num" aria-hidden="true">3.3.1</div>
+<h2 id="what-it-does"><span class="h2-inline-num" aria-hidden="true">3.3.1</span>What it does<a class="anchor" href="#what-it-does" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<ul>
+  <li>View, edit and export BIOS settings interactively.</li>
+  <li>Import and export settings as <code>.ini</code> files, with an optional encrypted Supervisor password.</li>
+  <li>Change or clear the Supervisor password and fingerprint data, and create password-change files.</li>
+  <li>Save and restore Custom Defaults.</li>
+</ul>
+
+<figure>
+  <img src="../assets/img/think-bios-config-tool.png" width="868" height="514" alt="Think BIOS Config Tool V2 showing a list of BIOS settings with their current values and controls to change them." loading="lazy">
+  <figcaption><b>Figure 3.3</b>Think BIOS Config Tool V2.</figcaption>
+</figure>
+
+<div class="num h2-num" aria-hidden="true">3.3.2</div>
+<h2 id="intune"><span class="h2-inline-num" aria-hidden="true">3.3.2</span>Intune integration<a class="anchor" href="#intune" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<p>From the GUI, create Intune-friendly artifacts, as a Win32 app package or as Remediations, and optionally upload them to your tenant through Microsoft Graph. When you build a Win32 package, the tool downloads <code>IntuneWinAppUtil.exe</code> for you if it is missing. Packaging and upload are currently available only through the GUI.</p>
+<pre><code><span class="c"># Optional: Graph modules for Intune upload</span>
+Install-Module Microsoft.Graph -Scope CurrentUser -Force</code></pre>
+
+<div class="num h2-num" aria-hidden="true">3.3.3</div>
+<h2 id="running-it"><span class="h2-inline-num" aria-hidden="true">3.3.3</span>Running it<a class="anchor" href="#running-it" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<p>Open PowerShell as administrator and run <code>ThinkBIOSConfigUI</code>. The script requires elevation and imports Lenovo.BIOS.Config automatically, installing it from the PowerShell Gallery first if needed.</p>
+<p>For script-driven configuration without the GUI, call the module directly: <code>Export-LnvWmiSettings</code> and <code>Import-LnvWmiSettings</code> handle INI-based BIOS profiles and Supervisor password management.</p>
+
+<section class="sources" aria-labelledby="sources">
+  <h2 id="sources" data-plain>Sources</h2>
+  <ol>
+    <li><a class="ext" href="https://docs.lenovocdrt.com/guides/tbct_v2/">Think BIOS Config Tool V2 guide</a></li>
+    <li><a class="ext" href="https://docs.lenovocdrt.com/guides/thinkvantage/">ThinkVantage PowerShell Library guide</a></li>
+    <li><a class="ext" href="https://blog.lenovocdrt.com/introducing-think-bios-config-tool-v2-and-lenovo-bios-certificate-tool-v2/">Introducing Think BIOS Config Tool V2 and Lenovo BIOS Certificate Tool V2</a></li>
+    <li><a class="ext" href="https://blog.lenovocdrt.com/changing-the-bios-supervisor-password-with-intune-and-the-think-bios-config-tool-v2/">Changing the BIOS Supervisor password with Intune and the Think BIOS Config Tool V2</a></li>
+  </ol>
+</section>
+
+</div>
+</article>
+<nav class="turn" aria-label="Page turn"><a class="prev" href="../manage/lenovo-client-update.html" style="--part-of-link: var(--part-3)"><span class="turn-dir"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span><span class="turn-title"><span class="n">3.2</span>Lenovo.<wbr>Client.<wbr>Update</span></a><a class="next" href="../manage/lenovo-client-scripting.html" style="--part-of-link: var(--part-3)"><span class="turn-dir">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="turn-title"><span class="n">3.4</span>Lenovo.<wbr>Client.<wbr>Scripting</span></a></nav>
+<footer class="colophon">
+  <p class="lockup"><img src="../assets/img/lenovo-logo.png" width="736" height="245" alt="Lenovo"><span class="tagline">Smarter technology for all</span></p>
+  <p>Lenovo Commercial Deployment Readiness Team &middot; 2026 Edition</p>
+  <p>&copy; 2026 Lenovo. All rights reserved.</p>
+</footer>
+</main>
+<nav class="tabs" aria-label="Parts">
+  <ol>
+    <li><a class="tab" data-part="1" style="--part: var(--part-1)" href="../deploy/index.html"><span class="tab-num">1</span> <span class="tab-name">Deploy</span></a></li>
+    <li><a class="tab" data-part="2" style="--part: var(--part-2)" href="../patch/index.html"><span class="tab-num">2</span> <span class="tab-name">Patch</span></a></li>
+    <li><a class="tab" data-part="3" style="--part: var(--part-3)" href="../manage/index.html" aria-current="true"><span class="tab-num">3</span> <span class="tab-name">Manage</span></a></li>
+    <li><a class="tab" data-part="4" style="--part: var(--part-4)" href="../reference/index.html"><span class="tab-num">4</span> <span class="tab-name">Reference</span></a></li>
+  </ol>
+</nav>
+</div>
+</body>
+</html>

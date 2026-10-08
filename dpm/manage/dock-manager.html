@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>3.5 Dock Manager | Deploy, Patch &amp; Manage 2026 Edition</title>
+<meta name="description" content="Keeps Lenovo dock firmware current and reports dock data to WMI.">
+<meta name="theme-color" content="#E1251B">
+<link rel="preload" href="../assets/fonts/montserrat-latin-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/css/binder.css">
+<script>(function(d){if(!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){d.classList.add('is-arriving');setTimeout(function(){d.classList.remove('is-arriving')},1200)}})(document.documentElement)</script>
+<script src="../assets/js/binder.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="binder">
+<main class="sheet" id="main" data-part="3">
+<header class="runhead">
+  <a class="runhead-brand" href="../index.html"><img src="../assets/img/lenovo-logo.png" width="736" height="245" alt="Lenovo"><span class="runhead-title">Deploy, Patch &amp; Manage &middot; 2026 Edition</span></a>
+  <a class="runhead-part" href="../manage/index.html">Part 3 &middot; Manage</a>
+</header>
+<article>
+<div class="folio page-head">
+  <div class="num" aria-hidden="true">3.5</div>
+  <h1>Dock Manager</h1>
+  <p class="standfirst">Keeps Lenovo dock firmware current and reports dock data to WMI.</p>
+
+</div>
+<div class="folio body">
+<section class="inventory" aria-label="Inventory">
+  <h2>Inventory</h2>
+  <dl>
+    <dt>What it is</dt>
+    <dd>A utility you deploy to your ThinkPads that keeps attached Lenovo docks on current firmware and records dock data in WMI.</dd>
+    <dt>Requires</dt>
+    <dd>Windows 10 or 11 (64-bit). The installer, <code>dock_manager_setup.exe</code>, is on Lenovo Support.</dd>
+    <dt>Deploy with</dt>
+    <dd>Configuration Manager or Intune. Configure it with Group Policy, or with ADMX templates and OMA-URIs in Intune.</dd>
+    <dt>Guide</dt>
+    <dd><a class="ext" href="https://docs.lenovocdrt.com/guides/dm/">docs.lenovocdrt.com/guides/dm</a></dd>
+  </dl>
+</section>
+
+<div class="num h2-num" aria-hidden="true">3.5.1</div>
+<h2 id="how-it-works"><span class="h2-inline-num" aria-hidden="true">3.5.1</span>How it works<a class="anchor" href="#how-it-works" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<p>Dock Manager reduces the effort of deploying dock firmware updates at scale, and it does quite a bit more than firmware. It runs on the PC and keeps a cache of the current firmware for supported Lenovo docks. When a dock with down-level firmware is attached, Dock Manager updates it automatically.</p>
+<p>It can download firmware from Lenovo Support over the internet, or from a local repository on your network that you create and maintain with Update Retriever. Search Update Retriever by the dock's four-character machine type to find its latest firmware packages.</p>
+
+<div class="num h2-num" aria-hidden="true">3.5.2</div>
+<h2 id="view-and-report"><span class="h2-inline-num" aria-hidden="true">3.5.2</span>View and report<a class="anchor" href="#view-and-report" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<ul>
+  <li>Dock information and the full update history.</li>
+  <li>Dock data in WMI, under <code>root\Lenovo\Dock_Manager</code>, for remote queries: dock machine type, firmware version, MAC address, and connected devices such as monitors and USB devices.</li>
+</ul>
+
+<div class="num h2-num" aria-hidden="true">3.5.3</div>
+<h2 id="control-and-govern"><span class="h2-inline-num" aria-hidden="true">3.5.3</span>Control and govern<a class="anchor" href="#control-and-govern" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<ul>
+  <li>Full control of updates through Group Policy.</li>
+  <li>Control which firmware is available through a local repository managed by Update Retriever.</li>
+</ul>
+
+<div class="num h2-num" aria-hidden="true">3.5.4</div>
+<h2 id="supported-docks"><span class="h2-inline-num" aria-hidden="true">3.5.4</span>Supported docks<a class="anchor" href="#supported-docks" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<p>As of Dock Manager 1.6.5.3. Check Lenovo Support for newer models.</p>
+<div class="table-wrap">
+<table>
+  <thead><tr><th scope="col">Dock</th><th scope="col">Machine type</th></tr></thead>
+  <tbody>
+    <tr><td data-label="Dock">ThinkPad USB4 Dock 5000</td><td data-label="Machine type">40BF</td></tr>
+    <tr><td data-label="Dock">ThinkPad Thunderbolt 4 Smart Dock Gen 2 7500</td><td data-label="Machine type">40BE</td></tr>
+    <tr><td data-label="Dock">ThinkPad USB4 Smart Dock 5500</td><td data-label="Machine type">40BC</td></tr>
+    <tr><td data-label="Dock">ThinkPad Thunderbolt 5 Smart Dock 7500</td><td data-label="Machine type">40BA</td></tr>
+    <tr><td data-label="Dock">ThinkPad Universal USB-C Smart Dock</td><td data-label="Machine type">40B2</td></tr>
+    <tr><td data-label="Dock">ThinkPad Universal Thunderbolt 4 Smart Dock</td><td data-label="Machine type">40B1</td></tr>
+    <tr><td data-label="Dock">ThinkPad Universal USB-C Dock v2</td><td data-label="Machine type">40B7</td></tr>
+    <tr><td data-label="Dock">ThinkPad Thunderbolt 4 Workstation Dock</td><td data-label="Machine type">40B0</td></tr>
+    <tr><td data-label="Dock">ThinkPad Universal Thunderbolt 4 Dock</td><td data-label="Machine type">40B0</td></tr>
+    <tr><td data-label="Dock">ThinkPad Universal USB-C Dock</td><td data-label="Machine type">40AY</td></tr>
+    <tr><td data-label="Dock">ThinkPad Thunderbolt 3 Essential Dock</td><td data-label="Machine type">40AV</td></tr>
+    <tr><td data-label="Dock">ThinkPad Thunderbolt 3 Dock Gen 1</td><td data-label="Machine type">40AC</td></tr>
+    <tr><td data-label="Dock">ThinkPad Thunderbolt 3 Dock Gen 2</td><td data-label="Machine type">40AN</td></tr>
+    <tr><td data-label="Dock">ThinkPad Thunderbolt 3 Workstation Dock Gen 2</td><td data-label="Machine type">40AN</td></tr>
+    <tr><td data-label="Dock">ThinkPad USB-C Dock Gen 1</td><td data-label="Machine type">40A9</td></tr>
+    <tr><td data-label="Dock">ThinkPad USB-C Dock Gen 2</td><td data-label="Machine type">40AS</td></tr>
+    <tr><td data-label="Dock">ThinkPad USB-C with USB-A Dock</td><td data-label="Machine type">40AF</td></tr>
+    <tr><td data-label="Dock">Lenovo USB-C Dock</td><td data-label="Machine type">40B5</td></tr>
+  </tbody>
+</table>
+</div>
+<p>To look up a dock model from a script, use <code>Find-LnvDockModel</code> in <a href="../manage/lenovo-client-scripting.html">Lenovo.Client.Scripting</a>.</p>
+
+<section class="sources" aria-labelledby="sources">
+  <h2 id="sources" data-plain>Sources</h2>
+  <ol>
+    <li><a class="ext" href="https://docs.lenovocdrt.com/guides/dm/">Dock Manager overview</a></li>
+    <li><a class="ext" href="https://docs.lenovocdrt.com/guides/dm/dm/">Dock Manager deployment guide</a></li>
+  </ol>
+</section>
+
+</div>
+</article>
+<nav class="turn" aria-label="Page turn"><a class="prev" href="../manage/lenovo-client-scripting.html" style="--part-of-link: var(--part-3)"><span class="turn-dir"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span><span class="turn-title"><span class="n">3.4</span>Lenovo.<wbr>Client.<wbr>Scripting</span></a><a class="next" href="../manage/device-orchestration.html" style="--part-of-link: var(--part-3)"><span class="turn-dir">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="turn-title"><span class="n">3.6</span>Lenovo Device Orchestration</span></a></nav>
+<footer class="colophon">
+  <p class="lockup"><img src="../assets/img/lenovo-logo.png" width="736" height="245" alt="Lenovo"><span class="tagline">Smarter technology for all</span></p>
+  <p>Lenovo Commercial Deployment Readiness Team &middot; 2026 Edition</p>
+  <p>&copy; 2026 Lenovo. All rights reserved.</p>
+</footer>
+</main>
+<nav class="tabs" aria-label="Parts">
+  <ol>
+    <li><a class="tab" data-part="1" style="--part: var(--part-1)" href="../deploy/index.html"><span class="tab-num">1</span> <span class="tab-name">Deploy</span></a></li>
+    <li><a class="tab" data-part="2" style="--part: var(--part-2)" href="../patch/index.html"><span class="tab-num">2</span> <span class="tab-name">Patch</span></a></li>
+    <li><a class="tab" data-part="3" style="--part: var(--part-3)" href="../manage/index.html" aria-current="true"><span class="tab-num">3</span> <span class="tab-name">Manage</span></a></li>
+    <li><a class="tab" data-part="4" style="--part: var(--part-4)" href="../reference/index.html"><span class="tab-num">4</span> <span class="tab-name">Reference</span></a></li>
+  </ol>
+</nav>
+</div>
+</body>
+</html>
