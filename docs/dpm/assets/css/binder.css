@@ -150,30 +150,8 @@ a:hover { text-decoration-color: var(--ink); }
   box-shadow:
     0 1px 2px rgba(30, 0, 19, 0.08),
     0 18px 40px -18px rgba(30, 0, 19, 0.28);
-  padding: clamp(1.5rem, 4vw, 3.75rem) clamp(1.25rem, 5vw, 4.5rem) clamp(2rem, 4vw, 3rem) clamp(3.75rem, 5vw, 4.5rem);
+  padding: clamp(1.5rem, 4vw, 3.75rem) clamp(1.25rem, 5vw, 4.5rem) clamp(2rem, 4vw, 3rem);
   min-width: 0;
-}
-
-/* Punched binding: holes down the left margin show the desk through the sheet */
-.sheet::before {
-  content: "";
-  position: absolute;
-  top: 1.5rem;
-  bottom: 1.5rem;
-  left: 1.1rem;
-  width: 1.25rem;
-  pointer-events: none;
-  /* Top layer: the desk seen through the hole, nudged down so the sheet's
-     edge casts a crescent of shadow along the top of each hole. */
-  background:
-    radial-gradient(circle at 50% calc(50% + 0.12rem),
-      var(--gray-pale) 0 0.44rem,
-      transparent 0.47rem)
-    0 0 / 1.25rem 15rem repeat-y,
-    radial-gradient(circle at 50% 50%,
-      #B9B3B7 0 0.53rem,
-      transparent 0.56rem)
-    0 0 / 1.25rem 15rem repeat-y;
 }
 
 .tabs {
@@ -749,8 +727,7 @@ th { font-weight: 700; border-bottom: 2px solid var(--ink); white-space: nowrap;
   .tab:hover, .tab.is-pulled { transform: translateY(-0.125rem); }
   .tab[aria-current] { transform: translateY(0.25rem); }
   .is-arriving .tab[aria-current] { transform: translateY(-0.375rem); }
-  .sheet { margin-top: 0.5rem; padding-left: clamp(1.25rem, 5vw, 4.5rem); }
-  .sheet::before { display: none; }
+  .sheet { margin-top: 0.5rem; }
   .sheet--divider { min-height: auto; }
   .page-head .num { font-size: 2.25rem; }
   .body .num.h2-num { font-size: 0.8125rem; }
@@ -810,5 +787,4 @@ th { font-weight: 700; border-bottom: 2px solid var(--ink); white-space: nowrap;
   .binder { display: block; padding: 0; }
   .tabs, .skip, .anchor { display: none; }
   .sheet { box-shadow: none; padding: 0; }
-  .sheet::before { display: none; }
 }
