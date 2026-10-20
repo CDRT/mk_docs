@@ -373,7 +373,7 @@ For steps on how to create and deploy Commercial Vantage as a Win32 app, referen
 | [**Dashboard**](#dashboard) | Control Dashboard visibility and feedback features |
 | [**Device**](#device) | Manage core device features including System Update, Battery, and Power |
 | [**EULA**](#eula) | Control EULA and license agreement settings |
-| [**Hardware Scan**](#hardware-scan) | Manage hardware scan feature visibility |
+| [**Device Diagnostics**](#device-diagnostics) | Manage Device Diagnostics (formerly Hardware Scan) feature visibility |
 | [**Metrics**](#metrics) | Control data collection and metrics reporting |
 | [**Network**](#network) | Manage network and WiFi security features |
 | [**Preference Settings**](#preference-settings) | Control preference settings page visibility |
@@ -495,6 +495,42 @@ The following top-level policies control entire sections of the Device page.
     **OMA-URI**:
     ``` URL
     ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD/48D766A8D16EA17A7C0BA73A8A8FD521
+    ```
+
+    **Values**:
+    ```xml
+    <enabled/>
+    ```
+    ```xml
+    <disabled/>
+    ```
+
+??? note "Turn off Sustainability"
+    **Description**: When this policy is enabled, the Sustainability page of Commercial Vantage will be hidden.
+
+    **OMA-URI**:
+    ``` URL
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD/70358F9858C64F4CB4EA4F77DA778710
+    ```
+
+    **Values**:
+    ```xml
+    <enabled/>
+    ```
+    ```xml
+    <disabled/>
+    ```
+
+??? note "Turn off Smart Meeting Assistant"
+    _Added in version 20.2606.24.0_
+
+    **Description**: When this policy is enabled, the entire Smart Meeting Assistant feature suite of Commercial Vantage will be turned off.
+
+    Smart Meeting Assistant only appears on devices that pass the camera capability check. See [What's New](whatsnew.md) for details.
+
+    **OMA-URI**:
+    ``` URL
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~7951944913DEC79205443E57168B1CBD/42DD39335E141165EBD3DBE45593044B
     ```
 
     **Values**:
@@ -945,7 +981,7 @@ The following policies toggle System Update behavior on or off. For policies wit
     **Values**:
     ```xml
     <enabled/>
-    <data id="2E380F5F44ADD0C3911D0528A5A35CB6" value="Commercial Deployment Readiness Team"/>
+    <data id="1B712E2FAB2CBBC36596C1D66EEDDFED" value="Commercial Deployment Readiness Team"/>
     ```
     ```xml
     <disabled/>
@@ -1370,6 +1406,24 @@ The following policies toggle System Update behavior on or off. For policies wit
     <disabled/>
     ```
 
+??? note "Disable Retry if Scheduled Run is Missed"
+    _Added in version 20.2606.24.0_
+
+    **Description**: When enabled, Auto Update will not run immediately if a scheduled execution window is missed and will wait until the next scheduled trigger time.
+
+    **OMA-URI**:
+    ``` URL
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~7D8BB8A33C8A8577FC2188C5539DFDBB~92B4DA2E264226B58EC3D92D3DF5B089~5AD2D9925FD5177E61D39F61B3B4F37E/5A27BF87AB9CB9235D46691341EDC4A5
+    ```
+
+    **Values**:
+    ```xml
+    <enabled/>
+    ```
+    ```xml
+    <disabled/>
+    ```
+
 #### Warranty
 
 ??? note "Hide Warranty Information"
@@ -1426,17 +1480,21 @@ The following policies toggle System Update behavior on or off. For policies wit
     <disabled/>
     ```
 
-### Hardware Scan
+### Device Diagnostics
 
+<a id="hardware-scan"></a>
 <a id="turn-off-hardware-scan"></a>
 ??? note "Turn Off Hardware Scan"
     _Added in version 10.2201_
 
-    **Description**: When enabled, the Hardware Scan feature of Commercial Vantage will be turned off.
+    **Description**: When enabled, the Device Diagnostics (formerly Hardware Scan) feature of Commercial Vantage will be turned off.
+
+    !!! warning "OMA-URI changed in 20.2606.24.0"
+        The Hardware Scan category was renamed to Device Diagnostics in version 20.2606.24.0, which changed this policy's OMA-URI. Re-ingest the updated ADMX and recreate any existing profile that uses the previous OMA-URI.
 
     **OMA-URI**:
     ``` URL
-    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~3BB252355E5322463EC33426BF919239/5A6D93CCF9612C47FFF7FE6C13293CAF
+    ./Device/Vendor/MSFT/Policy/Config/CommercialVantage~Policy~03E445D7B5956335BEDEF9340AC7E092~3AF568CCC25CA064E25CFE0371DC281A/F31D646A8D00BA259C58481481E21102
     ```
 
     **Values**:
