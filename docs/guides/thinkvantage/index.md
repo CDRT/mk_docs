@@ -87,6 +87,8 @@ Install-Module 'Lenovo.Client.Update'
 
 ## Other PowerShell Tools
 
+<!-- TODO: Add a short Driver Pack Manager section here, in the same format as the Commercial Vantage Policy Manager entry (description, Install-Script block, and a "Read the guide" link to ../driverpackmanager/index.md). Still need the Install-Script name. -->
+
 ### Commercial Vantage Policy Manager
 
 The Commercial Vantage Policy Manager is a PowerShell script that provides a UI that simplifies management of Commercial Vantage group policies in Microsoft Intune - removing the need to manually construct large XML policy payloads.
