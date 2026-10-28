@@ -45,9 +45,9 @@ Run the script from a PowerShell session:
 
 ![Driver Pack Manager launch screen while the driver catalog downloads](../../img/guides/driverpackmanager/step1-loading-catalog.png)
 
-If the session is not elevated, a UAC prompt appears and the tool relaunches itself with administrator rights. Approve the prompt to continue. In some elevated Windows PowerShell sessions the tool also restarts itself without showing a prompt.
+If the session is not elevated, a UAC prompt appears and the tool relaunches itself with administrator rights. Approve the prompt to continue. Even in an elevated session, the tool may restart itself once without showing a prompt.
 
-When it restarts, the tool runs from a copy of the script in `%ProgramData%\DriverPackManager`, a folder only administrators can change. The same folder holds the catalog cache and temporary download files.
+When it restarts, the tool runs from a copy of the script in `%ProgramData%\DriverPackManager`, a folder only administrators can change, so the file can't be altered between the prompt and the launch. The same folder holds the catalog cache and temporary download files.
 
 !!! warning "Execution policy is not bypassed"
     The relaunch keeps the PowerShell execution policy your session was using, so a policy that blocks scripts must be resolved before the tool will start.
@@ -60,7 +60,7 @@ The window has four areas: the header bar at the top, the wizard content in the 
 
 - **Header bar** - Shows the application name and a **theme toggle** (sun/moon icon) that switches between light and dark themes. The tool detects the Windows light/dark preference at launch and applies the matching theme.
 - **Step indicator** - Shows the three wizard steps: **Select model**, **Choose drivers**, and **Confirm and build**. Completed steps show a check mark.
-- **Wizard buttons** - **Back** and **Next** move between steps. On the last step, **Next** becomes **Build pack**.
+- **Wizard buttons** - **Back** and **Next** move between steps. On the last step, **Next** becomes **Build pack**. While a pack is building and after it finishes, the pack folder path is shown to the left of the buttons.
 - **Status bar** - Shows the current activity or the next action to take.
 
 ![Driver Pack Manager driver list in the dark theme](../../img/guides/driverpackmanager/step2-choose-drivers-dark.png)
@@ -153,9 +153,9 @@ A pack folder named for the model and date already exists if you built the same 
 
 The build page shows progress while the pack is created:
 
-- The current activity, such as `Downloading 3 package(s), 2 of 12 done`, `Verifying <driver>`, or `Extracting <driver>`
+- The current activity, such as `Downloading 3 package(s), 2 of 12 done`, `Verifying <driver> (3 of 12)`, or `Extracting <driver> (3 of 12)`
 - A progress bar
-- A running count, such as `5 of 12 done: 5 extracted, 0 failed`
+- A running count, such as `5 of 12 done: 5 extracted, 0 failed` (a cancelled build adds the number not built)
 - A results table with the category, driver, version, and result for each driver as it completes
 
 ![Build page showing progress and results while a pack is being built](../../img/guides/driverpackmanager/step4-build-in-progress.png)
@@ -225,7 +225,7 @@ Failed packages leave no partial or empty folders behind.
 
 ### Pack Report
 
-`DriverPack_Report.csv` is written to the root of the model folder after every build, including cancelled builds. It has one row for every driver you selected, in the order they were listed, with these columns:
+`DriverPack_Report.csv` is written to the root of the model folder when a build finishes, including cancelled builds. It has one row for every driver you selected, in the order they were listed, with these columns:
 
 | Column | Description |
 | --- | --- |
@@ -253,7 +253,8 @@ Driver Pack Manager protects the drivers on their way from Lenovo to your deploy
 
 - **Signed catalog** - The catalog must carry a valid Lenovo signature. A catalog that fails the check is rejected.
 - **Checksum and signature on every package** - A package is extracted only if its SHA256 checksum matches the catalog and it carries a valid Lenovo digital signature.
-- **Protected work folders** - Downloads and extraction use a work folder under `%ProgramData%\DriverPackManager` that only administrators can write to. The work folder is deleted when the build ends.
+- **Protected launch** - When the tool restarts with administrator rights, it runs a protected copy of the script after checking that the file didn't change since you started it.
+- **Protected work folders** - Downloads and extraction use a work folder under `%ProgramData%\DriverPackManager` that only administrators can write to. Each build's work folder is deleted when the build ends.
 - **Protected pack folders** - Packs built on a local drive are locked to administrators (read access for users) so nobody can change the drivers before they are imported.
 - **No links** - The tool refuses to build into a folder that is a junction or symbolic link.
 
@@ -278,19 +279,19 @@ Select a problem to see the cause and the fix.
     ![Select model page showing the Couldn't load the driver catalog error with a Try again button](../../img/guides/driverpackmanager/step1-catalog-error.png)
 
 ??? failure "A warning says the cached catalog is being used"
-    The latest catalog could not be downloaded, so the tool is using the last verified copy and shows its date. The driver list may be out of date. Resolve the network problem and click **Try again** (if shown) or restart the tool to get the current catalog.
+    The latest catalog could not be downloaded, so the tool is using the last verified copy and shows its date. The driver list may be out of date. Resolve the network problem and restart the tool to get the current catalog.
 
     ![Select model page with a warning that the cached catalog is being used](../../img/guides/driverpackmanager/step1-cached-catalog-warning.png)
 
 ??? failure "The catalog failed signature verification"
-    The catalog download was not signed by Lenovo or was altered, and the tool rejected it. The message **The downloaded catalog failed signature verification** appears inside the cached-catalog warning, or inside the **Couldn't load the driver catalog** error if there is no cached copy. Retry from a different network. If the message persists, check whether a proxy or security product is modifying downloads from Lenovo.
+    The catalog download was not signed by Lenovo or was altered, and the tool rejected it. The message **The downloaded catalog failed signature verification** appears inside the cached-catalog warning, or inside the **Couldn't load the driver catalog** error if there is no cached copy. If the cached copy itself fails verification, the error says so. Click **Try again** or retry from a different network. If the message persists, check whether a proxy or security product is modifying downloads from Lenovo.
 
 ??? failure "Next is not available on the first page"
     Check that:
 
     - The catalog finished loading
     - A model is selected in the **Model** dropdown
-    - The pack folder is a full local path (such as `C:\dpm`) or a UNC path (such as `\server\share`)
+    - The pack folder is a full local path (such as `C:\dpm`) or a UNC path (such as `\\server\share`)
 
 ??? failure "My model isn't in the list"
     Only models that have Windows 11 drivers in the catalog are listed, and ThinkCentre X AIO and X Tower models are not offered. Check the **Family** and **Series** selections, since models are grouped under them.
@@ -323,6 +324,12 @@ Select a problem to see the cause and the fix.
 
 ??? failure "A warning says non-administrators can change the pack folder"
     Standard users have write access to the folder that holds your packs, so they could alter a pack before it is imported. Restrict the folder so only administrators can write to it, or choose another folder.
+
+??? failure "A driver shows another 'Failed' message"
+    The result after **Failed:** gives the reason, such as access denied or not enough disk space. Fix the cause, then build the pack again. Hover over the row to read the full message.
+
+??? failure "The build stopped with an error"
+    The build could not start or was interrupted before it finished, so no report is written. The page shows the error. Common causes are a pack folder that can't be created or written to, and a pack folder that is a junction or symbolic link. Choose another folder with **Start over**, or fix the problem the message describes.
 
 ??? failure "I cancelled a build and it kept running"
     The tool can't interrupt a package while it is being extracted, so it waits for the current package to finish before stopping. Downloads that are still in progress are cancelled right away. The drivers that were already extracted remain in the pack folder.
