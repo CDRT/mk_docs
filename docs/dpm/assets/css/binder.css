@@ -242,6 +242,7 @@ a:hover { text-decoration-color: var(--ink); }
 }
 .runhead-brand img { width: 104px; }
 .runhead-title { color: var(--ink); }
+.runhead-mark { width: 130px; flex-shrink: 0; margin-left: auto; }
 .runhead-part {
   color: var(--part);
   font-weight: 600;
@@ -564,6 +565,7 @@ th { font-weight: 700; border-bottom: 2px solid var(--ink); white-space: nowrap;
 
 .title-page .runhead { border-bottom: 0; margin-bottom: clamp(2.5rem, 7vw, 5rem); }
 .title-page .runhead-brand img { width: 128px; }
+.title-page .runhead-mark { width: 160px; }
 .cover {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -780,6 +782,8 @@ th { font-weight: 700; border-bottom: 2px solid var(--ink); white-space: nowrap;
   .turn a.next { grid-column: 1; }
   .runhead-brand { gap: 0.75rem; }
   .runhead-title { display: none; }
+  .runhead-brand img, .title-page .runhead-brand img { width: 96px; }
+  .runhead-mark, .title-page .runhead-mark { width: 120px; }
 }
 
 @media print {

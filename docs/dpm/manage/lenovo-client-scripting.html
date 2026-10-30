@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>3.4 Lenovo.Client.Scripting | Deploy, Patch &amp; Manage 2026 Edition</title>
+<title>3.3 Lenovo.Client.Scripting | Deploy, Patch &amp; Manage 2026 Edition</title>
 <meta name="description" content="Utility cmdlets for warranty, BIOS, CVEs, driver packs and logs.">
 <meta name="theme-color" content="#E1251B">
 <link rel="preload" href="../assets/fonts/montserrat-latin-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -21,7 +21,7 @@
 </header>
 <article>
 <div class="folio page-head">
-  <div class="num" aria-hidden="true">3.4</div>
+  <div class="num" aria-hidden="true">3.3</div>
   <h1>Lenovo.<wbr>Client.<wbr>Scripting</h1>
   <p class="standfirst">Utility cmdlets for warranty, BIOS, CVEs, driver packs and logs.</p>
 
@@ -41,8 +41,8 @@
   </dl>
 </section>
 
-<div class="num h2-num" aria-hidden="true">3.4.1</div>
-<h2 id="what-it-covers"><span class="h2-inline-num" aria-hidden="true">3.4.1</span>What it covers<a class="anchor" href="#what-it-covers" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<div class="num h2-num" aria-hidden="true">3.3.1</div>
+<h2 id="what-it-covers"><span class="h2-inline-num" aria-hidden="true">3.3.1</span>What it covers<a class="anchor" href="#what-it-covers" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
 <p>A general-purpose toolkit for the questions admins ask every day: what is this device, is it under warranty, which BIOS is it on, which CVEs does a BIOS update address, and where is its driver pack.</p>
 <ul>
   <li>Device identity: machine type, serial number, model name.</li>
@@ -52,8 +52,8 @@
   <li>Update history, applicable updates, and log analyzers for Commercial Vantage and Thin Installer.</li>
 </ul>
 
-<div class="num h2-num" aria-hidden="true">3.4.2</div>
-<h2 id="cmdlets"><span class="h2-inline-num" aria-hidden="true">3.4.2</span>Cmdlets<a class="anchor" href="#cmdlets" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<div class="num h2-num" aria-hidden="true">3.3.2</div>
+<h2 id="cmdlets"><span class="h2-inline-num" aria-hidden="true">3.3.2</span>Cmdlets<a class="anchor" href="#cmdlets" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
 <p>A selection of the over 30 cmdlets offered. The full reference, with syntax and examples for each, is in the guide.</p>
 <ul class="cmdlets">
   <li><code>Get-LnvBiosInfo</code></li>
@@ -82,8 +82,8 @@
   <li><code>Export-LnvURConfig</code></li>
 </ul>
 
-<div class="num h2-num" aria-hidden="true">3.4.3</div>
-<h2 id="examples"><span class="h2-inline-num" aria-hidden="true">3.4.3</span>Examples<a class="anchor" href="#examples" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<div class="num h2-num" aria-hidden="true">3.3.3</div>
+<h2 id="examples"><span class="h2-inline-num" aria-hidden="true">3.3.3</span>Examples<a class="anchor" href="#examples" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
 <pre><code><span class="c"># CVEs addressed in the current BIOS update for a machine type</span>
 Get-LnvCVE -MachineType 21DD
 
@@ -93,10 +93,10 @@ Find-LnvDriverPack -MachineType 21DD -Latest
 <span class="c"># Warranty status (written to WMI by Commercial Vantage)</span>
 Get-LnvWarranty</code></pre>
 
-<div class="num h2-num" aria-hidden="true">3.4.4</div>
-<h2 id="whats-new"><span class="h2-inline-num" aria-hidden="true">3.4.4</span>What changed in 2.4<a class="anchor" href="#whats-new" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<div class="num h2-num" aria-hidden="true">3.3.4</div>
+<h2 id="whats-new"><span class="h2-inline-num" aria-hidden="true">3.3.4</span>What changed in 2.4<a class="anchor" href="#whats-new" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
 <p>Version 2.4.0 (April 6, 2026) shipped alongside the ThinkVantage PowerShell Library launch. It added <code>Invoke-LnvCVLogViewer</code>, <code>Invoke-LnvTILogViewer</code>, <code>Show-LnvUpdatesHistory</code> and <code>Get-LnvSystemFirmwareVersion</code>, and <code>Find-LnvDriverPack</code> now returns structured objects with Model, OS, OSVersion, SHA256, MD5, DateReleased and URL properties.</p>
-<p>Version 2.4.1 removed <code>Get-LnvUpdate</code> and <code>Get-LnvUpdatesRepo</code>, which now live in <a href="../manage/lenovo-client-update.html">Lenovo.Client.Update</a>.</p>
+<p>Version 2.4.1 removed <code>Get-LnvUpdate</code> and <code>Get-LnvUpdatesRepo</code>, which now live in <a href="../patch/lenovo-client-update.html">Lenovo.Client.Update</a>.</p>
 
 <section class="sources" aria-labelledby="sources">
   <h2 id="sources" data-plain>Sources</h2>
@@ -108,7 +108,7 @@ Get-LnvWarranty</code></pre>
 
 </div>
 </article>
-<nav class="turn" aria-label="Page turn"><a class="prev" href="../manage/think-bios-config-tool.html" style="--part-of-link: var(--part-3)"><span class="turn-dir"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span><span class="turn-title"><span class="n">3.3</span>Think BIOS Config Tool V2</span></a><a class="next" href="../manage/dock-manager.html" style="--part-of-link: var(--part-3)"><span class="turn-dir">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="turn-title"><span class="n">3.5</span>Dock Manager</span></a></nav>
+<nav class="turn" aria-label="Page turn"><a class="prev" href="../manage/think-bios-config-tool.html" style="--part-of-link: var(--part-3)"><span class="turn-dir"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span><span class="turn-title"><span class="n">3.2</span>Think BIOS Config Tool V2</span></a><a class="next" href="../manage/dock-manager.html" style="--part-of-link: var(--part-3)"><span class="turn-dir">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="turn-title"><span class="n">3.4</span>Dock Manager</span></a></nav>
 <footer class="colophon">
   <p class="lockup"><img src="../assets/img/lenovo-logo.png" width="736" height="245" alt="Lenovo"><span class="tagline">Smarter technology for all</span></p>
   <p>Lenovo Commercial Deployment Readiness Team &middot; 2026 Edition</p>

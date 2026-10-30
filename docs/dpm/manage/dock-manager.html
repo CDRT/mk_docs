@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>3.5 Dock Manager | Deploy, Patch &amp; Manage 2026 Edition</title>
+<title>3.4 Dock Manager | Deploy, Patch &amp; Manage 2026 Edition</title>
 <meta name="description" content="Keeps Lenovo dock firmware current and reports dock data to WMI.">
 <meta name="theme-color" content="#E1251B">
 <link rel="preload" href="../assets/fonts/montserrat-latin-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -21,7 +21,7 @@
 </header>
 <article>
 <div class="folio page-head">
-  <div class="num" aria-hidden="true">3.5</div>
+  <div class="num" aria-hidden="true">3.4</div>
   <h1>Dock Manager</h1>
   <p class="standfirst">Keeps Lenovo dock firmware current and reports dock data to WMI.</p>
 
@@ -41,27 +41,27 @@
   </dl>
 </section>
 
-<div class="num h2-num" aria-hidden="true">3.5.1</div>
-<h2 id="how-it-works"><span class="h2-inline-num" aria-hidden="true">3.5.1</span>How it works<a class="anchor" href="#how-it-works" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<div class="num h2-num" aria-hidden="true">3.4.1</div>
+<h2 id="how-it-works"><span class="h2-inline-num" aria-hidden="true">3.4.1</span>How it works<a class="anchor" href="#how-it-works" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
 <p>Dock Manager reduces the effort of deploying dock firmware updates at scale, and it does quite a bit more than firmware. It runs on the PC and keeps a cache of the current firmware for supported Lenovo docks. When a dock with down-level firmware is attached, Dock Manager updates it automatically.</p>
 <p>It can download firmware from Lenovo Support over the internet, or from a local repository on your network that you create and maintain with Update Retriever. Search Update Retriever by the dock's four-character machine type to find its latest firmware packages.</p>
 
-<div class="num h2-num" aria-hidden="true">3.5.2</div>
-<h2 id="view-and-report"><span class="h2-inline-num" aria-hidden="true">3.5.2</span>View and report<a class="anchor" href="#view-and-report" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<div class="num h2-num" aria-hidden="true">3.4.2</div>
+<h2 id="view-and-report"><span class="h2-inline-num" aria-hidden="true">3.4.2</span>View and report<a class="anchor" href="#view-and-report" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
 <ul>
   <li>Dock information and the full update history.</li>
   <li>Dock data in WMI, under <code>root\Lenovo\Dock_Manager</code>, for remote queries: dock machine type, firmware version, MAC address, and connected devices such as monitors and USB devices.</li>
 </ul>
 
-<div class="num h2-num" aria-hidden="true">3.5.3</div>
-<h2 id="control-and-govern"><span class="h2-inline-num" aria-hidden="true">3.5.3</span>Control and govern<a class="anchor" href="#control-and-govern" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<div class="num h2-num" aria-hidden="true">3.4.3</div>
+<h2 id="control-and-govern"><span class="h2-inline-num" aria-hidden="true">3.4.3</span>Control and govern<a class="anchor" href="#control-and-govern" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
 <ul>
   <li>Full control of updates through Group Policy.</li>
   <li>Control which firmware is available through a local repository managed by Update Retriever.</li>
 </ul>
 
-<div class="num h2-num" aria-hidden="true">3.5.4</div>
-<h2 id="supported-docks"><span class="h2-inline-num" aria-hidden="true">3.5.4</span>Supported docks<a class="anchor" href="#supported-docks" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<div class="num h2-num" aria-hidden="true">3.4.4</div>
+<h2 id="supported-docks"><span class="h2-inline-num" aria-hidden="true">3.4.4</span>Supported docks<a class="anchor" href="#supported-docks" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
 <p>As of Dock Manager 1.6.5.3. Check Lenovo Support for newer models.</p>
 <div class="table-wrap">
 <table>
@@ -100,7 +100,7 @@
 
 </div>
 </article>
-<nav class="turn" aria-label="Page turn"><a class="prev" href="../manage/lenovo-client-scripting.html" style="--part-of-link: var(--part-3)"><span class="turn-dir"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span><span class="turn-title"><span class="n">3.4</span>Lenovo.<wbr>Client.<wbr>Scripting</span></a><a class="next" href="../manage/device-orchestration.html" style="--part-of-link: var(--part-3)"><span class="turn-dir">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="turn-title"><span class="n">3.6</span>Lenovo Device Orchestration</span></a></nav>
+<nav class="turn" aria-label="Page turn"><a class="prev" href="../manage/lenovo-client-scripting.html" style="--part-of-link: var(--part-3)"><span class="turn-dir"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span><span class="turn-title"><span class="n">3.3</span>Lenovo.<wbr>Client.<wbr>Scripting</span></a><a class="next" href="../manage/device-orchestration.html" style="--part-of-link: var(--part-3)"><span class="turn-dir">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="turn-title"><span class="n">3.5</span>Lenovo Device Orchestration</span></a></nav>
 <footer class="colophon">
   <p class="lockup"><img src="../assets/img/lenovo-logo.png" width="736" height="245" alt="Lenovo"><span class="tagline">Smarter technology for all</span></p>
   <p>Lenovo Commercial Deployment Readiness Team &middot; 2026 Edition</p>

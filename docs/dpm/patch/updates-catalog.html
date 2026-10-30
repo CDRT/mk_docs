@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>2.2 Lenovo Updates Catalog | Deploy, Patch &amp; Manage 2026 Edition</title>
+<title>2.3 Lenovo Updates Catalog | Deploy, Patch &amp; Manage 2026 Edition</title>
 <meta name="description" content="Lenovo&#39;s third-party catalog for Configuration Manager and WSUS.">
 <meta name="theme-color" content="#E1251B">
 <link rel="preload" href="../assets/fonts/montserrat-latin-var.woff2" as="font" type="font/woff2" crossorigin>
@@ -21,7 +21,7 @@
 </header>
 <article>
 <div class="folio page-head">
-  <div class="num" aria-hidden="true">2.2</div>
+  <div class="num" aria-hidden="true">2.3</div>
   <h1>Lenovo Updates Catalog</h1>
   <p class="standfirst">Lenovo&#39;s third-party catalog for Configuration Manager and WSUS.</p>
 
@@ -43,20 +43,20 @@
   </dl>
 </section>
 
-<div class="num h2-num" aria-hidden="true">2.2.1</div>
-<h2 id="how-it-works"><span class="h2-inline-num" aria-hidden="true">2.2.1</span>How it works<a class="anchor" href="#how-it-works" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<div class="num h2-num" aria-hidden="true">2.3.1</div>
+<h2 id="how-it-works"><span class="h2-inline-num" aria-hidden="true">2.3.1</span>How it works<a class="anchor" href="#how-it-works" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
 <p>The Lenovo Updates Catalog is Lenovo's Third-Party Partner Catalog. You subscribe to it under Software Library &gt; Software Updates &gt; Third-Party Software Update Catalogs in Configuration Manager, and its content is deployed and managed with ConfigMgr and WSUS. WSUS administrators get the approval workflow they already know.</p>
 <p>The V3 format categorizes updates by model. Instead of every update in the catalog being published as metadata, you choose the categories you need, which cuts the data your site manages and the work clients do during scan cycles.</p>
 
-<div class="num h2-num" aria-hidden="true">2.2.2</div>
-<h2 id="catalog-agent"><span class="h2-inline-num" aria-hidden="true">2.2.2</span>The Catalog Agent<a class="anchor" href="#catalog-agent" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<div class="num h2-num" aria-hidden="true">2.3.2</div>
+<h2 id="catalog-agent"><span class="h2-inline-num" aria-hidden="true">2.3.2</span>The Catalog Agent<a class="anchor" href="#catalog-agent" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
 <p>To decide whether a driver update is applicable, installed or not needed, the WSUS Catalog XML schema needs data that is programmatically comparable. The Lenovo Updates Catalog Agent is a lightweight service that gathers data from <code>Win32_PNPSignedDriver</code> class, normalizes the data, and stores it in one place: the <code>Win32_PNPSignedDriverEx</code> class in the <code>Root\Lenovo\drivers</code> WMI namespace. Each update's IsInstalled and IsInstallable rules query this custom class. This is primarily needed for hardware driver updates and not BIOS updates.</p>
 <p>The agent is itself published in the catalog as a software update (currently LUCAgent1007). Enable the Lenovo, Lenovo Updates and LUCAgent products on your Software Update Point, synchronize, and deploy the agent to your ThinkPad, ThinkStation and ThinkCentre devices before any Lenovo updates. It runs whenever a Software Updates Scan Cycle or Deployment Evaluation Cycle starts.</p>
 <p>Without the agent, Lenovo updates stay in the Unknown column of your compliance reports. With it, results move to Required, Installed or Not Required as devices scan, subject to your site's summarization schedule.</p>
 
-<div class="num h2-num" aria-hidden="true">2.2.3</div>
-<h2 id="limits"><span class="h2-inline-num" aria-hidden="true">2.2.3</span>What it cannot deliver<a class="anchor" href="#limits" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
-<p>Because of WSUS content restrictions and some component vendor limitations, the catalog cannot carry firmware, including all dock firmware, or certain drivers that require a setup.exe or some other executable in order to determine applicability. Cover those with <a href="../patch/commercial-vantage.html">Commercial Vantage</a>, <a href="../manage/lenovo-client-update.html">Lenovo.Client.Update</a> or <a href="../manage/dock-manager.html">Dock Manager</a>.</p>
+<div class="num h2-num" aria-hidden="true">2.3.3</div>
+<h2 id="limits"><span class="h2-inline-num" aria-hidden="true">2.3.3</span>What it cannot deliver<a class="anchor" href="#limits" aria-label="Link to this section"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1"/><path d="M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1"/></svg></a></h2>
+<p>Because of WSUS content restrictions and some component vendor limitations, the catalog cannot carry firmware, including all dock firmware, or certain drivers that require a setup.exe or some other executable in order to determine applicability. Cover those with <a href="../patch/commercial-vantage.html">Commercial Vantage</a>, <a href="../patch/lenovo-client-update.html">Lenovo.Client.Update</a> or <a href="../manage/dock-manager.html">Dock Manager</a>.</p>
 
 <div class="note note--alert">
   <p class="note-title">WSUS is deprecated</p>
@@ -75,7 +75,7 @@
 
 </div>
 </article>
-<nav class="turn" aria-label="Page turn"><a class="prev" href="../patch/commercial-vantage.html" style="--part-of-link: var(--part-2)"><span class="turn-dir"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span><span class="turn-title"><span class="n">2.1</span>Commercial Vantage</span></a><a class="next" href="../patch/windows-update-for-business.html" style="--part-of-link: var(--part-2)"><span class="turn-dir">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="turn-title"><span class="n">2.3</span>Windows Update for Business</span></a></nav>
+<nav class="turn" aria-label="Page turn"><a class="prev" href="../patch/lenovo-client-update.html" style="--part-of-link: var(--part-2)"><span class="turn-dir"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg> Previous</span><span class="turn-title"><span class="n">2.2</span>Lenovo.<wbr>Client.<wbr>Update</span></a><a class="next" href="../patch/windows-update-for-business.html" style="--part-of-link: var(--part-2)"><span class="turn-dir">Next <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="turn-title"><span class="n">2.4</span>Windows Update for Business</span></a></nav>
 <footer class="colophon">
   <p class="lockup"><img src="../assets/img/lenovo-logo.png" width="736" height="245" alt="Lenovo"><span class="tagline">Smarter technology for all</span></p>
   <p>Lenovo Commercial Deployment Readiness Team &middot; 2026 Edition</p>
