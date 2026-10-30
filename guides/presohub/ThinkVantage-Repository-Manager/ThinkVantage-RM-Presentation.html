@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThinkVantage Repository Manager</title>
+
+    <!-- Fonts: Cabinet Grotesk (display) + General Sans (body) from Fontshare -->
+    <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,700,800&f[]=general-sans@400,500,600&display=swap">
+
+    <style>
+        /* ===========================================
+           CSS CUSTOM PROPERTIES (THEME)
+           =========================================== */
+        :root {
+            /* Lenovo Dark + Red Palette */
+            --bg-primary: #0E0E0E;
+            --bg-secondary: #161616;
+            --bg-card: #1C1C1C;
+            --bg-elevated: #222222;
+            --text-primary: #F0F0F0;
+            --text-secondary: #888888;
+            --text-dim: #868686;
+            --accent: #E2231A;
+            --accent-glow: rgba(226, 35, 26, 0.25);
+            --accent-soft: rgba(226, 35, 26, 0.08);
+            --border: rgba(255, 255, 255, 0.06);
+
+            /* Typography */
+            --font-display: 'Cabinet Grotesk', sans-serif;
+            --font-body: 'General Sans', sans-serif;
+            --title-size: clamp(2rem, 6vw, 4.5rem);
+            --h2-size: clamp(1.4rem, 3.5vw, 2.8rem);
+            --h3-size: clamp(1rem, 2vw, 1.4rem);
+            --body-size: clamp(0.8rem, 1.3vw, 1.05rem);
+            --small-size: clamp(0.65rem, 1vw, 0.85rem);
+            --code-size: clamp(0.65rem, 1vw, 0.82rem);
+
+            /* Spacing */
+            --slide-padding: clamp(1.5rem, 5vw, 5rem);
+            --content-gap: clamp(0.75rem, 2vw, 2rem);
+            --element-gap: clamp(0.25rem, 1vw, 1rem);
+
+            /* Animation */
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --duration-normal: 0.7s;
+        }
+
+        /* ===========================================
+           RESET & BASE
+           =========================================== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===========================================
+           VIEWPORT FITTING: MANDATORY BASE STYLES
+           =========================================== */
+        html, body { height: 100%; overflow-x: hidden; }
+        html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-height: 100%;
+            overflow: hidden;
+            padding: var(--slide-padding);
+        }
+
+        .card, .container, .content-box {
+            max-width: min(90vw, 1000px);
+            max-height: min(80vh, 700px);
+        }
+
+        .feature-list, .bullet-list { gap: clamp(0.4rem, 1vh, 1rem); }
+        .feature-list li, .bullet-list li { font-size: var(--body-size); line-height: 1.4; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(0.5rem, 1.5vw, 1rem);
+        }
+
+        img, .image-container {
+            max-width: 100%;
+            max-height: min(50vh, 400px);
+            object-fit: contain;
+        }
+
+        /* Responsive breakpoints */
+        @media (max-height: 700px) {
+            :root {
+                --slide-padding: clamp(0.75rem, 3vw, 2rem);
+                --content-gap: clamp(0.4rem, 1.5vw, 1rem);
+                --title-size: clamp(1.25rem, 4.5vw, 2.5rem);
+                --h2-size: clamp(1rem, 3vw, 1.75rem);
+            }
+        }
+
+        @media (max-height: 600px) {
+            :root {
+                --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem);
+                --content-gap: clamp(0.3rem, 1vw, 0.75rem);
+                --title-size: clamp(1.1rem, 4vw, 2rem);
+                --body-size: clamp(0.7rem, 1.2vw, 0.95rem);
+            }
+            .nav-dots, .keyboard-hint, .decorative { display: none; }
+        }
+
+        @media (max-height: 500px) {
+            :root {
+                --slide-padding: clamp(0.4rem, 2vw, 1rem);
+                --title-size: clamp(1rem, 3.5vw, 1.5rem);
+                --h2-size: clamp(0.9rem, 2.5vw, 1.25rem);
+                --body-size: clamp(0.65rem, 1vw, 0.85rem);
+            }
+        }
+
+        @media (max-width: 600px) {
+            :root { --title-size: clamp(1.25rem, 7vw, 2.5rem); }
+            .grid { grid-template-columns: 1fr; }
+            .two-col { grid-template-columns: 1fr !important; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.2s !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+
+        /* ===========================================
+           ANIMATIONS
+           =========================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity var(--duration-normal) var(--ease-out-expo),
+                        transform var(--duration-normal) var(--ease-out-expo);
+        }
+        .slide.visible .reveal { opacity: 1; transform: translateY(0); }
+        .reveal:nth-child(1) { transition-delay: 0.05s; }
+        .reveal:nth-child(2) { transition-delay: 0.15s; }
+        .reveal:nth-child(3) { transition-delay: 0.25s; }
+        .reveal:nth-child(4) { transition-delay: 0.35s; }
+        .reveal:nth-child(5) { transition-delay: 0.45s; }
+        .reveal:nth-child(6) { transition-delay: 0.55s; }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.92);
+            transition: opacity 0.6s, transform 0.6s var(--ease-out-expo);
+        }
+        .slide.visible .reveal-scale { opacity: 1; transform: scale(1); }
+
+        /* ===========================================
+           BACKGROUNDS & TEXTURES
+           =========================================== */
+        .bg-grid {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .bg-glow {
+            background:
+                radial-gradient(ellipse at 70% 20%, var(--accent-glow) 0%, transparent 55%),
+                var(--bg-primary);
+        }
+
+        .bg-glow-left {
+            background:
+                radial-gradient(ellipse at 15% 50%, var(--accent-glow) 0%, transparent 50%),
+                var(--bg-primary);
+        }
+
+        .bg-glow-bottom {
+            background:
+                radial-gradient(ellipse at 50% 90%, rgba(226, 35, 26, 0.15) 0%, transparent 50%),
+                var(--bg-primary);
+        }
+
+        /* ===========================================
+           TYPOGRAPHY
+           =========================================== */
+        h1 {
+            font-family: var(--font-display);
+            font-size: var(--title-size);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+        }
+
+        h2 {
+            font-family: var(--font-display);
+            font-size: var(--h2-size);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin-bottom: var(--content-gap);
+        }
+
+        h3 {
+            font-family: var(--font-display);
+            font-size: var(--h3-size);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        p, li {
+            font-size: var(--body-size);
+            line-height: 1.55;
+            color: var(--text-secondary);
+        }
+
+        .accent { color: var(--accent); }
+        .dim { color: var(--text-dim); }
+
+        .tag {
+            display: inline-block;
+            padding: clamp(0.2rem, 0.5vw, 0.35rem) clamp(0.5rem, 1vw, 0.8rem);
+            background: var(--accent-soft);
+            border: 1px solid rgba(226, 35, 26, 0.2);
+            border-radius: 100px;
+            font-size: var(--small-size);
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        /* ===========================================
+           COMPONENTS
+           =========================================== */
+
+        /* Feature cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(0.5rem, 1.2vw, 1rem);
+            margin-top: var(--content-gap);
+        }
+        @media (max-width: 800px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 500px) { .feature-grid { grid-template-columns: 1fr; } }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: clamp(6px, 0.8vw, 12px);
+            padding: clamp(0.8rem, 1.5vw, 1.4rem);
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .feature-card:hover {
+            border-color: rgba(226, 35, 26, 0.3);
+            transform: translateY(-2px);
+        }
+        .feature-card .icon {
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
+            margin-bottom: clamp(0.3rem, 0.5vw, 0.5rem);
+        }
+        .feature-card h3 {
+            font-size: clamp(0.8rem, 1.2vw, 1rem);
+            margin-bottom: clamp(0.15rem, 0.3vw, 0.3rem);
+        }
+        .feature-card p {
+            font-size: var(--small-size);
+            color: var(--text-dim);
+        }
+
+        /* Two-column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(1.5rem, 3vw, 3rem);
+            align-items: center;
+        }
+
+        /* Code block */
+        .code-block {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: clamp(6px, 0.8vw, 10px);
+            padding: clamp(0.8rem, 1.5vw, 1.4rem);
+            font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            font-size: var(--code-size);
+            line-height: 1.65;
+            color: var(--text-secondary);
+            overflow: hidden;
+        }
+        .code-block .kw { color: #F97583; }
+        .code-block .str { color: #9ECBFF; }
+        .code-block .cmd { color: #B392F0; }
+        .code-block .param { color: #79B8FF; }
+        .code-block .comment { color: #444; }
+        .code-block .pipe { color: var(--accent); }
+
+        /* Bullet list */
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.4rem, 0.8vh, 0.75rem);
+        }
+        .bullet-list li {
+            padding-left: clamp(1rem, 1.5vw, 1.3rem);
+            position: relative;
+        }
+        .bullet-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: clamp(0.4rem, 0.7vw, 0.55rem);
+            width: clamp(4px, 0.4vw, 6px);
+            height: clamp(4px, 0.4vw, 6px);
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        /* Architecture diagram */
+        .arch-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: clamp(6px, 0.8vw, 10px);
+            padding: clamp(0.6rem, 1.2vw, 1.2rem);
+            text-align: center;
+        }
+        .arch-box.accent-border {
+            border-color: rgba(226, 35, 26, 0.35);
+            background: linear-gradient(135deg, var(--bg-card), rgba(226, 35, 26, 0.04));
+        }
+        .arch-arrow {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: clamp(1rem, 1.5vw, 1.4rem);
+            padding: clamp(0.2rem, 0.4vw, 0.4rem) 0;
+        }
+
+        /* Workflow steps */
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: clamp(0.6rem, 1.2vw, 1rem);
+        }
+        .step-num {
+            flex-shrink: 0;
+            width: clamp(1.6rem, 2.5vw, 2.2rem);
+            height: clamp(1.6rem, 2.5vw, 2.2rem);
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: var(--small-size);
+            color: white;
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent);
+            z-index: 1000;
+            transition: width 0.3s;
+        }
+
+        /* Nav dots */
+        .nav-dots {
+            position: fixed;
+            right: clamp(0.8rem, 1.5vw, 1.5rem);
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 100;
+        }
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--text-dim);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 0;
+        }
+        .nav-dot.active {
+            background: var(--accent);
+            box-shadow: 0 0 8px var(--accent-glow);
+            transform: scale(1.3);
+        }
+
+        /* Slide counter */
+        .slide-counter {
+            position: fixed;
+            bottom: clamp(0.8rem, 1.5vw, 1.5rem);
+            right: clamp(0.8rem, 1.5vw, 1.5rem);
+            font-size: var(--small-size);
+            color: var(--text-dim);
+            font-family: var(--font-body);
+            font-weight: 500;
+            z-index: 100;
+        }
+
+        /* Red accent line */
+        .red-line {
+            width: clamp(2rem, 4vw, 3.5rem);
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+            margin-bottom: var(--content-gap);
+        }
+
+        /* ===========================================
+           SLIDE-SPECIFIC STYLES
+           =========================================== */
+
+        /* Title slide */
+        .title-slide .slide-content {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .title-slide h1 { margin-bottom: clamp(0.5rem, 1vw, 1rem); }
+        .title-slide .subtitle {
+            font-size: clamp(0.9rem, 1.8vw, 1.3rem);
+            color: var(--text-secondary);
+            font-weight: 400;
+            max-width: 600px;
+        }
+        .title-brand {
+            display: flex;
+            align-items: baseline;
+            gap: clamp(0.3rem, 0.6vw, 0.5rem);
+            justify-content: center;
+            margin-bottom: clamp(0.3rem, 0.5vw, 0.5rem);
+        }
+        .title-brand .red {
+            color: var(--accent);
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .title-brand .black {
+            color: var(--bg-primary);
+            background-color: white;
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .title-brand .thin {
+            color: var(--text-dim);
+            font-size: var(--small-size);
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Closing slide */
+        .closing-slide .slide-content {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Progress bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation dots -->
+    <nav class="nav-dots" id="navDots"></nav>
+
+    <!-- Slide counter -->
+    <div class="slide-counter" id="slideCounter">1 / 10</div>
+
+    <!-- ===========================================
+         SLIDE 1: TITLE
+         =========================================== -->
+    <section class="slide title-slide bg-glow">
+        <div class="slide-content">
+            <div class="title-brand reveal">
+                <span class="black">Think</span><span class="red">Vantage</span>
+            </div>
+            <h1 class="reveal">Repository Manager</h1><span class="thin">by Lenovo</span><br>
+            <p class="subtitle reveal">A modern replacement for Update Retriever.<br>Search, download, and manage Lenovo device updates at enterprise scale.</p>
+            <div class="reveal" style="margin-top: var(--content-gap);">
+                <span class="tag">PowerShell Module</span>
+                <span class="tag" style="margin-left: 0.4rem;">WPF Interface</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         SLIDE 2: THE PROBLEM
+         =========================================== -->
+    <section class="slide bg-grid">
+        <div class="slide-content">
+            <span class="tag reveal">The Problem</span>
+            <h2 class="reveal" style="margin-top: var(--element-gap);">Update Retriever is <span class="accent">old.</span></h2>
+            <div class="two-col reveal" style="margin-top: var(--content-gap);">
+                <div>
+                    <ul class="bullet-list">
+                        <li>Introduce during Windows 7 era</li>
+                        <li>Difficult to automate</li>
+                        <li>Enterprise teams need better audit logs</li>
+                        <li>Existing repositories need ongoing maintenance</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="arch-box" style="border-color: rgba(255,255,255,0.04);">
+                        <h3 style="color: var(--text-dim); margin-bottom: 0.3rem;">What IT teams need</h3>
+                        <ul class="bullet-list" style="text-align: left;">
+                            <li>Bandwidth optimization (download once, deploy many)</li>
+                            <li>Version control for compliance</li>
+                            <li>Air-gapped environment support</li>
+                            <li>Audit trail for change tracking</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         SLIDE 3: KEY FEATURES
+         =========================================== -->
+    <section class="slide bg-glow-left">
+        <div class="slide-content">
+            <span class="tag reveal">Overview</span>
+            <h2 class="reveal" style="margin-top: var(--element-gap);">Everything you need, <span class="accent">nothing you don't.</span></h2>
+            <div class="feature-grid">
+                <div class="feature-card reveal">
+                    <div class="icon">&#x1F50D;</div>
+                    <h3>Catalog Search</h3>
+                    <p>Query Lenovo catalogs across multiple models in parallel</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="icon">&#x2B07;</div>
+                    <h3>BITS Downloads</h3>
+                    <p>Resilient transfers with SHA256 verification and progress tracking</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="icon">&#x1F4C1;</div>
+                    <h3>Multi-Repository</h3>
+                    <p>Production, lab, staging -- manage multiple repos from one tool</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="icon">&#x2705;</div>
+                    <h3>Test / Active Status</h3>
+                    <p>Stage updates in Test, promote to Active when validated</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="icon">&#x1F4DC;</div>
+                    <h3>Audit Logging</h3>
+                    <p>Every change tracked with user, timestamp, and action</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="icon">&#x2699;</div>
+                    <h3>Full CLI + GUI</h3>
+                    <p>Script everything or use the WPF interface -- your choice</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         SLIDE 4: ARCHITECTURE
+         =========================================== -->
+    <section class="slide bg-grid">
+        <div class="slide-content">
+            <span class="tag reveal">Architecture</span>
+            <h2 class="reveal" style="margin-top: var(--element-gap);">Module engine, <span class="accent">GUI shell.</span></h2>
+            <div class="two-col reveal" style="margin-top: var(--content-gap);">
+                <div style="display: flex; flex-direction: column; gap: clamp(0.4rem, 0.8vw, 0.6rem);">
+                    <div class="arch-box accent-border">
+                        <h3>WPF Application</h3>
+                        <p style="font-size: var(--small-size);">Thin GUI shell -- calls module cmdlets</p>
+                    </div>
+                    <div class="arch-arrow">&#x2193;</div>
+                    <div class="arch-box accent-border">
+                        <h3>Lenovo.Client.RepositoryManager</h3>
+                        <p style="font-size: var(--small-size);">PowerShell 5.1 module -- all business logic</p>
+                        <p style="font-size: var(--small-size); color: var(--text-dim); margin-top: 0.3rem;">13 public cmdlets &middot; LnvRM noun prefix</p>
+                    </div>
+                    <div class="arch-arrow">&#x2193;</div>
+                    <div class="arch-box">
+                        <h3 style="color: var(--text-secondary);">database.xml + config.json</h3>
+                        <p style="font-size: var(--small-size);">Update Retriever-compatible format</p>
+                    </div>
+                </div>
+                <div>
+                    <ul class="bullet-list">
+                        <li><strong>Module is the engine</strong> -- every operation is a scriptable cmdlet</li>
+                        <li><strong>GUI is optional</strong> -- admins can automate entirely from the CLI</li>
+                        <li><strong>Backward compatible</strong> -- reads/writes existing Update Retriever repos</li>
+                        <li><strong>No dependencies</strong> -- ships with Windows, zero external installs</li>
+                        <li><strong>File-based locking</strong> -- safe for shared network repositories</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         SLIDE 5: SEARCH & DOWNLOAD
+         =========================================== -->
+    <section class="slide bg-glow">
+        <div class="slide-content">
+            <span class="tag reveal">Workflow</span>
+            <h2 class="reveal" style="margin-top: var(--element-gap);">Search. Select. <span class="accent">Download.</span></h2>
+            <div class="two-col reveal" style="margin-top: var(--content-gap);">
+                <div style="display: flex; flex-direction: column; gap: clamp(0.6rem, 1.2vh, 1rem);">
+                    <div class="step">
+                        <div class="step-num">1</div>
+                        <div>
+                            <h3>Parallel Catalog Fetch</h3>
+                            <p>Queries Lenovo servers for all configured models simultaneously using runspace pools</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">2</div>
+                        <div>
+                            <h3>Deduplicate & Merge</h3>
+                            <p>Shared updates across models are shown once, with all applicable machine types listed</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">3</div>
+                        <div>
+                            <h3>Filter & Select</h3>
+                            <p>Filter by severity, type, or keyword. Multi-select for batch download.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-num">4</div>
+                        <div>
+                            <h3>BITS Transfer + Verify</h3>
+                            <p>Async BITS downloads with progress. SHA256 verified on completion. Bad files auto-deleted.</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="code-block">
+                        <span class="comment"># Search and download in one pipeline</span><br>
+                        <span class="cmd">Search-LnvRMUpdate</span> <span class="param">-MachineType</span> <span class="str">'21NT'</span> <span class="param">-OS</span> <span class="str">'Windows 11'</span> <span class="pipe">|</span><br>
+                        &nbsp;&nbsp;<span class="cmd">Where-Object</span> Severity <span class="param">-eq</span> <span class="str">'Critical'</span> <span class="pipe">|</span><br>
+                        &nbsp;&nbsp;<span class="cmd">Save-LnvRMUpdate</span> <span class="param">-Status</span> <span class="str">'Active'</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         SLIDE 6: REPOSITORY MANAGEMENT
+         =========================================== -->
+    <section class="slide bg-glow-left">
+        <div class="slide-content">
+            <span class="tag reveal">Repository</span>
+            <h2 class="reveal" style="margin-top: var(--element-gap);">Two modes. <span class="accent">Full control.</span></h2>
+            <div class="two-col reveal" style="margin-top: var(--content-gap);">
+                <div>
+                    <div class="arch-box accent-border" style="margin-bottom: clamp(0.5rem, 1vw, 0.8rem);">
+                        <h3>Full Repository</h3>
+                        <p style="font-size: var(--small-size);">Downloads installer + descriptor + readme. Self-contained, works offline. Default mode.</p>
+                    </div>
+                    <div class="arch-box" style="margin-bottom: clamp(0.5rem, 1vw, 0.8rem);">
+                        <h3 style="color: var(--text-secondary);">Hybrid Repository</h3>
+                        <p style="font-size: var(--small-size);">Metadata only. Endpoints download installers from Lenovo at deploy time. Saves storage.</p>
+                    </div>
+                </div>
+                <div>
+                    <ul class="bullet-list">
+                        <li><strong>Multiple repositories</strong> -- switch between production, lab, staging; separate models of diferent vintage for easier retirement</li>
+                        <li><strong>Import existing repos</strong> -- point at an Update Retriever folder; machine types auto-discovered</li>
+                        <li><strong>Test / Active workflow</strong> -- stage updates, validate, then promote</li>
+                        <li><strong>Recycle bin delete</strong> -- removed packages go to Recycle Bin, not permanent delete</li>
+                        <li><strong>Network share safe</strong> -- file-level locking prevents concurrent write corruption</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         SLIDE 7: SUPERSEDED DETECTION
+         =========================================== -->
+    <section class="slide bg-grid">
+        <div class="slide-content">
+            <span class="tag reveal">Intelligence</span>
+            <h2 class="reveal" style="margin-top: var(--element-gap);">Superseded updates, <span class="accent">flagged automatically.</span></h2>
+            <div class="two-col reveal" style="margin-top: var(--content-gap);">
+                <div>
+                    <ul class="bullet-list">
+                        <li>Packages grouped by <strong>PackageName</strong></li>
+                        <li>Older versions identified by release date comparison</li>
+                        <li>Superseded rows shown <em style="opacity: 0.5;">faded and italic</em> in the UI</li>
+                        <li>"Superseded By" column shows the replacement package ID</li>
+                        <li>No auto-deletion -- admin reviews and decides</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="code-block">
+                        <span class="comment"># Find superseded updates</span><br>
+                        <span class="cmd">Get-LnvRMRepoContent</span> <span class="pipe">|</span><br>
+                        &nbsp;&nbsp;<span class="cmd">Where-Object</span> IsSuperseded <span class="pipe">|</span><br>
+                        &nbsp;&nbsp;<span class="cmd">Format-Table</span> PackageID, Version, SupersededBy<br>
+                        <br>
+                        <span class="comment"># Clean up old versions</span><br>
+                        <span class="cmd">Get-LnvRMRepoContent</span> <span class="pipe">|</span><br>
+                        &nbsp;&nbsp;<span class="cmd">Where-Object</span> IsSuperseded <span class="pipe">|</span><br>
+                        &nbsp;&nbsp;<span class="cmd">ForEach-Object</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd">Remove-LnvRMUpdate</span> <span class="param">-PackageID</span> $_.PackageID<br>
+                        &nbsp;&nbsp;}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         SLIDE 8: AUDIT LOGGING
+         =========================================== -->
+    <section class="slide bg-glow-bottom">
+        <div class="slide-content">
+            <span class="tag reveal">Compliance</span>
+            <h2 class="reveal" style="margin-top: var(--element-gap);">Every change. <span class="accent">Every user. Logged.</span></h2>
+            <div class="two-col reveal" style="margin-top: var(--content-gap);">
+                <div>
+                    <ul class="bullet-list">
+                        <li><strong>Daily log files</strong> in each repository's <code style="color:var(--accent);">\logs\</code> folder</li>
+                        <li>Tracks <strong>downloads, deletions, status changes</strong>, and repo config</li>
+                        <li>Username and timestamp on every entry</li>
+                        <li>Plain text format -- grep-friendly, easy to ship to SIEM</li>
+                        <li>Query via <code style="color:var(--accent);">Get-LnvRMAuditLog</code> cmdlet</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="code-block" style="font-size: clamp(0.55rem, 0.9vw, 0.75rem);">
+                        <span class="comment"># audit_2026-03-27.log</span><br><br>
+                        [2026-03-27 10:15:30] [ParkerJ] [<span class="kw">DOWNLOAD</span>]<br>
+                        &nbsp;&nbsp;Downloaded n4bce08w - BIOS Update v1.70<br><br>
+                        [2026-03-27 10:20:15] [ParkerJ] [<span class="str">STATUS_CHANGE</span>]<br>
+                        &nbsp;&nbsp;Package n4bce08w changed from Test to Active<br><br>
+                        [2026-03-27 14:30:00] [AdminJ] [<span class="kw">DELETE</span>]<br>
+                        &nbsp;&nbsp;Removed package n4bce07w - BIOS Update v1.50
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         SLIDE 9: THEMING
+         =========================================== -->
+    <section class="slide bg-glow-left">
+        <div class="slide-content">
+            <span class="tag reveal">Interface</span>
+            <h2 class="reveal" style="margin-top: var(--element-gap);">Light and dark. <span class="accent">Your choice.</span></h2>
+            <div class="two-col reveal" style="margin-top: var(--content-gap);">
+                <div>
+                    <ul class="bullet-list">
+                        <li><strong>Auto-detects OS theme</strong> from Windows settings at launch</li>
+                        <li>Toggle anytime with the <strong>sun/moon button</strong></li>
+                        <li>16 themed color tokens -- every control follows the theme</li>
+                        <li>Custom-styled TextBox, ComboBox, DataGrid, Buttons, Tabs</li>
+                        <li>Child windows (Settings) inherit the current theme</li>
+                    </ul>
+                    <div style="margin-top: var(--content-gap);">
+                        <div style="display: flex; gap: 0.5rem;">
+                            <div style="width: clamp(2rem,3vw,3rem); height: clamp(2rem,3vw,3rem); background: #F5F5F0; border-radius: 6px; border: 1px solid #DDD;"></div>
+                            <div style="width: clamp(2rem,3vw,3rem); height: clamp(2rem,3vw,3rem); background: #EAEAE5; border-radius: 6px; border: 1px solid #DDD;"></div>
+                            <div style="width: clamp(2rem,3vw,3rem); height: clamp(2rem,3vw,3rem); background: #E2231A; border-radius: 6px;"></div>
+                            <div style="width: clamp(2rem,3vw,3rem); height: clamp(2rem,3vw,3rem); background: #141414; border-radius: 6px; border: 1px solid #333;"></div>
+                            <div style="width: clamp(2rem,3vw,3rem); height: clamp(2rem,3vw,3rem); background: #1C1C1C; border-radius: 6px; border: 1px solid #333;"></div>
+                            <div style="width: clamp(2rem,3vw,3rem); height: clamp(2rem,3vw,3rem); background: #282828; border-radius: 6px; border: 1px solid #333;"></div>
+                        </div>
+                        <p style="font-size: var(--small-size); margin-top: 0.4rem;">Light &middot; Lenovo Red &middot; Dark</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="code-block">
+                        <span class="comment"># OS theme detection (registry)</span><br>
+                        <span class="cmd">Get-ItemPropertyValue</span> <span class="pipe">\</span><br>
+                        &nbsp;&nbsp;<span class="param">-Path</span> <span class="str">'HKCU:\...\Themes\Personalize'</span> <span class="pipe">\</span><br>
+                        &nbsp;&nbsp;<span class="param">-Name</span> <span class="str">'AppsUseLightTheme'</span><br>
+                        <br>
+                        <span class="comment"># Runtime theme switching</span><br>
+                        <span class="comment"># Remove + Add pattern for</span><br>
+                        <span class="comment"># DynamicResource re-evaluation</span><br>
+                        $Window.Resources.<span class="cmd">Remove</span>(<span class="str">'BgPrimary'</span>)<br>
+                        $Window.Resources.<span class="cmd">Add</span>(<span class="str">'BgPrimary'</span>, $brush)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+         SLIDE 10: CLI + CLOSING
+         =========================================== -->
+    <section class="slide closing-slide bg-glow">
+        <div class="slide-content">
+            <span class="tag reveal">Scriptable</span>
+            <h1 class="reveal" style="margin-top: var(--element-gap);">Automate <span class="accent">everything.</span></h1>
+            <p class="subtitle reveal" style="max-width: 550px; margin: 0 auto; margin-top: var(--element-gap);">13 cmdlets. Full pipeline support. Every GUI action available from the command line.</p>
+            <div class="reveal" style="max-width: min(90vw, 700px); margin: var(--content-gap) auto 0;">
+                <div class="code-block" style="text-align: left;">
+                    <span class="comment"># Nightly update sync -- scheduled task ready</span><br>
+                    <span class="cmd">Import-Module</span> Lenovo.Client.RepositoryManager<br><br>
+                    <span class="cmd">Search-LnvRMUpdate</span> <span class="pipe">|</span><br>
+                    &nbsp;&nbsp;<span class="cmd">Where-Object</span> { $_.Severity <span class="param">-eq</span> <span class="str">'Critical'</span> <span class="param">-and</span> $_.InRepo <span class="param">-ne</span> <span class="str">'Yes'</span> } <span class="pipe">|</span><br>
+                    &nbsp;&nbsp;<span class="cmd">Save-LnvRMUpdate</span> <span class="param">-Status</span> <span class="str">'Active'</span>
+                </div>
+            </div>
+            <div class="reveal" style="margin-top: var(--content-gap);">
+                <span class="tag">PowerShell 5.1</span>
+                <span class="tag" style="margin-left: 0.4rem;">WPF GUI</span>
+                <span class="tag" style="margin-left: 0.4rem;">Zero Dependencies</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================================
+       JAVASCRIPT: SLIDE CONTROLLER
+       =========================================== -->
+    <script>
+        class SlidePresentation {
+            constructor() {
+                this.slides = document.querySelectorAll('.slide');
+                this.currentSlide = 0;
+                this.isScrolling = false;
+                this.setupIntersectionObserver();
+                this.setupKeyboardNav();
+                this.setupTouchNav();
+                this.setupProgressBar();
+                this.setupNavDots();
+                this.setupWheelNav();
+            }
+
+            setupIntersectionObserver() {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            const index = Array.from(this.slides).indexOf(entry.target);
+                            this.currentSlide = index;
+                            this.updateNavDots();
+                            this.updateProgressBar();
+                            this.updateCounter();
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                this.slides.forEach(slide => observer.observe(slide));
+            }
+
+            setupKeyboardNav() {
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowDown' || e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') {
+                        e.preventDefault();
+                        this.goTo(Math.min(this.currentSlide + 1, this.slides.length - 1));
+                    } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'PageUp') {
+                        e.preventDefault();
+                        this.goTo(Math.max(this.currentSlide - 1, 0));
+                    } else if (e.key === 'Home') {
+                        e.preventDefault();
+                        this.goTo(0);
+                    } else if (e.key === 'End') {
+                        e.preventDefault();
+                        this.goTo(this.slides.length - 1);
+                    }
+                });
+            }
+
+            setupTouchNav() {
+                let touchStartY = 0;
+                document.addEventListener('touchstart', (e) => {
+                    touchStartY = e.touches[0].clientY;
+                }, { passive: true });
+                document.addEventListener('touchend', (e) => {
+                    const diff = touchStartY - e.changedTouches[0].clientY;
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) this.goTo(Math.min(this.currentSlide + 1, this.slides.length - 1));
+                        else this.goTo(Math.max(this.currentSlide - 1, 0));
+                    }
+                }, { passive: true });
+            }
+
+            setupWheelNav() {
+                let wheelTimeout;
+                document.addEventListener('wheel', (e) => {
+                    if (this.isScrolling) return;
+                    clearTimeout(wheelTimeout);
+                    wheelTimeout = setTimeout(() => {
+                        if (e.deltaY > 30) this.goTo(Math.min(this.currentSlide + 1, this.slides.length - 1));
+                        else if (e.deltaY < -30) this.goTo(Math.max(this.currentSlide - 1, 0));
+                    }, 50);
+                }, { passive: true });
+            }
+
+            setupProgressBar() {
+                this.progressBar = document.getElementById('progressBar');
+                this.updateProgressBar();
+            }
+
+            updateProgressBar() {
+                if (this.progressBar) {
+                    const progress = ((this.currentSlide + 1) / this.slides.length) * 100;
+                    this.progressBar.style.width = progress + '%';
+                }
+            }
+
+            setupNavDots() {
+                const nav = document.getElementById('navDots');
+                if (!nav) return;
+                this.slides.forEach((_, i) => {
+                    const dot = document.createElement('button');
+                    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+                    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                    dot.addEventListener('click', () => this.goTo(i));
+                    nav.appendChild(dot);
+                });
+            }
+
+            updateNavDots() {
+                document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === this.currentSlide);
+                });
+            }
+
+            updateCounter() {
+                const counter = document.getElementById('slideCounter');
+                if (counter) counter.textContent = `${this.currentSlide + 1} / ${this.slides.length}`;
+            }
+
+            goTo(index) {
+                if (index === this.currentSlide) return;
+                this.isScrolling = true;
+                this.slides[index].scrollIntoView({ behavior: 'smooth' });
+                setTimeout(() => { this.isScrolling = false; }, 800);
+            }
+        }
+
+        new SlidePresentation();
+    </script>
+</body>
+</html>
