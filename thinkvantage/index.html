@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ThinkVantage PowerShell Library</title>
+<meta name="description" content="PowerShell modules and tools for managing Lenovo ThinkPad, ThinkCentre, and ThinkStation fleets at enterprise scale.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap">
+<style>
+  html { color-scheme: dark; scroll-behavior: smooth; }
+  body { margin: 0; background: #0d1117; color: #ffffff; font: 400 1rem/1.5 "Inter", system-ui, sans-serif; -webkit-font-smoothing: antialiased; text-wrap: pretty; }
+  a { color: #2f81f7; text-decoration: none; }
+  a:hover { color: #58a6ff; text-decoration: underline; }
+  :focus-visible { outline: 2px solid #2f81f7; outline-offset: 2px; }
+  pre, code { font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  /* hover states (were style-hover attributes) */
+  [data-hv="hv1"]:hover { color: #ffffff !important; text-decoration: none !important; }
+  [data-hv="hv2"]:hover { background: #58a6ff !important; color: #ffffff !important; text-decoration: none !important; }
+  [data-hv="hv3"]:hover { background: #1c2128 !important; border-color: #444c56 !important; color: #ffffff !important; text-decoration: none !important; }
+  [data-hv="hv4"]:hover { background: #1c2128 !important; border-color: #444c56 !important; }
+  [data-hv="hv5"]:hover { background: #1c2128 !important; }
+
+  /* workflow tabs */
+  .wf-tab.is-active { color: #ffffff !important; border-bottom-color: #2f81f7 !important; }
+  .wf-tab:hover { color: #ffffff !important; }
+  /* hero pills */
+  .pill { font: 400 0.6875rem/1 "JetBrains Mono", monospace; border: 1px solid; border-radius: 100px; padding: 6px 12px; }
+  .pill-module { color: #79c0ff; background: rgba(47,129,247,0.10); border-color: rgba(47,129,247,0.32); }
+  .pill-app { color: #56d364; background: rgba(63,185,80,0.10); border-color: rgba(63,185,80,0.32); }
+  /* product guide link buttons on cards */
+  .doc-link { position: absolute; top: 14px; right: 14px; display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 0.375rem; background: #1c2128; border: 1px solid #30363d; color: #8b949e; transition: background 160ms cubic-bezier(0.2,0,0.2,1), border-color 160ms cubic-bezier(0.2,0,0.2,1), color 160ms cubic-bezier(0.2,0,0.2,1); }
+  .doc-link:hover { background: #21262d; border-color: #444c56; color: #ffffff; text-decoration: none; }
+  .doc-link svg { width: 15px; height: 15px; }
+</style>
+</head>
+<body>
+<header style="position: sticky; top: 0; z-index: 20; background: #0d1117; border-bottom: 1px solid #30363d">
+  <nav style="max-width: 80rem; margin: 0 auto; padding: 0 32px; height: 60px; display: flex; align-items: center; gap: 32px">
+    <!--<span style="font: 600 1rem/1 'Inter', sans-serif; letter-spacing: -0.01em; color: #ffffff">ThinkVantage</span>-->
+    <img src="./tv.png" alt="ThinkVantage" style="height: 30px;">
+    <span style="font: 500 0.75rem/1 'JetBrains Mono', monospace; color: #8b949e; letter-spacing: 0.04em">PowerShell Library</span>
+    <div style="flex: 1"></div>
+    <div style="display: flex; align-items: center; gap: 24px">
+      <a href="#modules" style="font: 400 0.875rem/1 'Inter', sans-serif; color: #8b949e" data-hv="hv1">Modules</a>
+      <a href="#cmdlets" style="font: 400 0.875rem/1 'Inter', sans-serif; color: #8b949e" data-hv="hv1">Apps</a>
+      <a href="#workflows" style="font: 400 0.875rem/1 'Inter', sans-serif; color: #8b949e" data-hv="hv1">Workflows</a>
+      <a href="#security" style="font: 400 0.875rem/1 'Inter', sans-serif; color: #8b949e" data-hv="hv1">Resources</a>
+      <a href="https://docs.lenovocdrt.com/guides/thinkvantage" style="display: inline-flex; align-items: center; height: 36px; padding: 0 16px; border-radius: 0.5rem; background: #2f81f7; color: #ffffff; font: 600 0.875rem/1 'Inter', sans-serif; transition: background 160ms cubic-bezier(0.2,0,0.2,1)" data-hv="hv2">Learn more</a>
+    </div>
+  </nav>
+</header>
+
+<section style="background-color: #0d1117; background-image: url(&quot;data:image/svg+xml;utf8,&lt;svg xmlns='http://www.w3.org/2000/svg' width='240' height='160'&gt;&lt;text x='0' y='16' font-family='monospace' font-size='13' fill='%23ffffff' fill-opacity='0.022'&gt;01001000 01100101&lt;/text&gt;&lt;text x='30' y='48' font-family='monospace' font-size='13' fill='%23ffffff' fill-opacity='0.016'&gt;1100101 0110110&lt;/text&gt;&lt;text x='-10' y='80' font-family='monospace' font-size='13' fill='%23ffffff' fill-opacity='0.024'&gt;01101100 01101111&lt;/text&gt;&lt;text x='60' y='112' font-family='monospace' font-size='13' fill='%23ffffff' fill-opacity='0.014'&gt;0100 011000 1011&lt;/text&gt;&lt;text x='10' y='144' font-family='monospace' font-size='13' fill='%23ffffff' fill-opacity='0.02'&gt;01110111 0110111&lt;/text&gt;&lt;/svg&gt;&quot;); border-bottom: 1px solid #30363d">
+  <div style="max-width: 80rem; margin: 0 auto; padding: 96px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px">
+    <span style="font: 600 0.6875rem/1 'JetBrains Mono', monospace; letter-spacing: 0.18em; text-transform: uppercase; color: #2f81f7; border: 1px solid rgba(47,129,247,0.40); border-radius: 100px; padding: 6px 12px">Enterprise fleet automation</span>
+    <h1 style="margin: 0; max-width: 20ch; font: 600 4rem/1.05 'Inter', sans-serif; letter-spacing: -0.02em; color: #ffffff">Automate. <span style="color: #2f81f7">Everything.</span></h1>
+    <p style="margin: 0; max-width: 56ch; font: 400 1.125rem/1.6 'Inter', sans-serif; color: #8b949e">A collection of PowerShell modules and apps for managing Lenovo ThinkPad, ThinkCentre, and ThinkStation fleets at enterprise scale.</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px; margin-top: 8px">
+      <a href="#install" style="display: inline-flex; align-items: center; height: 48px; padding: 0 24px; border-radius: 0.5rem; background: #2f81f7; color: #ffffff; font: 600 0.9375rem/1 'Inter', sans-serif; transition: background 160ms cubic-bezier(0.2,0,0.2,1)" data-hv="hv2">Install from PowerShell Gallery</a>
+      <a href="#workflows" style="display: inline-flex; align-items: center; height: 48px; padding: 0 24px; border-radius: 0.5rem; border: 1px solid #30363d; background: #161b22; color: #ffffff; font: 600 0.9375rem/1 'Inter', sans-serif; transition: background 160ms cubic-bezier(0.2,0,0.2,1), border-color 160ms cubic-bezier(0.2,0,0.2,1)" data-hv="hv3">See the workflows</a>
+    </div>
+    <p style="margin: 0; font: 400 0.8125rem/1.5 'Inter', sans-serif; color: #8b949e">Free. Requires Windows 11, PowerShell 5.1+, and administrator privileges.</p>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 8px">
+      <span class="pill pill-module">Lenovo.Client.Update</span>
+      <span class="pill pill-module">Lenovo.BIOS.Config</span>
+      <span class="pill pill-module">Lenovo.Bios.Certificates</span>
+      <span class="pill pill-module">Lenovo.Client.Scripting</span>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 0px">
+      <span class="pill pill-app">Think BIOS Config Tool</span>
+      <span class="pill pill-app">Lenovo BIOS Certificates Tool</span>
+      <span class="pill pill-app">ThinkVantage Repository Manager</span>
+      <span class="pill pill-app">Commercial Vantage Policy Manager</span>
+    </div>
+
+      <div style="width: 100%; max-width: 64rem; margin-top: 40px; border: 1px solid #30363d; border-radius: 1rem; overflow: hidden; background: #0d1117; box-shadow: 0 0 0 1px rgba(47,129,247,0.35), 0 0 48px rgba(47,129,247,0.18); text-align: left">
+        <div style="display: flex; align-items: stretch; height: 40px; border-bottom: 1px solid #30363d; background: #161b22">
+          <div style="display: flex; align-items: stretch; gap: 2px; padding: 4px 4px 0; flex: 1; min-width: 0">
+            <div style="display: flex; align-items: center; gap: 8px; padding: 0 14px; background: #0d1117; border: 1px solid #30363d; border-bottom: none; border-radius: 0.375rem 0.375rem 0 0; min-width: 0">
+              <span style="width: 8px; height: 8px; border-radius: 100px; background: #2f81f7; flex-shrink: 0"></span>
+              <span style="font: 400 0.75rem/1 'Inter', sans-serif; color: #ffffff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Administrator: Windows PowerShell</span>
+              <span style="font: 400 0.75rem/1 'Inter', sans-serif; color: #8b949e; flex-shrink: 0">×</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 2px; padding-bottom: 4px">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 0.375rem; font: 400 0.875rem/1 'Inter', sans-serif; color: #8b949e">+</span>
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 22px; height: 28px; border-radius: 0.375rem; font: 400 0.625rem/1 'Inter', sans-serif; color: #8b949e">▾</span>
+            </div>
+          </div>
+          <div style="display: flex; align-items: stretch; flex-shrink: 0">
+            <span style="display: inline-flex; align-items: center; justify-content: center; width: 44px; font: 400 0.75rem/1 'Inter', sans-serif; color: #8b949e">‒</span>
+            <span style="display: inline-flex; align-items: center; justify-content: center; width: 44px; font: 400 0.625rem/1 'Inter', sans-serif; color: #8b949e">□</span>
+            <span style="display: inline-flex; align-items: center; justify-content: center; width: 44px; font: 400 0.75rem/1 'Inter', sans-serif; color: #8b949e">×</span>
+          </div>
+        </div>
+        <pre style="margin: 0; padding: 24px; font: 400 0.875rem/1.75 'JetBrains Mono', monospace; color: #ffffff; overflow-x: auto"><div><span style="color: #8b949e"># Discover, download and install in one pipeline</span></div><div><span style="color: #d2a8ff">Get-LnvUpdate</span> <span style="color: #ff7b72">|</span> <span style="color: #d2a8ff">Save-LnvUpdate</span> <span style="color: #79c0ff">-Path</span> <span style="color: #a5d6ff">"C:\Lenovo\Updates"</span> <span style="color: #ff7b72">|</span></div><div>    <span style="color: #d2a8ff">Install-LnvUpdate</span> <span style="color: #79c0ff">-Path</span> <span style="color: #a5d6ff">"C:\Lenovo\Updates"</span> <span style="color: #79c0ff">-ExportToWMI</span></div><div> </div><div><span style="color: #8b949e">Title                                   Category      ReleaseDate</span></div><div><span style="color: #8b949e">-----                                   --------      -----------</span></div><div>Intel Management Engine Firmware        Motherboard   2026-07-14</div><div>ThinkPad Thunderbolt 4 Firmware         Firmware      2026-06-28</div><div>BIOS Update Utility 1.62                BIOS          2026-06-02</div><div><span style="color: #3fb950">3 updates installed · history written to WMI</span></div></pre>
+      </div>
+
+  </div>
+</section>
+
+<section style="max-width: 80rem; margin: 0 auto; padding: 96px 32px 0">
+  <h2 style="margin: 0; font: 600 2rem/1.2 'Inter', sans-serif; letter-spacing: -0.01em; color: #ffffff">Why automate with ThinkVantage?</h2>
+  <p style="margin: 20px 0 0; font: 400 1rem/1.65 'Inter', sans-serif; color: #8b949e">For more than three decades, Lenovo has worked alongside enterprise IT organizations to understand what it takes to operate PCs at scale. The result is an Enterprise Readiness specification and checklist that helps guide Lenovo product teams as they design ThinkPad, ThinkCentre, and ThinkStation systems. This framework ensures devices are built not only to perform, but also to integrate seamlessly into tightly managed business environments where consistency, governance, security, and operational control are required. This same focus on reducing friction has gone into the development of the solutions within the ThinkVantage PowerShell Library.</p>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px; margin-top: 32px">
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem">
+      <span style="font: 600 0.875rem/1.4 'Inter', sans-serif; color: #ffffff">Consistent, repeatable deployments</span>
+      <span style="font: 400 0.875rem/1.55 'Inter', sans-serif; color: #8b949e">Script-driven updates eliminate manual steps and configuration drift across your entire device fleet.</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem">
+      <span style="font: 600 0.875rem/1.4 'Inter', sans-serif; color: #ffffff">Full PowerShell flexibility</span>
+      <span style="font: 400 0.875rem/1.55 'Inter', sans-serif; color: #8b949e">Cmdlets provide the basic building blocks to build your custom process.</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem">
+      <span style="font: 600 0.875rem/1.4 'Inter', sans-serif; color: #ffffff">Intune integration</span>
+      <span style="font: 400 0.875rem/1.55 'Inter', sans-serif; color: #8b949e">Package BIOS configurations as Win32 apps or Remediations and deploy via Microsoft Intune with MS Graph upload. Manage Commercial Vantage policies natively in Intune.</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem">
+      <span style="font: 600 0.875rem/1.4 'Inter', sans-serif; color: #ffffff">Enterprise security built in</span>
+      <span style="font: 400 0.875rem/1.55 'Inter', sans-serif; color: #8b949e">Digital signature verification, certificate-based BIOS authentication, and Azure Key Vault integration for zero-trust deployments.</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem">
+      <span style="font: 600 0.875rem/1.4 'Inter', sans-serif; color: #ffffff">OSD and task sequence optimized</span>
+      <span style="font: 400 0.875rem/1.55 'Inter', sans-serif; color: #8b949e">Dynamically install applicable updates during bare-metal deployments without maintaining static driver packages.</span>
+    </div>
+  </div>
+</section>
+
+<div style="margin-top: 96px; border-top: 1px solid #30363d"></div>
+
+<section id="modules" style="max-width: 80rem; margin: 0 auto; padding: 96px 32px 0">
+  <h2 style="margin: 0; font: 600 2rem/1.2 'Inter', sans-serif; letter-spacing: -0.01em; color: #ffffff">Four powerful modules</h2>
+  <p style="margin: 12px 0 0; max-width: 60ch; font: 400 1rem/1.5 'Inter', sans-serif; color: #8b949e">Everything can be installed from PowerShell Gallery or manually downloaded from the Docs site. Install what you need and script the rest.</p>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; margin-top: 32px">
+    <div style="position: relative; display: flex; flex-direction: column; gap: 12px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem; transition: background 160ms cubic-bezier(0.2,0,0.2,1), border-color 160ms cubic-bezier(0.2,0,0.2,1)" data-hv="hv4">
+      <a class="doc-link" href="https://docs.lenovocdrt.com/guides/lcu/" title="Lenovo.Client.Update product guide" aria-label="Lenovo.Client.Update product guide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
+      <span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 0.375rem; background: #1c2128; border: 1px solid #30363d; color: #2f81f7"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 20px; height: 20px"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></span>
+      <span style="font: 600 0.875rem/1.3 'JetBrains Mono', monospace; color: #ffffff">Lenovo.Client.Update</span>
+      <span style="font: 400 0.875rem/1.55 'Inter', sans-serif; color: #8b949e">Discover, download, and install driver, BIOS/UEFI, and firmware updates on Lenovo PCs. Complete automation control. Use in OSD, with local repository or direct from Lenovo. You control the experience.</span>
+      <span style="margin-top: auto; padding-top: 8px; font: 400 0.6875rem/1.4 'JetBrains Mono', monospace; color: #8b949e">Install-Module Lenovo.Client.Update</span>
+    </div>
+    <div style="position: relative; display: flex; flex-direction: column; gap: 12px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem; transition: background 160ms cubic-bezier(0.2,0,0.2,1), border-color 160ms cubic-bezier(0.2,0,0.2,1)" data-hv="hv4">
+      <a class="doc-link" href="https://docs.lenovocdrt.com/guides/tbct_v2/tbc_module_reference/" title="Lenovo.BIOS.Config product guide" aria-label="Lenovo.BIOS.Config product guide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
+      <span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 0.375rem; background: #1c2128; border: 1px solid #30363d; color: #2f81f7"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 20px; height: 20px"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg></span>
+      <span style="font: 600 0.875rem/1.3 'JetBrains Mono', monospace; color: #ffffff">Lenovo.BIOS.Config</span>
+      <span style="font: 400 0.875rem/1.55 'Inter', sans-serif; color: #8b949e">Read and modify BIOS settings via WMI. Export/import INI profiles with encrypted passwords. Package configurations for Microsoft Intune deployment.</span>
+      <span style="margin-top: auto; padding-top: 8px; font: 400 0.6875rem/1.4 'JetBrains Mono', monospace; color: #8b949e">Install-Module Lenovo.BIOS.Config</span>
+    </div>
+    <div style="position: relative; display: flex; flex-direction: column; gap: 12px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem; transition: background 160ms cubic-bezier(0.2,0,0.2,1), border-color 160ms cubic-bezier(0.2,0,0.2,1)" data-hv="hv4">
+      <a class="doc-link" href="https://docs.lenovocdrt.com/guides/lbct/lbc_module_reference/" title="Lenovo.Bios.Certificates product guide" aria-label="Lenovo.Bios.Certificates product guide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
+      <span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 0.375rem; background: #1c2128; border: 1px solid #30363d; color: #2f81f7"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 20px; height: 20px"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <span style="font: 600 0.875rem/1.3 'JetBrains Mono', monospace; color: #ffffff">Lenovo.Bios.Certificates</span>
+      <span style="font: 400 0.875rem/1.55 'Inter', sans-serif; color: #8b949e">Replace Supervisor passwords with X.509 certificates. Sign BIOS commands cryptographically via local key files or Azure Key Vault — no password transmitted.</span>
+      <span style="margin-top: auto; padding-top: 8px; font: 400 0.6875rem/1.4 'JetBrains Mono', monospace; color: #8b949e">Install-Module Lenovo.Bios.Certificates</span>
+    </div>
+    <div style="position: relative; display: flex; flex-direction: column; gap: 12px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem; transition: background 160ms cubic-bezier(0.2,0,0.2,1), border-color 160ms cubic-bezier(0.2,0,0.2,1)" data-hv="hv4">
+      <a class="doc-link" href="https://docs.lenovocdrt.com/guides/lcsm/lcsm_top/" title="Lenovo.Client.Scripting product guide" aria-label="Lenovo.Client.Scripting product guide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
+      <span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 0.375rem; background: #1c2128; border: 1px solid #30363d; color: #2f81f7"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: 20px; height: 20px"><path d="m9 10 2 2 4-4"/><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M12 17v4"/><path d="M8 21h8"/></svg></span>
+      <span style="font: 600 0.875rem/1.3 'JetBrains Mono', monospace; color: #ffffff">Lenovo.Client.Scripting</span>
+      <span style="font: 400 0.875rem/1.55 'Inter', sans-serif; color: #8b949e">Query device info, search driver and HSA packs, gather BIOS details, and track warranty status.</span>
+      <span style="margin-top: auto; padding-top: 8px; font: 400 0.6875rem/1.4 'JetBrains Mono', monospace; color: #8b949e">Install-Module Lenovo.Client.Scripting</span>
+    </div>
+  </div>
+</section>
+
+<div style="margin-top: 96px; border-top: 1px solid #30363d"></div>
+
+
+<section id="cmdlets" style="max-width: 80rem; margin: 0 auto; padding: 96px 32px 0">
+  <h2 style="margin: 0; font: 600 2rem/1.2 'Inter', sans-serif; letter-spacing: -0.01em; color: #ffffff">Core apps</h2>
+  <p style="margin: 12px 0 0; max-width: 60ch; font: 400 1rem/1.5 'Inter', sans-serif; color: #8b949e">Easy to use GUI solutions simplify the complex tasks of managing your fleet.</p>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; margin-top: 32px">
+    <div style="position: relative; display: flex; flex-direction: column; gap: 6px; padding: 20px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem; transition: background 160ms cubic-bezier(0.2,0,0.2,1)" data-hv="hv5">
+      <a class="doc-link" href="https://docs.lenovocdrt.com/guides/tbct_v2/" title="Think BIOS Config Tool product guide" aria-label="Think BIOS Config Tool product guide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
+      <span style="padding-right: 32px; font: 600 0.9375rem/1.4 'Inter', sans-serif; color: #ffffff">Think BIOS Config Tool</span>
+      <span style="font: 700 0.75rem/1.3 'JetBrains Mono', monospace; color: #2f81f7">BIOS settings made easy</span>
+      <span style="font: 400 0.8125rem/1.5 'Inter', sans-serif; color: #8b949e"><ul><li>Displays all settings with their possible values.</li><li>Save your profile of settings and easily apply to other devices.</li><li>Create Intune packages and upload directly to your tenant.</li></ul></span>
+    </div>
+    <div style="position: relative; display: flex; flex-direction: column; gap: 6px; padding: 20px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem; transition: background 160ms cubic-bezier(0.2,0,0.2,1)" data-hv="hv5">
+      <a class="doc-link" href="https://docs.lenovocdrt.com/guides/lbct/" title="Lenovo BIOS Cert Tool product guide" aria-label="Lenovo BIOS Cert Tool product guide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
+      <span style="padding-right: 32px; font: 600 0.9375rem/1.4 'Inter', sans-serif; color: #ffffff">Lenovo BIOS Cert Tool</span>
+      <span style="font: 700 0.75rem/1.3 'JetBrains Mono', monospace; color: #2f81f7">Leverage the power of certificates</span>
+      <span style="font: 400 0.8125rem/1.5 'Inter', sans-serif; color: #8b949e"><ul><li>User your own digital code signing certificate.</li><li>Convert an INI file from Think BIOS Config Tool into a <b>signed</b> INI file.</li><li>Generate unlock response codes for deskside technicians.</li></ul></span>
+    </div>
+    <div style="position: relative; display: flex; flex-direction: column; gap: 6px; padding: 20px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem; transition: background 160ms cubic-bezier(0.2,0,0.2,1)" data-hv="hv5">
+      <a class="doc-link" href="https://docs.lenovocdrt.com/guides/tvrm/" title="ThinkVantage Repository Manager product guide" aria-label="ThinkVantage Repository Manager product guide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
+      <span style="padding-right: 32px; font: 600 0.9375rem/1.4 'Inter', sans-serif; color: #ffffff">ThinkVantage Repository Manager</span>
+      <span style="font: 700 0.75rem/1.3 'JetBrains Mono', monospace; color: #2f81f7">Maintain local update repositories</span>
+      <span style="font: 400 0.8125rem/1.5 'Inter', sans-serif; color: #8b949e"><ul><li>Manage your list of models.</li><li>Supports Full or Hybrid style repositories.</li><li>Captures complete audit trail of changes.</li><li>Module provides full automation capabilities.</li></ul></span>
+    </div>
+    <div style="position: relative; display: flex; flex-direction: column; gap: 6px; padding: 20px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem; transition: background 160ms cubic-bezier(0.2,0,0.2,1)" data-hv="hv5">
+      <a class="doc-link" href="https://docs.lenovocdrt.com/guides/lcvpm/" title="LCV Policy Manager product guide" aria-label="LCV Policy Manager product guide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
+      <span style="padding-right: 32px; font: 600 0.9375rem/1.4 'Inter', sans-serif; color: #ffffff">LCV Policy Manager</span>
+      <span style="font: 700 0.75rem/1.3 'JetBrains Mono', monospace; color: #2f81f7">Avoid the ADMX hassle with Intune</span>
+      <span style="font: 400 0.8125rem/1.5 'Inter', sans-serif; color: #8b949e"><ul><li>Easily view and select the policy settings you need.</li><li>Baseline provided for getting started quickly.</li><li>Connect to your Intune tenant to publish your policy - then deploy and manage from Intune.</li></ul></span>
+    </div>
+  </div>
+</section>
+
+<div style="margin-top: 96px; border-top: 1px solid #30363d"></div>
+
+<section id="workflows" style="max-width: 80rem; margin: 0 auto; padding: 96px 32px 0">
+  <h2 style="margin: 0; font: 600 2rem/1.2 'Inter', sans-serif; letter-spacing: -0.01em; color: #ffffff">Real workflows</h2>
+  <p style="margin: 12px 0 0; max-width: 60ch; font: 400 1rem/1.5 'Inter', sans-serif; color: #8b949e">Provided here are a few examples of how to tackle some common scenarios.</p>
+
+  <div style="display: flex; gap: 4px; margin-top: 32px; border-bottom: 1px solid #30363d; overflow-x: auto">
+    <button type="button" class="wf-tab" data-wf="update" style="appearance: none; background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 12px 16px; cursor: pointer; white-space: nowrap; font: 600 0.875rem/1.4 'Inter', sans-serif; color: #8b949e; transition: color 160ms cubic-bezier(0.2,0,0.2,1)">Update workflow</button>
+    <button type="button" class="wf-tab" data-wf="osd" style="appearance: none; background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 12px 16px; cursor: pointer; white-space: nowrap; font: 600 0.875rem/1.4 'Inter', sans-serif; color: #8b949e; transition: color 160ms cubic-bezier(0.2,0,0.2,1)">OS deployment</button>
+    <button type="button" class="wf-tab" data-wf="bios" style="appearance: none; background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 12px 16px; cursor: pointer; white-space: nowrap; font: 600 0.875rem/1.4 'Inter', sans-serif; color: #8b949e; transition: color 160ms cubic-bezier(0.2,0,0.2,1)">BIOS configuration</button>
+    <button type="button" class="wf-tab" data-wf="vault" style="appearance: none; background: none; border: none; border-bottom: 2px solid transparent; margin-bottom: -1px; padding: 12px 16px; cursor: pointer; white-space: nowrap; font: 600 0.875rem/1.4 'Inter', sans-serif; color: #8b949e; transition: color 160ms cubic-bezier(0.2,0,0.2,1)">Azure Key Vault</button>
+  </div>
+
+  <div class="wf-panel" data-wf="update">
+    <div style="margin-top: 24px">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px">
+        <span style="font: 700 0.625rem/1 'JetBrains Mono', monospace; letter-spacing: 0.12em; color: #2f81f7; background: rgba(47,129,247,0.14); border: 1px solid rgba(47,129,247,0.40); border-radius: 100px; padding: 5px 10px">PS</span>
+        <span style="font: 400 0.75rem/1 'JetBrains Mono', monospace; color: #8b949e">Get - Save - Install</span>
+      </div>
+      <pre style="margin: 0; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem; font: 400 0.875rem/1.75 'JetBrains Mono', monospace; color: #ffffff; overflow-x: auto"><div><span style="color: #8b949e"># 1. Discover applicable updates for this machine</span></div><div><span style="color: #ffa657">$updates</span> <span style="color: #ff7b72">=</span> <span style="color: #d2a8ff">Get-LnvUpdate</span></div><div><span style="color: #ffa657">$updates</span> <span style="color: #ff7b72">|</span> <span style="color: #d2a8ff">Format-Table</span> <span style="color: #79c0ff">-Property</span> Title, Category, ReleaseDate  <span style="color: #8b949e"># Optional - view the applicable updates found.</span></div><div> </div><div><span style="color: #8b949e"># 2. Download to a local staging directory</span></div><div><span style="color: #ffa657">$updates</span> <span style="color: #ff7b72">|</span> <span style="color: #d2a8ff">Save-LnvUpdate</span> <span style="color: #79c0ff">-Path</span> <span style="color: #a5d6ff">"C:\Lenovo\Updates"</span> <span style="color: #79c0ff">-ShowProgress</span></div><div> </div><div><span style="color: #8b949e"># 3. Install with verbose output</span></div><div><span style="color: #ffa657">$updates</span> <span style="color: #ff7b72">|</span> <span style="color: #d2a8ff">Install-LnvUpdate</span> <span style="color: #79c0ff">-Path</span> <span style="color: #a5d6ff">"C:\Lenovo\Updates"</span> <span style="color: #79c0ff">-Verbose</span></div></pre>
+      <p style="margin: 16px 0 0; font: 400 0.8125rem/1.6 'JetBrains Mono', monospace; color: #8b949e">Tip: Filter for silent-only packages first — <code style="color: #2f81f7; background: rgba(47,129,247,0.14); padding: 2px 6px; border-radius: 0.375rem">Where-Object { $_.Installer.Unattended }</code> — before Save and Install.</p>
+    </div>
+  </div>
+
+  <div class="wf-panel" data-wf="osd" hidden>
+    <div style="margin-top: 24px">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px">
+        <span style="font: 700 0.625rem/1 'JetBrains Mono', monospace; letter-spacing: 0.12em; color: #2f81f7; background: rgba(47,129,247,0.14); border: 1px solid rgba(47,129,247,0.40); border-radius: 100px; padding: 5px 10px">PS</span>
+        <span style="font: 400 0.75rem/1 'JetBrains Mono', monospace; color: #8b949e">OSD Task Sequence</span>
+      </div>
+      <pre style="margin: 0; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem; font: 400 0.875rem/1.75 'JetBrains Mono', monospace; color: #ffffff; overflow-x: auto"><div><span style="color: #8b949e"># Stage a local repo — exclude packages that force reboot (type 1)</span></div><div><span style="color: #ffa657">$repo</span> <span style="color: #ff7b72">=</span> <span style="color: #a5d6ff">'C:\Lenovo_Updates'</span></div><div><span style="color: #d2a8ff">Get-LnvUpdatesRepo</span> <span style="color: #79c0ff">-RepositoryPath</span> <span style="color: #ffa657">$repo</span> <span style="color: #79c0ff">-RebootType</span> <span style="color: #a5d6ff">'0,3,5'</span></div><div> </div><div><span style="color: #8b949e"># First pass: install applicable updates, log history to WMI</span></div><div><span style="color: #d2a8ff">Get-LnvUpdate</span> <span style="color: #79c0ff">-Repository</span> <span style="color: #ffa657">$repo</span> <span style="color: #ff7b72">|</span></div><div>    <span style="color: #d2a8ff">Install-LnvUpdate</span> <span style="color: #79c0ff">-Path</span> <span style="color: #ffa657">$repo</span> <span style="color: #79c0ff">-ExportToWMI</span> <span style="color: #79c0ff">-Verbose</span></div><div> </div><div><span style="color: #8b949e"># Second pass: catches chained driver dependencies</span></div><div><span style="color: #d2a8ff">Get-LnvUpdate</span> <span style="color: #79c0ff">-Repository</span> <span style="color: #ffa657">$repo</span> <span style="color: #ff7b72">|</span></div><div>    <span style="color: #d2a8ff">Install-LnvUpdate</span> <span style="color: #79c0ff">-Path</span> <span style="color: #ffa657">$repo</span> <span style="color: #79c0ff">-ExportToWMI</span></div></pre>
+      <p style="margin: 16px 0 0; font: 400 0.8125rem/1.6 'JetBrains Mono', monospace; color: #8b949e">Run Get-LnvUpdate twice — some drivers only become applicable after a prerequisite has been installed.</p>
+    </div>
+  </div>
+
+  <div class="wf-panel" data-wf="bios" hidden>
+    <div style="margin-top: 24px">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px">
+        <span style="font: 700 0.625rem/1 'JetBrains Mono', monospace; letter-spacing: 0.12em; color: #2f81f7; background: rgba(47,129,247,0.14); border: 1px solid rgba(47,129,247,0.40); border-radius: 100px; padding: 5px 10px">PS</span>
+        <span style="font: 400 0.75rem/1 'JetBrains Mono', monospace; color: #8b949e">BIOS Settings Capture & Deploy</span>
+      </div>
+      <pre style="margin: 0; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem; font: 400 0.875rem/1.75 'JetBrains Mono', monospace; color: #ffffff; overflow-x: auto"><div><span style="color: #8b949e"># Export current BIOS settings to an INI file</span></div><div><span style="color: #d2a8ff">Export-LnvWmiSettings</span> <span style="color: #79c0ff">-ConfigFile</span> <span style="color: #a5d6ff">"C:\Temp\t14gen7i-bios.ini"</span> <span style="color: #79c0ff">-NoKey</span></div><div> </div><div><span style="color: #8b949e"># Apply INI to a target device (prompts for Supervisor Password)</span></div><div><span style="color: #ffa657">$svp</span> <span style="color: #ff7b72">=</span> <span style="color: #d2a8ff">Read-Host</span> <span style="color: #79c0ff">-AsSecureString</span> <span style="color: #a5d6ff">'Supervisor Password'</span></div><div><span style="color: #d2a8ff">Import-LnvWmiSettings</span> <span style="color: #79c0ff">-ConfigFile</span> <span style="color: #a5d6ff">'C:\Temp\t14gen7i-bios.ini'</span> <span style="color: #79c0ff">-Current</span> <span style="color: #ffa657">$svp</span></div><div> </div><div><span style="color: #8b949e"># Launch the GUI (elevated terminal required)</span></div><div><span style="color: #d2a8ff">ThinkBIOSConfigUI</span>   <span style="color: #8b949e"># Actions → Create Intune Package → Upload</span></div></pre>
+    </div>
+  </div>
+
+  <div class="wf-panel" data-wf="vault" hidden>
+    <div style="margin-top: 24px">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 12px">
+        <span style="font: 700 0.625rem/1 'JetBrains Mono', monospace; letter-spacing: 0.12em; color: #2f81f7; background: rgba(47,129,247,0.14); border: 1px solid rgba(47,129,247,0.40); border-radius: 100px; padding: 5px 10px">PS</span>
+        <span style="font: 400 0.75rem/1 'JetBrains Mono', monospace; color: #8b949e">Azure Key Vault</span>
+      </div>
+      <pre style="margin: 0; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem; font: 400 0.875rem/1.75 'JetBrains Mono', monospace; color: #ffffff; overflow-x: auto"><div><span style="color: #8b949e"># Authenticate to Azure</span></div><div><span style="color: #d2a8ff">Connect-AzAccount</span></div><div> </div><div><span style="color: #8b949e"># Sign a single BIOS setting change via Key Vault</span></div><div><span style="color: #ffa657">$cmd</span> <span style="color: #ff7b72">=</span> <span style="color: #d2a8ff">Get-LnvSignedWmiCommand</span> <span style="color: #79c0ff">-Method</span> SetBiosSetting <span style="color: #ff7b72">`</span></div><div>    <span style="color: #79c0ff">-VaultName</span> <span style="color: #a5d6ff">"CorpKeyVault"</span> <span style="color: #79c0ff">-KeyName</span> <span style="color: #a5d6ff">"BiosSigningKey"</span> <span style="color: #ff7b72">`</span></div><div>    <span style="color: #79c0ff">-SettingName</span> <span style="color: #a5d6ff">"WakeOnLAN"</span> <span style="color: #79c0ff">-SettingValue</span> <span style="color: #a5d6ff">"Enable"</span></div><div><span style="color: #d2a8ff">Submit-LnvBiosChange</span> <span style="color: #79c0ff">-Command</span> <span style="color: #ffa657">$cmd</span></div><div> </div><div><span style="color: #8b949e"># Or process an entire INI config file</span></div><div><span style="color: #d2a8ff">Convert-LnvBiosConfigFile</span> <span style="color: #79c0ff">-ConfigFile</span> <span style="color: #a5d6ff">"settings.ini"</span> <span style="color: #ff7b72">`</span></div><div>    <span style="color: #79c0ff">-VaultName</span> <span style="color: #a5d6ff">"CorpKeyVault"</span> <span style="color: #79c0ff">-KeyName</span> <span style="color: #a5d6ff">"BiosSigningKey"</span></div><div><span style="color: #d2a8ff">Submit-LnvBiosConfigFile</span> <span style="color: #79c0ff">-ConfigFile</span> <span style="color: #a5d6ff">"SignedSettings.ini"</span></div></pre>
+    </div>
+  </div>
+</section>
+
+<div style="margin-top: 96px; border-top: 1px solid #30363d"></div>
+
+<section id="security" style="max-width: 80rem; margin: 0 auto; padding: 96px 32px 0">
+  <h2 style="margin: 0; font: 600 2rem/1.2 'Inter', sans-serif; letter-spacing: -0.01em; color: #ffffff">Enterprise ready resouces</h2>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px; margin-top: 32px">
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem">
+      <span style="font: 600 0.875rem/1.4 'Inter', sans-serif; color: #ffffff">Documentation Library</span>
+      <span style="font: 400 0.875rem/1.55 'Inter', sans-serif; color: #8b949e">Find product guides and reference materials here. Get command references for the modules, user guides for the tools, and even a BIOS Settings Dictionary.<br/><br/><code style="color: #2f81f7; background: rgba(47,129,247,0.14); padding: 2px 6px; border-radius: 0.375rem"><a href="https://docs.lenovocdrt.com">https://docs.lenovocdrt.com</a></code></span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem">
+      <span style="font: 600 0.875rem/1.4 'Inter', sans-serif; color: #ffffff">Think Deploy Blog</span>
+      <span style="font: 400 0.875rem/1.55 'Inter', sans-serif; color: #8b949e">Large collection of articles that cover: <ul><li>New tool introductions</li><li>Real-world integration scenarios with Intune and Configuration Manager</li><li>Best practices and how-tos</li></ul><br/><code style="color: #2f81f7; background: rgba(47,129,247,0.14); padding: 2px 6px; border-radius: 0.375rem"><a href="https://blog.lenovocdrt.com">https://blog.lenovocdrt.com</a></code></span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem">
+      <span style="font: 600 0.875rem/1.4 'Inter', sans-serif; color: #ffffff">Enterprise Client Management Forum</span>
+      <span style="font: 400 0.875rem/1.55 'Inter', sans-serif; color: #8b949e">Dedicated forum for questions regarding deploying, patching, and manage Lenovo Commercial PCs. Monitored by CDRT members who have the expertise and capabilities to recreate and troubleshoot most issues. This is dedicated support channel for the ThinkVantage PowerShell Library.<br/><br/><code style="color: #2f81f7; background: rgba(47,129,247,0.14); padding: 2px 6px; border-radius: 0.375rem"><a href="https://forums.lenovo.com/t5/Enterprise-Management-Board/bd-p/sa01_eg">ECM Forum</a></code></span>
+    </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem">
+      <span style="font: 600 0.875rem/1.4 'Inter', sans-serif; color: #ffffff">Lenovo Device Orchestration</span>
+      <span style="font: 400 0.875rem/1.55 'Inter', sans-serif; color: #8b949e">An intelligent endpoint management solution that monitors, manages, and optimizes device fleets across various operating systems.<br/><br/><code style="color: #2f81f7; background: rgba(47,129,247,0.14); padding: 2px 6px; border-radius: 0.375rem"><a href="https://www.lenovo.com/us/en/software/lenovo-device-orchestration/">Lenovo Device Orchestration</a></code></span>
+    </div>
+        <div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem">
+      <span style="font: 600 0.875rem/1.4 'Inter', sans-serif; color: #ffffff">Lenovo Commercial Vantage</span>
+      <span style="font: 400 0.875rem/1.55 'Inter', sans-serif; color: #8b949e">The single application that consolidates uniqe device controls, system updates, hardware diagnostics and more. Completely customizable through Group Policy.<br/><br/><code style="color: #2f81f7; background: rgba(47,129,247,0.14); padding: 2px 6px; border-radius: 0.375rem"><a href="https://docs.lenovocdrt.com/guides/lcv/">Commercial Vantage Product Guide</a></code></span>
+    </div>
+  </div>
+</section>
+
+<div style="margin-top: 96px; border-top: 1px solid #30363d"></div>
+
+<section id="install" style="max-width: 80rem; margin: 0 auto; padding: 96px 32px">
+  <h2 style="margin: 0; font: 600 2rem/1.2 'Inter', sans-serif; letter-spacing: -0.01em; color: #ffffff">Up and running in minutes</h2>
+  <p style="margin: 12px 0 0; max-width: 60ch; font: 400 1rem/1.5 'Inter', sans-serif; color: #8b949e">Run in an elevated PowerShell session.</p>
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 16px; margin-top: 32px; align-items: start">
+    <pre style="margin: 0; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem; font: 400 0.875rem/1.75 'JetBrains Mono', monospace; color: #ffffff; overflow-x: auto"><div><span style="color: #8b949e"># Install all three modules from PowerShell Gallery</span></div><div><span style="color: #d2a8ff">Install-Module</span> <span style="color: #a5d6ff">'Lenovo.Client.Update'</span></div><div><span style="color: #d2a8ff">Install-Module</span> <span style="color: #a5d6ff">'Lenovo.BIOS.Config'</span></div><div><span style="color: #d2a8ff">Install-Module</span> <span style="color: #a5d6ff">'Lenovo.Bios.Certificates'</span></div><div> </div><div><span style="color: #8b949e"># Install the optional GUI tools</span></div><div><span style="color: #d2a8ff">Install-Script</span> <span style="color: #a5d6ff">'ThinkBiosConfigUI'</span></div><div><span style="color: #d2a8ff">Install-Script</span> <span style="color: #a5d6ff">'LnvBiosCertInterface'</span></div><div> </div><div><span style="color: #8b949e"># Verify: run your first update check</span></div><div><span style="color: #d2a8ff">Get-LnvUpdate</span> <span style="color: #ff7b72">|</span> <span style="color: #d2a8ff">Format-Table</span> <span style="color: #79c0ff">-Property</span> Title, Category, ReleaseDate</div></pre>
+<!--     <div style="display: flex; flex-direction: column; gap: 16px">
+      <div id="learn" style="display: flex; flex-direction: column; gap: 12px; padding: 24px; background: #161b22; border: 1px solid #30363d; border-radius: 0.75rem">
+        <span style="font: 600 0.875rem/1.4 'Inter', sans-serif; color: #ffffff">Learn more</span>
+        <span style="font: 400 0.8125rem/1.6 'Inter', sans-serif; color: #8b949e">All the necessary details for the ThinkVantage PowerShell Library can be found on our Docs site. Get started with the <a href="https://docs.lenovocdrt.com/guides/thinkvantage">Overview</a> page.</span>
+      </div>
+    </div> -->
+  </div>
+</section>
+
+<footer style="border-top: 1px solid #30363d; background: #0d1117">
+  <div style="max-width: 80rem; margin: 0 auto; padding: 48px 32px; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start; justify-content: space-between">
+    <div style="display: flex; flex-direction: column; gap: 8px">
+      <span style="font: 600 1rem/1 'Inter', sans-serif; color: #ffffff">ThinkVantage</span>
+      <span style="font: 400 0.8125rem/1.5 'Inter', sans-serif; color: #8b949e">Scriptable, secure, scalable management for Lenovo commercial PCs.</span>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px 48px; flex: 1; min-width: 280px; max-width: 44rem">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <span style="font: 600 0.625rem/1.4 'JetBrains Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; color: #2f81f7">Gallery</span>
+        <span style="font: 400 0.8125rem/1.5 'JetBrains Mono', monospace; color: #8b949e">powershellgallery.com → search "lenovocdrt"</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <span style="font: 600 0.625rem/1.4 'JetBrains Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; color: #2f81f7">Docs</span>
+        <span style="font: 400 0.8125rem/1.5 'JetBrains Mono', monospace; color: #8b949e">docs.lenovocdrt.com</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <span style="font: 600 0.625rem/1.4 'JetBrains Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; color: #2f81f7">Blog</span>
+        <span style="font: 400 0.8125rem/1.5 'JetBrains Mono', monospace; color: #8b949e">blog.lenovocdrt.com</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.wf-tab').forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var id = tab.dataset.wf;
+      document.querySelectorAll('.wf-tab').forEach(function (t) {
+        t.classList.toggle('is-active', t === tab);
+      });
+      document.querySelectorAll('.wf-panel').forEach(function (p) {
+        p.hidden = p.dataset.wf !== id;
+      });
+    });
+  });
+  document.querySelector('.wf-tab[data-wf="update"]').classList.add('is-active');
+</script>
+</body>
+</html>

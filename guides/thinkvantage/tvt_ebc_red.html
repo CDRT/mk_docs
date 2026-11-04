@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThinkVantage Technologies — Executive Briefing Center</title>
+
+    <!-- === FONTS: Electric Studio uses Manrope (800 display, 400/500 body) === -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* ================================================================
+           THEME VARIABLES — Lenovo Red Branding
+           Bold, clean, professional, high contrast.
+           #0a0a0a base · #E2231A Lenovo Red · Manrope 800
+           ================================================================ */
+        :root {
+            /* Surfaces */
+            --bg-dark:      #0a0a0a;
+            --bg-deep:      #0f0f0f;
+            --bg-card:      #181818;
+            --bg-card-2:    #222222;
+
+            /* Lenovo brand colors */
+            --accent-blue:  #E2231A;   /* Lenovo Red — primary brand color */
+            --accent-light: #ff6b65;   /* Lighter red for tags and secondary accents */
+            --accent-dim:   rgba(226, 35, 26, 0.12);
+
+            /* Text on dark — all values verified readable on #0a0a0a */
+            --text-primary:   #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.72);
+            --text-muted:     rgba(255, 255, 255, 0.55);  /* Brighter: easily readable on dark */
+
+            /* Text on red panel */
+            --text-on-blue:     #ffffff;
+            --text-on-blue-sub: rgba(255, 255, 255, 0.80);
+
+            /* Typography — Manrope only */
+            --font-display: 'Manrope', sans-serif;
+            --font-body:    'Manrope', sans-serif;
+
+            /* Easing */
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+            --dur:  0.58s;
+        }
+
+        /* ================================================================
+           BASE RESET
+           ================================================================ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.5;
+        }
+
+        /* ================================================================
+           VIEWPORT BASE — mandatory responsive CSS (from viewport-base.css)
+           ================================================================ */
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        /* Each slide = exact viewport height, never scrolls */
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            background: var(--bg-dark);
+        }
+
+        /* Content container */
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-height: 100%;
+            overflow: hidden;
+            padding: var(--slide-padding);
+        }
+
+        /* All typography uses clamp() — responsive with no overflow */
+        :root {
+            --title-size:    clamp(1.5rem, 5vw, 4rem);
+            --h2-size:       clamp(1.25rem, 3.5vw, 2.5rem);
+            --h3-size:       clamp(1rem, 2.5vw, 1.75rem);
+            --body-size:     clamp(0.75rem, 1.5vw, 1.125rem);
+            --small-size:    clamp(0.65rem, 1vw, 0.875rem);
+            --slide-padding: clamp(1rem, 4vw, 4rem);
+            --content-gap:   clamp(0.5rem, 2vw, 2rem);
+            --element-gap:   clamp(0.25rem, 1vw, 1rem);
+        }
+
+        .card, .container, .content-box {
+            max-width: min(90vw, 1000px);
+            max-height: min(80vh, 700px);
+        }
+
+        .feature-list, .bullet-list { gap: clamp(0.4rem, 1vh, 1rem); }
+        .feature-list li, .bullet-list li { font-size: var(--body-size); line-height: 1.4; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(0.5rem, 1.5vw, 1rem);
+        }
+
+        img, .image-container {
+            max-width: 100%;
+            max-height: min(50vh, 400px);
+            object-fit: contain;
+        }
+
+        @media (max-height: 700px) {
+            :root {
+                --slide-padding: clamp(0.75rem, 3vw, 2rem);
+                --content-gap:   clamp(0.4rem, 1.5vw, 1rem);
+                --title-size:    clamp(1.25rem, 4.5vw, 2.5rem);
+                --h2-size:       clamp(1rem, 3vw, 1.75rem);
+            }
+        }
+
+        @media (max-height: 600px) {
+            :root {
+                --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem);
+                --content-gap:   clamp(0.3rem, 1vw, 0.75rem);
+                --title-size:    clamp(1.1rem, 4vw, 2rem);
+                --body-size:     clamp(0.7rem, 1.2vw, 0.95rem);
+            }
+            .nav-dots, .keyboard-hint, .decorative { display: none; }
+        }
+
+        @media (max-height: 500px) {
+            :root {
+                --slide-padding: clamp(0.4rem, 2vw, 1rem);
+                --title-size:    clamp(1rem, 3.5vw, 1.5rem);
+                --h2-size:       clamp(0.9rem, 2.5vw, 1.25rem);
+                --body-size:     clamp(0.65rem, 1vw, 0.85rem);
+            }
+        }
+
+        @media (max-width: 600px) {
+            :root { --title-size: clamp(1.25rem, 7vw, 2.5rem); }
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.2s !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+
+        /* ================================================================
+           PROGRESS BAR
+           ================================================================ */
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 3px;
+            background: var(--accent-blue);
+            z-index: 200;
+            width: 0;
+            transition: width 0.4s ease;
+        }
+
+        /* ================================================================
+           NAVIGATION DOTS
+           ================================================================ */
+        .nav-dots {
+            position: fixed;
+            right: clamp(12px, 1.8vw, 22px);
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            z-index: 200;
+        }
+
+        .nav-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.22);
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s var(--ease);
+        }
+
+        .nav-dot.active {
+            background: var(--accent-blue);
+            transform: scale(1.7);
+        }
+
+        .nav-dot:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.55);
+            transform: scale(1.35);
+        }
+
+        /* ================================================================
+           SLIDE CHROME — number & brand mark
+           ================================================================ */
+        .slide-num {
+            position: absolute;
+            bottom: clamp(14px, 2.2vh, 26px);
+            right: clamp(16px, 3vw, 40px);
+            font-family: var(--font-body);
+            font-size: clamp(0.48rem, 0.68vw, 0.58rem);
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.14em;
+            z-index: 2;
+        }
+
+        .brand-mark {
+            position: absolute;
+            bottom: clamp(14px, 2.2vh, 26px);
+            left: clamp(16px, 3vw, 40px);
+            font-family: var(--font-body);
+            font-size: clamp(0.44rem, 0.62vw, 0.52rem);
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        /* ================================================================
+           REVEAL ANIMATIONS
+           ================================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity var(--dur) var(--ease),
+                        transform var(--dur) var(--ease);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(calc(-1 * clamp(14px, 2vw, 24px)));
+            transition: opacity var(--dur) var(--ease),
+                        transform var(--dur) var(--ease);
+        }
+
+        .reveal-fade {
+            opacity: 0;
+            transition: opacity var(--dur) var(--ease);
+        }
+
+        .slide.visible .reveal,
+        .slide.visible .reveal-left,
+        .slide.visible .reveal-fade {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Stagger delays */
+        .d1 { transition-delay: 0.04s; }
+        .d2 { transition-delay: 0.14s; }
+        .d3 { transition-delay: 0.26s; }
+        .d4 { transition-delay: 0.38s; }
+        .d5 { transition-delay: 0.50s; }
+        .d6 { transition-delay: 0.62s; }
+        .d7 { transition-delay: 0.74s; }
+
+
+        /* ================================================================
+           SLIDE 1 — TITLE SLIDE
+           Electric Studio signature: two-panel, dark left / blue right
+           ================================================================ */
+        .title-slide {
+            flex-direction: row;
+        }
+
+        .title-panel-dark {
+            flex: 1;
+            background: var(--bg-dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(2rem, 7vw, 6rem);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle geometric accent — thin horizontal rule */
+        .title-panel-dark::after {
+            content: '';
+            position: absolute;
+            bottom: clamp(2.5rem, 6vh, 5rem);
+            left: clamp(2rem, 7vw, 6rem);
+            width: clamp(40px, 5vw, 60px);
+            height: 3px;
+            background: var(--accent-blue);
+        }
+
+        .title-eyebrow {
+            font-family: var(--font-body);
+            font-size: clamp(0.52rem, 0.8vw, 0.65rem);
+            font-weight: 700;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            margin-bottom: clamp(0.75rem, 2vh, 1.75rem);
+        }
+
+        .title-panel-dark h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 7.5vw, 6.2rem);
+            font-weight: 800;
+            line-height: 0.92;
+            letter-spacing: -0.04em;
+            color: var(--text-primary);
+            margin-bottom: clamp(1rem, 2.5vh, 2rem);
+        }
+
+        .title-subtitle {
+            font-size: clamp(0.72rem, 1.2vw, 0.95rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            max-width: 44ch;
+        }
+
+        /* Blue right panel */
+        .title-panel-blue {
+            width: clamp(220px, 36%, 460px);
+            background: var(--accent-blue);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 4vw, 3.5rem);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        /* Accent bar on the inner edge */
+        .title-panel-blue::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.20);
+        }
+
+        /* Large decorative background text */
+        .title-bg-text {
+            position: absolute;
+            bottom: clamp(-1.5rem, -3vh, -2.5rem);
+            right: clamp(-0.5rem, -1vw, -1.5rem);
+            font-family: var(--font-display);
+            font-size: clamp(7rem, 18vw, 14rem);
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.07);
+            line-height: 1;
+            letter-spacing: -0.06em;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .ebc-eyebrow {
+            font-family: var(--font-body);
+            font-size: clamp(0.48rem, 0.72vw, 0.60rem);
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.62);
+            margin-bottom: clamp(0.5rem, 1.2vh, 1rem);
+        }
+
+        .ebc-heading {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 3vw, 2.4rem);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.08;
+            letter-spacing: -0.025em;
+            margin-bottom: clamp(0.5rem, 1.2vh, 1rem);
+        }
+
+        .ebc-body {
+            font-size: clamp(0.62rem, 0.95vw, 0.78rem);
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.58;
+            max-width: 28ch;
+        }
+
+
+        /* ================================================================
+           TOP-BAR SLIDE LAYOUT (Slides 2, 4, 6)
+           Blue horizontal bar + dark content area
+           ================================================================ */
+        .slide-top-bar {
+            height: clamp(3rem, 6.5vh, 5rem);
+            background: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            padding: 0 clamp(2rem, 7vw, 6rem);
+            gap: clamp(0.75rem, 1.5vw, 1.5rem);
+            flex-shrink: 0;
+        }
+
+        .bar-label {
+            font-family: var(--font-body);
+            font-size: clamp(0.5rem, 0.72vw, 0.60rem);
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.68);
+            white-space: nowrap;
+        }
+
+        .bar-sep {
+            width: 1px;
+            height: clamp(12px, 2vh, 20px);
+            background: rgba(255, 255, 255, 0.28);
+            flex-shrink: 0;
+        }
+
+        .bar-title {
+            font-family: var(--font-display);
+            font-size: clamp(0.88rem, 1.7vw, 1.35rem);
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+        }
+
+        .slide-main {
+            flex: 1;
+            background: var(--bg-dark);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(1.5rem, 3.5vh, 3rem) clamp(2rem, 7vw, 6rem);
+        }
+
+
+        /* ================================================================
+           SPLIT-PANEL SLIDE LAYOUT (Slides 3, 5)
+           Blue left 35% + dark right 65%
+           ================================================================ */
+        .split-slide {
+            flex-direction: row;
+        }
+
+        .split-panel-blue {
+            width: clamp(200px, 34%, 420px);
+            background: var(--accent-blue);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(2rem, 6vw, 5rem) clamp(1.5rem, 3.5vw, 3rem);
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        /* Accent bar on the right edge — panel divider */
+        .split-panel-blue::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 4px;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.18);
+        }
+
+        .split-section-label {
+            font-family: var(--font-body);
+            font-size: clamp(0.48rem, 0.72vw, 0.60rem);
+            font-weight: 700;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.62);
+            margin-bottom: clamp(0.6rem, 1.5vh, 1.2rem);
+        }
+
+        .split-heading {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 3.2vw, 2.6rem);
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.08;
+            letter-spacing: -0.025em;
+        }
+
+        .split-subtext {
+            margin-top: clamp(0.6rem, 1.3vh, 1.1rem);
+            font-size: clamp(0.62rem, 0.95vw, 0.78rem);
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.55;
+        }
+
+        .split-panel-dark {
+            flex: 1;
+            background: var(--bg-dark);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: clamp(2rem, 5vw, 5rem) clamp(2rem, 5vw, 4.5rem);
+            overflow: hidden;
+        }
+
+
+        /* ================================================================
+           SHARED: ES BULLET LIST (Slides 3, 5)
+           Blue bar left edge + title + description
+           ================================================================ */
+        .es-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.75rem, 2vh, 1.6rem);
+        }
+
+        .es-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: clamp(10px, 1.4vw, 16px);
+        }
+
+        .bullet-bar {
+            width: 3px;
+            height: clamp(18px, 2.8vh, 28px);
+            background: var(--accent-blue);
+            flex-shrink: 0;
+            margin-top: 0.2em;
+        }
+
+        .item-content { flex: 1; }
+
+        .item-title {
+            font-family: var(--font-display);
+            font-size: clamp(0.75rem, 1.35vw, 1.02rem);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: clamp(2px, 0.4vh, 4px);
+        }
+
+        .item-desc {
+            font-size: clamp(0.60rem, 0.92vw, 0.75rem);
+            color: var(--text-secondary);
+            line-height: 1.52;
+        }
+
+
+        /* ================================================================
+           SLIDE 2 — VISION: 4 Pillar Cards
+           ================================================================ */
+        .vision-intro {
+            font-size: clamp(0.75rem, 1.3vw, 1rem);
+            color: var(--text-secondary);
+            line-height: 1.65;
+            max-width: 70ch;
+            margin-bottom: clamp(0.8rem, 2.2vh, 1.8rem);
+        }
+
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(0.6rem, 1.2vw, 1rem);
+        }
+
+        @media (max-width: 900px) {
+            .pillar-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .pillar-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-top: 3px solid var(--accent-blue);
+            padding: clamp(0.9rem, 2.2vh, 1.8rem) clamp(0.75rem, 1.4vw, 1.2rem);
+            transition: background 0.25s, border-top-color 0.25s;
+        }
+
+        .pillar-card:hover {
+            background: var(--bg-card-2);
+            border-top-color: var(--accent-light);
+        }
+
+        .pillar-num {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 4vw, 3.2rem);
+            font-weight: 800;
+            color: rgba(226, 35, 26, 0.22);
+            line-height: 1;
+            letter-spacing: -0.04em;
+            margin-bottom: clamp(0.35rem, 0.8vh, 0.65rem);
+        }
+
+        .pillar-name {
+            font-family: var(--font-display);
+            font-size: clamp(0.85rem, 1.7vw, 1.3rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+            margin-bottom: clamp(0.3rem, 0.6vh, 0.5rem);
+        }
+
+        .pillar-desc {
+            font-size: clamp(0.58rem, 0.88vw, 0.72rem);
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+
+        /* ================================================================
+           SLIDE 4 — PORTFOLIO: 2×2 Card Grid
+           ================================================================ */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(0.7rem, 1.4vw, 1.2rem);
+        }
+
+        @media (max-width: 700px) {
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+
+        .portfolio-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: clamp(0.9rem, 2vh, 1.6rem);
+            display: flex;
+            gap: clamp(0.75rem, 1.2vw, 1.2rem);
+            align-items: flex-start;
+            position: relative;
+            overflow: hidden;
+            transition: background 0.25s;
+        }
+
+        .portfolio-card:hover { background: var(--bg-card-2); }
+
+        /* Blue left accent bar */
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 3px;
+            background: var(--accent-blue);
+        }
+
+        .pcard-num {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+            font-weight: 800;
+            color: rgba(226, 35, 26, 0.25);
+            line-height: 1;
+            letter-spacing: -0.03em;
+            flex-shrink: 0;
+            min-width: clamp(26px, 2.8vw, 38px);
+        }
+
+        .pcard-content { flex: 1; }
+
+        .pcard-area {
+            font-family: var(--font-body);
+            font-size: clamp(0.46rem, 0.68vw, 0.56rem);
+            font-weight: 700;
+            letter-spacing: 0.20em;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: clamp(2px, 0.4vh, 4px);
+        }
+
+        .pcard-title {
+            font-family: var(--font-display);
+            font-size: clamp(0.75rem, 1.3vw, 0.98rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: clamp(3px, 0.5vh, 5px);
+            line-height: 1.2;
+        }
+
+        .pcard-desc {
+            font-size: clamp(0.58rem, 0.88vw, 0.70rem);
+            color: var(--text-secondary);
+            line-height: 1.52;
+        }
+
+        .pcard-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-top: clamp(4px, 0.7vh, 7px);
+        }
+
+        .pcard-tag {
+            font-size: clamp(0.46rem, 0.62vw, 0.52rem);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            color: rgba(255, 255, 255, 0.42);
+            background: rgba(255, 255, 255, 0.06);
+            padding: 2px 7px;
+        }
+
+
+        /* ================================================================
+           SLIDE 6 — LIFECYCLE: 5-Step Horizontal Flow
+           ================================================================ */
+        .lifecycle-intro {
+            font-size: clamp(0.72rem, 1.25vw, 0.96rem);
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: clamp(0.9rem, 2.2vh, 1.8rem);
+            max-width: 70ch;
+        }
+
+        .lifecycle-steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: clamp(0.4rem, 0.8vw, 0.65rem);
+        }
+
+        @media (max-width: 800px) {
+            .lifecycle-steps { grid-template-columns: 1fr 1fr; }
+        }
+
+        .lifecycle-step {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: clamp(0.8rem, 1.8vh, 1.5rem) clamp(0.65rem, 1.1vw, 0.9rem);
+            position: relative;
+        }
+
+        /* Connector line between steps */
+        .lifecycle-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: clamp(1.2rem, 2.5vh, 2rem);
+            right: calc(-1 * clamp(0.4rem, 0.8vw, 0.65rem));
+            width: clamp(0.4rem, 0.8vw, 0.65rem);
+            height: 2px;
+            background: rgba(226, 35, 26, 0.40);
+        }
+
+        @media (max-width: 800px) {
+            .lifecycle-step:not(:last-child)::after { display: none; }
+        }
+
+        .step-num {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 3.4rem);
+            font-weight: 800;
+            color: rgba(226, 35, 26, 0.20);
+            line-height: 1;
+            letter-spacing: -0.04em;
+            margin-bottom: clamp(0.3rem, 0.7vh, 0.6rem);
+        }
+
+        .step-title {
+            font-family: var(--font-display);
+            font-size: clamp(0.68rem, 1.2vw, 0.92rem);
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: clamp(3px, 0.5vh, 5px);
+        }
+
+        .step-desc {
+            font-size: clamp(0.55rem, 0.80vw, 0.65rem);
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+
+        /* Blue step indicator at top */
+        .lifecycle-step::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--accent-blue);
+        }
+
+
+        /* ================================================================
+           SLIDE 7 — CLOSING: Hero Quote (Electric Studio signature)
+           ================================================================ */
+        .closing-slide .slide-content {
+            padding: clamp(2rem, 7vw, 6rem);
+            justify-content: center;
+        }
+
+        /* Right-edge blue accent bar */
+        .closing-brand-strip {
+            position: absolute;
+            right: 0; top: 0; bottom: 0;
+            width: clamp(5px, 0.6vw, 8px);
+            background: var(--accent-blue);
+        }
+
+        .closing-eyebrow {
+            font-family: var(--font-body);
+            font-size: clamp(0.52rem, 0.80vw, 0.65rem);
+            font-weight: 700;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: var(--accent-blue);
+            margin-bottom: clamp(0.6rem, 1.5vh, 1.2rem);
+        }
+
+        /* Large hero quote — Electric Studio's defining element */
+        .closing-quote {
+            font-family: var(--font-display);
+            font-size: clamp(2.2rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1.03;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            margin-bottom: clamp(1rem, 2.5vh, 2rem);
+        }
+
+        .closing-quote .blue { color: var(--accent-blue); }
+
+        .closing-accent-bar {
+            width: clamp(40px, 5vw, 65px);
+            height: 4px;
+            background: var(--accent-blue);
+            margin-bottom: clamp(1rem, 2.5vh, 2rem);
+        }
+
+        .closing-points {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: clamp(0.55rem, 1.1vh, 0.9rem) clamp(1.5rem, 4vw, 3.5rem);
+            max-width: 74ch;
+        }
+
+        .closing-point {
+            display: flex;
+            align-items: flex-start;
+            gap: clamp(6px, 0.8vw, 10px);
+        }
+
+        .cp-bar {
+            width: 2px;
+            height: clamp(15px, 2.3vh, 22px);
+            background: var(--accent-blue);
+            flex-shrink: 0;
+            margin-top: 0.22em;
+        }
+
+        .cp-text {
+            font-size: clamp(0.62rem, 1.05vw, 0.82rem);
+            color: var(--text-secondary);
+            line-height: 1.46;
+            font-weight: 500;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- === PROGRESS BAR === -->
+    <div class="progress-bar" id="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+
+    <!-- === NAVIGATION DOTS === -->
+    <nav class="nav-dots" id="navDots" aria-label="Slide navigation"></nav>
+
+
+    <!-- ================================================================
+         SLIDE 01 — TITLE
+         Electric Studio: two-panel split — dark left / blue right
+         ================================================================ -->
+    <section class="slide title-slide" aria-label="Title: ThinkVantage Technologies EBC">
+
+        <div class="title-panel-dark">
+            <div class="title-eyebrow reveal d1">Lenovo Commercial Solutions</div>
+            <h1 class="reveal d2">Think<br>Vantage<br>Technologies</h1>
+            <p class="title-subtitle reveal d3">
+                Lenovo's unified PC lifecycle framework — deploy, manage, secure, and support Think devices more efficiently.
+            </p>
+        </div>
+
+        <div class="title-panel-blue">
+            <div class="title-bg-text" aria-hidden="true">EBC</div>
+            <div class="ebc-eyebrow reveal d2">Session Format</div>
+            <div class="ebc-heading reveal d3">Executive<br>Briefing<br>Center</div>
+            <div class="ebc-body reveal d4">
+                An executive overview of ThinkVantage's unified approach to device lifecycle management — designed for IT decision-makers.
+            </div>
+        </div>
+
+        <div class="slide-num">01 / 07</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 02 — THINKVANTAGE VISION
+         Top-bar layout + 4 pillar cards
+         ================================================================ -->
+    <section class="slide" aria-label="ThinkVantage Vision: four pillars">
+
+        <div class="slide-top-bar reveal-fade d1">
+            <span class="bar-label">Vision</span>
+            <div class="bar-sep"></div>
+            <span class="bar-title">The ThinkVantage Framework</span>
+        </div>
+
+        <div class="slide-main">
+            <p class="vision-intro reveal d2">
+                ThinkVantage brings together Lenovo engineering, software, and services into a cohesive approach to commercial device lifecycle management — built on four defining principles.
+            </p>
+
+            <div class="pillar-grid reveal d3">
+                <div class="pillar-card">
+                    <div class="pillar-num">01</div>
+                    <div class="pillar-name">Trusted</div>
+                    <div class="pillar-desc">Built on Lenovo's commercial engineering heritage with verifiable, signed tooling from a known vendor — not open-source unknowns.</div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-num">02</div>
+                    <div class="pillar-name">Unified</div>
+                    <div class="pillar-desc">A single cohesive framework rather than isolated utilities. Every tool is designed to work together across the full lifecycle.</div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-num">03</div>
+                    <div class="pillar-name">Employee&#8209;Centered</div>
+                    <div class="pillar-desc">Better device experiences and fewer disruptions. IT efficiency that translates directly into end-user satisfaction.</div>
+                </div>
+                <div class="pillar-card">
+                    <div class="pillar-num">04</div>
+                    <div class="pillar-name">Efficient</div>
+                    <div class="pillar-desc">Reduces operational overhead at every lifecycle stage — from initial imaging to ongoing compliance and support.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand-mark">Lenovo Internal</div>
+        <div class="slide-num">02 / 07</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 03 — WHAT IS THINKVANTAGE
+         Split panel: blue left / dark right with bullet list
+         ================================================================ -->
+    <section class="slide split-slide" aria-label="What is ThinkVantage">
+
+        <div class="split-panel-blue">
+            <div class="split-section-label reveal d1">The Platform</div>
+            <div class="split-heading reveal d2">What is<br>Think<br>Vantage?</div>
+            <div class="split-subtext reveal d3">An integrated portfolio aligned to how IT actually manages devices — not a collection of standalone utilities.</div>
+        </div>
+
+        <div class="split-panel-dark">
+            <ul class="es-list">
+                <li class="reveal d2">
+                    <div class="bullet-bar"></div>
+                    <div class="item-content">
+                        <div class="item-title">Reduce Complexity &amp; Overhead</div>
+                        <div class="item-desc">Streamline operational processes across your managed device fleet. ThinkVantage tools are designed to integrate — not fragment — your workflows.</div>
+                    </div>
+                </li>
+                <li class="reveal d3">
+                    <div class="bullet-bar"></div>
+                    <div class="item-content">
+                        <div class="item-title">Improve Consistency &amp; Reliability</div>
+                        <div class="item-desc">Deliver predictable, repeatable results across every managed device — from first-touch imaging to ongoing BIOS governance and compliance.</div>
+                    </div>
+                </li>
+                <li class="reveal d4">
+                    <div class="bullet-bar"></div>
+                    <div class="item-content">
+                        <div class="item-title">Better, More Predictable Employee Experience</div>
+                        <div class="item-desc">A well-maintained, consistently configured device means fewer disruptions for end users — and fewer help desk tickets for IT to manage.</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="slide-num">03 / 07</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 04 — PORTFOLIO OVERVIEW
+         Top-bar layout + 2×2 capability card grid
+         ================================================================ -->
+    <section class="slide" aria-label="ThinkVantage Portfolio: four capability areas">
+
+        <div class="slide-top-bar reveal-fade d1">
+            <span class="bar-label">Portfolio</span>
+            <div class="bar-sep"></div>
+            <span class="bar-title">Four Core Capability Areas</span>
+        </div>
+
+        <div class="slide-main">
+            <div class="portfolio-grid reveal d2">
+                <div class="portfolio-card">
+                    <div class="pcard-num">01</div>
+                    <div class="pcard-content">
+                        <div class="pcard-area">Device Experience</div>
+                        <div class="pcard-title">Commercial Vantage</div>
+                        <div class="pcard-desc">End-user experience, device health visibility, and self-service capabilities. The front-facing layer of the ThinkVantage framework.</div>
+                        <div class="pcard-tags">
+                            <span class="pcard-tag">End-User Focused</span>
+                            <span class="pcard-tag">Device Health</span>
+                            <span class="pcard-tag">Visibility</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="pcard-num">02</div>
+                    <div class="pcard-content">
+                        <div class="pcard-area">Hardware Configuration &amp; Governance</div>
+                        <div class="pcard-title">ThinkVantage BIOS Config Tool</div>
+                        <div class="pcard-desc">Hardware-level controls for IT governance and compliance. Read, modify, and deploy BIOS settings and profiles at enterprise scale.</div>
+                        <div class="pcard-tags">
+                            <span class="pcard-tag">BIOS Management</span>
+                            <span class="pcard-tag">Intune Ready</span>
+                            <span class="pcard-tag">INI Profiles</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="pcard-num">03</div>
+                    <div class="pcard-content">
+                        <div class="pcard-area">Automation &amp; Extensibility</div>
+                        <div class="pcard-title">ThinkVantage Client Scripting Module</div>
+                        <div class="pcard-desc">Scripted, repeatable, and automated configuration workflows. PowerShell-native with full pipeline support and enterprise-scale command execution.</div>
+                        <div class="pcard-tags">
+                            <span class="pcard-tag">PowerShell</span>
+                            <span class="pcard-tag">Automation</span>
+                            <span class="pcard-tag">Pipeline Support</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="pcard-num">04</div>
+                    <div class="pcard-content">
+                        <div class="pcard-area">Update Management</div>
+                        <div class="pcard-title">System Update · Update Retriever · Thin Installer</div>
+                        <div class="pcard-desc">A complete update pipeline: discover applicable packages, build local repositories, and install drivers, BIOS, and firmware on managed devices.</div>
+                        <div class="pcard-tags">
+                            <span class="pcard-tag">Driver &amp; BIOS Updates</span>
+                            <span class="pcard-tag">OSD Task Sequence</span>
+                            <span class="pcard-tag">Repository</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand-mark">Lenovo Internal</div>
+        <div class="slide-num">04 / 07</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 05 — AUTOMATION & EXTENSIBILITY
+         Split panel: blue left / dark right with 4 capabilities
+         ================================================================ -->
+    <section class="slide split-slide" aria-label="Automation and Extensibility: ThinkVantage Client Scripting Module">
+
+        <div class="split-panel-blue">
+            <div class="split-section-label reveal d1">Capability Deep Dive</div>
+            <div class="split-heading reveal d2">Automation<br>&amp;<br>Extensibility</div>
+            <div class="split-subtext reveal d3">The ThinkVantage Client Scripting Module — enterprise-scale automation designed for determinism, control, and repeatability.</div>
+        </div>
+
+        <div class="split-panel-dark">
+            <ul class="es-list">
+                <li class="reveal d2">
+                    <div class="bullet-bar"></div>
+                    <div class="item-content">
+                        <div class="item-title">Automates Configuration Processes</div>
+                        <div class="item-desc">Script any configuration task once and execute it consistently across thousands of managed Think devices.</div>
+                    </div>
+                </li>
+                <li class="reveal d3">
+                    <div class="bullet-bar"></div>
+                    <div class="item-content">
+                        <div class="item-title">Reduces Manual Steps &amp; Error Risk</div>
+                        <div class="item-desc">Replace error-prone manual procedures with deterministic, auditable script execution — fewer hands, fewer mistakes, fewer incidents.</div>
+                    </div>
+                </li>
+                <li class="reveal d4">
+                    <div class="bullet-bar"></div>
+                    <div class="item-content">
+                        <div class="item-title">Consistent, Repeatable Execution</div>
+                        <div class="item-desc">Every run produces the same result. Script-driven workflows eliminate configuration drift across the entire managed device fleet.</div>
+                    </div>
+                </li>
+                <li class="reveal d5">
+                    <div class="bullet-bar"></div>
+                    <div class="item-content">
+                        <div class="item-title">Enterprise-Scale Command Execution</div>
+                        <div class="item-desc">Scripted command execution across all managed devices — fully compatible with Intune, SCCM, and any modern deployment platform.</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="slide-num">05 / 07</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 06 — UNIFIED LIFECYCLE
+         Top-bar layout + 5 horizontal lifecycle steps
+         ================================================================ -->
+    <section class="slide" aria-label="Unified PC Lifecycle Approach">
+
+        <div class="slide-top-bar reveal-fade d1">
+            <span class="bar-label">Framework</span>
+            <div class="bar-sep"></div>
+            <span class="bar-title">Unified PC Lifecycle Approach</span>
+        </div>
+
+        <div class="slide-main">
+            <p class="lifecycle-intro reveal d2">
+                ThinkVantage supports the entire PC lifecycle under a single framework — reducing fragmentation and helping IT teams operate more efficiently at scale.
+            </p>
+
+            <div class="lifecycle-steps reveal d3">
+                <div class="lifecycle-step">
+                    <div class="step-num">01</div>
+                    <div class="step-title">Deployment</div>
+                    <div class="step-desc">Bare-metal imaging, OSD task sequences, and dynamic driver integration from day one of the device lifecycle.</div>
+                </div>
+                <div class="lifecycle-step">
+                    <div class="step-num">02</div>
+                    <div class="step-title">Configuration</div>
+                    <div class="step-desc">BIOS settings management, hardware governance, and baseline profile deployment — scripted and repeatable.</div>
+                </div>
+                <div class="lifecycle-step">
+                    <div class="step-num">03</div>
+                    <div class="step-title">Management</div>
+                    <div class="step-desc">Ongoing automation via scripting modules, integrated with Microsoft Intune, SCCM, and enterprise MDM platforms.</div>
+                </div>
+                <div class="lifecycle-step">
+                    <div class="step-num">04</div>
+                    <div class="step-title">Updates</div>
+                    <div class="step-desc">Continuous driver, BIOS, and firmware delivery with digital signature verification and full compliance tracking.</div>
+                </div>
+                <div class="lifecycle-step">
+                    <div class="step-num">05</div>
+                    <div class="step-title">Support</div>
+                    <div class="step-desc">Device health visibility, diagnostics, and optimization that reduce help desk load and improve workforce uptime.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand-mark">Lenovo Internal</div>
+        <div class="slide-num">06 / 07</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 07 — KEY TAKEAWAY
+         Electric Studio hero quote + closing points
+         ================================================================ -->
+    <section class="slide closing-slide" aria-label="Key Takeaway">
+
+        <!-- Electric Studio signature: right-edge accent bar -->
+        <div class="closing-brand-strip"></div>
+
+        <div class="slide-content">
+            <div class="closing-eyebrow reveal d1">Key Takeaway</div>
+
+            <div class="closing-quote reveal d2">
+                Unifying<br>what already<br><span class="blue">matters.</span>
+            </div>
+
+            <div class="closing-accent-bar reveal d3"></div>
+
+            <div class="closing-points reveal d4">
+                <div class="closing-point">
+                    <div class="cp-bar"></div>
+                    <div class="cp-text">Centralized visibility and control across all managed Lenovo Think devices</div>
+                </div>
+                <div class="closing-point">
+                    <div class="cp-bar"></div>
+                    <div class="cp-text">Deep integration with Lenovo hardware — not generic third-party tooling bolted on</div>
+                </div>
+                <div class="closing-point">
+                    <div class="cp-bar"></div>
+                    <div class="cp-text">Automation that reduces real effort and risk — not automation for its own sake</div>
+                </div>
+                <div class="closing-point">
+                    <div class="cp-bar"></div>
+                    <div class="cp-text">A consistent experience for both IT administrators and the employees they support</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="brand-mark">© Lenovo Internal — ThinkVantage Technologies</div>
+        <div class="slide-num">07 / 07</div>
+    </section>
+
+
+    <!-- ================================================================
+         JAVASCRIPT — SLIDE PRESENTATION CONTROLLER
+         ================================================================ -->
+    <script>
+        /**
+         * SlidePresentation
+         * Navigation: Arrow keys, Space, Page Up/Down, mouse wheel, touch swipe, nav dots.
+         */
+        class SlidePresentation {
+            constructor() {
+                this.slides     = Array.from(document.querySelectorAll('.slide'));
+                this.total      = this.slides.length;
+                this.currentIdx = 0;
+                this.lastWheel  = 0;
+                this.$progress  = document.getElementById('progressBar');
+                this.$navDots   = document.getElementById('navDots');
+                this._init();
+            }
+
+            _init() {
+                this._buildNavDots();
+                this._observeSlides();
+                this._bindKeyboard();
+                this._bindTouch();
+                this._bindWheel();
+                requestAnimationFrame(() => {
+                    this.slides[0].classList.add('visible');
+                    this._updateProgress(0);
+                    this._updateDots(0);
+                });
+            }
+
+            _buildNavDots() {
+                this.slides.forEach((_, i) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'nav-dot';
+                    btn.setAttribute('aria-label', `Go to slide ${i + 1} of ${this.total}`);
+                    btn.addEventListener('click', () => this._goto(i));
+                    this.$navDots.appendChild(btn);
+                });
+            }
+
+            _observeSlides() {
+                const obs = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            const idx = this.slides.indexOf(entry.target);
+                            if (idx >= 0) {
+                                this.currentIdx = idx;
+                                this._updateProgress(idx);
+                                this._updateDots(idx);
+                            }
+                        }
+                    });
+                }, { threshold: 0.55 });
+                this.slides.forEach(s => obs.observe(s));
+            }
+
+            _bindKeyboard() {
+                document.addEventListener('keydown', e => {
+                    const actions = {
+                        ArrowDown:  +1, ArrowRight: +1,
+                        ' ':        +1, PageDown:   +1,
+                        ArrowUp:    -1, ArrowLeft:  -1,
+                        PageUp:     -1,
+                    };
+                    if (e.key in actions) {
+                        e.preventDefault();
+                        this._goto(this.currentIdx + actions[e.key]);
+                    } else if (e.key === 'Home') {
+                        e.preventDefault(); this._goto(0);
+                    } else if (e.key === 'End') {
+                        e.preventDefault(); this._goto(this.total - 1);
+                    }
+                });
+            }
+
+            _bindTouch() {
+                let startY = 0, startX = 0;
+                document.addEventListener('touchstart', e => {
+                    startY = e.touches[0].clientY;
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+                document.addEventListener('touchend', e => {
+                    const dy = startY - e.changedTouches[0].clientY;
+                    const dx = startX - e.changedTouches[0].clientX;
+                    if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 45)
+                        this._goto(this.currentIdx + (dy > 0 ? 1 : -1));
+                }, { passive: true });
+            }
+
+            _bindWheel() {
+                document.addEventListener('wheel', e => {
+                    const now = Date.now();
+                    if (now - this.lastWheel < 800) return;
+                    if (Math.abs(e.deltaY) < 25) return;
+                    this.lastWheel = now;
+                    this._goto(this.currentIdx + (e.deltaY > 0 ? 1 : -1));
+                }, { passive: true });
+            }
+
+            _goto(idx) {
+                const target = Math.max(0, Math.min(idx, this.total - 1));
+                if (target === this.currentIdx) return;
+                this.slides[target].scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            _updateDots(activeIdx) {
+                this.$navDots.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === activeIdx);
+                });
+            }
+
+            _updateProgress(idx) {
+                if (!this.$progress) return;
+                this.$progress.style.width = `${((idx + 1) / this.total) * 100}%`;
+                this.$progress.setAttribute('aria-valuenow', Math.round(((idx + 1) / this.total) * 100));
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => new SlidePresentation());
+    </script>
+
+</body>
+</html>

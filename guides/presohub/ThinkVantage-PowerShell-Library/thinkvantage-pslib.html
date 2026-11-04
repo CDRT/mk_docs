@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThinkVantage PowerShell Library</title>
+
+    <!-- === FONTS === -->
+    <!-- Clash Display: bold display headlines — technical yet distinctive -->
+    <!-- Satoshi: clean, modern body text -->
+    <!-- JetBrains Mono: code blocks -->
+    <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* ================================================================
+           THEME VARIABLES — Lenovo Dark Command Aesthetic
+           Change colors here to retheme the entire deck
+           ================================================================ */
+        :root {
+            /* Lenovo brand colors */
+            --red:          #E2231A;
+            --red-mid:      rgba(226, 35, 26, 0.35);
+            --red-dim:      rgba(226, 35, 26, 0.10);
+            --red-glow:     0 0 30px rgba(226, 35, 26, 0.45);
+
+            /* Surfaces */
+            --bg:           #090909;
+            --bg-2:         #0f0f0f;
+            --bg-card:      #141414;
+            --bg-card-2:    #191919;
+            --bg-code:      #0d1117;
+
+            /* Text */
+            --white:        #f0f0f0;
+            --text-2:       #8a8a8a;
+            --muted:        #a5d6ff;
+
+            /* Borders */
+            --border:       rgba(255, 255, 255, 0.06);
+            --border-red:   rgba(226, 35, 26, 0.28);
+
+            /* Code syntax (GitHub dark) */
+            --code-comment: #6e7681;
+            --code-kw:      #ff7b72;
+            --code-fn:      #d2a8ff;
+            --code-var:     #ffa657;
+            --code-str:     #a5d6ff;
+            --code-param:   #79c0ff;
+
+            /* Typography */
+            --font-display: 'Clash Display', sans-serif;
+            --font-body:    'Satoshi', sans-serif;
+            --font-mono:    'JetBrains Mono', monospace;
+
+            /* Easing */
+            --ease:         cubic-bezier(0.16, 1, 0.3, 1);
+            --dur:          0.65s;
+        }
+
+        /* ================================================================
+           BASE RESET
+           ================================================================ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.5;
+        }
+
+        /* ================================================================
+           VIEWPORT BASE (MANDATORY) — full contents of viewport-base.css
+           ================================================================ */
+        html, body {
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        /* Each slide = exact viewport height */
+        .slide {
+            width: 100vw;
+            height: 100vh;
+            height: 100dvh;
+            overflow: hidden;
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Content container with flex for centering */
+        .slide-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-height: 100%;
+            overflow: hidden;
+            padding: var(--slide-padding);
+        }
+
+        /* ALL typography uses clamp() for responsive scaling */
+        :root {
+            --title-size:   clamp(1.5rem, 5vw, 4rem);
+            --h2-size:      clamp(1.25rem, 3.5vw, 2.5rem);
+            --h3-size:      clamp(1rem, 2.5vw, 1.75rem);
+            --body-size:    clamp(0.75rem, 1.5vw, 1.125rem);
+            --small-size:   clamp(0.65rem, 1vw, 0.875rem);
+            --slide-padding:clamp(1rem, 4vw, 4rem);
+            --content-gap:  clamp(0.5rem, 2vw, 2rem);
+            --element-gap:  clamp(0.25rem, 1vw, 1rem);
+        }
+
+        .card, .container, .content-box {
+            max-width: min(90vw, 1000px);
+            max-height: min(80vh, 700px);
+        }
+
+        .feature-list, .bullet-list { gap: clamp(0.4rem, 1vh, 1rem); }
+        .feature-list li, .bullet-list li { font-size: var(--body-size); line-height: 1.4; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(0.5rem, 1.5vw, 1rem);
+        }
+
+        img, .image-container {
+            max-width: 100%;
+            max-height: min(50vh, 400px);
+            object-fit: contain;
+        }
+
+        /* Responsive breakpoints — aggressive scaling for smaller viewports */
+        @media (max-height: 700px) {
+            :root {
+                --slide-padding: clamp(0.75rem, 3vw, 2rem);
+                --content-gap:   clamp(0.4rem, 1.5vw, 1rem);
+                --title-size:    clamp(1.25rem, 4.5vw, 2.5rem);
+                --h2-size:       clamp(1rem, 3vw, 1.75rem);
+            }
+        }
+
+        @media (max-height: 600px) {
+            :root {
+                --slide-padding: clamp(0.5rem, 2.5vw, 1.5rem);
+                --content-gap:   clamp(0.3rem, 1vw, 0.75rem);
+                --title-size:    clamp(1.1rem, 4vw, 2rem);
+                --body-size:     clamp(0.7rem, 1.2vw, 0.95rem);
+            }
+            .nav-dots, .keyboard-hint, .decorative { display: none; }
+        }
+
+        @media (max-height: 500px) {
+            :root {
+                --slide-padding: clamp(0.4rem, 2vw, 1rem);
+                --title-size:    clamp(1rem, 3.5vw, 1.5rem);
+                --h2-size:       clamp(0.9rem, 2.5vw, 1.25rem);
+                --body-size:     clamp(0.65rem, 1vw, 0.85rem);
+            }
+        }
+
+        @media (max-width: 600px) {
+            :root { --title-size: clamp(1.25rem, 7vw, 2.5rem); }
+            .grid { grid-template-columns: 1fr; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.2s !important;
+            }
+            html { scroll-behavior: auto; }
+        }
+
+        /* ================================================================
+           SLIDE BACKGROUNDS
+           ================================================================ */
+        .slide-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            background: var(--bg);
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        /* Subtle red-tinted grid on every slide */
+        .slide-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(226, 35, 26, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(226, 35, 26, 0.025) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* Radial glow orbs — position varies per slide */
+        .glow-orb {
+            position: absolute;
+            width: 45vw;
+            height: 45vw;
+            border-radius: 50%;
+            filter: blur(90px);
+            animation: orb-pulse 9s ease-in-out infinite;
+        }
+
+        @keyframes orb-pulse {
+            0%, 100% { opacity: 0.12; transform: scale(1); }
+            50%       { opacity: 0.22; transform: scale(1.08); }
+        }
+
+        /* All content sits above the background */
+        .slide-content { z-index: 1; }
+        .slide-num      { z-index: 1; }
+
+        /* ================================================================
+           PROGRESS BAR
+           ================================================================ */
+        .progress-bar {
+            position: fixed;
+            top: 0; left: 0;
+            height: 2px;
+            background: var(--red);
+            box-shadow: 0 0 12px rgba(226, 35, 26, 0.8);
+            z-index: 200;
+            width: 0;
+            transition: width 0.4s ease;
+        }
+
+        /* ================================================================
+           NAVIGATION DOTS
+           ================================================================ */
+        .nav-dots {
+            position: fixed;
+            right: clamp(10px, 1.8vw, 20px);
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            z-index: 200;
+        }
+
+        .nav-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--muted);
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s var(--ease);
+        }
+
+        .nav-dot.active {
+            background: var(--red);
+            box-shadow: 0 0 8px rgba(226, 35, 26, 0.7);
+            transform: scale(1.6);
+        }
+
+        .nav-dot:hover:not(.active) {
+            background: var(--text-2);
+            transform: scale(1.3);
+        }
+
+        /* ================================================================
+           SLIDE NUMBER FOOTER
+           ================================================================ */
+        .slide-num {
+            position: absolute;
+            bottom: clamp(12px, 2vh, 24px);
+            left: var(--slide-padding);
+            font-family: var(--font-mono);
+            font-size: clamp(0.5rem, 0.75vw, 0.65rem);
+            color: var(--muted);
+            letter-spacing: 0.1em;
+        }
+
+        /* ================================================================
+           REVEAL ANIMATIONS
+           ================================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(22px);
+            transition: opacity var(--dur) var(--ease),
+                        transform var(--dur) var(--ease);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-28px);
+            transition: opacity var(--dur) var(--ease),
+                        transform var(--dur) var(--ease);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.93);
+            transition: opacity var(--dur) var(--ease),
+                        transform var(--dur) var(--ease);
+        }
+
+        .slide.visible .reveal,
+        .slide.visible .reveal-left,
+        .slide.visible .reveal-scale {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* Explicit delay utilities (use on individual elements for stagger) */
+        .d1 { transition-delay: 0.05s; }
+        .d2 { transition-delay: 0.18s; }
+        .d3 { transition-delay: 0.30s; }
+        .d4 { transition-delay: 0.42s; }
+        .d5 { transition-delay: 0.54s; }
+        .d6 { transition-delay: 0.66s; }
+
+        /* ================================================================
+           SHARED UI COMPONENTS
+           ================================================================ */
+        .accent { color: var(--red); }
+
+        /* Module / section label badge above headings */
+        .section-label {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: clamp(0.55rem, 0.85vw, 0.7rem);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--red);
+            border: 1px solid var(--border-red);
+            padding: 3px 10px;
+            border-radius: 2px;
+            margin-bottom: clamp(0.4rem, 1.2vh, 1rem);
+        }
+
+        /* Red accent line */
+        .divider {
+            width: clamp(28px, 3.5vw, 48px);
+            height: 2px;
+            background: var(--red);
+            margin: clamp(0.5rem, 1.2vh, 1rem) 0;
+            box-shadow: var(--red-glow);
+        }
+
+        /* Pill tags */
+        .pill {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: clamp(0.5rem, 0.75vw, 0.62rem);
+            color: var(--red);
+            border: 1px solid var(--border-red);
+            background: var(--red-dim);
+            padding: 3px 9px;
+            border-radius: 100px;
+            letter-spacing: 0.05em;
+        }
+
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(5px, 0.8vw, 8px);
+        }
+
+        /* Logo container for pre-bordered logo asset */
+        .logo-chip {
+            display: inline-block;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+        }
+
+        .logo-chip img {
+            display: block;
+            height: clamp(41px, 6.3vh, 77px);
+            width: auto;
+            max-height: 77px;
+        }
+
+        /* ================================================================
+           SLIDE 1: TITLE SLIDE
+           ================================================================ */
+        .title-slide .slide-content {
+            justify-content: center;
+            align-items: flex-start;
+            padding: var(--slide-padding) clamp(2.5rem, 9vw, 9rem);
+            gap: 0;
+        }
+
+        .title-slide .logo-wrap {
+            margin-bottom: clamp(1rem, 2.5vh, 2rem);
+        }
+
+        .title-slide h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 7.5vw, 6.5rem);
+            font-weight: 700;
+            line-height: 0.92;
+            letter-spacing: -0.03em;
+            color: var(--white);
+            margin-bottom: clamp(0.75rem, 1.8vh, 1.5rem);
+        }
+
+        .title-slide .tagline {
+            font-family: var(--font-mono);
+            font-size: clamp(0.7rem, 1.1vw, 0.9rem);
+            color: var(--red);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: clamp(0.5rem, 1.5vh, 1.25rem);
+        }
+
+        .title-slide .subtitle {
+            font-size: clamp(0.8rem, 1.4vw, 1.05rem);
+            color: var(--text-2);
+            line-height: 1.65;
+            max-width: 52ch;
+            margin-bottom: clamp(1rem, 2.5vh, 2rem);
+        }
+
+        .title-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: clamp(5px, 0.8vw, 8px);
+        }
+
+        .title-tag {
+            font-family: var(--font-mono);
+            font-size: clamp(0.55rem, 0.8vw, 0.68rem);
+            color: var(--text-2);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 4px 10px;
+            border-radius: 2px;
+            letter-spacing: 0.04em;
+        }
+
+        /* Large decorative letters in the corner */
+        .bg-letters {
+            position: absolute;
+            right: clamp(1.5rem, 5vw, 5rem);
+            bottom: clamp(1.5rem, 4vh, 3.5rem);
+            font-family: var(--font-display);
+            font-size: clamp(5rem, 18vw, 15rem);
+            font-weight: 700;
+            color: rgba(226, 35, 26, 0.055);
+            line-height: 1;
+            letter-spacing: -0.04em;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+        }
+
+        /* ================================================================
+           SECTION BREAK SLIDES
+           ================================================================ */
+        .section-break .slide-content {
+            justify-content: center;
+            padding: var(--slide-padding) clamp(2.5rem, 9vw, 9rem);
+        }
+
+        /* Large ghost section number layered behind heading */
+        .section-num {
+            font-family: var(--font-display);
+            font-size: clamp(5rem, 16vw, 13rem);
+            font-weight: 700;
+            color: rgba(226, 35, 26, 0.08);
+            line-height: 1;
+            letter-spacing: -0.05em;
+            margin-bottom: calc(-1 * clamp(2rem, 5vw, 4.5rem));
+            pointer-events: none;
+        }
+
+        .section-break h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5.5vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.025em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-break .sect-desc {
+            font-size: clamp(0.78rem, 1.35vw, 1rem);
+            color: var(--text-2);
+            max-width: 52ch;
+            margin-top: clamp(0.5rem, 1.2vh, 1rem);
+            line-height: 1.65;
+        }
+
+        .section-break .pills {
+            margin-top: clamp(0.75rem, 1.8vh, 1.5rem);
+        }
+
+        /* ================================================================
+           CONTENT SLIDES (bullet list)
+           ================================================================ */
+        .content-slide .slide-content {
+            padding: var(--slide-padding) clamp(2.5rem, 9vw, 9rem);
+        }
+
+        .content-slide h2 {
+            font-family: var(--font-display);
+            font-size: var(--h2-size);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.12;
+            margin-bottom: clamp(0.75rem, 1.8vh, 1.5rem);
+        }
+
+        .bullet-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.55rem, 1.3vh, 1.1rem);
+        }
+
+        .bullet-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: clamp(8px, 1.2vw, 14px);
+            font-size: clamp(0.72rem, 1.3vw, 1rem);
+            line-height: 1.55;
+            color: var(--text-2);
+        }
+
+        .bullet-list li .bull-icon {
+            color: var(--red);
+            font-size: clamp(0.5rem, 0.8vw, 0.65rem);
+            flex-shrink: 0;
+            margin-top: 0.35em;
+            letter-spacing: -0.1em;
+        }
+
+        .bullet-list li strong {
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .bullet-list li code {
+            font-family: var(--font-mono);
+            font-size: 0.88em;
+            color: var(--red);
+            background: var(--red-dim);
+            padding: 1px 5px;
+            border-radius: 2px;
+        }
+
+        /* ================================================================
+           MODULE OVERVIEW CARDS (Slide 2)
+           ================================================================ */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: clamp(0.6rem, 1.2vw, 1rem);
+        }
+
+        @media (max-width: 900px) {
+            .module-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .module-grid { grid-template-columns: 1fr; }
+        }
+
+        .module-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: clamp(0.9rem, 1.8vw, 1.5rem);
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s, background 0.3s;
+        }
+
+        .module-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--red) 0%, transparent 70%);
+        }
+
+        .module-card:hover {
+            background: var(--bg-card-2);
+            border-color: var(--border-red);
+        }
+
+        .module-icon {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            margin-bottom: clamp(0.4rem, 0.9vh, 0.7rem);
+            display: block;
+        }
+
+        .module-card h3 {
+            font-family: var(--font-mono);
+            font-size: clamp(0.58rem, 0.9vw, 0.72rem);
+            color: var(--red);
+            font-weight: 700;
+            margin-bottom: clamp(3px, 0.5vh, 6px);
+            letter-spacing: 0.02em;
+        }
+
+        .module-card p {
+            font-size: clamp(0.62rem, 0.95vw, 0.78rem);
+            color: var(--text-2);
+            line-height: 1.55;
+        }
+
+        .module-badge {
+            display: inline-block;
+            margin-top: clamp(5px, 0.9vh, 8px);
+            font-family: var(--font-mono);
+            font-size: clamp(0.48rem, 0.65vw, 0.55rem);
+            color: var(--muted);
+            border: 1px solid rgba(255,255,255,0.06);
+            padding: 2px 7px;
+            border-radius: 2px;
+        }
+
+        .footer-note {
+            font-size: clamp(0.55rem, 0.82vw, 0.68rem);
+            color: var(--muted);
+            margin-top: clamp(0.5rem, 1.2vh, 0.9rem);
+            font-family: var(--font-mono);
+        }
+
+        /* ================================================================
+           FEATURE GRID SLIDES (6 cards)
+           ================================================================ */
+        .grid-slide .slide-content {
+            padding: var(--slide-padding) clamp(2.5rem, 9vw, 9rem);
+        }
+
+        .grid-slide h2 {
+            font-family: var(--font-display);
+            font-size: var(--h2-size);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: clamp(0.7rem, 1.6vh, 1.4rem);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: clamp(0.5rem, 1.1vw, 0.9rem);
+        }
+
+        @media (max-width: 900px) {
+            .feature-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-top: 2px solid var(--red);
+            padding: clamp(0.7rem, 1.3vw, 1.1rem);
+            border-radius: 3px;
+            transition: background 0.25s, border-color 0.25s;
+        }
+
+        .feature-card:hover {
+            background: var(--bg-card-2);
+        }
+
+        .feature-card .fc-cmd {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: clamp(0.55rem, 0.82vw, 0.68rem);
+            color: var(--red);
+            font-weight: 700;
+            margin-bottom: clamp(2px, 0.4vh, 4px);
+            letter-spacing: 0.01em;
+        }
+
+        .feature-card .fc-name {
+            font-size: clamp(0.65rem, 0.95vw, 0.78rem);
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: clamp(2px, 0.4vh, 5px);
+        }
+
+        .feature-card .fc-desc {
+            font-size: clamp(0.58rem, 0.82vw, 0.68rem);
+            color: var(--muted);
+            line-height: 1.45;
+        }
+
+        /* ================================================================
+           CODE SLIDES
+           ================================================================ */
+        .code-slide .slide-content {
+            padding: var(--slide-padding) clamp(2.5rem, 9vw, 9rem);
+        }
+
+        .code-slide h2 {
+            font-family: var(--font-display);
+            font-size: var(--h2-size);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: clamp(0.6rem, 1.5vh, 1.2rem);
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: clamp(0.4rem, 0.9vh, 0.75rem);
+        }
+
+        .ps-badge {
+            font-family: var(--font-mono);
+            font-size: clamp(0.48rem, 0.7vw, 0.58rem);
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--red);
+            background: var(--red-dim);
+            border: 1px solid var(--border-red);
+            padding: 2px 7px;
+            border-radius: 2px;
+        }
+
+        .code-filename {
+            font-family: var(--font-mono);
+            font-size: clamp(0.5rem, 0.75vw, 0.62rem);
+            color: var(--muted);
+        }
+
+        /* Terminal window chrome */
+        .code-block {
+            background: var(--bg-code);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .code-titlebar {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: clamp(7px, 1.1vh, 11px) clamp(10px, 1.5vw, 16px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .code-titlebar .dot {
+            width: 9px; height: 9px;
+            border-radius: 50%;
+        }
+
+        .code-titlebar .dot-r { background: #ff5f57; }
+        .code-titlebar .dot-y { background: #febc2e; }
+        .code-titlebar .dot-g { background: #28c840; }
+
+        .code-body {
+            display: block;
+            padding: clamp(0.7rem, 1.4vw, 1.2rem);
+            font-family: var(--font-mono);
+            font-size: clamp(0.6rem, 1.02vw, 0.82rem);
+            line-height: 1.72;
+            white-space: pre;
+            overflow-x: hidden;
+        }
+
+        /* Syntax token colors */
+        .c  { color: var(--code-comment); }         /* comment */
+        .kw { color: var(--code-kw); }              /* keyword */
+        .fn { color: var(--code-fn); }              /* cmdlet/function */
+        .v  { color: var(--code-var); }             /* $variable */
+        .s  { color: var(--code-str); }             /* "string" */
+        .p  { color: var(--code-param); }           /* -Parameter */
+        .op { color: var(--code-kw); }              /* | = > */
+        .n  { color: var(--white); }                /* normal text */
+
+        .code-note {
+            font-size: clamp(0.55rem, 0.8vw, 0.65rem);
+            color: var(--muted);
+            margin-top: clamp(0.4rem, 0.9vh, 0.7rem);
+            font-family: var(--font-mono);
+            line-height: 1.5;
+        }
+
+        .code-note code {
+            color: var(--red);
+            background: var(--red-dim);
+            padding: 1px 4px;
+            border-radius: 2px;
+        }
+
+        /* ================================================================
+           CLOSING SLIDE
+           ================================================================ */
+        .closing-slide .slide-content {
+            justify-content: center;
+            align-items: flex-start;
+            padding: var(--slide-padding) clamp(2.5rem, 9vw, 9rem);
+        }
+
+        .closing-slide h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4.2vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: clamp(0.5rem, 1.2vh, 1rem);
+        }
+
+        .closing-slide .closing-desc {
+            font-size: clamp(0.75rem, 1.3vw, 1rem);
+            color: var(--text-2);
+            max-width: 55ch;
+            line-height: 1.65;
+            margin-bottom: clamp(0.8rem, 1.8vh, 1.5rem);
+        }
+
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: clamp(0.45rem, 1vh, 0.85rem);
+        }
+
+        .resource-row {
+            display: flex;
+            align-items: baseline;
+            gap: clamp(8px, 1.5vw, 14px);
+            border-bottom: 1px solid var(--border);
+            padding-bottom: clamp(0.3rem, 0.7vh, 0.6rem);
+        }
+
+        .resource-row:last-child { border-bottom: none; }
+
+        .res-label {
+            font-family: var(--font-mono);
+            font-size: clamp(0.52rem, 0.78vw, 0.62rem);
+            color: var(--red);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            min-width: clamp(50px, 7vw, 70px);
+            flex-shrink: 0;
+        }
+
+        .res-value {
+            font-family: var(--font-mono);
+            font-size: clamp(0.58rem, 0.88vw, 0.7rem);
+            color: var(--text-2);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- === PROGRESS BAR === -->
+    <div class="progress-bar" id="progressBar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+
+    <!-- === NAVIGATION DOTS === -->
+    <nav class="nav-dots" id="navDots" aria-label="Slide navigation"></nav>
+
+
+    <!-- ================================================================
+         SLIDE 01 — TITLE
+         ================================================================ -->
+    <section class="slide title-slide" aria-label="Title: ThinkVantage PowerShell Library">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.6) 0%, transparent 70%); top: -12%; left: -8%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="logo-wrap logo-chip reveal d1">
+                <img src="data:image/png;base64,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" alt="ThinkVantage">
+            </div>
+
+            <div class="tagline reveal d2">PowerShell Library</div>
+
+            <h1 class="reveal d3">Automate.<br><span class="accent">Everything.</span></h1>
+
+            <p class="subtitle reveal d4">
+                A collection of PowerShell modules and tools for managing<br>
+                Lenovo ThinkPad, ThinkCentre, and ThinkStation fleets at enterprise scale.
+            </p>
+
+            <div class="title-tags reveal d5">
+                <span class="title-tag">Lenovo.Client.Update</span>
+                <span class="title-tag">Lenovo.BIOS.Config</span>
+                <span class="title-tag">Lenovo.Bios.Certificates</span>
+                <span class="title-tag">PowerShell Gallery</span>
+                <span class="title-tag">Intune Ready</span>
+            </div>
+        </div>
+
+        <div class="bg-letters" aria-hidden="true">TV</div>
+        <div class="slide-num">01 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 02 — LIBRARY OVERVIEW
+         ================================================================ -->
+    <section class="slide" aria-label="Library overview: four modules">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.35) 0%, transparent 70%); bottom: -15%; right: -8%;"></div>
+        </div>
+
+        <div class="slide-content" style="padding: var(--slide-padding) clamp(2.5rem, 9vw, 9rem);">
+            <div class="section-label reveal d1">The Library</div>
+            <h2 class="reveal d2" style="font-family:var(--font-display); font-size:var(--h2-size); font-weight:700; letter-spacing:-0.02em; margin-bottom:clamp(0.75rem,1.8vh,1.5rem);">
+                Four Powerful <span class="accent">Modules</span>
+            </h2>
+
+            <div class="module-grid reveal d3">
+                <div class="module-card">
+                    <span class="module-icon">⚡</span>
+                    <h3>Lenovo.Client.Update</h3>
+                    <p>Discover, download, and install driver, BIOS/UEFI, and firmware updates on Lenovo PCs. 12 cmdlets with OSD, repository, and signature verification support.</p>
+                    <span class="module-badge">Install-Module Lenovo.Client.Update</span>
+                </div>
+                <div class="module-card">
+                    <span class="module-icon">🔧</span>
+                    <h3>Lenovo.BIOS.Config</h3>
+                    <p>Read and modify BIOS settings via WMI. Export/import INI profiles with encrypted passwords. Package configurations for Microsoft Intune deployment.</p>
+                    <span class="module-badge">Install-Module Lenovo.BIOS.Config</span>
+                </div>
+                <div class="module-card">
+                    <span class="module-icon">🔐</span>
+                    <h3>Lenovo.Bios.Certificates</h3>
+                    <p>Replace Supervisor passwords with X.509 certificates. Sign BIOS commands cryptographically via local key files or Azure Key Vault — no password transmitted.</p>
+                    <span class="module-badge">Install-Module Lenovo.Bios.Certificates</span>
+                </div>
+                <div class="module-card">
+                    <span class="module-icon">🖥️</span>
+                    <h3>Lenovo.Client.Scripting</h3>
+                    <p>Query device info, search driver and HSA packs, download update repositories, and track update notifications across your Lenovo commercial PC fleet.</p>
+                    <span class="module-badge">Install-Module Lenovo.Client.Scripting</span>
+                </div>
+            </div>
+
+            <div class="divider reveal d4"></div>
+            <p class="footer-note reveal d5">
+                All modules on PowerShell Gallery &nbsp;·&nbsp; Requires Windows 10/11 &nbsp;·&nbsp; PowerShell 5.0+ &nbsp;·&nbsp; Administrator privileges
+            </p>
+        </div>
+
+        <div class="slide-num">02 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 03 — WHY AUTOMATE
+         ================================================================ -->
+    <section class="slide content-slide" aria-label="Why automate with ThinkVantage">
+        <div class="slide-bg"></div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Benefits</div>
+            <h2 class="reveal d2">Why <span class="accent">Automate</span> with ThinkVantage?</h2>
+
+            <ul class="bullet-list">
+                <li class="reveal d2">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Consistent, repeatable deployments</strong> — Script-driven updates eliminate manual steps and configuration drift across your entire device fleet.</span>
+                </li>
+                <li class="reveal d3">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Full PowerShell pipeline support</strong> — Cmdlets are designed for chaining. Discover, download, and install in a single one-liner.</span>
+                </li>
+                <li class="reveal d3">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Intune and SCCM ready</strong> — Package BIOS configurations as Win32 apps or Remediations and deploy via Microsoft Intune with MS Graph upload.</span>
+                </li>
+                <li class="reveal d4">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Enterprise security built in</strong> — Digital signature verification, certificate-based BIOS auth, and Azure Key Vault integration for zero-trust deployments.</span>
+                </li>
+                <li class="reveal d5">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>OSD and task sequence optimized</strong> — Dynamically install applicable updates during bare-metal deployments without maintaining static driver packages.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="slide-num">03 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 04 — SECTION BREAK: LCU
+         ================================================================ -->
+    <section class="slide section-break" aria-label="Section: Lenovo.Client.Update">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.45) 0%, transparent 65%); top: 5%; right: 5%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="section-num reveal d1" aria-hidden="true">01</div>
+            <h2 class="reveal d2">Lenovo<span class="accent">.</span>Client<span class="accent">.</span>Update</h2>
+            <p class="sect-desc reveal d3">
+                The official successor to LSUClient — Lenovo's PowerShell module for managing driver, BIOS/UEFI, and firmware updates on commercial ThinkPad and ThinkStation products.
+            </p>
+            <div class="pills reveal d4">
+                <span class="pill">12 Cmdlets</span>
+                <span class="pill">OSD Task Sequence</span>
+                <span class="pill">Signature Verification</span>
+                <span class="pill">Custom Repository</span>
+                <span class="pill">LSUClient Compatible</span>
+            </div>
+        </div>
+
+        <div class="slide-num">04 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 05 — LCU CORE COMMANDS
+         ================================================================ -->
+    <section class="slide grid-slide" aria-label="LCU core cmdlets">
+        <div class="slide-bg"></div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Lenovo.Client.Update</div>
+            <h2 class="reveal d2">Core <span class="accent">Cmdlets</span></h2>
+
+            <div class="feature-grid reveal d3">
+                <div class="feature-card">
+                    <span class="fc-cmd">Get-LnvUpdate</span>
+                    <div class="fc-name">Discover Updates</div>
+                    <div class="fc-desc">Query applicable updates for this device or a target model. Returns only needed updates by default.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Save-LnvUpdate</span>
+                    <div class="fc-name">Download Updates</div>
+                    <div class="fc-desc">Download packages to a local directory with optional progress display. Supports custom repositories.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Install-LnvUpdate</span>
+                    <div class="fc-name">Install Updates</div>
+                    <div class="fc-desc">Install packages silently. Enforce -VerifySignature or export install history to WMI with -ExportToWMI.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Get-LnvUpdatesRepo</span>
+                    <div class="fc-name">Build Repository</div>
+                    <div class="fc-desc">Create a local update repository filtered by package type and reboot behavior — ideal for OSD staging.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Get-LnvUpdateSummary</span>
+                    <div class="fc-name">Compliance Check</div>
+                    <div class="fc-desc">Get an instant snapshot of update compliance status for the current device. Useful in Intune Remediations.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Get-LnvUpdateHistory</span>
+                    <div class="fc-name">Audit Trail</div>
+                    <div class="fc-desc">Retrieve full installation history. Filter by date range for compliance reporting and change tracking.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-num">05 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 06 — LCU COMPLETE WORKFLOW
+         ================================================================ -->
+    <section class="slide code-slide" aria-label="LCU complete workflow example">
+        <div class="slide-bg"></div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Lenovo.Client.Update</div>
+            <h2 class="reveal d2">Complete Workflow in <span class="accent">3 Lines</span></h2>
+
+            <div class="code-header reveal d3">
+                <span class="ps-badge">PS</span>
+                <span class="code-filename">update-workflow.ps1</span>
+            </div>
+
+            <div class="code-block reveal d4">
+                <code class="code-body"><span class="c"># 1. Discover applicable updates for this machine</span>
+<span class="v">$updates</span> <span class="op">=</span> <span class="fn">Get-LnvUpdate</span>
+<span class="v">$updates</span> <span class="op">|</span> <span class="fn">Format-Table</span> <span class="p">-Property</span> <span class="n">Title, Category, ReleaseDate</span>
+
+<span class="c"># 2. Download to a local staging directory</span>
+<span class="v">$updates</span> <span class="op">|</span> <span class="fn">Save-LnvUpdate</span> <span class="p">-Path</span> <span class="s">"C:\Lenovo\Updates"</span> <span class="p">-ShowProgress</span>
+
+<span class="c"># 3. Install with verbose output</span>
+<span class="v">$updates</span> <span class="op">|</span> <span class="fn">Install-LnvUpdate</span> <span class="p">-Verbose</span></code>
+            </div>
+
+            <p class="code-note reveal d5">
+                Tip: Filter for silent-only packages first — <code>Where-Object { $_.Installer.Unattended }</code> — before Save and Install.
+            </p>
+        </div>
+
+        <div class="slide-num">06 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 07 — LCU OSD TASK SEQUENCE
+         ================================================================ -->
+    <section class="slide code-slide" aria-label="LCU OSD task sequence example">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.3) 0%, transparent 70%); bottom: -5%; right: 5%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Lenovo.Client.Update</div>
+            <h2 class="reveal d2">Built for <span class="accent">OS Deployment</span></h2>
+
+            <div class="code-header reveal d3">
+                <span class="ps-badge">PS</span>
+                <span class="code-filename">osd-task-sequence.ps1</span>
+            </div>
+
+            <div class="code-block reveal d4">
+                <code class="code-body"><span class="c"># Stage a local repo — exclude auto-restart packages (type 1)</span>
+<span class="v">$repo</span> <span class="op">=</span> <span class="s">'C:\Lenovo_Updates'</span>
+<span class="fn">Get-LnvUpdatesRepo</span> <span class="p">-RepositoryPath</span> <span class="v">$repo</span> <span class="p">-RebootType</span> <span class="s">'0,3,5'</span>
+
+<span class="c"># First pass: install applicable updates, log history to WMI</span>
+<span class="fn">Get-LnvUpdate</span> <span class="p">-Repository</span> <span class="v">$repo</span> <span class="op">|</span>
+    <span class="fn">Install-LnvUpdate</span> <span class="p">-Path</span> <span class="v">$repo</span> <span class="p">-ExportToWMI</span> <span class="p">-Verbose</span>
+
+<span class="c"># Second pass: catches chained driver dependencies</span>
+<span class="fn">Get-LnvUpdate</span> <span class="p">-Repository</span> <span class="v">$repo</span> <span class="op">|</span>
+    <span class="fn">Install-LnvUpdate</span> <span class="p">-Path</span> <span class="v">$repo</span> <span class="p">-ExportToWMI</span></code>
+            </div>
+
+            <p class="code-note reveal d5">
+                Run Get-LnvUpdate twice — some drivers only become applicable after a prerequisite is installed.
+            </p>
+        </div>
+
+        <div class="slide-num">07 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 08 — LCU SECURITY
+         ================================================================ -->
+    <section class="slide content-slide" aria-label="LCU security features">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.28) 0%, transparent 70%); top: 20%; left: 50%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Lenovo.Client.Update</div>
+            <h2 class="reveal d2">Enterprise-Grade <span class="accent">Security</span></h2>
+
+            <ul class="bullet-list">
+                <li class="reveal d2">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Digital signature verification</strong> — Every package can be tested with <code>Test-LnvSignature</code> before installation to confirm Lenovo authenticity.</span>
+                </li>
+                <li class="reveal d3">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Enforced installation signing</strong> — Pass <code>-VerifySignature</code> to <code>Install-LnvUpdate</code> to block any unsigned or tampered package from running.</span>
+                </li>
+                <li class="reveal d3">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Dedicated certificate DLL</strong> — <code>Lenovo.CertificateValidation.dll</code> provides enhanced cryptographic verification beyond what LSUClient offered.</span>
+                </li>
+                <li class="reveal d4">
+                    <span class="bull-icon">▸▸</span>
+                    <span><strong>Drop-in LSUClient migration</strong> — LCU is API-compatible. Rename cmdlets (<code>Get-LSUpdate</code> → <code>Get-LnvUpdate</code>) and immediately gain all new security features.</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="slide-num">08 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 09 — SECTION BREAK: TBCT V2
+         ================================================================ -->
+    <section class="slide section-break" aria-label="Section: Think BIOS Config Tool V2">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.42) 0%, transparent 65%); bottom: 5%; left: 5%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="section-num reveal d1" aria-hidden="true">02</div>
+            <h2 class="reveal d2">Think BIOS Config<br><span class="accent">Tool V2</span></h2>
+            <p class="sect-desc reveal d3">
+                A PowerShell WPF GUI and companion module for reading, modifying, and deploying BIOS settings on Lenovo commercial PCs via WMI. Replaces the older HTA-based tool.
+            </p>
+            <div class="pills reveal d4">
+                <span class="pill">GUI + CLI</span>
+                <span class="pill">INI Export / Import</span>
+                <span class="pill">Intune Packaging</span>
+                <span class="pill">MS Graph Upload</span>
+                <span class="pill">Custom Defaults</span>
+            </div>
+        </div>
+
+        <div class="slide-num">09 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 10 — TBCT V2 FEATURES
+         ================================================================ -->
+    <section class="slide grid-slide" aria-label="Think BIOS Config Tool V2 features">
+        <div class="slide-bg"></div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Think BIOS Config Tool V2</div>
+            <h2 class="reveal d2">Everything in One <span class="accent">Tool</span></h2>
+
+            <div class="feature-grid reveal d3">
+                <div class="feature-card">
+                    <span class="fc-cmd">Settings Panel</span>
+                    <div class="fc-name">Interactive BIOS Editor</div>
+                    <div class="fc-desc">View and modify all BIOS settings interactively. Changed values highlighted until saved. Revert or reset to defaults.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Generate INI</span>
+                    <div class="fc-name">Export Configuration</div>
+                    <div class="fc-desc">Snapshot current BIOS settings to an INI file. Optionally encrypt the Supervisor password using a passphrase.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Apply Settings</span>
+                    <div class="fc-name">Import Configuration</div>
+                    <div class="fc-desc">Apply a saved INI profile to a target device. Handles SVP-protected and password-change files automatically.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Create Intune Package</span>
+                    <div class="fc-name">Intune Deployment</div>
+                    <div class="fc-desc">Generate Win32 apps or Remediation packages from an INI. Optionally upload directly to Intune via Microsoft Graph.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Password Management</span>
+                    <div class="fc-name">SVP Operations</div>
+                    <div class="fc-desc">Change, clear, or create password-change files for remote Supervisor Password management across the fleet.</div>
+                </div>
+                <div class="feature-card">
+                    <span class="fc-cmd">Custom Defaults</span>
+                    <div class="fc-name">Baseline Profiles</div>
+                    <div class="fc-desc">Save a set of settings as Custom Defaults — revert any device to your corporate BIOS baseline with one click.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-num">10 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 11 — TBCT V2 CLI WORKFLOWS
+         ================================================================ -->
+    <section class="slide code-slide" aria-label="Think BIOS Config Tool V2 CLI workflows">
+        <div class="slide-bg"></div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Think BIOS Config Tool V2</div>
+            <h2 class="reveal d2">Script-Driven <span class="accent">BIOS Deployment</span></h2>
+
+            <div class="code-header reveal d3">
+                <span class="ps-badge">PS</span>
+                <span class="code-filename">bios-deploy-workflow.ps1</span>
+            </div>
+
+            <div class="code-block reveal d4">
+                <code class="code-body"><span class="c"># Export current BIOS settings to an INI file</span>
+<span class="fn">Export-LnvWmiSettings</span> <span class="p">-ConfigFile</span> <span class="s">"C:\Temp\corp-bios.ini"</span> <span class="p">-NoKey</span>
+
+<span class="c"># Apply INI to a target device (prompts for Supervisor Password)</span>
+<span class="v">$svp</span> <span class="op">=</span> <span class="fn">Read-Host</span> <span class="p">-AsSecureString</span> <span class="s">'Supervisor Password'</span>
+<span class="fn">Import-LnvWmiSettings</span> <span class="p">-ConfigFile</span> <span class="s">'C:\Temp\corp-bios.ini'</span> <span class="p">-Current</span> <span class="v">$svp</span>
+
+<span class="c"># Launch the GUI (elevated terminal required)</span>
+<span class="fn">ThinkBIOSConfigUI</span>   <span class="c"># Actions → Create Intune Package → Upload</span></code>
+            </div>
+        </div>
+
+        <div class="slide-num">11 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 12 — SECTION BREAK: LBCT
+         ================================================================ -->
+    <section class="slide section-break" aria-label="Section: Lenovo.Bios.Certificates">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.42) 0%, transparent 65%); top: 15%; right: 5%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="section-num reveal d1" aria-hidden="true">03</div>
+            <h2 class="reveal d2">Lenovo.Bios.<br><span class="accent">Certificates</span></h2>
+            <p class="sect-desc reveal d3">
+                Replace Supervisor passwords with X.509 certificates. BIOS commands are cryptographically signed — the private key never leaves its secure store.
+            </p>
+            <div class="pills reveal d4">
+                <span class="pill">Password-Free BIOS</span>
+                <span class="pill">Azure Key Vault</span>
+                <span class="pill">Signed WMI Commands</span>
+                <span class="pill">Batch Config Files</span>
+                <span class="pill">PKI / PEM / DER</span>
+            </div>
+        </div>
+
+        <div class="slide-num">12 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 13 — LBCT AZURE KEY VAULT
+         ================================================================ -->
+    <section class="slide code-slide" aria-label="LBCT Azure Key Vault integration">
+        <div class="slide-bg"></div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Lenovo.Bios.Certificates</div>
+            <h2 class="reveal d2">Azure <span class="accent">Key Vault</span> Integration</h2>
+
+            <div class="code-header reveal d3">
+                <span class="ps-badge">PS</span>
+                <span class="code-filename">bios-cert-keyvault.ps1</span>
+            </div>
+
+            <div class="code-block reveal d4">
+                <code class="code-body"><span class="c"># Authenticate to Azure</span>
+<span class="fn">Connect-AzAccount</span>
+
+<span class="c"># Sign a single BIOS setting change via Key Vault</span>
+<span class="v">$cmd</span> <span class="op">=</span> <span class="fn">Get-LnvSignedWmiCommand</span> <span class="p">-Method</span> <span class="n">SetBiosSetting</span> <span class="op">`</span>
+    <span class="p">-VaultName</span> <span class="s">"CorpKeyVault"</span> <span class="p">-KeyName</span> <span class="s">"BiosSigningKey"</span> <span class="op">`</span>
+    <span class="p">-SettingName</span> <span class="s">"WakeOnLAN"</span> <span class="p">-SettingValue</span> <span class="s">"Enable"</span>
+<span class="fn">Submit-LnvBiosChange</span> <span class="p">-Command</span> <span class="v">$cmd</span>
+
+<span class="c"># Or process an entire INI config batch</span>
+<span class="fn">Convert-LnvBiosConfigFile</span> <span class="p">-ConfigFile</span> <span class="s">"settings.ini"</span> <span class="op">`</span>
+    <span class="p">-VaultName</span> <span class="s">"CorpKeyVault"</span> <span class="p">-KeyName</span> <span class="s">"BiosSigningKey"</span>
+<span class="fn">Submit-LnvBiosConfigFile</span> <span class="p">-ConfigFile</span> <span class="s">"SignedSettings.ini"</span></code>
+            </div>
+        </div>
+
+        <div class="slide-num">13 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 14 — GETTING STARTED
+         ================================================================ -->
+    <section class="slide code-slide" aria-label="Getting started: installation">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.3) 0%, transparent 70%); top: 30%; right: -5%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="section-label reveal d1">Installation</div>
+            <h2 class="reveal d2">Up and Running in <span class="accent">Minutes</span></h2>
+
+            <div class="code-header reveal d3">
+                <span class="ps-badge">PS</span>
+                <span class="code-filename">Run in an elevated PowerShell session</span>
+            </div>
+
+            <div class="code-block reveal d4">
+                <code class="code-body"><span class="c"># Install all three modules from PowerShell Gallery</span>
+<span class="fn">Install-Module</span> <span class="s">'Lenovo.Client.Update'</span>
+<span class="fn">Install-Module</span> <span class="s">'Lenovo.BIOS.Config'</span>
+<span class="fn">Install-Module</span> <span class="s">'Lenovo.Bios.Certificates'</span>
+
+<span class="c"># Install the optional GUI tools</span>
+<span class="fn">Install-Script</span> <span class="s">'ThinkBiosConfigUI'</span>
+<span class="fn">Install-Script</span> <span class="s">'LnvBiosCertInterface'</span>
+
+<span class="c"># Verify: run your first update check</span>
+<span class="fn">Get-LnvUpdate</span> <span class="op">|</span> <span class="fn">Format-Table</span> <span class="p">-Property</span> <span class="n">Title, Category, ReleaseDate</span></code>
+            </div>
+
+            <p class="code-note reveal d5">
+                Requirements: Windows 10 / 11 &nbsp;·&nbsp; PowerShell 5.0+ &nbsp;·&nbsp; Run as Administrator
+            </p>
+        </div>
+
+        <div class="slide-num">14 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 15 — SECTION BREAK: LENOVO.CLIENT.SCRIPTING
+         ================================================================ -->
+    <section class="slide section-break" aria-label="Section: Lenovo.Client.Scripting">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.42) 0%, transparent 65%); bottom: 10%; left: -5%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="section-num reveal d1" aria-hidden="true">04</div>
+            <h2 class="reveal d2">Lenovo.Client.<br><span class="accent">Scripting</span></h2>
+            <p class="sect-desc reveal d3">
+                Query the details that matter. Pull warranty status, battery health, serial numbers, and model names directly from Lenovo's data sources — no manual lookups required.
+            </p>
+            <div class="pills reveal d4">
+                <span class="pill">Warranty Info</span>
+                <span class="pill">Battery Details</span>
+                <span class="pill">Serial Number</span>
+                <span class="pill">Model Lookup</span>
+                <span class="pill">WU Friendly Names</span>
+                <span class="pill">Device Inventory</span>
+            </div>
+        </div>
+
+        <div class="slide-num">15 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         SLIDE 16 — CLOSING
+         ================================================================ -->
+    <section class="slide closing-slide" aria-label="Resources and closing slide">
+        <div class="slide-bg">
+            <div class="glow-orb" style="background: radial-gradient(circle, rgba(226,35,26,0.5) 0%, transparent 60%); bottom: -15%; right: -8%;"></div>
+        </div>
+
+        <div class="slide-content">
+            <div class="logo-chip reveal d1" style="margin-bottom: clamp(0.6rem, 1.5vh, 1.2rem);">
+                <img src="data:image/png;base64,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" alt="ThinkVantage" style="height: clamp(36px, 5.6vh, 63px); width: auto; max-height: 63px;">
+            </div>
+
+            <h2 class="reveal d2">One Command at a Time.<br><span class="accent">Total Control.</span></h2>
+
+            <p class="closing-desc reveal d3">
+                The ThinkVantage PowerShell Library gives IT administrators a scriptable, secure, and scalable toolkit for managing every aspect of Lenovo device configuration — from initial imaging to ongoing compliance.
+            </p>
+
+            <div class="resource-list reveal d4">
+                <div class="resource-row">
+                    <span class="res-label">Gallery</span>
+                    <span class="res-value">powershellgallery.com → search "Lenovo"</span>
+                </div>
+                <div class="resource-row">
+                    <span class="res-label">Docs</span>
+                    <span class="res-value">docs.lenovocdrt.com</span>
+                </div>
+                <div class="resource-row">
+                    <span class="res-label">Blog</span>
+                    <span class="res-value">blog.lenovocdrt.com</span>
+                </div>
+                <div class="resource-row">
+                    <span class="res-label">Forum</span>
+                    <span class="res-value">forums.lenovo.com → Enterprise Client Management Board</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-num">16 / 16</div>
+    </section>
+
+
+    <!-- ================================================================
+         JAVASCRIPT — SLIDE PRESENTATION CONTROLLER
+         ================================================================ -->
+    <script>
+        /**
+         * SlidePresentation
+         * Manages navigation, animations, progress bar, and nav dots.
+         * Navigation: Arrow keys, Space, Page Up/Down, mouse wheel, touch swipe, nav dots.
+         */
+        class SlidePresentation {
+            constructor() {
+                this.slides       = Array.from(document.querySelectorAll('.slide'));
+                this.total        = this.slides.length;
+                this.currentIdx   = 0;
+                this.lastWheel    = 0;
+
+                this.$progress    = document.getElementById('progressBar');
+                this.$navDots     = document.getElementById('navDots');
+
+                this._init();
+            }
+
+            _init() {
+                this._buildNavDots();
+                this._observeSlides();
+                this._bindKeyboard();
+                this._bindTouch();
+                this._bindWheel();
+
+                // Activate first slide on load
+                requestAnimationFrame(() => {
+                    this.slides[0].classList.add('visible');
+                    this._updateProgress(0);
+                    this._updateDots(0);
+                });
+            }
+
+            /* Build one dot per slide */
+            _buildNavDots() {
+                this.slides.forEach((_, i) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'nav-dot';
+                    btn.setAttribute('aria-label', `Go to slide ${i + 1} of ${this.total}`);
+                    btn.addEventListener('click', () => this._goto(i));
+                    this.$navDots.appendChild(btn);
+                });
+            }
+
+            /* IntersectionObserver: add .visible to trigger CSS animations */
+            _observeSlides() {
+                const obs = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            const idx = this.slides.indexOf(entry.target);
+                            if (idx >= 0) {
+                                this.currentIdx = idx;
+                                this._updateProgress(idx);
+                                this._updateDots(idx);
+                            }
+                        }
+                    });
+                }, { threshold: 0.55 });
+
+                this.slides.forEach(s => obs.observe(s));
+            }
+
+            /* Keyboard: arrows, space, page keys, home/end */
+            _bindKeyboard() {
+                document.addEventListener('keydown', e => {
+                    const actions = {
+                        ArrowDown:  +1, ArrowRight: +1,
+                        ' ':        +1, PageDown:   +1,
+                        ArrowUp:    -1, ArrowLeft:  -1,
+                        PageUp:     -1,
+                    };
+                    if (e.key in actions) {
+                        e.preventDefault();
+                        this._goto(this.currentIdx + actions[e.key]);
+                    } else if (e.key === 'Home') {
+                        e.preventDefault(); this._goto(0);
+                    } else if (e.key === 'End') {
+                        e.preventDefault(); this._goto(this.total - 1);
+                    }
+                });
+            }
+
+            /* Touch: vertical swipe */
+            _bindTouch() {
+                let startY = 0, startX = 0;
+                document.addEventListener('touchstart', e => {
+                    startY = e.touches[0].clientY;
+                    startX = e.touches[0].clientX;
+                }, { passive: true });
+                document.addEventListener('touchend', e => {
+                    const dy = startY - e.changedTouches[0].clientY;
+                    const dx = startX - e.changedTouches[0].clientX;
+                    if (Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 45) {
+                        this._goto(this.currentIdx + (dy > 0 ? 1 : -1));
+                    }
+                }, { passive: true });
+            }
+
+            /* Mouse wheel with 800ms debounce to prevent overshooting */
+            _bindWheel() {
+                document.addEventListener('wheel', e => {
+                    const now = Date.now();
+                    if (now - this.lastWheel < 800) return;
+                    if (Math.abs(e.deltaY) < 25) return;
+                    this.lastWheel = now;
+                    this._goto(this.currentIdx + (e.deltaY > 0 ? 1 : -1));
+                }, { passive: true });
+            }
+
+            /* Navigate to slide index (clamped) */
+            _goto(idx) {
+                const target = Math.max(0, Math.min(idx, this.total - 1));
+                if (target === this.currentIdx) return;
+                this.slides[target].scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            /* Sync nav dot active state */
+            _updateDots(activeIdx) {
+                this.$navDots.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                    dot.classList.toggle('active', i === activeIdx);
+                });
+            }
+
+            /* Advance the top progress bar */
+            _updateProgress(idx) {
+                if (!this.$progress) return;
+                this.$progress.style.width = `${((idx + 1) / this.total) * 100}%`;
+                this.$progress.setAttribute('aria-valuenow', Math.round(((idx + 1) / this.total) * 100));
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => new SlidePresentation());
+    </script>
+
+</body>
+</html>

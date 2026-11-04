@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PresoHub — ThinkVantage Presentations</title>
+
+  <script>
+    (function () {
+      var saved = localStorage.getItem('presohub-theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/font/geist-sans/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/font/geist-mono/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ════════════════════════════════════════════════════════
+       DESIGN SYSTEM — Vercel-inspired (see DESIGN.md)
+       Key rules:
+         - Shadow-as-border EVERYWHERE — no CSS `border` on cards
+         - Three weights only: 400 (body), 500 (UI), 600 (heading)
+         - Letter-spacing scales with size:
+             48px → -2.4px  |  32px → -1.28px
+             24px → -0.96px |  16px → -0.32px  |  14px → normal
+         - Workflow accents (Develop Blue / Preview Pink / Ship Red)
+           used as semantic category markers only
+         - All theme values via CSS custom properties
+    ════════════════════════════════════════════════════════ */
+
+    /* ── Theme Tokens — Light ─────────────────────────────── */
+    :root {
+      /* Surfaces */
+      --bg:             #ffffff;
+      --bg-card:        #ffffff;
+      --bg-nav:         rgba(255, 255, 255, 0.85);
+      --bg-btn-ghost:   #ffffff;
+
+      /* Text */
+      --text-primary:   #171717;
+      --text-secondary: #4d4d4d;
+      --text-muted:     #666666;
+      --text-faint:     #808080;
+
+      /* 4-layer card shadow stack */
+      --shadow-ring:        rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+      --shadow-lift:        rgba(0, 0, 0, 0.04) 0px 2px 2px;
+      --shadow-depth:       rgba(0, 0, 0, 0.04) 0px 8px 8px -8px;
+      --shadow-inner:       inset 0px 0px 0px 1px #fafafa;
+      --shadow-hover-ring:  rgba(0, 0, 0, 0.12) 0px 0px 0px 1px;
+      --shadow-hover-lift:  rgba(0, 0, 0, 0.06) 0px 4px 8px;
+      --shadow-hover-depth: rgba(0, 0, 0, 0.04) 0px 16px 16px -8px;
+
+      /* Nav */
+      --nav-border:        rgba(0, 0, 0, 0.08) 0px -1px 0px 0px inset;
+      --nav-link-hover-bg: rgba(0, 0, 0, 0.04);
+
+      /* Buttons */
+      --btn-dark-bg:         #171717;
+      --btn-dark-bg-hover:   #333333;
+      --btn-dark-text:       #ffffff;
+      --btn-ghost-shadow:    rgb(235, 235, 235) 0px 0px 0px 1px;
+      --btn-ghost-shadow-hv: rgba(0, 0, 0, 0.18) 0px 0px 0px 1px;
+      --toggle-shadow:       rgb(235, 235, 235) 0px 0px 0px 1px;
+      --toggle-shadow-hv:    rgba(0, 0, 0, 0.12) 0px 0px 0px 1px;
+      --toggle-hover-bg:     rgba(0, 0, 0, 0.04);
+
+      /* Links */
+      --link-color: #0072f5;
+
+      /* Dividers */
+      --divider-major: #171717;
+      --divider-minor: #ebebeb;
+
+      /* Hero atmospheric gradients */
+      --hero-g1: rgba(200, 225, 255, 0.32);
+      --hero-g2: rgba(255, 215, 235, 0.18);
+      --hero-g3: rgba(225, 210, 255, 0.18);
+
+      /* Workflow accent colors per DESIGN.md */
+      --develop-color: #0a72ef;
+      --preview-color: #de1d8d;
+      --ship-color:    #ff5b4f;
+
+      /* Badges — workflow-mapped tint system */
+      --badge-develop-bg:   rgba(10,  114, 239, 0.08);
+      --badge-develop-text: #0a72ef;
+      --badge-preview-bg:   rgba(222,  29, 141, 0.08);
+      --badge-preview-text: #b0157a;
+      --badge-ship-bg:      rgba(255,  91,  79, 0.08);
+      --badge-ship-text:    #c43428;
+      --badge-neutral-bg:   rgba(104,  32, 197, 0.08);
+      --badge-neutral-text: #6820c5;
+
+      /* Stat/metric numbers */
+      --stat-color: #171717;
+
+      /* Pipeline separator */
+      --pipeline-sep: rgba(0, 0, 0, 0.06);
+    }
+
+    /* ── Theme Tokens — Dark ──────────────────────────────── */
+    html.dark {
+      --bg:            #0a0a0a;
+      --bg-card:       #111111;
+      --bg-nav:        rgba(10, 10, 10, 0.85);
+      --bg-btn-ghost:  #111111;
+
+      --text-primary:   #ededed;
+      --text-secondary: #a1a1a1;
+      --text-muted:     #737373;
+      --text-faint:     #525252;
+
+      --shadow-ring:        rgba(255, 255, 255, 0.10) 0px 0px 0px 1px;
+      --shadow-lift:        rgba(0, 0, 0, 0.40) 0px 2px 2px;
+      --shadow-depth:       rgba(0, 0, 0, 0.40) 0px 8px 8px -8px;
+      --shadow-inner:       inset 0px 0px 0px 1px #1c1c1c;
+      --shadow-hover-ring:  rgba(255, 255, 255, 0.16) 0px 0px 0px 1px;
+      --shadow-hover-lift:  rgba(0, 0, 0, 0.50) 0px 4px 8px;
+      --shadow-hover-depth: rgba(0, 0, 0, 0.40) 0px 16px 16px -8px;
+
+      --nav-border:        rgba(255, 255, 255, 0.07) 0px -1px 0px 0px inset;
+      --nav-link-hover-bg: rgba(255, 255, 255, 0.06);
+
+      --btn-dark-bg:         #ededed;
+      --btn-dark-bg-hover:   #ffffff;
+      --btn-dark-text:       #0a0a0a;
+      --btn-ghost-shadow:    rgba(255, 255, 255, 0.12) 0px 0px 0px 1px;
+      --btn-ghost-shadow-hv: rgba(255, 255, 255, 0.22) 0px 0px 0px 1px;
+      --toggle-shadow:       rgba(255, 255, 255, 0.12) 0px 0px 0px 1px;
+      --toggle-shadow-hv:    rgba(255, 255, 255, 0.22) 0px 0px 0px 1px;
+      --toggle-hover-bg:     rgba(255, 255, 255, 0.06);
+
+      --link-color: #5aa8ff;
+
+      --divider-major: #ededed;
+      --divider-minor: #1f1f1f;
+
+      --hero-g1: rgba(30,  80,  200, 0.18);
+      --hero-g2: rgba(180, 30,  120, 0.12);
+      --hero-g3: rgba(100, 30,  180, 0.12);
+
+      --badge-develop-bg:   rgba(10,  114, 239, 0.15);
+      --badge-develop-text: #5aadff;
+      --badge-preview-bg:   rgba(222,  29, 141, 0.15);
+      --badge-preview-text: #ff80d0;
+      --badge-ship-bg:      rgba(255,  91,  79, 0.15);
+      --badge-ship-text:    #ff8a82;
+      --badge-neutral-bg:   rgba(104,  32, 197, 0.15);
+      --badge-neutral-text: #c09eff;
+
+      --stat-color: #ededed;
+
+      --pipeline-sep: rgba(255, 255, 255, 0.06);
+    }
+
+    html      { color-scheme: light; scroll-behavior: smooth; }
+    html.dark { color-scheme: dark; }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+      transition:
+        background-color 0.20s ease,
+        color            0.20s ease,
+        box-shadow       0.20s ease,
+        border-color     0.20s ease;
+    }
+
+    body {
+      font-family: 'Geist Sans', 'Geist', 'Inter', -apple-system,
+                   Arial, 'Apple Color Emoji', 'Segoe UI Emoji',
+                   'Segoe UI Symbol', sans-serif;
+      font-feature-settings: "liga" 1;
+      background: var(--bg);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .mono {
+      font-family: 'Geist Mono', ui-monospace, SFMono-Regular,
+                   'Roboto Mono', Menlo, Monaco, 'Liberation Mono',
+                   'DejaVu Sans Mono', 'Courier New', monospace;
+      font-feature-settings: "liga" 1, "tnum" 1;
+    }
+
+    /* ── Nav ───────────────────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      height: 64px;
+      background: var(--bg-nav);
+      backdrop-filter: blur(16px) saturate(1.4);
+      -webkit-backdrop-filter: blur(16px) saturate(1.4);
+      box-shadow: var(--nav-border);
+    }
+
+    .nav-logo {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: -0.32px;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-link {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+    .nav-link:hover {
+      color: var(--text-primary);
+      background: var(--nav-link-hover-bg);
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--text-faint);
+      cursor: pointer;
+      border: none;
+      box-shadow: var(--toggle-shadow);
+      margin-left: 4px;
+    }
+    .theme-toggle:hover {
+      color: var(--text-primary);
+      background: var(--toggle-hover-bg);
+      box-shadow: var(--toggle-shadow-hv);
+    }
+    .theme-toggle:focus-visible {
+      outline: 2px solid hsla(212, 100%, 48%, 1);
+      outline-offset: 2px;
+    }
+
+    .icon-sun  { display: none; }
+    html.dark .icon-sun  { display: block; }
+    html.dark .icon-moon { display: none; }
+
+    /* ── Buttons ───────────────────────────────────────────── */
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--btn-dark-bg);
+      color: var(--btn-dark-text);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-feature-settings: "liga" 1;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.43;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-dark:hover { background: var(--btn-dark-bg-hover); }
+    .btn-dark:focus-visible {
+      outline: 2px solid hsla(212, 100%, 48%, 1);
+      outline-offset: 2px;
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--bg-btn-ghost);
+      color: var(--text-primary);
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-feature-settings: "liga" 1;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.43;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: var(--btn-ghost-shadow);
+    }
+    .btn-ghost:hover { box-shadow: var(--btn-ghost-shadow-hv); }
+    .btn-ghost:focus-visible {
+      outline: 2px solid hsla(212, 100%, 48%, 1);
+      outline-offset: 2px;
+    }
+
+    /* ── Hero ──────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 128px 24px 112px;
+      min-height: calc(100vh - 64px);
+      background: var(--bg);
+      overflow: hidden;
+    }
+
+    /* Atmospheric gradient */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% -5%,
+          var(--hero-g1) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 40% at 90% 55%,
+          var(--hero-g2) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 35% at 10% 65%,
+          var(--hero-g3) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Subtle dot-grid for atmospheric depth */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%);
+    }
+
+    html.dark .hero::after {
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+
+    .hero-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 28px;
+    }
+
+    .hero-title {
+      font-size: clamp(40px, 5.5vw, 60px);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -2.4px;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+
+    .hero-subtitle {
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 1.80;
+      color: var(--text-secondary);
+      max-width: 500px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 64px;
+    }
+
+    /* ── Hero stats row — metric cards ────────────────────── */
+    .hero-stats {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 0 40px;
+    }
+
+    /* Shadow-as-border separator between stat items */
+    .stat-item + .stat-item {
+      box-shadow: rgba(0, 0, 0, 0.08) 1px 0px 0px 0px inset;
+    }
+    html.dark .stat-item + .stat-item {
+      box-shadow: rgba(255, 255, 255, 0.08) 1px 0px 0px 0px inset;
+    }
+
+    .stat-number {
+      font-size: 32px;
+      font-weight: 600;
+      letter-spacing: -1.28px;
+      line-height: 1.2;
+      color: var(--stat-color);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+
+    /* ── Section Dividers ──────────────────────────────────── */
+    .divider-dark {
+      width: 100%;
+      height: 1px;
+      background: var(--divider-major);
+    }
+
+    .divider-light {
+      width: 100%;
+      height: 1px;
+      background: var(--divider-minor);
+    }
+
+    /* ── Presentations Section ─────────────────────────────── */
+    .presentations-wrap { background: var(--bg); }
+
+    .presentations-section {
+      padding: 96px 32px;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .section-header { margin-bottom: 40px; }
+
+    .section-mono-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 3.5vw, 42px);
+      font-weight: 600;
+      letter-spacing: -2.4px;
+      line-height: 1.12;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--text-muted);
+      max-width: 440px;
+    }
+
+    /* ── Workflow pipeline strip ───────────────────────────── */
+    .pipeline-strip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 48px;
+      padding: 10px 16px;
+      border-radius: 8px;
+      box-shadow: var(--shadow-ring), var(--shadow-lift);
+      width: fit-content;
+      background: var(--bg-card);
+    }
+
+    .pipeline-step {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .pipeline-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .pipeline-dot--develop { background: var(--develop-color); }
+    .pipeline-dot--preview { background: var(--preview-color); }
+    .pipeline-dot--ship    { background: var(--ship-color);    }
+    .pipeline-dot--neutral { background: var(--badge-neutral-text); }
+
+    .pipeline-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .pipeline-label--develop { color: var(--develop-color); }
+    .pipeline-label--preview { color: var(--preview-color); }
+    .pipeline-label--ship    { color: var(--ship-color);    }
+    .pipeline-label--neutral { color: var(--badge-neutral-text); }
+
+    .pipeline-arrow {
+      color: var(--text-faint);
+      font-size: 11px;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    /* ── Cards Grid ────────────────────────────────────────── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 660px) {
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Cards ─────────────────────────────────────────────── */
+    .card {
+      background: var(--bg-card);
+      border-radius: 8px;
+      padding: 32px;
+      box-shadow:
+        var(--shadow-ring),
+        var(--shadow-lift),
+        var(--shadow-depth),
+        var(--shadow-inner);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition:
+        background-color 0.20s ease,
+        box-shadow       0.20s ease,
+        transform        0.20s ease;
+    }
+
+    .card:hover {
+      box-shadow:
+        var(--shadow-hover-ring),
+        var(--shadow-hover-lift),
+        var(--shadow-hover-depth),
+        var(--shadow-inner);
+      transform: translateY(-2px);
+    }
+
+    /* ── Pill Badges — workflow-mapped ─────────────────────── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      height: 22px;
+      padding: 0 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 500;
+      width: fit-content;
+    }
+
+    .badge-develop { background: var(--badge-develop-bg); color: var(--badge-develop-text); }
+    .badge-preview { background: var(--badge-preview-bg); color: var(--badge-preview-text); }
+    .badge-ship    { background: var(--badge-ship-bg);    color: var(--badge-ship-text);    }
+    .badge-neutral { background: var(--badge-neutral-bg); color: var(--badge-neutral-text); }
+
+    /* ── Card Typography ───────────────────────────────────── */
+    .card-title {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.96px;
+      line-height: 1.30;
+      color: var(--text-primary);
+    }
+
+    .card-description {
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.70;
+      color: var(--text-secondary);
+      flex: 1;
+    }
+
+    /* Compact keyword row below description */
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .card-meta-tag {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-faint);
+    }
+
+    .card-meta-sep {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--text-faint);
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.43;
+      color: var(--link-color);
+      text-decoration: none;
+      margin-top: 4px;
+      transition: gap 0.15s ease, color 0.20s ease;
+    }
+    .card-link:hover {
+      gap: 10px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .card-link:focus-visible {
+      outline: 2px solid hsla(212, 100%, 48%, 1);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+    .card-link svg {
+      flex-shrink: 0;
+      transition: transform 0.15s ease;
+    }
+    .card-link:hover svg { transform: translateX(3px); }
+
+    /* ── Closing Section ───────────────────────────────────── */
+    .closing-section {
+      background: var(--bg);
+      padding: 112px 32px;
+      text-align: center;
+    }
+
+    .closing-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .closing-headline {
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 600;
+      letter-spacing: -2.4px;
+      line-height: 1.10;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .closing-subtext {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    /* ── Footer ────────────────────────────────────────────── */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 32px;
+      background: var(--bg);
+    }
+
+    .footer-left,
+    .footer-right {
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--text-faint);
+    }
+
+    /* ── Responsive ────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav { padding: 0 16px; }
+      .hero { padding: 88px 20px 72px; }
+      .hero-actions { margin-bottom: 48px; }
+      .stat-item { padding: 0 24px; }
+      .presentations-section { padding: 72px 20px; }
+      .closing-section { padding: 80px 20px; }
+      .pipeline-strip { flex-wrap: wrap; }
+      .footer {
+        flex-direction: column;
+        gap: 6px;
+        text-align: center;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title       { letter-spacing: -1.6px; }
+      .section-title    { letter-spacing: -1.6px; }
+      .closing-headline { letter-spacing: -1.6px; }
+      .stat-number      { font-size: 24px; letter-spacing: -0.96px; }
+      .hero-stats       { gap: 0; }
+      .stat-item        { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════
+       NAV
+  ═══════════════════════════════════ -->
+  <nav class="nav" aria-label="Site navigation">
+    <a href="#" class="nav-logo" aria-label="PresoHub home">PresoHub</a>
+    <div class="nav-right">
+      <a href="#presentations" class="nav-link">Presentations</a>
+
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16"
+             fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M13.5 10A6 6 0 0 1 6 2.5a6 6 0 1 0 7.5 7.5z"/>
+        </svg>
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16"
+             fill="none" stroke="currentColor" stroke-width="1.6"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="8" cy="8" r="3"/>
+          <line x1="8"   y1="1"    x2="8"    y2="2.5"/>
+          <line x1="8"   y1="13.5" x2="8"    y2="15"/>
+          <line x1="1"   y1="8"    x2="2.5"  y2="8"/>
+          <line x1="13.5" y1="8"   x2="15"   y2="8"/>
+          <line x1="3.05"  y1="3.05"  x2="4.1"   y2="4.1"/>
+          <line x1="11.9"  y1="11.9"  x2="12.95" y2="12.95"/>
+          <line x1="12.95" y1="3.05"  x2="11.9"  y2="4.1"/>
+          <line x1="4.1"   y1="11.9"  x2="3.05"  y2="12.95"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════
+       HERO
+  ═══════════════════════════════════ -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-inner">
+
+      <p class="hero-label mono" aria-hidden="true">ThinkVantage Technologies</p>
+
+      <h1 class="hero-title" id="hero-title">
+        Every ThinkVantage<br>presentation. One place.
+      </h1>
+
+      <p class="hero-subtitle">
+        A curated library of ThinkVantage decks — executive briefings,
+        deployment guides, automation tools, and more.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#presentations" class="btn-dark">
+          Browse presentations
+        </a>
+        <a href="#presentations" class="btn-ghost">
+          4 available now
+          <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+               stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round"
+               aria-hidden="true">
+            <line x1="2.5" y1="6.5" x2="10.5" y2="6.5"/>
+            <polyline points="7 3 10.5 6.5 7 10"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Metric stats row -->
+      <div class="hero-stats" role="list" aria-label="Library metrics">
+        <div class="stat-item" role="listitem">
+          <span class="stat-number">4</span>
+          <span class="stat-label mono">Presentations</span>
+        </div>
+        <div class="stat-item" role="listitem">
+          <span class="stat-number">3</span>
+          <span class="stat-label mono">Topic areas</span>
+        </div>
+        <div class="stat-item" role="listitem">
+          <span class="stat-number">2026</span>
+          <span class="stat-label mono">Edition</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <div class="divider-dark" role="separator" aria-hidden="true"></div>
+
+
+  <!-- ═══════════════════════════════════
+       PRESENTATIONS GRID
+  ═══════════════════════════════════ -->
+  <div class="presentations-wrap">
+    <div class="presentations-section" id="presentations">
+
+      <header class="section-header">
+        <p class="section-mono-label mono">Available Now</p>
+        <h2 class="section-title">Choose a presentation.</h2>
+        <p class="section-subtitle">
+          Select a deck to open it. New presentations will appear here
+          as they are added to the library.
+        </p>
+      </header>
+
+      <!-- Workflow pipeline indicator -->
+      <div class="pipeline-strip" role="presentation" aria-hidden="true">
+        <div class="pipeline-step">
+          <span class="pipeline-dot pipeline-dot--develop"></span>
+          <span class="pipeline-label pipeline-label--develop mono">Executive</span>
+        </div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-step">
+          <span class="pipeline-dot pipeline-dot--ship"></span>
+          <span class="pipeline-label pipeline-label--ship mono">Operations</span>
+        </div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-step">
+          <span class="pipeline-dot pipeline-dot--neutral"></span>
+          <span class="pipeline-label pipeline-label--neutral mono">Automation</span>
+        </div>
+        <span class="pipeline-arrow">→</span>
+        <div class="pipeline-step">
+          <span class="pipeline-dot pipeline-dot--preview"></span>
+          <span class="pipeline-label pipeline-label--preview mono">Management</span>
+        </div>
+      </div>
+
+      <div class="cards-grid" role="list">
+
+        <!-- ─ Executive Briefing ─────────────────────────── -->
+        <article class="card" role="listitem">
+          <span class="badge badge-develop">Executive</span>
+          <h3 class="card-title">ThinkVantage Technologies Executive Briefing</h3>
+          <p class="card-description">
+            A high-level overview of the ThinkVantage Technologies suite for
+            executive and decision-maker audiences. Covers strategy, portfolio
+            capabilities, and business value.
+          </p>
+          <div class="card-meta" aria-hidden="true">
+            <span class="card-meta-tag">Strategy</span>
+            <span class="card-meta-sep"></span>
+            <span class="card-meta-tag">Portfolio</span>
+            <span class="card-meta-sep"></span>
+            <span class="card-meta-tag">Executive</span>
+          </div>
+          <a href="./ThinkVantage-Executive-Briefing/tvt_ebc_red.html" class="card-link">
+            Open presentation
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <line x1="2" y1="7" x2="12" y2="7"/>
+              <polyline points="8 3 12 7 8 11"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- ─ Deploy|Patch|Manage 2026 ──────────────────── -->
+        <article class="card" role="listitem">
+          <span class="badge badge-ship">Operations</span>
+          <h3 class="card-title">Deploy | Patch | Manage 2026</h3>
+          <p class="card-description">
+            The comprehensive guide to deploying, patching, and managing
+            endpoints with ThinkVantage in 2026. Covers workflows, tooling,
+            and best practices for modern IT operations at scale.
+          </p>
+          <div class="card-meta" aria-hidden="true">
+            <span class="card-meta-tag">Deployment</span>
+            <span class="card-meta-sep"></span>
+            <span class="card-meta-tag">Patching</span>
+            <span class="card-meta-sep"></span>
+            <span class="card-meta-tag">Scale</span>
+          </div>
+          <a href="./Deploy-Patch-Manage/DeployPatchManage-2026.html" class="card-link">
+            Open presentation
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <line x1="2" y1="7" x2="12" y2="7"/>
+              <polyline points="8 3 12 7 8 11"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- ─ PowerShell Library ─────────────────────────── -->
+        <article class="card" role="listitem">
+          <span class="badge badge-neutral">Automation</span>
+          <h3 class="card-title">ThinkVantage PowerShell Library</h3>
+          <p class="card-description">
+            A deep dive into the ThinkVantage PowerShell scripting library.
+            Covers cmdlets, automation patterns, and practical examples for IT
+            professionals managing ThinkVantage at scale.
+          </p>
+          <div class="card-meta" aria-hidden="true">
+            <span class="card-meta-tag">PowerShell</span>
+            <span class="card-meta-sep"></span>
+            <span class="card-meta-tag">Cmdlets</span>
+            <span class="card-meta-sep"></span>
+            <span class="card-meta-tag">Automation</span>
+          </div>
+          <a href="./ThinkVantage-PowerShell-Library/thinkvantage-pslib.html" class="card-link">
+            Open presentation
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <line x1="2" y1="7" x2="12" y2="7"/>
+              <polyline points="8 3 12 7 8 11"/>
+            </svg>
+          </a>
+        </article>
+
+        <!-- ─ Repository Manager ─────────────────────────── -->
+        <article class="card" role="listitem">
+          <span class="badge badge-preview">Management</span>
+          <h3 class="card-title">ThinkVantage Repository Manager</h3>
+          <p class="card-description">
+            An exploration of ThinkVantage Repository Manager — configuring,
+            curating, and managing your software update repository to
+            streamline enterprise deployment pipelines.
+          </p>
+          <div class="card-meta" aria-hidden="true">
+            <span class="card-meta-tag">Repository</span>
+            <span class="card-meta-sep"></span>
+            <span class="card-meta-tag">Configuration</span>
+            <span class="card-meta-sep"></span>
+            <span class="card-meta-tag">Enterprise</span>
+          </div>
+          <a href="./ThinkVantage-Repository-Manager/ThinkVantage-RM-Presentation.html" class="card-link">
+            Open presentation
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <line x1="2" y1="7" x2="12" y2="7"/>
+              <polyline points="8 3 12 7 8 11"/>
+            </svg>
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="divider-dark" role="separator" aria-hidden="true"></div>
+
+
+  <!-- ═══════════════════════════════════
+       CLOSING
+  ═══════════════════════════════════ -->
+  <section class="closing-section" aria-labelledby="closing-title">
+    <div class="closing-inner">
+      <h2 class="closing-headline" id="closing-title">
+        More presentations<br>on the way.
+      </h2>
+      <p class="closing-subtext">
+        This library grows over time. Check back as new ThinkVantage
+        presentations are added.
+      </p>
+      <a href="#presentations" class="btn-dark">Back to library</a>
+    </div>
+  </section>
+
+
+  <div class="divider-light" role="separator" aria-hidden="true"></div>
+
+
+  <!-- ═══════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <span class="footer-left">ThinkVantage Technologies &mdash; Presentation Hub</span>
+    <span class="footer-right">&copy; 2026</span>
+  </footer>
+
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // ── Hero entrance ────────────────────────────────────────
+    gsap.set([".hero-label", ".hero-title", ".hero-subtitle", ".hero-actions", ".hero-stats"], {
+      opacity: 0, y: 12
+    });
+
+    gsap.timeline({ delay: 0.1 })
+      .to(".hero-label",    { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" })
+      .to(".hero-title",    { opacity: 1, y: 0, duration: 0.50, ease: "power2.out" }, "-=0.15")
+      .to(".hero-subtitle", { opacity: 1, y: 0, duration: 0.40, ease: "power2.out" }, "-=0.25")
+      .to(".hero-actions",  { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, "-=0.20")
+      .to(".hero-stats",    { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }, "-=0.15");
+
+    // ── Section header ───────────────────────────────────────
+    gsap.from(".section-header", {
+      scrollTrigger: { trigger: ".presentations-section", start: "top 80%" },
+      opacity: 0, y: 18, duration: 0.5, ease: "power2.out"
+    });
+
+    // ── Pipeline strip ───────────────────────────────────────
+    gsap.from(".pipeline-strip", {
+      scrollTrigger: { trigger: ".pipeline-strip", start: "top 88%" },
+      opacity: 0, x: -12, duration: 0.4, ease: "power2.out"
+    });
+
+    // ── Cards — stagger fade-up ──────────────────────────────
+    gsap.set(".card", { opacity: 0, y: 20 });
+    gsap.to(".card", {
+      scrollTrigger: {
+        trigger: ".cards-grid",
+        start: "top 80%",
+        toggleActions: "play none none reverse"
+      },
+      opacity: 1, y: 0,
+      duration: 0.45,
+      stagger: 0.10,
+      ease: "power2.out"
+    });
+
+    // ── Closing section ──────────────────────────────────────
+    gsap.from(".closing-inner", {
+      scrollTrigger: { trigger: ".closing-section", start: "top 82%" },
+      opacity: 0, y: 18, duration: 0.5, ease: "power2.out"
+    });
+
+    // ── Theme toggle ─────────────────────────────────────────
+    document.getElementById('themeToggle').addEventListener('click', function () {
+      var isDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('presohub-theme', isDark ? 'dark' : 'light');
+      this.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    });
+  </script>
+
+</body>
+</html>
