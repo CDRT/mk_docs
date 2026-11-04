@@ -44,6 +44,8 @@ This PowerShell module manages Lenovo driver, BIOS/UEFI, and firmware updates. I
 
 ## Version History
 
+- 1.0.7 - November 04, 2026:
+    - Re-signed `Lenovo.Client.Update.Format.ps1xml` to avoid raising a warning by Nexthink.
 - 1.0.6 - September 25, 2026:
     - Added `Debug-LnvUpdate` cmdlet which runs a full detection pass with test tracing enabled and explains, per package, exactly which applicability (dependencies) and install-detection tests a machine did or did not satisfy.
     - Enhanced `Get-LnvUpdate` logging with two new parameters: `-DetailedLog` and `-ExplainDependencies`
