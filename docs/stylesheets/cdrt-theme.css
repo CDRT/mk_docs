@@ -1,0 +1,526 @@
+/* ==========================================================================
+   CDRT docs theme for MkDocs Material 9.7.x
+   Look and feel ported from the CDRT Docs Pages design mockup.
+   Sections: 1 tokens, 2 header/tabs/search, 3 navigation, 4 typography,
+   5 tables, 6 code, 7 callouts and accordions, 8 cards, 9 buttons,
+   10 footer, 11 utilities
+   ========================================================================== */
+
+/* 1. Tokens ---------------------------------------------------------------- */
+
+:root {
+  --cd-display: "Lato", "Noto Sans", Arial, sans-serif;
+  --md-text-font: "Noto Sans";
+  --md-code-font: "JetBrains Mono";
+}
+
+[data-md-color-scheme="default"] {
+  color-scheme: light;
+
+  --cd-red: #e2231a;
+  --cd-red-strong: #b91c14;
+  --cd-red-wash: #fdecea;
+  --cd-surface: #ffffff;
+  --cd-surface-2: #eceef1;
+  --cd-line: #dcdfe5;
+  --cd-muted: #5a6070;
+  --cd-head: #16181d;
+  --cd-head-muted: #a9aebb;
+  --cd-warn: #8a5a00;
+  --cd-warn-wash: #fff3d6;
+  --cd-shadow: 0 1px 2px rgba(22, 24, 29, .06), 0 4px 14px rgba(22, 24, 29, .06);
+
+  --md-default-bg-color: #f4f5f7;
+  --md-default-fg-color: #16181d;
+  --md-default-fg-color--light: #5a6070;
+  --md-default-fg-color--lighter: #8a90a0;
+  --md-default-fg-color--lightest: #dcdfe5;
+  --md-typeset-color: #16181d;
+  --md-typeset-a-color: #b91c14;
+  --md-typeset-table-color: #dcdfe5;
+  --md-admonition-bg-color: #ffffff;
+
+  --md-primary-fg-color: #16181d;
+  --md-primary-fg-color--light: #2a2e37;
+  --md-primary-fg-color--dark: #0b0c0f;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, .7);
+  --md-accent-fg-color: #e2231a;
+  --md-accent-fg-color--transparent: rgba(226, 35, 26, .1);
+  --md-accent-bg-color: #ffffff;
+  --md-accent-bg-color--light: rgba(255, 255, 255, .7);
+
+  --md-footer-bg-color: #16181d;
+  --md-footer-bg-color--dark: #0b0c0f;
+  --md-footer-fg-color: #ffffff;
+  --md-footer-fg-color--light: #a9aebb;
+  --md-footer-fg-color--lighter: #8f96a5;
+
+  --md-code-bg-color: #eceef1;
+  --md-code-fg-color: #16181d;
+}
+
+[data-md-color-scheme="slate"] {
+  color-scheme: dark;
+
+  --cd-red: #ff4a3f;
+  --cd-red-strong: #ff6a61;
+  --cd-red-wash: #3a1a18;
+  --cd-surface: #181b21;
+  --cd-surface-2: #20242c;
+  --cd-line: #2b303a;
+  --cd-muted: #9aa1b0;
+  --cd-head: #0b0c0f;
+  --cd-head-muted: #8f96a5;
+  --cd-warn: #f0b84a;
+  --cd-warn-wash: #2c2310;
+  --cd-shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 4px 14px rgba(0, 0, 0, .35);
+
+  --md-default-bg-color: #101216;
+  --md-default-bg-color--light: rgba(16, 18, 22, .54);
+  --md-default-bg-color--lighter: rgba(16, 18, 22, .26);
+  --md-default-bg-color--lightest: rgba(16, 18, 22, .07);
+  --md-default-fg-color: #eceef2;
+  --md-default-fg-color--light: #9aa1b0;
+  --md-default-fg-color--lighter: #6f7686;
+  --md-default-fg-color--lightest: #2b303a;
+  --md-typeset-color: #eceef2;
+  --md-typeset-a-color: #ff6a61;
+  --md-typeset-table-color: #2b303a;
+  --md-admonition-bg-color: #181b21;
+
+  --md-primary-fg-color: #0b0c0f;
+  --md-primary-fg-color--light: #1b1e25;
+  --md-primary-fg-color--dark: #000000;
+  --md-primary-bg-color: #ffffff;
+  --md-primary-bg-color--light: rgba(255, 255, 255, .7);
+  --md-accent-fg-color: #ff4a3f;
+  --md-accent-fg-color--transparent: rgba(255, 74, 63, .1);
+  --md-accent-bg-color: #0b0c0f;
+  --md-accent-bg-color--light: rgba(11, 12, 15, .7);
+
+  --md-footer-bg-color: #0b0c0f;
+  --md-footer-bg-color--dark: #000000;
+
+  --md-code-bg-color: #20242c;
+  --md-code-fg-color: #e9ebf0;
+}
+
+/* 2. Header, tabs, search -------------------------------------------------- */
+
+.md-header {
+  box-shadow: none;
+}
+
+.md-header__button.md-logo {
+  padding: .25rem .4rem;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 1.5rem;
+  width: auto;
+}
+
+/* The logo lockup already carries the team name, so the plain site title
+   is hidden on wide screens. It stays visible on small screens, where the
+   logo is hidden. */
+@media screen and (min-width: 76.25em) {
+  .md-header__title .md-header__topic {
+    display: none;
+  }
+}
+
+.md-header__option .md-icon,
+.md-header__button.md-icon {
+  color: var(--md-primary-bg-color);
+}
+
+.md-tabs {
+  background-color: var(--cd-head);
+  border-top: 1px solid rgba(255, 255, 255, .07);
+}
+
+.md-tabs__item {
+  height: 2.2rem;
+  padding: 0;
+}
+
+.md-tabs__link {
+  align-items: center;
+  border-bottom: 3px solid transparent;
+  color: var(--cd-head-muted);
+  font-size: .7rem;
+  height: 100%;
+  margin: 0;
+  opacity: 1;
+  padding: 0 .75rem;
+}
+
+.md-tabs__link:hover {
+  color: #ffffff;
+}
+
+.md-tabs__item--active .md-tabs__link {
+  border-bottom-color: var(--cd-red);
+  color: #ffffff;
+}
+
+@media screen and (min-width: 60em) {
+  .md-search__form {
+    background-color: rgba(255, 255, 255, .08);
+    border: 1px solid rgba(255, 255, 255, .13);
+    border-radius: 6px;
+  }
+
+  .md-search__form:hover {
+    background-color: rgba(255, 255, 255, .14);
+  }
+
+  .md-search__input + .md-search__icon,
+  .md-search__input::placeholder {
+    color: var(--cd-head-muted);
+  }
+}
+
+[data-md-toggle="search"]:checked ~ .md-header .md-search__form {
+  background-color: var(--cd-surface);
+}
+
+/* 3. Navigation ------------------------------------------------------------ */
+
+.md-nav__link {
+  color: var(--cd-muted);
+}
+
+.md-nav__link:hover,
+.md-nav__link:focus {
+  color: var(--md-default-fg-color);
+}
+
+.md-nav__item .md-nav__link--active,
+.md-nav__item .md-nav__link--active code {
+  color: var(--cd-red-strong);
+  font-weight: 600;
+}
+
+.md-nav--secondary .md-nav__title,
+.md-sidebar--primary .md-nav--primary .md-nav__title {
+  color: var(--cd-muted);
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.md-nav__title {
+  box-shadow: none;
+}
+
+[dir="ltr"] .md-sidebar--secondary .md-nav__link--active {
+  color: var(--cd-red-strong);
+}
+
+/* 4. Typography ------------------------------------------------------------ */
+
+.md-typeset {
+  color: var(--md-default-fg-color);
+  font-size: .75rem;
+  line-height: 1.65;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+  color: var(--md-default-fg-color);
+  font-family: var(--cd-display);
+  letter-spacing: normal;
+  text-wrap: balance;
+}
+
+.md-typeset h1 {
+  font-size: clamp(26px, 3.6vw, 34px);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0 0 .9em;
+}
+
+.md-typeset h2 {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 1.9em 0 .6em;
+}
+
+.md-typeset h3 {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 1.6em 0 .6em;
+}
+
+.md-typeset h4 {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.md-typeset a:focus-visible,
+.md-nav__link:focus-visible,
+.md-tabs__link:focus-visible {
+  outline: 2px solid var(--cd-red);
+  outline-offset: 2px;
+}
+
+.md-typeset hr {
+  border-bottom-color: var(--cd-line);
+}
+
+/* 5. Tables ---------------------------------------------------------------- */
+
+.md-typeset table:not([class]) {
+  background-color: var(--cd-surface);
+  border: 1px solid var(--cd-line);
+  border-radius: 10px;
+  font-size: .7rem;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--cd-surface-2);
+  color: var(--cd-muted);
+  font-size: .6rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.md-typeset table:not([class]) th,
+.md-typeset table:not([class]) td {
+  border-top: 0;
+  border-bottom: 1px solid var(--cd-line);
+  padding: .6rem .9rem;
+}
+
+.md-typeset table:not([class]) tr:last-child td {
+  border-bottom: 0;
+}
+
+.md-typeset table:not([class]) tbody tr:hover {
+  background-color: var(--md-accent-fg-color--transparent);
+  box-shadow: none;
+}
+
+/* Tables nested inside table cells (used in the docks reference) stay plain. */
+.md-typeset td table:not([class]) {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  display: table;
+  font-size: inherit;
+  overflow: visible;
+}
+
+.md-typeset td table:not([class]) th,
+.md-typeset td table:not([class]) td {
+  border: 0;
+  padding: .1rem .5rem .1rem 0;
+}
+
+.md-typeset td table:not([class]) tbody tr:hover {
+  background: transparent;
+}
+
+/* Hand-written comparison tables. They scroll inside the content column
+   instead of running underneath the "on this page" rail. */
+.md-typeset table.PDComparisonTable {
+  background-color: var(--cd-surface);
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* 6. Code ------------------------------------------------------------------ */
+
+/* Code blocks are dark in both color schemes, like the mockup. The colors are
+   set on the block, not on the page, so inline code keeps the page palette. */
+.md-typeset pre,
+.md-typeset .highlight,
+.md-typeset .highlighttable {
+  --md-code-bg-color: #16181d;
+  --md-code-fg-color: #e9ebf0;
+  --md-default-fg-color--light: #aab1c0;
+  --md-default-fg-color--lighter: #8f96a5;
+  --md-default-fg-color--lightest: #ffffff26;
+  --md-code-hl-number-color: #ee7a6d;
+  --md-code-hl-special-color: #f06090;
+  --md-code-hl-function-color: #d28ae0;
+  --md-code-hl-constant-color: #a898ee;
+  --md-code-hl-keyword-color: #7ba3ec;
+  --md-code-hl-string-color: #3cc283;
+  --md-code-hl-name-color: #e9ebf0;
+  --md-code-hl-operator-color: #aab1c0;
+  --md-code-hl-punctuation-color: #aab1c0;
+  --md-code-hl-comment-color: #8f96a5;
+  --md-code-hl-generic-color: #aab1c0;
+  --md-code-hl-variable-color: #aab1c0;
+}
+
+[data-md-color-scheme="slate"] .md-typeset pre,
+[data-md-color-scheme="slate"] .md-typeset .highlight,
+[data-md-color-scheme="slate"] .md-typeset .highlighttable {
+  --md-code-bg-color: #0b0c0f;
+}
+
+.md-typeset .highlight,
+.md-typeset pre:not(.highlight pre) {
+  border-radius: 8px;
+}
+
+.md-typeset .highlight pre > code,
+.md-typeset pre > code {
+  border-radius: 8px;
+  line-height: 1.7;
+}
+
+.md-typeset .highlight span.filename {
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  color: #9aa1b0;
+  font-size: .6rem;
+}
+
+.md-typeset .md-code__nav {
+  background-color: rgba(255, 255, 255, .08);
+}
+
+.md-typeset .md-clipboard,
+.md-typeset .md-code__button {
+  color: #c3c8d4;
+}
+
+.md-typeset .md-clipboard:hover,
+.md-typeset .md-clipboard:focus,
+.md-typeset .md-code__button:hover,
+.md-typeset .md-code__button:focus {
+  color: #ffffff;
+}
+
+/* Inline code */
+.md-typeset :not(pre) > code {
+  border: 1px solid var(--cd-line);
+  border-radius: 4px;
+}
+
+/* 7. Callouts and accordions ----------------------------------------------- */
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 8px;
+  box-shadow: none;
+  font-size: .72rem;
+}
+
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  background-color: var(--cd-warn-wash);
+  border-color: var(--cd-warn);
+}
+
+.md-typeset .admonition-title,
+.md-typeset summary {
+  font-weight: 600;
+}
+
+/* 8. Cards (grid cards) ---------------------------------------------------- */
+
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > ol > li {
+  background-color: var(--cd-surface);
+  border: 1px solid var(--cd-line);
+  border-radius: 10px;
+  box-shadow: var(--cd-shadow);
+  padding: .9rem 1rem;
+  transition: border-color .15s, transform .15s;
+}
+
+.md-typeset .grid.cards > ul > li:hover,
+.md-typeset .grid.cards > ol > li:hover {
+  border-color: var(--cd-red);
+  box-shadow: var(--cd-shadow);
+  transform: translateY(-2px);
+}
+
+.md-typeset .grid.cards > ul > li > hr,
+.md-typeset .grid.cards > ol > li > hr {
+  border-bottom-color: var(--cd-line);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .grid.cards > ul > li,
+  .md-typeset .grid.cards > ol > li {
+    transition: none;
+  }
+
+  .md-typeset .grid.cards > ul > li:hover,
+  .md-typeset .grid.cards > ol > li:hover {
+    transform: none;
+  }
+}
+
+/* 9. Buttons --------------------------------------------------------------- */
+
+.md-typeset .md-button,
+.md-button {
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.md-typeset .md-button--primary,
+.md-button--primary {
+  background-color: var(--cd-red);
+  border-color: var(--cd-red);
+  color: #ffffff;
+}
+
+.md-typeset .md-button--primary:hover,
+.md-typeset .md-button--primary:focus,
+.md-button--primary:hover,
+.md-button--primary:focus {
+  background-color: var(--cd-red-strong);
+  border-color: var(--cd-red-strong);
+  color: #ffffff;
+}
+
+/* 10. Footer --------------------------------------------------------------- */
+
+.md-footer-meta.md-typeset a,
+.md-footer-meta .md-copyright a {
+  color: #ffffff;
+}
+
+.md-footer-meta .md-copyright {
+  color: var(--cd-head-muted);
+}
+
+/* 11. Utilities (usable from Markdown with raw spans) ---------------------- */
+
+.badge,
+.ext {
+  border: 1px solid var(--cd-line);
+  border-radius: 4px;
+  color: var(--cd-muted);
+  display: inline-block;
+  font-size: .55rem;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-left: .3rem;
+  padding: 0 .3rem;
+  vertical-align: 1px;
+}
+
+.badge.new {
+  background: var(--cd-red-wash);
+  border-color: transparent;
+  color: var(--cd-red-strong);
+  font-weight: 600;
+  text-transform: uppercase;
+}

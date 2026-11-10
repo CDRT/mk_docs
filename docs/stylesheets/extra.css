@@ -1,32 +1,36 @@
+/* Legacy rules kept from the pre-redesign site. Theme styling lives in cdrt-theme.css. */
+
 table.PDComparisonTable {
     font-size: small;
     margin-bottom: 40px;
-    border: 1px solid darkgray;
+    border: 1px solid var(--cd-line);
     text-align: center;
     vertical-align: middle;
 }
 
 th.PDCT, td.PDCT {
-    border: 1px solid darkgray;
+    border: 1px solid var(--cd-line);
     text-align: center;
     vertical-align: middle;
-    padding:6px;
+    padding: 6px;
+}
+
+th.PDCT {
+    background: var(--cd-surface-2);
 }
 
 dt {
-    font-weight: bold !important;
-    font-size: larger !important;
+    font-weight: bold;
+    font-size: larger;
 }
 
 .centered-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
+
 .md-typeset table td:first-child {
-
-  width: 1%;
-
-  white-space: nowrap;
-
+    width: 1%;
+    white-space: nowrap;
 }

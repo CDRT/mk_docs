@@ -5,13 +5,14 @@ theme:
   name: material
   logo: img/CDRT-REV-Red_s.png
   favicon: img/fav/favicon.ico
-  font:
-    text: Noto Sans
-    code: Roboto Mono
+  font: false  # Noto Sans, Lato and JetBrains Mono load from Google Fonts via extra_css below
   features:
     - navigation.indexes
     - navigation.tracking
     - navigation.top
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
     - toc.follow
     - search.suggest
     - search.highlight
@@ -25,14 +26,14 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
-      primary: blue
-      accent: light blue
+      primary: custom
+      accent: custom
     - scheme: slate
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
-      primary: black
-      accent: blue grey
+      primary: custom
+      accent: custom
 
 plugins:
   - search
@@ -81,4 +82,6 @@ copyright: |
   &copy; 2026 <a href="https://docs.lenovocdrt.com"  target="_blank" rel="noopener">Lenovo Commercial Deployment Readiness Team</a><br><a href="#__consent" style="text-decoration:underline;">Change cookie settings</a>
 
 extra_css :
+  - https://fonts.googleapis.com/css2?family=Lato:wght@700;900&family=Noto+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap
+  - stylesheets/cdrt-theme.css
   - stylesheets/extra.css

@@ -54,9 +54,13 @@ Use the table below to find the appropriate WinPE driver for your dock:
 
 You will also need the appropriate driver for the version of Windows (links provided below in deployment recipe table for each dock) that you are deploying.
 
-| MDT | SCCM |
-| --- | ---- |
-| Make sure the driver is included in the  "Out of box" driver folder for your specific  system. If you are utilizing an alternate driver  deployment method make sure to include the  RealTek USB driver in your solution. | Make sure the driver is included in the  "Driver Package" for your specific system.  Again, if you are utilizing an alternate  method of driver deployment make sure to  include the Realtek USB driver in your solution. |
+MDT
+
+:   Make sure the driver is included in the  "Out of box" driver folder for your specific  system. If you are utilizing an alternate driver  deployment method make sure to include the  RealTek USB driver in your solution.
+
+SCCM
+
+:   Make sure the driver is included in the  "Driver Package" for your specific system.  Again, if you are utilizing an alternate  method of driver deployment make sure to  include the Realtek USB driver in your solution.
 
 ## Using Docking WMI Queries
 
