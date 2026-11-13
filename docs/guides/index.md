@@ -13,101 +13,56 @@ The tools and resources the Commercial Deployment Readiness Team builds and main
 
 <div class="grid cards" markdown>
 
--   :material-rocket-launch-outline: **[Deploy](../dpm/deploy/index.html)**
+-   :material-rocket-launch-outline: **Deploy**
 
     Getting Lenovo commercial PCs out the door with the right drivers, apps and configuration.
 
     ---
 
-    - [Enterprise Deployment Solutions portal](../dpm/deploy/deployment-portal.html)<br>One page on Lenovo Support that gathers every deployment resource.
-    - [Deployment Recipe Cards](../dpm/deploy/recipe-cards.html)<br>Machine types, WQL queries and pack links for a model, on one page.
-    - [Hardware Driver Packs and HSA Packs](../dpm/deploy/driver-and-hsa-packs.html)<br>Self-extracting driver bundles for OS deployment, plus HSA packs for Store-restricted builds.
+    - [Enterprise Deployment Solutions portal](https://support.lenovo.com/us/en/solutions/ht104232)<br>One page on Lenovo Support that gathers every deployment resource.
+    - [Deployment Recipe Cards](https://download.lenovo.com/cdrt/ddrc/RecipeCardWeb.html)<br>Machine types, WQL queries and pack links for a model, on one page.
+    - [Hardware Driver Packs and HSA Packs](https://download.lenovo.com/cdrt/ddrc/RecipeCardWeb.html)<br>Self-extracting driver bundles for OS deployment, plus HSA packs for Store-restricted builds.
 
--   :material-update: **[Patch](../dpm/patch/index.html)**
+-   :material-update: **Patch**
 
     Keeping Lenovo commercial PCs current with the latest drivers, firmware and BIOS updates.
 
     ---
 
-    - [Commercial Vantage](../dpm/patch/commercial-vantage.html)<br>The preloaded app for updates and Lenovo settings, fully controlled by IT.
-    - [Lenovo.Client.Update](../dpm/patch/lenovo-client-update.html)<br>Find, download and install updates from PowerShell, with signature checks.
-    - [Lenovo Updates Catalog](../dpm/patch/updates-catalog.html)<br>Lenovo's third-party catalog for Configuration Manager and WSUS.
-    - [Windows Update for Business](../dpm/patch/windows-update-for-business.html)<br>Lenovo drivers and BIOS through Intune driver update policies.
+    - [Commercial Vantage](lcv/index.md)<br>The preloaded app for updates and Lenovo settings, fully controlled by IT.
+    - [Lenovo.Client.Update](lcu/index.md)<br>Find, download and install updates from PowerShell, with signature checks.
+    - [Lenovo Updates Catalog](luc/index.md)<br>Lenovo's third-party catalog for Configuration Manager and WSUS.
+    - [Windows Update for Business](https://learn.microsoft.com/en-us/intune/device-updates/windows/manage-driver-updates)<br>Lenovo drivers and BIOS through Intune driver update policies.
 
--   :material-tools: **[Manage](../dpm/manage/index.html)**
+-   :material-tools: **Manage**
 
     Tools and PowerShell modules for configuration, BIOS, update repository automation and docks, built by the CDRT team.
 
     ---
 
-    - [ThinkVantage PowerShell Library](../dpm/manage/thinkvantage-powershell-library.html)<br>Lenovo's PowerShell modules and scripts on the PowerShell Gallery.
-    - [Think BIOS Config Tool V2](../dpm/manage/think-bios-config-tool.html)<br>A PowerShell GUI for BIOS settings, passwords and Intune packages.
-    - [Lenovo.Client.Scripting](../dpm/manage/lenovo-client-scripting.html)<br>Utility cmdlets for warranty, BIOS, CVEs, driver packs and logs.
-    - [Dock Manager](../dpm/manage/dock-manager.html)<br>Keeps Lenovo dock firmware current and reports dock data to WMI.
-    - [Lenovo Device Orchestration](../dpm/manage/device-orchestration.html) <span class="badge new">Formerly Lenovo Device Manager</span><br>Lenovo's cloud endpoint management, with IT Assist.
+    - [ThinkVantage PowerShell Library](thinkvantage/index.md)<br>Lenovo's PowerShell modules and scripts on the PowerShell Gallery.
+    - [Think BIOS Config Tool V2](tbct_v2/index.md)<br>A PowerShell GUI for BIOS settings, passwords and Intune packages.
+    - [Lenovo.Client.Scripting](lcsm/lcsm_top.md)<br>Utility cmdlets for warranty, BIOS, CVEs, driver packs and logs.
+    - [Dock Manager](dm/index.md)<br>Keeps Lenovo dock firmware current and reports dock data to WMI.
+    - [Lenovo Device Orchestration](https://www.lenovo.com/us/en/solutions/digital-workplace/lenovo-device-orchestration/) <span class="badge new">Formerly Lenovo Device Manager</span><br>Lenovo's cloud endpoint management, with IT Assist.
 
--   :material-book-open-variant-outline: **[Reference](../dpm/reference/index.html)**
+-   :material-book-open-variant-outline: **Reference**
 
     Documentation, blogs and community resources maintained by the CDRT team.
 
     ---
 
-    - [CDRT Docs Site](../dpm/reference/docs-site.html)<br>Product guides, BIOS references and scripting examples.
-    - [Think Deploy Blog](../dpm/reference/think-deploy-blog.html)<br>How-tos and deep dives from the deployment engineers.
-    - [Enterprise Client Management Forum](../dpm/reference/ecm-forum.html)<br>The community board CDRT engineers monitor daily.
+    - [CDRT Docs Site](../index.md)<br>Product guides, BIOS references and scripting examples.
+    - [Think Deploy Blog](https://blog.lenovocdrt.com/)<br>How-tos and deep dives from the deployment engineers.
+    - [Enterprise Client Management Forum](https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg)<br>The community board CDRT engineers monitor daily.
 
 </div>
 
-## Product guides and references
+## More guides and references
 
-Deployment, configuration and troubleshooting guides for each tool, plus the BIOS, dock and scripting references.
+More tool guides, plus the BIOS, dock and scripting references and the frequently asked questions.
 
 <div class="grid cards" markdown>
-
--   **Commercial Vantage**
-
-    Deployment, configuration, upgrading and the SU Helper reference.
-
-    ---
-
-    [What's new](lcv/whatsnew.md) ·
-    [Deployment](lcv/deployment.md) ·
-    [Configuration](lcv/configuration.md) ·
-    [Upgrading](lcv/upgrading.md) ·
-    [SU Helper reference](lcv/suhelper.md) ·
-    [FAQ](lcv/commercial_vantage_faq.md)
-
--   **Lenovo.Client.Update**
-
-    Find, download and install updates from PowerShell.
-
-    ---
-
-    [Installation](lcu/getting-started/installation.md) ·
-    [Quick start](lcu/getting-started/quick-start.md) ·
-    [LSU vs LCU](lcu/comparison.md) ·
-    [Functions](lcu/functions/get-lnvupdate.md)
-
--   **Dock Manager**
-
-    Deploy dock firmware updates, manually or with Intune.
-
-    ---
-
-    [Deployment guide](dm/dm.md) ·
-    [Intune](dm/dm_manage_intune.md) ·
-    [Troubleshooting](dm/dm_troubleshooting.md) ·
-    [FAQ](dm/dock_manager_faq.md)
-
--   **Lenovo Updates Catalog**
-
-    Update package data for Configuration Manager, plus the catalog agent.
-
-    ---
-
-    [Catalog](luc/index.md) ·
-    [Agent](luc/luc_agnt.md) ·
-    [Troubleshooting](luc/luc_ts.md)
 
 -   **Policy Manager for Intune**
 
@@ -116,15 +71,6 @@ Deployment, configuration and troubleshooting guides for each tool, plus the BIO
     ---
 
     [Read the guide](lcvpm/index.md)
-
--   **Think BIOS Config Tool V2**
-
-    Configure BIOS settings, with Intune integration.
-
-    ---
-
-    [Tool](tbct_v2/index.md) ·
-    [Module reference](tbct_v2/tbc_module_reference.md)
 
 -   **ThinkVantage Repository Manager**
 
@@ -168,17 +114,6 @@ Deployment, configuration and troubleshooting guides for each tool, plus the BIO
 
     [Deployment guide](../ref/docks/docks_main.md) ·
     [Configuration Manager queries](../ref/docks/configmgr_dock_queries.md)
-
--   **ThinkVantage PowerShell Library**
-
-    All of our PowerShell tools and modules.
-
-    ---
-
-    [Overview](thinkvantage/index.md) ·
-    [Think BIOS Config Tool V2](tbct_v2/index.md) ·
-    [BIOS Certificates Tool](lbct/index.md) ·
-    [Lenovo.Client.Scripting](lcsm/lcsm_top.md)
 
 -   **AMD DASH**
 
