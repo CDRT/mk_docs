@@ -1,6 +1,7 @@
 nav:
     - Home: index.md
     - Product Guides:
+      - guides/index.md
       - Commercial Vantage: guides/lcv
       - ThinkVantage PowerShell Library:
         - guides/thinkvantage/index.md
