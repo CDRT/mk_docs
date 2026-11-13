@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - Main: main.md
     - Config:
       - Config: config.md

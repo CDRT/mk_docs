@@ -1,4 +1,5 @@
 nav:
+    - index.md
     - Main:
       - main.md
       - System Summary: systemsummary.md
