@@ -44,7 +44,8 @@ We also try to make it to the popular community events such as [Midwest Manageme
     ---
 
     [Open recipe cards](https://download.lenovo.com/cdrt/ddrc/RecipeCardWeb.html)<br>
-    [Driver & Software Matrix](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html)
+    [Driver & Software Matrix](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html)<br>
+    [LCU in SCCM OSD](https://blog.lenovocdrt.com/updating-lenovo-bios-drivers-and-firmware-in-a-configuration-manager-task-sequence-using-the-lenovo-client-update-module/)
 
 -   :material-update: **Patch drivers, BIOS and firmware**
 
@@ -53,7 +54,8 @@ We also try to make it to the popular community events such as [Midwest Manageme
     ---
 
     [LCU guide](guides/lcu/index.md)<br>
-    [Quick start](guides/lcu/getting-started/quick-start.md)
+    [Quick start](guides/lcu/getting-started/quick-start.md)<br>
+    [LCU with Autopilot](https://blog.lenovocdrt.com/autopilot-pre-provisioning-current-drivers-firmware-bios-lcu)
 
 -   :material-cog-outline: **Configure BIOS settings**
 
