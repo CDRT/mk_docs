@@ -524,3 +524,55 @@
   font-weight: 600;
   text-transform: uppercase;
 }
+
+/* Light/dark switch: a toggle with a sun on the left and a moon on the right.
+   Material renders one visible label at a time (the one that switches to the
+   other scheme), so the track icons live on the label background and the
+   Lenovo red knob, which carries the icon for the active scheme, is its ::before. */
+.md-header__option label.md-header__button.md-icon[for^="__palette"] {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='4.5'/%3E%3Cpath d='M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8L6 18M18 6l1.8-1.8'/%3E%3C/svg%3E") 5px center / 13px 13px no-repeat,
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'/%3E%3C/svg%3E") calc(100% - 5px) center / 13px 13px no-repeat,
+    rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 999px;
+  box-sizing: content-box;
+  height: 1.5rem;
+  margin: 0 .4rem;
+  padding: 0;
+  position: relative;
+  width: 2.8rem;
+}
+
+.md-header__option label.md-header__button.md-icon[for^="__palette"] svg {
+  display: none;
+}
+
+.md-header__option label.md-header__button.md-icon[for^="__palette"]::before {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='4.5'/%3E%3Cpath d='M12 2v2.5M12 19.5V22M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2 12h2.5M19.5 12H22M4.2 19.8L6 18M18 6l1.8-1.8'/%3E%3C/svg%3E") center / 13px 13px no-repeat,
+    var(--cd-red);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, .25), 0 2px 6px rgba(226, 35, 26, .55);
+  content: "";
+  height: 1.2rem;
+  left: .15rem;
+  position: absolute;
+  top: .15rem;
+  transition: transform .2s ease;
+  width: 1.2rem;
+}
+
+[data-md-color-scheme="slate"] .md-header__option label.md-header__button.md-icon[for^="__palette"]::before {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'/%3E%3C/svg%3E") center / 13px 13px no-repeat,
+    var(--cd-red);
+  transform: translateX(1.3rem);
+}
+
+/* Keep the switch at full strength on hover and focus (Material fades header buttons). */
+.md-header__option label.md-header__button.md-icon[for^="__palette"],
+.md-header__option label.md-header__button.md-icon[for^="__palette"]:hover,
+.md-header__option label.md-header__button.md-icon[for^="__palette"]:focus {
+  opacity: 1;
+}
