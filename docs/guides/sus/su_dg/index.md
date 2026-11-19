@@ -5,6 +5,9 @@ description: Deployment guide for Lenovo System Update, Update Retriever, and Th
 
 # Deployment Guide: Lenovo System Update Suite
 
+!!! warning "Important"
+    Lenovo System Update maintenance will end on October 31, 2026, and the product will reach End of Life (EOL) on March 31, 2027. After this date, Lenovo System Update will no longer be supported or available for download. Lenovo recommends migrating to [Lenovo Commercial Vantage](../../lcv/index.md) before March 31, 2027.
+
 **_System Update, Update Retriever, Thin Installer_**
 
 !!! note

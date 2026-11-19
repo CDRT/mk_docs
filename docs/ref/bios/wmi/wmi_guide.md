@@ -42,20 +42,20 @@ BIOS setup through WMI is supported on the following ThinkPad products:
 
 + All ThinkPad models from 2018 or newer
 + Selected ThinkPad models from 2017 or older:
-  + ThinkPad L430, L530, L440, L540, L450, L460, L560, L470, L570
-  + ThinkPad T430, T430s, T430u, T530, T440, T440p, T440s, T540p, T450, T450s, T550, W550s, T460, T460p, T460s, T560, T470, T470s, T470p, T570
-  + ThinkPad X1 Carbon (all generations), X1 Yoga (all generations)
-  + ThinkPad X1 Tablet (all generations)
-  + ThinkPad X230, X230 Tablet, X240, X240s, X250, X260, X270
-  + ThinkPad W530, W540, W541
-  + ThinkPad P50, P50s, P70, P40 Yoga, P51, P51s, P71
-  + ThinkPad Yoga 11e
-  + ThinkPad 11e, 13e, 13
-  + ThinkPad Helix (machine types: 20CG, 20CH)
-  + ThinkPad 10 (all generations)
-  + ThinkPad Yoga 260, Yoga 460, Yoga 370
-  + ThinkPad E470, E570
-  + ThinkPad S1, S2, S5
+    + ThinkPad L430, L530, L440, L540, L450, L460, L560, L470, L570
+    + ThinkPad T430, T430s, T430u, T530, T440, T440p, T440s, T540p, T450, T450s, T550, W550s, T460, T460p, T460s, T560, T470, T470s, T470p, T570
+    + ThinkPad X1 Carbon (all generations), X1 Yoga (all generations)
+    + ThinkPad X1 Tablet (all generations)
+    + ThinkPad X230, X230 Tablet, X240, X240s, X250, X260, X270
+    + ThinkPad W530, W540, W541
+    + ThinkPad P50, P50s, P70, P40 Yoga, P51, P51s, P71
+    + ThinkPad Yoga 11e
+    + ThinkPad 11e, 13e, 13
+    + ThinkPad Helix (machine types: 20CG, 20CH)
+    + ThinkPad 10 (all generations)
+    + ThinkPad Yoga 260, Yoga 460, Yoga 370
+    + ThinkPad E470, E570
+    + ThinkPad S1, S2, S5
 
 **ThinkCentre**:
 BIOS setup through WMI described in this document is supported on ThinkCentre M-series products only starting with M700, M800, M900.

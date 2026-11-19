@@ -43,8 +43,8 @@ We also try to make it to the popular community events such as [Midwest Manageme
 
     ---
 
-    [Open recipe cards →](https://download.lenovo.com/cdrt/ddrc/RecipeCardWeb.html)
-    [Driver & Software Matrix →](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html)
+    [Open recipe cards](https://download.lenovo.com/cdrt/ddrc/RecipeCardWeb.html)<br>
+    [Driver & Software Matrix](https://download.lenovo.com/cdrt/tools/drivermatrix/dm_2.html)
 
 -   :material-update: **Patch drivers, BIOS and firmware**
 
@@ -52,17 +52,17 @@ We also try to make it to the popular community events such as [Midwest Manageme
 
     ---
 
-    [LCU guide →](guides/lcu/index.md)
-    [Quick start →](guides/lcu/getting-started/quick-start.md)
+    [LCU guide](guides/lcu/index.md)<br>
+    [Quick start](guides/lcu/getting-started/quick-start.md)
 
 -   :material-cog-outline: **Configure BIOS settings**
 
-    Look up what a setting does and its WMI name, plus the deployment guide, passwords and Secure Boot modes.
+    Look up what a BIOS setting does and its WMI name, or use Think BIOS Config Tool V2 to view, change and deploy settings.
 
     ---
 
-    [BIOS reference →](ref/bios/index.md)
-    [Settings dictionary →](ref/bios/settings/index.md)
+    [Settings dictionary](ref/bios/settings/index.md)<br>
+    [Think BIOS Config Tool V2](guides/tbct_v2/index.md)
 
 -   :material-dock-window: **Manage docks**
 
@@ -70,8 +70,8 @@ We also try to make it to the popular community events such as [Midwest Manageme
 
     ---
 
-    [Docks reference →](ref/docks/docks_main.md)
-    [Dock Manager guide →](guides/dm/index.md)
+    [Docks reference](ref/docks/docks_main.md)<br>
+    [Dock Manager guide](guides/dm/index.md)
 
 -   :material-powershell: **Automate with PowerShell**
 
@@ -79,9 +79,10 @@ We also try to make it to the popular community events such as [Midwest Manageme
 
     ---
 
-    [ThinkVantage PowerShell Library →](guides/thinkvantage/index.md)
-    [Lenovo.Client.Scripting →](guides/lcsm/lcsm_top.md)
-    [Repository Manager →](guides/tvrm/index.md)
+    [ThinkVantage PowerShell Library](guides/thinkvantage/index.md)<br>
+    [Lenovo.Client.Scripting](guides/lcsm/lcsm_top.md)<br>
+    [Lenovo.Client.Update](guides/lcu/index.md)<br>
+    [ThinkVantage Repository Manager](guides/tvrm/index.md)
 
 -   :material-shield-check-outline: **Manage with Intune**
 
@@ -89,8 +90,9 @@ We also try to make it to the popular community events such as [Midwest Manageme
 
     ---
 
-    [Policy Manager →](guides/lcvpm/index.md)
-    [Think BIOS Config Tool V2 →](guides/tbct_v2/index.md)
+    [Commercial Vantage Policy Manager](guides/lcvpm/index.md)<br>
+    [Think BIOS Config Tool V2](guides/tbct_v2/index.md)<br>
+    [ThinkDeploy Blog](https://blog.lenovocdrt.com/)
 
 </div>
 
@@ -106,7 +108,7 @@ The forum and blog are where known issues, answers and new solutions are posted.
 
     ---
 
-    [Open the forum →](https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg)
+    [Open the forum](https://forums.lenovo.com/t5/Enterprise-Client-Management/bd-p/sa01_eg)
 
 -   **Visit our blog**
 
@@ -114,7 +116,7 @@ The forum and blog are where known issues, answers and new solutions are posted.
 
     ---
 
-    [Read the blog →](https://blog.lenovocdrt.com/)
+    [Read the blog](https://blog.lenovocdrt.com/)
 
 </div>
 
